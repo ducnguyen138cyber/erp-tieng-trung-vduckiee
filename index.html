@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>ERP Tiếng Trung — Bản tương thích</title>
+  <style>
+    *{box-sizing:border-box}html{background:#f5f1e8;color:#18352e}body{margin:0;font-family:Arial,"Segoe UI","Noto Sans SC",sans-serif}.shell{width:min(1080px,calc(100% - 28px));margin:auto}.top{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:22px 0;border-bottom:1px solid #cfc8ba}.brand{display:flex;align-items:center;gap:11px}.mark{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#18352e;color:#fff;font:700 23px Georgia,serif}.brand strong{display:block}.brand small{color:#66736e}.nav{display:flex;gap:6px;flex-wrap:wrap}.nav button,.filter button{border:0;background:transparent;color:#53615c;padding:10px 14px;border-radius:999px;cursor:pointer}.nav button.active,.filter button.active{background:#18352e;color:#fff}.hero{display:grid;grid-template-columns:1.4fr .6fr;gap:30px;align-items:end;padding:56px 0 34px}.eyebrow{margin:0 0 12px;color:#a15c31;font-size:12px;font-weight:700;letter-spacing:.13em}.hero h1{margin:0;font:500 clamp(42px,7vw,78px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.05em}.hero p.copy{max-width:650px;color:#64706c;line-height:1.6}.stats{background:#fff;border:1px solid #ded8cb;border-radius:18px;padding:22px;box-shadow:0 16px 50px rgba(31,52,44,.07)}.stats strong{display:block;font:500 34px Georgia,serif}.stats small{color:#6d7773}.bar{height:8px;margin-top:16px;background:#e7e2d7;border-radius:9px;overflow:hidden}.bar span{display:block;height:100%;width:0;background:#c7673c}.panel{margin-bottom:54px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:14px}.section-head h2{margin:4px 0 0;font:500 28px Georgia,serif}.step{color:#a15c31;font-size:12px;font-weight:700;letter-spacing:.11em}.flashcard{min-height:410px;padding:26px;border-radius:24px;background:#18352e;color:#fff;box-shadow:0 22px 60px rgba(25,52,45,.16);cursor:pointer}.card-top{display:flex;justify-content:space-between;color:#c3d1cc;font-size:13px}.chip{padding:6px 10px;border:1px solid #557169;border-radius:999px}.card-center{min-height:315px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.hanzi{margin:0;font:500 clamp(76px,13vw,124px)/1 Georgia,"Noto Serif SC",serif}.hanzi.reverse{font:500 clamp(34px,7vw,68px)/1.08 Georgia,serif}.pinyin{margin-bottom:5px;font-size:22px;color:#e0a16d}.near-lite{margin:0;color:#c3d1cc;font-size:14px}.near-lite strong{color:#fff}.speaker{margin-top:22px;border:1px solid #69827b;background:#294a42;color:#fff;border-radius:999px;padding:10px 16px;cursor:pointer}.answer-label{color:#e0a16d;font-size:12px;font-weight:700;letter-spacing:.12em}.answer h3{max-width:760px;margin:10px auto;font:500 clamp(30px,5vw,48px)/1.12 Georgia,serif}.answer p{max-width:700px;line-height:1.6;color:#d6e0dc}.example{max-width:720px;margin:18px auto 0;padding:15px;background:#294a42;border-radius:13px}.example strong,.example span{display:block}.example span{margin-top:7px;color:#b9cbc5}.example .speaker{margin-top:12px}.controls{display:flex;justify-content:center;gap:10px;margin-top:16px;flex-wrap:wrap}.controls button,.quiz-actions button{border:0;border-radius:999px;padding:13px 20px;font-weight:700;cursor:pointer}.muted{background:#e0dbcf;color:#18352e}.accent{background:#c7673c;color:#fff}.quiz-word{text-align:center;padding:30px 0}.quiz-word strong{display:block;font:500 82px Georgia,"Noto Serif SC",serif}.quiz-word span{color:#a15c31;font-size:20px}.options{display:grid;grid-template-columns:1fr 1fr;gap:10px}.option{min-height:76px;padding:15px;text-align:left;border:1px solid #d7d0c2;background:#fff;color:#18352e;border-radius:15px;cursor:pointer;font-size:16px}.option.correct{border-color:#2e7d61;background:#e6f5ee}.option.wrong{border-color:#ad4b43;background:#fae9e7}.quiz-actions{text-align:center;margin-top:16px}.tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}.search,.field{width:100%;padding:13px 15px;border:1px solid #d5cec0;border-radius:12px;background:#fff;font-size:16px}.search{flex:1;min-width:220px}.filter{display:flex;gap:4px;flex-wrap:wrap}.terms,.personal-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.term{padding:17px;background:#fff;border:1px solid #ddd6c8;border-radius:15px}.term strong{font-size:25px}.term b{margin-left:9px;color:#a15c31;font-weight:500}.term i{display:block;margin-top:5px;color:#2d745e;font-size:12px;font-style:normal;font-weight:700}.term p{margin:8px 0 0;color:#5f6b67}.term-actions{display:flex;gap:8px;margin-top:12px}.term-actions button,.suggestion button{border:0;border-radius:999px;padding:8px 12px;cursor:pointer}.personal-box{padding:20px;background:#fff;border:1px solid #ddd6c8;border-radius:18px}.personal-box h3{margin:0 0 8px}.personal-box .help{margin:0 0 15px;color:#68736f;line-height:1.5;font-size:14px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.span-2{grid-column:1/-1}.suggestions{display:grid;gap:8px;margin:10px 0 16px}.suggestion{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;background:#f5f1e8;border-radius:12px}.suggestion strong{display:block}.suggestion small{color:#67736e}.empty{padding:26px;text-align:center;color:#6a746f;border:1px dashed #cfc8ba;border-radius:14px}.hidden{display:none!important}.note{padding:16px 0 35px;color:#6a746f;text-align:center;font-size:13px}@media(max-width:700px){.top{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;padding-top:38px}.stats{display:none}.section-head{align-items:flex-start;flex-direction:column}.flashcard{min-height:385px;padding:20px}.options,.terms,.personal-grid,.form-grid{grid-template-columns:1fr}.span-2{grid-column:auto}.nav{width:100%;overflow:auto;flex-wrap:nowrap}.nav button{white-space:nowrap}.hero h1{font-size:48px}.hanzi{font-size:82px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div class="brand"><span class="mark">汉</span><span><strong>ERP Tiếng Trung</strong><small>Bản tương thích Cốc Cốc</small></span></div>
+      <nav class="nav"><button class="active" data-view="cards">Thẻ từ</button><button data-view="quiz">Kiểm tra nhanh</button><button data-view="glossary">Từ điển ERP</button><button data-view="personal">Sổ từ cá nhân</button></nav>
+    </header>
+    <section class="hero">
+      <div><p class="eyebrow">MỖI NGÀY 10 PHÚT</p><h1>Học đúng từ<br>bạn gặp trong xưởng.</h1><p class="copy">Thuật ngữ kho, sản xuất và ERP — có pinyin, ví dụ thực tế và phát âm tiếng Trung.</p></div>
+      <div class="stats"><strong><span id="doneCount">0</span>/10</strong><small>Đã nhớ trong buổi học</small><div class="bar"><span id="progressBar"></span></div></div>
+    </section>
+
+    <main>
+      <section id="cards" class="panel">
+        <div class="section-head"><div><span class="step" id="cardStep">THẺ 1 / 10</span><h2>Nhấn vào thẻ để xem nghĩa</h2></div></div>
+        <article class="flashcard" id="flashcard">
+          <div class="card-top"><span class="chip" id="cardCategory">Kho</span><span id="cardStatus">Nhấn để lật</span></div>
+          <div class="card-center" id="cardFront"><p class="hanzi" id="cardHanzi"></p><p class="pinyin" id="cardPinyin"></p><p class="near-lite">Đọc gần: <strong id="cardNearVi"></strong></p><button class="speaker" id="speakCard">♪ Nghe phát âm</button></div>
+          <div class="card-center answer hidden" id="cardBack"><div><span class="answer-label" id="answerLabel">NGHĨA TRONG ERP</span><h3 id="cardVi"></h3><p id="cardNote"></p><div class="example"><strong id="cardExample"></strong><span id="cardExampleVi"></span><button class="speaker" id="speakExample">♪ Nghe câu mẫu</button></div></div></div>
+        </article>
+        <div class="controls"><button class="muted" id="prevCard">← Trước</button><button class="muted" id="againCard">Học lại</button><button class="accent" id="knowCard">Đã nhớ →</button><button class="muted" id="nextCard">Tiếp →</button><button class="muted" id="toggleMode">Chế độ: Trung → Việt</button><button class="muted" id="speedCard">Tốc độ: Chậm</button></div>
+      </section>
+
+      <section id="quiz" class="panel hidden">
+        <div class="section-head"><div><span class="step" id="quizStep">CÂU 1 / 5</span><h2>Chọn nghĩa đúng</h2></div><button class="speaker" id="speakQuiz">♪ Nghe phát âm</button></div>
+        <div class="quiz-word"><strong id="quizHanzi"></strong><span id="quizPinyin"></span></div>
+        <div class="options" id="quizOptions"></div>
+        <div class="quiz-actions"><button class="accent hidden" id="nextQuiz">Câu tiếp theo →</button><button class="accent hidden" id="restartQuiz">Làm lại</button></div>
+      </section>
+
+      <section id="glossary" class="panel hidden">
+        <div class="section-head"><div><span class="step"><span id="termCount">0</span> THUẬT NGỮ</span><h2>Từ điển ERP</h2></div></div>
+        <div class="tools"><input class="search" id="search" placeholder="Tìm tiếng Trung, pinyin, âm gần Việt hoặc nghĩa"><div class="filter" id="filters"><button class="active" data-category="Tất cả">Tất cả</button><button data-category="Kho">Kho</button><button data-category="Sản xuất">Sản xuất</button><button data-category="Chứng từ">Chứng từ</button><button data-category="Kiểm tra">Kiểm tra</button></div></div>
+        <div class="terms" id="terms"></div>
+      </section>
+
+      <section id="personal" class="panel hidden">
+        <div class="section-head"><div><span class="step"><span id="personalCount">0</span> TỪ ĐÃ LƯU</span><h2>Sổ từ cá nhân</h2></div></div>
+        <div class="personal-grid">
+          <div class="personal-box">
+            <h3>Tra bằng tiếng Việt</h3>
+            <p class="help">Nếu từ đã có trong bộ 154 thuật ngữ, tiếng Trung, pinyin và âm gần Việt sẽ hiện ngay để bạn lưu.</p>
+            <input class="field" id="viLookup" placeholder="Ví dụ: mã vật tư, nhập kho, sản lượng thực tế">
+            <div class="suggestions" id="suggestions"></div>
+          </div>
+          <div class="personal-box">
+            <h3>Thêm thuật ngữ mới</h3>
+            <p class="help">Từ chưa có trong dữ liệu phải nhập thủ công. Trang này chạy độc lập nên không tự bịa bản dịch.</p>
+            <div class="form-grid">
+              <input class="field" id="newVi" placeholder="Nghĩa tiếng Việt *">
+              <input class="field" id="newHanzi" placeholder="Tiếng Trung *">
+              <input class="field" id="newPinyin" placeholder="Pinyin">
+              <input class="field" id="newNear" placeholder="Âm gần Việt">
+              <input class="field span-2" id="newExample" placeholder="Câu ví dụ tiếng Trung">
+              <button class="accent span-2" id="saveNew" type="button">Lưu vào sổ từ</button>
+            </div>
+          </div>
+        </div>
+        <div class="section-head" style="margin-top:24px"><div><h2>Từ của bạn</h2></div></div>
+        <div class="terms" id="personalTerms"></div>
+      </section>
+    </main>
+    <footer class="note">Trang tương thích độc lập · Không dùng tài nguyên bên ngoài</footer>
+  </div>
+
+  <script src="./lite-terms.js"></script>
+  <script>
+  (function(){
+    var builtinTerms=[
+      ["领料","lǐng liào","Lĩnh liệu / nhận nguyên vật liệu để sản xuất","Kho","Thao tác xuất vật tư cho lệnh sản xuất.","请先检查库存，再进行领料。","Hãy kiểm tra tồn kho trước, sau đó mới lĩnh liệu."],
+      ["发料","fā liào","Cấp phát nguyên vật liệu","Kho","Góc nhìn của kho: kho phát vật tư cho xưởng.","工单已下达，请仓库发料。","Lệnh sản xuất đã được ban hành, đề nghị kho cấp vật tư."],
+      ["补领料","bǔ lǐng liào","Bổ lĩnh liệu / bổ sung xuất kho nguyên vật liệu","Kho","Dùng khi còn thiếu nghiệp vụ lĩnh liệu.","生产已入库，但还需要补领料。","Sản xuất đã nhập kho nhưng vẫn cần bổ lĩnh liệu."],
+      ["入库","rù kù","Nhập kho","Kho","Ghi tăng số lượng tồn trong kho.","这批成品今天可以入库。","Lô thành phẩm này hôm nay có thể nhập kho."],
+      ["出库","chū kù","Xuất kho","Kho","Ghi giảm số lượng tồn trong kho.","出库前要核对物料编码。","Trước khi xuất kho phải đối chiếu mã vật tư."],
+      ["生产入库","shēng chǎn rù kù","Nhập kho sản xuất","Sản xuất","Nhập thành phẩm hoặc bán thành phẩm sau sản xuất.","车间负责生产入库。","Xưởng chịu trách nhiệm nhập kho sản xuất."],
+      ["完工入库","wán gōng rù kù","Nhập kho hoàn thành","Sản xuất","Xác nhận số lượng hoàn thành và nhập kho.","完工后请及时办理入库。","Sau khi hoàn thành hãy làm thủ tục nhập kho kịp thời."],
+      ["库存","kù cún","Tồn kho","Kho","Số lượng vật tư hoặc hàng hóa hiện còn.","系统显示还有库存。","Hệ thống hiển thị vẫn còn tồn kho."],
+      ["期初库存","qī chū kù cún","Tồn kho đầu kỳ","Kho","Số dư tồn tại thời điểm bắt đầu kỳ báo cáo.","请核对期初库存。","Vui lòng đối chiếu tồn kho đầu kỳ."],
+      ["库存不足","kù cún bù zú","Không đủ tồn kho","Kiểm tra","Cảnh báo lượng tồn không đáp ứng số lượng cần xuất.","领料时系统提示库存不足。","Khi lĩnh liệu, hệ thống báo không đủ tồn kho."],
+      ["有库存","yǒu kù cún","Có tồn kho","Kiểm tra","Dùng khi xác nhận hệ thống hoặc thực tế vẫn còn hàng.","仓库里有库存，但系统不能保存。","Trong kho có tồn nhưng hệ thống không thể lưu."],
+      ["结存","jié cún","Tồn cuối kỳ / số dư tồn","Kho","Tồn còn lại sau nhập và xuất trong kỳ.","报表结存与系统结存不一致。","Tồn cuối kỳ theo báo cáo không khớp với hệ thống."],
+      ["理论结存","lǐ lùn jié cún","Tồn lý thuyết","Kiểm tra","Tồn đầu cộng nhập trừ xuất.","理论结存等于期初加上入库减去出库。","Tồn lý thuyết bằng tồn đầu cộng nhập kho trừ xuất kho."],
+      ["差异","chā yì","Chênh lệch","Kiểm tra","Khoảng lệch giữa hai nguồn số liệu.","请确认差异原因。","Vui lòng xác nhận nguyên nhân chênh lệch."],
+      ["用量差异","yòng liàng chā yì","Chênh lệch lượng sử dụng","Kiểm tra","So sánh lượng dùng thực tế với định mức.","需要分析实际用量差异。","Cần phân tích chênh lệch lượng sử dụng thực tế."],
+      ["领料检查","lǐng liào jiǎn chá","Kiểm tra lĩnh liệu","Kiểm tra","Kiểm tra tình trạng xuất vật tư theo lệnh.","今天先做领料检查。","Hôm nay trước tiên kiểm tra việc lĩnh liệu."],
+      ["未领料","wèi lǐng liào","Chưa lĩnh liệu","Kiểm tra","Chưa ghi nhận nghiệp vụ xuất vật tư.","生产已完成，但系统显示未领料。","Sản xuất đã hoàn thành nhưng hệ thống hiển thị chưa lĩnh liệu."],
+      ["未入库","wèi rù kù","Chưa nhập kho","Kiểm tra","Chưa ghi nhận thành phẩm vào kho.","工单开工一周后仍未入库。","Lệnh đã bắt đầu một tuần nhưng vẫn chưa nhập kho."],
+      ["调拨","diào bō","Điều chuyển kho","Kho","Chuyển vật tư giữa các kho.","物料需要先调拨到生产仓。","Vật tư cần được điều chuyển sang kho sản xuất trước."],
+      ["补调拨","bǔ diào bō","Bổ sung điều chuyển kho","Kho","Bù nghiệp vụ điều chuyển còn thiếu.","请补调拨后再领料。","Vui lòng bổ sung điều chuyển rồi mới lĩnh liệu."],
+      ["工单","gōng dān","Lệnh sản xuất / công lệnh","Chứng từ","Chứng từ giao nhiệm vụ sản xuất.","工单已经下达到生产部门。","Lệnh sản xuất đã được chuyển xuống bộ phận sản xuất."],
+      ["生产指令","shēng chǎn zhǐ lìng","Chỉ lệnh sản xuất","Chứng từ","Yêu cầu chính thức để triển khai sản xuất.","我正在学习生产指令流程。","Tôi đang học quy trình chỉ lệnh sản xuất."],
+      ["客户订单","kè hù dìng dān","Đơn đặt hàng của khách hàng","Chứng từ","Nguồn nhu cầu dẫn đến kế hoạch sản xuất.","流程从客户订单开始。","Quy trình bắt đầu từ đơn đặt hàng của khách."],
+      ["物料清单","wù liào qīng dān","Định mức nguyên vật liệu / BOM","Chứng từ","Danh sách vật tư và định mức để sản xuất.","物料清单现在用Excel管理。","BOM hiện đang được quản lý bằng Excel."],
+      ["物料编码","wù liào biān mǎ","Mã vật tư","Chứng từ","Mã định danh duy nhất của vật tư trong ERP.","请核对物料编码和数量。","Vui lòng đối chiếu mã vật tư và số lượng."],
+      ["物料名称","wù liào míng chēng","Tên vật tư","Chứng từ","Tên mô tả vật tư tương ứng với mã.","这个物料名称不完整。","Tên vật tư này chưa đầy đủ."],
+      ["计划数量","jì huà shù liàng","Số lượng kế hoạch","Sản xuất","Số lượng dự kiến phải sản xuất theo lệnh.","计划数量是一千件。","Số lượng kế hoạch là một nghìn chiếc."],
+      ["实际产量","shí jì chǎn liàng","Sản lượng thực tế","Sản xuất","Số lượng thực tế đã hoàn thành.","实际产量目前还是零。","Sản lượng thực tế hiện vẫn bằng không."],
+      ["实际开工期","shí jì kāi gōng qī","Ngày bắt đầu thực tế","Sản xuất","Ngày lệnh sản xuất thực sự bắt đầu.","请检查实际开工期。","Vui lòng kiểm tra ngày bắt đầu thực tế."],
+      ["车间","chē jiān","Xưởng sản xuất","Sản xuất","Khu vực trực tiếp sản xuất.","我现在去车间学习。","Bây giờ tôi xuống xưởng để học."],
+      ["组装车间","zǔ zhuāng chē jiān","Xưởng lắp ráp","Sản xuất","Khu vực thực hiện công đoạn lắp ráp.","下午去组装车间学习领料。","Buổi chiều xuống xưởng lắp ráp học lĩnh liệu."],
+      ["焊接车间","hàn jiē chē jiān","Xưởng hàn","Sản xuất","Khu vực thực hiện công đoạn hàn.","他负责焊接车间的入库和领料。","Anh ấy phụ trách nhập kho và lĩnh liệu của xưởng hàn."]
+    ];
+    for(var z=0;z<builtinTerms.length;z++){if(builtinTerms[z].length===7)builtinTerms[z].splice(2,0,"")}
+    var baseTerms=window.ERP_TERMS||builtinTerms;
+    var personalTerms=[],terms=[],daily=[],cardIndex=0,revealed=false,known={},quizIndex=0,answered=false,category="Tất cả",reverse=false,speechRate=.68;
+    var $=function(id){return document.getElementById(id)};
+    function esc(value){return String(value||"").replace(/[&<>\"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})}
+    try{known=JSON.parse(localStorage.getItem("erp-lite-known")||"{}")}catch(e){known={}}
+    try{personalTerms=JSON.parse(localStorage.getItem("erp-lite-personal")||"[]");if(!(personalTerms instanceof Array))personalTerms=[]}catch(e){personalTerms=[]}
+    function rebuildTerms(){terms=baseTerms.slice(0);for(var i=0;i<personalTerms.length;i++){var exists=false;for(var j=0;j<baseTerms.length;j++)if(baseTerms[j][0]===personalTerms[i][0]){exists=true;break}if(!exists)terms.push(personalTerms[i])}}
+    function buildDaily(){daily=[];for(var i=0;i<10;i++)daily.push(terms[(new Date().getDate()*7+i*3)%terms.length])}
+    rebuildTerms();buildDaily();
+    function saveKnown(){try{localStorage.setItem("erp-lite-known",JSON.stringify(known))}catch(e){}}
+    function savePersonal(){try{localStorage.setItem("erp-lite-personal",JSON.stringify(personalTerms))}catch(e){}rebuildTerms();renderTerms();renderPersonal()}
+    function speakText(value){if(!value||!window.speechSynthesis)return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(value);u.lang="zh-CN";u.rate=speechRate;var voices=window.speechSynthesis.getVoices(),chosen=null;for(var i=0;i<voices.length;i++){if(/google/i.test(voices[i].name)&&/^zh/i.test(voices[i].lang)){chosen=voices[i];break}if(!chosen&&/^zh/i.test(voices[i].lang))chosen=voices[i]}if(chosen)u.voice=chosen;window.speechSynthesis.speak(u)}
+    function renderCard(){var t=daily[cardIndex];$("cardStep").textContent="THẺ "+(cardIndex+1)+" / 10";$("cardCategory").textContent=t[4];$("cardHanzi").textContent=reverse?t[3]:t[0];$("cardHanzi").className=reverse?"hanzi reverse":"hanzi";$("cardPinyin").textContent=reverse?"":t[1];$("cardNearVi").parentNode.style.display=reverse?"none":"block";$("cardNearVi").textContent=t[2]||"—";$("speakCard").style.display=reverse?"none":"inline-block";$("answerLabel").textContent=reverse?"ĐÁP ÁN TIẾNG TRUNG":"NGHĨA TRONG ERP";$("cardVi").innerHTML=reverse?esc(t[0])+"<br><small>"+esc(t[1])+(t[2]?" · gần âm: "+esc(t[2]):"")+"</small>":esc(t[3]);$("cardNote").textContent=t[5]||"";$("cardExample").textContent=t[6]||"";$("cardExampleVi").textContent=t[7]||"";$("speakExample").parentNode.style.display=t[6]?"block":"none";$("cardFront").className=revealed?"card-center hidden":"card-center";$("cardBack").className=revealed?"card-center answer":"card-center answer hidden";$("cardStatus").textContent=known[t[0]]?"✓ Đã nhớ":(revealed?"Đáp án":"Nhấn để lật");var n=0;for(var k in known)if(known[k])n++;n=Math.min(n,10);$("doneCount").textContent=n;$("progressBar").style.width=(n*10)+"%"}
+    function move(n){cardIndex=(cardIndex+n+daily.length)%daily.length;revealed=false;renderCard()}
+    $("flashcard").onclick=function(){revealed=!revealed;renderCard()};$("speakCard").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][0])};$("speakExample").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][6])};$("prevCard").onclick=function(){move(-1)};$("nextCard").onclick=function(){move(1)};$("againCard").onclick=function(){delete known[daily[cardIndex][0]];saveKnown();move(1)};
+    $("knowCard").onclick=function(){known[daily[cardIndex][0]]=true;saveKnown();move(1)};
+    $("toggleMode").onclick=function(){reverse=!reverse;revealed=false;this.textContent=reverse?"Chế độ: Việt → Trung":"Chế độ: Trung → Việt";renderCard()};
+    $("speedCard").onclick=function(){speechRate=speechRate<.8?.92:.68;this.textContent=speechRate<.8?"Tốc độ: Chậm":"Tốc độ: Bình thường"};
+    function optionsFor(index){var correct=daily[index],out=[correct,terms[(index*5+3)%terms.length],terms[(index*7+11)%terms.length],terms[(index*9+17)%terms.length]];out.sort(function(a,b){return a[0].charCodeAt(0)-b[0].charCodeAt(0)});return out}
+    function renderQuiz(){if(quizIndex>=5){$("quizStep").innerHTML="HOÀN THÀNH";$("quizHanzi").innerHTML="完成";$("quizPinyin").innerHTML="Đã hoàn thành 5 câu";$("quizOptions").innerHTML="";$("nextQuiz").className="accent hidden";$("restartQuiz").className="accent";return}var t=daily[quizIndex];$("quizStep").innerHTML="CÂU "+(quizIndex+1)+" / 5";$("quizHanzi").innerHTML=t[0];$("quizPinyin").innerHTML=t[1]+" · "+t[2];$("restartQuiz").className="accent hidden";$("nextQuiz").className="accent hidden";answered=false;var list=optionsFor(quizIndex),html="";for(var i=0;i<list.length;i++)html+='<button class="option" data-word="'+list[i][0]+'">'+list[i][3]+'</button>';$("quizOptions").innerHTML=html;var buttons=$("quizOptions").getElementsByTagName("button");for(var j=0;j<buttons.length;j++)buttons[j].onclick=answerQuiz}
+    function answerQuiz(){if(answered)return;answered=true;var right=daily[quizIndex][0],buttons=$("quizOptions").getElementsByTagName("button");for(var i=0;i<buttons.length;i++){if(buttons[i].getAttribute("data-word")==right)buttons[i].className="option correct";else if(buttons[i]===this)buttons[i].className="option wrong"}$("nextQuiz").className="accent"}
+    $("nextQuiz").onclick=function(){quizIndex++;renderQuiz()};$("restartQuiz").onclick=function(){quizIndex=0;renderQuiz()};$("speakQuiz").onclick=function(){if(quizIndex<5)speakText(daily[quizIndex][0])};
+    function renderTerms(){var q=$("search").value.toLowerCase(),html="",count=0;for(var i=0;i<terms.length;i++){var t=terms[i],hay=(t[0]+" "+t[1]+" "+t[2]+" "+t[3]).toLowerCase();if((category==="Tất cả"||t[4]===category)&&hay.indexOf(q)!==-1){count++;html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><i>Gần âm: '+esc(t[2]||"—")+'</i><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted speak-term" data-word="'+esc(t[0])+'">♪ Nghe</button></div></article>'}}$("termCount").textContent=count;$("terms").innerHTML=html;var buttons=document.querySelectorAll(".speak-term");for(var j=0;j<buttons.length;j++)buttons[j].onclick=function(){speakText(this.getAttribute("data-word"))}}
+    $("search").oninput=renderTerms;var filters=$("filters").getElementsByTagName("button");for(var f=0;f<filters.length;f++)filters[f].onclick=function(){category=this.getAttribute("data-category");for(var j=0;j<filters.length;j++)filters[j].className="";this.className="active";renderTerms()};
+    function addPersonal(t){for(var i=0;i<personalTerms.length;i++)if(personalTerms[i][0]===t[0])return;personalTerms.push(t.slice(0));savePersonal();$("viLookup").value="";renderSuggestions()}
+    function renderSuggestions(){var q=$("viLookup").value.toLowerCase().trim(),html="",shown=0;if(q){for(var i=0;i<baseTerms.length&&shown<8;i++){var t=baseTerms[i];if((t[3]+" "+t[0]).toLowerCase().indexOf(q)!==-1){html+='<div class="suggestion"><span><strong>'+esc(t[3])+'</strong><small>'+esc(t[0])+' · '+esc(t[1])+' · '+esc(t[2])+'</small></span><button class="accent add-suggestion" data-index="'+i+'">+ Lưu</button></div>';shown++}}}$("suggestions").innerHTML=html;var buttons=document.querySelectorAll(".add-suggestion");for(var j=0;j<buttons.length;j++)buttons[j].onclick=function(){addPersonal(baseTerms[Number(this.getAttribute("data-index"))])}}
+    function renderPersonal(){var html="";$("personalCount").textContent=personalTerms.length;for(var i=0;i<personalTerms.length;i++){var t=personalTerms[i];html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><i>Gần âm: '+esc(t[2]||"—")+'</i><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted personal-speak" data-index="'+i+'">♪ Nghe</button><button class="muted personal-delete" data-index="'+i+'">Xóa</button></div></article>'}$("personalTerms").innerHTML=html||'<div class="empty span-2">Chưa có từ nào được lưu.</div>';var speakButtons=document.querySelectorAll(".personal-speak"),deleteButtons=document.querySelectorAll(".personal-delete");for(var j=0;j<speakButtons.length;j++)speakButtons[j].onclick=function(){speakText(personalTerms[Number(this.getAttribute("data-index"))][0])};for(var k=0;k<deleteButtons.length;k++)deleteButtons[k].onclick=function(){personalTerms.splice(Number(this.getAttribute("data-index")),1);savePersonal()}}
+    $("viLookup").oninput=renderSuggestions;
+    $("saveNew").onclick=function(){var vi=$("newVi").value.trim(),hanzi=$("newHanzi").value.trim();if(!vi||!hanzi){window.alert("Cần nhập ít nhất nghĩa tiếng Việt và tiếng Trung.");return}addPersonal([hanzi,$("newPinyin").value.trim(),$("newNear").value.trim(),vi,"Chứng từ","Từ do bạn bổ sung",$("newExample").value.trim(),""]);$("newVi").value="";$("newHanzi").value="";$("newPinyin").value="";$("newNear").value="";$("newExample").value=""};
+    var nav=document.querySelectorAll("[data-view]"),views=["cards","quiz","glossary","personal"];for(var n=0;n<nav.length;n++)nav[n].onclick=function(){var view=this.getAttribute("data-view");for(var j=0;j<nav.length;j++)nav[j].className="";this.className="active";for(var k=0;k<views.length;k++)$(views[k]).className=views[k]===view?"panel":"panel hidden"};
+    renderCard();renderQuiz();renderTerms();renderSuggestions();renderPersonal();
+  })();
+  </script>
+</body>
+</html>
