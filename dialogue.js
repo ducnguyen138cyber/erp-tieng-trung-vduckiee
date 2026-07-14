@@ -224,8 +224,7 @@
   var stepIndex = 0;
   var exerciseMode = "conversation";
   var roastVoice = true;
-  var vietnameseAudio = null;
-  var vietnameseSpeechId = 0;
+  var vietnameseVoice = null;
   var reactionTimer = null;
   var reactionLeft = 8;
   var mediaRecorder = null;
@@ -442,67 +441,78 @@
     return comments[Math.floor(Math.random() * comments.length)];
   }
 
-  function splitVietnameseSpeech(message) {
-    var normalized = String(message || "")
-      .replace(/%/g, " phần trăm")
-      .replace(/[—–]/g, ". ")
-      .replace(/\s+/g, " ")
-      .trim();
-    if (!normalized) return [];
-    var words = normalized.split(" ");
-    var chunks = [];
-    var current = "";
-    for (var i = 0; i < words.length; i++) {
-      var next = current ? current + " " + words[i] : words[i];
-      if (next.length > 170 && current) {
-        chunks.push(current);
-        current = words[i];
-      } else {
-        current = next;
+  function vietnameseVoiceScore(voice) {
+    var lang = String(voice.lang || "").replace("_", "-").toLowerCase();
+    if (!/^vi(?:-|$)/.test(lang)) return -1;
+    var name = String(voice.name || "").toLowerCase();
+    var score = 100;
+    if (/microsoft an|\ban\b.*vietnamese|vietnamese.*\ban\b/.test(name)) score += 100;
+    if (/google.*(tiếng việt|vietnamese)|tiếng việt.*google/.test(name)) score += 80;
+    if (/vietnamese|tiếng việt/.test(name)) score += 40;
+    if (voice.localService) score += 10;
+    return score;
+  }
+
+  function refreshVietnameseVoice() {
+    if (!root.speechSynthesis || !root.speechSynthesis.getVoices) return null;
+    var voices = root.speechSynthesis.getVoices();
+    var best = null;
+    var bestScore = -1;
+    for (var i = 0; i < voices.length; i++) {
+      var score = vietnameseVoiceScore(voices[i]);
+      if (score > bestScore) {
+        best = voices[i];
+        bestScore = score;
       }
     }
-    if (current) chunks.push(current);
-    return chunks;
+    vietnameseVoice = best;
+    var button = byId("roastVoice");
+    if (button) {
+      button.title = best
+        ? "Đang dùng giọng Việt: " + best.name
+        : "Windows chưa cài giọng đọc tiếng Việt Microsoft An";
+    }
+    return vietnameseVoice;
   }
 
-  function stopVietnameseSpeech() {
-    vietnameseSpeechId++;
-    if (!vietnameseAudio) return;
-    vietnameseAudio.onended = null;
-    vietnameseAudio.onerror = null;
-    vietnameseAudio.pause();
-    vietnameseAudio.removeAttribute("src");
-    vietnameseAudio = null;
+  function prepareVietnameseVoice() {
+    if (!root.speechSynthesis) return;
+    refreshVietnameseVoice();
+    var refresh = function () { refreshVietnameseVoice(); };
+    if (root.speechSynthesis.addEventListener) {
+      root.speechSynthesis.addEventListener("voiceschanged", refresh);
+    } else {
+      root.speechSynthesis.onvoiceschanged = refresh;
+    }
   }
 
-  function markVietnameseVoiceError() {
-    var feedback = byId("pronunciationFeedback");
-    if (!feedback || /Không tải được giọng Việt trực tuyến/.test(feedback.textContent)) return;
-    feedback.textContent += " Không tải được giọng Việt trực tuyến; kiểm tra mạng rồi bấm chấm lại.";
-  }
-
-  function playVietnameseChunk(chunks, index, speechId) {
-    if (!roastVoice || speechId !== vietnameseSpeechId || index >= chunks.length) return;
-    var audio = new root.Audio();
-    vietnameseAudio = audio;
-    audio.preload = "auto";
-    audio.playsInline = true;
-    audio.src = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=vi&q=" +
-      encodeURIComponent(chunks[index]);
-    audio.onended = function () {
-      if (speechId === vietnameseSpeechId) playVietnameseChunk(chunks, index + 1, speechId);
-    };
-    audio.onerror = markVietnameseVoiceError;
-    var playback = audio.play();
-    if (playback && playback.catch) playback.catch(markVietnameseVoiceError);
+  function notifyMissingVietnameseVoice() {
+    var message = "Máy chưa cài giọng đọc tiếng Việt Microsoft An. Hãy cài giọng Vietnamese trong Windows rồi mở lại Cốc Cốc.";
+    var ids = ["pronunciationFeedback", "dialogueFeedback"];
+    for (var i = 0; i < ids.length; i++) {
+      var feedback = byId(ids[i]);
+      if (feedback && feedback.className.indexOf("hidden") === -1 &&
+          feedback.textContent.indexOf(message) === -1) {
+        feedback.textContent += " " + message;
+      }
+    }
   }
 
   function speakVietnamese(message) {
-    if (!roastVoice || !root.Audio) return;
-    stopVietnameseSpeech();
-    var chunks = splitVietnameseSpeech(message);
-    if (!chunks.length) return;
-    playVietnameseChunk(chunks, 0, vietnameseSpeechId);
+    if (!roastVoice || !root.speechSynthesis || !root.SpeechSynthesisUtterance) return;
+    var voice = refreshVietnameseVoice();
+    if (!voice) {
+      notifyMissingVietnameseVoice();
+      return;
+    }
+    root.speechSynthesis.cancel();
+    var utterance = new root.SpeechSynthesisUtterance(message);
+    utterance.lang = "vi-VN";
+    utterance.voice = voice;
+    utterance.rate = 0.9;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    root.speechSynthesis.speak(utterance);
   }
 
   function startReactionChallenge() {
@@ -609,6 +619,7 @@
   }
 
   function init() {
+    prepareVietnameseVoice();
     var selector = byId("dialogueScenario");
     if (!selector) return;
     for (var i = 0; i < scenarios.length; i++) {
@@ -628,11 +639,8 @@
     };
     byId("roastVoice").onclick = function () {
       roastVoice = !roastVoice;
-      this.textContent = roastVoice ? "🔊 Chửi giọng Việt online: BẬT" : "🔇 Chửi giọng Việt online: TẮT";
-      if (!roastVoice) {
-        stopVietnameseSpeech();
-        if (root.speechSynthesis) root.speechSynthesis.cancel();
-      }
+      this.textContent = roastVoice ? "🔊 Chửi giọng Việt: BẬT" : "🔇 Chửi giọng Việt: TẮT";
+      if (!roastVoice && root.speechSynthesis) root.speechSynthesis.cancel();
     };
     byId("listenPrompt").onclick = function () { root.speechSynthesis.cancel(); var text = exerciseMode === "shadow" ? currentStep().target : currentStep().prompt; var utterance = new SpeechSynthesisUtterance(text); utterance.lang = "zh-CN"; utterance.rate = 0.72; root.speechSynthesis.speak(utterance); };
     byId("listenTarget").onclick = function () { root.speechSynthesis.cancel(); var utterance = new SpeechSynthesisUtterance(currentStep().target); utterance.lang = "zh-CN"; utterance.rate = 0.68; root.speechSynthesis.speak(utterance); };
