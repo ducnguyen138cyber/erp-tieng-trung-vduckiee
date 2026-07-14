@@ -225,6 +225,7 @@
   var exerciseMode = "conversation";
   var roastVoice = true;
   var vietnameseVoice = null;
+  var activeUtterance = null;
   var reactionTimer = null;
   var reactionLeft = 8;
   var mediaRecorder = null;
@@ -504,25 +505,58 @@
     }
   }
 
+  function chooseDeviceVoice(language) {
+    if (!root.speechSynthesis || !root.speechSynthesis.getVoices) return null;
+    var voices = root.speechSynthesis.getVoices();
+    var prefix = String(language || "").slice(0, 2).toLowerCase();
+    var best = null;
+    var bestScore = -1;
+    for (var i = 0; i < voices.length; i++) {
+      var lang = String(voices[i].lang || "").replace("_", "-").toLowerCase();
+      if (lang.slice(0, 2) !== prefix) continue;
+      var name = String(voices[i].name || "").toLowerCase();
+      var score = 100;
+      if (lang === String(language).toLowerCase()) score += 40;
+      if (/google|microsoft|natural/.test(name)) score += 30;
+      if (voices[i].localService) score += 5;
+      if (score > bestScore) {
+        best = voices[i];
+        bestScore = score;
+      }
+    }
+    return best;
+  }
+
+  function speakWithDeviceVoice(message, language, rate, voice) {
+    if (!message || !root.speechSynthesis || !root.SpeechSynthesisUtterance) return;
+    root.speechSynthesis.cancel();
+    var utterance = new root.SpeechSynthesisUtterance(message);
+    activeUtterance = utterance;
+    utterance.lang = language;
+    if (voice) utterance.voice = voice;
+    utterance.rate = rate;
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    utterance.onend = utterance.onerror = function () {
+      if (activeUtterance === utterance) activeUtterance = null;
+    };
+    root.speechSynthesis.speak(utterance);
+    if (root.speechSynthesis.paused) root.speechSynthesis.resume();
+  }
+
+  function speakChinese(message, rate) {
+    speakWithDeviceVoice(message, "zh-CN", rate || 0.7, chooseDeviceVoice("zh-CN"));
+  }
+
   function speakVietnamese(message) {
-    if (!roastVoice || !root.speechSynthesis || !root.SpeechSynthesisUtterance) return;
-    var voice = refreshVietnameseVoice();
+    if (!roastVoice) return;
+    var voice = refreshVietnameseVoice() || chooseDeviceVoice("vi-VN");
     var mobile = isMobileDevice();
     if (!voice && !mobile) {
       notifyMissingVietnameseVoice();
       return;
     }
-    root.speechSynthesis.cancel();
-    var utterance = new root.SpeechSynthesisUtterance(message);
-    utterance.lang = "vi-VN";
-    if (voice) utterance.voice = voice;
-    utterance.rate = mobile ? 0.86 : 0.9;
-    utterance.pitch = 1;
-    utterance.volume = 1;
-    root.speechSynthesis.speak(utterance);
-    root.setTimeout(function () {
-      if (root.speechSynthesis && root.speechSynthesis.paused) root.speechSynthesis.resume();
-    }, 120);
+    speakWithDeviceVoice(message, "vi-VN", mobile ? 0.86 : 0.9, voice);
   }
 
   function startReactionChallenge() {
@@ -665,8 +699,8 @@
       this.textContent = roastVoice ? "🔊 Chửi giọng Việt: BẬT" : "🔇 Chửi giọng Việt: TẮT";
       if (!roastVoice && root.speechSynthesis) root.speechSynthesis.cancel();
     };
-    byId("listenPrompt").onclick = function () { root.speechSynthesis.cancel(); var text = exerciseMode === "shadow" ? currentStep().target : currentStep().prompt; var utterance = new SpeechSynthesisUtterance(text); utterance.lang = "zh-CN"; utterance.rate = 0.72; root.speechSynthesis.speak(utterance); };
-    byId("listenTarget").onclick = function () { root.speechSynthesis.cancel(); var utterance = new SpeechSynthesisUtterance(currentStep().target); utterance.lang = "zh-CN"; utterance.rate = 0.68; root.speechSynthesis.speak(utterance); };
+    byId("listenPrompt").onclick = function () { speakChinese(exerciseMode === "shadow" ? currentStep().target : currentStep().prompt, 0.72); };
+    byId("listenTarget").onclick = function () { speakChinese(currentStep().target, 0.68); };
     byId("showDialogueHint").onclick = function () { byId("dialogueHint").className = "dialogue-hint"; };
     byId("useDialogueHint").onclick = function () { byId("dialogueAnswer").value = currentStep().target; setReading(currentStep().target, "dialogueAnswerPinyin", "dialogueAnswerNear"); };
     byId("checkDialogue").onclick = checkTypedAnswer;
