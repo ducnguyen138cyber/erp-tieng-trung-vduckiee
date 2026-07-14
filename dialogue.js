@@ -486,8 +486,14 @@
     }
   }
 
+  function isMobileDevice() {
+    return /Android|iPhone|iPad|iPod|Mobile/i.test(String(root.navigator && root.navigator.userAgent || ""));
+  }
+
   function notifyMissingVietnameseVoice() {
-    var message = "Máy chưa cài giọng đọc tiếng Việt Microsoft An. Hãy cài giọng Vietnamese trong Windows rồi mở lại Cốc Cốc.";
+    var message = isMobileDevice()
+      ? "Điện thoại chưa cung cấp giọng Việt cho trình duyệt. Hãy cài hoặc bật giọng Vietnamese trong phần trợ năng/chuyển văn bản thành giọng nói của điện thoại."
+      : "Máy chưa cài giọng đọc tiếng Việt Microsoft An. Hãy cài giọng Vietnamese trong Windows rồi mở lại Cốc Cốc.";
     var ids = ["pronunciationFeedback", "dialogueFeedback"];
     for (var i = 0; i < ids.length; i++) {
       var feedback = byId(ids[i]);
@@ -501,18 +507,22 @@
   function speakVietnamese(message) {
     if (!roastVoice || !root.speechSynthesis || !root.SpeechSynthesisUtterance) return;
     var voice = refreshVietnameseVoice();
-    if (!voice) {
+    var mobile = isMobileDevice();
+    if (!voice && !mobile) {
       notifyMissingVietnameseVoice();
       return;
     }
     root.speechSynthesis.cancel();
     var utterance = new root.SpeechSynthesisUtterance(message);
     utterance.lang = "vi-VN";
-    utterance.voice = voice;
-    utterance.rate = 0.9;
+    if (voice) utterance.voice = voice;
+    utterance.rate = mobile ? 0.86 : 0.9;
     utterance.pitch = 1;
     utterance.volume = 1;
     root.speechSynthesis.speak(utterance);
+    root.setTimeout(function () {
+      if (root.speechSynthesis && root.speechSynthesis.paused) root.speechSynthesis.resume();
+    }, 120);
   }
 
   function startReactionChallenge() {
@@ -538,7 +548,7 @@
     }, 1000);
   }
 
-  function showRecognized(transcript) {
+  function showRecognized(transcript, speakNow) {
     if (reactionTimer) {
       root.clearInterval(reactionTimer);
       reactionTimer = null;
@@ -552,7 +562,8 @@
     feedback.className = score >= 0.72 ? "dialogue-feedback good" : score >= 0.5 ? "dialogue-feedback medium" : "dialogue-feedback bad";
     var roast = pronunciationComment(score);
     feedback.textContent = roast + " Cách sửa: nghe lại câu mẫu, chia thành từng cụm ngắn, bám pinyin rồi đọc chậm trước khi tăng tốc. Điểm này là ước lượng từ nhận dạng giọng nói, không phải phép đo âm vị chuyên nghiệp.";
-    speakVietnamese(roast);
+    if (speakNow !== false) speakVietnamese(roast);
+    return roast;
   }
 
   function startSpeechAssessment() {
@@ -570,13 +581,25 @@
     recognition.maxAlternatives = 1;
     byId("pronunciationFeedback").className = "dialogue-feedback";
     byId("pronunciationFeedback").textContent = "Đang nghe… Đọc câu mẫu bằng tiếng Trung.";
+    var pendingRoast = "";
+    var roastSpoken = false;
+    var mobileFallbackTimer = null;
+    function speakAfterMicrophoneCloses() {
+      if (roastSpoken || !pendingRoast) return;
+      roastSpoken = true;
+      if (mobileFallbackTimer) root.clearTimeout(mobileFallbackTimer);
+      root.setTimeout(function () { speakVietnamese(pendingRoast); }, 280);
+    }
     recognition.onresult = function (event) {
       var transcript = event.results[0][0].transcript || "";
-      showRecognized(transcript);
+      pendingRoast = showRecognized(transcript, false);
       byId("dialogueAnswer").value = transcript;
       setReading(transcript, "dialogueAnswerPinyin", "dialogueAnswerNear");
+      mobileFallbackTimer = root.setTimeout(speakAfterMicrophoneCloses, 1600);
     };
+    recognition.onend = speakAfterMicrophoneCloses;
     recognition.onerror = function (event) {
+      if (mobileFallbackTimer) root.clearTimeout(mobileFallbackTimer);
       byId("pronunciationFeedback").className = "dialogue-feedback bad";
       byId("pronunciationFeedback").textContent = event.error === "not-allowed" ? "Bạn chưa cấp quyền microphone." : "Không nhận được giọng nói. Kiểm tra microphone và thử lại.";
     };
