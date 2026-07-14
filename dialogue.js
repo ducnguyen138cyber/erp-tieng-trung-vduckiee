@@ -383,23 +383,58 @@
     if (score >= 0.9) {
       comments = [
         "Được — " + percent + "%. Lần này mày đọc ra hồn, máy nhận gần như trọn câu.",
-        "Ổn áp — " + percent + "%. Cuối cùng mày cũng phát âm giống tiếng Trung chứ không phải thần chú gọi kho."
+        "Ổn áp — " + percent + "%. Cuối cùng mày cũng phát âm giống tiếng Trung chứ không phải thần chú gọi kho.",
+        "Khá chuẩn — " + percent + "%. Hôm nay mồm mày chịu hợp tác, người nghe không phải đoán mò nữa.",
+        "Qua đẹp — " + percent + "%. Câu này đủ rõ để người trong kho hiểu ngay, chưa cần gọi phiên dịch cứu hộ.",
+        "Nghe ra tiếng Trung tử tế — " + percent + "%. Hiếm khi mày không bóp méo câu mẫu; giữ đúng nhịp này.",
+        "Thoát nạn — " + percent + "%. Lần này âm và nhịp đều đứng đúng chỗ, không có chữ nào bị mày hành hạ.",
+        "Đáng tin — " + percent + "%. Nói câu này trong xưởng thì người ta xử lý nghiệp vụ được, không phải nhíu mày giải mã."
       ];
     } else if (score >= 0.72) {
       comments = [
         "Tạm nghe được — " + percent + "%. Đừng vội ảo tưởng; vài âm và thanh điệu vẫn còn nhão như cháo.",
-        "Chưa đến mức mất mặt — " + percent + "%. Nhưng mày vẫn đang nuốt chữ, đọc lại cho gọn."
+        "Chưa đến mức mất mặt — " + percent + "%. Nhưng mày vẫn đang nuốt chữ, đọc lại cho gọn.",
+        "Qua cửa nhưng đừng gáy — " + percent + "%. Người nghe hiểu được, song vài chữ vẫn bị mày bẻ cong không thương tiếc.",
+        "Tạm sống — " + percent + "%. Câu chưa nát, nhưng thanh điệu còn trượt như số liệu kho cuối tháng.",
+        "Nghe được nhưng chưa sạch — " + percent + "%. Mày còn dính chữ và hụt âm cuối; đọc lại từng cụm cho tử tế.",
+        "Chưa thành thảm họa — " + percent + "%. Tuy nhiên nhịp câu vẫn lộn xộn, nghe như công lệnh bị chen sai thứ tự.",
+        "Có tiến bộ — " + percent + "%. Ít nhất máy hiểu phần lớn, nhưng đừng để mấy âm sai kéo cả câu xuống bùn."
       ];
     } else if (score >= 0.5) {
       comments = [
         "Tệ vãi — " + percent + "%. Mày đọc như đang nhai chữ rồi nhổ ra, máy chỉ nhận được khoảng nửa câu.",
-        "Nghe chán đời — " + percent + "%. Câu mẫu một đằng, mày phát âm một nẻo. Nghe lại rồi đọc từng cụm."
+        "Nghe chán đời — " + percent + "%. Câu mẫu một đằng, mày phát âm một nẻo. Nghe lại rồi đọc từng cụm.",
+        "Lủng củng như báo cáo ghép tay — " + percent + "%. Có vài chữ đúng nhưng cả câu vẫn xiêu vẹo, nghe rất mệt.",
+        "Mày cứu được nửa câu rồi bỏ mặc nửa còn lại — " + percent + "%. Phát âm kiểu đầu voi đuôi chuột thế này chưa dùng để giao tiếp được.",
+        "Chưa chết hẳn nhưng đang hấp hối — " + percent + "%. Máy nhặt được vài từ, phần còn lại bị mày nghiền thành tiếng ồn.",
+        "Người nghe phải đoán nhiều hơn nghe — " + percent + "%. Câu này có khung nhưng âm sai quá dày, sửa từng cụm ngay.",
+        "Tạm nhận ra chủ đề ERP — " + percent + "%. Còn câu cụ thể là gì thì mày đã phát âm cho bay màu gần hết."
       ];
     } else {
       comments = [
         "Thảm hại — " + percent + "%. Mày đọc nát đến mức máy không biết đó là tiếng Trung hay tiếng ngoài hành tinh.",
         "Phát âm như đấm vào tai — " + percent + "%. Đọc kiểu này người trong kho nghe xong chỉ muốn đóng luôn công lệnh.",
-        "Tệ không cứu nổi — " + percent + "%. Mày đang đọc mò chứ không phải nói tiếng Trung. Nghe mẫu, bám pinyin và làm lại từ đầu."
+        "Tệ không cứu nổi — " + percent + "%. Mày đang đọc mò chứ không phải nói tiếng Trung. Nghe mẫu, bám pinyin và làm lại từ đầu.",
+        "Nát hơn báo cáo tồn kho bị sửa tay — " + percent + "%. Mỗi âm mày đọc lệch một hướng, ghép lại chẳng còn ra câu gì.",
+        "Mày đọc như ERP mất kết nối giữa ca — " + percent + "%. Chữ có vào nhưng ý nghĩa chết sạch giữa đường.",
+        "Pinyin nằm chình ình trước mắt mà vẫn đọc sai — " + percent + "%. Đây không còn là thiếu hướng dẫn, đây là đọc ẩu có hệ thống.",
+        "Thanh điệu rơi sạch như hàng xuất kho không chứng từ — " + percent + "%. Nghe phẳng lì và méo mó đến mức không ai đoán nổi câu gốc.",
+        "Nếu phát âm là chứng từ thì câu này bị trả về ngay — " + percent + "%. Sai từ đầu đến cuối, không đủ điều kiện duyệt.",
+        "Người nghe không cần từ điển, họ cần phép màu — " + percent + "%. Mày vừa biến tiếng Trung thành một đống âm thanh vô tổ chức.",
+        "Cái mic vừa phải gánh một tai nạn phát âm — " + percent + "%. Đừng đổ lỗi cho thiết bị; nghe mẫu rồi đọc lại từng cụm.",
+        "Đây không phải giọng địa phương — " + percent + "%. Đây là mày tự phát minh ra một ngôn ngữ mà chẳng ai đăng ký sử dụng.",
+        "Mày vừa biến một câu ERP bình thường thành mật mã — " + percent + "%. Người Trung nghe xong cũng phải xin bản dịch.",
+        "Kho còn kiểm kê lại được, câu vừa rồi thì khó cứu — " + percent + "%. Âm đầu sai, âm cuối mất, thanh điệu chạy sạch.",
+        "Âm đầu sai, âm cuối mất, ở giữa thì nhão — " + percent + "%. Mày phá câu này rất đồng đều, không chừa phần nào.",
+        "Đọc như đang súc miệng bằng pinyin — " + percent + "%. Chữ nào cũng lùng bùng, dính vào nhau rồi biến dạng.",
+        "Từng chữ bị mày hành hạ không thương tiếc — " + percent + "%. Câu mẫu rõ ràng mà qua miệng mày thành phế phẩm.",
+        "Câu mẫu chạy một đường, mồm mày chạy đường khác — " + percent + "%. Hai bên không có nổi một cuộc gặp tử tế.",
+        "Phiên dịch nghe câu này chắc cũng xin nghỉ giữa ca — " + percent + "%. Không đủ dữ kiện để đoán mày đang định nói gì.",
+        "Máy nhận dạng không thông minh lắm, nhưng lần này lỗi chính vẫn là mày — " + percent + "%. Phát âm méo quá thì máy cũng chịu chết.",
+        "Mày đang nói bằng niềm tin chứ không bằng phát âm — " + percent + "%. Không âm chuẩn, không thanh điệu, chỉ còn sự tự tin vô căn cứ.",
+        "Đọc chậm đã tệ, đọc nhanh còn thành thảm họa — " + percent + "%. Quay lại tốc độ rùa bò và sửa từng âm một.",
+        "Công lệnh còn có thể hủy, câu vừa rồi nên tiêu hủy — " + percent + "%. Đừng cố vá; nghe mẫu và đọc lại từ đầu.",
+        "Không thể đổ hết cho thanh điệu nữa — " + percent + "%. Mày đang sai cả phụ âm, nguyên âm lẫn nhịp câu."
       ];
     }
     return comments[Math.floor(Math.random() * comments.length)];
