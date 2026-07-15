@@ -878,6 +878,8 @@
     renderLesson(true);
   }
   function moveNextLesson(scrollFromSectionEnd) {
+    var preservedScrollX = root.scrollX || 0;
+    var preservedScrollY = root.scrollY || root.pageYOffset || 0;
     if (selectedLesson < levels[selectedLevel].length - 1) selectedLesson++;
     else if (selectedLevel < 4) { selectedLevel++; selectedLesson = 0; }
     resetQuiz();
@@ -885,10 +887,17 @@
     lessonSectionIndex = 0;
     saveState();
     renderAll();
-    if (scrollFromSectionEnd) root.setTimeout(function () {
-      var lesson = byId("hskLesson");
-      if (lesson) lesson.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 0);
+    if (scrollFromSectionEnd) {
+      root.setTimeout(function () {
+        var lesson = byId("hskLesson");
+        if (lesson) lesson.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 0);
+    } else {
+      var restoreScroll = function () { root.scrollTo(preservedScrollX, preservedScrollY); };
+      restoreScroll();
+      if (root.requestAnimationFrame) root.requestAnimationFrame(restoreScroll);
+      root.setTimeout(restoreScroll, 60);
+    }
   }
   function openFromHash() {
     if (root.location.hash !== "#hsk") return;
