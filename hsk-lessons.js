@@ -577,6 +577,8 @@
   var quiz = { lessonId: "", index: 0, score: 0, answered: false, selected: -1 };
   var writingState = { lessonId: "", wordIndex: 0, charIndex: 0 };
   var activeWriter = null;
+  var writingAnimating = false;
+  var writingPaused = false;
 
   function byId(id) { return document.getElementById(id); }
   function escapeHtml(value) {
@@ -634,6 +636,8 @@
   function resetWriting() {
     writingState = { lessonId: currentLesson().id, wordIndex: 0, charIndex: 0 };
     activeWriter = null;
+    writingAnimating = false;
+    writingPaused = false;
   }
   function poolForLevel(level) {
     var pool = [];
@@ -706,9 +710,9 @@
     if (writingState.charIndex >= characters.length) writingState.charIndex = 0;
     var currentCharacter = characters[writingState.charIndex];
     var generated = reading(currentCharacter, "");
-    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Hán tự và thứ tự nét</h4><span>Xem từng nét rồi tự viết lại vào vở</span></div><div class="hsk-writing-layout"><div class="hsk-character-picker">';
+    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Hán tự và thứ tự nét</h4><span>Xem mẫu, tự viết trên màn hình rồi luyện lại vào vở</span></div><div class="hsk-writing-layout"><div class="hsk-character-picker">';
     for (var i = 0; i < words.length; i++) html += '<button class="' + (writingState.wordIndex === i ? "active" : "") + '" data-hsk-write-word="' + i + '">' + escapeHtml(words[i][0]) + "</button>";
-    html += '</div><div class="hsk-writing-card"><div class="hsk-teacher-line"><span class="hsk-teacher-avatar">师</span><p><strong>Cô giáo đang viết chữ ' + escapeHtml(currentCharacter) + '</strong><br>Từ <b>' + escapeHtml(selected[0]) + '</b> · chữ ' + (writingState.charIndex + 1) + "/" + characters.length + '. Nhìn hướng đi của từng nét rồi viết lại vào vở.</p></div><div class="hsk-copy-model"><strong>' + escapeHtml(currentCharacter) + '</strong><span>' + escapeHtml(generated.pinyin || selected[1]) + '</span><i>' + escapeHtml(selected[2]) + '</i></div><div class="hsk-stroke-stage" id="hskStrokeTarget" aria-label="Minh họa thứ tự nét chữ ' + escapeHtml(currentCharacter) + '"></div><div class="hsk-writing-tools"><button class="muted" data-hsk-action="write-prev">← Chữ trước</button><button class="accent" data-hsk-action="write-replay">▶ Viết mẫu / Replay</button><button class="muted" data-hsk-action="write-next">Chữ tiếp →</button><button class="hsk-speak" data-hsk-speak="' + escapeHtml(selected[0]) + '">♪ Nghe từ</button></div><p class="hsk-writing-status" id="hskWritingStatus">Đang tải dữ liệu nét chữ…</p></div></div></div>';
+    html += '</div><div class="hsk-writing-card"><div class="hsk-teacher-line"><span class="hsk-teacher-avatar">师</span><p><strong>Cô giáo đang viết chữ ' + escapeHtml(currentCharacter) + '</strong><br>Từ <b>' + escapeHtml(selected[0]) + '</b> · chữ ' + (writingState.charIndex + 1) + "/" + characters.length + '. Xem hướng nét, tạm dừng ở chữ nhiều nét, tự viết trên màn hình hoặc luyện lại vào vở.</p></div><div class="hsk-copy-model"><strong>' + escapeHtml(currentCharacter) + '</strong><span>' + escapeHtml(generated.pinyin || selected[1]) + '</span><i>' + escapeHtml(selected[2]) + '</i></div><div class="hsk-stroke-stage" id="hskStrokeTarget" aria-label="Ô luyện viết chữ ' + escapeHtml(currentCharacter) + '"></div><div class="hsk-writing-tools"><button class="muted" data-hsk-action="write-prev">← Chữ trước</button><button class="accent" data-hsk-action="write-replay">▶ Xem viết mẫu</button><button class="muted" id="hskPauseWriting" data-hsk-action="write-pause">⏸ Tạm dừng</button><button class="muted" data-hsk-action="write-practice">✍ Tự viết trên màn hình</button><button class="muted" data-hsk-action="write-next">Chữ tiếp →</button><button class="hsk-speak" data-hsk-speak="' + escapeHtml(selected[0]) + '">♪ Nghe từ</button></div><p class="hsk-writing-status" id="hskWritingStatus">Đang tải dữ liệu nét chữ…</p></div></div></div>';
     return html;
   }
   function readingPassage(item) {
@@ -740,7 +744,7 @@
     for (var i = 0; i < item.items.length; i++) html += '<article class="hsk-foundation-item"><strong>' + escapeHtml(item.items[i][0]) + '</strong><p>' + escapeHtml(item.items[i][1]) + '</p><button class="hsk-speak" data-hsk-speak="' + escapeHtml(item.items[i][2]) + '">♪ Nghe mẫu</button></article>';
     html += "</div></div>";
     if (item.practiceWords && item.practiceWords.length) html += renderWriting(item, 2);
-    html += '<div class="hsk-section hsk-foundation-note"><strong>Cách học bài này</strong><p>Nghe từng mẫu ít nhất ba lần, đọc theo chậm rồi bình thường. Với bài nét chữ, xem hoạt ảnh nhiều lần và tự viết lại vào vở ô vuông.</p></div>';
+    html += '<div class="hsk-section hsk-foundation-note"><strong>Cách học bài này</strong><p>Nghe từng mẫu ít nhất ba lần, đọc theo chậm rồi bình thường. Với bài nét chữ, xem hoạt ảnh, thử viết bằng tay trên màn hình rồi viết lại vào vở ô vuông.</p></div>';
     return html;
   }
   function loadCharacterData(character, onComplete, onError) {
@@ -762,8 +766,19 @@
     try {
       activeWriter = root.HanziWriter.create("hskStrokeTarget", character, { width: 260, height: 260, padding: 12, showOutline: true, showCharacter: false, strokeAnimationSpeed: 0.75, delayBetweenStrokes: 280, charDataLoader: loadCharacterData });
       activeWriter.showOutline({ duration: 0 });
-      if (status) status.textContent = "Bấm “Viết mẫu / Replay” để xem lại từ đầu.";
-      if (autoPlay) activeWriter.animateCharacter();
+      writingAnimating = Boolean(autoPlay);
+      writingPaused = false;
+      var pauseButton = byId("hskPauseWriting");
+      if (pauseButton) { pauseButton.disabled = !autoPlay; pauseButton.textContent = "⏸ Tạm dừng"; }
+      if (status) {
+        status.className = "hsk-writing-status";
+        status.textContent = "Bấm “Xem viết mẫu” hoặc “Tự viết trên màn hình”.";
+      }
+      if (autoPlay) activeWriter.animateCharacter({ onComplete: function () {
+        writingAnimating = false;
+        writingPaused = false;
+        if (pauseButton) { pauseButton.disabled = true; pauseButton.textContent = "⏸ Tạm dừng"; }
+      } });
     } catch (error) { if (status) status.textContent = "Chữ này chưa có dữ liệu hoạt ảnh. Bro chuyển sang chữ khác nhé."; }
   }
   function renderQuiz(item, sectionNumber) {
@@ -875,7 +890,62 @@
       } else if (action === "next-lesson") moveNextLesson();
       else if (action === "quiz-next") { quiz.index++; quiz.answered = false; quiz.selected = -1; renderLesson(false); }
       else if (action === "quiz-restart") { resetQuiz(); renderLesson(false); }
-      else if (action === "write-replay") { if (activeWriter) activeWriter.animateCharacter(); }
+      else if (action === "write-replay") {
+        if (activeWriter) {
+          if (typeof activeWriter.cancelQuiz === "function") activeWriter.cancelQuiz();
+          var replayStatus = byId("hskWritingStatus");
+          var replayPauseButton = byId("hskPauseWriting");
+          writingAnimating = true;
+          writingPaused = false;
+          if (replayPauseButton) { replayPauseButton.disabled = false; replayPauseButton.textContent = "⏸ Tạm dừng"; }
+          if (replayStatus) { replayStatus.className = "hsk-writing-status"; replayStatus.textContent = "Đang viết mẫu từng nét…"; }
+          activeWriter.animateCharacter({ onComplete: function () {
+            writingAnimating = false;
+            writingPaused = false;
+            if (replayPauseButton) { replayPauseButton.disabled = true; replayPauseButton.textContent = "⏸ Tạm dừng"; }
+            if (replayStatus) replayStatus.textContent = "Đã viết mẫu xong. Bro có thể replay hoặc tự viết.";
+          } });
+        }
+      } else if (action === "write-pause") {
+        if (activeWriter && writingAnimating) {
+          var pauseStatus = byId("hskWritingStatus");
+          if (writingPaused) {
+            activeWriter.resumeAnimation();
+            writingPaused = false;
+            target.textContent = "⏸ Tạm dừng";
+            if (pauseStatus) pauseStatus.textContent = "Đang tiếp tục viết mẫu…";
+          } else {
+            activeWriter.pauseAnimation();
+            writingPaused = true;
+            target.textContent = "▶ Tiếp tục";
+            if (pauseStatus) pauseStatus.textContent = "Đã tạm dừng. Nhìn kỹ nét này rồi bấm Tiếp tục.";
+          }
+        }
+      } else if (action === "write-practice") {
+        if (activeWriter && typeof activeWriter.quiz === "function") {
+          if (typeof activeWriter.cancelQuiz === "function") activeWriter.cancelQuiz();
+          writingAnimating = false;
+          writingPaused = false;
+          var practicePauseButton = byId("hskPauseWriting");
+          if (practicePauseButton) { practicePauseButton.disabled = true; practicePauseButton.textContent = "⏸ Tạm dừng"; }
+          var practiceStatus = byId("hskWritingStatus"), mistakes = 0;
+          if (practiceStatus) { practiceStatus.className = "hsk-writing-status"; practiceStatus.textContent = "Dùng ngón tay hoặc chuột viết từng nét trong ô."; }
+          activeWriter.quiz({
+            showHintAfterMisses: 2,
+            highlightOnComplete: true,
+            onMistake: function () {
+              mistakes++;
+              if (practiceStatus) { practiceStatus.className = "hsk-writing-status bad"; practiceStatus.textContent = "Nét này chưa đúng hướng hoặc thứ tự. Nhìn gợi ý rồi thử lại."; }
+            },
+            onCorrectStroke: function () {
+              if (practiceStatus) { practiceStatus.className = "hsk-writing-status"; practiceStatus.textContent = "Đúng nét. Viết tiếp nhé."; }
+            },
+            onComplete: function () {
+              if (practiceStatus) { practiceStatus.className = "hsk-writing-status good"; practiceStatus.textContent = mistakes ? "Hoàn thành chữ với " + mistakes + " lần cần sửa. Làm lại để nhớ chắc hơn." : "Hoàn thành không sai nét nào. Rất ổn!"; }
+            }
+          });
+        }
+      }
       else if (action === "write-prev" || action === "write-next") {
         var currentWords = practiceWords(currentLesson());
         var currentCharacters = wordCharacters((currentWords[writingState.wordIndex] || currentWords[0])[0]);
@@ -899,7 +969,7 @@
     };
   }
 
-  root.HSKCurriculum = { levels: levels, lessonCount: 44, availableThrough: 4, displayedThrough: 9, standard: "HSK 3.0 · 2026-07" };
+  root.HSKCurriculum = { levels: levels, lessonCount: 44, availableThrough: 4, displayedThrough: 9, standard: "Bộ bài thử nghiệm · 2026-07" };
   loadState();
   resetQuiz();
   renderAll();
