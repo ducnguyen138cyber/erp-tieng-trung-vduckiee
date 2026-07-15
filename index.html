@@ -24,8 +24,11 @@
     .start-gate{min-height:100vh;display:grid;place-items:center;padding:28px}.gate-shell{width:min(980px,100%)}.gate-brand{display:flex;align-items:center;gap:12px;margin-bottom:42px}.gate-brand .mark{width:48px;height:48px}.gate-brand strong,.gate-brand span{display:block}.gate-brand strong{font-size:18px}.gate-brand span{margin-top:3px;color:#66736e;font-size:13px}.gate-copy{max-width:760px}.gate-copy h1{margin:0;font:500 clamp(44px,8vw,82px)/.98 Georgia,"Times New Roman",serif;letter-spacing:-.05em}.gate-copy p{max-width:650px;color:#64706c;line-height:1.65}.gate-options{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:32px}.gate-option{display:grid;grid-template-columns:54px 1fr auto;gap:16px;align-items:center;border:1px solid #d8d0c2;border-radius:22px;background:#fff;color:#18352e;padding:22px;text-align:left;cursor:pointer;box-shadow:0 16px 45px rgba(31,52,44,.06)}.gate-option:hover{border-color:#18352e;transform:translateY(-2px)}.gate-icon{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;background:#18352e;color:#fff;font:700 26px Georgia,"Noto Serif SC",serif}.gate-option:nth-child(2) .gate-icon{background:#c7673c}.gate-option strong,.gate-option small{display:block}.gate-option strong{font:600 25px Georgia,serif}.gate-option small{margin-top:7px;color:#66736e;line-height:1.5}.gate-arrow{font-size:25px}.gate-note{margin-top:18px;color:#7a837f;font-size:12px}.hsk-stroke-stage{touch-action:none}.hsk-writing-status.good{color:#21634e;font-weight:700}.hsk-writing-status.bad{color:#9a332d;font-weight:700}.hsk-writing-tools button:disabled{cursor:not-allowed;opacity:.48}@media(max-width:700px){.start-gate{place-items:start center;padding:22px 18px}.gate-brand{margin-bottom:30px}.gate-options{grid-template-columns:1fr}.gate-option{grid-template-columns:48px 1fr auto;padding:18px}.gate-icon{width:48px;height:48px}.gate-option strong{font-size:22px}.backup-tools{width:100%}.backup-tools button{flex:1}.top-actions{align-items:stretch;flex-direction:column}.area-switch{order:1}}
   </style>
   <style>
-    body{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Noto Sans SC",Arial,sans-serif}
+    :root{--ui-font:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Noto Sans SC",Arial,sans-serif}
+    body{font-family:var(--ui-font)}
     button,input,select,textarea{font-family:inherit}
+    h1,h2,h3,h4{font-family:var(--ui-font)!important}
+    .hero h1{font-weight:700;line-height:1.04;letter-spacing:-.035em}
     .area-switch button{font-weight:700}
     .hsk-stroke-stage{width:min(260px,100%);height:auto;aspect-ratio:1;overflow:hidden;touch-action:none}
     .hsk-stroke-stage svg{display:block;width:100%!important;height:100%!important;overflow:hidden}
@@ -35,7 +38,7 @@
 <body>
   <div class="shell" id="appShell">
     <header class="top">
-      <div class="brand"><span class="mark">汉</span><span><strong id="brandTitle">Tiếng Trung ERP</strong><small id="brandSubtitle">Học để dùng ngay trong công việc</small></span></div>
+      <div class="brand"><span class="mark">汉</span><span><strong id="brandTitle">Tự học tiếng trung cùng VDuckie</strong><small id="brandSubtitle">Developed by VDuckie</small></span></div>
       <nav class="area-switch" aria-label="Chuyển khu vực học"><button class="active" data-area="erp">ERP công việc</button><button data-area="hsk">Lộ trình HSK</button></nav>
     </header>
     <nav class="nav erp-nav" id="erpNav"><button class="active" data-view="cards">Thẻ từ ERP</button><button data-view="dialogue">Hội thoại ERP</button><button data-view="quiz">Kiểm tra ERP</button><button data-view="glossary">Từ điển ERP</button><button data-view="personal">Sổ từ cá nhân</button><button data-view="community">Từ cộng đồng</button></nav>
@@ -250,7 +253,7 @@
     $("saveNew").onclick=function(){var vi=$("newVi").value.trim(),hanzi=$("newHanzi").value.trim();if(!vi||!hanzi){window.alert("Cần nhập ít nhất nghĩa tiếng Việt và tiếng Trung.");return}addPersonal([hanzi,$("newPinyin").value.trim(),$("newNear").value.trim(),vi,"Chứng từ","Từ do bạn bổ sung",$("newExample").value.trim(),""]);$("newVi").value="";$("newHanzi").value="";$("newPinyin").value="";$("newNear").value="";$("newExample").value="";$("pronunciationStatus").textContent="Đã lưu và đưa vào từ điển cùng hàng chờ học tiếp theo."};
     var nav=document.querySelectorAll("[data-view]"),areaButtons=document.querySelectorAll("[data-area]"),views=["cards","dialogue","quiz","glossary","personal","community"],lastErpView="cards";
     function areaUrl(area){var params=new URLSearchParams(window.location.search);params.set("area",area);return window.location.pathname+"?"+params.toString()+(area==="hsk"?"#hsk":"")}
-    function selectArea(area,updateUrl){if(area!=="erp"&&area!=="hsk")return;for(var a=0;a<areaButtons.length;a++)areaButtons[a].className=areaButtons[a].getAttribute("data-area")===area?"active":"";$('erpHero').className=area==="erp"?"hero":"hero hidden";$('hskHero').className=area==="hsk"?"hero hsk-hero":"hero hsk-hero hidden";$('erpNav').className=area==="erp"?"nav erp-nav":"nav erp-nav hidden";for(var k=0;k<views.length;k++)$(views[k]).className=area==="erp"&&views[k]===lastErpView?"panel":"panel hidden";$('hsk').className=area==="hsk"?"panel":"panel hidden";$('brandTitle').textContent=area==="erp"?"Tiếng Trung ERP":"Lộ trình HSK";$('brandSubtitle').textContent=area==="erp"?"Học để dùng ngay trong công việc":"Bộ bài thử nghiệm · học từ nền tảng";document.title=(area==="erp"?"Tiếng Trung ERP":"Lộ trình HSK")+" — Developed by VDuckie";if(updateUrl!==false)history.replaceState(null,"",areaUrl(area))}
+    function selectArea(area,updateUrl){if(area!=="erp"&&area!=="hsk")return;for(var a=0;a<areaButtons.length;a++)areaButtons[a].className=areaButtons[a].getAttribute("data-area")===area?"active":"";$('erpHero').className=area==="erp"?"hero":"hero hidden";$('hskHero').className=area==="hsk"?"hero hsk-hero":"hero hsk-hero hidden";$('erpNav').className=area==="erp"?"nav erp-nav":"nav erp-nav hidden";for(var k=0;k<views.length;k++)$(views[k]).className=area==="erp"&&views[k]===lastErpView?"panel":"panel hidden";$('hsk').className=area==="hsk"?"panel":"panel hidden";document.title=(area==="erp"?"Tiếng Trung ERP":"Lộ trình HSK")+" — Developed by VDuckie";if(updateUrl!==false)history.replaceState(null,"",areaUrl(area))}
     for(var n=0;n<nav.length;n++)nav[n].onclick=function(){lastErpView=this.getAttribute("data-view");for(var j=0;j<nav.length;j++)nav[j].className="";this.className="active";selectArea("erp")};for(var q=0;q<areaButtons.length;q++)areaButtons[q].onclick=function(){selectArea(this.getAttribute("data-area"))};var requestedArea=new URLSearchParams(window.location.search).get("area");if(window.location.hash==="#hsk")requestedArea="hsk";selectArea(requestedArea==="hsk"?"hsk":"erp",false);window.ERPAreaNavigation={select:selectArea};
     renderCard();renderQuiz();renderTerms();renderSuggestions();renderPersonal();
   })();
@@ -262,4 +265,4 @@
   <script src="./community.js?v=1"></script>
 </body>
 </html>
-<!-- GitHub Pages deployment trigger: v55 · 2026-07-15 -->
+<!-- GitHub Pages deployment trigger: v56 · 2026-07-15 -->
