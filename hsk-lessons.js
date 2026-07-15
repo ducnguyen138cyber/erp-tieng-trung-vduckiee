@@ -5,7 +5,95 @@
     return { id: id, title: title, goal: goal, words: words, grammar: grammar, dialogue: dialogue };
   }
 
+  function foundationLesson(id, title, goal, items, practiceWords) {
+    return { id: id, title: title, goal: goal, foundation: true, items: items, practiceWords: practiceWords || [] };
+  }
+
+  var foundationLessons = [
+    foundationLesson("foundation-1", "Bốn thanh điệu và thanh nhẹ", "Nghe và phân biệt độ cao của bốn thanh tiếng Phổ thông trước khi ghép âm.", [
+      ["mā · thanh 1", "Cao và giữ ngang, không lên xuống.", "妈"],
+      ["má · thanh 2", "Đi từ trung bình lên cao, giống giọng hỏi nhẹ.", "麻"],
+      ["mǎ · thanh 3", "Hạ xuống rồi nhấc lên; trong câu thường chỉ hạ thấp.", "马"],
+      ["mà · thanh 4", "Từ cao rơi mạnh xuống, ngắn và dứt khoát.", "骂"],
+      ["ma · thanh nhẹ", "Đọc ngắn, nhẹ, không mang đường nét cố định.", "吗"]
+    ]),
+    foundationLesson("foundation-2", "Sáu nguyên âm đơn", "Đặt khẩu hình đúng cho a, o, e, i, u, ü và biết vị trí đặt dấu thanh.", [
+      ["a", "Mở miệng rộng, lưỡi thả thấp. Ví dụ: mā.", "妈"],
+      ["o", "Môi tròn, lưỡi lùi nhẹ. Ví dụ: wǒ.", "我"],
+      ["e", "Miệng hơi mở, âm phát ở phía sau. Ví dụ: è.", "饿"],
+      ["i", "Kéo ngang môi. Ví dụ: yī.", "一"],
+      ["u", "Chu môi tròn nhỏ. Ví dụ: wǔ.", "五"],
+      ["ü", "Giữ lưỡi như i nhưng chu môi như u. Ví dụ: yú.", "鱼"]
+    ], [["我", "wǒ", "Tôi", "我是学生。", "Tôi là học sinh."], ["一", "yī", "Một", "我有一本书。", "Tôi có một quyển sách."], ["五", "wǔ", "Năm", "现在五点。", "Bây giờ là năm giờ."]]),
+    foundationLesson("foundation-3", "Thanh mẫu b p m f · d t n l", "Phân biệt âm bật hơi và không bật hơi ở nhóm môi và đầu lưỡi.", [
+      ["b / p", "b không bật hơi mạnh; p bật luồng hơi rõ.", "爸爸怕"],
+      ["m / f", "m khép môi có rung mũi; f để răng trên chạm môi dưới.", "妈妈发"],
+      ["d / t", "d ít bật hơi; t bật hơi mạnh ở đầu lưỡi.", "弟弟听"],
+      ["n / l", "n thoát hơi qua mũi; l thoát hơi qua hai bên lưỡi.", "奶奶来"]
+    ]),
+    foundationLesson("foundation-4", "Thanh mẫu g k h · j q x", "Đặt đúng vị trí lưỡi cho nhóm cuống lưỡi và nhóm mặt lưỡi.", [
+      ["g / k", "g không bật hơi; k bật hơi mạnh ở phía sau khoang miệng.", "哥哥看"],
+      ["h", "Luồng hơi ma sát nhẹ ở cuống lưỡi, không đọc như h tiếng Việt quá nặng.", "很好"],
+      ["j / q", "Mặt lưỡi chạm gần ngạc cứng; q bật hơi rõ hơn j.", "姐姐去"],
+      ["x", "Mặt lưỡi gần ngạc cứng, tạo khe hẹp cho hơi đi qua.", "学习"]
+    ]),
+    foundationLesson("foundation-5", "Thanh mẫu z c s · zh ch sh r", "Phân biệt nhóm đầu lưỡi trước và nhóm uốn lưỡi thường gây nhầm.", [
+      ["z / c / s", "Đầu lưỡi gần răng trên; c bật hơi, z không bật hơi.", "早上三次"],
+      ["zh / ch", "Uốn nhẹ đầu lưỡi; ch bật hơi mạnh hơn zh.", "中国吃茶"],
+      ["sh / r", "Uốn lưỡi tạo ma sát; r có độ rung nhẹ hơn âm r tiếng Việt.", "十个人"],
+      ["y / w", "Âm đệm đứng đầu âm tiết, giúp i/u/ü ghép đúng chính tả.", "有问题"]
+    ]),
+    foundationLesson("foundation-6", "Vận mẫu ai ei ao ou · an en", "Ghép nguyên âm đôi và âm mũi trước, đọc liền thành một khối.", [
+      ["ai / ei", "Chuyển nhanh khẩu hình, trọng âm rơi vào nguyên âm đầu.", "爱北京"],
+      ["ao / ou", "Từ a/o chuyển dần sang u, không tách thành hai tiếng.", "好朋友"],
+      ["an / en", "Kết thúc bằng n đầu lưỡi, âm ngắn và gọn.", "看门"],
+      ["ian / uan / üan", "Có âm đệm i/u/ü trước phần an.", "今天喜欢"]
+    ]),
+    foundationLesson("foundation-7", "Vận mẫu ang eng ing ong", "Phân biệt âm mũi sau -ng với âm mũi trước -n.", [
+      ["ang", "Mở miệng khá rộng, âm kết ở mũi sau.", "上午"],
+      ["eng", "Miệng vừa, lưỡi lùi và kết thúc bằng -ng.", "朋友"],
+      ["ing", "Bắt đầu bằng i rồi kéo về âm mũi sau.", "北京"],
+      ["ong", "Môi tròn, kết thúc ở âm mũi sau.", "中国"]
+    ]),
+    foundationLesson("foundation-8", "Biến điệu và ghép pinyin", "Đọc tự nhiên thanh 3 nối nhau, 一 và 不 trong câu.", [
+      ["Thanh 3 + thanh 3", "Âm đầu đổi thành thanh 2: nǐ hǎo đọc gần như ní hǎo.", "你好"],
+      ["一 + thanh 4", "一 thường đổi thành thanh 2: yí ge.", "一个"],
+      ["一 + thanh 1/2/3", "一 thường đổi thành thanh 4: yì tiān.", "一天"],
+      ["不 + thanh 4", "不 đổi thành thanh 2: bú shì.", "不是"]
+    ], [["你好", "nǐ hǎo", "Xin chào", "你好，我叫德。", "Xin chào, tôi tên Đức."], ["一个", "yí ge", "Một cái/người", "我有一个朋友。", "Tôi có một người bạn."], ["不是", "bú shì", "Không phải", "他不是老师。", "Anh ấy không phải giáo viên."]]),
+    foundationLesson("foundation-9", "Sáu nét cơ bản", "Nhận biết hướng đi bút của nét ngang, sổ, phẩy, mác, chấm và hất.", [
+      ["横 héng · 一", "Nét ngang: đi từ trái sang phải, hơi nhấc nhẹ ở cuối.", "一"],
+      ["竖 shù · 丨", "Nét sổ: đi từ trên xuống dưới, giữ trục thẳng.", "十"],
+      ["撇 piě · 丿", "Nét phẩy: từ trên phải xuống dưới trái, nhẹ dần.", "人"],
+      ["捺 nà · ㇏", "Nét mác: từ trên trái xuống dưới phải, ấn rồi nhấc.", "大"],
+      ["点 diǎn · 丶", "Nét chấm: vào bút nhẹ, ấn nhanh rồi nhấc.", "六"],
+      ["提 tí · ㇀", "Nét hất: từ dưới trái hướng lên phải, kết thúc nhanh.", "我"]
+    ], [["一", "yī", "Một", "一、二、三。", "Một, hai, ba."], ["十", "shí", "Mười", "今天十号。", "Hôm nay ngày mười."], ["人", "rén", "Người", "这里有三个人。", "Ở đây có ba người."], ["大", "dà", "Lớn", "这个很大。", "Cái này rất lớn."]]),
+    foundationLesson("foundation-10", "Nét gập và nét móc", "Làm quen các nét kết hợp thường gặp trước khi viết chữ nhiều nét.", [
+      ["横折 héng zhé", "Đi ngang rồi đổi hướng xuống; chỗ gập không nhấc bút.", "口"],
+      ["竖钩 shù gōu", "Đi sổ xuống rồi móc nhanh lên trái.", "小"],
+      ["横钩 héng gōu", "Đi ngang rồi móc ngắn xuống trái.", "买"],
+      ["撇折 piě zhé", "Phẩy xuống trái rồi đổi hướng sang phải.", "么"]
+    ], [["口", "kǒu", "Miệng", "请开口读。", "Hãy mở miệng đọc."], ["小", "xiǎo", "Nhỏ", "这个很小。", "Cái này rất nhỏ."], ["买", "mǎi", "Mua", "我想买书。", "Tôi muốn mua sách."]]),
+    foundationLesson("foundation-11", "Quy tắc thứ tự nét", "Viết đúng thứ tự để chữ cân đối và tạo nền cho việc tra chữ.", [
+      ["Trên trước, dưới sau", "Ví dụ 二: viết nét trên trước rồi nét dưới.", "二"],
+      ["Trái trước, phải sau", "Ví dụ 你: bộ nhân đứng 亻 được viết trước phần 尔.", "你"],
+      ["Ngang trước, sổ sau", "Ví dụ 十: nét ngang trước, nét sổ sau.", "十"],
+      ["Ngoài trước, trong sau", "Ví dụ 问: viết khung 门 rồi mới viết 口.", "问"],
+      ["Đóng khung sau cùng", "Ví dụ 国: viết phần trong trước nét ngang đáy cuối.", "国"]
+    ], [["二", "èr", "Hai", "我有两本书。", "Tôi có hai quyển sách."], ["你", "nǐ", "Bạn", "你好吗？", "Bạn khỏe không?"], ["问", "wèn", "Hỏi", "我想问一个问题。", "Tôi muốn hỏi một câu."], ["国", "guó", "Nước/quốc gia", "我是越南人。", "Tôi là người Việt Nam."]]),
+    foundationLesson("foundation-12", "Bộ thủ và chữ đầu tiên", "Nhìn cấu trúc trái–phải, trên–dưới và luyện các chữ dùng ngay ở HSK 1.", [
+      ["亻 · bộ nhân đứng", "Liên quan đến người; gặp trong 你, 他, 们.", "你他"],
+      ["女 · bộ nữ", "Liên quan đến nữ giới; là phần trái của 好.", "女好"],
+      ["口 · bộ khẩu", "Liên quan đến miệng, lời nói; gặp trong 吗, 叫, 吃.", "吗叫吃"],
+      ["木 · bộ mộc", "Liên quan đến cây, gỗ; cũng làm thành phần trong nhiều chữ.", "木本"],
+      ["氵 · bộ thủy", "Ba chấm nước, liên quan đến nước; gặp trong 汉, 河, 海.", "汉河海"],
+      ["讠 · bộ ngôn", "Liên quan đến lời nói/ngôn ngữ; gặp trong 说, 话, 语.", "说话语"]
+    ], [["你好", "nǐ hǎo", "Xin chào", "你好！", "Xin chào!"], ["中国", "Zhōngguó", "Trung Quốc", "我去过中国。", "Tôi từng đi Trung Quốc."], ["汉语", "Hànyǔ", "Tiếng Trung", "我学习汉语。", "Tôi học tiếng Trung."], ["学习", "xuéxí", "Học tập", "我们一起学习。", "Chúng ta cùng học."]])
+  ];
+
   var levels = {
+    0: foundationLessons,
     1: [
       lesson("hsk1-1", "Chào hỏi và tự giới thiệu", "Chào hỏi, nói tên và giới thiệu mình là ai.", [
         ["你好", "nǐ hǎo", "Xin chào", "你好，我叫德。", "Xin chào, tôi tên Đức."],
@@ -13,7 +101,7 @@
         ["你", "nǐ", "Bạn", "你叫什么名字？", "Bạn tên là gì?"],
         ["叫", "jiào", "Tên là / gọi là", "我叫德。", "Tôi tên Đức."],
         ["名字", "míngzi", "Tên", "你的名字很好听。", "Tên của bạn rất hay."],
-        ["是", "shì", "Là", "我是新同事。", "Tôi là đồng nghiệp mới."]
+        ["是", "shì", "Là", "我是学生。", "Tôi là học sinh."]
       ], [
         ["A 是 B", "Dùng để xác định A là B.", "我是越南人。", "Tôi là người Việt Nam."],
         ["你叫……？", "Hỏi tên của người đối diện.", "你叫什么名字？", "Bạn tên là gì?"]
@@ -39,29 +127,29 @@
         ["一", "yī", "Một", "我有一个问题。", "Tôi có một câu hỏi."],
         ["二", "èr", "Hai", "现在两点。", "Bây giờ là hai giờ."],
         ["三", "sān", "Ba", "我们三个人去。", "Ba người chúng tôi đi."],
-        ["今天", "jīntiān", "Hôm nay", "今天我上班。", "Hôm nay tôi đi làm."],
+        ["今天", "jīntiān", "Hôm nay", "今天我学习汉语。", "Hôm nay tôi học tiếng Trung."],
         ["明天", "míngtiān", "Ngày mai", "明天我们见。", "Ngày mai chúng ta gặp nhau."],
-        ["点", "diǎn", "Giờ", "下午三点开会。", "Ba giờ chiều họp."]
+        ["点", "diǎn", "Giờ", "下午三点看书。", "Ba giờ chiều đọc sách."]
       ], [
         ["现在 + số + 点", "Nói giờ hiện tại.", "现在九点。", "Bây giờ là chín giờ."],
-        ["Thời gian + động từ", "Thời gian thường đặt trước động từ.", "明天八点上班。", "Ngày mai tám giờ đi làm."]
+        ["Thời gian + động từ", "Thời gian thường đặt trước động từ.", "明天八点学习。", "Ngày mai tám giờ học."]
       ], [
-        ["A", "我们几点开会？", "Mấy giờ chúng ta họp?"],
-        ["B", "今天下午三点开会。", "Hôm nay ba giờ chiều họp."]
+        ["A", "我们几点学习？", "Mấy giờ chúng ta học?"],
+        ["B", "今天下午三点学习。", "Hôm nay ba giờ chiều học."]
       ]),
       lesson("hsk1-4", "Địa điểm và vị trí", "Hỏi một người hoặc đồ vật đang ở đâu.", [
-        ["在", "zài", "Ở / tại", "我在公司。", "Tôi ở công ty."],
+        ["在", "zài", "Ở / tại", "我在学校。", "Tôi ở trường."],
         ["学校", "xuéxiào", "Trường học", "妹妹在学校。", "Em gái ở trường."],
-        ["公司", "gōngsī", "Công ty", "公司在这里。", "Công ty ở đây."],
+        ["图书馆", "túshūguǎn", "Thư viện", "图书馆在这里。", "Thư viện ở đây."],
         ["这里", "zhèlǐ", "Ở đây", "请坐这里。", "Mời ngồi đây."],
         ["那里", "nàlǐ", "Ở đó", "洗手间在那里。", "Nhà vệ sinh ở đó."],
-        ["哪儿", "nǎr", "Ở đâu", "你在哪儿工作？", "Bạn làm việc ở đâu?"]
+        ["哪儿", "nǎr", "Ở đâu", "你在哪儿学习？", "Bạn học ở đâu?"]
       ], [
-        ["A 在 B", "Nói vị trí của A.", "经理在办公室。", "Quản lý ở văn phòng."],
-        ["A 在哪儿？", "Hỏi vị trí của A.", "仓库在哪儿？", "Kho ở đâu?"]
+        ["A 在 B", "Nói vị trí của A.", "老师在学校。", "Giáo viên ở trường."],
+        ["A 在哪儿？", "Hỏi vị trí của A.", "图书馆在哪儿？", "Thư viện ở đâu?"]
       ], [
-        ["A", "你的公司在哪儿？", "Công ty của bạn ở đâu?"],
-        ["B", "我的公司在那里。", "Công ty của tôi ở đằng kia."]
+        ["A", "图书馆在哪儿？", "Thư viện ở đâu?"],
+        ["B", "图书馆在那里。", "Thư viện ở đằng kia."]
       ]),
       lesson("hsk1-5", "Ăn uống và sở thích", "Nói món mình ăn, đồ mình uống và sở thích.", [
         ["吃", "chī", "Ăn", "我吃米饭。", "Tôi ăn cơm."],
@@ -96,28 +184,28 @@
         ["热", "rè", "Nóng", "今天太热了。", "Hôm nay nóng quá."],
         ["冷", "lěng", "Lạnh", "北京冬天很冷。", "Mùa đông Bắc Kinh rất lạnh."],
         ["下雨", "xiàyǔ", "Mưa", "外面下雨了。", "Ngoài trời mưa rồi."],
-        ["去", "qù", "Đi", "我去公司。", "Tôi đi công ty."],
+        ["去", "qù", "Đi", "我去学校。", "Tôi đi học."],
         ["出租车", "chūzūchē", "Taxi", "我们坐出租车去。", "Chúng ta đi bằng taxi."]
       ], [
         ["太 + tính từ + 了", "Nhấn mạnh mức độ quá.", "今天太冷了。", "Hôm nay lạnh quá."],
-        ["坐 + phương tiện + 去", "Nói đi bằng phương tiện gì.", "我坐出租车去公司。", "Tôi đi taxi đến công ty."]
+        ["坐 + phương tiện + 去", "Nói đi bằng phương tiện gì.", "我坐出租车去学校。", "Tôi đi taxi đến trường."]
       ], [
-        ["A", "外面下雨了，怎么去公司？", "Ngoài trời mưa rồi, đi công ty thế nào?"],
+        ["A", "外面下雨了，怎么去学校？", "Ngoài trời mưa rồi, đi đến trường thế nào?"],
         ["B", "我们坐出租车去吧。", "Chúng ta đi taxi nhé."]
       ]),
-      lesson("hsk1-8", "Công việc hằng ngày", "Nói nơi làm việc, đồng nghiệp và khả năng cơ bản.", [
-        ["工作", "gōngzuò", "Làm việc / công việc", "我在工厂工作。", "Tôi làm việc ở nhà máy."],
-        ["上班", "shàngbān", "Đi làm", "我八点上班。", "Tôi đi làm lúc tám giờ."],
-        ["下班", "xiàbān", "Tan làm", "我五点下班。", "Tôi tan làm lúc năm giờ."],
-        ["同事", "tóngshì", "Đồng nghiệp", "他是我的同事。", "Anh ấy là đồng nghiệp của tôi."],
+      lesson("hsk1-8", "Học tập và khả năng", "Nói mình đang học gì, biết làm gì và chưa biết làm gì.", [
+        ["学习", "xuéxí", "Học tập", "我学习汉语。", "Tôi học tiếng Trung."],
+        ["汉语", "Hànyǔ", "Tiếng Trung", "汉语很有意思。", "Tiếng Trung rất thú vị."],
+        ["看书", "kànshū", "Đọc sách", "晚上我喜欢看书。", "Buổi tối tôi thích đọc sách."],
+        ["写字", "xiězì", "Viết chữ", "我每天写汉字。", "Mỗi ngày tôi viết chữ Hán."],
         ["会", "huì", "Biết / có thể (kỹ năng)", "我会说一点汉语。", "Tôi biết nói một chút tiếng Trung."],
         ["不会", "bú huì", "Không biết / không thể", "我不会写这个字。", "Tôi không biết viết chữ này."]
       ], [
-        ["会 + động từ", "Nói kỹ năng đã biết.", "我会用电脑。", "Tôi biết dùng máy tính."],
-        ["几点上班/下班？", "Hỏi giờ làm hoặc tan làm.", "你几点下班？", "Bạn mấy giờ tan làm?"]
+        ["会 + động từ", "Nói kỹ năng đã biết.", "我会写汉字。", "Tôi biết viết chữ Hán."],
+        ["喜欢 + động từ", "Nói hoạt động mình thích.", "我喜欢看书。", "Tôi thích đọc sách."]
       ], [
         ["A", "你会说汉语吗？", "Bạn biết nói tiếng Trung không?"],
-        ["B", "我会说一点，但是不会写很多字。", "Tôi biết nói một chút, nhưng chưa biết viết nhiều chữ."]
+        ["B", "我会说一点，也会写几个汉字。", "Tôi biết nói một chút, cũng biết viết vài chữ Hán."]
       ])
     ],
     2: [
@@ -136,17 +224,17 @@
         ["B", "我早上七点起床，晚上十一点睡觉。", "Tôi dậy lúc bảy giờ sáng, tối mười một giờ đi ngủ."]
       ]),
       lesson("hsk2-2", "Việc đang làm và đã làm", "Phân biệt đang làm, đã xong và từng trải qua.", [
-        ["正在", "zhèngzài", "Đang", "我正在开会。", "Tôi đang họp."],
-        ["已经", "yǐjīng", "Đã", "我已经到公司了。", "Tôi đã đến công ty rồi."],
-        ["还", "hái", "Vẫn / còn", "他还在工作。", "Anh ấy vẫn đang làm việc."],
+        ["正在", "zhèngzài", "Đang", "我正在看书。", "Tôi đang đọc sách."],
+        ["已经", "yǐjīng", "Đã", "我已经到学校了。", "Tôi đã đến trường rồi."],
+        ["还", "hái", "Vẫn / còn", "他还在学习。", "Anh ấy vẫn đang học."],
         ["过", "guo", "Đã từng", "我去过中国。", "Tôi đã từng đi Trung Quốc."],
         ["完", "wán", "Xong", "我做完作业了。", "Tôi làm xong bài tập rồi."],
         ["以前", "yǐqián", "Trước đây", "我以前不会说汉语。", "Trước đây tôi không biết nói tiếng Trung."]
       ], [
-        ["正在 + động từ", "Việc đang diễn ra ngay lúc nói.", "经理正在打电话。", "Quản lý đang gọi điện."],
+        ["正在 + động từ", "Việc đang diễn ra ngay lúc nói.", "妹妹正在写作业。", "Em gái đang làm bài tập."],
         ["Động từ + 过", "Nói kinh nghiệm đã từng có.", "我学过一点汉语。", "Tôi từng học một chút tiếng Trung."]
       ], [
-        ["A", "文件做好了吗？", "Tài liệu làm xong chưa?"],
+        ["A", "作业做完了吗？", "Bài tập làm xong chưa?"],
         ["B", "我正在做，已经做完一半了。", "Tôi đang làm, đã xong một nửa rồi."]
       ]),
       lesson("hsk2-3", "Chỉ đường và giao thông", "Hỏi khoảng cách và chỉ hướng đến một địa điểm.", [
@@ -211,7 +299,7 @@
         ["明白", "míngbai", "Hiểu", "我不太明白。", "Tôi không hiểu lắm."],
         ["说话", "shuōhuà", "Nói chuyện", "他说话说得很快。", "Anh ấy nói rất nhanh."],
         ["帮助", "bāngzhù", "Giúp đỡ", "谢谢你的帮助。", "Cảm ơn sự giúp đỡ của bạn."],
-        ["介绍", "jièshào", "Giới thiệu", "请介绍一下这个系统。", "Hãy giới thiệu một chút về hệ thống này."]
+        ["介绍", "jièshào", "Giới thiệu", "请介绍一下这本书。", "Hãy giới thiệu một chút về quyển sách này."]
       ], [
         ["……得 + tính từ", "Bổ nghĩa cách thực hiện động từ.", "你说得太快了。", "Bạn nói nhanh quá."],
         ["请 + động từ + 一下", "Đề nghị lịch sự, nhẹ nhàng.", "请再说一下。", "Vui lòng nói lại một lần."]
@@ -219,105 +307,105 @@
         ["A", "这个问题你明白吗？", "Bạn hiểu vấn đề này không?"],
         ["B", "我不太明白，请你再介绍一下。", "Tôi chưa hiểu lắm, vui lòng giới thiệu lại một chút."]
       ]),
-      lesson("hsk2-8", "Trong văn phòng", "Giao tiếp cơ bản về họp, tài liệu và hoàn thành công việc.", [
-        ["办公室", "bàngōngshì", "Văn phòng", "经理在办公室。", "Quản lý ở văn phòng."],
-        ["经理", "jīnglǐ", "Quản lý / giám đốc", "经理正在开会。", "Quản lý đang họp."],
-        ["开会", "kāihuì", "Họp", "下午两点开会。", "Hai giờ chiều họp."],
-        ["文件", "wénjiàn", "Tài liệu / tệp", "请把文件给我。", "Vui lòng đưa tài liệu cho tôi."],
-        ["事情", "shìqing", "Sự việc / việc", "我有一件事情要说。", "Tôi có một việc cần nói."],
-        ["完成", "wánchéng", "Hoàn thành", "今天必须完成工作。", "Hôm nay phải hoàn thành công việc."]
+      lesson("hsk2-8", "Cuối tuần và hoạt động", "Đọc và kể các hoạt động giải trí quen thuộc vào cuối tuần.", [
+        ["周末", "zhōumò", "Cuối tuần", "周末我不上课。", "Cuối tuần tôi không đi học."],
+        ["公园", "gōngyuán", "Công viên", "我们去公园走走。", "Chúng ta đi dạo công viên."],
+        ["电影", "diànyǐng", "Phim", "这部电影很好看。", "Bộ phim này rất hay."],
+        ["运动", "yùndòng", "Vận động / thể thao", "每天运动对身体好。", "Mỗi ngày vận động tốt cho sức khỏe."],
+        ["游泳", "yóuyǒng", "Bơi", "夏天我喜欢游泳。", "Mùa hè tôi thích bơi."],
+        ["觉得", "juéde", "Cảm thấy / cho rằng", "我觉得今天很开心。", "Tôi cảm thấy hôm nay rất vui."]
       ], [
-        ["把 + vật + động từ", "Đưa vật chịu tác động lên trước động từ.", "请把文件放这里。", "Hãy đặt tài liệu ở đây."],
-        ["必须 + động từ", "Nói việc bắt buộc phải làm.", "这个事情必须今天完成。", "Việc này phải hoàn thành hôm nay."]
+        ["觉得 + mệnh đề", "Nói cảm nhận hoặc ý kiến.", "我觉得这部电影很好看。", "Tôi thấy bộ phim này rất hay."],
+        ["Thời gian + hoạt động", "Nói hoạt động diễn ra lúc nào.", "周末我们去公园。", "Cuối tuần chúng ta đi công viên."]
       ], [
-        ["A", "经理在哪儿？", "Quản lý ở đâu?"],
-        ["B", "他在办公室开会，让我先完成这个文件。", "Anh ấy đang họp ở văn phòng, bảo tôi hoàn thành tài liệu này trước."]
+        ["A", "周末你想做什么？", "Cuối tuần bạn muốn làm gì?"],
+        ["B", "我想去公园运动，也想看电影。", "Tôi muốn đi công viên vận động, cũng muốn xem phim."]
       ])
     ],
     3: [
       lesson("hsk3-1", "Nguyên nhân và điều kiện", "Nối ý bằng vì–nên, nếu–thì và tuy–nhưng.", [
         ["因为", "yīnwèi", "Bởi vì", "因为下雨，我没去。", "Vì trời mưa nên tôi không đi."],
-        ["所以", "suǒyǐ", "Cho nên", "他生病了，所以没上班。", "Anh ấy ốm nên không đi làm."],
+        ["所以", "suǒyǐ", "Cho nên", "他生病了，所以没上课。", "Anh ấy ốm nên không đi học."],
         ["如果", "rúguǒ", "Nếu", "如果有问题，请告诉我。", "Nếu có vấn đề, hãy nói với tôi."],
-        ["就", "jiù", "Thì / liền", "检查完就可以保存。", "Kiểm tra xong thì có thể lưu."],
+        ["就", "jiù", "Thì / liền", "写完作业就可以休息。", "Làm xong bài tập thì có thể nghỉ."],
         ["虽然", "suīrán", "Tuy rằng", "虽然很难，但是我想试试。", "Tuy khó nhưng tôi muốn thử."],
         ["但是", "dànshì", "Nhưng", "他很忙，但是会帮助我。", "Anh ấy rất bận nhưng sẽ giúp tôi."]
       ], [
-        ["因为……所以……", "Nêu nguyên nhân rồi kết quả.", "因为数据不对，所以不能保存。", "Vì dữ liệu sai nên không thể lưu."],
-        ["如果……就……", "Nêu điều kiện và kết quả.", "如果有库存，就可以领料。", "Nếu có tồn kho thì có thể lĩnh liệu."]
+        ["因为……所以……", "Nêu nguyên nhân rồi kết quả.", "因为下雨，所以我们不去公园。", "Vì trời mưa nên chúng ta không đi công viên."],
+        ["如果……就……", "Nêu điều kiện và kết quả.", "如果明天天气好，我们就去爬山。", "Nếu ngày mai thời tiết đẹp, chúng ta sẽ đi leo núi."]
       ], [
-        ["A", "为什么这个单不能保存？", "Tại sao phiếu này không thể lưu?"],
-        ["B", "因为数量不对，所以系统不让保存。", "Vì số lượng không đúng nên hệ thống không cho lưu."]
+        ["A", "你们明天为什么不去爬山？", "Tại sao ngày mai các bạn không đi leo núi?"],
+        ["B", "因为可能下雨，所以我们决定在家看书。", "Vì có thể mưa nên chúng tôi quyết định ở nhà đọc sách."]
       ]),
-      lesson("hsk3-2", "Trình tự công việc", "Mô tả một quy trình theo thứ tự rõ ràng.", [
-        ["先", "xiān", "Trước tiên", "先检查库存。", "Trước tiên kiểm tra tồn kho."],
-        ["然后", "ránhòu", "Sau đó", "然后填写数量。", "Sau đó điền số lượng."],
-        ["最后", "zuìhòu", "Cuối cùng", "最后保存单据。", "Cuối cùng lưu chứng từ."],
-        ["开始", "kāishǐ", "Bắt đầu", "会议九点开始。", "Cuộc họp bắt đầu lúc chín giờ."],
-        ["结束", "jiéshù", "Kết thúc", "工作已经结束了。", "Công việc đã kết thúc."],
-        ["继续", "jìxù", "Tiếp tục", "确认以后继续操作。", "Sau khi xác nhận thì tiếp tục thao tác."]
+      lesson("hsk3-2", "Trình tự hoạt động", "Kể một hoạt động theo thứ tự trước–sau rõ ràng.", [
+        ["先", "xiān", "Trước tiên", "早上先洗脸。", "Buổi sáng trước tiên rửa mặt."],
+        ["然后", "ránhòu", "Sau đó", "然后吃早饭。", "Sau đó ăn sáng."],
+        ["最后", "zuìhòu", "Cuối cùng", "最后去学校。", "Cuối cùng đi đến trường."],
+        ["开始", "kāishǐ", "Bắt đầu", "汉语课九点开始。", "Lớp tiếng Trung bắt đầu lúc chín giờ."],
+        ["结束", "jiéshù", "Kết thúc", "电影已经结束了。", "Bộ phim đã kết thúc."],
+        ["继续", "jìxù", "Tiếp tục", "休息以后继续看书。", "Sau khi nghỉ thì tiếp tục đọc sách."]
       ], [
-        ["先……然后……最后……", "Trình bày ba bước liên tiếp.", "先登录，然后检查，最后保存。", "Đầu tiên đăng nhập, sau đó kiểm tra, cuối cùng lưu."],
-        ["Động từ + 以后", "Sau khi làm xong việc gì.", "开会以后继续工作。", "Sau cuộc họp tiếp tục làm việc."]
+        ["先……然后……最后……", "Trình bày ba bước liên tiếp.", "先洗菜，然后做饭，最后一起吃。", "Đầu tiên rửa rau, sau đó nấu cơm, cuối cùng cùng ăn."],
+        ["Động từ + 以后", "Sau khi làm xong việc gì.", "下课以后继续看书。", "Sau khi tan học tiếp tục đọc sách."]
       ], [
-        ["A", "补领料怎么操作？", "Bổ lĩnh liệu thao tác thế nào?"],
-        ["B", "先检查工单，然后填写数量，最后审核单据。", "Trước tiên kiểm tra công lệnh, sau đó điền số lượng, cuối cùng duyệt chứng từ."]
+        ["A", "这个菜怎么做？", "Món này làm thế nào?"],
+        ["B", "先洗菜，然后切好，最后放进锅里。", "Trước tiên rửa rau, sau đó cắt xong, cuối cùng cho vào nồi."]
       ]),
-      lesson("hsk3-3", "Phân công và xử lý", "Nói ai phụ trách, phát hiện gì và cần xử lý ra sao.", [
-        ["安排", "ānpái", "Sắp xếp / phân công", "经理安排我去车间。", "Quản lý sắp xếp tôi xuống xưởng."],
-        ["负责", "fùzé", "Phụ trách", "他负责仓库系统。", "Anh ấy phụ trách hệ thống kho."],
-        ["检查", "jiǎnchá", "Kiểm tra", "请检查这张单。", "Vui lòng kiểm tra phiếu này."],
-        ["发现", "fāxiàn", "Phát hiện", "我发现数量不对。", "Tôi phát hiện số lượng không đúng."],
+      lesson("hsk3-3", "Sắp xếp và giải quyết", "Nói cách sắp xếp việc thường ngày và giải quyết một vấn đề.", [
+        ["安排", "ānpái", "Sắp xếp", "我安排好了周末的旅行。", "Tôi đã sắp xếp xong chuyến đi cuối tuần."],
+        ["负责", "fùzé", "Phụ trách", "她负责这次班级活动。", "Cô ấy phụ trách hoạt động của lớp lần này."],
+        ["检查", "jiǎnchá", "Kiểm tra", "请检查你的作业。", "Hãy kiểm tra bài tập của bạn."],
+        ["发现", "fāxiàn", "Phát hiện", "我发现书包不见了。", "Tôi phát hiện cặp sách bị mất."],
         ["解决", "jiějué", "Giải quyết", "这个问题已经解决了。", "Vấn đề này đã được giải quyết."],
-        ["需要", "xūyào", "Cần", "这个工单需要补料。", "Công lệnh này cần bổ vật liệu."]
+        ["需要", "xūyào", "Cần", "我需要老师的帮助。", "Tôi cần sự giúp đỡ của giáo viên."]
       ], [
-        ["负责 + danh từ/động từ", "Nói phạm vi trách nhiệm.", "我负责检查系统数据。", "Tôi phụ trách kiểm tra dữ liệu hệ thống."],
+        ["负责 + danh từ/động từ", "Nói phạm vi trách nhiệm.", "我负责准备这次活动。", "Tôi phụ trách chuẩn bị hoạt động lần này."],
         ["需要 + động từ", "Nói hành động cần thực hiện.", "发现问题以后需要马上处理。", "Phát hiện vấn đề xong cần xử lý ngay."]
       ], [
         ["A", "谁负责检查这个问题？", "Ai phụ trách kiểm tra vấn đề này?"],
-        ["B", "经理安排我检查，我发现以后会马上解决。", "Quản lý phân công tôi kiểm tra, phát hiện xong tôi sẽ giải quyết ngay."]
+        ["B", "老师安排我检查，我发现问题以后会马上解决。", "Giáo viên sắp xếp tôi kiểm tra, phát hiện vấn đề xong tôi sẽ giải quyết ngay."]
       ]),
       lesson("hsk3-4", "Số lượng và kết quả", "Báo cáo con số, mức tăng giảm và kết quả ước lượng.", [
-        ["数量", "shùliàng", "Số lượng", "请确认实际数量。", "Vui lòng xác nhận số lượng thực tế."],
-        ["结果", "jiéguǒ", "Kết quả", "检查结果没有问题。", "Kết quả kiểm tra không có vấn đề."],
-        ["增加", "zēngjiā", "Tăng lên", "订单数量增加了。", "Số lượng đơn hàng đã tăng."],
-        ["减少", "jiǎnshǎo", "Giảm xuống", "错误已经减少了。", "Lỗi đã giảm xuống."],
-        ["大概", "dàgài", "Khoảng / đại khái", "大概有一百件。", "Khoảng một trăm chiếc."],
+        ["数量", "shùliàng", "Số lượng", "参加活动的人数很多。", "Số người tham gia hoạt động rất nhiều."],
+        ["结果", "jiéguǒ", "Kết quả", "考试结果很不错。", "Kết quả thi khá tốt."],
+        ["增加", "zēngjiā", "Tăng lên", "学习的人数增加了。", "Số người học đã tăng."],
+        ["减少", "jiǎnshǎo", "Giảm xuống", "每天运动可以减少压力。", "Vận động mỗi ngày có thể giảm áp lực."],
+        ["大概", "dàgài", "Khoảng / đại khái", "教室里大概有三十个人。", "Trong lớp có khoảng ba mươi người."],
         ["左右", "zuǒyòu", "Khoảng", "需要两个小时左右。", "Cần khoảng hai giờ."]
       ], [
-        ["Số + 左右", "Nói con số xấp xỉ.", "库存有五百个左右。", "Tồn kho có khoảng năm trăm cái."],
-        ["增加/减少 + 了", "Mô tả sự thay đổi đã xảy ra.", "实际数量减少了十个。", "Số lượng thực tế giảm mười cái."]
+        ["Số + 左右", "Nói con số xấp xỉ.", "教室里有三十个人左右。", "Trong lớp có khoảng ba mươi người."],
+        ["增加/减少 + 了", "Mô tả sự thay đổi đã xảy ra.", "参加的人数增加了十个。", "Số người tham gia tăng thêm mười người."]
       ], [
-        ["A", "检查结果怎么样？", "Kết quả kiểm tra thế nào?"],
-        ["B", "实际数量大概少了二十个左右。", "Số lượng thực tế thiếu khoảng hai mươi cái."]
+        ["A", "这次活动有多少人参加？", "Hoạt động lần này có bao nhiêu người tham gia?"],
+        ["B", "大概有五十个人左右，比上次增加了十个。", "Khoảng năm mươi người, tăng mười người so với lần trước."]
       ]),
       lesson("hsk3-5", "Trao đổi ý kiến", "Đồng ý, đưa đề xuất, giải thích và thông báo cho người khác.", [
         ["同意", "tóngyì", "Đồng ý", "我同意这个方案。", "Tôi đồng ý phương án này."],
         ["认为", "rènwéi", "Cho rằng", "我认为需要再检查。", "Tôi cho rằng cần kiểm tra lại."],
-        ["建议", "jiànyì", "Đề nghị / kiến nghị", "我建议先备份数据。", "Tôi đề nghị sao lưu dữ liệu trước."],
+        ["建议", "jiànyì", "Đề nghị / kiến nghị", "我建议每天读一篇文章。", "Tôi đề nghị mỗi ngày đọc một bài."],
         ["解释", "jiěshì", "Giải thích", "请解释一下原因。", "Vui lòng giải thích nguyên nhân."],
-        ["联系", "liánxì", "Liên hệ", "我会联系仓库负责人。", "Tôi sẽ liên hệ người phụ trách kho."],
+        ["联系", "liánxì", "Liên hệ", "到了北京以后请联系我。", "Sau khi đến Bắc Kinh hãy liên hệ tôi."],
         ["通知", "tōngzhī", "Thông báo", "处理完以后通知我。", "Xử lý xong hãy thông báo cho tôi."]
       ], [
         ["我认为 / 我建议……", "Nêu quan điểm hoặc đề xuất lịch sự.", "我建议今天完成。", "Tôi đề nghị hoàn thành hôm nay."],
-        ["……以后通知……", "Yêu cầu báo lại sau khi hoàn thành.", "确认以后通知车间。", "Xác nhận xong thông báo cho xưởng."]
+        ["……以后通知……", "Yêu cầu báo lại sau khi hoàn thành.", "决定以后通知大家。", "Quyết định xong hãy thông báo mọi người."]
       ], [
         ["A", "你认为应该怎么处理？", "Bạn cho rằng nên xử lý thế nào?"],
-        ["B", "我建议先联系仓库，解释清楚以后再通知车间。", "Tôi đề nghị liên hệ kho trước, giải thích rõ rồi thông báo cho xưởng."]
+        ["B", "我建议先联系老师，解释清楚以后再通知大家。", "Tôi đề nghị liên hệ giáo viên trước, giải thích rõ rồi thông báo mọi người."]
       ]),
-      lesson("hsk3-6", "Chất lượng và yêu cầu", "Mô tả chất lượng, mức đạt và yêu cầu làm việc cẩn thận.", [
-        ["质量", "zhìliàng", "Chất lượng", "这批产品质量很好。", "Chất lượng lô sản phẩm này rất tốt."],
-        ["合格", "hégé", "Đạt tiêu chuẩn", "检查以后产品合格。", "Sau kiểm tra sản phẩm đạt."],
-        ["重要", "zhòngyào", "Quan trọng", "数据准确很重要。", "Dữ liệu chính xác rất quan trọng."],
+      lesson("hsk3-6", "Thái độ và yêu cầu", "Nói về chất lượng, kết quả đạt yêu cầu và thái độ học tập.", [
+        ["质量", "zhìliàng", "Chất lượng", "这本书的质量很好。", "Chất lượng quyển sách này rất tốt."],
+        ["合格", "hégé", "Đạt tiêu chuẩn", "他的考试成绩合格了。", "Kết quả thi của anh ấy đã đạt."],
+        ["重要", "zhòngyào", "Quan trọng", "每天复习很重要。", "Ôn tập mỗi ngày rất quan trọng."],
         ["清楚", "qīngchu", "Rõ ràng", "请写清楚问题原因。", "Hãy viết rõ nguyên nhân vấn đề."],
-        ["注意", "zhùyì", "Chú ý", "操作时要注意数量。", "Khi thao tác cần chú ý số lượng."],
-        ["认真", "rènzhēn", "Nghiêm túc / kỹ", "他工作很认真。", "Anh ấy làm việc rất nghiêm túc."]
+        ["注意", "zhùyì", "Chú ý", "写字时要注意笔顺。", "Khi viết chữ cần chú ý thứ tự nét."],
+        ["认真", "rènzhēn", "Nghiêm túc / kỹ", "他学习很认真。", "Anh ấy học rất nghiêm túc."]
       ], [
-        ["要注意……", "Nhắc điều cần chú ý.", "保存前要注意检查。", "Trước khi lưu cần chú ý kiểm tra."],
+        ["要注意……", "Nhắc điều cần chú ý.", "考试时要注意看清题目。", "Khi thi cần chú ý đọc rõ đề."],
         ["Động từ + 清楚", "Thực hiện đến mức rõ ràng.", "请把要求说清楚。", "Hãy nói rõ yêu cầu."]
       ], [
-        ["A", "这批产品合格吗？", "Lô sản phẩm này đạt không?"],
-        ["B", "质量基本合格，但是有两个问题需要认真检查。", "Chất lượng cơ bản đạt, nhưng có hai vấn đề cần kiểm tra kỹ."]
+        ["A", "这次考试合格了吗？", "Kỳ thi lần này đạt chưa?"],
+        ["B", "基本合格，但是有两个问题需要认真检查。", "Cơ bản đã đạt, nhưng có hai vấn đề cần kiểm tra kỹ."]
       ]),
       lesson("hsk3-7", "Du lịch và sự cố", "Kể một chuyến đi, nói sự lo lắng và kết quả cuối cùng.", [
         ["旅行", "lǚxíng", "Du lịch", "我喜欢一个人旅行。", "Tôi thích đi du lịch một mình."],
@@ -361,91 +449,91 @@
         ["即使……也……", "Kết quả không đổi dù có điều kiện cản trở.", "即使没有时间，也要检查。", "Dù không có thời gian vẫn phải kiểm tra."]
       ], [
         ["A", "这个问题修改以后怎么样？", "Vấn đề này sau khi sửa thế nào?"],
-        ["B", "不仅没有解决，而且仍然影响生产。", "Không những chưa giải quyết mà vẫn còn ảnh hưởng sản xuất."]
+        ["B", "不仅没有解决，而且仍然影响我们的学习。", "Không những chưa giải quyết mà vẫn còn ảnh hưởng việc học của chúng ta."]
       ]),
-      lesson("hsk4-2", "Kế hoạch và quản lý tiến độ", "Báo cáo nhiệm vụ, trách nhiệm và hiệu suất công việc.", [
-        ["计划", "jìhuà", "Kế hoạch", "我们需要调整生产计划。", "Chúng ta cần điều chỉnh kế hoạch sản xuất."],
-        ["进度", "jìndù", "Tiến độ", "目前进度有点慢。", "Tiến độ hiện tại hơi chậm."],
+      lesson("hsk4-2", "Kế hoạch và mục tiêu", "Trình bày kế hoạch học tập, trách nhiệm và tiến độ đạt mục tiêu.", [
+        ["计划", "jìhuà", "Kế hoạch", "我需要调整学习计划。", "Tôi cần điều chỉnh kế hoạch học tập."],
+        ["进度", "jìndù", "Tiến độ", "目前复习进度有点慢。", "Tiến độ ôn tập hiện tại hơi chậm."],
         ["责任", "zérèn", "Trách nhiệm", "这是我的责任。", "Đây là trách nhiệm của tôi."],
-        ["任务", "rènwu", "Nhiệm vụ", "今天的任务已经完成。", "Nhiệm vụ hôm nay đã hoàn thành."],
-        ["经验", "jīngyàn", "Kinh nghiệm", "他有丰富的管理经验。", "Anh ấy có kinh nghiệm quản lý phong phú."],
-        ["效率", "xiàolǜ", "Hiệu suất", "新系统提高了工作效率。", "Hệ thống mới nâng cao hiệu suất làm việc."]
+        ["任务", "rènwu", "Nhiệm vụ", "今天的学习任务已经完成。", "Nhiệm vụ học hôm nay đã hoàn thành."],
+        ["经验", "jīngyàn", "Kinh nghiệm", "他有丰富的学习经验。", "Anh ấy có kinh nghiệm học tập phong phú."],
+        ["效率", "xiàolǜ", "Hiệu suất", "这个方法提高了学习效率。", "Phương pháp này nâng cao hiệu suất học tập."]
       ], [
         ["按照 + kế hoạch/quy định", "Làm theo căn cứ đã định.", "请按照计划完成任务。", "Hãy hoàn thành nhiệm vụ theo kế hoạch."],
         ["提高 + danh từ", "Nâng cao một chỉ tiêu.", "这个方法能提高效率。", "Cách này có thể nâng cao hiệu suất."]
       ], [
-        ["A", "目前生产进度怎么样？", "Tiến độ sản xuất hiện tại thế nào?"],
+        ["A", "目前复习进度怎么样？", "Tiến độ ôn tập hiện tại thế nào?"],
         ["B", "任务完成了百分之八十，效率比以前高。", "Nhiệm vụ đã hoàn thành tám mươi phần trăm, hiệu suất cao hơn trước."]
       ]),
       lesson("hsk4-3", "Phân tích vấn đề", "Trình bày nguyên nhân, ảnh hưởng và phương án phòng tránh.", [
-        ["原因", "yuányīn", "Nguyên nhân", "我们正在调查错误原因。", "Chúng tôi đang điều tra nguyên nhân lỗi."],
-        ["影响", "yǐngxiǎng", "Ảnh hưởng", "这个问题会影响生产。", "Vấn đề này sẽ ảnh hưởng sản xuất."],
-        ["处理", "chǔlǐ", "Xử lý", "异常数据已经处理了。", "Dữ liệu bất thường đã được xử lý."],
+        ["原因", "yuányīn", "Nguyên nhân", "我们正在了解事情的原因。", "Chúng tôi đang tìm hiểu nguyên nhân sự việc."],
+        ["影响", "yǐngxiǎng", "Ảnh hưởng", "睡眠不足会影响学习。", "Thiếu ngủ sẽ ảnh hưởng việc học."],
+        ["处理", "chǔlǐ", "Xử lý", "这件事情已经处理好了。", "Việc này đã được xử lý xong."],
         ["情况", "qíngkuàng", "Tình hình / trường hợp", "请说明实际情况。", "Vui lòng nói rõ tình hình thực tế."],
-        ["发生", "fāshēng", "Xảy ra", "昨天发生了系统错误。", "Hôm qua xảy ra lỗi hệ thống."],
+        ["发生", "fāshēng", "Xảy ra", "昨天发生了一件有趣的事。", "Hôm qua xảy ra một chuyện thú vị."],
         ["避免", "bìmiǎn", "Tránh", "要避免同样的问题再次发生。", "Cần tránh vấn đề tương tự xảy ra lần nữa."]
       ], [
-        ["为了避免……", "Nêu mục đích phòng tránh.", "为了避免错误，保存前要检查。", "Để tránh lỗi, trước khi lưu phải kiểm tra."],
-        ["对……有影响", "Nói ảnh hưởng lên đối tượng.", "停机会对进度有影响。", "Dừng máy sẽ ảnh hưởng đến tiến độ."]
+        ["为了避免……", "Nêu mục đích phòng tránh.", "为了避免迟到，我每天早起。", "Để tránh đến muộn, tôi dậy sớm mỗi ngày."],
+        ["对……有影响", "Nói ảnh hưởng lên đối tượng.", "睡眠对学习有很大影响。", "Giấc ngủ ảnh hưởng lớn đến việc học."]
       ], [
-        ["A", "这个异常是什么原因？", "Bất thường này do nguyên nhân gì?"],
-        ["B", "操作错误影响了库存，我们正在处理，避免再次发生。", "Lỗi thao tác ảnh hưởng tồn kho, chúng tôi đang xử lý để tránh xảy ra lần nữa."]
+        ["A", "你最近为什么总是迟到？", "Gần đây tại sao bạn luôn đến muộn?"],
+        ["B", "主要原因是睡得太晚，我正在调整，避免再次发生。", "Nguyên nhân chính là ngủ quá muộn, tôi đang điều chỉnh để tránh xảy ra lần nữa."]
       ]),
-      lesson("hsk4-4", "Báo cáo và dữ liệu", "Đọc dữ liệu, phân tích và trình bày kết luận có căn cứ.", [
-        ["报告", "bàogào", "Báo cáo", "我正在写库存报告。", "Tôi đang viết báo cáo tồn kho."],
-        ["数据", "shùjù", "Dữ liệu", "系统数据和实际不一样。", "Dữ liệu hệ thống khác thực tế."],
-        ["分析", "fēnxī", "Phân tích", "需要分析差异原因。", "Cần phân tích nguyên nhân chênh lệch."],
+      lesson("hsk4-4", "Thông tin và phân tích", "Đọc thông tin, phân tích số liệu và trình bày kết luận có căn cứ.", [
+        ["报告", "bàogào", "Báo cáo", "我正在写一份调查报告。", "Tôi đang viết một báo cáo khảo sát."],
+        ["数据", "shùjù", "Dữ liệu", "这些学习数据很有用。", "Những dữ liệu học tập này rất hữu ích."],
+        ["分析", "fēnxī", "Phân tích", "我们需要分析考试结果。", "Chúng ta cần phân tích kết quả thi."],
         ["说明", "shuōmíng", "Giải thích / thuyết minh", "请说明数据来源。", "Vui lòng nói rõ nguồn dữ liệu."],
-        ["总结", "zǒngjié", "Tổng kết", "会议结束后要做总结。", "Sau cuộc họp cần làm tổng kết."],
+        ["总结", "zǒngjié", "Tổng kết", "课程结束后要做总结。", "Sau khi khóa học kết thúc cần làm tổng kết."],
         ["证明", "zhèngmíng", "Chứng minh", "这些数据证明方法有效。", "Những dữ liệu này chứng minh cách làm hiệu quả."]
       ], [
-        ["根据 + căn cứ", "Nêu nguồn làm căn cứ.", "根据报告，库存没有问题。", "Theo báo cáo, tồn kho không có vấn đề."],
-        ["数据表明/证明……", "Dùng dữ liệu để đưa ra kết luận.", "数据表明效率提高了。", "Dữ liệu cho thấy hiệu suất đã tăng."]
+        ["根据 + căn cứ", "Nêu nguồn làm căn cứ.", "根据报告，学生的成绩提高了。", "Theo báo cáo, thành tích của học sinh đã tăng."],
+        ["数据表明/证明……", "Dùng dữ liệu để đưa ra kết luận.", "数据表明这个方法有效。", "Dữ liệu cho thấy phương pháp này hiệu quả."]
       ], [
         ["A", "报告分析出什么结果？", "Báo cáo phân tích ra kết quả gì?"],
-        ["B", "数据证明差异来自操作问题，我会在总结里说明。", "Dữ liệu chứng minh chênh lệch do thao tác, tôi sẽ giải thích trong phần tổng kết."]
+        ["B", "数据证明每天复习很有效，我会在总结里说明。", "Dữ liệu chứng minh ôn tập mỗi ngày rất hiệu quả, tôi sẽ giải thích trong phần tổng kết."]
       ]),
       lesson("hsk4-5", "Thảo luận và quyết định", "Trao đổi lựa chọn, điều kiện và phản hồi đồng ý hoặc từ chối.", [
         ["讨论", "tǎolùn", "Thảo luận", "我们需要讨论这个方案。", "Chúng ta cần thảo luận phương án này."],
         ["选择", "xuǎnzé", "Lựa chọn", "你可以选择两个方法。", "Bạn có thể chọn hai phương pháp."],
-        ["决定", "juédìng", "Quyết định", "经理决定明天开始。", "Quản lý quyết định ngày mai bắt đầu."],
-        ["接受", "jiēshòu", "Chấp nhận", "客户接受了新的日期。", "Khách hàng đã chấp nhận ngày mới."],
+        ["决定", "juédìng", "Quyết định", "我决定明天开始复习。", "Tôi quyết định ngày mai bắt đầu ôn tập."],
+        ["接受", "jiēshòu", "Chấp nhận", "父母接受了我的选择。", "Bố mẹ đã chấp nhận lựa chọn của tôi."],
         ["拒绝", "jùjué", "Từ chối", "他拒绝了这个要求。", "Anh ấy từ chối yêu cầu này."],
         ["条件", "tiáojiàn", "Điều kiện", "这个条件我们不能接受。", "Điều kiện này chúng tôi không thể chấp nhận."]
       ], [
-        ["在……条件下", "Nói trong điều kiện nào.", "在库存足够的条件下可以生产。", "Trong điều kiện đủ tồn kho có thể sản xuất."],
-        ["经过讨论，决定……", "Nêu quyết định sau thảo luận.", "经过讨论，我们决定调整计划。", "Sau thảo luận, chúng tôi quyết định điều chỉnh kế hoạch."]
+        ["在……条件下", "Nói trong điều kiện nào.", "在时间允许的条件下我会参加。", "Trong điều kiện thời gian cho phép tôi sẽ tham gia."],
+        ["经过讨论，决定……", "Nêu quyết định sau thảo luận.", "经过讨论，我们决定一起学习。", "Sau thảo luận, chúng tôi quyết định học cùng nhau."]
       ], [
-        ["A", "客户接受这个处理方案吗？", "Khách hàng chấp nhận phương án xử lý này không?"],
-        ["B", "经过讨论，他接受了大部分条件，但拒绝改日期。", "Sau thảo luận, họ chấp nhận phần lớn điều kiện nhưng từ chối đổi ngày."]
+        ["A", "大家接受这个学习计划吗？", "Mọi người có chấp nhận kế hoạch học này không?"],
+        ["B", "经过讨论，大家接受了大部分内容，但决定修改日期。", "Sau thảo luận, mọi người chấp nhận phần lớn nội dung nhưng quyết định sửa ngày."]
       ]),
       lesson("hsk4-6", "Thay đổi và cải tiến", "Đánh giá thành công, thất bại và điều chỉnh phương án cho phù hợp.", [
-        ["改变", "gǎibiàn", "Thay đổi", "新工作改变了我的生活。", "Công việc mới thay đổi cuộc sống của tôi."],
-        ["改进", "gǎijìn", "Cải tiến", "我们要改进操作流程。", "Chúng ta phải cải tiến quy trình thao tác."],
-        ["调整", "tiáozhěng", "Điều chỉnh", "请调整计划数量。", "Vui lòng điều chỉnh số lượng kế hoạch."],
-        ["适合", "shìhé", "Phù hợp", "这个方法更适合工厂。", "Phương pháp này phù hợp nhà máy hơn."],
-        ["成功", "chénggōng", "Thành công", "数据已经成功导入。", "Dữ liệu đã được nhập thành công."],
-        ["失败", "shībài", "Thất bại", "保存失败，请重新操作。", "Lưu thất bại, vui lòng thao tác lại."]
+        ["改变", "gǎibiàn", "Thay đổi", "学习汉语改变了我的生活。", "Học tiếng Trung thay đổi cuộc sống của tôi."],
+        ["改进", "gǎijìn", "Cải tiến", "我们要改进学习方法。", "Chúng ta phải cải tiến phương pháp học."],
+        ["调整", "tiáozhěng", "Điều chỉnh", "请调整复习计划。", "Hãy điều chỉnh kế hoạch ôn tập."],
+        ["适合", "shìhé", "Phù hợp", "这个方法更适合初学者。", "Phương pháp này phù hợp người mới học hơn."],
+        ["成功", "chénggōng", "Thành công", "她终于通过了考试。", "Cuối cùng cô ấy đã thi đỗ."],
+        ["失败", "shībài", "Thất bại", "失败以后不要放弃。", "Sau thất bại đừng bỏ cuộc."]
       ], [
-        ["适合 + đối tượng", "Nói mức phù hợp với ai/cái gì.", "这个流程不适合现在的生产。", "Quy trình này không phù hợp sản xuất hiện tại."],
-        ["通过……来改进……", "Nêu cách dùng để cải tiến.", "通过培训来改进操作。", "Thông qua đào tạo để cải tiến thao tác."]
+        ["适合 + đối tượng", "Nói mức phù hợp với ai/cái gì.", "这本书很适合初学者。", "Quyển sách này rất phù hợp người mới học."],
+        ["通过……来改进……", "Nêu cách dùng để cải thiện.", "通过练习来改进发音。", "Thông qua luyện tập để cải thiện phát âm."]
       ], [
-        ["A", "新流程运行得成功吗？", "Quy trình mới vận hành thành công không?"],
-        ["B", "第一次失败了，调整以后更适合现场，现在成功了。", "Lần đầu thất bại, sau điều chỉnh phù hợp hiện trường hơn, giờ đã thành công."]
+        ["A", "新的学习方法成功吗？", "Phương pháp học mới có thành công không?"],
+        ["B", "第一次失败了，调整以后更适合我，现在进步很快。", "Lần đầu thất bại, sau điều chỉnh phù hợp với tôi hơn, giờ tiến bộ rất nhanh."]
       ]),
-      lesson("hsk4-7", "Công nghệ và an toàn", "Thảo luận công nghệ, thông tin, môi trường và rủi ro an toàn.", [
-        ["网络", "wǎngluò", "Mạng", "今天公司的网络不稳定。", "Hôm nay mạng công ty không ổn định."],
-        ["技术", "jìshù", "Kỹ thuật / công nghệ", "这个技术可以提高效率。", "Công nghệ này có thể nâng cao hiệu suất."],
-        ["信息", "xìnxī", "Thông tin", "请保护客户信息。", "Vui lòng bảo vệ thông tin khách hàng."],
+      lesson("hsk4-7", "Công nghệ và môi trường", "Đọc về công nghệ, thông tin, môi trường và an toàn trong đời sống.", [
+        ["网络", "wǎngluò", "Mạng", "今天家里的网络不稳定。", "Hôm nay mạng ở nhà không ổn định."],
+        ["技术", "jìshù", "Kỹ thuật / công nghệ", "这个技术给生活带来方便。", "Công nghệ này mang lại thuận tiện cho cuộc sống."],
+        ["信息", "xìnxī", "Thông tin", "不要在网上公开个人信息。", "Đừng công khai thông tin cá nhân trên mạng."],
         ["发展", "fāzhǎn", "Phát triển", "人工智能发展得很快。", "Trí tuệ nhân tạo phát triển rất nhanh."],
-        ["环境", "huánjìng", "Môi trường", "工作环境越来越好。", "Môi trường làm việc ngày càng tốt."],
-        ["安全", "ānquán", "An toàn", "数据安全非常重要。", "An toàn dữ liệu rất quan trọng."]
+        ["环境", "huánjìng", "Môi trường", "我们应该保护自然环境。", "Chúng ta nên bảo vệ môi trường tự nhiên."],
+        ["安全", "ānquán", "An toàn", "网络安全非常重要。", "An toàn mạng rất quan trọng."]
       ], [
         ["越来越 + tính từ", "Mức độ tăng dần theo thời gian.", "网络速度越来越快。", "Tốc độ mạng ngày càng nhanh."],
         ["在……方面", "Khoanh phạm vi đang nói.", "在数据安全方面要更小心。", "Về mặt an toàn dữ liệu cần cẩn thận hơn."]
       ], [
-        ["A", "新技术对公司有什么影响？", "Công nghệ mới ảnh hưởng gì đến công ty?"],
-        ["B", "效率越来越高，但是在信息安全方面要特别注意。", "Hiệu suất ngày càng cao, nhưng về an toàn thông tin phải đặc biệt chú ý."]
+        ["A", "新技术对生活有什么影响？", "Công nghệ mới ảnh hưởng gì đến cuộc sống?"],
+        ["B", "生活越来越方便，但是在信息安全方面要特别注意。", "Cuộc sống ngày càng thuận tiện, nhưng về an toàn thông tin phải đặc biệt chú ý."]
       ]),
       lesson("hsk4-8", "Văn hóa và thích nghi", "Giao tiếp tôn trọng khác biệt và kể quá trình thích nghi môi trường mới.", [
         ["文化", "wénhuà", "Văn hóa", "我对中国文化很感兴趣。", "Tôi rất hứng thú với văn hóa Trung Quốc."],
@@ -453,29 +541,42 @@
         ["交流", "jiāoliú", "Giao tiếp / trao đổi", "多交流可以提高口语。", "Giao tiếp nhiều có thể nâng cao khẩu ngữ."],
         ["理解", "lǐjiě", "Hiểu / thông cảm", "谢谢你的理解。", "Cảm ơn sự thông cảm của bạn."],
         ["尊重", "zūnzhòng", "Tôn trọng", "我们应该尊重文化差异。", "Chúng ta nên tôn trọng khác biệt văn hóa."],
-        ["适应", "shìyìng", "Thích nghi", "我慢慢适应了新工作。", "Tôi dần thích nghi công việc mới."]
+        ["适应", "shìyìng", "Thích nghi", "我慢慢适应了新的生活。", "Tôi dần thích nghi cuộc sống mới."]
       ], [
-        ["对……感兴趣", "Nói hứng thú với điều gì.", "我对工厂管理很感兴趣。", "Tôi hứng thú với quản lý nhà máy."],
+        ["对……感兴趣", "Nói hứng thú với điều gì.", "我对中国历史很感兴趣。", "Tôi hứng thú với lịch sử Trung Quốc."],
         ["慢慢/逐渐 + động từ", "Quá trình thay đổi dần dần.", "我逐渐适应了这里的生活。", "Tôi dần thích nghi cuộc sống ở đây."]
       ], [
-        ["A", "你适应中国公司的工作方式了吗？", "Bạn đã thích nghi cách làm việc ở công ty Trung Quốc chưa?"],
-        ["B", "我还在学习。多交流、互相理解和尊重很重要。", "Tôi vẫn đang học. Giao tiếp nhiều, hiểu và tôn trọng lẫn nhau rất quan trọng."]
+        ["A", "你适应在中国的生活了吗？", "Bạn đã thích nghi cuộc sống ở Trung Quốc chưa?"],
+        ["B", "我还在学习。多交流、互相理解和尊重很重要。", "Tôi vẫn đang học. Trao đổi nhiều, hiểu và tôn trọng lẫn nhau rất quan trọng."]
       ])
     ]
   };
 
   var levelDescriptions = {
-    1: "Nền tảng giao tiếp",
-    2: "Sinh hoạt và công việc",
-    3: "Trình bày và xử lý",
-    4: "Trao đổi có chiều sâu"
+    0: "Pinyin & nét cơ bản",
+    1: "Từ và câu nền tảng",
+    2: "Sinh hoạt thường ngày",
+    3: "Đọc đoạn ngắn",
+    4: "Đọc hiểu nâng cao",
+    5: "Sắp mở",
+    6: "Sắp mở",
+    7: "Sắp mở",
+    8: "Sắp mở",
+    9: "Sắp mở"
   };
-  var progressKey = "erp-hsk-progress-v1";
-  var stateKey = "erp-hsk-state-v1";
-  var selectedLevel = 1;
+  levels[5] = [];
+  levels[6] = [];
+  levels[7] = [];
+  levels[8] = [];
+  levels[9] = [];
+  var progressKey = "erp-hsk-progress-v2";
+  var stateKey = "erp-hsk-state-v2";
+  var selectedLevel = 0;
   var selectedLesson = 0;
   var completed = {};
   var quiz = { lessonId: "", index: 0, score: 0, answered: false, selected: -1 };
+  var writingState = { lessonId: "", wordIndex: 0, charIndex: 0 };
+  var activeWriter = null;
 
   function byId(id) { return document.getElementById(id); }
   function escapeHtml(value) {
@@ -486,7 +587,7 @@
   function loadState() {
     try {
       var savedState = JSON.parse(localStorage.getItem(stateKey) || "{}");
-      if (savedState.level >= 1 && savedState.level <= 4) selectedLevel = savedState.level;
+      if (savedState.level >= 0 && savedState.level <= 4) selectedLevel = savedState.level;
       if (savedState.lesson >= 0 && savedState.lesson < levels[selectedLevel].length) selectedLesson = savedState.lesson;
     } catch (error) {}
     try { completed = JSON.parse(localStorage.getItem(progressKey) || "{}"); } catch (error) { completed = {}; }
@@ -530,6 +631,10 @@
   function resetQuiz() {
     quiz = { lessonId: currentLesson().id, index: 0, score: 0, answered: false, selected: -1 };
   }
+  function resetWriting() {
+    writingState = { lessonId: currentLesson().id, wordIndex: 0, charIndex: 0 };
+    activeWriter = null;
+  }
   function poolForLevel(level) {
     var pool = [];
     for (var i = 0; i < levels[level].length; i++) pool = pool.concat(levels[level][i].words);
@@ -551,19 +656,20 @@
   }
   function renderLevels() {
     var html = "";
-    for (var level = 1; level <= 4; level++) {
-      html += '<button class="hsk-level' + (selectedLevel === level ? " active" : "") + '" data-hsk-level="' + level + '"><strong>HSK ' + level + '</strong><small>' + levelCompleted(level) + "/" + levels[level].length + " bài · " + levelDescriptions[level] + "</small></button>";
+    for (var level = 0; level <= 9; level++) {
+      var locked = level >= 5;
+      html += '<button class="hsk-level' + (selectedLevel === level ? " active" : "") + (locked ? " locked" : "") + '" data-hsk-level="' + level + '"' + (locked ? " disabled" : "") + '><strong>' + (level === 0 ? "Nền tảng" : "HSK " + level) + '</strong><small>' + (locked ? "🔒 Sắp mở" : levelCompleted(level) + "/" + levels[level].length + " bài · " + levelDescriptions[level]) + "</small></button>";
     }
     byId("hskLevels").innerHTML = html;
   }
   function renderLessonList() {
     var done = levelCompleted(selectedLevel);
     var percent = Math.round(done * 100 / levels[selectedLevel].length);
-    byId("hskProgress").innerHTML = '<div class="hsk-progress"><strong>Tiến độ HSK ' + selectedLevel + '</strong><span>' + done + "/" + levels[selectedLevel].length + " bài đã hoàn thành</span><div class=\"hsk-progress-bar\"><i style=\"width:" + percent + '%\"></i></div></div>';
+    byId("hskProgress").innerHTML = '<div class="hsk-progress"><strong>Tiến độ ' + (selectedLevel === 0 ? "Nền tảng" : "HSK " + selectedLevel) + '</strong><span>' + done + "/" + levels[selectedLevel].length + " bài đã hoàn thành</span><div class=\"hsk-progress-bar\"><i style=\"width:" + percent + '%\"></i></div></div>';
     var html = "";
     for (var i = 0; i < levels[selectedLevel].length; i++) {
       var item = levels[selectedLevel][i];
-      html += '<button class="hsk-lesson-link' + (selectedLesson === i ? " active" : "") + (completed[item.id] ? " done" : "") + '" data-hsk-lesson="' + i + '"><span class="hsk-lesson-number">' + (completed[item.id] ? "✓" : (i + 1)) + "</span><span><strong>" + escapeHtml(item.title) + "</strong><small>6 từ · 2 mẫu câu</small></span>" + (completed[item.id] ? '<span class="hsk-check">✓</span>' : "") + "</button>";
+      html += '<button class="hsk-lesson-link' + (selectedLesson === i ? " active" : "") + (completed[item.id] ? " done" : "") + '" data-hsk-lesson="' + i + '"><span class="hsk-lesson-number">' + (completed[item.id] ? "✓" : (i + 1)) + "</span><span><strong>" + escapeHtml(item.title) + "</strong><small>" + (item.foundation ? item.items.length + " nội dung nền tảng" : "6 từ · viết · đọc · nghe") + "</small></span>" + (completed[item.id] ? '<span class="hsk-check">✓</span>' : "") + "</button>";
     }
     byId("hskLessonList").innerHTML = html;
   }
@@ -584,20 +690,85 @@
     }
     return html + "</div></div>";
   }
-  function renderDialogue(item) {
-    var joined = [];
-    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>3. Hội thoại mẫu</h4><button class="hsk-speak" data-hsk-dialogue="1">♪ Nghe cả đoạn</button></div><div class="hsk-dialogue">';
-    for (var i = 0; i < item.dialogue.length; i++) {
-      var line = item.dialogue[i];
-      var lineReading = reading(line[1], "");
-      joined.push(line[1]);
-      html += '<div class="hsk-dialogue-line"><em>NGƯỜI ' + escapeHtml(line[0]) + "</em><strong>" + escapeHtml(line[1]) + "</strong><b>" + escapeHtml(lineReading.pinyin) + "</b><i>Gần âm: " + escapeHtml(lineReading.nearVi) + "</i><span>" + escapeHtml(line[2]) + "</span></div>";
-    }
-    return html + '</div><span class="hidden" id="hskDialogueText">' + escapeHtml(joined.join("。")) + "</span></div>";
+  function practiceWords(item) { return item.practiceWords || item.words || []; }
+  function wordCharacters(word) {
+    var matches = String(word || "").match(/[\u3400-\u9fff]/g);
+    return matches || [];
   }
-  function renderQuiz(item) {
+  function renderWriting(item, sectionNumber) {
+    var words = practiceWords(item);
+    if (!words.length) return "";
+    if (writingState.lessonId !== item.id) resetWriting();
+    if (writingState.wordIndex >= words.length) writingState.wordIndex = 0;
+    var selected = words[writingState.wordIndex];
+    var characters = wordCharacters(selected[0]);
+    if (!characters.length) return "";
+    if (writingState.charIndex >= characters.length) writingState.charIndex = 0;
+    var currentCharacter = characters[writingState.charIndex];
+    var generated = reading(currentCharacter, "");
+    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Hán tự và thứ tự nét</h4><span>Xem từng nét rồi tự viết lại vào vở</span></div><div class="hsk-writing-layout"><div class="hsk-character-picker">';
+    for (var i = 0; i < words.length; i++) html += '<button class="' + (writingState.wordIndex === i ? "active" : "") + '" data-hsk-write-word="' + i + '">' + escapeHtml(words[i][0]) + "</button>";
+    html += '</div><div class="hsk-writing-card"><div class="hsk-teacher-line"><span class="hsk-teacher-avatar">师</span><p><strong>Cô giáo đang viết chữ ' + escapeHtml(currentCharacter) + '</strong><br>Từ <b>' + escapeHtml(selected[0]) + '</b> · chữ ' + (writingState.charIndex + 1) + "/" + characters.length + '. Nhìn hướng đi của từng nét rồi viết lại vào vở.</p></div><div class="hsk-copy-model"><strong>' + escapeHtml(currentCharacter) + '</strong><span>' + escapeHtml(generated.pinyin || selected[1]) + '</span><i>' + escapeHtml(selected[2]) + '</i></div><div class="hsk-stroke-stage" id="hskStrokeTarget" aria-label="Minh họa thứ tự nét chữ ' + escapeHtml(currentCharacter) + '"></div><div class="hsk-writing-tools"><button class="muted" data-hsk-action="write-prev">← Chữ trước</button><button class="accent" data-hsk-action="write-replay">▶ Viết mẫu / Replay</button><button class="muted" data-hsk-action="write-next">Chữ tiếp →</button><button class="hsk-speak" data-hsk-speak="' + escapeHtml(selected[0]) + '">♪ Nghe từ</button></div><p class="hsk-writing-status" id="hskWritingStatus">Đang tải dữ liệu nét chữ…</p></div></div></div>';
+    return html;
+  }
+  function readingPassage(item) {
+    var zh = [], vi = [];
+    for (var i = 0; i < item.dialogue.length; i++) { zh.push(item.dialogue[i][1]); vi.push(item.dialogue[i][2]); }
+    return { zh: zh.join(" "), vi: vi.join(" ") };
+  }
+  function renderReading(item, sectionNumber) {
+    var passage = readingPassage(item);
+    var passageReading = reading(passage.zh, "");
+    var otherLevel = levels[selectedLevel];
+    var options = [passage.vi];
+    for (var cursor = 1; options.length < 3 && cursor < otherLevel.length; cursor++) {
+      var candidate = readingPassage(otherLevel[(selectedLesson + cursor) % otherLevel.length]).vi;
+      if (options.indexOf(candidate) === -1) options.push(candidate);
+    }
+    var shift = (selectedLesson + selectedLevel) % options.length;
+    options = options.slice(shift).concat(options.slice(0, shift));
+    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Đọc hiểu</h4><span>Đọc chữ Hán trước, chỉ mở gợi ý khi thật sự cần</span></div><div class="hsk-reading-card"><div class="hsk-reading-text">' + escapeHtml(passage.zh) + '</div><div class="hsk-reading-help hidden" id="hskReadingHelp"><strong>' + escapeHtml(passageReading.pinyin) + '</strong><br><span>Gần âm: ' + escapeHtml(passageReading.nearVi) + '</span><br><span>' + escapeHtml(passage.vi) + '</span></div><div class="hsk-writing-tools" style="justify-content:flex-start"><button class="muted" data-hsk-action="reading-help">Hiện pinyin và nghĩa</button><button class="hsk-speak" data-hsk-reading-audio="' + escapeHtml(passage.zh) + '">♪ Nghe bài đọc</button></div><div class="hsk-reading-question"><strong>Nội dung nào đúng với bài đọc?</strong><div class="hsk-reading-options">';
+    for (var i = 0; i < options.length; i++) html += '<button data-hsk-reading-option="' + i + '" data-correct="' + (options[i] === passage.vi ? "1" : "0") + '">' + escapeHtml(options[i]) + "</button>";
+    return html + "</div></div></div></div>";
+  }
+  function renderDictation(item, sectionNumber) {
+    var word = item.words[(selectedLesson + selectedLevel) % item.words.length];
+    return '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Nghe chép chính tả</h4><span>Không nhìn câu mẫu, nghe rồi gõ lại chữ Hán</span></div><div class="hsk-dictation"><strong>Nghe câu và chép lại</strong><p>Có thể nghe lại nhiều lần. Dấu câu không ảnh hưởng kết quả.</p><div class="hsk-dictation-row"><button class="hsk-speak" data-hsk-dictation-audio="' + escapeHtml(word[3]) + '">♪ Phát câu nghe</button><input id="hskDictationInput" autocomplete="off" placeholder="Gõ câu tiếng Trung nghe được"><button class="accent" data-hsk-action="dictation-check" data-answer="' + escapeHtml(word[3]) + '">Kiểm tra</button></div><div class="hsk-dictation-feedback" id="hskDictationFeedback"></div></div></div>';
+  }
+  function renderFoundation(item) {
+    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>1. Nội dung nền tảng</h4><span>Nghe mẫu và đọc phần hướng dẫn khẩu hình</span></div><div class="hsk-foundation-grid">';
+    for (var i = 0; i < item.items.length; i++) html += '<article class="hsk-foundation-item"><strong>' + escapeHtml(item.items[i][0]) + '</strong><p>' + escapeHtml(item.items[i][1]) + '</p><button class="hsk-speak" data-hsk-speak="' + escapeHtml(item.items[i][2]) + '">♪ Nghe mẫu</button></article>';
+    html += "</div></div>";
+    if (item.practiceWords && item.practiceWords.length) html += renderWriting(item, 2);
+    html += '<div class="hsk-section hsk-foundation-note"><strong>Cách học bài này</strong><p>Nghe từng mẫu ít nhất ba lần, đọc theo chậm rồi bình thường. Với bài nét chữ, xem hoạt ảnh nhiều lần và tự viết lại vào vở ô vuông.</p></div>';
+    return html;
+  }
+  function loadCharacterData(character, onComplete, onError) {
+    if (root.HSK_HANZI_DATA && root.HSK_HANZI_DATA[character]) { onComplete(root.HSK_HANZI_DATA[character]); return; }
+    root.fetch("./hanzi-data/" + encodeURIComponent(character) + ".json").then(function (response) {
+      if (!response.ok) throw new Error("missing character data");
+      return response.json();
+    }).then(onComplete).catch(onError);
+  }
+  function setupWritingTrainer(item, autoPlay) {
+    var stage = byId("hskStrokeTarget");
+    if (!stage) return;
+    var words = practiceWords(item);
+    var selected = words[writingState.wordIndex] || words[0];
+    var characters = wordCharacters(selected && selected[0]);
+    var character = characters[writingState.charIndex] || characters[0];
+    var status = byId("hskWritingStatus");
+    if (!root.HanziWriter) { if (status) status.textContent = "Chưa tải được trình mô phỏng nét chữ. Hãy tải lại trang."; return; }
+    try {
+      activeWriter = root.HanziWriter.create("hskStrokeTarget", character, { width: 260, height: 260, padding: 12, showOutline: true, showCharacter: false, strokeAnimationSpeed: 0.75, delayBetweenStrokes: 280, charDataLoader: loadCharacterData });
+      activeWriter.showOutline({ duration: 0 });
+      if (status) status.textContent = "Bấm “Viết mẫu / Replay” để xem lại từ đầu.";
+      if (autoPlay) activeWriter.animateCharacter();
+    } catch (error) { if (status) status.textContent = "Chữ này chưa có dữ liệu hoạt ảnh. Bro chuyển sang chữ khác nhé."; }
+  }
+  function renderQuiz(item, sectionNumber) {
     if (quiz.lessonId !== item.id) resetQuiz();
-    var html = '<div class="hsk-section hsk-quiz"><div class="hsk-quiz-head"><h4>4. Kiểm tra cuối bài</h4><span class="step">CẦN ĐÚNG 4/5</span></div>';
+    var html = '<div class="hsk-section hsk-quiz"><div class="hsk-quiz-head"><h4>' + sectionNumber + '. Kiểm tra cuối bài</h4><span class="step">CẦN ĐÚNG 4/5</span></div>';
     if (quiz.index >= 5) {
       var passed = quiz.score >= 4;
       if (passed && !completed[item.id]) { completed[item.id] = true; saveState(); }
@@ -620,41 +791,43 @@
     }
     return html + "</div>";
   }
-  function renderLesson() {
+  function renderLesson(autoPlayWriting) {
     var item = currentLesson();
     var done = Boolean(completed[item.id]);
-    var html = '<div class="hsk-lesson-head"><div><span class="step">HSK ' + selectedLevel + " · BÀI " + (selectedLesson + 1) + " / " + levels[selectedLevel].length + "</span><h3>" + escapeHtml(item.title) + "</h3><p>" + escapeHtml(item.goal) + '</p></div><div class="hsk-actions"><button class="' + (done ? "hsk-speak" : "muted") + '" data-hsk-action="complete">' + (done ? "✓ Đã hoàn thành" : "Đánh dấu đã học") + '</button><button class="accent" data-hsk-action="next-lesson">Bài tiếp →</button></div></div>';
-    html += renderWords(item) + renderGrammar(item) + renderDialogue(item) + renderQuiz(item);
+    var levelLabel = selectedLevel === 0 ? "NỀN TẢNG" : "HSK " + selectedLevel;
+    var html = '<div class="hsk-lesson-head"><div><span class="step">' + levelLabel + " · BÀI " + (selectedLesson + 1) + " / " + levels[selectedLevel].length + "</span><h3>" + escapeHtml(item.title) + "</h3><p>" + escapeHtml(item.goal) + '</p></div><div class="hsk-actions"><button class="' + (done ? "hsk-speak" : "muted") + '" data-hsk-action="complete">' + (done ? "✓ Đã hoàn thành" : "Đánh dấu đã học") + '</button><button class="accent" data-hsk-action="next-lesson">Bài tiếp →</button></div></div>';
+    if (item.foundation) html += renderFoundation(item);
+    else html += renderWords(item) + renderWriting(item, 2) + renderGrammar(item).replace("<h4>2.", "<h4>3.") + renderReading(item, 4) + renderDictation(item, 5) + renderQuiz(item, 6);
     byId("hskLesson").innerHTML = html;
+    if (practiceWords(item).length) setupWritingTrainer(item, Boolean(autoPlayWriting));
   }
   function renderAll() {
     if (!byId("hskLevels") || !byId("hskLesson")) return;
     renderLevels();
     renderLessonList();
-    renderLesson();
+    renderLesson(true);
   }
   function moveNextLesson() {
     if (selectedLesson < levels[selectedLevel].length - 1) selectedLesson++;
     else if (selectedLevel < 4) { selectedLevel++; selectedLesson = 0; }
     resetQuiz();
+    resetWriting();
     saveState();
     renderAll();
     if (byId("hsk")) byId("hsk").scrollIntoView({ behavior: "smooth", block: "start" });
   }
   function openFromHash() {
     if (root.location.hash !== "#hsk") return;
-    var nav = document.querySelectorAll("[data-view]");
-    var views = ["cards", "hsk", "dialogue", "quiz", "glossary", "personal", "community"];
-    for (var i = 0; i < nav.length; i++) nav[i].className = nav[i].getAttribute("data-view") === "hsk" ? "active" : "";
-    for (var j = 0; j < views.length; j++) if (byId(views[j])) byId(views[j]).className = views[j] === "hsk" ? "panel" : "panel hidden";
+    if (root.ERPAreaNavigation && typeof root.ERPAreaNavigation.select === "function") root.ERPAreaNavigation.select("hsk");
   }
   function bindEvents() {
     byId("hskLevels").onclick = function (event) {
       var button = event.target.closest ? event.target.closest("[data-hsk-level]") : event.target;
-      if (!button || !button.getAttribute("data-hsk-level")) return;
+      if (!button || button.getAttribute("data-hsk-level") === null) return;
       selectedLevel = Number(button.getAttribute("data-hsk-level"));
       selectedLesson = 0;
       resetQuiz();
+      resetWriting();
       saveState();
       renderAll();
     };
@@ -663,6 +836,7 @@
       if (!button || button.getAttribute("data-hsk-lesson") === null) return;
       selectedLesson = Number(button.getAttribute("data-hsk-lesson"));
       resetQuiz();
+      resetWriting();
       saveState();
       renderAll();
     };
@@ -670,14 +844,27 @@
       var target = event.target.closest ? event.target.closest("button") : event.target;
       if (!target) return;
       if (target.getAttribute("data-hsk-speak")) { speak(target.getAttribute("data-hsk-speak")); return; }
-      if (target.getAttribute("data-hsk-dialogue")) { speak(byId("hskDialogueText").textContent, 0.66); return; }
+      if (target.getAttribute("data-hsk-reading-audio")) { speak(target.getAttribute("data-hsk-reading-audio"), 0.66); return; }
+      if (target.getAttribute("data-hsk-dictation-audio")) { speak(target.getAttribute("data-hsk-dictation-audio"), 0.66); return; }
+      if (target.getAttribute("data-hsk-write-word") !== null) {
+        writingState.wordIndex = Number(target.getAttribute("data-hsk-write-word")); writingState.charIndex = 0; renderLesson(true); return;
+      }
+      if (target.getAttribute("data-hsk-reading-option") !== null) {
+        var readingButtons = byId("hskLesson").querySelectorAll("[data-hsk-reading-option]");
+        for (var readingIndex = 0; readingIndex < readingButtons.length; readingIndex++) {
+          if (readingButtons[readingIndex].getAttribute("data-correct") === "1") readingButtons[readingIndex].className = "correct";
+          else if (readingButtons[readingIndex] === target) readingButtons[readingIndex].className = "wrong";
+          readingButtons[readingIndex].disabled = true;
+        }
+        return;
+      }
       if (target.getAttribute("data-hsk-option") !== null) {
         if (quiz.answered) return;
         var options = quizOptions(currentLesson().words[quiz.index], quiz.index);
         quiz.selected = Number(target.getAttribute("data-hsk-option"));
         quiz.answered = true;
         if (options[quiz.selected][2] === currentLesson().words[quiz.index][2]) quiz.score++;
-        renderLesson();
+        renderLesson(false);
         return;
       }
       var action = target.getAttribute("data-hsk-action");
@@ -686,12 +873,33 @@
         if (completed[id]) delete completed[id]; else completed[id] = true;
         saveState(); renderAll();
       } else if (action === "next-lesson") moveNextLesson();
-      else if (action === "quiz-next") { quiz.index++; quiz.answered = false; quiz.selected = -1; renderAll(); }
-      else if (action === "quiz-restart") { resetQuiz(); renderLesson(); }
+      else if (action === "quiz-next") { quiz.index++; quiz.answered = false; quiz.selected = -1; renderLesson(false); }
+      else if (action === "quiz-restart") { resetQuiz(); renderLesson(false); }
+      else if (action === "write-replay") { if (activeWriter) activeWriter.animateCharacter(); }
+      else if (action === "write-prev" || action === "write-next") {
+        var currentWords = practiceWords(currentLesson());
+        var currentCharacters = wordCharacters((currentWords[writingState.wordIndex] || currentWords[0])[0]);
+        if (action === "write-prev") {
+          if (writingState.charIndex > 0) writingState.charIndex--;
+          else { writingState.wordIndex = (writingState.wordIndex - 1 + currentWords.length) % currentWords.length; currentCharacters = wordCharacters(currentWords[writingState.wordIndex][0]); writingState.charIndex = currentCharacters.length - 1; }
+        } else {
+          if (writingState.charIndex < currentCharacters.length - 1) writingState.charIndex++;
+          else { writingState.wordIndex = (writingState.wordIndex + 1) % currentWords.length; writingState.charIndex = 0; }
+        }
+        renderLesson(true);
+      } else if (action === "reading-help") {
+        var help = byId("hskReadingHelp"); if (help) help.className = help.className.indexOf("hidden") === -1 ? "hsk-reading-help hidden" : "hsk-reading-help";
+      } else if (action === "dictation-check") {
+        var input = byId("hskDictationInput"), feedback = byId("hskDictationFeedback");
+        var normalize = function (value) { return String(value || "").replace(/[\s，。！？、,.!?]/g, ""); };
+        if (!input.value.trim()) feedback.textContent = "Bro nghe rồi nhập câu trước nhé.";
+        else if (normalize(input.value) === normalize(target.getAttribute("data-answer"))) feedback.textContent = "Chính xác. Nghe và viết đều ổn.";
+        else feedback.textContent = "Chưa khớp. Đáp án: " + target.getAttribute("data-answer");
+      }
     };
   }
 
-  root.HSKCurriculum = { levels: levels, lessonCount: 32, standard: "HSK 3.0 · 2026-07" };
+  root.HSKCurriculum = { levels: levels, lessonCount: 44, availableThrough: 4, displayedThrough: 9, standard: "HSK 3.0 · 2026-07" };
   loadState();
   resetQuiz();
   renderAll();
