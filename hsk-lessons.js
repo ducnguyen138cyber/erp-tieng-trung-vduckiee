@@ -877,7 +877,7 @@
     renderLessonList();
     renderLesson(true);
   }
-  function moveNextLesson() {
+  function moveNextLesson(scrollFromSectionEnd) {
     if (selectedLesson < levels[selectedLevel].length - 1) selectedLesson++;
     else if (selectedLevel < 4) { selectedLevel++; selectedLesson = 0; }
     resetQuiz();
@@ -885,7 +885,10 @@
     lessonSectionIndex = 0;
     saveState();
     renderAll();
-    if (byId("hsk")) byId("hsk").scrollIntoView({ behavior: "smooth", block: "start" });
+    if (scrollFromSectionEnd) root.setTimeout(function () {
+      var lesson = byId("hskLesson");
+      if (lesson) lesson.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
   }
   function openFromHash() {
     if (root.location.hash !== "#hsk") return;
@@ -950,7 +953,7 @@
         var id = currentLesson().id;
         if (completed[id]) delete completed[id]; else completed[id] = true;
         saveState(); renderAll();
-      } else if (action === "next-lesson") moveNextLesson();
+      } else if (action === "next-lesson") moveNextLesson(Boolean(target.closest && target.closest(".hsk-mobile-step-bottom")));
       else if (action === "quiz-next") { quiz.index++; quiz.answered = false; quiz.selected = -1; renderLesson(false); }
       else if (action === "quiz-restart") { resetQuiz(); renderLesson(false); }
       else if (action === "write-replay") {
