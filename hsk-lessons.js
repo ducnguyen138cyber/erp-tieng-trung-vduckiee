@@ -579,6 +579,7 @@
   var activeWriter = null;
   var writingAnimating = false;
   var writingPaused = false;
+  var lessonSectionIndex = 0;
 
   function byId(id) { return document.getElementById(id); }
   function escapeHtml(value) {
@@ -810,6 +811,55 @@
     }
     return html + "</div>";
   }
+  function lessonSections() {
+    var lesson = byId("hskLesson"), sections = [];
+    if (!lesson) return sections;
+    for (var child = lesson.firstElementChild; child; child = child.nextElementSibling) {
+      if (child.classList && child.classList.contains("hsk-section")) sections.push(child);
+    }
+    return sections;
+  }
+  function lessonSectionTitle(section, fallback) {
+    var heading = section.querySelector(".hsk-section-title h4") || section.querySelector(".hsk-quiz-head h4") || section.querySelector("strong");
+    return heading ? heading.textContent.replace(/^\s*\d+\.\s*/, "").trim() : fallback;
+  }
+  function setupLessonSections() {
+    var lesson = byId("hskLesson"), oldStepper = byId("hskMobileStepper");
+    if (!lesson) return;
+    if (oldStepper && oldStepper.parentNode) oldStepper.parentNode.removeChild(oldStepper);
+    var oldBottom = lesson.querySelectorAll(".hsk-mobile-step-bottom");
+    for (var oldIndex = 0; oldIndex < oldBottom.length; oldIndex++) oldBottom[oldIndex].parentNode.removeChild(oldBottom[oldIndex]);
+    var sections = lessonSections();
+    if (!sections.length) return;
+    if (lessonSectionIndex < 0) lessonSectionIndex = 0;
+    if (lessonSectionIndex >= sections.length) lessonSectionIndex = sections.length - 1;
+    var titles = [];
+    for (var i = 0; i < sections.length; i++) {
+      titles.push(lessonSectionTitle(sections[i], "Nội dung " + (i + 1)));
+      sections[i].classList.toggle("mobile-active", i === lessonSectionIndex);
+    }
+    var current = lessonSectionIndex, percent = Math.round((current + 1) * 100 / sections.length);
+    var stepper = document.createElement("div");
+    stepper.className = "hsk-mobile-stepper";
+    stepper.id = "hskMobileStepper";
+    stepper.innerHTML = '<div class="hsk-mobile-step-meta"><strong>Phần ' + (current + 1) + "/" + sections.length + '</strong><span>' + escapeHtml(titles[current]) + '</span></div><div class="hsk-mobile-step-track"><i style="width:' + percent + '%"></i></div>';
+    lesson.insertBefore(stepper, sections[0]);
+    var isLast = current === sections.length - 1;
+    var nextAction = isLast ? (completed[currentLesson().id] ? "next-lesson" : "section-complete") : "section-next";
+    var nextLabel = isLast ? (completed[currentLesson().id] ? "Bài kế tiếp →" : "✓ Đánh dấu hoàn thành") : "Tiếp: " + titles[current + 1] + " →";
+    var bottom = document.createElement("div");
+    bottom.className = "hsk-mobile-step-bottom";
+    bottom.innerHTML = '<button data-hsk-action="section-prev"' + (current === 0 ? " disabled" : "") + '>← Phần trước</button><button data-hsk-action="' + nextAction + '">' + escapeHtml(nextLabel) + "</button>";
+    sections[current].appendChild(bottom);
+  }
+  function moveLessonSection(direction) {
+    var sections = lessonSections();
+    if (!sections.length) return;
+    lessonSectionIndex = Math.max(0, Math.min(sections.length - 1, lessonSectionIndex + direction));
+    setupLessonSections();
+    var stepper = byId("hskMobileStepper");
+    if (stepper) stepper.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
   function renderLesson(autoPlayWriting) {
     var item = currentLesson();
     var done = Boolean(completed[item.id]);
@@ -818,6 +868,7 @@
     if (item.foundation) html += renderFoundation(item);
     else html += renderWords(item) + renderWriting(item, 2) + renderGrammar(item).replace("<h4>2.", "<h4>3.") + renderReading(item, 4) + renderDictation(item, 5) + renderQuiz(item, 6);
     byId("hskLesson").innerHTML = html;
+    setupLessonSections();
     if (practiceWords(item).length) setupWritingTrainer(item, Boolean(autoPlayWriting));
   }
   function renderAll() {
@@ -831,6 +882,7 @@
     else if (selectedLevel < 4) { selectedLevel++; selectedLesson = 0; }
     resetQuiz();
     resetWriting();
+    lessonSectionIndex = 0;
     saveState();
     renderAll();
     if (byId("hsk")) byId("hsk").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -847,6 +899,7 @@
       selectedLesson = 0;
       resetQuiz();
       resetWriting();
+      lessonSectionIndex = 0;
       saveState();
       renderAll();
     };
@@ -856,6 +909,7 @@
       selectedLesson = Number(button.getAttribute("data-hsk-lesson"));
       resetQuiz();
       resetWriting();
+      lessonSectionIndex = 0;
       saveState();
       renderAll();
     };
@@ -887,7 +941,12 @@
         return;
       }
       var action = target.getAttribute("data-hsk-action");
-      if (action === "complete") {
+      if (action === "section-prev") moveLessonSection(-1);
+      else if (action === "section-next") moveLessonSection(1);
+      else if (action === "section-complete") {
+        completed[currentLesson().id] = true;
+        saveState(); renderAll();
+      } else if (action === "complete") {
         var id = currentLesson().id;
         if (completed[id]) delete completed[id]; else completed[id] = true;
         saveState(); renderAll();
