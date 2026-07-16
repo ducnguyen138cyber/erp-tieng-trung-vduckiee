@@ -570,6 +570,7 @@
 
   function startSpeechAssessment() {
     byId("dialogueHint").className = "dialogue-hint";
+    var assessButton = byId("assessSpeech");
     var Recognition = root.SpeechRecognition || root.webkitSpeechRecognition;
     if (!Recognition) {
       var feedback = byId("pronunciationFeedback");
@@ -583,9 +584,15 @@
     recognition.maxAlternatives = 1;
     byId("pronunciationFeedback").className = "dialogue-feedback";
     byId("pronunciationFeedback").textContent = "Đang nghe… Đọc câu mẫu bằng tiếng Trung.";
+    assessButton.disabled = true;
+    assessButton.textContent = "🎙 Đang nghe…";
     var pendingRoast = "";
     var roastSpoken = false;
     var mobileFallbackTimer = null;
+    function resetAssessmentButton() {
+      assessButton.disabled = false;
+      assessButton.textContent = "🎙 Đọc và chấm";
+    }
     function speakAfterMicrophoneCloses() {
       if (roastSpoken || !pendingRoast) return;
       roastSpoken = true;
@@ -599,9 +606,13 @@
       setReading(transcript, "dialogueAnswerPinyin", "dialogueAnswerNear");
       mobileFallbackTimer = root.setTimeout(speakAfterMicrophoneCloses, 1600);
     };
-    recognition.onend = speakAfterMicrophoneCloses;
+    recognition.onend = function () {
+      resetAssessmentButton();
+      speakAfterMicrophoneCloses();
+    };
     recognition.onerror = function (event) {
       if (mobileFallbackTimer) root.clearTimeout(mobileFallbackTimer);
+      resetAssessmentButton();
       byId("pronunciationFeedback").className = "dialogue-feedback bad";
       byId("pronunciationFeedback").textContent = event.error === "not-allowed" ? "Bạn chưa cấp quyền microphone." : "Không nhận được giọng nói. Kiểm tra microphone và thử lại.";
     };
