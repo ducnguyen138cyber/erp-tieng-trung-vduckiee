@@ -1,0 +1,85 @@
+name: Build verified Adam clips
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-adam-clips.yml'
+      - 'assets/adam/*.b64'
+
+permissions:
+  contents: write
+
+jobs:
+  build-clips:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Decode source audio and cut 60 verified clips
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/adam-source assets/adam-clips
+          for level in good medium bad; do
+            cat assets/adam/${level}.part1.b64 assets/adam/${level}.part2.b64 assets/adam/${level}.part3.b64 assets/adam/${level}.part4.b64 \
+              | tr -d '\r\n ' | base64 --decode > /tmp/adam-source/${level}.mp3
+          done
+
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+
+          clips = {
+              'good': {
+                  'starts': [0.05, 6.738254, 10.853549, 18.4006575, 25.18822, 31.0788325, 42.97144, 46.211451, 49.9547055, 57.4843425, 63.325295, 74.318322, 80.6688435, 86.732925, 92.4571085, 97.222415, 103.661077, 109.4592515, 113.0911905, 116.461644],
+                  'durations': [6.588254, 4.015295, 7.4471085, 6.6875625, 5.7906125, 11.7926075, 3.140011, 3.6432545, 7.429637, 5.7409525, 10.893027, 6.2505215, 5.9640815, 5.6241835, 4.6653065, 6.338662, 5.6981745, 3.531939, 3.2704535, 5.767481],
+              },
+              'medium': {
+                  'starts': [0.05, 5.015873, 10.178946, 20.6234355, 26.431576, 36.350839, 46.451247, 52.345873, 58.5091835, 61.725907, 64.821712, 68.9873925, 71.2972335, 76.430136, 82.774456, 88.7065415, 94.7060205, 100.763594, 107.4748185, 110.1979365],
+                  'durations': [4.865873, 5.063073, 10.3444895, 5.7081405, 9.819263, 10.000408, 5.794626, 6.0633105, 3.1167235, 2.995805, 4.0656805, 2.209841, 5.0329025, 6.24432, 5.8320855, 5.899479, 5.9575735, 6.6112245, 2.623118, 2.9145015],
+              },
+              'bad': {
+                  'starts': [0.05, 4.417245, 9.445907, 14.9719615, 27.24483, 33.974569, 39.0176075, 45.236939, 51.9667345, 58.6411, 64.1464965, 69.289966, 75.776077, 82.28754, 88.129966, 94.18517, 100.268197, 105.404331, 111.646043, 116.446871],
+                  'durations': [4.267245, 4.928662, 5.4260545, 12.1728685, 6.629739, 4.9430385, 6.1193315, 6.6297955, 6.5743655, 5.4053965, 5.0434695, 6.386111, 6.411463, 5.742426, 5.955204, 5.983027, 5.036134, 6.141712, 4.700828, 6.827192],
+              },
+          }
+
+          output_dir = Path('assets/adam-clips')
+          output_dir.mkdir(parents=True, exist_ok=True)
+
+          for level, data in clips.items():
+              source = f'/tmp/adam-source/{level}.mp3'
+              for number, (start, duration) in enumerate(zip(data['starts'], data['durations']), 1):
+                  output = output_dir / f'{level}-{number:02d}.mp3'
+                  command = [
+                      'ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
+                      '-ss', str(start), '-i', source, '-t', str(duration),
+                      '-ac', '1', '-ar', '22050', '-b:a', '64k', str(output),
+                  ]
+                  subprocess.run(command, check=True)
+
+          generated = sorted(output_dir.glob('*.mp3'))
+          if len(generated) != 60:
+              raise SystemExit(f'Expected 60 clips, generated {len(generated)}')
+          for clip in generated:
+              if clip.stat().st_size < 10000:
+                  raise SystemExit(f'Clip looks invalid: {clip} ({clip.stat().st_size} bytes)')
+          print('Generated and validated 60 Adam clips.')
+          PY
+
+      - name: Commit generated clips
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/adam-clips/*.mp3
+          if git diff --cached --quiet; then
+            echo 'No clip changes to commit.'
+            exit 0
+          fi
+          git commit -m 'Generate 60 verified Adam roast clips'
+          git push
