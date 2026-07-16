@@ -1,0 +1,231 @@
+name: Build verified Adam clips v69
+
+on:
+  push:
+    paths:
+      - .github/workflows/build-adam-clips-v69.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Rebuild the three source MP3 files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/adam-source assets/adam-clips
+          for level in good medium bad; do
+            cat assets/adam/${level}.part1.b64 assets/adam/${level}.part2.b64 assets/adam/${level}.part3.b64 assets/adam/${level}.part4.b64 \
+              | tr -d '\r\n ' | base64 -d > "/tmp/adam-source/${level}.mp3"
+          done
+
+      - name: Cut 60 independently playable clips
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+
+          clips = {
+            "good": {
+              "starts": [0.050,6.738254,10.853549,18.4006575,25.18822,31.0788325,42.97144,46.211451,49.9547055,57.4843425,63.325295,74.318322,80.6688435,86.732925,92.4571085,97.222415,103.661077,109.4592515,113.0911905,116.461644],
+              "lengths": [6.588254,4.015295,7.4471085,6.6875625,5.7906125,11.7926075,3.140011,3.6432545,7.429637,5.7409525,10.893027,6.2505215,5.9640815,5.6241835,4.6653065,6.338662,5.6981745,3.531939,3.2704535,5.767481]
+            },
+            "medium": {
+              "starts": [0.050,5.015873,10.178946,20.6234355,26.431576,36.350839,46.451247,52.345873,58.5091835,61.725907,64.821712,68.9873925,71.2972335,76.430136,82.774456,88.7065415,94.7060205,100.763594,107.4748185,110.1979365],
+              "lengths": [4.865873,5.063073,10.3444895,5.7081405,9.819263,10.000408,5.794626,6.0633105,3.1167235,2.995805,4.0656805,2.209841,5.0329025,6.24432,5.8320855,5.899479,5.9575735,6.6112245,2.623118,2.8645015]
+            },
+            "bad": {
+              "starts": [0.050,4.417007,9.446009,14.972109,27.244649,33.974603,39.017619,45.236621,51.966576,58.640544,64.14551,69.289501,75.775533,82.287528,88.129535,94.184535,100.267528,105.403526,111.64551,116.446531],
+              "lengths": [4.267007,4.929002,5.4261,12.17254,6.629954,4.943016,6.119002,6.629955,6.573968,5.404966,5.043991,6.386032,6.411995,5.742007,5.955,5.982993,5.035998,6.141984,4.701021,6.777532]
+            }
+          }
+
+          out = Path("assets/adam-clips")
+          out.mkdir(parents=True, exist_ok=True)
+          for level, data in clips.items():
+              source = Path(f"/tmp/adam-source/{level}.mp3")
+              for idx, (start, length) in enumerate(zip(data["starts"], data["lengths"]), 1):
+                  target = out / f"{level}-{idx:02d}.mp3"
+                  subprocess.run([
+                      "ffmpeg", "-hide_banner", "-loglevel", "error", "-y",
+                      "-ss", f"{start:.6f}", "-i", str(source), "-t", f"{length:.6f}",
+                      "-vn", "-ac", "1", "-ar", "22050", "-b:a", "64k", str(target)
+                  ], check=True)
+
+          files = sorted(out.glob("*.mp3"))
+          assert len(files) == 60, len(files)
+          assert all(p.stat().st_size > 12000 for p in files)
+          print("Built", len(files), "verified standalone clips")
+          PY
+
+      - name: Install standalone clip player and contextual grammar feedback
+        shell: bash
+        run: |
+          cat > assets/v62/standalone-clips-v69.js <<'JS'
+          (function(root){
+            "use strict";
+            if(!root.document||root.__v69StandaloneAdam)return;
+            root.__v69StandaloneAdam=true;
+
+            var NativeAudio=root.Audio;
+            var last={good:0,medium:0,bad:0};
+            var active=null;
+
+            function levelFromLongSource(src){
+              var length=String(src||"").length;
+              if(length<2550000)return "medium";
+              if(length<2670000)return "good";
+              return "bad";
+            }
+
+            function StandaloneAdamAudio(src){
+              var isOldAdam=typeof src==="string"&&src.indexOf("data:audio/mpeg;base64,")===0&&src.length>1000000;
+              if(!isOldAdam)return new NativeAudio(src);
+
+              var level=levelFromLongSource(src);
+              var selected=0;
+              var volume=1;
+              var inner=null;
+              var metadata=[];
+              var ended=[];
+
+              var proxy={};
+              Object.defineProperties(proxy,{
+                volume:{get:function(){return volume;},set:function(v){volume=Number(v)||0;if(inner)inner.volume=volume;}},
+                paused:{get:function(){return true;}},
+                currentTime:{get:function(){return selected;},set:function(v){var n=Number(v);selected=Number.isFinite(n)?Math.max(0,Math.min(19,Math.round(n))):0;}},
+                duration:{get:function(){return 0;}},
+                src:{get:function(){return src;}}
+              });
+              proxy.addEventListener=function(type,fn){
+                if(typeof fn!=="function")return;
+                if(type==="loadedmetadata")metadata.push(fn);
+                else if(type==="ended")ended.push(fn);
+              };
+              proxy.removeEventListener=function(){};
+              proxy.load=function(){
+                root.setTimeout(function(){
+                  var list=metadata.slice();metadata=[];
+                  for(var i=0;i<list.length;i++)try{list[i].call(proxy,{type:"loadedmetadata",target:proxy});}catch(e){}
+                },0);
+              };
+              proxy.pause=function(){if(inner){inner.pause();inner.currentTime=0;}};
+              proxy.play=function(){
+                var number=selected+1;
+                if(number===last[level])number=number%20+1;
+                last[level]=number;
+                if(active){try{active.pause();active.currentTime=0;}catch(e){}}
+                inner=new NativeAudio("./assets/adam-clips/"+level+"-"+(number<10?"0":"")+number+".mp3?v=69");
+                active=inner;
+                inner.volume=volume;
+                inner.addEventListener("ended",function(){
+                  for(var i=0;i<ended.length;i++)try{ended[i].call(proxy,{type:"ended",target:proxy});}catch(e){}
+                },{once:true});
+                return inner.play();
+              };
+              return proxy;
+            }
+
+            StandaloneAdamAudio.prototype=NativeAudio.prototype;
+            try{Object.setPrototypeOf(StandaloneAdamAudio,NativeAudio);}catch(e){}
+            root.Audio=StandaloneAdamAudio;
+
+            function normalized(value){return String(value||"").replace(/[\s，。！？、,.!?；;：:（）()【】\[\]"“”'‘’]/g,"");}
+            function grammarComment(actual,expected){
+              if(!actual)return {ok:false,text:"Xếp câu trước đã bro, để trống thì ngữ pháp cũng chịu thua."};
+              if(actual===expected)return {ok:true,text:"Đúng trật tự. Câu này qua, không cần cà khịa thêm cho loãng bài."};
+              if(/[的得地]/.test(expected))return {ok:false,text:"Sai vị trí 的 / 得 / 地. Nhìn lại thành phần đứng trước và sau nó, đừng đổi ba chữ này như thay avatar."};
+              if(/[不没也都很再又就才只已经正在]/.test(expected))return {ok:false,text:"Phó từ đang đứng sai chỗ. Thường đặt nó sau chủ ngữ và trước động từ hoặc tính từ chính."};
+              if(/[把被给让叫]/.test(expected))return {ok:false,text:"Cấu trúc đặc biệt bị đảo vị trí. Xác định chủ thể, đối tượng rồi mới đặt 把 / 被 cho đúng."};
+              if(/[了过着]/.test(expected))return {ok:false,text:"Trợ từ đang đặt sai vị trí. Kiểm tra nó bổ nghĩa cho động từ hay đứng cuối câu."};
+              return {ok:false,text:"Sai trật tự câu. Soát lại theo khung: chủ ngữ → thời gian → nơi chốn → phó từ → động từ → tân ngữ."};
+            }
+
+            function installGrammarGuard(rootNode){
+              var traps=(rootNode||document).querySelectorAll? (rootNode||document).querySelectorAll("[data-v62-grammar-trap]") : [];
+              for(var i=0;i<traps.length;i++){
+                var trap=traps[i];
+                if(trap.__v69GrammarGuard)continue;
+                trap.__v69GrammarGuard=true;
+                trap.addEventListener("click",function(event){
+                  var button=event.target&&event.target.closest?event.target.closest("button"):null;
+                  if(!button)return;
+                  var label=String(button.textContent||"").toLowerCase();
+                  if(label.indexOf("chấm")<0&&label.indexOf("kiểm tra")<0)return;
+                  event.preventDefault();event.stopPropagation();event.stopImmediatePropagation();
+                  var card=this.querySelector(".v62-grammar-card")||this;
+                  var expected=normalized(card.getAttribute("data-answer")||"");
+                  var answerNode=card.querySelector("[data-v62-order-answer]");
+                  var actual=normalized(answerNode&&answerNode.textContent||"");
+                  var result=grammarComment(actual,expected);
+                  var feedback=card.querySelector("[data-v69-grammar-feedback]");
+                  if(!feedback){feedback=document.createElement("div");feedback.setAttribute("data-v69-grammar-feedback","1");feedback.className="dialogue-feedback ";card.appendChild(feedback);}
+                  feedback.className="dialogue-feedback "+(result.ok?"good":"bad");
+                  feedback.textContent=result.text;
+                  if(!result.ok&&root.VDuckieRoast&&root.VDuckieRoast.isEnabled&&root.VDuckieRoast.isEnabled())root.VDuckieRoast.play("bad");
+                },true);
+              }
+            }
+
+            new MutationObserver(function(){installGrammarGuard(document);}).observe(document.documentElement,{childList:true,subtree:true});
+            installGrammarGuard(document);
+          })(typeof window!=="undefined"?window:this);
+          JS
+
+          cat > community.js <<'JS'
+          (function(){
+            "use strict";
+            function loadRuntime(){
+              var parts=[1,2,3,4].map(function(n){
+                return fetch("./assets/v62/runtime.part"+n+".txt?v=69",{cache:"no-store"}).then(function(response){
+                  if(!response.ok)throw new Error("Thiếu runtime v62 phần "+n);
+                  return response.text();
+                });
+              });
+              Promise.all(parts).then(function(code){Function(code.join(""))();}).catch(function(error){console.error("Không nạp được v69:",error);});
+            }
+            var script=document.createElement("script");
+            script.src="./assets/v62/standalone-clips-v69.js?v=69";
+            script.onload=loadRuntime;
+            script.onerror=loadRuntime;
+            document.head.appendChild(script);
+          })();
+          JS
+
+      - name: Verify all generated assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(find assets/adam-clips -name '*.mp3' | wc -l)" -eq 60
+          node --check assets/v62/standalone-clips-v69.js
+          node --check community.js
+          for f in assets/adam-clips/*.mp3; do
+            ffprobe -v error -show_entries format=duration -of csv=p=0 "$f" >/dev/null
+          done
+
+      - name: Commit generated clips
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/adam-clips assets/v62/standalone-clips-v69.js community.js
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "Publish 60 verified Adam clips and contextual grammar roast [skip ci]"
+            git push
+          fi
