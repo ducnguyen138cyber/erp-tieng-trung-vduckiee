@@ -1,16 +1,11 @@
 (function(root){
   "use strict";
-  if(!root.Audio||root.__v62AdamSegmentFix)return;
-  root.__v62AdamSegmentFix=true;
+  if(!root.Audio||root.__v64AdamSegmentFix)return;
+  root.__v64AdamSegmentFix=true;
 
   var NativeAudio=root.Audio;
   var nativeSetTimeout=root.setTimeout.bind(root);
-  var currentTimeDescriptor=null;
-  var proto=root.HTMLMediaElement&&root.HTMLMediaElement.prototype;
-  while(proto&&!currentTimeDescriptor){
-    currentTimeDescriptor=Object.getOwnPropertyDescriptor(proto,"currentTime");
-    proto=Object.getPrototypeOf(proto);
-  }
+  var stopDelay=0;
 
   var segments={
     good:{
@@ -32,52 +27,62 @@
     return duration>122.8?"bad":"good";
   }
 
-  function FixedAudio(src){
-    var audio=new NativeAudio(src);
+  function AdamAudio(src){
+    var nativeAudio=new NativeAudio(src);
     var isAdam=typeof src==="string"&&src.indexOf("data:audio/mpeg;base64,")===0;
-    if(!isAdam||!currentTimeDescriptor||!currentTimeDescriptor.get||!currentTimeDescriptor.set)return audio;
+    if(!isAdam)return nativeAudio;
 
-    try{
-      Object.defineProperty(audio,"currentTime",{
-        configurable:true,
-        enumerable:true,
-        get:function(){return currentTimeDescriptor.get.call(audio);},
+    var selectedIndex=0;
+    var proxy={};
+
+    Object.defineProperties(proxy,{
+      volume:{
+        get:function(){return nativeAudio.volume;},
+        set:function(value){nativeAudio.volume=value;}
+      },
+      paused:{get:function(){return nativeAudio.paused;}},
+      duration:{get:function(){return nativeAudio.duration;}},
+      currentTime:{
+        get:function(){return selectedIndex;},
         set:function(value){
           var numeric=Number(value);
-          if(Number.isInteger(numeric)&&numeric>=0&&numeric<20&&audio.duration>100){
-            var level=levelFromDuration(audio.duration);
-            audio.__v62AdamSegment={
-              start:segments[level].starts[numeric],
-              length:segments[level].lengths[numeric]
-            };
-            currentTimeDescriptor.set.call(audio,audio.__v62AdamSegment.start);
-          }else{
-            currentTimeDescriptor.set.call(audio,numeric);
-          }
+          selectedIndex=Number.isFinite(numeric)?Math.max(0,Math.min(19,Math.round(numeric))):0;
         }
-      });
-    }catch(error){return audio;}
+      },
+      src:{get:function(){return nativeAudio.src;}}
+    });
 
-    var nativePlay=audio.play.bind(audio);
-    audio.play=function(){
-      if(audio.__v62AdamSegment){
-        root.__v62AdamStopDelay=Math.max(1400,Math.round((audio.__v62AdamSegment.length+0.12)*1000));
-      }
-      return nativePlay();
+    proxy.addEventListener=function(type,listener,options){
+      nativeAudio.addEventListener(type,function(event){listener.call(proxy,event);},options);
     };
-    return audio;
+    proxy.removeEventListener=function(type,listener,options){
+      nativeAudio.removeEventListener(type,listener,options);
+    };
+    proxy.load=function(){nativeAudio.load();};
+    proxy.pause=function(){nativeAudio.pause();};
+    proxy.play=function(){
+      var level=levelFromDuration(nativeAudio.duration||0);
+      var cue=segments[level];
+      var start=cue.starts[selectedIndex]||0;
+      var length=cue.lengths[selectedIndex]||3;
+      try{nativeAudio.currentTime=start;}catch(error){}
+      stopDelay=Math.max(1400,Math.round((length+0.18)*1000));
+      return nativeAudio.play();
+    };
+
+    return proxy;
   }
 
-  FixedAudio.prototype=NativeAudio.prototype;
-  try{Object.setPrototypeOf(FixedAudio,NativeAudio);}catch(error){}
-  root.Audio=FixedAudio;
+  AdamAudio.prototype=NativeAudio.prototype;
+  try{Object.setPrototypeOf(AdamAudio,NativeAudio);}catch(error){}
+  root.Audio=AdamAudio;
 
   root.setTimeout=function(callback,delay){
     var args=Array.prototype.slice.call(arguments,2);
     var actualDelay=Number(delay);
-    if(actualDelay===960&&root.__v62AdamStopDelay){
-      actualDelay=root.__v62AdamStopDelay;
-      root.__v62AdamStopDelay=0;
+    if(actualDelay===960&&stopDelay){
+      actualDelay=stopDelay;
+      stopDelay=0;
     }
     return nativeSetTimeout.apply(root,[callback,actualDelay].concat(args));
   };
