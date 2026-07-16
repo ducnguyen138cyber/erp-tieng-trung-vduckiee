@@ -28,13 +28,54 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/adam-source assets/adam-clips
-          for level in good medium bad; do
-            cat assets/adam/${level}.part1.b64 assets/adam/${level}.part2.b64 assets/adam/${level}.part3.b64 assets/adam/${level}.part4.b64 \
-              | tr -d '\r\n ' | base64 -d > "/tmp/adam-source/${level}.mp3"
-          done
           python3 - <<'PY'
-          import subprocess
+          import base64, subprocess
           from pathlib import Path
+
+          def valid_mp3(path):
+              result = subprocess.run([
+                  'ffprobe','-v','error','-show_entries','format=duration',
+                  '-of','default=noprint_wrappers=1:nokey=1',str(path)
+              ], capture_output=True, text=True)
+              try:
+                  return result.returncode == 0 and float(result.stdout.strip()) > 100
+              except Exception:
+                  return False
+
+          for level in ('good','medium','bad'):
+              parts=[Path(f'assets/adam/{level}.part{i}.b64').read_text(encoding='utf-8').strip() for i in range(1,5)]
+              target=Path(f'/tmp/adam-source/{level}.mp3')
+              candidates=[]
+
+              # Strategy 1: pieces are fragments of one Base64 stream.
+              joined=''.join(parts)
+              joined=''.join(joined.split()).replace('=','')
+              joined += '=' * ((4-len(joined)%4)%4)
+              try:
+                  candidates.append(base64.b64decode(joined, validate=False))
+              except Exception:
+                  pass
+
+              # Strategy 2: each piece is a separately encoded binary chunk.
+              try:
+                  chunks=[]
+                  for part in parts:
+                      clean=''.join(part.split())
+                      clean += '=' * ((4-len(clean)%4)%4)
+                      chunks.append(base64.b64decode(clean, validate=False))
+                  candidates.append(b''.join(chunks))
+              except Exception:
+                  pass
+
+              ok=False
+              for candidate in candidates:
+                  target.write_bytes(candidate)
+                  if valid_mp3(target):
+                      ok=True
+                      break
+              if not ok:
+                  raise RuntimeError(f'Cannot reconstruct valid source MP3 for {level}')
+
           clips={
           'good':{'starts':[0.050,6.738254,10.853549,18.4006575,25.18822,31.0788325,42.97144,46.211451,49.9547055,57.4843425,63.325295,74.318322,80.6688435,86.732925,92.4571085,97.222415,103.661077,109.4592515,113.0911905,116.461644],'lengths':[6.588254,4.015295,7.4471085,6.6875625,5.7906125,11.7926075,3.140011,3.6432545,7.429637,5.7409525,10.893027,6.2505215,5.9640815,5.6241835,4.6653065,6.338662,5.6981745,3.531939,3.2704535,5.767481]},
           'medium':{'starts':[0.050,5.015873,10.178946,20.6234355,26.431576,36.350839,46.451247,52.345873,58.5091835,61.725907,64.821712,68.9873925,71.2972335,76.430136,82.774456,88.7065415,94.7060205,100.763594,107.4748185,110.1979365],'lengths':[4.865873,5.063073,10.3444895,5.7081405,9.819263,10.000408,5.794626,6.0633105,3.1167235,2.995805,4.0656805,2.209841,5.0329025,6.24432,5.8320855,5.899479,5.9575735,6.6112245,2.623118,2.8645015]},
