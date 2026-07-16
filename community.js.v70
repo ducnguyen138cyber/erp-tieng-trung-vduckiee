@@ -13,21 +13,11 @@
         return response.text();
       });
     });
-    Promise.all(parts).then(function(code){Function(code.join(""))();loadFeedbackContext();}).catch(function(error){
-      console.error("Không nạp được v70:",error);
-      var element=document.getElementById("communityConnection");
-      if(element){
-        element.className="community-connection bad";
-        element.textContent="Không nạp được bản cập nhật. Hãy Ctrl+F5 để tải lại.";
-      }
-    });
+    Promise.all(parts).then(function(code){Function(code.join(""))();loadFeedbackContext();}).catch(function(error){console.error("Không nạp được v70:",error);});
   }
   var directAudio=document.createElement("script");
   directAudio.src="./assets/v62/audio-direct-v70.js?v=70";
   directAudio.onload=loadRuntime;
-  directAudio.onerror=function(){
-    console.error("Không nạp được bộ phát 60 clip Adam riêng biệt.");
-    loadRuntime();
-  };
+  directAudio.onerror=loadRuntime;
   document.head.appendChild(directAudio);
 })();
