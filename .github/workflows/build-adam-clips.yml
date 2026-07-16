@@ -3,15 +3,16 @@ name: Build verified Adam clips
 on:
   workflow_dispatch:
   push:
-    paths:
-      - '.github/workflows/build-adam-clips.yml'
-      - 'assets/adam/*.b64'
+    branches: [main]
+    paths-ignore:
+      - 'assets/adam-clips/**'
 
 permissions:
   contents: write
 
 jobs:
   build-clips:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,12 +55,11 @@ jobs:
               source = f'/tmp/adam-source/{level}.mp3'
               for number, (start, duration) in enumerate(zip(data['starts'], data['durations']), 1):
                   output = output_dir / f'{level}-{number:02d}.mp3'
-                  command = [
+                  subprocess.run([
                       'ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
                       '-ss', str(start), '-i', source, '-t', str(duration),
                       '-ac', '1', '-ar', '22050', '-b:a', '64k', str(output),
-                  ]
-                  subprocess.run(command, check=True)
+                  ], check=True)
 
           generated = sorted(output_dir.glob('*.mp3'))
           if len(generated) != 60:
