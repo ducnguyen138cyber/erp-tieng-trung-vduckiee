@@ -2,21 +2,14 @@ name: Build verified Adam clips
 
 on:
   workflow_dispatch:
-  issues:
-    types: [opened]
   pull_request:
     types: [opened, synchronize]
-  push:
-    branches: [main]
-    paths-ignore:
-      - 'assets/adam-clips/**'
 
 permissions:
   contents: write
 
 jobs:
   build-clips:
-    if: github.actor != 'github-actions[bot]' && (github.event_name != 'issues' || github.event.issue.title == 'Build Adam clips v69')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,17 +17,24 @@ jobs:
           ref: main
           fetch-depth: 0
 
+      - name: Ensure ffmpeg is available
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v ffmpeg >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+
       - name: Decode source audio and cut 60 verified clips
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p /tmp/adam-source assets/adam-clips
-          for level in good medium bad; do
-            cat assets/adam/${level}.part1.b64 assets/adam/${level}.part2.b64 assets/adam/${level}.part3.b64 assets/adam/${level}.part4.b64 \
-              | tr -d '\r\n ' | base64 --decode > /tmp/adam-source/${level}.mp3
-          done
-
           python3 - <<'PY'
+          import base64
+          import json
           import subprocess
           from pathlib import Path
 
@@ -53,35 +53,80 @@ jobs:
               },
           }
 
+          source_dir = Path('/tmp/adam-source')
           output_dir = Path('assets/adam-clips')
+          source_dir.mkdir(parents=True, exist_ok=True)
           output_dir.mkdir(parents=True, exist_ok=True)
 
+          def probe_duration(path: Path) -> float:
+              result = subprocess.run([
+                  'ffprobe', '-v', 'error', '-show_entries', 'format=duration',
+                  '-of', 'default=noprint_wrappers=1:nokey=1', str(path)
+              ], check=True, text=True, capture_output=True)
+              return float(result.stdout.strip())
+
+          for level in clips:
+              chunks = []
+              for part in range(1, 5):
+                  path = Path(f'assets/adam/{level}.part{part}.b64')
+                  if not path.exists():
+                      raise SystemExit(f'Missing source chunk: {path}')
+                  chunks.append(''.join(path.read_text(encoding='utf-8').split()))
+
+              # Some upload paths may have added padding to individual chunks. Move all
+              # padding to the end before decoding the complete original MP3.
+              encoded = ''.join(chunk.replace('=', '') for chunk in chunks)
+              encoded += '=' * ((4 - len(encoded) % 4) % 4)
+              data = base64.b64decode(encoded, validate=False)
+              source = source_dir / f'{level}.mp3'
+              source.write_bytes(data)
+
+              duration = probe_duration(source)
+              if len(data) < 1_000_000 or duration < 100:
+                  raise SystemExit(f'Invalid {level} source: {len(data)} bytes, {duration:.3f}s')
+              print(f'{level} source: {len(data)} bytes, {duration:.3f}s')
+
           for level, data in clips.items():
-              source = f'/tmp/adam-source/{level}.mp3'
-              for number, (start, duration) in enumerate(zip(data['starts'], data['durations']), 1):
+              source = source_dir / f'{level}.mp3'
+              for number, (start, expected_duration) in enumerate(zip(data['starts'], data['durations']), 1):
                   output = output_dir / f'{level}-{number:02d}.mp3'
                   subprocess.run([
                       'ffmpeg', '-hide_banner', '-loglevel', 'error', '-y',
-                      '-ss', str(start), '-i', source, '-t', str(duration),
-                      '-ac', '1', '-ar', '22050', '-b:a', '64k', str(output),
+                      '-i', str(source), '-ss', str(start), '-t', str(expected_duration),
+                      '-map_metadata', '-1', '-ac', '1', '-ar', '22050', '-b:a', '64k',
+                      str(output),
                   ], check=True)
+                  actual_duration = probe_duration(output)
+                  if output.stat().st_size < 10_000:
+                      raise SystemExit(f'Clip too small: {output} ({output.stat().st_size} bytes)')
+                  if abs(actual_duration - expected_duration) > 0.35:
+                      raise SystemExit(
+                          f'Clip duration mismatch: {output} expected {expected_duration:.3f}s, '
+                          f'got {actual_duration:.3f}s'
+                      )
 
           generated = sorted(output_dir.glob('*.mp3'))
           if len(generated) != 60:
               raise SystemExit(f'Expected 60 clips, generated {len(generated)}')
-          for clip in generated:
-              if clip.stat().st_size < 10000:
-                  raise SystemExit(f'Clip looks invalid: {clip} ({clip.stat().st_size} bytes)')
-          print('Generated and validated 60 Adam clips.')
+
+          manifest = {
+              'version': 69,
+              'count': len(generated),
+              'files': [clip.name for clip in generated],
+          }
+          (output_dir / 'manifest.json').write_text(
+              json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8'
+          )
+          print('Generated and validated 60 standalone Adam clips.')
           PY
 
-      - name: Commit generated clips
+      - name: Commit generated clips to main
         shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add assets/adam-clips/*.mp3
+          git add assets/adam-clips/*.mp3 assets/adam-clips/manifest.json
           if git diff --cached --quiet; then
             echo 'No clip changes to commit.'
             exit 0
