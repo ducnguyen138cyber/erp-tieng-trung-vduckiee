@@ -232,6 +232,14 @@
   var mediaStream = null;
   var audioChunks = [];
   var audioUrl = "";
+  var assessmentRecognition = null;
+  var assessmentListening = false;
+  var assessmentStopping = false;
+  var assessmentTranscript = "";
+  var assessmentPreview = "";
+  var assessmentSessionInterim = "";
+  var assessmentRestartTimer = null;
+  var assessmentStopTimer = null;
 
   function byId(id) {
     return document.getElementById(id);
@@ -269,6 +277,7 @@
   }
 
   function renderStep() {
+    cancelSpeechAssessment();
     var scenario = scenarios[scenarioIndex];
     var step = currentStep();
     if (reactionTimer) root.clearInterval(reactionTimer);
@@ -291,7 +300,7 @@
       byId("dialoguePromptZh").textContent = step.target;
       byId("dialoguePromptVi").textContent = step.targetVi;
       setReading(step.target, "dialoguePromptPinyin", "dialoguePromptNear");
-      byId("dialogueModeNote").textContent = "Nghe câu mẫu, nhìn pinyin và âm gần Việt, rồi bấm “Đọc và chấm”.";
+      byId("dialogueModeNote").textContent = "Nghe câu mẫu, bấm “Bắt đầu đọc”; khi đọc xong bấm lần nữa để máy chấm cả câu.";
       byId("dialogueAnswer").placeholder = "Đọc bằng microphone; máy sẽ điền câu đã nghe vào đây";
     } else {
       byId("dialoguePromptLabel").textContent = exerciseMode === "reaction" ? "PHẢN XẠ 8 GIÂY" : "HỆ THỐNG NÓI";
@@ -568,9 +577,134 @@
     return roast;
   }
 
-  function startSpeechAssessment() {
+  function resetAssessmentButton() {
+    var button = byId("assessSpeech");
+    if (!button) return;
+    button.disabled = false;
+    button.textContent = "🎙 Bắt đầu đọc";
+  }
+
+  function clearAssessmentTimers() {
+    if (assessmentRestartTimer) root.clearTimeout(assessmentRestartTimer);
+    if (assessmentStopTimer) root.clearTimeout(assessmentStopTimer);
+    assessmentRestartTimer = null;
+    assessmentStopTimer = null;
+  }
+
+  function cancelSpeechAssessment() {
+    clearAssessmentTimers();
+    assessmentListening = false;
+    assessmentStopping = false;
+    assessmentTranscript = "";
+    assessmentPreview = "";
+    assessmentSessionInterim = "";
+    var recognition = assessmentRecognition;
+    assessmentRecognition = null;
+    if (recognition && typeof recognition.abort === "function") {
+      try { recognition.abort(); } catch (error) {}
+    }
+    resetAssessmentButton();
+  }
+
+  function finalizeSpeechAssessment() {
+    if (!assessmentListening && !assessmentStopping) return;
+    clearAssessmentTimers();
+    assessmentListening = false;
+    assessmentStopping = false;
+    assessmentRecognition = null;
+    var transcript = String(assessmentPreview || assessmentTranscript || "").trim();
+    assessmentTranscript = "";
+    assessmentPreview = "";
+    assessmentSessionInterim = "";
+    resetAssessmentButton();
+    var feedback = byId("pronunciationFeedback");
+    if (!transcript) {
+      feedback.className = "dialogue-feedback bad";
+      feedback.textContent = "Máy chưa nhận được chữ nào. Kiểm tra microphone rồi bấm Bắt đầu đọc để thử lại.";
+      return;
+    }
+    byId("dialogueAnswer").value = transcript;
+    setReading(transcript, "dialogueAnswerPinyin", "dialogueAnswerNear");
+    showRecognized(transcript, true);
+  }
+
+  function failSpeechAssessment(message) {
+    clearAssessmentTimers();
+    assessmentListening = false;
+    assessmentStopping = false;
+    assessmentRecognition = null;
+    resetAssessmentButton();
+    var feedback = byId("pronunciationFeedback");
+    feedback.className = "dialogue-feedback bad";
+    feedback.textContent = message;
+  }
+
+  function startRecognitionSession(Recognition) {
+    if (!assessmentListening || assessmentStopping) return;
+    var recognition = new Recognition();
+    assessmentRecognition = recognition;
+    assessmentSessionInterim = "";
+    recognition.lang = "zh-CN";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.maxAlternatives = 1;
+    recognition.onresult = function (event) {
+      var finalText = "";
+      var interimText = "";
+      for (var i = event.resultIndex || 0; i < event.results.length; i++) {
+        var part = event.results[i][0] && event.results[i][0].transcript || "";
+        if (event.results[i].isFinal) finalText += " " + part;
+        else interimText += " " + part;
+      }
+      finalText = finalText.trim();
+      assessmentSessionInterim = interimText.trim();
+      if (finalText) assessmentTranscript = (assessmentTranscript + " " + finalText).trim();
+      assessmentPreview = (assessmentTranscript + " " + assessmentSessionInterim).trim();
+      if (assessmentPreview) byId("dialogueAnswer").value = assessmentPreview;
+      var feedback = byId("pronunciationFeedback");
+      feedback.className = "dialogue-feedback";
+      feedback.textContent = assessmentPreview
+        ? "Đang nghe: “" + assessmentPreview + "”. Đọc xong thì bấm nút màu cam để chấm."
+        : "Đang nghe… Đọc câu tiếng Trung; khi xong bấm nút màu cam lần nữa.";
+    };
+    recognition.onend = function () {
+      assessmentRecognition = null;
+      if (!assessmentListening) return;
+      if (assessmentStopping) {
+        finalizeSpeechAssessment();
+        return;
+      }
+      if (assessmentSessionInterim) {
+        assessmentTranscript = (assessmentTranscript + " " + assessmentSessionInterim).trim();
+        assessmentPreview = assessmentTranscript;
+        assessmentSessionInterim = "";
+      }
+      assessmentRestartTimer = root.setTimeout(function () { startRecognitionSession(Recognition); }, 180);
+    };
+    recognition.onerror = function (event) {
+      var errorName = String(event && event.error || "");
+      if (assessmentStopping && (errorName === "aborted" || errorName === "no-speech")) return;
+      if (errorName === "no-speech") {
+        byId("pronunciationFeedback").textContent = "Vẫn đang nghe… M bắt đầu đọc khi sẵn sàng, web chưa chấm đâu.";
+        return;
+      }
+      if (errorName === "not-allowed" || errorName === "service-not-allowed") {
+        failSpeechAssessment("Bạn chưa cấp quyền microphone.");
+      } else if (errorName === "audio-capture") {
+        failSpeechAssessment("Không tìm thấy microphone. Hãy kiểm tra thiết bị thu âm.");
+      } else if (errorName === "network") {
+        failSpeechAssessment("Dịch vụ nhận dạng giọng nói đang mất kết nối. Hãy thử lại.");
+      }
+    };
+    try {
+      recognition.start();
+    } catch (error) {
+      failSpeechAssessment("Không thể bắt đầu nhận dạng giọng nói. Hãy thử lại sau vài giây.");
+    }
+  }
+
+  function beginSpeechAssessment() {
     byId("dialogueHint").className = "dialogue-hint";
-    var assessButton = byId("assessSpeech");
     var Recognition = root.SpeechRecognition || root.webkitSpeechRecognition;
     if (!Recognition) {
       var feedback = byId("pronunciationFeedback");
@@ -578,45 +712,40 @@
       feedback.textContent = "Trình duyệt này không hỗ trợ nhận dạng giọng Trung. Bạn vẫn có thể ghi âm, nghe lại và đối chiếu với câu mẫu.";
       return;
     }
-    var recognition = new Recognition();
-    recognition.lang = "zh-CN";
-    recognition.interimResults = false;
-    recognition.maxAlternatives = 1;
+    clearAssessmentTimers();
+    assessmentListening = true;
+    assessmentStopping = false;
+    assessmentTranscript = "";
+    assessmentPreview = "";
+    assessmentSessionInterim = "";
+    byId("dialogueAnswer").value = "";
+    setReading("", "dialogueAnswerPinyin", "dialogueAnswerNear");
     byId("pronunciationFeedback").className = "dialogue-feedback";
-    byId("pronunciationFeedback").textContent = "Đang nghe… Đọc câu mẫu bằng tiếng Trung.";
-    assessButton.disabled = true;
-    assessButton.textContent = "🎙 Đang nghe…";
-    var pendingRoast = "";
-    var roastSpoken = false;
-    var mobileFallbackTimer = null;
-    function resetAssessmentButton() {
-      assessButton.disabled = false;
-      assessButton.textContent = "🎙 Đọc và chấm";
+    byId("pronunciationFeedback").textContent = "Đang nghe… Đọc câu tiếng Trung; khi xong bấm nút màu cam lần nữa.";
+    byId("assessSpeech").textContent = "⏹ Đọc xong – bấm để chấm";
+    startRecognitionSession(Recognition);
+  }
+
+  function stopSpeechAssessment() {
+    if (!assessmentListening) return;
+    assessmentStopping = true;
+    if (assessmentRestartTimer) root.clearTimeout(assessmentRestartTimer);
+    assessmentRestartTimer = null;
+    var button = byId("assessSpeech");
+    button.disabled = true;
+    button.textContent = "⏳ Đang chấm…";
+    var recognition = assessmentRecognition;
+    if (recognition && typeof recognition.stop === "function") {
+      try { recognition.stop(); } catch (error) { finalizeSpeechAssessment(); return; }
+      assessmentStopTimer = root.setTimeout(finalizeSpeechAssessment, 1200);
+    } else {
+      finalizeSpeechAssessment();
     }
-    function speakAfterMicrophoneCloses() {
-      if (roastSpoken || !pendingRoast) return;
-      roastSpoken = true;
-      if (mobileFallbackTimer) root.clearTimeout(mobileFallbackTimer);
-      root.setTimeout(function () { speakVietnamese(pendingRoast); }, 280);
-    }
-    recognition.onresult = function (event) {
-      var transcript = event.results[0][0].transcript || "";
-      pendingRoast = showRecognized(transcript, false);
-      byId("dialogueAnswer").value = transcript;
-      setReading(transcript, "dialogueAnswerPinyin", "dialogueAnswerNear");
-      mobileFallbackTimer = root.setTimeout(speakAfterMicrophoneCloses, 1600);
-    };
-    recognition.onend = function () {
-      resetAssessmentButton();
-      speakAfterMicrophoneCloses();
-    };
-    recognition.onerror = function (event) {
-      if (mobileFallbackTimer) root.clearTimeout(mobileFallbackTimer);
-      resetAssessmentButton();
-      byId("pronunciationFeedback").className = "dialogue-feedback bad";
-      byId("pronunciationFeedback").textContent = event.error === "not-allowed" ? "Bạn chưa cấp quyền microphone." : "Không nhận được giọng nói. Kiểm tra microphone và thử lại.";
-    };
-    recognition.start();
+  }
+
+  function toggleSpeechAssessment() {
+    if (assessmentListening) stopSpeechAssessment();
+    else beginSpeechAssessment();
   }
 
   function toggleRecording() {
@@ -683,7 +812,7 @@
     byId("showDialogueHint").onclick = function () { byId("dialogueHint").className = "dialogue-hint"; };
     byId("useDialogueHint").onclick = function () { byId("dialogueAnswer").value = currentStep().target; setReading(currentStep().target, "dialogueAnswerPinyin", "dialogueAnswerNear"); };
     byId("checkDialogue").onclick = checkTypedAnswer;
-    byId("assessSpeech").onclick = startSpeechAssessment;
+    byId("assessSpeech").onclick = toggleSpeechAssessment;
     byId("startReaction").onclick = startReactionChallenge;
     byId("recordDialogue").onclick = toggleRecording;
     byId("dialogueAnswer").oninput = function () { setReading(this.value.trim(), "dialogueAnswerPinyin", "dialogueAnswerNear"); };
