@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
   issues:
     types: [opened]
+  pull_request:
+    types: [opened, synchronize]
   push:
     branches: [main]
     paths-ignore:
@@ -19,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: main
           fetch-depth: 0
 
       - name: Decode source audio and cut 60 verified clips
@@ -84,4 +87,4 @@ jobs:
             exit 0
           fi
           git commit -m 'Generate 60 verified Adam roast clips'
-          git push
+          git push origin HEAD:main
