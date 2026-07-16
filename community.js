@@ -1,174 +1,30 @@
-(function (root) {
+(function(root){
   "use strict";
-
-  var API_URL = "https://erp-tieng-trung.vduckie.chatgpt.site/api/community-terms";
-  var terms = [];
-  var loading = false;
-
-  function byId(id) {
-    return document.getElementById(id);
-  }
-
-  function escapeHtml(value) {
-    return String(value || "").replace(/[&<>"']/g, function (character) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character];
-    });
-  }
-
-  function displayDate(value) {
-    if (!value) return "";
-    var normalized = String(value).indexOf("T") === -1 ? String(value).replace(" ", "T") + "Z" : String(value);
-    var date = new Date(normalized);
-    if (isNaN(date.getTime())) return "";
-    return date.toLocaleDateString("vi-VN", { day: "2-digit", month: "2-digit", year: "numeric" });
-  }
-
-  function setConnection(message, tone) {
-    var element = byId("communityConnection");
-    element.className = "community-connection " + (tone || "");
-    element.textContent = message;
-  }
-
-  function renderTerms() {
-    byId("communityCount").textContent = String(terms.length);
-    if (!terms.length) {
-      byId("communityTerms").innerHTML = '<div class="empty span-2">Chưa có từ nào trong kho chung.</div>';
-      return;
-    }
-    var html = "";
-    for (var i = 0; i < terms.length; i++) {
-      var term = terms[i];
-      html += '<article class="term community-term">' +
-        '<div class="community-meta"><span class="verify-badge approved">Đã xác minh</span><span>' + escapeHtml(displayDate(term.created_at)) + '</span></div>' +
-        '<strong>' + escapeHtml(term.hanzi) + '</strong><b>' + escapeHtml(term.pinyin) + '</b>' +
-        '<i>Gần âm: ' + escapeHtml(term.near_vi || "—") + '</i><p>' + escapeHtml(term.vi) + '</p>' +
-        (term.example ? '<div class="community-example">Ví dụ: ' + escapeHtml(term.example) + '</div>' : "") +
-        '<div class="community-contributor">Đóng góp bởi: <strong>' + escapeHtml(term.contributor || "Ẩn danh") + '</strong></div>' +
-        '<div class="term-actions"><button class="muted community-speak" data-word="' + escapeHtml(term.hanzi) + '">♪ Nghe</button></div></article>';
-    }
-    byId("communityTerms").innerHTML = html;
-    var speakButtons = document.querySelectorAll(".community-speak");
-    for (var j = 0; j < speakButtons.length; j++) {
-      speakButtons[j].onclick = function () {
-        if (!root.speechSynthesis) return;
-        root.speechSynthesis.cancel();
-        var utterance = new SpeechSynthesisUtterance(this.getAttribute("data-word") || "");
-        utterance.lang = "zh-CN";
-        utterance.rate = 0.72;
-        root.speechSynthesis.speak(utterance);
-      };
-    }
-  }
-
-  function loadTerms(showMessage) {
-    if (loading) return Promise.resolve();
-    loading = true;
-    if (showMessage) setConnection("Đang tải kho từ chung…", "");
-    return fetch(API_URL, { method: "GET", mode: "cors", cache: "no-store", credentials: "omit" })
-      .then(function (response) {
-        return response.json().then(function (data) {
-          if (!response.ok) throw new Error(data.error || "Không tải được dữ liệu.");
-          return data;
-        });
-      })
-      .then(function (data) {
-        terms = data.terms instanceof Array ? data.terms : [];
-        renderTerms();
-        if (root.ERPCommunityLearning) root.ERPCommunityLearning.merge(terms);
-        setConnection("Đã kết nối kho chung · tự làm mới mỗi 60 giây", "good");
-      })
-      .catch(function (error) {
-        setConnection("Không kết nối được kho chung: " + error.message, "bad");
-      })
-      .then(function () { loading = false; });
-  }
-
-  function fillCommunityPronunciation(value) {
-    var generated = root.ERPPronunciation && root.ERPPronunciation.generate(value);
-    if (generated && generated.pinyin) {
-      byId("communityPinyin").value = generated.pinyin;
-      byId("communityNear").value = generated.nearVi;
-      byId("communityFormStatus").textContent = "Đã tạo pinyin và âm gần Việt. Hãy kiểm tra lại trước khi gửi.";
-      return;
-    }
-    byId("communityFormStatus").textContent = "Không tạo được cách đọc; hãy nhập pinyin và âm gần Việt thủ công.";
-  }
-
-  function submitTerm() {
-    var button = byId("submitCommunity");
-    var payload = {
-      vi: byId("communityVi").value.trim(),
-      hanzi: byId("communityHanzi").value.trim(),
-      pinyin: byId("communityPinyin").value.trim(),
-      nearVi: byId("communityNear").value.trim(),
-      contributor: byId("communityContributor").value.trim(),
-      example: byId("communityExample").value.trim()
-    };
-    if (!payload.vi || !payload.hanzi) {
-      byId("communityFormStatus").textContent = "Cần nhập cả tiếng Việt và tiếng Trung.";
-      return;
-    }
-    button.disabled = true;
-    button.textContent = "Đang gửi…";
-    byId("communityFormStatus").textContent = "Đang đưa từ lên kho chung…";
-    fetch(API_URL, {
-      method: "POST",
-      mode: "cors",
-      cache: "no-store",
-      credentials: "omit",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    })
-      .then(function (response) {
-        return response.json().then(function (data) {
-          if (!response.ok) throw new Error(data.error || "Không gửi được từ.");
-          return data;
-        });
-      })
-      .then(function (data) {
-        if (data.term) terms.unshift(data.term);
-        renderTerms();
-        if (root.ERPCommunityLearning) root.ERPCommunityLearning.merge(terms);
-        byId("communityVi").value = "";
-        byId("communityHanzi").value = "";
-        byId("communityPinyin").value = "";
-        byId("communityNear").value = "";
-        byId("communityExample").value = "";
-        byId("communityFormStatus").textContent = "Đã lưu vào kho chung và tự động xác minh.";
-      })
-      .catch(function (error) {
-        byId("communityFormStatus").textContent = "Không gửi được: " + error.message;
-      })
-      .then(function () {
-        button.disabled = false;
-        button.textContent = "Đăng lên kho chung";
-      });
-  }
-
-  function init() {
-    if (!byId("community")) return;
-    byId("communityHanzi").oninput = function () {
-      var value = this.value.trim();
-      if (!value) {
-        byId("communityPinyin").value = "";
-        byId("communityNear").value = "";
-        return;
-      }
-      if (root.PinyinEngineReady && !root.pinyinPro) {
-        byId("communityFormStatus").textContent = "Đang nạp bộ phát âm…";
-        root.PinyinEngineReady.then(function () {
-          if (byId("communityHanzi").value.trim() === value) fillCommunityPronunciation(value);
-        });
-      } else {
-        fillCommunityPronunciation(value);
-      }
-    };
-    byId("submitCommunity").onclick = submitTerm;
-    byId("refreshCommunity").onclick = function () { loadTerms(true); };
-    loadTerms(true);
-    root.setInterval(function () { loadTerms(false); }, 60000);
-  }
-
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
-  else init();
-})(typeof globalThis !== "undefined" ? globalThis : this);
+  var API_URL="https://erp-tieng-trung.vduckie.chatgpt.site/api/community-terms";
+  var terms=[],loading=false,roastEnabled=true,originalSpeak=null,activeAdam=null;
+  function byId(id){return document.getElementById(id)}
+  function esc(v){return String(v||"").replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function displayDate(v){if(!v)return"";var d=new Date(String(v).indexOf("T")<0?String(v).replace(" ","T")+"Z":v);return isNaN(d.getTime())?"":d.toLocaleDateString("vi-VN",{day:"2-digit",month:"2-digit",year:"numeric"})}
+  function setConnection(m,t){var e=byId("communityConnection");if(e){e.className="community-connection "+(t||"");e.textContent=m}}
+  function renderTerms(){var box=byId("communityTerms");if(!box)return;byId("communityCount").textContent=String(terms.length);if(!terms.length){box.innerHTML='<div class="empty span-2">Chưa có từ nào trong kho chung.</div>';return}var h="";for(var i=0;i<terms.length;i++){var t=terms[i];h+='<article class="term community-term"><div class="community-meta"><span class="verify-badge approved">Đã xác minh</span><span>'+esc(displayDate(t.created_at))+'</span></div><strong>'+esc(t.hanzi)+'</strong><b>'+esc(t.pinyin)+'</b><i>Gần âm: '+esc(t.near_vi||"—")+'</i><p>'+esc(t.vi)+'</p>'+(t.example?'<div class="community-example">Ví dụ: '+esc(t.example)+'</div>':"")+'<div class="community-contributor">Đóng góp bởi: <strong>'+esc(t.contributor||"Ẩn danh")+'</strong></div><div class="term-actions"><button class="muted community-speak" data-word="'+esc(t.hanzi)+'">♪ Nghe</button></div></article>'}box.innerHTML=h;var bs=document.querySelectorAll(".community-speak");for(var j=0;j<bs.length;j++)bs[j].onclick=function(){speakChinese(this.getAttribute("data-word"))}}
+  function speakChinese(text){if(!root.speechSynthesis)return;root.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(text||"");u.lang="zh-CN";u.rate=.72;root.speechSynthesis.speak(u)}
+  function loadTerms(show){if(loading)return Promise.resolve();loading=true;if(show)setConnection("Đang tải kho từ chung…","");return fetch(API_URL,{method:"GET",mode:"cors",cache:"no-store",credentials:"omit"}).then(function(r){return r.json().then(function(d){if(!r.ok)throw new Error(d.error||"Không tải được dữ liệu.");return d})}).then(function(d){terms=d.terms instanceof Array?d.terms:[];renderTerms();if(root.ERPCommunityLearning)root.ERPCommunityLearning.merge(terms);setConnection("Đã kết nối kho chung · tự làm mới mỗi 60 giây","good")}).catch(function(e){setConnection("Không kết nối được kho chung: "+e.message,"bad")}).then(function(){loading=false})}
+  function fillPron(v){var g=root.ERPPronunciation&&root.ERPPronunciation.generate(v);if(g&&g.pinyin){byId("communityPinyin").value=g.pinyin;byId("communityNear").value=g.nearVi;byId("communityFormStatus").textContent="Đã tạo pinyin và âm gần Việt. Hãy kiểm tra lại trước khi gửi."}else byId("communityFormStatus").textContent="Không tạo được cách đọc; hãy nhập pinyin và âm gần Việt thủ công."}
+  function submitTerm(){var b=byId("submitCommunity"),p={vi:byId("communityVi").value.trim(),hanzi:byId("communityHanzi").value.trim(),pinyin:byId("communityPinyin").value.trim(),nearVi:byId("communityNear").value.trim(),contributor:byId("communityContributor").value.trim(),example:byId("communityExample").value.trim()};if(!p.vi||!p.hanzi){byId("communityFormStatus").textContent="Cần nhập cả tiếng Việt và tiếng Trung.";return}b.disabled=true;b.textContent="Đang gửi…";fetch(API_URL,{method:"POST",mode:"cors",cache:"no-store",credentials:"omit",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)}).then(function(r){return r.json().then(function(d){if(!r.ok)throw new Error(d.error||"Không gửi được từ.");return d})}).then(function(d){if(d.term)terms.unshift(d.term);renderTerms();if(root.ERPCommunityLearning)root.ERPCommunityLearning.merge(terms);["communityVi","communityHanzi","communityPinyin","communityNear","communityExample"].forEach(function(id){byId(id).value=""});byId("communityFormStatus").textContent="Đã lưu vào kho chung và tự động xác minh."}).catch(function(e){byId("communityFormStatus").textContent="Không gửi được: "+e.message}).then(function(){b.disabled=false;b.textContent="Đăng lên kho chung"})}
+  function audioLevel(text){text=String(text||"").toLowerCase();if(/chính xác|rất ổn|đạt:|qua đẹp|khớp rất cao|hoàn thành không sai/.test(text))return"good";if(/khá tệ|quá ít|nát|không khớp|sai|hết giờ|chưa xử lý|gần như không/.test(text))return"bad";return"medium"}
+  function playAdam(level){if(!roastEnabled)return;var n=1+Math.floor(Math.random()*20),src="./assets/adam/"+level+"-"+(n<10?"0":"")+n+".mp3";try{if(activeAdam){activeAdam.pause();activeAdam.currentTime=0}activeAdam=new Audio(src);activeAdam.volume=.95;activeAdam.play().catch(function(){})}catch(e){}}
+  function installRoastControl(){var old=byId("roastVoice");if(!old)return;var clone=old.cloneNode(true);clone.id="roastModeToggle";clone.textContent="🔥 Roast Mode: BẬT";old.parentNode.replaceChild(clone,old);var badge=document.querySelector(".roast-badge");if(badge)badge.style.display="none";clone.onclick=function(){roastEnabled=!roastEnabled;clone.textContent=roastEnabled?"🔥 Roast Mode: BẬT":"🙂 Roast Mode: TẮT";if(!roastEnabled&&activeAdam)activeAdam.pause()}}
+  function interceptVietnameseTTS(){if(!root.speechSynthesis||originalSpeak)return;originalSpeak=root.speechSynthesis.speak.bind(root.speechSynthesis);try{root.speechSynthesis.speak=function(u){if(u&&/^vi/i.test(String(u.lang||""))){playAdam(audioLevel(u.text));return}return originalSpeak(u)}}catch(e){}}
+  function normalize(v){return String(v||"").replace(/[\s，。！？、,.!?；;：:]/g,"")}
+  function reading(v){var g=root.ERPPronunciation&&root.ERPPronunciation.generate(v);return g&&g.pinyin?g.pinyin:""}
+  function noTone(v){return String(v||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s/g,"").toLowerCase()}
+  function dictationRoast(input,answer){var a=normalize(input),b=normalize(answer);if(a===b)return"Chuẩn từng chữ. Hôm nay đôi tai và bàn phím chịu hợp tác đấy.";var pa=reading(a),pb=reading(b);if(pa&&pb&&noTone(pa)===noTone(pb)&&pa!==pb)return"Nghe ra đúng âm mà chọn sai thanh hoặc sai chữ đồng âm. Tiếng Trung không chơi trò ‘nghe na ná là ký đại’ đâu nhé. Đáp án: "+answer;if(pa&&pb&&noTone(pa).slice(0,8)===noTone(pb).slice(0,8))return"Đầu câu còn có vẻ hiểu chuyện, tới sau thì chữ chạy mỗi đứa một hướng. So lại pinyin và thanh điệu. Đáp án: "+answer;return"Câu mẫu nói một đằng, bàn phím của bro biên kịch một nẻo. Nghe lại theo từng cụm. Đáp án: "+answer}
+  function quizRoast(correct){var msgs=["Trật tự từ tiếng Trung không phải xếp hàng tùy hứng. Phó từ, giới từ và bổ ngữ đều có chỗ ngồi riêng.","Bẫy ngữ pháp vừa khép lại và bro bước vào rất tự tin. Nhìn lại vị trí trạng ngữ và động từ nhé.","Sai đáp án không đáng sợ; đáng sợ là đặt từ như xóc đĩa. Đáp án đúng: "+correct];return msgs[Math.floor(Math.random()*msgs.length)]}
+  function attachHSKRoast(){var lesson=byId("hskLesson");if(!lesson)return;lesson.addEventListener("click",function(e){var btn=e.target.closest&&e.target.closest("button");if(!btn)return;if(btn.getAttribute("data-hsk-action")==="dictation-check"){setTimeout(function(){var inp=byId("hskDictationInput"),fb=byId("hskDictationFeedback"),ans=btn.getAttribute("data-answer")||"";if(!inp||!fb||!inp.value.trim())return;var ok=normalize(inp.value)===normalize(ans);var text=ok?"Chuẩn từng chữ. Hôm nay đôi tai và bàn phím chịu hợp tác đấy.":dictationRoast(inp.value,ans);fb.textContent=text;fb.className="hsk-dictation-feedback "+(ok?"good":"bad");playAdam(ok?"good":"bad")},0)}else if(btn.getAttribute("data-hsk-option")!==null){setTimeout(function(){if(btn.className.indexOf("wrong")<0)return;var correct=lesson.querySelector(".hsk-quiz-option.correct"),fb=lesson.querySelector(".hsk-quiz-feedback");var text=quizRoast(correct?correct.textContent.trim():"");if(fb)fb.textContent=text;else{fb=document.createElement("div");fb.className="hsk-quiz-feedback";fb.textContent=text;btn.parentNode.parentNode.appendChild(fb)}playAdam("bad")},0)}},true)}
+  function similarity(a,b){a=normalize(a);b=normalize(b);if(!a||!b)return 0;var dp=new Array(b.length+1).fill(0);for(var i=1;i<=a.length;i++){var n=new Array(b.length+1).fill(0);for(var j=1;j<=b.length;j++)n[j]=a[i-1]===b[j-1]?dp[j-1]+1:Math.max(dp[j],n[j-1]);dp=n}return 2*dp[b.length]/(a.length+b.length)}
+  function injectSpeaking(){var lesson=byId("hskLesson");if(!lesson||lesson.querySelector(".hskk-roast-card"))return;var targetNode=lesson.querySelector("[data-hsk-dictation-audio]")||lesson.querySelector("[data-hsk-speak]");var target=targetNode&&(targetNode.getAttribute("data-hsk-dictation-audio")||targetNode.getAttribute("data-hsk-speak"));if(!target)return;var card=document.createElement("section");card.className="hsk-section hskk-roast-card mobile-active";card.innerHTML='<div class="hsk-section-title"><h4>Luyện nói HSKK · Roast Mode</h4><span>Chấm theo chữ trình duyệt nhận được</span></div><div class="hsk-dictation"><p>Đọc câu mẫu: <strong class="hskk-target"></strong></p><div class="hsk-dictation-row"><button class="hsk-speak hskk-listen">♪ Nghe mẫu</button><button class="accent hskk-mic">🎙 Bắt đầu đọc</button></div><div class="hsk-dictation-feedback hskk-feedback">Bấm mic, đọc xong bấm lần nữa để chấm.</div></div>';card.querySelector(".hskk-target").textContent=target;lesson.appendChild(card);card.querySelector(".hskk-listen").onclick=function(){speakChinese(target)};var Rec=root.SpeechRecognition||root.webkitSpeechRecognition,rec=null,text="",listening=false,mic=card.querySelector(".hskk-mic"),fb=card.querySelector(".hskk-feedback");mic.onclick=function(){if(!Rec){fb.textContent="Trình duyệt chưa hỗ trợ nhận dạng giọng Trung.";return}if(listening){listening=false;mic.textContent="⏳ Đang chấm…";try{rec.stop()}catch(e){}return}text="";rec=new Rec();rec.lang="zh-CN";rec.continuous=true;rec.interimResults=true;listening=true;mic.textContent="⏹ Đọc xong – bấm để chấm";fb.textContent="Đang nghe…";rec.onresult=function(ev){var s="";for(var i=0;i<ev.results.length;i++)s+=ev.results[i][0].transcript;text=s;fb.textContent="Máy nghe thành: "+text};rec.onend=function(){listening=false;mic.textContent="🎙 Bắt đầu đọc";var score=similarity(text,target),pct=Math.round(score*100),msg=score>=.85?"Khớp "+pct+"%. Nghe khá sạch, lần này thanh điệu chưa làm câu biến hình.":score>=.55?"Khớp "+pct+"%. Tạm ổn nhưng vài âm đang trượt ray; nghe mẫu rồi đọc theo từng cụm.":"Khớp "+pct+"%. Máy nghe câu này như mật mã. Đừng nuốt âm, đặc biệt thanh 1 và thanh 4.";fb.textContent=msg+" (Chấm theo văn bản nhận dạng, không phải máy đo cao độ chuyên dụng.)";playAdam(score>=.85?"good":score>=.55?"medium":"bad")};rec.onerror=function(){listening=false;mic.textContent="🎙 Bắt đầu đọc";fb.textContent="Không nhận được giọng nói hoặc chưa có quyền microphone."};rec.start()}}
+  function observeHSK(){var lesson=byId("hskLesson");if(!lesson)return;var run=function(){setTimeout(injectSpeaking,20)};new MutationObserver(run).observe(lesson,{childList:true,subtree:true});run()}
+  function prioritizeHSK(){var nav=document.querySelector(".area-switch"),h=document.querySelector('[data-area="hsk"]'),e=document.querySelector('[data-area="erp"]');if(nav&&h&&e){nav.insertBefore(h,e);h.textContent="Lộ trình HSK";e.textContent="ERP công việc"}var params=new URLSearchParams(location.search);if(!params.get("area")&&root.ERPAreaNavigation)root.ERPAreaNavigation.select("hsk")}
+  function init(){if(byId("community")){var h=byId("communityHanzi");if(h)h.oninput=function(){var v=this.value.trim();if(!v){byId("communityPinyin").value="";byId("communityNear").value="";return}if(root.PinyinEngineReady&&!root.pinyinPro)root.PinyinEngineReady.then(function(){if(byId("communityHanzi").value.trim()===v)fillPron(v)});else fillPron(v)};byId("submitCommunity").onclick=submitTerm;byId("refreshCommunity").onclick=function(){loadTerms(true)};loadTerms(true);root.setInterval(function(){loadTerms(false)},60000)}installRoastControl();interceptVietnameseTTS();attachHSKRoast();observeHSK();prioritizeHSK()}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+})(typeof globalThis!=="undefined"?globalThis:this);
