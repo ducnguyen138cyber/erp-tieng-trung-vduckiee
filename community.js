@@ -3,7 +3,7 @@
 
   function loadRuntime(){
     var parts=[1,2,3,4].map(function(n){
-      return fetch("./assets/v62/runtime.part"+n+".txt?v=67",{cache:"no-store"}).then(function(response){
+      return fetch("./assets/v62/runtime.part"+n+".txt?v=68",{cache:"no-store"}).then(function(response){
         if(!response.ok)throw new Error("Thiếu runtime v62 phần "+n);
         return response.text();
       });
@@ -20,12 +20,23 @@
     });
   }
 
-  var script=document.createElement("script");
-  script.src="./assets/v62/audio-fix.js?v=67";
-  script.onload=loadRuntime;
-  script.onerror=function(){
+  function loadStopFix(){
+    var stopFix=document.createElement("script");
+    stopFix.src="./assets/v62/audio-stop-fix.js?v=68";
+    stopFix.onload=loadRuntime;
+    stopFix.onerror=function(){
+      console.error("Không nạp được bản vá bộ hẹn giờ Adam.");
+      loadRuntime();
+    };
+    document.head.appendChild(stopFix);
+  }
+
+  var audioFix=document.createElement("script");
+  audioFix.src="./assets/v62/audio-fix.js?v=67";
+  audioFix.onload=loadStopFix;
+  audioFix.onerror=function(){
     console.error("Không nạp được bản vá audio Adam.");
     loadRuntime();
   };
-  document.head.appendChild(script);
+  document.head.appendChild(audioFix);
 })();
