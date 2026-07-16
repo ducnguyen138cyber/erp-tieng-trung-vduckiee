@@ -1,42 +1,39 @@
 (function(){
   "use strict";
 
+  function loadFeedbackContext(){
+    var script=document.createElement("script");
+    script.src="./assets/v62/hsk-feedback-context-v69.js?v=69";
+    script.onerror=function(){console.error("Không nạp được bộ nhận xét HSK theo ngữ cảnh.");};
+    document.head.appendChild(script);
+  }
+
   function loadRuntime(){
     var parts=[1,2,3,4].map(function(n){
-      return fetch("./assets/v62/runtime.part"+n+".txt?v=68",{cache:"no-store"}).then(function(response){
+      return fetch("./assets/v62/runtime.part"+n+".txt?v=69",{cache:"no-store"}).then(function(response){
         if(!response.ok)throw new Error("Thiếu runtime v62 phần "+n);
         return response.text();
       });
     });
     Promise.all(parts).then(function(code){
       Function(code.join(""))();
+      loadFeedbackContext();
     }).catch(function(error){
       console.error("Không nạp được v62:",error);
       var element=document.getElementById("communityConnection");
       if(element){
         element.className="community-connection bad";
-        element.textContent="Không nạp được bản v62. Hãy Ctrl+F5 để tải lại.";
+        element.textContent="Không nạp được bản cập nhật. Hãy Ctrl+F5 để tải lại.";
       }
     });
   }
 
-  function loadStopFix(){
-    var stopFix=document.createElement("script");
-    stopFix.src="./assets/v62/audio-stop-fix.js?v=68";
-    stopFix.onload=loadRuntime;
-    stopFix.onerror=function(){
-      console.error("Không nạp được bản vá bộ hẹn giờ Adam.");
-      loadRuntime();
-    };
-    document.head.appendChild(stopFix);
-  }
-
-  var audioFix=document.createElement("script");
-  audioFix.src="./assets/v62/audio-fix.js?v=67";
-  audioFix.onload=loadStopFix;
-  audioFix.onerror=function(){
-    console.error("Không nạp được bản vá audio Adam.");
+  var directAudio=document.createElement("script");
+  directAudio.src="./assets/v62/audio-direct-v69.js?v=69";
+  directAudio.onload=loadRuntime;
+  directAudio.onerror=function(){
+    console.error("Không nạp được bộ phát 60 clip Adam riêng biệt.");
     loadRuntime();
   };
-  document.head.appendChild(audioFix);
+  document.head.appendChild(directAudio);
 })();
