@@ -29,8 +29,10 @@ jobs:
           set -euo pipefail
           mkdir -p /tmp/adam-source assets/adam-clips
           for level in good medium bad; do
-            cat assets/adam/${level}.part1.b64 assets/adam/${level}.part2.b64 assets/adam/${level}.part3.b64 assets/adam/${level}.part4.b64 \
-              | tr -d '\r\n ' | base64 -d > "/tmp/adam-source/${level}.mp3"
+            : > "/tmp/adam-source/${level}.mp3"
+            for part in 1 2 3 4; do
+              tr -d '\r\n ' < "assets/adam/${level}.part${part}.b64" | base64 -d >> "/tmp/adam-source/${level}.mp3"
+            done
           done
           python3 - <<'PY'
           import subprocess
