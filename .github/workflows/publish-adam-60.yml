@@ -1,36 +1,67 @@
-name: Resolve Adam branch and publish clips
+name: Publish Adam 60 clips
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  resolve:
-    if: github.event.pull_request.head.repo.full_name == github.repository
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0
 
-      - name: Merge latest main into branch
+      - name: Install ffmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+
+      - name: Rebuild source audio and cut 60 verified clips
         shell: bash
         run: |
           set -euo pipefail
+          mkdir -p /tmp/adam-source assets/adam-clips
+          for level in good medium bad; do
+            : > "/tmp/adam-source/${level}.mp3"
+            for part in 1 2 3 4; do
+              tr -d '\r\n ' < "assets/adam/${level}.part${part}.b64" | base64 -d >> "/tmp/adam-source/${level}.mp3"
+            done
+          done
+          python3 - <<'PY'
+          import subprocess
+          from pathlib import Path
+          clips={
+          'good':{'starts':[0.050,6.738254,10.853549,18.4006575,25.18822,31.0788325,42.97144,46.211451,49.9547055,57.4843425,63.325295,74.318322,80.6688435,86.732925,92.4571085,97.222415,103.661077,109.4592515,113.0911905,116.461644],'lengths':[6.588254,4.015295,7.4471085,6.6875625,5.7906125,11.7926075,3.140011,3.6432545,7.429637,5.7409525,10.893027,6.2505215,5.9640815,5.6241835,4.6653065,6.338662,5.6981745,3.531939,3.2704535,5.767481]},
+          'medium':{'starts':[0.050,5.015873,10.178946,20.6234355,26.431576,36.350839,46.451247,52.345873,58.5091835,61.725907,64.821712,68.9873925,71.2972335,76.430136,82.774456,88.7065415,94.7060205,100.763594,107.4748185,110.1979365],'lengths':[4.865873,5.063073,10.3444895,5.7081405,9.819263,10.000408,5.794626,6.0633105,3.1167235,2.995805,4.0656805,2.209841,5.0329025,6.24432,5.8320855,5.899479,5.9575735,6.6112245,2.623118,2.8645015]},
+          'bad':{'starts':[0.050,4.417007,9.446009,14.972109,27.244649,33.974603,39.017619,45.236621,51.966576,58.640544,64.14551,69.289501,75.775533,82.287528,88.129535,94.184535,100.267528,105.403526,111.64551,116.446531],'lengths':[4.267007,4.929002,5.4261,12.17254,6.629954,4.943016,6.119002,6.629955,6.573968,5.404966,5.043991,6.386032,6.411995,5.742007,5.955,5.982993,5.035998,6.141984,4.701021,6.777532]}}
+          out=Path('assets/adam-clips'); out.mkdir(parents=True,exist_ok=True)
+          for level,data in clips.items():
+              src=Path(f'/tmp/adam-source/{level}.mp3')
+              for i,(start,length) in enumerate(zip(data['starts'],data['lengths']),1):
+                  dst=out/f'{level}-{i:02d}.mp3'
+                  subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-ss',f'{start:.6f}','-i',str(src),'-t',f'{length:.6f}','-vn','-ac','1','-ar','22050','-b:a','64k',str(dst)],check=True)
+          files=sorted(out.glob('*.mp3'))
+          assert len(files)==60, len(files)
+          assert all(p.stat().st_size>12000 for p in files)
+          PY
+
+      - name: Verify clips
+        run: |
+          test "$(find assets/adam-clips -name '*.mp3' | wc -l)" -eq 60
+          for f in assets/adam-clips/*.mp3; do ffprobe -v error -show_entries format=duration -of csv=p=0 "$f" >/dev/null; done
+
+      - name: Commit clips to PR branch
+        run: |
           git config user.name "VDuckie Build Bot"
           git config user.email "actions@users.noreply.github.com"
-          git fetch origin main
-          if git merge-base --is-ancestor origin/main HEAD; then
-            echo "Branch already contains main"
-            exit 0
-          fi
-          if ! git merge origin/main --no-edit; then
-            git checkout --theirs .github/workflows/publish-adam-60.yml
-            git add .github/workflows/publish-adam-60.yml
-            git commit --no-edit
-          fi
-          git push origin HEAD:${{ github.head_ref }}
+          git add assets/adam-clips
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Publish 60 standalone Adam MP3 clips"
+          git push origin HEAD:${{ github.head_ref || github.ref_name }}
