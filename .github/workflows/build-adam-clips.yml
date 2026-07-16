@@ -2,6 +2,8 @@ name: Build verified Adam clips
 
 on:
   workflow_dispatch:
+  issues:
+    types: [opened]
   push:
     branches: [main]
     paths-ignore:
@@ -12,7 +14,7 @@ permissions:
 
 jobs:
   build-clips:
-    if: github.actor != 'github-actions[bot]'
+    if: github.actor != 'github-actions[bot]' && (github.event_name != 'issues' || github.event.issue.title == 'Build Adam clips v69')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
