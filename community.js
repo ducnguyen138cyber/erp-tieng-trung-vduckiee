@@ -3,7 +3,7 @@
 
   function loadRuntime(){
     var parts=[1,2,3,4].map(function(n){
-      return fetch("./assets/v62/runtime.part"+n+".txt?v=66",{cache:"no-store"}).then(function(response){
+      return fetch("./assets/v62/runtime.part"+n+".txt?v=67",{cache:"no-store"}).then(function(response){
         if(!response.ok)throw new Error("Thiếu runtime v62 phần "+n);
         return response.text();
       });
@@ -21,7 +21,7 @@
   }
 
   var script=document.createElement("script");
-  script.src="./assets/v62/audio-fix.js?v=66";
+  script.src="./assets/v62/audio-fix.js?v=67";
   script.onload=loadRuntime;
   script.onerror=function(){
     console.error("Không nạp được bản vá audio Adam.");
