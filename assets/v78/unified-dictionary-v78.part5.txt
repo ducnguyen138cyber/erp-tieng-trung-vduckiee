@@ -1,0 +1,65 @@
+    for (var i = 0; i < voices.length; i++) {
+      if (/^zh/i.test(voices[i].lang || "")) { utterance.voice = voices[i]; break; }
+    }
+    root.speechSynthesis.speak(utterance);
+  }
+
+  function wrapNavigation() {
+    var original = root.ERPAreaNavigation || {};
+    var originalSelect = original.select;
+    var originalHome = original.home;
+    original.select = function (area) {
+      if (area === "dictionary") return openDictionary("all");
+      hideDictionaryOnly();
+      cleanDictionaryParams();
+      if (typeof originalSelect === "function") return originalSelect(area);
+    };
+    original.home = function () {
+      hideDictionaryOnly();
+      cleanDictionaryParams();
+      if (typeof originalHome === "function") return originalHome();
+    };
+    root.ERPAreaNavigation = original;
+  }
+
+  function watchLateData() {
+    var attempts = 0;
+    var timer = root.setInterval(function () {
+      attempts++;
+      if (refreshData(false) && document.body.getAttribute("data-current-area") === "dictionary") renderControls();
+      if (attempts >= 20 || (root.HSKCurriculum && /v75|150 từ/i.test(root.HSKCurriculum.standard || ""))) root.clearInterval(timer);
+    }, 350);
+    root.addEventListener("vduckie:erp-v77-ready", function () {
+      refreshData(true);
+      if (document.body.getAttribute("data-current-area") === "dictionary") renderControls();
+    });
+  }
+
+  function install() {
+    if (byId("unifiedDictionary")) return;
+    loadStyles();
+    createMenu();
+    createPage();
+    addLookupButton("hskHero", "hsk");
+    addLookupButton("erpHero", "erp");
+    refreshData(true);
+    bindEvents();
+    wrapNavigation();
+    watchLateData();
+
+    root.VDuckieDictionary = {
+      version: "78.0",
+      state: state,
+      records: records,
+      open: openDictionary,
+      refresh: function () { refreshData(true); renderControls(); },
+      filter: function (nextState) { return filterRecords(records, nextState || state); }
+    };
+
+    var params = new URLSearchParams(root.location.search);
+    if (params.get("area") === "dictionary" || root.location.hash === "#dictionary") openDictionary(params.get("source") || "all", false);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", install, { once: true });
+  else install();
+})(typeof window !== "undefined" ? window : globalThis);
