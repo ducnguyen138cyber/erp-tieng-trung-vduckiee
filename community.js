@@ -32,14 +32,14 @@
     script.onerror=function(){console.error("Không nạp được phần hướng dẫn trang chủ v75.1.");};
     document.head.appendChild(script);
   }
-  function loadHomeLayoutV752(){
+  function loadHomeLayoutV753(){
     var script=document.createElement("script");
-    script.src="./assets/v75/home-layout-v75.2.js?v=75.2";
-    script.onerror=function(){console.error("Không nạp được bố cục trang chủ v75.2.");};
+    script.src="./assets/v75/home-layout-v75.3.js?v=75.3";
+    script.onerror=function(){console.error("Không nạp được bố cục trang chủ v75.3.");};
     document.head.appendChild(script);
   }
   loadHomeWelcomeV751();
-  loadHomeLayoutV752();
+  loadHomeLayoutV753();
   loadHsk1V75();
   loadRuntime();
 })();
