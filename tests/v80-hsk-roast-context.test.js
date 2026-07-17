@@ -21,7 +21,7 @@ test('provides five HSK-specific lines for every exercise type', () => {
 
 test('HSK roast banks contain no ERP listening vocabulary', () => {
   const all = Object.values(api.banks).flat().join(' ').toLowerCase();
-  for (const forbidden of ['lĩnh liệu', 'tồn kho', 'nhập kho', 'xuất kho', 'công lệnh', 'bom', 'đơn mua hàng']) {
+  for (const forbidden of ['erp', 'lĩnh liệu', 'tồn kho', 'nhập kho', 'xuất kho', 'công lệnh', 'bom', 'đơn mua hàng']) {
     assert.equal(all.includes(forbidden), false, `must not contain ERP phrase: ${forbidden}`);
   }
 });
@@ -37,10 +37,8 @@ test('feedback rotates five contextual lines before repeating', () => {
   assert.equal(api.nextLine('quizWrong', data), lines[0]);
 });
 
-test('community loader starts HSK contextual roast after legacy runtime', () => {
-  const runtimeIndex = loader.indexOf('runtime-v70.2.js?v=70.2');
-  const roastIndex = loader.indexOf('hsk-roast-context-v80.1.js?v=80.1');
-  assert.ok(runtimeIndex >= 0);
-  assert.ok(roastIndex > runtimeIndex);
+test('community loader starts HSK contextual roast from the legacy runtime onload hook', () => {
+  assert.match(loader, /runtime-v70\.2\.js\?v=70\.2/);
+  assert.match(loader, /hsk-roast-context-v80\.1\.js\?v=80\.1/);
   assert.match(loader, /script\.onload=function\(\)\{loadFeedbackContext\(\);loadHskRoastContextV801\(\);\}/);
 });
