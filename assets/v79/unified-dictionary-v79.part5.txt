@@ -1,0 +1,71 @@
+    for (var i = 0; i < voices.length; i++) {
+      if (/^zh/i.test(voices[i].lang || "")) { utterance.voice = voices[i]; break; }
+    }
+    root.speechSynthesis.speak(utterance);
+  }
+
+  function wrapNavigation() {
+    var original = root.ERPAreaNavigation || {};
+    var originalSelect = original.select;
+    var originalHome = original.home;
+    original.select = function (area) {
+      if (area === "dictionary") return openDictionary("all");
+      hideDictionaryOnly();
+      cleanDictionaryParams();
+      if (typeof originalSelect === "function") return originalSelect(area);
+    };
+    original.home = function () {
+      hideDictionaryOnly();
+      cleanDictionaryParams();
+      if (typeof originalHome === "function") return originalHome();
+    };
+    root.ERPAreaNavigation = original;
+  }
+
+  function refreshVisibleDictionary(force) {
+    if (refreshData(Boolean(force)) && document.body.getAttribute("data-current-area") === "dictionary") renderControls();
+    else if (document.body.getAttribute("data-current-area") === "dictionary") updateDatasetStatus();
+  }
+
+  function watchLateData() {
+    var attempts = 0;
+    var timer = root.setInterval(function () {
+      attempts++;
+      refreshVisibleDictionary(false);
+      var bulkReady = (root.HSK_DICTIONARY_TERMS || []).length >= 10000;
+      if (attempts >= 180 || bulkReady) root.clearInterval(timer);
+    }, 350);
+    root.addEventListener("vduckie:erp-v77-ready", function () { refreshVisibleDictionary(true); });
+    root.addEventListener("vduckie:hsk-dictionary-ready", function () { refreshVisibleDictionary(true); });
+    root.addEventListener("vduckie:hsk-dictionary-status", function () { if (document.body.getAttribute("data-current-area") === "dictionary") updateDatasetStatus(); });
+  }
+
+  function install() {
+    if (byId("unifiedDictionary")) return;
+    loadStyles();
+    createMenu();
+    createPage();
+    addLookupButton("hskHero", "hsk");
+    addLookupButton("erpHero", "erp");
+    refreshData(true);
+    bindEvents();
+    wrapNavigation();
+    watchLateData();
+
+    root.VDuckieDictionary = {
+      version: "79.0",
+      state: state,
+      records: records,
+      open: openDictionary,
+      refresh: function () { refreshData(true); renderControls(); },
+      filter: function (nextState) { return filterRecords(records, nextState || state); }
+    };
+
+    if (root.VDuckieHSKDictionaryLoader && typeof root.VDuckieHSKDictionaryLoader.load === "function") root.VDuckieHSKDictionaryLoader.load();
+    var params = new URLSearchParams(root.location.search);
+    if (params.get("area") === "dictionary" || root.location.hash === "#dictionary") openDictionary(params.get("source") || "all", false);
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", install, { once: true });
+  else install();
+})(typeof window !== "undefined" ? window : globalThis);
