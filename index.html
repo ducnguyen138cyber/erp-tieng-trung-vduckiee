@@ -51,12 +51,22 @@
     @media(max-width:700px){.hsk-mobile-step-bottom button:last-child{max-width:none}}
     @media(max-width:480px){.hsk-stroke-stage{width:min(240px,100%);height:auto}.brand-logo{width:52px;height:52px;flex-basis:52px}}
   </style>
+  <style>
+    .cloud-auth{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 11px;border:1px solid #d7d0c2;border-radius:16px;background:#fff}.cloud-auth-copy{min-width:0}.cloud-auth-copy strong,.cloud-auth-copy small{display:block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cloud-auth-copy strong{font-size:12px}.cloud-auth-copy small{margin-top:2px;color:#6a746f;font-size:10px}.cloud-sync-status.good{color:#2d745e}.cloud-sync-status.waiting{color:#a15c31}.cloud-sync-status.bad{color:#9a332d}.cloud-auth button{border:0;border-radius:12px;background:#18352e;color:#fff;padding:9px 12px;font-weight:800;white-space:nowrap;cursor:pointer}.cloud-auth button#cloudLogout{background:#e8e3d8;color:#18352e}.cloud-auth button:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.top-actions{width:100%;align-items:stretch;flex-direction:column}.area-switch{align-self:flex-start}.cloud-auth{justify-content:space-between}.cloud-auth-copy strong,.cloud-auth-copy small{max-width:55vw}}
+  </style>
 </head>
 <body>
   <div class="shell" id="appShell">
     <header class="top">
       <div class="brand"><img class="brand-logo" src="./assets/vduckie-logo.png?v=1" alt="Logo VDuckie"><span><strong id="brandTitle">Tự học tiếng Trung</strong><small id="brandSubtitle">Developed by VDuckie</small></span></div>
-      <nav class="area-switch" aria-label="Chuyển khu vực học"><button class="active" data-area="erp">ERP công việc</button><button data-area="hsk">Lộ trình HSK</button></nav>
+      <div class="top-actions">
+        <nav class="area-switch" aria-label="Chuyển khu vực học"><button class="active" data-area="erp">ERP công việc</button><button data-area="hsk">Lộ trình HSK</button></nav>
+        <div class="cloud-auth" aria-live="polite">
+          <span class="cloud-auth-copy"><strong id="cloudIdentity">Dữ liệu đang lưu trên thiết bị</strong><small class="cloud-sync-status" id="cloudSyncStatus">Đang kiểm tra đồng bộ…</small></span>
+          <button id="cloudLogin" type="button">Đăng nhập Google</button>
+          <button class="hidden" id="cloudLogout" type="button">Đăng xuất</button>
+        </div>
+      </div>
     </header>
     <nav class="nav erp-nav" id="erpNav"><button class="active" data-view="cards">Thẻ từ ERP</button><button data-view="dialogue">Hội thoại ERP</button><button data-view="quiz">Kiểm tra ERP</button><button data-view="glossary">Từ điển ERP</button><button data-view="personal">Sổ từ cá nhân</button><button data-view="community">Từ cộng đồng</button></nav>
     <section class="hero" id="erpHero">
@@ -241,17 +251,45 @@
     function esc(value){return String(value||"").replace(/[&<>\"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})}
     try{known=JSON.parse(localStorage.getItem("erp-lite-known")||"{}")}catch(e){known={}}
     try{personalTerms=JSON.parse(localStorage.getItem("erp-lite-personal")||"[]");if(!(personalTerms instanceof Array))personalTerms=[]}catch(e){personalTerms=[]}
+    var learningMeta={};
+    try{learningMeta=JSON.parse(localStorage.getItem("erp-lite-sync-meta-v1")||"{}");if(!learningMeta||typeof learningMeta!=="object"||learningMeta instanceof Array)learningMeta={}}catch(e){learningMeta={}}
+    function saveLearningMeta(){try{localStorage.setItem("erp-lite-sync-meta-v1",JSON.stringify(learningMeta))}catch(e){}}
+    function metaFor(word){if(!learningMeta[word])learningMeta[word]={known_updated_at:null,saved_updated_at:null};return learningMeta[word]}
+    function findPersonalIndex(word){for(var i=0;i<personalTerms.length;i++)if(personalTerms[i][0]===word)return i;return-1}
+    function findTermByWord(word){for(var i=0;i<terms.length;i++)if(terms[i][0]===word)return terms[i];for(var j=0;j<baseTerms.length;j++)if(baseTerms[j][0]===word)return baseTerms[j];return null}
+    function cloudRowFor(word,term){var t=term||findTermByWord(word)||[word,"","","","","","",""];var meta=metaFor(word);return{word_key:word,hanzi:t[0]||word,pinyin:t[1]||"",near_vi:t[2]||"",meaning_vi:t[3]||"",category:t[4]||"",note:t[5]||"",example_zh:t[6]||"",example_vi:t[7]||"",is_known:!!known[word],is_saved:findPersonalIndex(word)!==-1,known_updated_at:meta.known_updated_at||null,saved_updated_at:meta.saved_updated_at||null}}
+    function markLearningChange(word,flag,term){metaFor(word)[flag+"_updated_at"]=new Date().toISOString();saveLearningMeta();document.dispatchEvent(new CustomEvent("vduckie:learning-change",{detail:cloudRowFor(word,term)}))}
     function rebuildTerms(){terms=baseTerms.slice(0);var additions=personalTerms.concat(sharedTerms);for(var i=0;i<additions.length;i++){var exists=false;for(var j=0;j<terms.length;j++)if(terms[j][0]===additions[i][0]){exists=true;break}if(!exists)terms.push(additions[i])}}
     function buildDaily(){daily=[];learningOrder=[];var start=(new Date().getDate()*7)%terms.length;for(var i=0;i<terms.length;i++)learningOrder.push(terms[(start+i*37)%terms.length]);var unseen=[],seen=[];for(var j=0;j<learningOrder.length;j++)(known[learningOrder[j][0]]?seen:unseen).push(learningOrder[j]);learningOrder=unseen.concat(seen);for(var k=0;k<10&&k<learningOrder.length;k++)daily.push(learningOrder[k])}
     rebuildTerms();buildDaily();
     function saveKnown(){try{localStorage.setItem("erp-lite-known",JSON.stringify(known))}catch(e){}}
     function savePersonal(){try{localStorage.setItem("erp-lite-personal",JSON.stringify(personalTerms))}catch(e){}rebuildTerms();var insertAt=daily.length;for(var i=0;i<terms.length;i++){var queued=false;for(var j=0;j<learningOrder.length;j++)if(learningOrder[j][0]===terms[i][0]){queued=true;break}if(!queued){learningOrder.splice(insertAt,0,terms[i]);insertAt++}}renderTerms();renderPersonal()}
     window.ERPCommunityLearning={merge:function(rows){sharedTerms=[];for(var i=0;i<rows.length;i++){var row=rows[i];if(row.status&&row.status!=="approved")continue;sharedTerms.push([row.hanzi,row.pinyin,row.near_vi||"",row.vi,"Chứng từ","Từ trong kho chung",row.example||"",""])}rebuildTerms();var insertAt=daily.length;for(var j=0;j<terms.length;j++){var queued=false;for(var k=0;k<learningOrder.length;k++)if(learningOrder[k][0]===terms[j][0]){queued=true;break}if(!queued){learningOrder.splice(insertAt,0,terms[j]);insertAt++}}renderTerms()}};
+    function cloudTime(value){var time=Date.parse(value||"");return isNaN(time)?0:time}
+    function termFromCloud(row){return[row.hanzi||row.word_key,row.pinyin||"",row.near_vi||"",row.meaning_vi||"",row.category||"Chứng từ",row.note||"Từ đã đồng bộ",row.example_zh||"",row.example_vi||""]}
+    window.VDuckieLocalLearning={
+      mergeRemote:function(rows){
+        for(var i=0;i<rows.length;i++){
+          var row=rows[i],word=row.word_key||row.hanzi;if(!word)continue;var meta=metaFor(word),personalIndex=findPersonalIndex(word);
+          if(row.known_updated_at&&cloudTime(row.known_updated_at)>=cloudTime(meta.known_updated_at)){if(row.is_known)known[word]=true;else delete known[word];meta.known_updated_at=row.known_updated_at}
+          if(row.saved_updated_at&&cloudTime(row.saved_updated_at)>=cloudTime(meta.saved_updated_at)){if(row.is_saved){var remoteTerm=termFromCloud(row);if(personalIndex===-1)personalTerms.push(remoteTerm);else personalTerms[personalIndex]=remoteTerm}else if(personalIndex!==-1)personalTerms.splice(personalIndex,1);meta.saved_updated_at=row.saved_updated_at}
+        }
+        saveKnown();saveLearningMeta();savePersonal();buildDaily();if(cardIndex>=daily.length)cardIndex=0;renderCard();renderSuggestions()
+      },
+      prepareForCloud:function(){
+        var keys={},now=new Date().toISOString(),changed=false,i;
+        for(var word in known)if(Object.prototype.hasOwnProperty.call(known,word)&&known[word])keys[word]=true;
+        for(i=0;i<personalTerms.length;i++)keys[personalTerms[i][0]]=true;
+        for(var metaWord in learningMeta)if(Object.prototype.hasOwnProperty.call(learningMeta,metaWord))keys[metaWord]=true;
+        var rows=[];for(var key in keys)if(Object.prototype.hasOwnProperty.call(keys,key)){var meta=metaFor(key);if(known[key]&&!meta.known_updated_at){meta.known_updated_at=now;changed=true}if(findPersonalIndex(key)!==-1&&!meta.saved_updated_at){meta.saved_updated_at=now;changed=true}rows.push(cloudRowFor(key))}
+        if(changed)saveLearningMeta();return rows
+      }
+    };
     function speakText(value){if(!value||!window.speechSynthesis)return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(value);u.lang="zh-CN";u.rate=speechRate;var voices=window.speechSynthesis.getVoices(),chosen=null;for(var i=0;i<voices.length;i++){if(/google/i.test(voices[i].name)&&/^zh/i.test(voices[i].lang)){chosen=voices[i];break}if(!chosen&&/^zh/i.test(voices[i].lang))chosen=voices[i]}if(chosen)u.voice=chosen;window.speechSynthesis.speak(u)}
     function renderCard(){var t=daily[cardIndex];$("cardStep").textContent="THẺ "+(cardIndex+1)+" / "+daily.length;$("cardCategory").textContent=t[4];$("cardHanzi").textContent=reverse?t[3]:t[0];$("cardHanzi").className=reverse?"hanzi reverse":"hanzi";$("cardPinyin").textContent=reverse?"":t[1];$("cardNearVi").parentNode.style.display=reverse?"none":"block";$("cardNearVi").textContent=t[2]||"—";$("speakCard").style.display=reverse?"none":"inline-block";$("answerLabel").textContent=reverse?"ĐÁP ÁN TIẾNG TRUNG":"NGHĨA TRONG ERP";$("cardVi").innerHTML=reverse?esc(t[0])+"<br><small>"+esc(t[1])+(t[2]?" · gần âm: "+esc(t[2]):"")+"</small>":esc(t[3]);$("cardNote").textContent=t[5]||"";$("cardExample").textContent=t[6]||"";$("cardExampleVi").textContent=t[7]||"";$("speakExample").parentNode.style.display=t[6]?"block":"none";$("cardFront").className=revealed?"card-center hidden":"card-center";$("cardBack").className=revealed?"card-center answer":"card-center answer hidden";$("cardStatus").textContent=known[t[0]]?"✓ Đã nhớ":(revealed?"Đáp án":"Nhấn để lật");var n=0;for(var i=0;i<daily.length;i++)if(known[daily[i][0]])n++;$("doneCount").textContent=n;$("targetCount").textContent=daily.length;$("progressBar").style.width=(daily.length?Math.round(n*100/daily.length):0)+"%";$("moreCards").className=n===daily.length&&daily.length<terms.length?"accent":"accent hidden"}
     function move(n){cardIndex=(cardIndex+n+daily.length)%daily.length;revealed=false;renderCard()}
-    $("flashcard").onclick=function(){revealed=!revealed;renderCard()};$("speakCard").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][0])};$("speakExample").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][6])};$("prevCard").onclick=function(){move(-1)};$("nextCard").onclick=function(){move(1)};$("againCard").onclick=function(){delete known[daily[cardIndex][0]];saveKnown();move(1)};
-    $("knowCard").onclick=function(){known[daily[cardIndex][0]]=true;saveKnown();move(1)};
+    $("flashcard").onclick=function(){revealed=!revealed;renderCard()};$("speakCard").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][0])};$("speakExample").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][6])};$("prevCard").onclick=function(){move(-1)};$("nextCard").onclick=function(){move(1)};$("againCard").onclick=function(){var t=daily[cardIndex];delete known[t[0]];saveKnown();markLearningChange(t[0],"known",t);move(1)};
+    $("knowCard").onclick=function(){var t=daily[cardIndex];known[t[0]]=true;saveKnown();markLearningChange(t[0],"known",t);move(1)};
     $("moreCards").onclick=function(){var oldLength=daily.length,target=Math.min(oldLength+10,learningOrder.length);for(var i=oldLength;i<target;i++)daily.push(learningOrder[i]);if(daily.length>oldLength){cardIndex=oldLength;revealed=false;renderCard()}else window.alert("Bạn đã học hết toàn bộ thuật ngữ hiện có.")};
     $("toggleMode").onclick=function(){reverse=!reverse;revealed=false;this.textContent=reverse?"Chế độ: Việt → Trung":"Chế độ: Trung → Việt";renderCard()};
     $("speedCard").onclick=function(){speechRate=speechRate<.8?.92:.68;this.textContent=speechRate<.8?"Tốc độ: Chậm":"Tốc độ: Bình thường"};
@@ -261,9 +299,9 @@
     $("nextQuiz").onclick=function(){quizIndex++;renderQuiz()};$("restartQuiz").onclick=function(){quizIndex=0;renderQuiz()};$("speakQuiz").onclick=function(){if(quizIndex<5)speakText(daily[quizIndex][0])};
     function renderTerms(){var q=$("search").value.toLowerCase(),html="",count=0;for(var i=0;i<terms.length;i++){var t=terms[i],hay=(t[0]+" "+t[1]+" "+t[2]+" "+t[3]).toLowerCase();if((category==="Tất cả"||t[4]===category)&&hay.indexOf(q)!==-1){count++;html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><i>Gần âm: '+esc(t[2]||"—")+'</i><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted speak-term" data-word="'+esc(t[0])+'">♪ Nghe</button></div></article>'}}$("termCount").textContent=count;$("terms").innerHTML=html;var buttons=document.querySelectorAll(".speak-term");for(var j=0;j<buttons.length;j++)buttons[j].onclick=function(){speakText(this.getAttribute("data-word"))}}
     $("search").oninput=renderTerms;var filters=$("filters").getElementsByTagName("button");for(var f=0;f<filters.length;f++)filters[f].onclick=function(){category=this.getAttribute("data-category");for(var j=0;j<filters.length;j++)filters[j].className="";this.className="active";renderTerms()};
-    function addPersonal(t){for(var i=0;i<personalTerms.length;i++)if(personalTerms[i][0]===t[0])return;personalTerms.push(t.slice(0));savePersonal();$("viLookup").value="";renderSuggestions()}
+    function addPersonal(t){for(var i=0;i<personalTerms.length;i++)if(personalTerms[i][0]===t[0])return;personalTerms.push(t.slice(0));savePersonal();markLearningChange(t[0],"saved",t);$("viLookup").value="";renderSuggestions()}
     function renderSuggestions(){var q=$("viLookup").value.toLowerCase().trim(),html="",shown=0;if(q){for(var i=0;i<baseTerms.length&&shown<8;i++){var t=baseTerms[i];if((t[3]+" "+t[0]).toLowerCase().indexOf(q)!==-1){html+='<div class="suggestion"><span><strong>'+esc(t[3])+'</strong><small>'+esc(t[0])+' · '+esc(t[1])+' · '+esc(t[2])+'</small></span><button class="accent add-suggestion" data-index="'+i+'">+ Lưu</button></div>';shown++}}}$("suggestions").innerHTML=html;var buttons=document.querySelectorAll(".add-suggestion");for(var j=0;j<buttons.length;j++)buttons[j].onclick=function(){addPersonal(baseTerms[Number(this.getAttribute("data-index"))])}}
-    function renderPersonal(){var html="";$("personalCount").textContent=personalTerms.length;for(var i=0;i<personalTerms.length;i++){var t=personalTerms[i];html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><i>Gần âm: '+esc(t[2]||"—")+'</i><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted personal-speak" data-index="'+i+'">♪ Nghe</button><button class="muted personal-delete" data-index="'+i+'">Xóa</button></div></article>'}$("personalTerms").innerHTML=html||'<div class="empty span-2">Chưa có từ nào được lưu.</div>';var speakButtons=document.querySelectorAll(".personal-speak"),deleteButtons=document.querySelectorAll(".personal-delete");for(var j=0;j<speakButtons.length;j++)speakButtons[j].onclick=function(){speakText(personalTerms[Number(this.getAttribute("data-index"))][0])};for(var k=0;k<deleteButtons.length;k++)deleteButtons[k].onclick=function(){personalTerms.splice(Number(this.getAttribute("data-index")),1);savePersonal()}}
+    function renderPersonal(){var html="";$("personalCount").textContent=personalTerms.length;for(var i=0;i<personalTerms.length;i++){var t=personalTerms[i];html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><i>Gần âm: '+esc(t[2]||"—")+'</i><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted personal-speak" data-index="'+i+'">♪ Nghe</button><button class="muted personal-delete" data-index="'+i+'">Xóa</button></div></article>'}$("personalTerms").innerHTML=html||'<div class="empty span-2">Chưa có từ nào được lưu.</div>';var speakButtons=document.querySelectorAll(".personal-speak"),deleteButtons=document.querySelectorAll(".personal-delete");for(var j=0;j<speakButtons.length;j++)speakButtons[j].onclick=function(){speakText(personalTerms[Number(this.getAttribute("data-index"))][0])};for(var k=0;k<deleteButtons.length;k++)deleteButtons[k].onclick=function(){var index=Number(this.getAttribute("data-index")),t=personalTerms[index];personalTerms.splice(index,1);savePersonal();markLearningChange(t[0],"saved",t)}}
     $("viLookup").oninput=renderSuggestions;
     function fillPronunciation(value){var generated=window.ERPPronunciation&&window.ERPPronunciation.generate(value);if(generated&&generated.pinyin){$("newPinyin").value=generated.pinyin;$("newNear").value=generated.nearVi;$("pronunciationStatus").textContent="Đã tạo tự động. Hãy sửa tay nếu đây là từ đa âm hoặc cách đọc nội bộ của công ty."}else $("pronunciationStatus").textContent="Không nhận diện được chữ Trung này; bạn cần nhập pinyin và âm gần Việt thủ công."}
     $("newHanzi").oninput=function(){var value=this.value.trim();if(!value){$("newPinyin").value="";$("newNear").value="";$("pronunciationStatus").textContent="Nhập chữ Trung để tự tạo pinyin và âm gần Việt. Có thể sửa tay trước khi lưu.";return}if(window.PinyinEngineReady&&!window.pinyinPro){$("pronunciationStatus").textContent="Đang nạp bộ phát âm…";window.PinyinEngineReady.then(function(){if($("newHanzi").value.trim()===value)fillPronunciation(value)});return}fillPronunciation(value)};
@@ -275,6 +313,9 @@
     renderCard();renderQuiz();renderTerms();renderSuggestions();renderPersonal();
   })();
   </script>
+  <script src="./supabase-config.js?v=71.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7/dist/umd/supabase.min.js"></script>
+  <script src="./supabase-sync.js?v=71.0"></script>
   <script src="./vendor/hanzi-writer.min.js?v=1"></script>
   <script src="./vendor/hsk-char-data.js?v=1"></script>
   <script src="./hsk-lessons.js?v=70.2"></script>
@@ -282,4 +323,4 @@
   <script src="./community.js?v=70.2"></script>
 </body>
 </html>
-<!-- GitHub Pages deployment trigger: v70.2 · 2026-07-17 -->
+<!-- GitHub Pages deployment trigger: v71.0 · 2026-07-17 -->
