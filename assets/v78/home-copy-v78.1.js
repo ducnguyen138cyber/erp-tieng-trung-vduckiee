@@ -21,16 +21,25 @@
 
   function apply(){
     var brandTitle=document.getElementById("brandTitle");
+    var brandSubtitle=document.getElementById("brandSubtitle");
+    var brandHome=document.getElementById("brandHome");
     if(brandTitle)brandTitle.textContent="Tự học tiếng Trung cùng VDuckie";
+    if(brandSubtitle){
+      brandSubtitle.textContent="";
+      brandSubtitle.hidden=true;
+      brandSubtitle.setAttribute("aria-hidden","true");
+    }
+    if(brandHome)brandHome.setAttribute("aria-label","Tự học tiếng Trung cùng VDuckie");
 
     setTile(".home-resource-tile.resource-erp",dictionaryCount()+"+","Từ vựng");
     setTile(".home-resource-tile.resource-roast",HSK_QUIZ_QUESTION_COUNT+"+","Câu kiểm tra");
 
-    if(!document.getElementById("home-copy-v78-1-style")){
+    if(!document.getElementById("home-copy-v78-2-style")){
       var style=document.createElement("style");
-      style.id="home-copy-v78-1-style";
+      style.id="home-copy-v78-2-style";
       style.textContent=[
         ".brand-home #brandTitle{max-width:340px;line-height:1.15;white-space:normal}",
+        ".brand-home #brandSubtitle{display:none!important}",
         ".home-resource-tile span{overflow-wrap:anywhere}",
         "@media(max-width:1100px){.brand-home #brandTitle{max-width:250px;font-size:14px}}"
       ].join("");
