@@ -33,7 +33,15 @@
     "./assets/v76/erp-terms-v76-production.js?v=76.0",
     "./assets/v76/erp-terms-v76-warehouse-purchasing.js?v=76.0",
     "./assets/v76/erp-terms-v76-sales-finance.js?v=76.0",
-    "./assets/v76/erp-terms-v76-system-documents.js?v=76.0"
+    "./assets/v76/erp-terms-v76-system-documents.js?v=76.0",
+    "./assets/v77/erp-terms-v77-core.js?v=77.1",
+    "./assets/v77/erp-terms-v77-planning-production.js?v=77.1",
+    "./assets/v77/erp-terms-v77-product-plm.js?v=77.1",
+    "./assets/v77/erp-terms-v77-warehouse-wms.js?v=77.1",
+    "./assets/v77/erp-terms-v77-procurement.js?v=77.1",
+    "./assets/v77/erp-terms-v77-sales-crm.js?v=77.1",
+    "./assets/v77/erp-terms-v77-broad-candidates.js?v=77.1",
+    "./assets/v77/erp-terms-v77-finalize.js?v=77.1"
   ];
   if (document.readyState === "loading") {
     for (var i = 0; i < files.length; i++) document.write('<script src="' + files[i] + '"></script>');
@@ -44,7 +52,7 @@
     var script = document.createElement("script");
     script.src = files[index];
     script.onload = function () { load(index + 1); };
-    script.onerror = function () { console.error("Không nạp được bộ từ vựng ERP v76:", files[index]); load(index + 1); };
+    script.onerror = function () { console.error("Không nạp được bộ từ vựng ERP v77.1:", files[index]); load(index + 1); };
     document.head.appendChild(script);
   }
   load(0);
