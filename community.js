@@ -44,10 +44,10 @@
     script.onerror=function(){console.error("Không nạp được Từ điển chung v78.");};
     document.head.appendChild(script);
   }
-  function loadHomeCopyV781(){
+  function loadHomeCopyV782(){
     var script=document.createElement("script");
-    script.src="./assets/v78/home-copy-v78.1.js?v=78.1";
-    script.onerror=function(){console.error("Không nạp được nội dung trang chủ v78.1.");};
+    script.src="./assets/v78/home-copy-v78.1.js?v=78.2";
+    script.onerror=function(){console.error("Không nạp được nội dung trang chủ v78.2.");};
     document.head.appendChild(script);
   }
   loadHomeWelcomeV751();
@@ -55,5 +55,5 @@
   loadHsk1V75();
   loadRuntime();
   loadUnifiedDictionaryV78();
-  loadHomeCopyV781();
+  loadHomeCopyV782();
 })();
