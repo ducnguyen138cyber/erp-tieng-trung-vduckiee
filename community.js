@@ -26,6 +26,13 @@
     script.onerror=function(){console.error("Không nạp được HSK 1 v75.");};
     document.head.appendChild(script);
   }
+  function loadHomeWelcomeV751(){
+    var script=document.createElement("script");
+    script.src="./assets/v75/home-welcome-v75.1.js?v=75.1";
+    script.onerror=function(){console.error("Không nạp được phần hướng dẫn trang chủ v75.1.");};
+    document.head.appendChild(script);
+  }
+  loadHomeWelcomeV751();
   loadHsk1V75();
   loadRuntime();
 })();
