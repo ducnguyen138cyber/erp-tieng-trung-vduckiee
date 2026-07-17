@@ -6,7 +6,7 @@ const root = path.resolve(__dirname, "..");
 const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const css = fs.readFileSync(path.join(root, "v72-layout.css"), "utf8");
 
-for (const requiredId of ["homeHub", "homeHubTitle", "homeRecommendedTitle", "homeJourney"]) {
+for (const requiredId of ["brandHome", "homeHub", "homeHubTitle", "homeRecommendedTitle", "homeJourney"]) {
   assert.match(html, new RegExp(`id="${requiredId}"`), `Missing #${requiredId}`);
 }
 
@@ -16,6 +16,7 @@ assert.match(html, /id="cards" class="panel hidden"/);
 assert.match(html, /class="journey-card hidden" id="erpJourney"/);
 assert.match(html, /function selectHome\(updateUrl\)/);
 assert.match(html, /else selectHome\(false\)/);
+assert.match(html, /\$\("brandHome"\)\.onclick=function\(\)\{selectHome\(\)\}/);
 assert.match(html, /data-home-area="hsk"/);
 assert.match(html, /data-home-view="cards"/);
 assert.match(html, /data-home-view="dialogue"/);
