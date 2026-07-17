@@ -1,0 +1,130 @@
+        .concat(record.meanings.erp, record.meanings.hsk, record.erpCategories, record.notes);
+      record.searchText = normalizeSearch(searchParts.join(" "));
+      record.searchCompact = record.searchText.replace(/\s+/g, "");
+    }
+    return records;
+  }
+
+  function filterRecords(records, state) {
+    state = state || {};
+    var source = state.source || "all";
+    var query = normalizeSearch(state.query || "");
+    var queryCompact = query.replace(/\s+/g, "");
+    var hskLevel = state.hskLevel || "all";
+    var erpGroup = state.erpGroup || "all";
+    return (records || []).filter(function (record) {
+      if (source !== "all" && record.sources.indexOf(source) === -1) return false;
+      if (source === "hsk" && hskLevel !== "all" && record.hskLevels.indexOf(Number(hskLevel)) === -1) return false;
+      if (source === "erp" && erpGroup !== "all" && record.erpGroups.indexOf(erpGroup) === -1) return false;
+      return !query || record.searchText.indexOf(query) !== -1 || record.searchCompact.indexOf(queryCompact) !== -1;
+    });
+  }
+
+  var utils = {
+    normalizeSearch: normalizeSearch,
+    mapErpGroup: mapErpGroup,
+    buildRecords: buildRecords,
+    filterRecords: filterRecords
+  };
+  root.VDuckieDictionaryUtils = utils;
+  if (typeof document === "undefined") return;
+
+  var state = {
+    source: "all",
+    query: "",
+    hskLevel: "all",
+    erpGroup: "all",
+    limit: 160
+  };
+  var records = [];
+  var menuButton = null;
+  var dictionaryHero = null;
+  var dictionaryPage = null;
+  var currentSignature = "";
+
+  function byId(id) { return document.getElementById(id); }
+  function escapeHtml(value) {
+    return text(value).replace(/[&<>"']/g, function (character) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character];
+    });
+  }
+
+  function loadStyles() {
+    if (byId("unifiedDictionaryV78Styles")) return;
+    var link = document.createElement("link");
+    link.id = "unifiedDictionaryV78Styles";
+    link.rel = "stylesheet";
+    link.href = "./assets/v78/unified-dictionary-v78.css?v=78.0";
+    document.head.appendChild(link);
+  }
+
+  function closeSidebar() {
+    document.body.classList.remove("sidebar-open");
+    var mobileMenu = byId("mobileMenu");
+    if (mobileMenu) mobileMenu.setAttribute("aria-expanded", "false");
+  }
+
+  function setHidden(element, hidden) {
+    if (!element) return;
+    element.classList.toggle("hidden", Boolean(hidden));
+  }
+
+  function currentHskWordCount() {
+    var total = 0;
+    var curriculum = root.HSKCurriculum;
+    if (!curriculum || !curriculum.levels) return total;
+    for (var level = 1; level <= 4; level++) {
+      var lessons = curriculum.levels[level] || [];
+      for (var i = 0; i < lessons.length; i++) total += (lessons[i].words || []).length;
+    }
+    return total;
+  }
+
+  function dataSignature() {
+    return [
+      (root.ERP_TERMS || []).length,
+      currentHskWordCount(),
+      root.HSKCurriculum && root.HSKCurriculum.standard || "",
+      root.ERP_TERMS_V77 && root.ERP_TERMS_V77.totalCount || ""
+    ].join("|");
+  }
+
+  function refreshData(force) {
+    var signature = dataSignature();
+    if (!force && signature === currentSignature && records.length) return false;
+    records = buildRecords(root.ERP_TERMS || [], root.HSKCurriculum || {}, root.ERPPronunciation);
+    currentSignature = signature;
+    if (root.VDuckieDictionary) root.VDuckieDictionary.records = records;
+    return true;
+  }
+
+  function sourceCount(source) {
+    if (source === "all") return records.length;
+    var count = 0;
+    for (var i = 0; i < records.length; i++) if (records[i].sources.indexOf(source) !== -1) count++;
+    return count;
+  }
+
+  function createMenu() {
+    var homeButton = document.querySelector("[data-home]");
+    if (homeButton) {
+      var homeLabel = homeButton.querySelector("span:last-child");
+      if (homeLabel) homeLabel.textContent = "Trang chủ";
+    }
+
+    var areaSwitch = document.querySelector(".area-switch");
+    if (!areaSwitch) return;
+    menuButton = document.createElement("button");
+    menuButton.type = "button";
+    menuButton.setAttribute("data-dictionary-menu", "1");
+    menuButton.innerHTML = '<span class="menu-icon">词</span><span>Từ điển</span>';
+    areaSwitch.insertBefore(menuButton, areaSwitch.firstChild);
+
+    var hskButton = areaSwitch.querySelector('[data-area="hsk"]');
+    var erpButton = areaSwitch.querySelector('[data-area="erp"]');
+    if (hskButton) areaSwitch.appendChild(hskButton);
+    if (erpButton) areaSwitch.appendChild(erpButton);
+
+    var oldGlossary = document.querySelector('#erpNav [data-view="glossary"]');
+    if (oldGlossary) {
+      oldGlossary.classList.add("hidden");
