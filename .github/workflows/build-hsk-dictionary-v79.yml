@@ -10,11 +10,13 @@ on:
       - scripts/build_dictionary_stats_v79.js
       - .github/workflows/build-hsk-dictionary-v79.yml
       - tests/v79-*.test.js
+      - tests/v80-*.test.js
       - assets/v79/hsk-dictionary-v79.js
       - assets/v79/unified-dictionary-v79.js
       - assets/v79/unified-dictionary-v79.part*.txt
       - assets/v79/unified-dictionary-v79.css
       - assets/v79/home-copy-v79.js
+      - assets/v80/hsk-roast-context-v80.1.js
       - community.js
       - pinyin-pro.loader.js
 
@@ -47,8 +49,8 @@ jobs:
       - name: Calculate exact unified dictionary totals
         run: node scripts/build_dictionary_stats_v79.js
 
-      - name: Validate generated data and unified dictionary
-        run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js
+      - name: Validate generated data, dictionary and HSK Roast Mode
+        run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js tests/v80-hsk-roast-context.test.js
 
       - name: Commit generated dictionary
         run: |
