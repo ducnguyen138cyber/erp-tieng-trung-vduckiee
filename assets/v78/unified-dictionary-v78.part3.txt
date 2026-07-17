@@ -1,0 +1,130 @@
+      oldGlossary.setAttribute("aria-hidden", "true");
+      oldGlossary.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        openDictionary("erp");
+      }, true);
+    }
+  }
+
+  function addLookupButton(heroId, source) {
+    var hero = byId(heroId);
+    if (!hero || hero.querySelector('[data-open-dictionary="' + source + '"]')) return;
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "dictionary-entry-button";
+    button.setAttribute("data-open-dictionary", source);
+    button.innerHTML = '⌕ Tra từ <span aria-hidden="true">→</span>';
+    hero.appendChild(button);
+  }
+
+  function createPage() {
+    var center = document.querySelector(".study-center");
+    var main = center && center.querySelector("main");
+    if (!center || !main) return;
+
+    dictionaryHero = document.createElement("section");
+    dictionaryHero.id = "dictionaryHero";
+    dictionaryHero.className = "hero dictionary-hero hidden";
+    dictionaryHero.innerHTML = '<div><p class="eyebrow">TỪ ĐIỂN CHUNG · HSK + ERP</p><h1>Tra một lần, học ở mọi nơi.</h1><p class="copy">Tìm chữ Hán, pinyin, nghĩa tiếng Việt và cách đọc gần. Từ trùng giữa HSK và ERP chỉ có một bản ghi, nhưng vẫn giữ đủ nhãn nguồn.</p></div>';
+    var hskHero = byId("hskHero");
+    center.insertBefore(dictionaryHero, hskHero ? hskHero.nextSibling : main);
+
+    dictionaryPage = document.createElement("section");
+    dictionaryPage.id = "unifiedDictionary";
+    dictionaryPage.className = "panel dictionary-page hidden";
+    dictionaryPage.innerHTML =
+      '<div class="dictionary-heading">' +
+        '<div><span class="step"><span id="dictionaryCount">0</span> KẾT QUẢ</span><h2>Từ điển tiếng Trung</h2><p id="dictionarySummary">Đang tổng hợp dữ liệu HSK và ERP…</p></div>' +
+        '<div class="dictionary-source-tabs" id="dictionarySourceTabs" role="tablist" aria-label="Nguồn từ vựng">' +
+          '<button type="button" data-dictionary-source="all" class="active">Tất cả <span id="dictionaryAllCount">0</span></button>' +
+          '<button type="button" data-dictionary-source="hsk">HSK <span id="dictionaryHskCount">0</span></button>' +
+          '<button type="button" data-dictionary-source="erp">ERP <span id="dictionaryErpCount">0</span></button>' +
+        '</div>' +
+      '</div>' +
+      '<div class="dictionary-toolbar">' +
+        '<label class="dictionary-search-wrap"><span>⌕</span><input id="dictionarySearch" type="search" autocomplete="off" placeholder="Tìm chữ Hán, pinyin, nghĩa hoặc cách đọc gần tiếng Việt"></label>' +
+        '<div class="dictionary-secondary-filter" id="dictionarySecondaryFilter"></div>' +
+      '</div>' +
+      '<div class="dictionary-results" id="dictionaryResults" aria-live="polite"></div>' +
+      '<div class="dictionary-more-row"><button class="muted hidden" id="dictionaryMore" type="button">Hiển thị thêm</button></div>';
+    main.appendChild(dictionaryPage);
+  }
+
+  function createFilterButton(value, label, active, attribute) {
+    return '<button type="button" ' + attribute + '="' + escapeHtml(value) + '" class="' + (active ? "active" : "") + '">' + escapeHtml(label) + '</button>';
+  }
+
+  function renderSecondaryFilters() {
+    var container = byId("dictionarySecondaryFilter");
+    if (!container) return;
+    var html = "";
+    if (state.source === "hsk") {
+      html += '<span class="dictionary-filter-label">Cấp độ</span>';
+      html += createFilterButton("all", "Tất cả", state.hskLevel === "all", "data-dictionary-hsk-level");
+      for (var level = 1; level <= 4; level++) html += createFilterButton(String(level), "HSK " + level, String(state.hskLevel) === String(level), "data-dictionary-hsk-level");
+    } else if (state.source === "erp") {
+      var erpFilters = [
+        ["all", "Tất cả"], ["production", "Sản xuất"], ["warehouse", "Kho"],
+        ["purchasing", "Mua hàng"], ["accounting", "Kế toán"],
+        ["quality", "Chất lượng"], ["other", "Khác"]
+      ];
+      html += '<span class="dictionary-filter-label">Nghiệp vụ</span>';
+      for (var i = 0; i < erpFilters.length; i++) html += createFilterButton(erpFilters[i][0], erpFilters[i][1], state.erpGroup === erpFilters[i][0], "data-dictionary-erp-group");
+    }
+    container.innerHTML = html;
+    container.classList.toggle("hidden", state.source === "all");
+  }
+
+  function meaningHtml(record) {
+    var hskMeaning = record.meanings.hsk.join("; ");
+    var erpMeaning = record.meanings.erp.join("; ");
+    if (state.source === "hsk") return escapeHtml(hskMeaning || erpMeaning || "Chưa có nghĩa tiếng Việt");
+    if (state.source === "erp") return escapeHtml(erpMeaning || hskMeaning || "Chưa có nghĩa tiếng Việt");
+    if (hskMeaning && erpMeaning && normalizeSearch(hskMeaning) !== normalizeSearch(erpMeaning)) {
+      return '<span><b>HSK:</b> ' + escapeHtml(hskMeaning) + '</span><span><b>ERP:</b> ' + escapeHtml(erpMeaning) + '</span>';
+    }
+    return escapeHtml(hskMeaning || erpMeaning || "Chưa có nghĩa tiếng Việt");
+  }
+
+  function badgeHtml(record) {
+    var html = "";
+    if (record.sources.indexOf("hsk") !== -1) html += '<span class="dictionary-badge badge-hsk">HSK' + (record.hskLevels.length ? " " + record.hskLevels.join("/") : "") + '</span>';
+    if (record.sources.indexOf("erp") !== -1) html += '<span class="dictionary-badge badge-erp">ERP</span>';
+    var categories = record.erpCategories.slice(0, 2);
+    for (var i = 0; i < categories.length; i++) html += '<span class="dictionary-badge badge-category">' + escapeHtml(categories[i]) + '</span>';
+    if (record.erpCategories.length > 2) html += '<span class="dictionary-badge badge-category">+' + (record.erpCategories.length - 2) + '</span>';
+    return html;
+  }
+
+  function exampleHtml(record) {
+    var list = state.source === "hsk" ? record.examples.hsk : state.source === "erp" ? record.examples.erp : record.examples.hsk.concat(record.examples.erp);
+    var example = list[0];
+    if (!example || (!example.zh && !example.vi)) return "";
+    return '<div class="dictionary-example"><strong>' + escapeHtml(example.zh) + '</strong><span>' + escapeHtml(example.vi) + '</span></div>';
+  }
+
+  function renderCard(record) {
+    return '<article class="dictionary-card" data-word="' + escapeHtml(record.hanzi) + '">' +
+      '<div class="dictionary-card-top"><div class="dictionary-word"><strong>' + escapeHtml(record.hanzi) + '</strong><span>' + escapeHtml(record.pinyin || "—") + '</span></div><button class="dictionary-speak" type="button" data-dictionary-speak="' + escapeHtml(record.hanzi) + '" aria-label="Nghe phát âm ' + escapeHtml(record.hanzi) + '">♪ Nghe</button></div>' +
+      '<div class="dictionary-badges">' + badgeHtml(record) + '</div>' +
+      (record.nearVi ? '<p class="dictionary-near">Đọc gần: <strong>' + escapeHtml(record.nearVi) + '</strong></p>' : "") +
+      '<div class="dictionary-meaning">' + meaningHtml(record) + '</div>' +
+      exampleHtml(record) +
+      '</article>';
+  }
+
+  function renderResults() {
+    if (!dictionaryPage) return;
+    var filtered = filterRecords(records, state);
+    var shown = Math.min(filtered.length, state.limit);
+    var html = "";
+    for (var i = 0; i < shown; i++) html += renderCard(filtered[i]);
+    if (!html) html = '<div class="dictionary-empty">Không tìm thấy từ phù hợp. Hãy thử bỏ bớt bộ lọc hoặc tìm bằng một phần của từ.</div>';
+    byId("dictionaryResults").innerHTML = html;
+    byId("dictionaryCount").textContent = filtered.length;
+    byId("dictionaryAllCount").textContent = sourceCount("all");
+    byId("dictionaryHskCount").textContent = sourceCount("hsk");
+    byId("dictionaryErpCount").textContent = sourceCount("erp");
+    byId("dictionarySummary").textContent = "Có " + records.length + " bản ghi duy nhất · " + sourceCount("hsk") + " từ HSK · " + sourceCount("erp") + " từ ERP.";
+    var more = byId("dictionaryMore");
