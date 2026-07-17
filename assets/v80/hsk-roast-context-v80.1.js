@@ -8,14 +8,12 @@
   var scanTimer=0;
   var lastSpoken="";
   var lastSpokenAt=0;
-  var bodyObserver=null;
-  var lessonObserver=null;
 
   var BANKS={
     quizWrong:[
       "Từ “{word}” nằm ngay trong bài “{lesson}”. Đáp án đúng là “{answer}”; đừng kéo nghĩa của một từ quen mắt khác vào đây.",
       "Sai câu từ vựng của chính bài đang học rồi bro. Nhìn lại “{word}” và đối chiếu đúng với “{answer}”.",
-      "Câu này chỉ kiểm tra nội dung bài “{lesson}”, không liên quan ERP. “{word}” phải đi với đáp án “{answer}”.",
+      "Câu này chỉ kiểm tra nội dung HSK của bài “{lesson}”. “{word}” phải đi với đáp án “{answer}”.",
       "M vừa chọn theo cảm giác thay vì theo bài. Ghi lại một lần: “{word}” = “{answer}”.",
       "Roast nhẹ thôi: từ của bài “{lesson}” mà còn nhận nhầm thì quay lại thẻ từ trước khi bấm tiếp. Đúng là “{answer}”."
     ],
@@ -24,26 +22,26 @@
       "Các chữ có thể đều quen nhưng đứng sai vị trí thì câu vẫn sai. Xem lại mẫu “{rule}” trong chính bài này.",
       "Đừng dịch từng chữ theo thứ tự tiếng Việt. Bài “{lesson}” đang luyện mẫu “{rule}”, bám đúng cấu trúc đó.",
       "Sai ngữ pháp chứ không phải thiếu từ vựng. Quay lại ví dụ của mẫu “{rule}” rồi làm lại.",
-      "Câu này không hỏi mẹo ERP nào cả. Nó chỉ hỏi mẫu HSK “{rule}” của bài “{lesson}”."
+      "Câu này không hỏi kiến thức ngoài bài. Nó chỉ hỏi mẫu HSK “{rule}” của bài “{lesson}”."
     ],
     dictationWrong:[
       "Bài nghe này thuộc “{lesson}”. Nghe lại theo từng cụm; câu đúng là “{sentence}”.",
       "Tai nghe được một nửa, tay tự viết nửa còn lại rồi bro. Bám đúng câu HSK: “{sentence}”.",
-      "Không có thuật ngữ ERP nào ở đây. Tách câu “{sentence}” thành từng cụm ngắn rồi chép lại.",
+      "Câu này chỉ dùng từ trong bài đang học. Tách “{sentence}” thành từng cụm ngắn rồi chép lại.",
       "Sai ở bài nghe của chính bài đang học. Nghe lại từ khóa “{word}” trong câu “{sentence}”.",
       "Đừng đoán chữ theo âm quen. Đáp án của bài “{lesson}” là “{sentence}”; nghe lại và đối chiếu từng chữ."
     ],
     readingWrong:[
       "Đọc lại đoạn của bài “{lesson}”, khoanh từ khóa rồi mới chọn. Đáp án đúng là “{answer}”.",
       "M vừa chọn câu nghe hợp tai chứ chưa bám nội dung bài đọc. Đúng phải là “{answer}”.",
-      "Bài đọc HSK này không hỏi nghiệp vụ công ty. Tìm thông tin trực tiếp trong đoạn rồi chọn “{answer}”.",
+      "Bài đọc này chỉ hỏi nội dung trong đoạn. Tìm thông tin trực tiếp rồi chọn “{answer}”.",
       "Sai vì bỏ qua từ khóa của bài “{lesson}”. Đọc chậm lại một lượt; đáp án là “{answer}”.",
       "Đừng suy diễn thêm ngoài đoạn văn. Nội dung bài chỉ dẫn đến đáp án “{answer}”."
     ],
     speakingWrong:[
       "Câu mẫu của bài “{lesson}” là “{sentence}”. Tách thành từng cụm, đọc chậm rồi nối lại.",
       "Máy chưa nghe ra đúng câu HSK. Bám pinyin và nhấn rõ từ “{word}” trong “{sentence}”.",
-      "Đây là luyện nói theo bài hiện tại, không phải đọc câu ERP. Nghe lại “{sentence}” rồi đọc đúng nhịp.",
+      "Đây là luyện nói theo bài hiện tại, không phải đọc một câu ngoài bài. Nghe lại “{sentence}” rồi đọc đúng nhịp.",
       "M đang nuốt mất vài âm của câu “{sentence}”. Đọc từng từ rõ trước, tốc độ để sau.",
       "Câu mẫu đi một đường, phần nhận dạng đi đường khác. Quay lại đúng câu của bài “{lesson}”: “{sentence}”."
     ],
@@ -58,7 +56,7 @@
       "Đúng nội dung của bài “{lesson}”. Cứ giữ cách đọc kỹ câu hỏi như vậy.",
       "Chuẩn. M đã bám đúng từ và ngữ cảnh của bài “{lesson}”.",
       "Câu này xử lý gọn. Nội dung HSK của bài hiện tại đã nhớ đúng.",
-      "Đúng rồi bro. Không đoán mò, không lôi kiến thức ERP sang chịu trận.",
+      "Đúng rồi bro. Không đoán mò, không lôi kiến thức ngoài bài sang chịu trận.",
       "Qua câu này đẹp. Tiếp tục giữ đúng ngữ cảnh của bài “{lesson}”."
     ]
   };
@@ -76,15 +74,13 @@
   function nextLine(kind,data){var bank=BANKS[kind]||BANKS.quizWrong;var lessonId=text(data.lesson)||"hsk";var key=lessonId+"|"+kind;var index=counters[key]||0;counters[key]=(index+1)%bank.length;return fill(bank[index%bank.length],data);}
 
   function findHskToggle(){return document.querySelector('#hsk [data-v62-roast-toggle]');}
-  function legacyIsOn(button){return Boolean(button&&/BẬT/.test(button.textContent||""));}
+  function legacyIsOn(){try{return root.localStorage.getItem("vduckie-roast-enabled")!=="0";}catch(error){return false;}}
   function muteLegacyForHsk(){
     if(!isHskArea())return;
     var button=findHskToggle();
     if(!button)return;
-    if(root.sessionStorage&&!root.sessionStorage.getItem(ERP_BACKUP_KEY)){
-      try{root.sessionStorage.setItem(ERP_BACKUP_KEY,root.localStorage.getItem("vduckie-roast-enabled")||"0");}catch(error){}
-    }
-    if(legacyIsOn(button)&&typeof button.onclick==="function")button.onclick();
+    try{if(root.sessionStorage&&!root.sessionStorage.getItem(ERP_BACKUP_KEY))root.sessionStorage.setItem(ERP_BACKUP_KEY,root.localStorage.getItem("vduckie-roast-enabled")||"0");}catch(error){}
+    if(legacyIsOn()&&typeof button.onclick==="function")button.onclick();
     updateToggle();
   }
   function restoreLegacyOutsideHsk(){
@@ -92,7 +88,8 @@
     var button=findHskToggle();
     var desired="0";
     try{desired=root.sessionStorage.getItem(ERP_BACKUP_KEY)||root.localStorage.getItem("vduckie-roast-enabled")||"0";}catch(error){}
-    if(button&&desired==="1"&&!legacyIsOn(button)&&typeof button.onclick==="function")button.onclick();
+    if(button&&desired==="1"&&!legacyIsOn()&&typeof button.onclick==="function")button.onclick();
+    if(button&&desired==="0"&&legacyIsOn()&&typeof button.onclick==="function")button.onclick();
     try{root.sessionStorage.removeItem(ERP_BACKUP_KEY);}catch(error){}
   }
   function updateToggle(){var button=findHskToggle();if(!button)return;button.textContent=hskEnabled()?"🔥 Roast Mode HSK: BẬT":"🙂 Roast Mode HSK: TẮT";button.setAttribute("aria-pressed",hskEnabled()?"true":"false");button.className="roast-voice v62-roast-toggle "+(hskEnabled()?"on":"off");}
@@ -109,9 +106,11 @@
 
   function setFeedback(element,kind,data,correct){
     if(!element||!hskEnabled())return;
-    data=data||{};var message=nextLine(correct?"correct":kind,data);var signature=(correct?"ok":"bad")+"|"+kind+"|"+message;
-    if(element.getAttribute("data-hsk-roast-v80")===signature&&clean(element.textContent).indexOf(clean(message))!==-1)return;
-    element.setAttribute("data-hsk-roast-v80",signature);
+    var previous=element.getAttribute("data-hsk-roast-text");
+    if(previous&&clean(element.textContent)===clean(previous))return;
+    data=data||{};
+    var message=nextLine(correct?"correct":kind,data);
+    element.setAttribute("data-hsk-roast-text",message);
     element.setAttribute("data-hsk-feedback-source","hsk-lesson-context");
     element.classList.remove("hidden");
     element.textContent=message;
@@ -120,17 +119,17 @@
 
   function contextData(extra){var base=lessonContext();extra=extra||{};return{lesson:base.lesson,word:text(extra.word)||text((base.item.words&&base.item.words[0]||[])[0]),answer:text(extra.answer),sentence:text(extra.sentence),rule:text(extra.rule)};}
 
-  function handleQuiz(button){
-    root.setTimeout(function(){var card=button.closest(".hsk-quiz");if(!card)return;var feedback=card.querySelector(".hsk-quiz-feedback");var wrong=button.classList.contains("wrong")||feedback&&/chưa đúng|sai/i.test(feedback.textContent||"");var correct=button.classList.contains("correct")&&!wrong;if(!wrong&&!correct)return;var prompt=card.querySelector(".hsk-quiz-prompt strong");var answer=card.querySelector(".hsk-quiz-option.correct");setFeedback(feedback,"quizWrong",contextData({word:prompt&&prompt.textContent,answer:answer&&answer.textContent}),correct);},220);
+  function handleQuiz(){
+    root.setTimeout(function(){var card=document.querySelector("#hskLesson .hsk-quiz");if(!card)return;var feedback=card.querySelector(".hsk-quiz-feedback");if(!feedback)return;var raw=feedback.textContent||"";var wrong=/chưa đúng|sai|không đúng/i.test(raw);var correct=/chính xác|đúng/i.test(raw)&&!wrong;if(!wrong&&!correct)return;var prompt=card.querySelector(".hsk-quiz-prompt strong");var answer=card.querySelector(".hsk-quiz-option.correct");setFeedback(feedback,"quizWrong",contextData({word:prompt&&prompt.textContent,answer:answer&&answer.textContent}),correct);},220);
   }
   function handleDictation(button){
     root.setTimeout(function(){var feedback=document.getElementById("hskDictationFeedback");var input=document.getElementById("hskDictationInput");var answer=button.getAttribute("data-answer")||"";if(!feedback||!input||!input.value.trim())return;var normalize=function(value){return text(value).replace(/[\s，。！？、,.!?]/g,"");};var correct=normalize(input.value)===normalize(answer);var word=(answer.match(/[\u3400-\u9fff]{1,4}/)||[])[0]||"";setFeedback(feedback,"dictationWrong",contextData({sentence:answer,word:word}),correct);},240);
   }
   function handleReading(button){
-    root.setTimeout(function(){var section=button.closest(".hsk-section");if(!section)return;var correctButton=section.querySelector('[data-hsk-reading-option][data-correct="1"]');var correct=button.getAttribute("data-correct")==="1";var feedback=section.querySelector(".hsk-v80-reading-feedback");if(!feedback){feedback=document.createElement("div");feedback.className="hsk-quiz-feedback hsk-v80-reading-feedback";var card=section.querySelector(".hsk-reading-card")||section;card.appendChild(feedback);}setFeedback(feedback,"readingWrong",contextData({answer:correctButton&&correctButton.textContent}),correct);},180);
+    root.setTimeout(function(){var section=button.closest(".hsk-section");if(!section)return;var correctButton=section.querySelector('[data-hsk-reading-option][data-correct="1"]');var correct=button.getAttribute("data-correct")==="1";var feedback=section.querySelector(".hsk-v80-reading-feedback");if(!feedback){feedback=document.createElement("div");feedback.className="hsk-quiz-feedback hsk-v80-reading-feedback";(section.querySelector(".hsk-reading-card")||section).appendChild(feedback);}setFeedback(feedback,"readingWrong",contextData({answer:correctButton&&correctButton.textContent}),correct);},180);
   }
   function handleGrammar(button){
-    root.setTimeout(function(){var card=button.closest("[data-v62-grammar-trap]");if(!card)return;var feedback=card.querySelector("[data-v62-order-feedback],.hsk-quiz-feedback");if(!feedback)return;var wrong=/sai|chưa đúng|không đúng/i.test(feedback.textContent||"")||feedback.classList.contains("bad");var correct=/đúng|chính xác/i.test(feedback.textContent||"")&&!wrong;var ruleNode=card.querySelector(".v62-grammar-card p");var answerNode=card.querySelector(".v62-grammar-card");setFeedback(feedback,"grammarWrong",contextData({rule:ruleNode&&ruleNode.textContent,answer:answerNode&&answerNode.getAttribute("data-answer")}),correct);},240);
+    root.setTimeout(function(){var card=button.closest("[data-v62-grammar-trap]");if(!card)return;var feedback=card.querySelector("[data-v62-order-feedback],.hsk-quiz-feedback");if(!feedback)return;var raw=feedback.textContent||"";var wrong=/sai|chưa đúng|không đúng/i.test(raw)||feedback.classList.contains("bad");var correct=/đúng|chính xác/i.test(raw)&&!wrong;var ruleNode=card.querySelector(".v62-grammar-card p");var answerNode=card.querySelector(".v62-grammar-card");setFeedback(feedback,"grammarWrong",contextData({rule:ruleNode&&ruleNode.textContent,answer:answerNode&&answerNode.getAttribute("data-answer")}),correct);},240);
   }
 
   function scanDynamicFeedback(){
@@ -149,7 +148,7 @@
     var button=event.target&&event.target.closest&&event.target.closest("button");if(!button)return;
     if(button.matches('#hsk [data-v62-roast-toggle]')){event.preventDefault();event.stopPropagation();if(event.stopImmediatePropagation)event.stopImmediatePropagation();setHskEnabled(!hskEnabled());muteLegacyForHsk();return;}
     if(!isHskArea()||!hskEnabled())return;
-    if(button.getAttribute("data-hsk-option")!==null)handleQuiz(button);
+    if(button.getAttribute("data-hsk-option")!==null)handleQuiz();
     else if(button.getAttribute("data-hsk-action")==="dictation-check")handleDictation(button);
     else if(button.getAttribute("data-hsk-reading-option")!==null)handleReading(button);
     else if(button.getAttribute("data-v62-order-check")!==null)handleGrammar(button);
@@ -159,11 +158,11 @@
   function install(){
     if(document.documentElement.getAttribute("data-hsk-roast-context-v80")==="1")return;
     document.documentElement.setAttribute("data-hsk-roast-context-v80","1");
-    if(root.localStorage.getItem(HSK_KEY)===null){try{root.localStorage.setItem(HSK_KEY,root.localStorage.getItem("vduckie-roast-enabled")==="0"?"0":"1");}catch(error){}}
+    try{if(root.localStorage.getItem(HSK_KEY)===null)root.localStorage.setItem(HSK_KEY,root.localStorage.getItem("vduckie-roast-enabled")==="0"?"0":"1");}catch(error){}
     document.addEventListener("click",onClick,true);
     if(root.MutationObserver){
-      bodyObserver=new root.MutationObserver(onAreaChange);bodyObserver.observe(document.body,{attributes:true,attributeFilter:["data-current-area"]});
-      var lesson=document.getElementById("hskLesson");if(lesson){lessonObserver=new root.MutationObserver(scheduleScan);lessonObserver.observe(lesson,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:["class"]});}
+      new root.MutationObserver(onAreaChange).observe(document.body,{attributes:true,attributeFilter:["data-current-area"]});
+      var lesson=document.getElementById("hskLesson");if(lesson)new root.MutationObserver(scheduleScan).observe(lesson,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:["class"]});
     }
     root.setInterval(function(){if(isHskArea()){muteLegacyForHsk();updateToggle();}},700);
     onAreaChange();
