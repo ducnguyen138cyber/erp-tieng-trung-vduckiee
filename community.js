@@ -20,5 +20,12 @@
     };
     document.head.appendChild(script);
   }
+  function loadHsk1V75(){
+    var script=document.createElement("script");
+    script.src="./assets/v75/hsk1-v75-loader.js?v=75.0";
+    script.onerror=function(){console.error("Không nạp được HSK 1 v75.");};
+    document.head.appendChild(script);
+  }
+  loadHsk1V75();
   loadRuntime();
 })();
