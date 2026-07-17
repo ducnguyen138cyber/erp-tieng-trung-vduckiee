@@ -36,7 +36,7 @@
     "./assets/v76/erp-terms-v76-system-documents.js?v=76.0"
   ];
   if (document.readyState === "loading") {
-    for (var i = 0; i < files.length; i++) document.write('<script src="' + files[i] + '"><\\/script>');
+    for (var i = 0; i < files.length; i++) document.write('<script src="' + files[i] + '"></script>');
     return;
   }
   function load(index) {
