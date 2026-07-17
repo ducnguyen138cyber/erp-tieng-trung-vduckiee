@@ -1,6 +1,11 @@
 (function(root){
   "use strict";
 
+  if(root.VDuckieHSKDictionaryLoader&&root.VDuckieHSKDictionaryLoader.version==="79.0"){
+    root.VDuckieHSKDictionaryLoader.load();
+    return;
+  }
+
   var VERSION="79.0";
   var BASE_PATH="./assets/v79/hsk-dictionary/";
   var MIN_TERMS=10000;
