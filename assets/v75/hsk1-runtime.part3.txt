@@ -1,0 +1,93 @@
+));
+
+    patchReading(item);
+    patchDictation(item);
+    var quizSection = lessonElement.querySelector(".hsk-quiz");
+    if (quizSection && item.review && !lessonElement.querySelector(".hsk-v75-review")) quizSection.insertAdjacentHTML("beforebegin", renderReviewSection(item));
+    if (quizSection) {
+      var sectionNumber = item.review ? 8 : 7;
+      var quizHeading = quizSection.querySelector(".hsk-quiz-head h4");
+      if (quizHeading) quizHeading.textContent = sectionNumber + ". Kiểm tra cuối bài";
+    }
+    patchQuizHeading(item.review ? 8 : 7);
+    lessonElement.setAttribute("data-hsk-v75-enhanced", item.id);
+    rebuildMobileStepper();
+  }
+
+  function bindReviewEvents() {
+    var lessonElement = byId("hskLesson");
+    if (!lessonElement || lessonElement.getAttribute("data-v75-events") === "1") return;
+    lessonElement.setAttribute("data-v75-events", "1");
+    lessonElement.addEventListener("click", function (event) {
+      var button = event.target.closest ? event.target.closest("button") : event.target;
+      if (!button) return;
+      var audioText = button.getAttribute("data-v75-review-audio");
+      if (audioText) { speak(audioText, 0.66); return; }
+      var check = button.getAttribute("data-v75-review-check");
+      if (check !== null) {
+        var input = byId("v75ReviewInput-" + check);
+        var feedback = byId("v75ReviewFeedback-" + check);
+        if (!input || !feedback) return;
+        if (!input.value.trim()) feedback.textContent = " Chưa nhập câu.";
+        else if (normalize(input.value) === normalize(button.getAttribute("data-answer"))) feedback.textContent = " ✓ Đúng";
+        else feedback.textContent = " ✗ " + button.getAttribute("data-answer");
+        return;
+      }
+      var show = button.getAttribute("data-v75-review-show");
+      if (show !== null) {
+        var answer = byId("v75ReviewAnswer-" + show);
+        if (answer) answer.classList.toggle("hidden");
+      }
+    });
+  }
+
+  function refreshIfNeeded() {
+    var state = readJson(STATE_KEY, { level: 0, lesson: 0 });
+    if (Number(state.level) !== 1) { patchStaticCopy(); return; }
+    var links = document.querySelectorAll("#hskLessonList [data-hsk-lesson]");
+    if (links.length === lessons.length) { enhanceLesson(); return; }
+    var levelButton = document.querySelector('#hskLevels [data-hsk-level="1"]');
+    if (!levelButton) return;
+    var savedLesson = Math.max(0, Math.min(lessons.length - 1, Number(state.lesson || 0)));
+    levelButton.click();
+    root.setTimeout(function () {
+      var lessonButton = document.querySelector('#hskLessonList [data-hsk-lesson="' + savedLesson + '"]');
+      if (lessonButton) lessonButton.click();
+      enhanceLesson();
+    }, 0);
+  }
+
+  function installStyles() {
+    if (byId("hskV75Styles")) return;
+    var style = document.createElement("style");
+    style.id = "hskV75Styles";
+    style.textContent =
+      ".hsk-dialogue-card{display:grid;gap:10px}.hsk-dialogue-line{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:12px;padding:13px 14px;border:1px solid #ded8cb;border-radius:14px;background:#fff}.hsk-dialogue-line>span{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#18352e;color:#fff;font-weight:800}.hsk-dialogue-line strong,.hsk-dialogue-line small{display:block}.hsk-dialogue-line strong{font-size:18px;line-height:1.45}.hsk-dialogue-line small{margin-top:4px;color:#66736e;line-height:1.45}.hsk-review-practice{display:grid;gap:12px;margin-top:14px}.hsk-review-practice h5{margin:8px 0 0;font-size:16px}.hsk-v75-review-row{grid-template-columns:auto minmax(180px,1fr) auto minmax(70px,auto);align-items:center}.hsk-v75-review-row span{font-size:13px;font-weight:700}.hsk-v75-review .hsk-grammar button{margin-top:10px}.hsk-v75-review .hsk-grammar>span{display:block;margin-top:10px;color:#21634e;font-weight:800}@media(max-width:700px){.hsk-dialogue-line{grid-template-columns:36px minmax(0,1fr) auto;padding:12px}.hsk-v75-review-row{grid-template-columns:1fr}.hsk-v75-review-row button,.hsk-v75-review-row input{width:100%}}";
+    document.head.appendChild(style);
+  }
+
+  function install() {
+    if (!root.HSKCurriculum || !root.HSKCurriculum.levels) {
+      root.setTimeout(install, 40);
+      return;
+    }
+    installStyles();
+    root.HSKCurriculum.levels[1] = lessons;
+    var total = 0;
+    for (var level = 0; level <= 4; level++) total += (root.HSKCurriculum.levels[level] || []).length;
+    root.HSKCurriculum.lessonCount = total;
+    root.HSKCurriculum.standard = "HSK 1 hoàn chỉnh · 150 từ · v75";
+    patchStaticCopy();
+    bindReviewEvents();
+    refreshIfNeeded();
+
+    var lessonElement = byId("hskLesson");
+    if (lessonElement && root.MutationObserver) {
+      var observer = new MutationObserver(function () { root.setTimeout(enhanceLesson, 0); });
+      observer.observe(lessonElement, { childList: true, subtree: false });
+    }
+    root.setTimeout(enhanceLesson, 80);
+  }
+
+  install();
+})(typeof window !== "undefined" ? window : this);

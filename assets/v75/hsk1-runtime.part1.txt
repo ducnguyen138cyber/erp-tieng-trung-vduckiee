@@ -1,0 +1,121 @@
+(function (root) {
+  "use strict";
+
+  var document = root.document;
+  var lessons = root.HSK1_V75_LESSONS || [];
+  if (!document || !lessons.length) return;
+
+  var STATE_KEY = "erp-hsk-state-v2";
+  var PROGRESS_KEY = "erp-hsk-progress-v2";
+
+  function byId(id) { return document.getElementById(id); }
+  function escapeHtml(value) {
+    return String(value || "").replace(/[&<>"']/g, function (character) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;", "'": "&#39;" }[character];
+    });
+  }
+  function normalize(value) {
+    return String(value || "").replace(/[\s，。！？、,.!?；;：:（）()【】\[\]"“”'‘’]/g, "");
+  }
+  function readJson(key, fallback) {
+    try {
+      var value = JSON.parse(root.localStorage.getItem(key) || "");
+      return value && typeof value === "object" ? value : fallback;
+    } catch (error) { return fallback; }
+  }
+  function speak(value, rate) {
+    if (!value || !root.speechSynthesis) return;
+    root.speechSynthesis.cancel();
+    var utterance = new SpeechSynthesisUtterance(value);
+    utterance.lang = "zh-CN";
+    utterance.rate = rate || 0.68;
+    var voices = root.speechSynthesis.getVoices(), voice = null;
+    for (var i = 0; i < voices.length; i++) {
+      if (/google|microsoft/i.test(voices[i].name) && /^zh/i.test(voices[i].lang)) { voice = voices[i]; break; }
+      if (!voice && /^zh/i.test(voices[i].lang)) voice = voices[i];
+    }
+    if (voice) utterance.voice = voice;
+    root.speechSynthesis.speak(utterance);
+  }
+  function pronunciation(value) {
+    try {
+      if (root.ERPPronunciation && typeof root.ERPPronunciation.generate === "function") {
+        var result = root.ERPPronunciation.generate(value);
+        if (result) return result;
+      }
+    } catch (error) {}
+    return { pinyin: "", nearVi: "" };
+  }
+  function activeLevel() {
+    var active = document.querySelector("#hskLevels [data-hsk-level].active");
+    if (active) return Number(active.getAttribute("data-hsk-level"));
+    return Number(readJson(STATE_KEY, { level: 0 }).level || 0);
+  }
+  function activeLessonIndex() {
+    var active = document.querySelector("#hskLessonList [data-hsk-lesson].active");
+    if (active) return Number(active.getAttribute("data-hsk-lesson"));
+    var state = readJson(STATE_KEY, { lesson: 0 });
+    return Math.max(0, Math.min(lessons.length - 1, Number(state.lesson || 0)));
+  }
+  function completedCount() {
+    var completed = readJson(PROGRESS_KEY, {});
+    var count = 0;
+    for (var i = 0; i < lessons.length; i++) if (completed[lessons[i].id]) count++;
+    return count;
+  }
+
+  function patchStaticCopy() {
+    var intro = document.querySelector(".hsk-intro");
+    if (intro) {
+      var strong = intro.querySelector("strong");
+      var paragraph = intro.querySelector("p");
+      var badge = intro.querySelector(".hsk-standard");
+      if (strong) strong.textContent = "12 bài nền tảng + HSK 1 hoàn chỉnh 15 bài";
+      if (paragraph) paragraph.textContent = "HSK 1 đã đủ 150 từ theo lộ trình 15 bài. Mỗi bài có 10 từ, 4 mẫu ngữ pháp, hội thoại, đọc hiểu, nghe–chép và quiz; sau mỗi 3 bài có một chặng ôn tổng hợp.";
+      if (badge) badge.textContent = "HSK 1 · 150 TỪ · V75";
+    }
+    var stat = document.querySelector(".home-resource-tile.resource-hsk strong");
+    if (stat && root.HSKCurriculum && root.HSKCurriculum.lessonCount) stat.textContent = root.HSKCurriculum.lessonCount;
+    var levelButton = document.querySelector('#hskLevels [data-hsk-level="1"]');
+    if (levelButton) {
+      var small = levelButton.querySelector("small");
+      if (small) small.textContent = completedCount() + "/15 bài · 150 từ";
+    }
+  }
+
+  function patchLessonList() {
+    var links = document.querySelectorAll("#hskLessonList [data-hsk-lesson]");
+    for (var i = 0; i < links.length && i < lessons.length; i++) {
+      var small = links[i].querySelector("small");
+      if (!small) continue;
+      small.textContent = "10 từ · 4 ngữ pháp · đọc · nghe" + (lessons[i].review ? " · ôn tổng hợp" : "");
+    }
+  }
+
+  function renderDialogueSection(item) {
+    var html = '<div class="hsk-section hsk-v75-dialogue"><div class="hsk-section-title"><h4>4. Hội thoại</h4><span>Nghe từng lượt, đọc theo rồi đổi vai</span></div><div class="hsk-dialogue-card">';
+    for (var i = 0; i < item.dialogue.length; i++) {
+      var line = item.dialogue[i];
+      html += '<article class="hsk-dialogue-line"><span>' + escapeHtml(line[0]) + '</span><div><strong>' + escapeHtml(line[1]) + '</strong><small>' + escapeHtml(line[2]) + '</small></div><button class="hsk-speak" data-hsk-speak="' + escapeHtml(line[1]) + '" aria-label="Nghe lượt hội thoại">♪</button></article>';
+    }
+    return html + '</div><div class="hsk-writing-tools" style="justify-content:flex-start"><button class="hsk-speak" data-hsk-speak="' + escapeHtml(item.dialogue.map(function (line) { return line[1]; }).join(" ")) + '">♪ Nghe toàn hội thoại</button></div></div>';
+  }
+
+  function patchReading(item) {
+    var audio = document.querySelector("#hskLesson [data-hsk-reading-audio]");
+    if (!audio || !item.reading) return;
+    var section = audio.closest ? audio.closest(".hsk-section") : null;
+    var card = section ? section.querySelector(".hsk-reading-card") : null;
+    if (!section || !card) return;
+    var generated = pronunciation(item.reading.zh);
+    var options = item.reading.options || [];
+    var html = '<div class="hsk-reading-text">' + escapeHtml(item.reading.zh) + '</div><div class="hsk-reading-help hidden" id="hskReadingHelp"><strong>' + escapeHtml(generated.pinyin || "") + '</strong><br><span>Gần âm: ' + escapeHtml(generated.nearVi || "—") + '</span><br><span>' + escapeHtml(item.reading.vi) + '</span></div><div class="hsk-writing-tools" style="justify-content:flex-start"><button class="muted" data-hsk-action="reading-help">Hiện pinyin và nghĩa</button><button class="hsk-speak" data-hsk-reading-audio="' + escapeHtml(item.reading.zh) + '">♪ Nghe bài đọc</button></div><div class="hsk-reading-question"><strong>' + escapeHtml(item.reading.question || "Nội dung nào đúng?") + '</strong><div class="hsk-reading-options">';
+    for (var i = 0; i < options.length; i++) {
+      html += '<button data-hsk-reading-option="' + i + '" data-correct="' + (i === Number(item.reading.correct || 0) ? "1" : "0") + '">' + escapeHtml(options[i]) + '</button>';
+    }
+    card.innerHTML = html + "</div></div>";
+    var heading = section.querySelector(".hsk-section-title h4");
+    if (heading) heading.textContent = "5. Đọc hiểu";
+  }
+
+  function p

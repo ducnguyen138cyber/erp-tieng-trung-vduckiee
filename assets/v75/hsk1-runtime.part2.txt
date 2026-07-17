@@ -1,0 +1,94 @@
+atchDictation(item) {
+    var audio = document.querySelector("#hskLesson [data-hsk-dictation-audio]");
+    if (!audio || !item.dictation) return;
+    var section = audio.closest ? audio.closest(".hsk-section") : null;
+    var card = section ? section.querySelector(".hsk-dictation") : null;
+    if (!section || !card) return;
+    card.innerHTML = '<strong>Nghe câu và chép lại</strong><p>Có thể nghe lại nhiều lần. Dấu câu không ảnh hưởng kết quả.</p><div class="hsk-dictation-row"><button class="hsk-speak" data-hsk-dictation-audio="' + escapeHtml(item.dictation.zh) + '">♪ Phát câu nghe</button><input id="hskDictationInput" autocomplete="off" placeholder="Gõ câu tiếng Trung nghe được"><button class="accent" data-hsk-action="dictation-check" data-answer="' + escapeHtml(item.dictation.zh) + '">Kiểm tra</button></div><div class="hsk-dictation-feedback" id="hskDictationFeedback"></div>';
+    var heading = section.querySelector(".hsk-section-title h4");
+    if (heading) heading.textContent = "6. Nghe chép chính tả";
+  }
+
+  function renderReviewSection(item) {
+    if (!item.review) return "";
+    var review = item.review;
+    var html = '<div class="hsk-section hsk-v75-review"><div class="hsk-section-title"><h4>7. ' + escapeHtml(review.title) + '</h4><span>Ôn lại 30 từ và các mẫu câu của ba bài vừa học</span></div><div class="hsk-foundation-grid">';
+    for (var i = 0; i < review.focus.length; i++) html += '<article class="hsk-foundation-item"><strong>✓ Trọng tâm ' + (i + 1) + '</strong><p>' + escapeHtml(review.focus[i]) + '</p></article>';
+    html += '</div><div class="hsk-review-practice"><h5>Nghe chép 3 câu tổng hợp</h5>';
+    for (var d = 0; d < review.dictations.length; d++) {
+      html += '<div class="hsk-dictation-row hsk-v75-review-row"><button class="hsk-speak" data-v75-review-audio="' + escapeHtml(review.dictations[d].zh) + '">♪ Câu ' + (d + 1) + '</button><input id="v75ReviewInput-' + d + '" autocomplete="off" placeholder="Chép lại câu vừa nghe"><button class="muted" data-v75-review-check="' + d + '" data-answer="' + escapeHtml(review.dictations[d].zh) + '">Chấm</button><span id="v75ReviewFeedback-' + d + '"></span></div>';
+    }
+    html += '<h5>Dịch nhanh Việt → Trung</h5><div class="hsk-grammar-grid">';
+    for (var p = 0; p < review.prompts.length; p++) {
+      html += '<article class="hsk-grammar"><strong>' + escapeHtml(review.prompts[p].vi) + '</strong><button class="muted" data-v75-review-show="' + p + '">Xem đáp án</button><span class="hidden" id="v75ReviewAnswer-' + p + '">' + escapeHtml(review.prompts[p].zh) + '</span></article>';
+    }
+    return html + "</div></div></div>";
+  }
+
+  function patchQuizHeading(sectionNumber) {
+    var heading = document.querySelector("#hskLesson .hsk-quiz-head h4");
+    var step = document.querySelector("#hskLesson .hsk-quiz-head .step");
+    if (heading) heading.textContent = sectionNumber + ". Kiểm tra cuối bài";
+    if (step) step.textContent = "5 CÂU CHỌN LỌC · CẦN ĐÚNG 4/5";
+  }
+
+  function sectionTitle(section, fallback) {
+    var heading = section.querySelector(".hsk-section-title h4") || section.querySelector(".hsk-quiz-head h4") || section.querySelector("strong");
+    return heading ? heading.textContent.replace(/^\s*\d+\.\s*/, "").trim() : fallback;
+  }
+
+  function rebuildMobileStepper() {
+    var lesson = byId("hskLesson");
+    if (!lesson) return;
+    var oldStepper = byId("hskMobileStepper");
+    if (oldStepper && oldStepper.parentNode) oldStepper.parentNode.removeChild(oldStepper);
+    var oldBottom = lesson.querySelectorAll(".hsk-mobile-step-bottom");
+    for (var i = 0; i < oldBottom.length; i++) oldBottom[i].parentNode.removeChild(oldBottom[i]);
+
+    var sections = [], activeIndex = 0;
+    for (var child = lesson.firstElementChild; child; child = child.nextElementSibling) {
+      if (child.classList && child.classList.contains("hsk-section")) {
+        if (child.classList.contains("mobile-active")) activeIndex = sections.length;
+        sections.push(child);
+      }
+    }
+    if (!sections.length) return;
+    activeIndex = Math.max(0, Math.min(activeIndex, sections.length - 1));
+    var titles = [];
+    for (var s = 0; s < sections.length; s++) {
+      sections[s].classList.toggle("mobile-active", s === activeIndex);
+      titles.push(sectionTitle(sections[s], "Nội dung " + (s + 1)));
+    }
+    var stepper = document.createElement("div");
+    stepper.className = "hsk-mobile-stepper";
+    stepper.id = "hskMobileStepper";
+    stepper.innerHTML = '<div class="hsk-mobile-step-meta"><strong>Phần ' + (activeIndex + 1) + "/" + sections.length + '</strong><span>' + escapeHtml(titles[activeIndex]) + '</span></div><div class="hsk-mobile-step-track"><i style="width:' + Math.round((activeIndex + 1) * 100 / sections.length) + '%"></i></div>';
+    lesson.insertBefore(stepper, sections[0]);
+
+    var completed = readJson(PROGRESS_KEY, {});
+    var isLast = activeIndex === sections.length - 1;
+    var item = lessons[activeLessonIndex()];
+    var nextAction = isLast ? (completed[item.id] ? "next-lesson" : "section-complete") : "section-next";
+    var nextLabel = isLast ? (completed[item.id] ? "Bài kế tiếp →" : "✓ Đánh dấu hoàn thành") : "Tiếp: " + titles[activeIndex + 1] + " →";
+    var bottom = document.createElement("div");
+    bottom.className = "hsk-mobile-step-bottom";
+    bottom.innerHTML = '<button data-hsk-action="section-prev"' + (activeIndex === 0 ? " disabled" : "") + '>← Phần trước</button><button data-hsk-action="' + nextAction + '">' + escapeHtml(nextLabel) + "</button>";
+    sections[activeIndex].appendChild(bottom);
+  }
+
+  function enhanceLesson() {
+    patchStaticCopy();
+    patchLessonList();
+    if (activeLevel() !== 1) return;
+    var lessonElement = byId("hskLesson");
+    if (!lessonElement) return;
+    var index = activeLessonIndex();
+    var item = lessons[index];
+    if (!item) return;
+    if (lessonElement.getAttribute("data-hsk-v75-enhanced") === item.id && lessonElement.querySelector(".hsk-v75-dialogue")) return;
+
+    var headStep = lessonElement.querySelector(".hsk-lesson-head .step");
+    if (headStep) headStep.textContent = "HSK 1 · BÀI " + (index + 1) + " / 15 · 10 TỪ";
+    var readingAudio = lessonElement.querySelector("[data-hsk-reading-audio]");
+    var readingSection = readingAudio && readingAudio.closest ? readingAudio.closest(".hsk-section") : null;
+    if (readingSection && !lessonElement.querySelector(".hsk-v75-dialogue")) readingSection.insertAdjacentHTML("beforebegin", renderDialogueSection(item
