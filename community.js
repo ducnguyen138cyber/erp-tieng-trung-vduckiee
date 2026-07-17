@@ -6,10 +6,16 @@
     script.onerror=function(){console.error("Không nạp được bộ nhận xét HSK theo ngữ cảnh.");};
     document.head.appendChild(script);
   }
+  function loadHskRoastContextV801(){
+    var script=document.createElement("script");
+    script.src="./assets/v80/hsk-roast-context-v80.1.js?v=80.1";
+    script.onerror=function(){console.error("Không nạp được Roast Mode HSK theo bài v80.1.");};
+    document.head.appendChild(script);
+  }
   function loadRuntime(){
     var script=document.createElement("script");
     script.src="./assets/v62/runtime-v70.2.js?v=70.2";
-    script.onload=loadFeedbackContext;
+    script.onload=function(){loadFeedbackContext();loadHskRoastContextV801();};
     script.onerror=function(error){
       console.error("Không nạp được v70.2:",error);
       var element=document.getElementById("communityConnection");
