@@ -1,0 +1,48 @@
+name: Build HSK Dictionary v79
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - scripts/build_hsk_dictionary_v79.py
+      - .github/workflows/build-hsk-dictionary-v79.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-hsk-dictionary-v79
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate HSK dictionary chunks
+        run: python scripts/build_hsk_dictionary_v79.py
+
+      - name: Commit generated dictionary
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/v79/hsk-dictionary
+          if git diff --cached --quiet; then
+            echo "Dictionary data is already up to date."
+          else
+            git commit -m "Generate local 10000+ HSK dictionary data v79"
+            git push origin HEAD:main
+          fi
