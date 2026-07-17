@@ -8,6 +8,7 @@ on:
     paths:
       - scripts/build_hsk_dictionary_v79.py
       - scripts/build_dictionary_stats_v79.js
+      - scripts/apply_hsk_roast_v80.js
       - .github/workflows/build-hsk-dictionary-v79.yml
       - tests/v79-*.test.js
       - tests/v80-*.test.js
@@ -43,6 +44,9 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Apply HSK Roast Mode cache key
+        run: node scripts/apply_hsk_roast_v80.js
+
       - name: Generate HSK dictionary chunks
         run: python scripts/build_hsk_dictionary_v79.py
 
@@ -52,14 +56,14 @@ jobs:
       - name: Validate generated data, dictionary and HSK Roast Mode
         run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js tests/v80-hsk-roast-context.test.js
 
-      - name: Commit generated dictionary
+      - name: Commit generated dictionary and deploy key
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/v79/hsk-dictionary assets/v79/dictionary-stats.json
+          git add index.html assets/v79/hsk-dictionary assets/v79/dictionary-stats.json
           if git diff --cached --quiet; then
-            echo "Dictionary data is already up to date."
+            echo "Generated data and deploy key are already up to date."
           else
-            git commit -m "Generate local 10000+ HSK dictionary data v79"
+            git commit -m "Generate HSK data and deploy Roast Mode v80.1"
             git push origin HEAD:main
           fi
