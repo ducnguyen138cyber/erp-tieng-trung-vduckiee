@@ -55,6 +55,7 @@
     .cloud-auth{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 11px;border:1px solid #d7d0c2;border-radius:16px;background:#fff}.cloud-auth-copy{min-width:0}.cloud-auth-copy strong,.cloud-auth-copy small{display:block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cloud-auth-copy strong{font-size:12px}.cloud-auth-copy small{margin-top:2px;color:#6a746f;font-size:10px}.cloud-sync-status.good{color:#2d745e}.cloud-sync-status.waiting{color:#a15c31}.cloud-sync-status.bad{color:#9a332d}.cloud-auth button{border:0;border-radius:12px;background:#18352e;color:#fff;padding:9px 12px;font-weight:800;white-space:nowrap;cursor:pointer}.cloud-auth button#cloudLogout{background:#e8e3d8;color:#18352e}.cloud-auth button:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.top-actions{width:100%;align-items:stretch;flex-direction:column}.area-switch{align-self:flex-start}.cloud-auth{justify-content:space-between}.cloud-auth-copy strong,.cloud-auth-copy small{max-width:55vw}}
   </style>
   <link rel="stylesheet" href="./v72-layout.css?v=73.1">
+  <link rel="stylesheet" href="./erp-lessons-v74.css?v=74.0">
 </head>
 <body>
   <div class="shell" id="appShell">
@@ -80,6 +81,7 @@
           <button data-area="hsk"><span class="menu-icon">汉</span><span>Giáo trình HSK</span></button>
         </nav>
         <nav class="nav erp-nav" id="erpNav" aria-label="Các phần học ERP">
+          <button data-view="lessons"><span class="menu-icon">程</span><span>Bài học ERP</span></button>
           <button data-view="cards"><span class="menu-icon">卡</span><span>Thẻ từ ERP</span></button>
           <button data-view="dialogue"><span class="menu-icon">说</span><span>Hội thoại ERP</span></button>
           <button data-view="quiz"><span class="menu-icon">✓</span><span>Kiểm tra ERP</span></button>
@@ -145,6 +147,10 @@
         </section>
 
         <main>
+      <section id="lessons" class="panel hidden">
+        <div id="erpLessonApp"></div>
+      </section>
+
       <section id="cards" class="panel hidden">
         <div class="section-head"><div><span class="step" id="cardStep">THẺ 1 / 10</span><h2>Nhấn vào thẻ để xem nghĩa</h2></div></div>
         <article class="flashcard" id="flashcard">
@@ -274,9 +280,10 @@
           <div class="journey-score"><strong><span id="doneCount">0</span>/<span id="targetCount">10</span></strong><span>từ đã nhớ</span></div>
           <div class="bar"><span id="progressBar"></span></div>
           <div class="journey-list">
-            <button class="journey-step active" type="button" data-journey-view="cards"><span class="journey-number">1</span><span><strong>Học thẻ từ</strong><small>10 từ theo ngày</small></span></button>
-            <button class="journey-step" type="button" data-journey-view="quiz"><span class="journey-number">2</span><span><strong>Kiểm tra nhanh</strong><small>5 câu củng cố</small></span></button>
-            <button class="journey-step" type="button" data-journey-view="dialogue"><span class="journey-number">3</span><span><strong>Luyện phản xạ</strong><small>Hội thoại và Roast Mode</small></span></button>
+            <button class="journey-step active" type="button" data-journey-view="lessons"><span class="journey-number">1</span><span><strong>Bài nghiệp vụ</strong><small>8 bài Kho · Sản xuất</small></span></button>
+            <button class="journey-step" type="button" data-journey-view="cards"><span class="journey-number">2</span><span><strong>Học thẻ từ</strong><small>10 từ theo chủ đề</small></span></button>
+            <button class="journey-step" type="button" data-journey-view="quiz"><span class="journey-number">3</span><span><strong>Kiểm tra nhanh</strong><small>5 câu củng cố</small></span></button>
+            <button class="journey-step" type="button" data-journey-view="dialogue"><span class="journey-number">4</span><span><strong>Luyện phản xạ</strong><small>20 tình huống · Roast Mode</small></span></button>
           </div>
         </section>
 
@@ -291,7 +298,8 @@
     <button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Đóng menu học tập"></button>
   </div>
 
-  <script src="./lite-terms.js"></script>
+  <script src="./lite-terms.js?v=74.0"></script>
+  <script src="./erp-content-v74.js?v=74.0"></script>
   <script src="./pinyin-data1.js"></script>
   <script src="./pinyin-data2.js"></script>
   <script src="./pinyin-data3.js"></script>
@@ -408,7 +416,8 @@
     function fillPronunciation(value){var generated=window.ERPPronunciation&&window.ERPPronunciation.generate(value);if(generated&&generated.pinyin){$("newPinyin").value=generated.pinyin;$("newNear").value=generated.nearVi;$("pronunciationStatus").textContent="Đã tạo tự động. Hãy sửa tay nếu đây là từ đa âm hoặc cách đọc nội bộ của công ty."}else $("pronunciationStatus").textContent="Không nhận diện được chữ Trung này; bạn cần nhập pinyin và âm gần Việt thủ công."}
     $("newHanzi").oninput=function(){var value=this.value.trim();if(!value){$("newPinyin").value="";$("newNear").value="";$("pronunciationStatus").textContent="Nhập chữ Trung để tự tạo pinyin và âm gần Việt. Có thể sửa tay trước khi lưu.";return}if(window.PinyinEngineReady&&!window.pinyinPro){$("pronunciationStatus").textContent="Đang nạp bộ phát âm…";window.PinyinEngineReady.then(function(){if($("newHanzi").value.trim()===value)fillPronunciation(value)});return}fillPronunciation(value)};
     $("saveNew").onclick=function(){var vi=$("newVi").value.trim(),hanzi=$("newHanzi").value.trim();if(!vi||!hanzi){window.alert("Cần nhập ít nhất nghĩa tiếng Việt và tiếng Trung.");return}addPersonal([hanzi,$("newPinyin").value.trim(),$("newNear").value.trim(),vi,"Chứng từ","Từ do bạn bổ sung",$("newExample").value.trim(),""]);$("newVi").value="";$("newHanzi").value="";$("newPinyin").value="";$("newNear").value="";$("newExample").value="";$("pronunciationStatus").textContent="Đã lưu và đưa vào từ điển cùng hàng chờ học tiếp theo."};
-    var nav=document.querySelectorAll("[data-view]"),areaButtons=document.querySelectorAll("[data-area]"),homeButtons=document.querySelectorAll("[data-home]"),homeAreaButtons=document.querySelectorAll("[data-home-area]"),journeyButtons=document.querySelectorAll("[data-journey-view]"),views=["cards","dialogue","quiz","glossary","personal","community"],lastErpView="cards";
+    window.VDuckieERPStudy={startWords:function(words){var selected=[];for(var i=0;i<words.length;i++){var term=findTermByWord(words[i]);if(term)selected.push(term)}if(!selected.length)return;daily=selected;learningOrder=selected.concat(learningOrder);cardIndex=0;quizIndex=0;revealed=false;renderCard();renderQuiz();var target=document.querySelector('#erpNav [data-view="cards"]');if(target)target.click()}};
+    var nav=document.querySelectorAll("[data-view]"),areaButtons=document.querySelectorAll("[data-area]"),homeButtons=document.querySelectorAll("[data-home]"),homeAreaButtons=document.querySelectorAll("[data-home-area]"),journeyButtons=document.querySelectorAll("[data-journey-view]"),views=["lessons","cards","dialogue","quiz","glossary","personal","community"],lastErpView="lessons";
     function areaUrl(area){var params=new URLSearchParams(window.location.search);params.set("area",area);return window.location.pathname+"?"+params.toString()+(area==="hsk"?"#hsk":"")}
     function homeUrl(){var params=new URLSearchParams(window.location.search);params.delete("area");var query=params.toString();return window.location.pathname+(query?"?"+query:"")}
     function closeSidebar(){document.body.classList.remove("sidebar-open");if($("mobileMenu"))$("mobileMenu").setAttribute("aria-expanded","false")}
@@ -470,8 +479,9 @@
   <script src="./vendor/hanzi-writer.min.js?v=1"></script>
   <script src="./vendor/hsk-char-data.js?v=1"></script>
   <script src="./hsk-lessons.js?v=72.0"></script>
-  <script src="./dialogue.js?v=70.2"></script>
+  <script src="./dialogue.js?v=74.0"></script>
+  <script src="./erp-lessons-v74.js?v=74.0"></script>
   <script src="./community.js?v=70.2"></script>
 </body>
 </html>
-<!-- GitHub Pages deployment trigger: v73.1 · 2026-07-17 -->
+<!-- GitHub Pages deployment trigger: v74.0 · 2026-07-17 -->

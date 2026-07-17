@@ -220,6 +220,8 @@
     }
   ];
 
+  if (root.ERPScenariosV74 instanceof Array) scenarios = scenarios.concat(root.ERPScenariosV74);
+
   var scenarioIndex = 0;
   var stepIndex = 0;
   var exerciseMode = "conversation";
