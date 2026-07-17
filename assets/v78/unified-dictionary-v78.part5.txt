@@ -27,7 +27,7 @@
     var timer = root.setInterval(function () {
       attempts++;
       if (refreshData(false) && document.body.getAttribute("data-current-area") === "dictionary") renderControls();
-      if (attempts >= 20 || (root.HSKCurriculum && /v75|150 từ/i.test(root.HSKCurriculum.standard || ""))) root.clearInterval(timer);
+      if (attempts >= 60 || (root.HSKCurriculum && /v75|150 từ/i.test(root.HSKCurriculum.standard || ""))) root.clearInterval(timer);
     }, 350);
     root.addEventListener("vduckie:erp-v77-ready", function () {
       refreshData(true);
