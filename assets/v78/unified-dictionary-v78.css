@@ -1,0 +1,45 @@
+body[data-current-area="dictionary"] .study-layout{grid-template-columns:230px minmax(0,1fr)!important}
+body[data-current-area="dictionary"] .study-rail{display:none!important}
+body[data-current-area="dictionary"] .study-center{width:100%;min-width:0}
+.dictionary-hero{position:relative;padding-right:150px!important;background:linear-gradient(135deg,#fffaf4,#f1f7f3)!important;overflow:hidden}
+.dictionary-hero:after{content:"词";position:absolute;right:30px;top:50%;transform:translateY(-52%);color:rgba(199,103,60,.13);font:800 106px/1 Georgia,"Noto Serif SC",serif}
+.dictionary-entry-button{position:absolute;right:20px;bottom:18px;z-index:2;border:0;border-radius:999px;background:#18352e;color:#fff;padding:11px 16px;font-weight:800;cursor:pointer;box-shadow:0 8px 24px rgba(24,53,46,.16)}
+.dictionary-entry-button span{margin-left:7px}
+.dictionary-page{min-width:0}
+.dictionary-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:15px}
+.dictionary-heading h2{margin:4px 0 0;font:500 clamp(27px,3vw,36px)/1.1 Georgia,"Noto Serif SC",serif}
+.dictionary-heading p{max-width:690px;margin:8px 0 0;color:#65716d;line-height:1.5}
+.dictionary-source-tabs{display:flex;gap:6px;flex-wrap:wrap;padding:5px;border:1px solid #ddd6c8;border-radius:16px;background:#fff}
+.dictionary-source-tabs button,.dictionary-secondary-filter button{border:0;border-radius:12px;background:transparent;color:#53615c;padding:10px 14px;font-weight:800;white-space:nowrap;cursor:pointer}
+.dictionary-source-tabs button.active,.dictionary-secondary-filter button.active{background:#18352e;color:#fff}
+.dictionary-source-tabs button span{display:inline-grid;place-items:center;min-width:24px;height:20px;margin-left:5px;border-radius:999px;background:#eee8dd;color:#53615c;padding:0 6px;font-size:10px}
+.dictionary-source-tabs button.active span{background:rgba(255,255,255,.18);color:#fff}
+.dictionary-toolbar{display:grid;gap:10px;margin-bottom:14px;padding:14px;border:1px solid #ddd6c8;border-radius:18px;background:#fff}
+.dictionary-search-wrap{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:10px;padding:0 14px;border:1px solid #d5cec0;border-radius:14px;background:#fcfaf5}
+.dictionary-search-wrap>span{color:#a15c31;font-size:21px}
+.dictionary-search-wrap input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#18352e;padding:14px 0;font-size:16px}
+.dictionary-secondary-filter{display:flex;align-items:center;gap:5px;overflow-x:auto;padding-bottom:1px;scrollbar-width:thin}
+.dictionary-filter-label{flex:0 0 auto;margin:0 5px 0 2px;color:#8a5b3b;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.dictionary-results{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:11px;align-items:stretch}
+.dictionary-card{display:flex;min-width:0;flex-direction:column;padding:17px;border:1px solid #ddd6c8;border-radius:17px;background:#fff;box-shadow:0 8px 26px rgba(31,52,44,.04)}
+.dictionary-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.dictionary-word{min-width:0}
+.dictionary-word strong{display:block;overflow-wrap:anywhere;font:600 clamp(25px,2.4vw,34px)/1.16 Georgia,"Noto Serif SC",serif;color:#18352e}
+.dictionary-word span{display:block;margin-top:5px;overflow-wrap:anywhere;color:#a15c31;font-size:15px;line-height:1.35}
+.dictionary-speak{flex:0 0 auto;border:1px solid #d7d0c2;border-radius:999px;background:#f7f3eb;color:#18352e;padding:8px 11px;font-weight:800;cursor:pointer}
+.dictionary-badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:12px}
+.dictionary-badge{display:inline-flex;align-items:center;min-height:24px;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:900;line-height:1.2}
+.badge-hsk{background:#e6f5ee;color:#21634e}.badge-erp{background:#fff0df;color:#9a4d27}.badge-category{background:#efede7;color:#596661}
+.dictionary-near{margin:12px 0 0;color:#64706c;font-size:12px;line-height:1.45}.dictionary-near strong{color:#2d745e}
+.dictionary-meaning{display:grid;gap:5px;margin-top:9px;overflow-wrap:anywhere;color:#344b44;font-size:15px;line-height:1.55}
+.dictionary-meaning b{color:#18352e}
+.dictionary-example{margin-top:auto;padding-top:13px}
+.dictionary-example strong,.dictionary-example span{display:block;overflow-wrap:anywhere}
+.dictionary-example strong{padding:10px 11px;border-radius:11px;background:#f5f1e8;color:#18352e;font-weight:700;line-height:1.5}
+.dictionary-example span{margin-top:6px;color:#6a746f;font-size:12px;line-height:1.45}
+.dictionary-more-row{text-align:center;margin-top:16px}.dictionary-more-row button{border:0;border-radius:999px;padding:12px 20px;font-weight:800;cursor:pointer}
+.dictionary-empty{grid-column:1/-1;padding:36px 20px;border:1px dashed #cfc8ba;border-radius:16px;color:#6a746f;text-align:center;line-height:1.55}
+@media(max-width:1180px){body[data-current-area="dictionary"] .study-layout{grid-template-columns:210px minmax(0,1fr)!important}.dictionary-results{grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr))}}
+@media(max-width:980px){body[data-current-area="dictionary"] .study-layout{grid-template-columns:minmax(0,1fr)!important}.dictionary-heading{align-items:flex-start;flex-direction:column}.dictionary-source-tabs{width:100%;overflow-x:auto;flex-wrap:nowrap}.dictionary-source-tabs button{flex:1 0 auto}}
+@media(max-width:760px){.dictionary-hero{padding-right:70px!important}.dictionary-hero:after{right:10px;font-size:74px}.dictionary-entry-button{position:static;display:inline-flex;margin-top:14px}.dictionary-toolbar{padding:10px}.dictionary-results{grid-template-columns:1fr}.dictionary-card{padding:15px}.dictionary-word strong{font-size:29px}}
+@media(max-width:430px){.dictionary-hero{padding-right:17px!important}.dictionary-hero:after{display:none}.dictionary-source-tabs button{padding:9px 11px}.dictionary-secondary-filter button{padding:9px 11px}.dictionary-card-top{gap:8px}.dictionary-speak{padding:8px 9px;font-size:12px}}
