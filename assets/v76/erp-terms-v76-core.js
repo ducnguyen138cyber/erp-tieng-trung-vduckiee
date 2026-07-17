@@ -35,16 +35,38 @@
     if(help)help.textContent="Nếu từ đã có trong bộ "+terms.length+" thuật ngữ, tiếng Trung, pinyin và âm gần Việt sẽ hiện ngay để bạn lưu.";
   }
 
+  function findTerm(word){
+    for(var i=0;i<terms.length;i++)if(terms[i][0]===word)return terms[i];
+    return null;
+  }
+
+  function refreshVisiblePronunciation(){
+    if(typeof document==="undefined")return;
+    var cardHanzi=document.getElementById("cardHanzi");
+    var cardTerm=cardHanzi?findTerm(cardHanzi.textContent):null;
+    if(cardTerm){
+      var cardPinyin=document.getElementById("cardPinyin");
+      var cardNear=document.getElementById("cardNearVi");
+      if(cardPinyin)cardPinyin.textContent=cardTerm[1]||"";
+      if(cardNear)cardNear.textContent=cardTerm[2]||"—";
+    }
+    var quizHanzi=document.getElementById("quizHanzi");
+    var quizTerm=quizHanzi?findTerm(quizHanzi.textContent):null;
+    if(quizTerm){
+      var quizPinyin=document.getElementById("quizPinyin");
+      if(quizPinyin)quizPinyin.textContent=(quizTerm[1]||"")+" · "+(quizTerm[2]||"");
+    }
+    var search=document.getElementById("search");
+    if(search&&typeof Event!=="undefined")search.dispatchEvent(new Event("input",{bubbles:true}));
+  }
+
   function fillPronunciation(){
     if(!root.ERPPronunciation||typeof root.ERPPronunciation.generate!=="function")return false;
     for(var i=0;i<added.length;i++){
       var result=root.ERPPronunciation.generate(added[i][0]);
       if(result){added[i][1]=result.pinyin||"";added[i][2]=result.nearVi||"";}
     }
-    if(typeof document!=="undefined"){
-      var search=document.getElementById("search");
-      if(search&&typeof Event!=="undefined")search.dispatchEvent(new Event("input",{bubbles:true}));
-    }
+    refreshVisiblePronunciation();
     return true;
   }
 
