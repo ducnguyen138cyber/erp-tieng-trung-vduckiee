@@ -1,0 +1,130 @@
+    more.classList.toggle("hidden", shown >= filtered.length);
+    more.textContent = "Hiển thị thêm " + Math.min(160, filtered.length - shown) + " từ";
+  }
+
+  function renderControls() {
+    var tabs = byId("dictionarySourceTabs");
+    if (tabs) {
+      var buttons = tabs.querySelectorAll("[data-dictionary-source]");
+      for (var i = 0; i < buttons.length; i++) buttons[i].classList.toggle("active", buttons[i].getAttribute("data-dictionary-source") === state.source);
+    }
+    var input = byId("dictionarySearch");
+    if (input && input.value !== state.query) input.value = state.query;
+    renderSecondaryFilters();
+    renderResults();
+  }
+
+  function cleanDictionaryParams() {
+    if (!root.location || !root.history || !root.history.replaceState) return;
+    var params = new URLSearchParams(root.location.search);
+    params.delete("source");
+    if (params.get("area") === "dictionary") params.delete("area");
+    var query = params.toString();
+    root.history.replaceState(null, "", root.location.pathname + (query ? "?" + query : ""));
+  }
+
+  function hideDictionaryOnly() {
+    setHidden(dictionaryHero, true);
+    setHidden(dictionaryPage, true);
+    if (menuButton) menuButton.classList.remove("active");
+  }
+
+  function updateUrl(source) {
+    var params = new URLSearchParams(root.location.search);
+    params.set("area", "dictionary");
+    params.set("source", source || "all");
+    var query = params.toString();
+    root.history.replaceState(null, "", root.location.pathname + (query ? "?" + query : "") + "#dictionary");
+  }
+
+  function openDictionary(source, updateHistory) {
+    source = source === "hsk" || source === "erp" ? source : "all";
+    state.source = source;
+    state.limit = 160;
+    refreshData(true);
+
+    var homeHub = byId("homeHub");
+    setHidden(homeHub, true);
+    setHidden(byId("erpHero"), true);
+    setHidden(byId("hskHero"), true);
+    setHidden(dictionaryHero, false);
+
+    var panels = document.querySelectorAll(".study-center main > .panel");
+    for (var i = 0; i < panels.length; i++) setHidden(panels[i], panels[i] !== dictionaryPage);
+    setHidden(byId("hsk"), true);
+    setHidden(byId("erpNav"), true);
+    setHidden(byId("homeJourney"), true);
+    setHidden(byId("erpJourney"), true);
+    setHidden(byId("hskJourney"), true);
+
+    var homeButtons = document.querySelectorAll("[data-home]");
+    for (var h = 0; h < homeButtons.length; h++) homeButtons[h].classList.remove("active");
+    var areaButtons = document.querySelectorAll("[data-area]");
+    for (var a = 0; a < areaButtons.length; a++) areaButtons[a].classList.remove("active");
+    var navButtons = document.querySelectorAll("[data-view]");
+    for (var n = 0; n < navButtons.length; n++) navButtons[n].classList.remove("active");
+    if (menuButton) menuButton.classList.add("active");
+
+    document.body.setAttribute("data-current-area", "dictionary");
+    document.title = "Từ điển tiếng Trung HSK & ERP — Developed by VDuckie";
+    renderControls();
+    if (updateHistory !== false) updateUrl(source);
+    closeSidebar();
+  }
+
+  function bindEvents() {
+    if (menuButton) menuButton.addEventListener("click", function () { openDictionary("all"); });
+    var sourceTabs = byId("dictionarySourceTabs");
+    if (sourceTabs) sourceTabs.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-dictionary-source]");
+      if (!button) return;
+      state.source = button.getAttribute("data-dictionary-source");
+      state.limit = 160;
+      renderControls();
+      updateUrl(state.source);
+    });
+    var search = byId("dictionarySearch");
+    if (search) search.addEventListener("input", function () {
+      state.query = this.value;
+      state.limit = 160;
+      renderResults();
+    });
+    var secondary = byId("dictionarySecondaryFilter");
+    if (secondary) secondary.addEventListener("click", function (event) {
+      var hsk = event.target.closest("[data-dictionary-hsk-level]");
+      var erp = event.target.closest("[data-dictionary-erp-group]");
+      if (hsk) state.hskLevel = hsk.getAttribute("data-dictionary-hsk-level");
+      if (erp) state.erpGroup = erp.getAttribute("data-dictionary-erp-group");
+      if (!hsk && !erp) return;
+      state.limit = 160;
+      renderControls();
+    });
+    var results = byId("dictionaryResults");
+    if (results) results.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-dictionary-speak]");
+      if (!button) return;
+      speak(button.getAttribute("data-dictionary-speak"));
+    });
+    var more = byId("dictionaryMore");
+    if (more) more.addEventListener("click", function () { state.limit += 160; renderResults(); });
+
+    var openButtons = document.querySelectorAll("[data-open-dictionary]");
+    for (var i = 0; i < openButtons.length; i++) openButtons[i].addEventListener("click", function () { openDictionary(this.getAttribute("data-open-dictionary")); });
+
+    var leaveTargets = document.querySelectorAll("[data-home],#brandHome,[data-area],[data-home-area],[data-view],[data-journey-view]");
+    for (var j = 0; j < leaveTargets.length; j++) {
+      if (leaveTargets[j] === menuButton) continue;
+      leaveTargets[j].addEventListener("click", function () {
+        if (document.body.getAttribute("data-current-area") === "dictionary") { hideDictionaryOnly(); cleanDictionaryParams(); }
+      }, true);
+    }
+  }
+
+  function speak(value) {
+    if (!value || !root.speechSynthesis) return;
+    root.speechSynthesis.cancel();
+    var Utterance = root.SpeechSynthesisUtterance || SpeechSynthesisUtterance;
+    var utterance = new Utterance(value);
+    utterance.lang = "zh-CN";
+    utterance.rate = 0.72;
+    var voices = root.speechSynthesis.getVoices ? root.speechSynthesis.getVoices() : [];
