@@ -3,8 +3,13 @@
 Website học tiếng Trung ERP và HSK, chạy trên GitHub Pages với Supabase Auth và
 đồng bộ sổ từ theo tài khoản.
 
-## Giao diện v72
+## Giao diện v73
 
+- Mở web ở đường dẫn gốc sẽ hiện màn hình khám phá thay vì tự mở bài học.
+- Màn hình khám phá có thẻ chào mừng, thống kê kho học liệu, bài học đề xuất và
+  5 mascot VDuckie mặc trang phục theo từng kỹ năng.
+- Bài học chỉ xuất hiện sau khi người học chọn HSK, ERP hoặc một thẻ đề xuất;
+  liên kết sâu có `area=erp` / `area=hsk` vẫn mở thẳng khu vực tương ứng.
 - Thanh học tập cố định bên trái trên desktop, menu trượt trên mobile.
 - Nội dung bài học và các thao tác nằm ở cột giữa.
 - Lộ trình ERP/HSK nằm ở cột phải; các chặng HSK dùng huy hiệu, đường nối và
@@ -16,6 +21,7 @@ Website học tiếng Trung ERP và HSK, chạy trên GitHub Pages với Supabas
 
 ```bash
 node tests/v72-layout.test.js
+node tests/v73-home-hub.test.js
 node tests/supabase-sync.test.js
 node --check hsk-lessons.js
 ```

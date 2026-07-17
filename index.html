@@ -54,7 +54,7 @@
   <style>
     .cloud-auth{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 11px;border:1px solid #d7d0c2;border-radius:16px;background:#fff}.cloud-auth-copy{min-width:0}.cloud-auth-copy strong,.cloud-auth-copy small{display:block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cloud-auth-copy strong{font-size:12px}.cloud-auth-copy small{margin-top:2px;color:#6a746f;font-size:10px}.cloud-sync-status.good{color:#2d745e}.cloud-sync-status.waiting{color:#a15c31}.cloud-sync-status.bad{color:#9a332d}.cloud-auth button{border:0;border-radius:12px;background:#18352e;color:#fff;padding:9px 12px;font-weight:800;white-space:nowrap;cursor:pointer}.cloud-auth button#cloudLogout{background:#e8e3d8;color:#18352e}.cloud-auth button:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.top-actions{width:100%;align-items:stretch;flex-direction:column}.area-switch{align-self:flex-start}.cloud-auth{justify-content:space-between}.cloud-auth-copy strong,.cloud-auth-copy small{max-width:55vw}}
   </style>
-  <link rel="stylesheet" href="./v72-layout.css?v=72.0">
+  <link rel="stylesheet" href="./v72-layout.css?v=73.0">
 </head>
 <body>
   <div class="shell" id="appShell">
@@ -72,12 +72,15 @@
     <div class="study-layout">
       <aside class="study-sidebar" id="studySidebar">
         <div class="sidebar-heading"><span>HỌC TẬP</span><button class="sidebar-close" id="sidebarClose" type="button" aria-label="Đóng menu">×</button></div>
+        <nav class="home-switch" aria-label="Màn hình bắt đầu">
+          <button class="active" data-home type="button"><span class="menu-icon">鸭</span><span>Khám phá bài học</span></button>
+        </nav>
         <nav class="area-switch" aria-label="Chuyển khu vực học">
-          <button class="active" data-area="erp"><span class="menu-icon">工</span><span>ERP công việc</span></button>
+          <button data-area="erp"><span class="menu-icon">工</span><span>ERP công việc</span></button>
           <button data-area="hsk"><span class="menu-icon">汉</span><span>Giáo trình HSK</span></button>
         </nav>
         <nav class="nav erp-nav" id="erpNav" aria-label="Các phần học ERP">
-          <button class="active" data-view="cards"><span class="menu-icon">卡</span><span>Thẻ từ ERP</span></button>
+          <button data-view="cards"><span class="menu-icon">卡</span><span>Thẻ từ ERP</span></button>
           <button data-view="dialogue"><span class="menu-icon">说</span><span>Hội thoại ERP</span></button>
           <button data-view="quiz"><span class="menu-icon">✓</span><span>Kiểm tra ERP</span></button>
           <button data-view="glossary"><span class="menu-icon">词</span><span>Từ điển ERP</span></button>
@@ -88,7 +91,53 @@
       </aside>
 
       <div class="study-center">
-        <section class="hero" id="erpHero">
+        <section class="home-hub" id="homeHub" aria-labelledby="homeHubTitle">
+          <div class="home-overview-grid">
+            <article class="home-card home-welcome-card">
+              <div class="home-welcome-copy">
+                <span class="home-card-kicker">你好! (Xin chào!)</span>
+                <h1 id="homeHubTitle">Bắt đầu hành trình cùng VDuckie</h1>
+                <p>Chọn một bài vừa sức và học tiếng Trung theo cách của bạn — từ công việc ERP đến lộ trình HSK.</p>
+                <div class="home-welcome-actions">
+                  <button class="home-primary-action" type="button" data-home-area="hsk">Bắt đầu học HSK <span aria-hidden="true">→</span></button>
+                  <button class="home-secondary-action" type="button" data-home-area="erp" data-home-view="cards">Học từ ERP</button>
+                </div>
+              </div>
+              <img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=73.0" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">
+            </article>
+
+            <article class="home-card home-library-card">
+              <div class="home-card-heading"><span class="home-heading-icon" aria-hidden="true">册</span><div><span class="home-card-kicker">KHO HỌC LIỆU</span><h2>Đủ món để học mỗi ngày</h2></div></div>
+              <div class="home-resource-grid">
+                <div class="home-resource-tile resource-erp"><strong>154+</strong><span>Từ ERP</span><img src="./assets/home/vduckie-vocabulary.webp?v=73.0" alt="Vịt VDuckie học thẻ từ"></div>
+                <div class="home-resource-tile resource-hsk"><strong>44</strong><span>Bài HSK</span><img src="./assets/home/vduckie-grammar.webp?v=73.0" alt="Vịt VDuckie học ngữ pháp"></div>
+                <div class="home-resource-tile resource-roast"><strong>60</strong><span>Câu Adam</span><img src="./assets/home/vduckie-speaking.webp?v=73.0" alt="Vịt VDuckie luyện nói với micro"></div>
+                <div class="home-resource-tile resource-road"><strong>8</strong><span>Chặng HSK</span><img src="./assets/home/vduckie-listening.webp?v=73.0" alt="Vịt VDuckie đeo tai nghe"></div>
+              </div>
+              <button class="home-library-link" type="button" data-home-area="hsk"><span>↗</span> Xem toàn bộ lộ trình HSK <span aria-hidden="true">›</span></button>
+            </article>
+          </div>
+
+          <section class="home-recommended" aria-labelledby="homeRecommendedTitle">
+            <div class="home-recommended-heading"><div><span class="home-heading-icon" aria-hidden="true">✣</span><h2 id="homeRecommendedTitle">Bài học đề xuất cho bạn</h2></div><span>Chạm một thẻ để bắt đầu</span></div>
+            <div class="home-course-grid">
+              <button class="home-course-card" type="button" data-home-area="erp" data-home-view="cards">
+                <span class="home-course-label">卡 Từ vựng</span><span class="home-course-art course-vocabulary"><img src="./assets/home/vduckie-vocabulary.webp?v=73.0" alt=""></span><span class="home-course-copy"><strong>Từ vựng theo chủ đề</strong><small>10 thẻ ERP mỗi ngày</small><i>Học ngay →</i></span>
+              </button>
+              <button class="home-course-card" type="button" data-home-area="hsk">
+                <span class="home-course-label">句 Ngữ pháp</span><span class="home-course-art course-grammar"><img src="./assets/home/vduckie-grammar.webp?v=73.0" alt=""></span><span class="home-course-copy"><strong>Cấu trúc câu HSK</strong><small>Học mẫu rồi né bẫy</small><i>Học ngay →</i></span>
+              </button>
+              <button class="home-course-card" type="button" data-home-area="erp" data-home-view="dialogue">
+                <span class="home-course-label">听 Luyện nghe</span><span class="home-course-art course-listening"><img src="./assets/home/vduckie-listening.webp?v=73.0" alt=""></span><span class="home-course-copy"><strong>Hội thoại thực tế</strong><small>Nghe câu mẫu trong ERP</small><i>Học ngay →</i></span>
+              </button>
+              <button class="home-course-card" type="button" data-home-area="erp" data-home-view="dialogue">
+                <span class="home-course-label">说 Luyện nói</span><span class="home-course-art course-speaking"><img src="./assets/home/vduckie-speaking.webp?v=73.0" alt=""></span><span class="home-course-copy"><strong>Phản xạ và phát âm</strong><small>Mic chấm câu bạn đọc</small><i>Học ngay →</i></span>
+              </button>
+            </div>
+          </section>
+        </section>
+
+        <section class="hero hidden" id="erpHero">
           <div><p class="eyebrow">ERP CÔNG VIỆC · MỖI NGÀY 10 PHÚT</p><h1>Học đúng từ bạn gặp trong xưởng.</h1><p class="copy">Thuật ngữ kho, sản xuất và ERP — có pinyin, ví dụ thực tế và phát âm tiếng Trung.</p></div>
         </section>
         <section class="hero hsk-hero hidden" id="hskHero">
@@ -96,7 +145,7 @@
         </section>
 
         <main>
-      <section id="cards" class="panel">
+      <section id="cards" class="panel hidden">
         <div class="section-head"><div><span class="step" id="cardStep">THẺ 1 / 10</span><h2>Nhấn vào thẻ để xem nghĩa</h2></div></div>
         <article class="flashcard" id="flashcard">
           <div class="card-top"><span class="chip" id="cardCategory">Kho</span><span id="cardStatus">Nhấn để lật</span></div>
@@ -205,7 +254,21 @@
       </div>
 
       <aside class="study-rail" id="studyRail" aria-label="Lộ trình học">
-        <section class="journey-card" id="erpJourney">
+        <section class="journey-card home-journey-card" id="homeJourney">
+          <span class="journey-kicker">LỘ TRÌNH ĐẾN KHI THÀNH THẠO</span>
+          <h2>Đi từng chặng, không học mò</h2>
+          <p class="home-journey-intro">Bắt đầu từ phát âm và chữ Hán, sau đó tiến dần qua từng cấp HSK.</p>
+          <div class="home-route-list" aria-label="Các chặng học HSK">
+            <span class="home-route-step current"><b>基</b><span><strong>Nền tảng</strong><small>Phát âm · chữ Hán</small></span></span>
+            <span class="home-route-step"><b>壹</b><span><strong>HSK 1</strong><small>Nhập môn</small></span></span>
+            <span class="home-route-step"><b>贰</b><span><strong>HSK 2</strong><small>Sơ cấp</small></span></span>
+            <span class="home-route-step"><b>叁</b><span><strong>HSK 3–4</strong><small>Tiền trung cấp → trung cấp</small></span></span>
+            <span class="home-route-step locked"><b>锁</b><span><strong>HSK 5–9</strong><small>Sắp mở</small></span></span>
+          </div>
+          <button class="home-route-action" type="button" data-home-area="hsk">Mở lộ trình HSK →</button>
+        </section>
+
+        <section class="journey-card hidden" id="erpJourney">
           <span class="journey-kicker">LỘ TRÌNH HÔM NAY</span>
           <h2>Học theo từng bước</h2>
           <div class="journey-score"><strong><span id="doneCount">0</span>/<span id="targetCount">10</span></strong><span>từ đã nhớ</span></div>
@@ -345,16 +408,39 @@
     function fillPronunciation(value){var generated=window.ERPPronunciation&&window.ERPPronunciation.generate(value);if(generated&&generated.pinyin){$("newPinyin").value=generated.pinyin;$("newNear").value=generated.nearVi;$("pronunciationStatus").textContent="Đã tạo tự động. Hãy sửa tay nếu đây là từ đa âm hoặc cách đọc nội bộ của công ty."}else $("pronunciationStatus").textContent="Không nhận diện được chữ Trung này; bạn cần nhập pinyin và âm gần Việt thủ công."}
     $("newHanzi").oninput=function(){var value=this.value.trim();if(!value){$("newPinyin").value="";$("newNear").value="";$("pronunciationStatus").textContent="Nhập chữ Trung để tự tạo pinyin và âm gần Việt. Có thể sửa tay trước khi lưu.";return}if(window.PinyinEngineReady&&!window.pinyinPro){$("pronunciationStatus").textContent="Đang nạp bộ phát âm…";window.PinyinEngineReady.then(function(){if($("newHanzi").value.trim()===value)fillPronunciation(value)});return}fillPronunciation(value)};
     $("saveNew").onclick=function(){var vi=$("newVi").value.trim(),hanzi=$("newHanzi").value.trim();if(!vi||!hanzi){window.alert("Cần nhập ít nhất nghĩa tiếng Việt và tiếng Trung.");return}addPersonal([hanzi,$("newPinyin").value.trim(),$("newNear").value.trim(),vi,"Chứng từ","Từ do bạn bổ sung",$("newExample").value.trim(),""]);$("newVi").value="";$("newHanzi").value="";$("newPinyin").value="";$("newNear").value="";$("newExample").value="";$("pronunciationStatus").textContent="Đã lưu và đưa vào từ điển cùng hàng chờ học tiếp theo."};
-    var nav=document.querySelectorAll("[data-view]"),areaButtons=document.querySelectorAll("[data-area]"),journeyButtons=document.querySelectorAll("[data-journey-view]"),views=["cards","dialogue","quiz","glossary","personal","community"],lastErpView="cards";
+    var nav=document.querySelectorAll("[data-view]"),areaButtons=document.querySelectorAll("[data-area]"),homeButtons=document.querySelectorAll("[data-home]"),homeAreaButtons=document.querySelectorAll("[data-home-area]"),journeyButtons=document.querySelectorAll("[data-journey-view]"),views=["cards","dialogue","quiz","glossary","personal","community"],lastErpView="cards";
     function areaUrl(area){var params=new URLSearchParams(window.location.search);params.set("area",area);return window.location.pathname+"?"+params.toString()+(area==="hsk"?"#hsk":"")}
+    function homeUrl(){var params=new URLSearchParams(window.location.search);params.delete("area");var query=params.toString();return window.location.pathname+(query?"?"+query:"")}
     function closeSidebar(){document.body.classList.remove("sidebar-open");if($("mobileMenu"))$("mobileMenu").setAttribute("aria-expanded","false")}
     function syncJourney(view){for(var i=0;i<journeyButtons.length;i++)journeyButtons[i].className=journeyButtons[i].getAttribute("data-journey-view")===view?"journey-step active":"journey-step"}
+    function selectHome(updateUrl){
+      for(var a=0;a<areaButtons.length;a++)areaButtons[a].className="";
+      for(var b=0;b<homeButtons.length;b++)homeButtons[b].className="active";
+      for(var n=0;n<nav.length;n++)nav[n].className="";
+      $('homeHub').className="home-hub";
+      $('erpHero').className="hero hidden";
+      $('hskHero').className="hero hsk-hero hidden";
+      $('erpNav').className="nav erp-nav";
+      $('homeJourney').className="journey-card home-journey-card";
+      $('erpJourney').className="journey-card hidden";
+      $('hskJourney').className="journey-card hidden";
+      for(var k=0;k<views.length;k++)$(views[k]).className="panel hidden";
+      $('hsk').className="panel hidden";
+      document.body.setAttribute("data-current-area","home");
+      document.title="Tự học tiếng Trung — Developed by VDuckie";
+      if(updateUrl!==false)history.replaceState(null,"",homeUrl());
+      closeSidebar();
+    }
     function selectArea(area,updateUrl){
       if(area!=="erp"&&area!=="hsk")return;
+      for(var h=0;h<homeButtons.length;h++)homeButtons[h].className="";
       for(var a=0;a<areaButtons.length;a++)areaButtons[a].className=areaButtons[a].getAttribute("data-area")===area?"active":"";
+      for(var n=0;n<nav.length;n++)nav[n].className=area==="erp"&&nav[n].getAttribute("data-view")===lastErpView?"active":"";
+      $('homeHub').className="home-hub hidden";
       $('erpHero').className=area==="erp"?"hero":"hero hidden";
       $('hskHero').className=area==="hsk"?"hero hsk-hero":"hero hsk-hero hidden";
       $('erpNav').className=area==="erp"?"nav erp-nav":"nav erp-nav hidden";
+      $('homeJourney').className="journey-card home-journey-card hidden";
       $('erpJourney').className=area==="erp"?"journey-card":"journey-card hidden";
       $('hskJourney').className=area==="hsk"?"journey-card":"journey-card hidden";
       for(var k=0;k<views.length;k++)$(views[k]).className=area==="erp"&&views[k]===lastErpView?"panel":"panel hidden";
@@ -366,12 +452,14 @@
     }
     for(var n=0;n<nav.length;n++)nav[n].onclick=function(){lastErpView=this.getAttribute("data-view");for(var j=0;j<nav.length;j++)nav[j].className="";this.className="active";syncJourney(lastErpView);selectArea("erp")};
     for(var q=0;q<areaButtons.length;q++)areaButtons[q].onclick=function(){selectArea(this.getAttribute("data-area"))};
+    for(var h=0;h<homeButtons.length;h++)homeButtons[h].onclick=function(){selectHome()};
+    for(var p=0;p<homeAreaButtons.length;p++)homeAreaButtons[p].onclick=function(){var area=this.getAttribute("data-home-area"),view=this.getAttribute("data-home-view");if(area==="erp"&&view)lastErpView=view;syncJourney(lastErpView);selectArea(area)};
     for(var r=0;r<journeyButtons.length;r++)journeyButtons[r].onclick=function(){var view=this.getAttribute("data-journey-view"),target=document.querySelector('[data-view="'+view+'"]');if(target)target.click()};
     if($("mobileMenu"))$("mobileMenu").onclick=function(){var open=document.body.classList.toggle("sidebar-open");this.setAttribute("aria-expanded",open?"true":"false")};
     if($("sidebarClose"))$("sidebarClose").onclick=closeSidebar;
     if($("sidebarBackdrop"))$("sidebarBackdrop").onclick=closeSidebar;
     document.addEventListener("keydown",function(event){if(event.key==="Escape")closeSidebar()});
-    var requestedArea=new URLSearchParams(window.location.search).get("area");if(window.location.hash==="#hsk")requestedArea="hsk";syncJourney(lastErpView);selectArea(requestedArea==="hsk"?"hsk":"erp",false);window.ERPAreaNavigation={select:selectArea};
+    var requestedArea=new URLSearchParams(window.location.search).get("area");if(window.location.hash==="#hsk")requestedArea="hsk";syncJourney(lastErpView);if(requestedArea==="erp"||requestedArea==="hsk")selectArea(requestedArea,false);else selectHome(false);window.ERPAreaNavigation={select:function(area){if(document.body.getAttribute("data-current-area")==="home"&&!new URLSearchParams(window.location.search).has("area"))return;selectArea(area)},home:selectHome};
     renderCard();renderQuiz();renderTerms();renderSuggestions();renderPersonal();
   })();
   </script>
@@ -385,4 +473,4 @@
   <script src="./community.js?v=70.2"></script>
 </body>
 </html>
-<!-- GitHub Pages deployment trigger: v72.0 · 2026-07-17 -->
+<!-- GitHub Pages deployment trigger: v73.0 · 2026-07-17 -->
