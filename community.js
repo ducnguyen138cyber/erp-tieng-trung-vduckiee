@@ -38,22 +38,29 @@
     script.onerror=function(){console.error("Không nạp được bố cục trang chủ v75.3.");};
     document.head.appendChild(script);
   }
-  function loadUnifiedDictionaryV78(){
+  function loadHskDictionaryV79(){
     var script=document.createElement("script");
-    script.src="./assets/v78/unified-dictionary-v78.js?v=78.0";
-    script.onerror=function(){console.error("Không nạp được Từ điển chung v78.");};
+    script.src="./assets/v79/hsk-dictionary-v79.js?v=79.0";
+    script.onerror=function(){console.error("Không nạp được dữ liệu HSK 10.000+ v79.");};
     document.head.appendChild(script);
   }
-  function loadHomeCopyV782(){
+  function loadUnifiedDictionaryV79(){
     var script=document.createElement("script");
-    script.src="./assets/v78/home-copy-v78.1.js?v=78.2";
-    script.onerror=function(){console.error("Không nạp được nội dung trang chủ v78.2.");};
+    script.src="./assets/v79/unified-dictionary-v79.js?v=79.0";
+    script.onerror=function(){console.error("Không nạp được Từ điển chung v79.");};
+    document.head.appendChild(script);
+  }
+  function loadHomeCopyV79(){
+    var script=document.createElement("script");
+    script.src="./assets/v79/home-copy-v79.js?v=79.0";
+    script.onerror=function(){console.error("Không nạp được nội dung trang chủ v79.");};
     document.head.appendChild(script);
   }
   loadHomeWelcomeV751();
   loadHomeLayoutV753();
   loadHsk1V75();
   loadRuntime();
-  loadUnifiedDictionaryV78();
-  loadHomeCopyV782();
+  loadHskDictionaryV79();
+  loadUnifiedDictionaryV79();
+  loadHomeCopyV79();
 })();
