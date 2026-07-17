@@ -1,0 +1,130 @@
+(function (root) {
+  "use strict";
+
+  function text(value) {
+    return String(value == null ? "" : value).trim();
+  }
+
+  function normalizeSearch(value) {
+    var normalized = text(value).toLowerCase();
+    if (normalized.normalize) normalized = normalized.normalize("NFD");
+    return normalized
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/đ/g, "d")
+      .replace(/ü/g, "u")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+  function uniquePush(list, value) {
+    value = text(value);
+    if (value && list.indexOf(value) === -1) list.push(value);
+  }
+
+  function uniqueNumberPush(list, value) {
+    value = Number(value);
+    if (!isNaN(value) && list.indexOf(value) === -1) list.push(value);
+  }
+
+  function mapErpGroup(category) {
+    var value = normalizeSearch(category);
+    if (/san xuat|hoach dinh|bom|plm|san pham|product|manufactur|routing|cong doan/.test(value)) return "production";
+    if (/\bkho\b|wms|ton kho|warehouse|inventory/.test(value)) return "warehouse";
+    if (/mua hang|procurement|purchas|nha cung cap|supplier/.test(value)) return "purchasing";
+    if (/tai chinh|ke toan|gia thanh|ngan sach|cong no|thue|asset|finance|account/.test(value)) return "accounting";
+    if (/chat luong|kiem tra|quality|kiem nghiem/.test(value)) return "quality";
+    return "other";
+  }
+
+  function createRecord(word, order) {
+    return {
+      id: word,
+      hanzi: word,
+      pinyin: "",
+      nearVi: "",
+      sources: [],
+      hskLevel: null,
+      hskLevels: [],
+      erpCategories: [],
+      erpGroups: [],
+      meanings: { erp: [], hsk: [] },
+      notes: [],
+      examples: { erp: [], hsk: [] },
+      order: order,
+      searchText: "",
+      searchCompact: ""
+    };
+  }
+
+  function addExample(record, source, zh, vi) {
+    zh = text(zh);
+    vi = text(vi);
+    if (!zh && !vi) return;
+    var list = record.examples[source];
+    for (var i = 0; i < list.length; i++) {
+      if (list[i].zh === zh && list[i].vi === vi) return;
+    }
+    list.push({ zh: zh, vi: vi });
+  }
+
+  function buildRecords(erpTerms, curriculum, pronunciation) {
+    var map = Object.create(null);
+    var records = [];
+    var order = 0;
+
+    function get(word) {
+      word = text(word);
+      if (!word) return null;
+      if (!map[word]) {
+        map[word] = createRecord(word, order++);
+        records.push(map[word]);
+      }
+      return map[word];
+    }
+
+    var erp = Array.isArray(erpTerms) ? erpTerms : [];
+    for (var i = 0; i < erp.length; i++) {
+      var term = erp[i] || [];
+      var erpRecord = get(term[0]);
+      if (!erpRecord) continue;
+      uniquePush(erpRecord.sources, "erp");
+      if (!erpRecord.pinyin && term[1]) erpRecord.pinyin = text(term[1]);
+      if (!erpRecord.nearVi && term[2]) erpRecord.nearVi = text(term[2]);
+      uniquePush(erpRecord.meanings.erp, term[3]);
+      uniquePush(erpRecord.erpCategories, term[4] || "Khác");
+      uniquePush(erpRecord.erpGroups, mapErpGroup(term[4] || "Khác"));
+      uniquePush(erpRecord.notes, term[5]);
+      addExample(erpRecord, "erp", term[6], term[7]);
+    }
+
+    var levels = curriculum && curriculum.levels ? curriculum.levels : {};
+    for (var level = 1; level <= 4; level++) {
+      var lessons = Array.isArray(levels[level]) ? levels[level] : [];
+      for (var lessonIndex = 0; lessonIndex < lessons.length; lessonIndex++) {
+        var lesson = lessons[lessonIndex] || {};
+        var words = Array.isArray(lesson.words) ? lesson.words : [];
+        for (var wordIndex = 0; wordIndex < words.length; wordIndex++) {
+          var hskTerm = words[wordIndex] || [];
+          var hskRecord = get(hskTerm[0]);
+          if (!hskRecord) continue;
+          uniquePush(hskRecord.sources, "hsk");
+          uniqueNumberPush(hskRecord.hskLevels, level);
+          if (hskRecord.hskLevel === null || level < hskRecord.hskLevel) hskRecord.hskLevel = level;
+          if (!hskRecord.pinyin && hskTerm[1]) hskRecord.pinyin = text(hskTerm[1]);
+          uniquePush(hskRecord.meanings.hsk, hskTerm[2]);
+          addExample(hskRecord, "hsk", hskTerm[3], hskTerm[4]);
+        }
+      }
+    }
+
+    for (var r = 0; r < records.length; r++) {
+      var record = records[r];
+      record.hskLevels.sort(function (a, b) { return a - b; });
+      if ((!record.pinyin || !record.nearVi) && pronunciation && typeof pronunciation.generate === "function") {
+        var generated = pronunciation.generate(record.hanzi);
+        if (generated) {
+          if (!record.pinyin) record.pinyin = text(generated.pinyin);
+          if (!record.nearVi) record.nearVi = text(generated.nearVi);
+        }
+      }
+      var searchParts = [record.hanzi, record.pinyin, record.nearVi]
