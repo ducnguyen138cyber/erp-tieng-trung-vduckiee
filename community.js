@@ -38,8 +38,15 @@
     script.onerror=function(){console.error("Không nạp được bố cục trang chủ v75.3.");};
     document.head.appendChild(script);
   }
+  function loadUnifiedDictionaryV78(){
+    var script=document.createElement("script");
+    script.src="./assets/v78/unified-dictionary-v78.js?v=78.0";
+    script.onerror=function(){console.error("Không nạp được Từ điển chung v78.");};
+    document.head.appendChild(script);
+  }
   loadHomeWelcomeV751();
   loadHomeLayoutV753();
   loadHsk1V75();
   loadRuntime();
+  loadUnifiedDictionaryV78();
 })();
