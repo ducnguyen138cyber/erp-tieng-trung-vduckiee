@@ -42,7 +42,8 @@
     "./assets/v77/erp-terms-v77-sales-crm.js?v=77.1",
     "./assets/v77/erp-terms-v77-broad-candidates.js?v=77.1",
     "./assets/v77/erp-terms-v77-finalize.js?v=77.1",
-    "./assets/v78/unified-dictionary-v78.js?v=78.0"
+    "./assets/v79/hsk-dictionary-v79.js?v=79.0",
+    "./assets/v79/unified-dictionary-v79.js?v=79.0"
   ];
   if (document.readyState === "loading") {
     for (var i = 0; i < files.length; i++) document.write('<script src="' + files[i] + '"></script>');
@@ -53,7 +54,7 @@
     var script = document.createElement("script");
     script.src = files[index];
     script.onload = function () { load(index + 1); };
-    script.onerror = function () { console.error("Không nạp được gói dữ liệu ERP/Từ điển:", files[index]); load(index + 1); };
+    script.onerror = function () { console.error("Không nạp được gói dữ liệu ERP/HSK/Từ điển:", files[index]); load(index + 1); };
     document.head.appendChild(script);
   }
   load(0);
