@@ -10,6 +10,7 @@ Website học tiếng Trung ERP và HSK, chạy trên GitHub Pages với Supabas
   5 mascot VDuckie mặc trang phục theo từng kỹ năng.
 - Bài học chỉ xuất hiện sau khi người học chọn HSK, ERP hoặc một thẻ đề xuất;
   liên kết sâu có `area=erp` / `area=hsk` vẫn mở thẳng khu vực tương ứng.
+- Có thể bấm logo/tên VDuckie ở đầu trang để quay về màn hình khám phá.
 - Thanh học tập cố định bên trái trên desktop, menu trượt trên mobile.
 - Nội dung bài học và các thao tác nằm ở cột giữa.
 - Lộ trình ERP/HSK nằm ở cột phải; các chặng HSK dùng huy hiệu, đường nối và

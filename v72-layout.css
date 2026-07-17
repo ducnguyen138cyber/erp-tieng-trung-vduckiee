@@ -30,6 +30,36 @@ body {
   flex: 0 0 52px;
 }
 
+.brand-home {
+  border: 0;
+  border-radius: 14px;
+  background: transparent;
+  color: inherit;
+  padding: 4px 7px 4px 4px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.brand-home:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: translateY(-1px);
+}
+
+.brand-home:focus-visible {
+  outline: 3px solid rgba(199, 103, 60, 0.35);
+  outline-offset: 2px;
+}
+
+.brand-home .brand-logo {
+  transition: transform 0.18s ease;
+}
+
+.brand-home:hover .brand-logo {
+  transform: rotate(-3deg) scale(1.03);
+}
+
 .top-actions {
   margin-left: auto;
 }

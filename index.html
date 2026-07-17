@@ -54,12 +54,12 @@
   <style>
     .cloud-auth{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 11px;border:1px solid #d7d0c2;border-radius:16px;background:#fff}.cloud-auth-copy{min-width:0}.cloud-auth-copy strong,.cloud-auth-copy small{display:block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cloud-auth-copy strong{font-size:12px}.cloud-auth-copy small{margin-top:2px;color:#6a746f;font-size:10px}.cloud-sync-status.good{color:#2d745e}.cloud-sync-status.waiting{color:#a15c31}.cloud-sync-status.bad{color:#9a332d}.cloud-auth button{border:0;border-radius:12px;background:#18352e;color:#fff;padding:9px 12px;font-weight:800;white-space:nowrap;cursor:pointer}.cloud-auth button#cloudLogout{background:#e8e3d8;color:#18352e}.cloud-auth button:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.top-actions{width:100%;align-items:stretch;flex-direction:column}.area-switch{align-self:flex-start}.cloud-auth{justify-content:space-between}.cloud-auth-copy strong,.cloud-auth-copy small{max-width:55vw}}
   </style>
-  <link rel="stylesheet" href="./v72-layout.css?v=73.0">
+  <link rel="stylesheet" href="./v72-layout.css?v=73.1">
 </head>
 <body>
   <div class="shell" id="appShell">
     <header class="top">
-      <div class="brand"><img class="brand-logo" src="./assets/vduckie-logo.png?v=1" alt="Logo VDuckie"><span><strong id="brandTitle">Tự học tiếng Trung</strong><small id="brandSubtitle">Developed by VDuckie</small></span></div>
+      <button class="brand brand-home" id="brandHome" type="button" aria-label="Về màn hình Khám phá"><img class="brand-logo" src="./assets/vduckie-logo.png?v=1" alt="Logo VDuckie"><span><strong id="brandTitle">Tự học tiếng Trung</strong><small id="brandSubtitle">Developed by VDuckie</small></span></button>
       <div class="top-actions">
         <button class="mobile-menu-button" id="mobileMenu" type="button" aria-controls="studySidebar" aria-expanded="false">☰ Học tập</button>
         <div class="cloud-auth" aria-live="polite">
@@ -453,6 +453,7 @@
     for(var n=0;n<nav.length;n++)nav[n].onclick=function(){lastErpView=this.getAttribute("data-view");for(var j=0;j<nav.length;j++)nav[j].className="";this.className="active";syncJourney(lastErpView);selectArea("erp")};
     for(var q=0;q<areaButtons.length;q++)areaButtons[q].onclick=function(){selectArea(this.getAttribute("data-area"))};
     for(var h=0;h<homeButtons.length;h++)homeButtons[h].onclick=function(){selectHome()};
+    if($("brandHome"))$("brandHome").onclick=function(){selectHome()};
     for(var p=0;p<homeAreaButtons.length;p++)homeAreaButtons[p].onclick=function(){var area=this.getAttribute("data-home-area"),view=this.getAttribute("data-home-view");if(area==="erp"&&view)lastErpView=view;syncJourney(lastErpView);selectArea(area)};
     for(var r=0;r<journeyButtons.length;r++)journeyButtons[r].onclick=function(){var view=this.getAttribute("data-journey-view"),target=document.querySelector('[data-view="'+view+'"]');if(target)target.click()};
     if($("mobileMenu"))$("mobileMenu").onclick=function(){var open=document.body.classList.toggle("sidebar-open");this.setAttribute("aria-expanded",open?"true":"false")};
@@ -473,4 +474,4 @@
   <script src="./community.js?v=70.2"></script>
 </body>
 </html>
-<!-- GitHub Pages deployment trigger: v73.0 · 2026-07-17 -->
+<!-- GitHub Pages deployment trigger: v73.1 · 2026-07-17 -->
