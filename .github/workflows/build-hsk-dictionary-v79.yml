@@ -8,6 +8,14 @@ on:
     paths:
       - scripts/build_hsk_dictionary_v79.py
       - .github/workflows/build-hsk-dictionary-v79.yml
+      - tests/v79-*.test.js
+      - assets/v79/hsk-dictionary-v79.js
+      - assets/v79/unified-dictionary-v79.js
+      - assets/v79/unified-dictionary-v79.part*.txt
+      - assets/v79/unified-dictionary-v79.css
+      - assets/v79/home-copy-v79.js
+      - community.js
+      - pinyin-pro.loader.js
 
 permissions:
   contents: write
@@ -34,6 +42,9 @@ jobs:
 
       - name: Generate HSK dictionary chunks
         run: python scripts/build_hsk_dictionary_v79.py
+
+      - name: Validate generated data and unified dictionary
+        run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js
 
       - name: Commit generated dictionary
         run: |
