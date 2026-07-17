@@ -661,9 +661,22 @@
   }
   function renderLevels() {
     var html = "";
-    for (var level = 0; level <= 9; level++) {
+    var roadmap = [
+      { level: 0, label: "Nền tảng", medal: "基", description: "Phát âm & chữ Hán" },
+      { level: 1, label: "HSK 1", medal: "壹", description: "Nhập môn" },
+      { level: 2, label: "HSK 2", medal: "贰", description: "Sơ cấp" },
+      { level: 3, label: "HSK 3", medal: "叁", description: "Tiền trung cấp" },
+      { level: 4, label: "HSK 4", medal: "肆", description: "Trung cấp" },
+      { level: 5, label: "HSK 5", medal: "伍", description: "Trung cấp cao" },
+      { level: 6, label: "HSK 6", medal: "陆", description: "Nâng cao" },
+      { level: 7, label: "HSK 7–9", medal: "柒", description: "Thành thạo" }
+    ];
+    for (var index = 0; index < roadmap.length; index++) {
+      var item = roadmap[index];
+      var level = item.level;
       var locked = level >= 5;
-      html += '<button class="hsk-level' + (selectedLevel === level ? " active" : "") + (locked ? " locked" : "") + '" data-hsk-level="' + level + '"' + (locked ? " disabled" : "") + '><strong>' + (level === 0 ? "Nền tảng" : "HSK " + level) + '</strong><small>' + (locked ? "🔒 Sắp mở" : levelCompleted(level) + "/" + levels[level].length + " bài · " + levelDescriptions[level]) + "</small></button>";
+      var finished = !locked && levels[level].length && levelCompleted(level) === levels[level].length;
+      html += '<button class="hsk-level level-' + level + (selectedLevel === level ? " active" : "") + (finished ? " complete" : "") + (locked ? " locked" : "") + '" data-hsk-level="' + level + '"' + (locked ? " disabled" : "") + '><span class="hsk-level-medal" aria-hidden="true">' + item.medal + '</span><span class="hsk-level-copy"><strong>' + item.label + '</strong><small>' + (locked ? item.description + " · Sắp mở" : levelCompleted(level) + "/" + levels[level].length + " bài · " + item.description) + "</small></span></button>";
     }
     byId("hskLevels").innerHTML = html;
   }
