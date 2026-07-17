@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - scripts/build_hsk_dictionary_v79.py
+      - scripts/build_dictionary_stats_v79.js
       - .github/workflows/build-hsk-dictionary-v79.yml
       - tests/v79-*.test.js
       - assets/v79/hsk-dictionary-v79.js
@@ -43,6 +44,9 @@ jobs:
       - name: Generate HSK dictionary chunks
         run: python scripts/build_hsk_dictionary_v79.py
 
+      - name: Calculate exact unified dictionary totals
+        run: node scripts/build_dictionary_stats_v79.js
+
       - name: Validate generated data and unified dictionary
         run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js
 
@@ -50,7 +54,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/v79/hsk-dictionary
+          git add assets/v79/hsk-dictionary assets/v79/dictionary-stats.json
           if git diff --cached --quiet; then
             echo "Dictionary data is already up to date."
           else
