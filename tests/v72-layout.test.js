@@ -25,7 +25,7 @@ for (const requiredId of [
   assert.match(html, new RegExp(`id="${requiredId}"`), `Missing #${requiredId}`);
 }
 
-assert.match(html, /v72-layout\.css\?v=72\.0/);
+assert.match(html, /v72-layout\.css\?v=73\.0/);
 assert.match(html, /hsk-lessons\.js\?v=72\.0/);
 assert.ok(html.indexOf("study-sidebar") < html.indexOf("study-center"));
 assert.ok(html.indexOf("study-center") < html.indexOf("study-rail"));
