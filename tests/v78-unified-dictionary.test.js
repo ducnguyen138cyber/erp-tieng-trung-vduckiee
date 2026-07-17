@@ -11,6 +11,8 @@ const source = [1, 2, 3, 4, 5]
 const runtimeLoader = fs.readFileSync(path.join(root, 'assets', 'v78', 'unified-dictionary-v78.js'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'assets', 'v78', 'unified-dictionary-v78.css'), 'utf8');
 const communityLoader = fs.readFileSync(path.join(root, 'community.js'), 'utf8');
+const erpPipeline = fs.readFileSync(path.join(root, 'pinyin-pro.loader.js'), 'utf8');
+const erpFinalizer = fs.readFileSync(path.join(root, 'assets', 'v77', 'erp-terms-v77-finalize.js'), 'utf8');
 const context = { globalThis: null };
 context.globalThis = context;
 vm.createContext(context);
@@ -70,6 +72,9 @@ test('independent dictionary navigation, lookup buttons and speech remain instal
   assert.match(source, /speechSynthesis\.speak/);
   assert.match(source, /version: "78\.0"/);
   assert.match(communityLoader, /unified-dictionary-v78\.js\?v=78\.0/);
+  assert.match(erpPipeline, /erp-terms-v77-finalize\.js\?v=77\.1/);
+  assert.match(erpPipeline, /unified-dictionary-v78\.js\?v=78\.0/);
+  assert.match(erpFinalizer, /var target=1600/);
   assert.match(runtimeLoader, /Promise\.all\(tasks\)/);
   for (let number = 1; number <= 5; number++) assert.match(runtimeLoader, new RegExp(`part"\\+index\\+"\\.txt\\?v=78\\.0`));
 });
