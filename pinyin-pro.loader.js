@@ -24,3 +24,28 @@
     }
   });
 })(typeof globalThis !== "undefined" ? globalThis : this);
+
+(function () {
+  "use strict";
+  if (typeof document === "undefined") return;
+  var files = [
+    "./assets/v76/erp-terms-v76-core.js?v=76.0",
+    "./assets/v76/erp-terms-v76-production.js?v=76.0",
+    "./assets/v76/erp-terms-v76-warehouse-purchasing.js?v=76.0",
+    "./assets/v76/erp-terms-v76-sales-finance.js?v=76.0",
+    "./assets/v76/erp-terms-v76-system-documents.js?v=76.0"
+  ];
+  if (document.readyState === "loading") {
+    for (var i = 0; i < files.length; i++) document.write('<script src="' + files[i] + '"><\\/script>');
+    return;
+  }
+  function load(index) {
+    if (index >= files.length) return;
+    var script = document.createElement("script");
+    script.src = files[index];
+    script.onload = function () { load(index + 1); };
+    script.onerror = function () { console.error("Không nạp được bộ từ vựng ERP v76:", files[index]); load(index + 1); };
+    document.head.appendChild(script);
+  }
+  load(0);
+})();
