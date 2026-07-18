@@ -7,10 +7,11 @@ var files=[
   "./assets/v85/personal-dashboard-v85.js?v=85.1",
   "./assets/v86/premium-learning-v86.js?v=86.2",
   "./assets/v86/adaptive-sync-bridge-v86.js?v=86.2",
-  "./assets/v86/home-order-fix-v86.6.js?v=86.6"
+  "./assets/v86/home-order-fix-v86.6.js?v=86.6",
+  "./assets/v86/mobile-layout-fix-v86.7.js?v=86.7"
 ];
 function load(index){
-  if(index>=files.length){root.__VDUCKIE_EXPERIENCE_V86_READY__=true;try{document.dispatchEvent(new CustomEvent("vduckie:experience-v86-ready",{detail:{version:"86.6"}}))}catch(error){}return;}
+  if(index>=files.length){root.__VDUCKIE_EXPERIENCE_V86_READY__=true;try{document.dispatchEvent(new CustomEvent("vduckie:experience-v86-ready",{detail:{version:"86.7"}}))}catch(error){}return;}
   var script=document.createElement("script");script.src=files[index];script.onload=function(){load(index+1)};script.onerror=function(){console.error("Không nạp được gói trải nghiệm:",files[index]);load(index+1)};document.head.appendChild(script);
 }
 if(typeof document!=="undefined")load(0);
