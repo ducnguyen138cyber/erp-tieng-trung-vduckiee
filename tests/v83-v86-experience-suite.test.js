@@ -30,7 +30,7 @@ test('v83 keeps daily goals and recent dictionary history in syncable keys', () 
     'vduckie-personal-history-v1': JSON.stringify(['你好', '库存'])
   });
   const api = context.VDuckieV83Utils;
-  assert.equal(api.version, '83.0');
+  assert.equal(api.version, '83.1');
   assert.deepEqual(Array.from(api.history()), ['库存', '你好']);
   assert.equal(api.goalData().target, 10);
 });
@@ -40,12 +40,16 @@ test('v84 renders exactly seven account-synced streak days and ranks weak words'
   const api = context.VDuckieV84Utils;
   const today = new Date(2026, 6, 18);
   const days = api.sevenDays({ dates: { '2026-07-16': 2, '2026-07-17': 1, '2026-07-18': 3 } }, today);
+  assert.equal(api.version, '84.1');
   assert.equal(days.length, 7);
   assert.equal(days.filter((day) => day.done).length, 3);
   assert.equal(api.streak({ dates: { '2026-07-16': 1, '2026-07-17': 1, '2026-07-18': 1 } }, today), 3);
   const weak = api.weakWords({ words: { '库存': { wrongCount: 4, correctCount: 1 }, '你好': { wrongCount: 1, correctCount: 3 } } });
   assert.equal(weak[0].word, '库存');
-  assert.match(fs.readFileSync(path.join(root, 'assets/v84/retention-center-v84.js'), 'utf8'), /vduckie-streak-v84/);
+  const source = fs.readFileSync(path.join(root, 'assets/v84/retention-center-v84.js'), 'utf8');
+  assert.match(source, /vduckie-streak-v84/);
+  assert.match(source, /home-overview-grid/);
+  assert.doesNotMatch(source, /"'\+data\.todayCount/);
 });
 
 test('v85 personalizes recommendations by learning purpose and ERP role', () => {
@@ -82,9 +86,9 @@ test('v86 builds adaptive questions, chunks listening and reports errors', () =>
   assert.equal(report.accuracy, 33);
 });
 
-test('suite loader applies v83, v84, v85 and v86 in order', () => {
+test('suite loader applies v83, v84, v85 and v86 in order with fresh cache keys', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
-  const files = ['learning-cockpit-v83.js?v=83.0', 'retention-center-v84.js?v=84.0', 'personal-dashboard-v85.js?v=85.0', 'premium-learning-v86.js?v=86.0'];
+  const files = ['learning-cockpit-v83.js?v=83.1', 'retention-center-v84.js?v=84.1', 'personal-dashboard-v85.js?v=85.0', 'premium-learning-v86.js?v=86.0'];
   let last = -1;
   for (const file of files) {
     const index = loader.indexOf(file);
@@ -92,7 +96,8 @@ test('suite loader applies v83, v84, v85 and v86 in order', () => {
     last = index;
   }
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.0/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.1/);
+  assert.match(patch, /community\.js\?v=86\.1/);
 });
 
 test('streak and dashboard layouts are responsive and mark flames', () => {
