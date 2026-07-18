@@ -117,8 +117,13 @@ function ensureShell(home){
   }
   return shell;
 }
+function pinMainNode(main,node,order){
+  if(!main||!node)return;
+  node.style.order=String(order);
+  if(node.parentNode!==main)main.appendChild(node);
+}
 function moveAdvancedSections(main){
-  ["v85PersonalDashboard","v86PremiumLearning"].forEach(function(id){var node=document.getElementById(id);if(node&&node.parentNode!==main)main.appendChild(node)});
+  [["v85PersonalDashboard",4],["v86PremiumLearning",5]].forEach(function(item){pinMainNode(main,document.getElementById(item[0]),item[1])});
 }
 function applyHomeMode(){
   var active=homeVisible(),html=document.documentElement;
@@ -137,10 +142,16 @@ function render(){
     if(!overview||!recommended)return false;
     removeOldDashboard(home);
     var shell=ensureShell(home),main=document.getElementById("v865HomeMain"),sidebar=document.getElementById("v865HomeSidebar"),streak=streakData();
-    if(overview.parentNode!==main)main.appendChild(overview);
-    if(recommended.parentNode!==main)main.appendChild(recommended);
-    var oldRoad=document.getElementById("v865HomeRoadmap");if(oldRoad)oldRoad.remove();
-    var roadWrap=document.createElement("div");roadWrap.innerHTML=roadmapMarkup(roadmapData());main.appendChild(roadWrap.firstChild);
+    pinMainNode(main,overview,1);
+    pinMainNode(main,recommended,2);
+    var oldRoad=document.getElementById("v865HomeRoadmap"),roadWrap=document.createElement("div");
+    roadWrap.innerHTML=roadmapMarkup(roadmapData());
+    var roadNode=roadWrap.firstChild;roadNode.style.order="3";
+    if(oldRoad&&oldRoad.parentNode===main)oldRoad.replaceWith(roadNode);
+    else{
+      if(oldRoad)oldRoad.remove();
+      if(recommended.nextSibling)main.insertBefore(roadNode,recommended.nextSibling);else main.appendChild(roadNode);
+    }
     moveAdvancedSections(main);
     sidebar.innerHTML=streakMarkup(streak)+weeklyMarkup(weeklyData(streak))+continueMarkup(continueData());
     shell.setAttribute("data-layout-version",VERSION);
@@ -148,6 +159,7 @@ function render(){
   }finally{rendering=false}
 }
 function scheduleRender(){root.clearTimeout(renderTimer);renderTimer=root.setTimeout(render,90)}
+function accountSyncNeedsRender(event){var keys=event&&event.detail&&event.detail.changedKeys;return !Array.isArray(keys)||keys.length>0}
 function bind(){
   document.addEventListener("click",function(event){
     var button=event.target&&event.target.closest&&event.target.closest("button");if(!button)return;
@@ -156,7 +168,8 @@ function bind(){
     if(button.hasAttribute("data-v865-level"))navigateHskLevel(Number(button.getAttribute("data-v865-level")));
     if(button.hasAttribute("data-home")||button.hasAttribute("data-area")||button.hasAttribute("data-home-area"))root.setTimeout(scheduleRender,70);
   },true);
-  ["vduckie:account-learning-synced","vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
+  document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsRender(event))scheduleRender()});
+  ["vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
 }
 function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=86.5";document.head.appendChild(link)}
 function install(){

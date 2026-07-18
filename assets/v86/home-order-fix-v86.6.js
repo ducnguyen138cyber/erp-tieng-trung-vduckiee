@@ -28,6 +28,7 @@
   }
 
   function schedule(){root.clearTimeout(timer);timer=root.setTimeout(applyOrder,40);}
+  function accountSyncNeedsOrder(event){var keys=event&&event.detail&&event.detail.changedKeys;return !Array.isArray(keys)||keys.length>0;}
   function install(){
     var tries=0;
     var interval=root.setInterval(function(){
@@ -39,7 +40,8 @@
       observer=new root.MutationObserver(schedule);
       observer.observe(home,{childList:true,subtree:true});
     }
-    ["vduckie:experience-v86-ready","vduckie:account-learning-synced","vduckie:preference-change","vduckie:learning-change"].forEach(function(name){document.addEventListener(name,schedule)});
+    document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsOrder(event))schedule();});
+    ["vduckie:experience-v86-ready","vduckie:preference-change","vduckie:learning-change"].forEach(function(name){document.addEventListener(name,schedule)});
   }
 
   root.VDuckieHomeOrderFixV866={version:VERSION,apply:applyOrder};

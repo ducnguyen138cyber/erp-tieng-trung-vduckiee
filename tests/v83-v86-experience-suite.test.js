@@ -66,8 +66,8 @@ test('v86.5 creates one straight main column and one straight right sidebar', ()
   const source = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.js'), 'utf8');
   const css = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.css'), 'utf8');
   assert.match(source, /v865HomeShell/);
-  assert.match(source, /main\.appendChild\(overview\)/);
-  assert.match(source, /main\.appendChild\(recommended\)/);
+  assert.match(source, /pinMainNode\(main,overview,1\)/);
+  assert.match(source, /pinMainNode\(main,recommended,2\)/);
   assert.match(source, /sidebar\.innerHTML=streakMarkup\(streak\)\+weeklyMarkup/);
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) 300px/);
 });
@@ -117,15 +117,15 @@ test('v85 personalization and v86 adaptive practice remain available', () => {
   assert.equal(adaptive.buildQuestions(records, { words: {} }, 5, { reverse: true }).length, 5);
 });
 
-test('loader keeps the v86 suite and deployment preserves the v87.3 cache bust', () => {
+test('loader keeps the v86 suite and deployment preserves the v87.5 cache bust', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
-  assert.match(loader, /home-dashboard-v86\.5\.js\?v=86\.5/);
-  assert.match(loader, /home-order-fix-v86\.6\.js\?v=86\.6/);
+  assert.match(loader, /home-dashboard-v86\.5\.js\?v=87\.5/);
+  assert.match(loader, /home-order-fix-v86\.6\.js\?v=87\.5/);
   assert.match(loader, /mobile-layout-fix-v86\.7\.js\?v=86\.7/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=87\.3/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=87\.5/);
   assert.match(patch, /home-layout-stability-v87\.3\.js\?v=87\.3/);
-  assert.match(patch, /community\.js\?v=86\.7/);
+  assert.match(patch, /community\.js\?v=87\.5/);
 });
 
 test('responsive breakpoints preserve columns without overlap', () => {

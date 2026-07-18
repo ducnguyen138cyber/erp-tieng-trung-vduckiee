@@ -64,8 +64,8 @@
   }
   function loadExperienceSuiteV867(){
     var script=document.createElement("script");
-    script.src="./assets/v86/experience-suite-loader-v86.js?v=86.7";
-    script.onerror=function(){console.error("Không nạp được gói trải nghiệm v83–v86.7.");};
+    script.src="./assets/v86/experience-suite-loader-v86.js?v=87.5";
+    script.onerror=function(){console.error("Không nạp được gói trải nghiệm v83–v87.5.");};
     document.head.appendChild(script);
   }
   loadHomeWelcomeV751();
