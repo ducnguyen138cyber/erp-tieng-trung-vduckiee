@@ -1,10 +1,7 @@
-.vduckie-layout-booting #homeHub {
+.vduckie-layout-booting.v865-home-mode #homeHub {
   opacity: 0 !important;
   pointer-events: none !important;
-}
-
-.vduckie-layout-ready #homeHub:not(.hidden) {
-  animation: vduckie-layout-enter 0.18s ease-out both;
+  visibility: hidden !important;
 }
 
 .vduckie-mascot {
@@ -24,7 +21,7 @@
 
 .vduckie-wing {
   transform-box: view-box;
-  transform-origin: 41.4% 41.96%;
+  transform-origin: 45.97% 38.57%;
   will-change: transform;
 }
 
@@ -50,15 +47,6 @@
   }
   50% {
     transform: translateY(-3px) scale(1.006);
-  }
-}
-
-@keyframes vduckie-layout-enter {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
   }
 }
 
@@ -118,7 +106,6 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .vduckie-layout-ready #homeHub:not(.hidden),
   .vduckie-idle,
   .vduckie-eyelids,
   .home-welcome-card:hover .vduckie-wing,

@@ -4,8 +4,8 @@ if(root.__VDUCKIE_EXPERIENCE_V86_LOADING__)return;
 root.__VDUCKIE_EXPERIENCE_V86_LOADING__=true;
 var files=[
   "./assets/v86/home-dashboard-v86.5.js?v=86.5",
-  "./assets/v85/personal-dashboard-v85.js?v=85.1",
-  "./assets/v86/premium-learning-v86.js?v=86.2",
+  "./assets/v85/personal-dashboard-v85.js?v=85.2",
+  "./assets/v86/premium-learning-v86.js?v=86.3",
   "./assets/v86/adaptive-sync-bridge-v86.js?v=86.2",
   "./assets/v86/home-order-fix-v86.6.js?v=86.6",
   "./assets/v86/mobile-layout-fix-v86.7.js?v=86.7"

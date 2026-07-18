@@ -8,10 +8,14 @@
   <title>Tiếng Trung cho công việc & HSK — Developed by VDuckie</title>
   <script>
     (function(root){
-      root.document.documentElement.classList.add("vduckie-layout-booting");
+      var html=root.document.documentElement;
+      var area=new URLSearchParams(root.location.search).get("area");
+      var isHome=area!=="erp"&&area!=="hsk"&&root.location.hash!=="#hsk";
+      html.classList.add("vduckie-layout-booting");
+      if(isHome)html.classList.add("v865-home-mode");
       root.__VDUCKIE_LAYOUT_FAILSAFE__=root.setTimeout(function(){
-        root.document.documentElement.classList.remove("vduckie-layout-booting");
-      },4000);
+        html.classList.remove("vduckie-layout-booting");
+      },5000);
     })(window);
   </script>
   <style>
@@ -65,7 +69,7 @@
   <link rel="stylesheet" href="./v72-layout.css?v=73.1">
   <link rel="stylesheet" href="./erp-lessons-v74.css?v=74.0">
   <link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=86.5">
-  <link rel="stylesheet" href="./assets/home/vduckie-mascot-v87.css?v=87.1">
+  <link rel="stylesheet" href="./assets/home/vduckie-mascot-v87.css?v=87.2">
 </head>
 <body>
   <div class="shell" id="appShell">
@@ -119,7 +123,7 @@
                 <title id="vduckieWelcomeTitle">Vịt VDuckie mặc áo học sinh đang vẫy chào</title>
                 <desc id="vduckieWelcomeDescription">Mascot VDuckie thở nhẹ, chớp mắt tự nhiên và vẫy cánh khi người dùng di chuột vào thẻ chào mừng.</desc>
                 <defs>
-                  <path id="vduckieWingShape" d="M158 216C137 219 117 223 98 230L92 134H0V284H45C49 316 86 332 124 328C145 324 153 303 158 282C164 258 172 230 158 216Z"/>
+                  <path id="vduckieWingShape" d="M171 216C145 214 118 221 92 232L92 132H0V286H72C92 296 118 306 145 305C156 286 166 252 171 216Z"/>
                   <radialGradient id="vduckieLeftEyelid" cx="72%" cy="25%" r="84%">
                     <stop offset="0" stop-color="#fff4c5"/>
                     <stop offset="0.58" stop-color="#ffe59a"/>
@@ -139,7 +143,7 @@
                   <mask id="vduckieBodyMask" x="0" y="0" width="372" height="560" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
                     <rect width="372" height="560" fill="#fff"/>
                     <rect width="372" height="560" fill="#000" mask="url(#vduckieWingAlpha)"/>
-                    <circle cx="154" cy="235" r="22" fill="#fff"/>
+                    <path d="M161 216C170 239 162 279 147 305L136 301C151 274 158 241 154 219Z" fill="#fff"/>
                   </mask>
                 </defs>
                 <g class="vduckie-idle">
@@ -535,8 +539,8 @@
   <script src="./dialogue.js?v=74.0"></script>
   <script src="./erp-lessons-v74.js?v=74.0"></script>
   <script src="./community.js?v=86.7"></script>
-  <script src="./assets/v86/experience-suite-loader-v86.js?v=86.7"></script>
-  <script src="./assets/home/home-layout-stability-v87.1.js?v=87.1"></script>
+  <script src="./assets/v86/experience-suite-loader-v86.js?v=87.2"></script>
+  <script src="./assets/home/home-layout-stability-v87.2.js?v=87.2"></script>
 </body>
 </html>
 <!-- GitHub Pages deployment trigger: v74.0 · 2026-07-17 -->
