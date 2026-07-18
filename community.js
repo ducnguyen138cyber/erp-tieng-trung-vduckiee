@@ -62,10 +62,10 @@
     script.onerror=function(){console.error("Không nạp được nội dung trang chủ v79.");};
     document.head.appendChild(script);
   }
-  function loadExperienceSuiteV863(){
+  function loadExperienceSuiteV864(){
     var script=document.createElement("script");
-    script.src="./assets/v86/experience-suite-loader-v86.js?v=86.3";
-    script.onerror=function(){console.error("Không nạp được gói trải nghiệm v83–v86.3.");};
+    script.src="./assets/v86/experience-suite-loader-v86.js?v=86.4";
+    script.onerror=function(){console.error("Không nạp được gói trải nghiệm v83–v86.4.");};
     document.head.appendChild(script);
   }
   loadHomeWelcomeV751();
@@ -75,5 +75,5 @@
   loadHskDictionaryV79();
   loadUnifiedDictionaryV79();
   loadHomeCopyV79();
-  loadExperienceSuiteV863();
+  loadExperienceSuiteV864();
 })();
