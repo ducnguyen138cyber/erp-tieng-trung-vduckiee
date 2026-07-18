@@ -10,7 +10,7 @@ const cssSource = fs.readFileSync(
   'utf8'
 );
 const stabilitySource = fs.readFileSync(
-  path.join(root, 'assets', 'home', 'home-layout-stability-v87.2.js'),
+  path.join(root, 'assets', 'home', 'home-layout-stability-v87.3.js'),
   'utf8'
 );
 const personalSource = fs.readFileSync(
@@ -32,7 +32,7 @@ test('welcome mascot uses inline SVG groups around the current WebP artwork', ()
   assert.match(indexSource, /id="vduckie-eyes"[^>]+data-part="eyes"/);
   assert.match(indexSource, /id="vduckie-wing"[^>]+data-part="wing"/);
   assert.match(indexSource, /href="\.\/assets\/home\/vduckie-welcome\.webp\?v=73\.0"/);
-  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.2/);
+  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.3/);
   assert.match(indexSource, /id="vduckieWingAlpha"/);
   assert.match(indexSource, /mask="url\(#vduckieWingAlpha\)"/);
 });
@@ -66,14 +66,15 @@ test('first paint starts in the final home grid mode and waits for a stable shel
   assert.match(indexSource, /classList\.add\("vduckie-layout-booting"\)/);
   assert.match(indexSource, /if\(isHome\)html\.classList\.add\("v865-home-mode"\)/);
   assert.match(indexSource, /id="v865HomeDashboardCss"/);
-  assert.match(indexSource, /home-layout-stability-v87\.2\.js\?v=87\.2/);
-  assert.match(indexSource, /experience-suite-loader-v86\.js\?v=87\.2[\s\S]+home-layout-stability-v87\.2\.js\?v=87\.2/);
+  assert.match(indexSource, /home-layout-stability-v87\.3\.js\?v=87\.3/);
+  assert.match(indexSource, /experience-suite-loader-v86\.js\?v=87\.3[\s\S]+home-layout-stability-v87\.3\.js\?v=87\.3/);
   assert.match(cssSource, /\.vduckie-layout-booting\.v865-home-mode #homeHub/);
   assert.match(cssSource, /visibility: hidden !important/);
+  assert.match(cssSource, /scrollbar-gutter: stable/);
   assert.match(stabilitySource, /vduckie:experience-v86-ready/);
   assert.match(stabilitySource, /data-layout-version/);
-  assert.match(stabilitySource, /requestAnimationFrame/);
-  assert.match(stabilitySource, /stableFrames>=6/);
+  assert.match(stabilitySource, /setTimeout\(check,32\)/);
+  assert.match(stabilitySource, /stableSamples>=4/);
 });
 
 test('personal and premium renderers stay inside the final home main column', () => {
