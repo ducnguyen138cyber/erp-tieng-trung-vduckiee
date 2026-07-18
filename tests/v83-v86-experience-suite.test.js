@@ -15,41 +15,48 @@ function storage(initial = {}) {
     get length() { return data.size; }
   };
 }
-function load(file, initial = {}) {
-  const context = { globalThis: null, localStorage: storage(initial), console, Date, setTimeout, clearTimeout };
+function load(file, initial = {}, extras = {}) {
+  const context = { globalThis: null, localStorage: storage(initial), console, Date, setTimeout, clearTimeout, ...extras };
   context.globalThis = context;
   vm.createContext(context);
   vm.runInContext(fs.readFileSync(path.join(root, file), 'utf8'), context);
   return context;
 }
 
-test('v83 keeps daily goals and recent dictionary history in syncable keys', () => {
-  const context = load('assets/v83/learning-cockpit-v83.js', {
-    'vduckie-study-goals-v1': JSON.stringify({ dailyWords: 10 }),
-    'vduckie-study-activity-v1': JSON.stringify({ dates: {} }),
-    'vduckie-personal-history-v1': JSON.stringify(['你好', '库存'])
-  });
-  const api = context.VDuckieV83Utils;
-  assert.equal(api.version, '83.1');
-  assert.deepEqual(Array.from(api.history()), ['库存', '你好']);
-  assert.equal(api.goalData().target, 10);
-});
-
-test('v84 renders exactly seven account-synced streak days and ranks weak words', () => {
-  const context = load('assets/v84/retention-center-v84.js');
-  const api = context.VDuckieV84Utils;
-  const today = new Date(2026, 6, 18);
-  const days = api.sevenDays({ dates: { '2026-07-16': 2, '2026-07-17': 1, '2026-07-18': 3 } }, today);
-  assert.equal(api.version, '84.1');
+test('v86.2 builds exactly seven account-synced streak days', () => {
+  const context = load('assets/v86/home-dashboard-v86.2.js');
+  const api = context.VDuckieHomeDashboardV862;
+  const today = new Date();
+  const keys = [];
+  for (let offset = 2; offset >= 0; offset--) {
+    const date = new Date(today.getFullYear(), today.getMonth(), today.getDate() - offset);
+    keys.push(`${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`);
+  }
+  const activity = { dates: Object.fromEntries(keys.map((key) => [key, 1])) };
+  const days = api.lastSevenDays(activity);
+  assert.equal(api.version, '86.2');
   assert.equal(days.length, 7);
   assert.equal(days.filter((day) => day.done).length, 3);
-  assert.equal(api.streak({ dates: { '2026-07-16': 1, '2026-07-17': 1, '2026-07-18': 1 } }, today), 3);
-  const weak = api.weakWords({ words: { '库存': { wrongCount: 4, correctCount: 1 }, '你好': { wrongCount: 1, correctCount: 3 } } });
-  assert.equal(weak[0].word, '库存');
-  const source = fs.readFileSync(path.join(root, 'assets/v84/retention-center-v84.js'), 'utf8');
-  assert.match(source, /vduckie-streak-v84/);
-  assert.match(source, /home-overview-grid/);
-  assert.doesNotMatch(source, /"'\+data\.todayCount/);
+  assert.equal(api.streakCount(activity), 3);
+});
+
+test('v86.2 creates a horizontal HSK roadmap with active and locked stages', () => {
+  const levels = {
+    0: [{ id: 'foundation-1' }, { id: 'foundation-2' }],
+    1: [{ id: 'hsk1-1' }],
+    2: [{ id: 'hsk2-1' }],
+    3: [{ id: 'hsk3-1' }],
+    4: [{ id: 'hsk4-1' }]
+  };
+  const context = load('assets/v86/home-dashboard-v86.2.js', {
+    'erp-hsk-state-v2': JSON.stringify({ level: 1, lesson: 0 }),
+    'erp-hsk-progress-v2': JSON.stringify({ 'foundation-1': true, 'hsk1-1': true })
+  }, { HSKCurriculum: { levels } });
+  const stages = context.VDuckieHomeDashboardV862.roadmapData();
+  assert.equal(stages.length, 7);
+  assert.equal(stages.find((stage) => stage.level === 1).current, true);
+  assert.equal(stages.find((stage) => stage.level === 1).progress.percent, 100);
+  assert.equal(stages.find((stage) => stage.level === 5).active, false);
 });
 
 test('v85 personalizes recommendations by learning purpose and ERP role', () => {
@@ -86,26 +93,30 @@ test('v86 builds adaptive questions, chunks listening and reports errors', () =>
   assert.equal(report.accuracy, 33);
 });
 
-test('suite loader applies v83, v84, v85 and v86 in order with fresh cache keys', () => {
+test('suite loader removes the old full cockpit and loads compact v86.2 first', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
-  const files = ['learning-cockpit-v83.js?v=83.1', 'retention-center-v84.js?v=84.1', 'personal-dashboard-v85.js?v=85.0', 'premium-learning-v86.js?v=86.0'];
+  const files = ['home-dashboard-v86.2.js?v=86.2', 'personal-dashboard-v85.js?v=85.1', 'premium-learning-v86.js?v=86.2'];
   let last = -1;
   for (const file of files) {
     const index = loader.indexOf(file);
     assert.ok(index > last, `${file} must load in order`);
     last = index;
   }
+  assert.doesNotMatch(loader, /learning-cockpit-v83/);
+  assert.doesNotMatch(loader, /retention-center-v84/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.1/);
-  assert.match(patch, /community\.js\?v=86\.1/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.2/);
+  assert.match(patch, /community\.js\?v=86\.2/);
 });
 
-test('streak and dashboard layouts are responsive and mark flames', () => {
-  const streakCss = fs.readFileSync(path.join(root, 'assets/v84/retention-center-v84.css'), 'utf8');
-  const premiumCss = fs.readFileSync(path.join(root, 'assets/v86/premium-learning-v86.css'), 'utf8');
-  assert.match(streakCss, /grid-template-columns:repeat\(7,1fr\)/);
-  assert.match(streakCss, /v84-day\.done .*v84-fire-dot/);
-  assert.match(streakCss, /@media\(max-width:620px\)/);
-  assert.match(premiumCss, /v86-listening-tools/);
-  assert.match(premiumCss, /v86-speaking-diff/);
+test('compact layout keeps recommended lessons above workspace and sidebar is responsive', () => {
+  const source = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.2.js'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.2.css'), 'utf8');
+  assert.match(source, /overview\.nextElementSibling!==recommended/);
+  assert.match(source, /BẮT ĐẦU CHUỖI CỦA BẠN/);
+  assert.match(source, /LỘ TRÌNH ĐẾN KHI THÀNH THẠO/);
+  assert.match(css, /grid-template-columns:minmax\(0,1fr\) 310px/);
+  assert.match(css, /grid-template-columns:repeat\(7,1fr\)/);
+  assert.match(css, /v862-red-cta/);
+  assert.match(css, /@media\(max-width:860px\)/);
 });
