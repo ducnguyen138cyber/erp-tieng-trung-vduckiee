@@ -26,7 +26,7 @@ html {
 
 .vduckie-wing {
   transform-box: view-box;
-  transform-origin: 45.97% 38.57%;
+  transform-origin: 44.09% 38.21%;
   will-change: transform;
 }
 
@@ -74,7 +74,7 @@ html {
     transform: rotate(-5deg);
   }
   48% {
-    transform: rotate(3deg);
+    transform: rotate(-1deg);
   }
   72% {
     transform: rotate(-4deg);

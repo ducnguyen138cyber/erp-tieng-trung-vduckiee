@@ -32,16 +32,18 @@ test('welcome mascot uses inline SVG groups around the current WebP artwork', ()
   assert.match(indexSource, /id="vduckie-eyes"[^>]+data-part="eyes"/);
   assert.match(indexSource, /id="vduckie-wing"[^>]+data-part="wing"/);
   assert.match(indexSource, /href="\.\/assets\/home\/vduckie-welcome\.webp\?v=73\.0"/);
-  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.3/);
+  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.4/);
   assert.match(indexSource, /id="vduckieWingAlpha"/);
   assert.match(indexSource, /mask="url\(#vduckieWingAlpha\)"/);
 });
 
-test('wing selection follows only the painted hand, cuff and green sleeve', () => {
-  assert.match(indexSource, /id="vduckieWingShape" d="M171 216C145 214 118 221 92 232L92 132H0V286H72C92 296 118 306 145 305C156 286 166 252 171 216Z"/);
-  assert.match(indexSource, /M161 216C170 239 162 279 147 305L136 301C151 274 158 241 154 219Z/);
+test('wing selection stops on the annotated shoulder-to-armpit seam without entering the torso', () => {
+  assert.match(indexSource, /id="vduckieWingShape" d="M164 214C142 215 116 222 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307Z"/);
+  assert.match(indexSource, /M164 214L122 307L104 300L148 220Z/);
   assert.doesNotMatch(indexSource, /<circle cx="154" cy="235" r="22"/);
-  assert.match(cssSource, /transform-origin: 45\.97% 38\.57%/);
+  assert.match(cssSource, /transform-origin: 44\.09% 38\.21%/);
+  assert.match(cssSource, /48%\s*\{\s*transform: rotate\(-1deg\)/);
+  assert.doesNotMatch(cssSource, /transform: rotate\(3deg\)/);
 });
 
 test('idle animation breathes and blinks continuously', () => {
