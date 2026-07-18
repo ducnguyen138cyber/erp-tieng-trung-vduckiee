@@ -9,6 +9,10 @@ const cssSource = fs.readFileSync(
   path.join(root, 'assets', 'home', 'vduckie-mascot-v87.css'),
   'utf8'
 );
+const stabilitySource = fs.readFileSync(
+  path.join(root, 'assets', 'home', 'home-layout-stability-v87.1.js'),
+  'utf8'
+);
 
 test('welcome mascot uses inline SVG groups around the current WebP artwork', () => {
   assert.match(indexSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
@@ -16,7 +20,9 @@ test('welcome mascot uses inline SVG groups around the current WebP artwork', ()
   assert.match(indexSource, /id="vduckie-eyes"[^>]+data-part="eyes"/);
   assert.match(indexSource, /id="vduckie-wing"[^>]+data-part="wing"/);
   assert.match(indexSource, /href="\.\/assets\/home\/vduckie-welcome\.webp\?v=73\.0"/);
-  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.0/);
+  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.1/);
+  assert.match(indexSource, /id="vduckieWingAlpha"/);
+  assert.match(indexSource, /mask="url\(#vduckieWingAlpha\)"/);
 });
 
 test('idle animation breathes and blinks continuously', () => {
@@ -35,4 +41,14 @@ test('hover waves the separated wing and success bounces for one second', () => 
 
 test('motion respects the reduced-motion preference', () => {
   assert.match(cssSource, /@media \(prefers-reduced-motion: reduce\)/);
+});
+
+test('first paint waits for the final v86.5 home shell', () => {
+  assert.match(indexSource, /classList\.add\("vduckie-layout-booting"\)/);
+  assert.match(indexSource, /id="v865HomeDashboardCss"/);
+  assert.match(indexSource, /home-layout-stability-v87\.1\.js\?v=87\.1/);
+  assert.match(cssSource, /\.vduckie-layout-booting #homeHub/);
+  assert.match(stabilitySource, /vduckie:experience-v86-ready/);
+  assert.match(stabilitySource, /data-layout-version/);
+  assert.match(stabilitySource, /requestAnimationFrame/);
 });

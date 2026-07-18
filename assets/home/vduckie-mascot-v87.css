@@ -1,3 +1,12 @@
+.vduckie-layout-booting #homeHub {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.vduckie-layout-ready #homeHub:not(.hidden) {
+  animation: vduckie-layout-enter 0.18s ease-out both;
+}
+
 .vduckie-mascot {
   overflow: visible;
   pointer-events: none;
@@ -15,7 +24,7 @@
 
 .vduckie-wing {
   transform-box: view-box;
-  transform-origin: 38.44% 38.93%;
+  transform-origin: 41.4% 41.96%;
   will-change: transform;
 }
 
@@ -44,6 +53,15 @@
   }
 }
 
+@keyframes vduckie-layout-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes vduckie-blink {
   0%, 43.9%, 45.8%, 77.9%, 79.8%, 100% {
     opacity: 0;
@@ -60,13 +78,13 @@
     transform: rotate(0deg);
   }
   24% {
-    transform: rotate(-7deg);
+    transform: rotate(-5deg);
   }
   48% {
-    transform: rotate(4deg);
+    transform: rotate(3deg);
   }
   72% {
-    transform: rotate(-5deg);
+    transform: rotate(-4deg);
   }
 }
 
@@ -100,6 +118,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .vduckie-layout-ready #homeHub:not(.hidden),
   .vduckie-idle,
   .vduckie-eyelids,
   .home-welcome-card:hover .vduckie-wing,
