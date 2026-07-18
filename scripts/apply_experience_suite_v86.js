@@ -4,15 +4,15 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const indexPath = path.join(root, 'index.html');
 let index = fs.readFileSync(indexPath, 'utf8');
-const tag = '  <script src="./assets/v86/experience-suite-loader-v86.js?v=86.6"></script>';
+const tag = '  <script src="./assets/v86/experience-suite-loader-v86.js?v=86.7"></script>';
 
 index = index.replace(/\s*<script src="\.\/assets\/v86\/experience-suite-loader-v86\.js\?v=[^"]+"><\/script>/g, '');
-index = index.replace(/<script src="\.\/community\.js\?v=[^"]+"><\/script>/, '<script src="./community.js?v=86.6"></script>');
+index = index.replace(/<script src="\.\/community\.js\?v=[^"]+"><\/script>/, '<script src="./community.js?v=86.7"></script>');
 index = index.replace(/\s*<\/body>/, `\n${tag}\n</body>`);
 
-if (!index.includes('experience-suite-loader-v86.js?v=86.6') || !index.includes('community.js?v=86.6')) {
-  throw new Error('Không thể gắn bản cố định vị trí lộ trình v86.6 vào index.html.');
+if (!index.includes('experience-suite-loader-v86.js?v=86.7') || !index.includes('community.js?v=86.7')) {
+  throw new Error('Không thể gắn bản cân bằng mobile v86.7 vào index.html.');
 }
 
 fs.writeFileSync(indexPath, index, 'utf8');
-console.log('Applied roadmap directly below recommended lessons v86.6');
+console.log('Applied mobile and desktop layout balance v86.7');
