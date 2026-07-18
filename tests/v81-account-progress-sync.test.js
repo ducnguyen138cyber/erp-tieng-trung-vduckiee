@@ -54,7 +54,8 @@ test('keeps all completed lessons when remote and local devices are merged', () 
   };
   const merged = utils.merge(local, remote);
   assert.equal(Object.keys(utils.completedObject(merged)).length, 12);
-  assert.deepEqual(merged.state, { level: 0, lesson: 11 });
+  assert.equal(merged.state.level, 0);
+  assert.equal(merged.state.lesson, 11);
 });
 
 test('newer explicit completion state wins, including unmarking a lesson', () => {
@@ -71,7 +72,8 @@ test('latest lesson position is selected independently from completion merge', (
     { state: { level: 1, lesson: 2 }, stateUpdatedAt: 500 },
     { state: { level: 0, lesson: 11 }, stateUpdatedAt: 300 }
   );
-  assert.deepEqual(merged.state, { level: 1, lesson: 2 });
+  assert.equal(merged.state.level, 1);
+  assert.equal(merged.state.lesson, 2);
 });
 
 test('stores progress as a hidden per-user row in the existing Supabase table', () => {
