@@ -118,9 +118,12 @@ test('runtime captures all requested learning domains', () => {
   ]) assert.match(source, new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
 });
 
-test('deployment patch inserts loader and filters system rows from vocabulary sync', () => {
-  assert.match(patch, /account-learning-sync-v82\.js\?v=82\.0/);
-  assert.match(patch, /supabase-sync\.js\?v=82\.0/);
+test('deployment patch isolates accounts and installs v82.1', () => {
+  assert.match(patch, /account-learning-sync-v82\.js\?v=82\.1/);
+  assert.match(patch, /supabase-sync\.js\?v=82\.1/);
+  assert.match(patch, /function switchLocalProfile\(nextUserId\)/);
+  assert.match(patch, /removeSyncableValues\(\)/);
+  assert.match(patch, /readProfileCache\("anonymous"\)/);
   assert.match(patch, /\^__vduckie_/);
   assert.match(patch, /\^__system_/);
 });
