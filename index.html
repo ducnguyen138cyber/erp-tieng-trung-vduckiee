@@ -56,6 +56,7 @@
   </style>
   <link rel="stylesheet" href="./v72-layout.css?v=73.1">
   <link rel="stylesheet" href="./erp-lessons-v74.css?v=74.0">
+  <link rel="stylesheet" href="./assets/home/vduckie-mascot-v87.css?v=87.0">
 </head>
 <body>
   <div class="shell" id="appShell">
@@ -105,7 +106,45 @@
                   <button class="home-secondary-action" type="button" data-home-area="erp" data-home-view="cards">Học từ ERP</button>
                 </div>
               </div>
-              <img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=73.0" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">
+              <svg class="home-welcome-mascot vduckie-mascot" viewBox="0 0 372 560" role="img" aria-labelledby="vduckieWelcomeTitle vduckieWelcomeDescription" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title id="vduckieWelcomeTitle">Vịt VDuckie mặc áo học sinh đang vẫy chào</title>
+                <desc id="vduckieWelcomeDescription">Mascot VDuckie thở nhẹ, chớp mắt tự nhiên và vẫy cánh khi người dùng di chuột vào thẻ chào mừng.</desc>
+                <defs>
+                  <path id="vduckieWingShape" d="M143 194C124 202 105 216 91 226C80 218 69 205 62 192C55 177 48 159 39 151C33 145 27 148 28 159C28 165 30 171 33 178C24 168 15 158 9 162C2 167 8 180 20 192C11 185 4 183 2 190C0 201 18 219 35 228C26 225 18 226 18 233C18 242 32 248 46 250C39 255 40 264 48 269C59 276 73 269 84 260C103 252 123 244 151 235C158 222 155 207 143 194Z"/>
+                  <radialGradient id="vduckieLeftEyelid" cx="72%" cy="25%" r="84%">
+                    <stop offset="0" stop-color="#fff4c5"/>
+                    <stop offset="0.58" stop-color="#ffe59a"/>
+                    <stop offset="1" stop-color="#f4ca4c"/>
+                  </radialGradient>
+                  <radialGradient id="vduckieRightEyelid" cx="42%" cy="27%" r="88%">
+                    <stop offset="0" stop-color="#fff5cb"/>
+                    <stop offset="0.6" stop-color="#ffe69d"/>
+                    <stop offset="1" stop-color="#f6cb42"/>
+                  </radialGradient>
+                  <clipPath id="vduckieWingClip" clipPathUnits="userSpaceOnUse">
+                    <use href="#vduckieWingShape" xlink:href="#vduckieWingShape"/>
+                  </clipPath>
+                  <mask id="vduckieBodyMask" x="0" y="0" width="372" height="560" maskUnits="userSpaceOnUse" maskContentUnits="userSpaceOnUse">
+                    <rect width="372" height="560" fill="#fff"/>
+                    <use href="#vduckieWingShape" xlink:href="#vduckieWingShape" fill="#000"/>
+                  </mask>
+                </defs>
+                <g class="vduckie-idle">
+                  <g id="vduckie-body-head" class="vduckie-body-head" data-part="body-head">
+                    <image href="./assets/home/vduckie-welcome.webp?v=73.0" xlink:href="./assets/home/vduckie-welcome.webp?v=73.0" width="372" height="560" mask="url(#vduckieBodyMask)"/>
+                  </g>
+                  <g id="vduckie-wing" class="vduckie-wing" data-part="wing" clip-path="url(#vduckieWingClip)">
+                    <image href="./assets/home/vduckie-welcome.webp?v=73.0" xlink:href="./assets/home/vduckie-welcome.webp?v=73.0" width="372" height="560"/>
+                  </g>
+                  <g id="vduckie-eyes" class="vduckie-eyes" data-part="eyes">
+                    <g class="vduckie-eyelids" aria-hidden="true">
+                      <ellipse cx="176" cy="138" rx="22" ry="32" fill="url(#vduckieLeftEyelid)"/>
+                      <ellipse cx="277" cy="143" rx="22" ry="32" fill="url(#vduckieRightEyelid)"/>
+                      <path d="M155 139Q176 151 197 139M256 144Q277 156 298 144"/>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </article>
 
             <article class="home-card home-library-card">
