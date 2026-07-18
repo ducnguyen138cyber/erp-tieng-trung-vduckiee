@@ -11,11 +11,13 @@ on:
       - scripts/apply_hsk_roast_v80.js
       - scripts/apply_account_progress_v81.js
       - scripts/apply_account_sync_v82.js
+      - scripts/apply_experience_suite_v86.js
       - .github/workflows/build-hsk-dictionary-v79.yml
       - tests/v79-*.test.js
       - tests/v80-*.test.js
       - tests/v81-*.test.js
       - tests/v82-*.test.js
+      - tests/v83-v86-experience-suite.test.js
       - assets/v79/hsk-dictionary-v79.js
       - assets/v79/unified-dictionary-v79.js
       - assets/v79/unified-dictionary-v79.part*.txt
@@ -23,6 +25,10 @@ on:
       - assets/v79/home-copy-v79.js
       - assets/v80/hsk-roast-context-v80.1.js
       - assets/v82/account-learning-sync-v82.js
+      - assets/v83/**
+      - assets/v84/**
+      - assets/v85/**
+      - assets/v86/**
       - community.js
       - pinyin-pro.loader.js
       - supabase-sync.js
@@ -50,11 +56,12 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Apply frontend cache keys and account sync patches
+      - name: Apply frontend cache keys account sync and experience suite
         run: |
           node scripts/apply_hsk_roast_v80.js
           node scripts/apply_account_progress_v81.js
           node scripts/apply_account_sync_v82.js
+          node scripts/apply_experience_suite_v86.js
 
       - name: Generate HSK dictionary chunks
         run: python scripts/build_hsk_dictionary_v79.py
@@ -62,8 +69,8 @@ jobs:
       - name: Calculate exact unified dictionary totals
         run: node scripts/build_dictionary_stats_v79.js
 
-      - name: Validate generated data and all account synchronization
-        run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js tests/v80-hsk-roast-context.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js
+      - name: Validate generated data account sync and v83 to v86
+        run: node --test tests/v79-hsk-dictionary-data.test.js tests/v79-unified-dictionary.test.js tests/v80-hsk-roast-context.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js tests/v83-v86-experience-suite.test.js
 
       - name: Commit generated dictionary and deploy keys
         run: |
@@ -73,6 +80,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "Generated data and deploy keys are already up to date."
           else
-            git commit -m "Generate HSK data and deploy isolated full account sync v82.1"
+            git commit -m "Generate HSK data and deploy experience suite v86"
             git push origin HEAD:main
           fi
