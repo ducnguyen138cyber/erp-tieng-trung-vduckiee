@@ -5,6 +5,15 @@
   var observer=null;
   var timer=0;
 
+  function loadCss(){
+    if(document.getElementById("v863HomeLayoutCss"))return;
+    var link=document.createElement("link");
+    link.id="v863HomeLayoutCss";
+    link.rel="stylesheet";
+    link.href="./assets/v86/home-layout-fix-v86.3.css?v=86.3";
+    document.head.appendChild(link);
+  }
+
   function homeIsVisible(){
     var home=document.getElementById("homeHub");
     return Boolean(home&&!home.classList.contains("hidden"));
@@ -33,6 +42,7 @@
   }
 
   function install(){
+    loadCss();
     apply();
     document.addEventListener("click",function(event){
       var button=event.target&&event.target.closest&&event.target.closest("button");
