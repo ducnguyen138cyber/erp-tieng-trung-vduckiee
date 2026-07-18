@@ -41,17 +41,19 @@ test('welcome mascot uses inline SVG groups around the current WebP artwork', ()
   assert.match(indexSource, /id="vduckie-eyes"[^>]+data-part="eyes"/);
   assert.match(indexSource, /id="vduckie-wing"[^>]+data-part="wing"/);
   assert.match(indexSource, /href="\.\/assets\/home\/vduckie-welcome\.webp\?v=73\.0"/);
-  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.7/);
+  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.8/);
   assert.match(indexSource, /id="vduckieWingAlpha"/);
   assert.match(indexSource, /mask="url\(#vduckieWingAlpha\)"/);
 });
 
 test('wing selection stops on the annotated shoulder-to-armpit seam without entering the torso', () => {
-  assert.match(indexSource, /id="vduckieWingShape" d="M130 215C122 218 111 225 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C124 286 121 244 130 215Z"/);
+  assert.match(indexSource, /id="vduckieWingShape" d="M184 218C159 218 121 224 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C131 307 138 305 143 301C143 282 140 257 146 241C155 230 170 221 184 218Z"/);
+  assert.doesNotMatch(indexSource, /id="vduckieWingShape" d="M130 215C122 218 111 225 94 232/);
   assert.doesNotMatch(indexSource, /id="vduckieWingShape" d="[^"]*122 307Z"/);
   assert.doesNotMatch(indexSource, /M164 214L122 307L104 300L148 220Z/);
   assert.doesNotMatch(indexSource, /<circle cx="154" cy="235" r="22"/);
-  assert.match(cssSource, /transform-origin: 33\.87% 39\.29%/);
+  assert.match(cssSource, /transform-origin: 38\.98% 43\.21%/);
+  assert.doesNotMatch(cssSource, /transform-origin: 33\.87% 39\.29%/);
   assert.doesNotMatch(cssSource, /transform-origin: 44\.09% 38\.21%/);
   assert.match(cssSource, /48%\s*\{\s*transform: rotate\(-1deg\)/);
   assert.doesNotMatch(cssSource, /transform: rotate\(3deg\)/);
