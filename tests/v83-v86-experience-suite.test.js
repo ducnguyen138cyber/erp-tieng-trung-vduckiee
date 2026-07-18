@@ -82,6 +82,16 @@ test('v86.6 pins roadmap immediately after recommended lessons even after later 
   assert.match(source, /MutationObserver/);
 });
 
+test('v86.7 removes the mobile blank area without changing desktop columns', () => {
+  const source = fs.readFileSync(path.join(root, 'assets/v86/mobile-layout-fix-v86.7.js'), 'utf8');
+  assert.match(source, /v867-mobile-home/);
+  assert.match(source, /study-sidebar\{display:none!important;position:fixed!important/);
+  assert.match(source, /study-center\{display:block!important;width:100%!important;min-height:0!important/);
+  assert.match(source, /#homeHub\{min-height:0!important;height:auto!important;margin-top:0!important;padding-top:0!important/);
+  assert.match(source, /v867-menu-open/);
+  assert.match(source, /@media\(max-width:860px\)/);
+});
+
 test('recommended lessons remain compact', () => {
   const css = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.css'), 'utf8');
   assert.match(css, /home-course-art\{height:96px!important\}/);
@@ -107,13 +117,14 @@ test('v85 personalization and v86 adaptive practice remain available', () => {
   assert.equal(adaptive.buildQuestions(records, { words: {} }, 5, { reverse: true }).length, 5);
 });
 
-test('loader and deployment script use v86.6', () => {
+test('loader and deployment script use v86.7', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
   assert.match(loader, /home-dashboard-v86\.5\.js\?v=86\.5/);
   assert.match(loader, /home-order-fix-v86\.6\.js\?v=86\.6/);
+  assert.match(loader, /mobile-layout-fix-v86\.7\.js\?v=86\.7/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.6/);
-  assert.match(patch, /community\.js\?v=86\.6/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.7/);
+  assert.match(patch, /community\.js\?v=86\.7/);
 });
 
 test('responsive breakpoints preserve columns without overlap', () => {
