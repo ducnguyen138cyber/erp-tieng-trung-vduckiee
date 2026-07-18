@@ -55,7 +55,7 @@
   }
 
   function queueRow(row) {
-    if (!row || !row.word_key || row.word_key === progressWordKey) return;
+    if (!row || !row.word_key || row.word_key === progressWordKey || /^__vduckie_/.test(row.word_key) || /^__system_/.test(String(row.category || ""))) return;
     var queue = readQueue();
     queue[row.word_key] = row;
     saveQueue(queue);
@@ -135,7 +135,7 @@
     var payload = [];
     for (var i = 0; i < rows.length; i++) {
       var mapped = mapForDatabase(rows[i], session.user.id);
-      if (mapped.word_key && mapped.word_key !== progressWordKey) payload.push(mapped);
+      if (mapped.word_key && mapped.word_key !== progressWordKey && !/^__vduckie_/.test(mapped.word_key) && !/^__system_/.test(String(mapped.category || ""))) payload.push(mapped);
     }
     if (!payload.length) return Promise.resolve();
     return client.from("user_words").upsert(payload, {
@@ -520,6 +520,7 @@
         var remoteProgress = null;
         for (var i = 0; i < rows.length; i++) {
           if (rows[i].word_key === progressWordKey) remoteProgress = rows[i];
+          else if (/^__vduckie_/.test(String(rows[i].word_key || "")) || /^__system_/.test(String(rows[i].category || ""))) {}
           else wordRows.push(rows[i]);
         }
 
