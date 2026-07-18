@@ -117,13 +117,13 @@ test('v85 personalization and v86 adaptive practice remain available', () => {
   assert.equal(adaptive.buildQuestions(records, { words: {} }, 5, { reverse: true }).length, 5);
 });
 
-test('loader and deployment script use v86.7', () => {
+test('loader keeps the v86 suite and deployment preserves the v87.2 cache bust', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
   assert.match(loader, /home-dashboard-v86\.5\.js\?v=86\.5/);
   assert.match(loader, /home-order-fix-v86\.6\.js\?v=86\.6/);
   assert.match(loader, /mobile-layout-fix-v86\.7\.js\?v=86\.7/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.7/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=87\.2/);
   assert.match(patch, /community\.js\?v=86\.7/);
 });
 

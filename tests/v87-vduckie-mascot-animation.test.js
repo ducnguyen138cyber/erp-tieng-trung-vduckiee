@@ -67,6 +67,7 @@ test('first paint starts in the final home grid mode and waits for a stable shel
   assert.match(indexSource, /if\(isHome\)html\.classList\.add\("v865-home-mode"\)/);
   assert.match(indexSource, /id="v865HomeDashboardCss"/);
   assert.match(indexSource, /home-layout-stability-v87\.2\.js\?v=87\.2/);
+  assert.match(indexSource, /experience-suite-loader-v86\.js\?v=87\.2[\s\S]+home-layout-stability-v87\.2\.js\?v=87\.2/);
   assert.match(cssSource, /\.vduckie-layout-booting\.v865-home-mode #homeHub/);
   assert.match(cssSource, /visibility: hidden !important/);
   assert.match(stabilitySource, /vduckie:experience-v86-ready/);
