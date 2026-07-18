@@ -1,7 +1,7 @@
 (function (root) {
   "use strict";
 
-  var VERSION = "82.0";
+  var VERSION = "82.1";
   var PROFILE_WORD_KEY = "__vduckie_learning_profile_v2__";
   var PROFILE_CATEGORY = "__system_learning_profile__";
   var CACHE_PREFIX = "vduckie-learning-profile-cache-v2:";
@@ -626,14 +626,54 @@
     }, 800);
   }
 
+  function profileHasFields(profile) {
+    return Object.keys(normalizeProfile(profile).fields).length > 0;
+  }
+
+  function removeSyncableValues() {
+    var keys = [];
+    try {
+      for (var i = 0; i < root.localStorage.length; i++) {
+        var key = root.localStorage.key(i);
+        if (isSyncableKey(key)) keys.push(key);
+      }
+      for (var j = 0; j < keys.length; j++) root.localStorage.removeItem(keys[j]);
+    } catch (error) {}
+  }
+
+  function switchLocalProfile(nextUserId) {
+    var previousUserId = "";
+    try { previousUserId = root.localStorage.getItem(ACTIVE_USER_KEY) || ""; } catch (error) {}
+    var current = captureProfile(previousUserId || "anonymous", readProfileCache(previousUserId || "anonymous"));
+    if (previousUserId) writeProfileCache(previousUserId, current);
+    else writeProfileCache("anonymous", current);
+
+    var cached = readProfileCache(nextUserId);
+    if (!profileHasFields(cached) && !previousUserId) cached = readProfileCache("anonymous");
+    removeSyncableValues();
+    applyProfile(cached, nextUserId);
+    return cached;
+  }
+
   function handleSession(nextSession) {
+    var previousSession = session;
+    var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
     session = nextSession || null;
     if (!session || !session.user) {
-      lastLocalProfile = null;
+      if (previousUserId) writeProfileCache(previousUserId, captureProfile(previousUserId, lastLocalProfile || readProfileCache(previousUserId)));
+      var anonymous = readProfileCache("anonymous");
+      removeSyncableValues();
+      applyProfile(anonymous, "");
+      lastLocalProfile = anonymous;
       return;
     }
     var userId = session.user.id;
-    lastLocalProfile = captureProfile(userId, readProfileCache(userId));
+    var activeUser = "";
+    try { activeUser = root.localStorage.getItem(ACTIVE_USER_KEY) || ""; } catch (error) {}
+    var selected = activeUser === userId
+      ? readProfileCache(userId)
+      : switchLocalProfile(userId);
+    lastLocalProfile = captureProfile(userId, selected);
     writeProfileCache(userId, lastLocalProfile);
     synchronizeProfile();
   }
