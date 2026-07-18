@@ -93,9 +93,9 @@ test('v86 builds adaptive questions, chunks listening and reports errors', () =>
   assert.equal(report.accuracy, 33);
 });
 
-test('suite loader removes the old full cockpit and loads compact v86.2 first', () => {
+test('suite loader applies the v86.3 home rail cleanup after the dashboard', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
-  const files = ['home-dashboard-v86.2.js?v=86.2', 'personal-dashboard-v85.js?v=85.1', 'premium-learning-v86.js?v=86.2'];
+  const files = ['home-dashboard-v86.2.js?v=86.2', 'home-layout-fix-v86.3.js?v=86.3', 'personal-dashboard-v85.js?v=85.1', 'premium-learning-v86.js?v=86.2'];
   let last = -1;
   for (const file of files) {
     const index = loader.indexOf(file);
@@ -105,8 +105,23 @@ test('suite loader removes the old full cockpit and loads compact v86.2 first', 
   assert.doesNotMatch(loader, /learning-cockpit-v83/);
   assert.doesNotMatch(loader, /retention-center-v84/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.2/);
-  assert.match(patch, /community\.js\?v=86\.2/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.3/);
+  assert.match(patch, /community\.js\?v=86\.3/);
+});
+
+test('v86.3 hides the duplicated right rail and restores circular level colors', () => {
+  const source = fs.readFileSync(path.join(root, 'assets/v86/home-layout-fix-v86.3.js'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'assets/v86/home-layout-fix-v86.3.css'), 'utf8');
+  assert.match(source, /oldHomeJourney\.classList\.add\("hidden"\)/);
+  assert.match(source, /v863-home-mode/);
+  assert.match(css, /#studyRail\{display:none!important\}/);
+  assert.match(css, /grid-template-columns:230px minmax\(0,1fr\)/);
+  assert.match(css, /border-radius:50%!important/);
+  assert.match(css, /data-v862-level="0"/);
+  assert.match(css, /background:#168864!important/);
+  assert.match(css, /data-v862-level="1"/);
+  assert.match(css, /background:#c7673c!important/);
+  assert.match(css, /v862-road-stage\.locked/);
 });
 
 test('compact layout keeps recommended lessons above workspace and sidebar is responsive', () => {
