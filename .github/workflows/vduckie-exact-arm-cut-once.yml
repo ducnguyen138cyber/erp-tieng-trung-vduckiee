@@ -1,0 +1,95 @@
+name: Apply exact VDuckie arm cut once
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/vduckie-exact-arm-cut-once.yml
+
+permissions:
+  contents: write
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out latest main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Fetch origin main
+        run: git fetch origin main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Cut only the complete left arm
+        shell: python
+        run: |
+          from pathlib import Path
+
+          index_path = Path("index.html")
+          index_source = index_path.read_text(encoding="utf-8")
+
+          old_shape = 'id="vduckieWingShape" d="M130 215C122 218 111 225 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C124 286 121 244 130 215Z"'
+          new_shape = 'id="vduckieWingShape" d="M184 218C159 218 121 224 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C131 307 138 305 143 301C143 282 140 257 146 241C155 230 170 221 184 218Z"'
+          if index_source.count(old_shape) != 1:
+              raise SystemExit(f"Expected exactly one old vduckieWingShape, found {index_source.count(old_shape)}")
+          index_source = index_source.replace(old_shape, new_shape, 1)
+
+          old_css_version = 'vduckie-mascot-v87.css?v=87.7'
+          new_css_version = 'vduckie-mascot-v87.css?v=87.8'
+          if index_source.count(old_css_version) != 1:
+              raise SystemExit(f"Expected exactly one mascot cache version, found {index_source.count(old_css_version)}")
+          index_source = index_source.replace(old_css_version, new_css_version, 1)
+          index_path.write_text(index_source, encoding="utf-8")
+
+          css_path = Path("assets/home/vduckie-mascot-v87.css")
+          css_source = css_path.read_text(encoding="utf-8")
+          old_origin = 'transform-origin: 33.87% 39.29%;'
+          new_origin = 'transform-origin: 38.98% 43.21%;'
+          if css_source.count(old_origin) != 1:
+              raise SystemExit(f"Expected exactly one old wing origin, found {css_source.count(old_origin)}")
+          css_source = css_source.replace(old_origin, new_origin, 1)
+          css_path.write_text(css_source, encoding="utf-8")
+
+          test_path = Path("tests/v87-vduckie-mascot-animation.test.js")
+          test_source = test_path.read_text(encoding="utf-8")
+
+          old_test_shape = 'assert.match(indexSource, /id="vduckieWingShape" d="M130 215C122 218 111 225 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C124 286 121 244 130 215Z"/);'
+          new_test_shape = 'assert.match(indexSource, /id="vduckieWingShape" d="M184 218C159 218 121 224 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C131 307 138 305 143 301C143 282 140 257 146 241C155 230 170 221 184 218Z"/);\n  assert.doesNotMatch(indexSource, /id="vduckieWingShape" d="M130 215C122 218 111 225 94 232/);'
+          if test_source.count(old_test_shape) != 1:
+              raise SystemExit(f"Expected exactly one old wing-shape assertion, found {test_source.count(old_test_shape)}")
+          test_source = test_source.replace(old_test_shape, new_test_shape, 1)
+
+          old_test_origin = 'assert.match(cssSource, /transform-origin: 33\\.87% 39\\.29%/);\n  assert.doesNotMatch(cssSource, /transform-origin: 44\\.09% 38\\.21%/);'
+          new_test_origin = 'assert.match(cssSource, /transform-origin: 38\\.98% 43\\.21%/);\n  assert.doesNotMatch(cssSource, /transform-origin: 33\\.87% 39\\.29%/);\n  assert.doesNotMatch(cssSource, /transform-origin: 44\\.09% 38\\.21%/);'
+          if test_source.count(old_test_origin) != 1:
+              raise SystemExit(f"Expected exactly one old origin assertion block, found {test_source.count(old_test_origin)}")
+          test_source = test_source.replace(old_test_origin, new_test_origin, 1)
+
+          old_test_version = 'assert.match(indexSource, /vduckie-mascot-v87\\.css\\?v=87\\.7/);'
+          new_test_version = 'assert.match(indexSource, /vduckie-mascot-v87\\.css\\?v=87\\.8/);'
+          if test_source.count(old_test_version) != 1:
+              raise SystemExit(f"Expected exactly one old mascot version assertion, found {test_source.count(old_test_version)}")
+          test_source = test_source.replace(old_test_version, new_test_version, 1)
+          test_path.write_text(test_source, encoding="utf-8")
+
+      - name: Run mascot regression tests
+        run: node --test tests/v87-vduckie-mascot-animation.test.js
+
+      - name: Commit exact arm cut and remove this workflow
+        shell: bash
+        run: |
+          rm .github/workflows/vduckie-exact-arm-cut-once.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/home/vduckie-mascot-v87.css tests/v87-vduckie-mascot-animation.test.js .github/workflows/vduckie-exact-arm-cut-once.yml
+          git commit -m "Cut complete VDuckie left arm for waving animation v87.8"
+          git pull --rebase origin main
+          git push origin main
