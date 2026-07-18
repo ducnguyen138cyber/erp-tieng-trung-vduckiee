@@ -1,0 +1,51 @@
+name: Deploy Experience Suite v86
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/experience-suite-v86.yml
+      - scripts/apply_experience_suite_v86.js
+      - tests/v83-v86-experience-suite.test.js
+      - assets/v83/**
+      - assets/v84/**
+      - assets/v85/**
+      - assets/v86/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-experience-suite-v86
+  cancel-in-progress: false
+
+jobs:
+  validate-and-deploy:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Apply v86 loader to index
+        run: node scripts/apply_experience_suite_v86.js
+
+      - name: Validate v83 to v86
+        run: node --test tests/v83-v86-experience-suite.test.js
+
+      - name: Commit deploy key
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          if git diff --cached --quiet; then
+            echo "Experience suite loader is already deployed."
+          else
+            git commit -m "Deploy learning experience suite v86"
+            git push origin HEAD:main
+          fi
