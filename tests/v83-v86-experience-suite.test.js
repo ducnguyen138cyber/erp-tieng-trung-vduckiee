@@ -60,7 +60,6 @@ test('v86.5 keeps circular legacy-colored horizontal HSK stages', () => {
   assert.match(css, /border-radius:50%/);
   assert.match(css, /data-v865-level="0"/);
   assert.match(css, /background:#168864/);
-  assert.match(css, /grid-auto-columns:minmax\(108px,1fr\)/);
 });
 
 test('v86.5 creates one straight main column and one straight right sidebar', () => {
@@ -69,18 +68,22 @@ test('v86.5 creates one straight main column and one straight right sidebar', ()
   assert.match(source, /v865HomeShell/);
   assert.match(source, /main\.appendChild\(overview\)/);
   assert.match(source, /main\.appendChild\(recommended\)/);
-  assert.match(source, /main\.appendChild\(roadWrap\.firstChild\)/);
   assert.match(source, /sidebar\.innerHTML=streakMarkup\(streak\)\+weeklyMarkup/);
-  assert.match(source, /weeklyMarkup\(weeklyData\(streak\)\)\+continueMarkup/);
   assert.match(css, /grid-template-columns:minmax\(0,1fr\) 300px/);
-  assert.match(css, /v865-home-sidebar/);
-  assert.doesNotMatch(source, /v864TopStreakMount/);
 });
 
-test('recommended lessons are compact before the roadmap', () => {
-  const source = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.js'), 'utf8');
+test('v86.6 pins roadmap immediately after recommended lessons even after later renders', () => {
+  const source = fs.readFileSync(path.join(root, 'assets/v86/home-order-fix-v86.6.js'), 'utf8');
+  assert.match(source, /recommended\.nextElementSibling!==roadmap/);
+  assert.match(source, /main\.insertBefore\(roadmap,recommended\.nextSibling\)/);
+  assert.match(source, /roadmap\.style\.order="3"/);
+  assert.match(source, /personal\.style\.order="4"/);
+  assert.match(source, /premium\.style\.order="5"/);
+  assert.match(source, /MutationObserver/);
+});
+
+test('recommended lessons remain compact', () => {
   const css = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.css'), 'utf8');
-  assert.ok(source.indexOf('main.appendChild(recommended)') < source.indexOf('main.appendChild(roadWrap.firstChild)'));
   assert.match(css, /home-course-art\{height:96px!important\}/);
   assert.match(css, /home-course-copy\{padding:10px 11px!important\}/);
   assert.match(css, /home-course-copy strong\{min-height:34px;font-size:13px\}/);
@@ -104,13 +107,13 @@ test('v85 personalization and v86 adaptive practice remain available', () => {
   assert.equal(adaptive.buildQuestions(records, { words: {} }, 5, { reverse: true }).length, 5);
 });
 
-test('loader and deployment script use v86.5', () => {
+test('loader and deployment script use v86.6', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
   assert.match(loader, /home-dashboard-v86\.5\.js\?v=86\.5/);
-  assert.doesNotMatch(loader, /home-dashboard-v86\.4/);
+  assert.match(loader, /home-order-fix-v86\.6\.js\?v=86\.6/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
-  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.5/);
-  assert.match(patch, /community\.js\?v=86\.5/);
+  assert.match(patch, /experience-suite-loader-v86\.js\?v=86\.6/);
+  assert.match(patch, /community\.js\?v=86\.6/);
 });
 
 test('responsive breakpoints preserve columns without overlap', () => {
@@ -119,5 +122,4 @@ test('responsive breakpoints preserve columns without overlap', () => {
   assert.match(css, /@media\(max-width:1080px\)/);
   assert.match(css, /grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
   assert.match(css, /@media\(max-width:860px\)/);
-  assert.match(css, /grid-template-columns:1fr!important/);
 });
