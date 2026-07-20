@@ -1,0 +1,160 @@
+/* v90.1: compact account beside logout; restore streak at top of the home sidebar. */
+.top-actions .v90-account-host,
+.v90-account-host {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.v90-cloud-copy-hidden {
+  display: none !important;
+}
+
+.v90-header-account {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: clamp(150px, 14vw, 205px);
+  min-width: 0;
+  padding: 5px 7px;
+  border: 1px solid rgba(204, 193, 173, .72);
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .8);
+  box-shadow: 0 3px 10px rgba(32, 53, 45, .05);
+}
+
+.v90-header-account[hidden] {
+  display: none !important;
+}
+
+.v90-header-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #c94719;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.v90-header-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.v90-header-account-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.v90-header-account-copy strong,
+.v90-header-account-copy span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.v90-header-account-copy strong {
+  color: #18352e;
+  font-size: 11px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+.v90-header-account-copy span {
+  color: #61706a;
+  font-size: 9px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+.v90-header-progress {
+  width: 100%;
+  height: 3px;
+  margin-top: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dfe8e4;
+}
+
+.v90-header-progress i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #c7673c, #f2b24a);
+  transition: width .45s ease;
+}
+
+.v90-header-account-loading {
+  color: #6c7772;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+#v865HomeSidebar > .v865-streak-card {
+  display: block !important;
+  order: initial !important;
+}
+
+#v865HomeSidebar > #expWeeklyMissions,
+#v865HomeSidebar > #expMiniLeaderboard,
+#v865HomeSidebar > .v865-continue-card {
+  order: initial !important;
+}
+
+#v865HomeSidebar #expHomeAccount {
+  display: none !important;
+}
+
+@media (max-width: 1100px) {
+  .v90-header-account {
+    width: 150px;
+  }
+}
+
+@media (max-width: 760px) {
+  .top-actions .v90-account-host,
+  .v90-account-host {
+    gap: 5px;
+  }
+  .v90-header-account {
+    width: 132px;
+    padding: 4px 6px;
+  }
+  .v90-header-avatar {
+    flex-basis: 27px;
+    width: 27px;
+    height: 27px;
+  }
+  .v90-header-account-copy strong {
+    font-size: 10px;
+  }
+  .v90-header-account-copy span {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 520px) {
+  .v90-header-account {
+    width: 105px;
+  }
+  .v90-header-account-copy span {
+    max-width: 72px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v90-header-progress i {
+    transition: none !important;
+  }
+}
