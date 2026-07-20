@@ -9,7 +9,8 @@ html {
   visibility: hidden !important;
 }
 
-/* Restore the approved original VDuckie artwork and keep it completely still. */
+/* Render only the untouched original WebP. The old SVG layers stay in the DOM
+   for compatibility, but none of them are allowed to paint. */
 .vduckie-mascot {
   overflow: visible;
   pointer-events: none;
@@ -22,6 +23,13 @@ html {
   background-size: 100% 100%;
 }
 
+/* This is the critical reset: hide the body mask, separated wing and eyelid
+   groups together so no clipped seam can remain over the original artwork. */
+.vduckie-mascot > defs,
+.vduckie-mascot > g {
+  display: none !important;
+}
+
 .vduckie-idle,
 .vduckie-body-head,
 .vduckie-body-head image,
@@ -32,7 +40,6 @@ html {
   will-change: auto;
 }
 
-/* Show the untouched full WebP instead of the separated animated arm. */
 .vduckie-body-head image {
   mask: none !important;
   -webkit-mask: none !important;
