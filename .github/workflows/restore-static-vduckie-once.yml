@@ -1,4 +1,4 @@
-# Trigger after workflow exists on main
+# Trigger through a merged PR so the workflow runs from an existing main-branch definition
 name: Restore static VDuckie once
 
 on:
