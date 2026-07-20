@@ -9,48 +9,53 @@ html {
   visibility: hidden !important;
 }
 
-/* Render only the untouched original WebP. The old SVG layers stay in the DOM
-   for compatibility, but none of them are allowed to paint. */
-.vduckie-mascot {
-  overflow: visible;
-  pointer-events: none;
+/* Final static mascot reset.
+   The original WebP is the only artwork allowed to paint. */
+svg.home-welcome-mascot.vduckie-mascot {
+  display: block !important;
+  overflow: visible !important;
+  pointer-events: none !important;
   animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  transition: none !important;
   transform: none !important;
-  will-change: auto;
-  background-image: url("./vduckie-welcome.webp?v=73.0");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  will-change: auto !important;
+  background-image: url("./vduckie-welcome.webp?v=88.1") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100% !important;
 }
 
-/* This is the critical reset: hide the body mask, separated wing and eyelid
-   groups together so no clipped seam can remain over the original artwork. */
-.vduckie-mascot > defs,
-.vduckie-mascot > g {
+/* Remove every old mask, wing, eyelid and animation layer from rendering. */
+svg.home-welcome-mascot.vduckie-mascot > defs,
+svg.home-welcome-mascot.vduckie-mascot > g,
+svg.home-welcome-mascot.vduckie-mascot * {
   display: none !important;
-}
-
-.vduckie-idle,
-.vduckie-body-head,
-.vduckie-body-head image,
-.home-welcome-mascot.vduckie-success,
-.home-welcome-card.vduckie-success .home-welcome-mascot {
+  visibility: hidden !important;
   animation: none !important;
+  animation-name: none !important;
+  animation-duration: 0s !important;
+  transition: none !important;
   transform: none !important;
-  will-change: auto;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  will-change: auto !important;
 }
 
-.vduckie-body-head image {
-  mask: none !important;
-  -webkit-mask: none !important;
-}
-
-.vduckie-wing,
-.vduckie-eyelids {
-  display: none !important;
-}
-
-.home-welcome-card:hover .vduckie-wing {
+.home-welcome-card:hover svg.home-welcome-mascot.vduckie-mascot,
+.home-welcome-card:focus-within svg.home-welcome-mascot.vduckie-mascot,
+svg.home-welcome-mascot.vduckie-mascot.vduckie-success,
+.home-welcome-card.vduckie-success svg.home-welcome-mascot.vduckie-mascot {
   animation: none !important;
+  animation-name: none !important;
+  transition: none !important;
   transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
 }
