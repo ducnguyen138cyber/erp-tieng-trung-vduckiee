@@ -35,46 +35,19 @@ const loaderSource = fs.readFileSync(
   'utf8'
 );
 
-test('welcome mascot uses inline SVG groups around the current WebP artwork', () => {
+test('welcome mascot restores the original WebP artwork', () => {
   assert.match(indexSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
-  assert.match(indexSource, /id="vduckie-body-head"[^>]+data-part="body-head"/);
-  assert.match(indexSource, /id="vduckie-eyes"[^>]+data-part="eyes"/);
-  assert.match(indexSource, /id="vduckie-wing"[^>]+data-part="wing"/);
   assert.match(indexSource, /href="\.\/assets\/home\/vduckie-welcome\.webp\?v=73\.0"/);
-  assert.match(indexSource, /vduckie-mascot-v87\.css\?v=87\.8/);
-  assert.match(indexSource, /id="vduckieWingAlpha"/);
-  assert.match(indexSource, /mask="url\(#vduckieWingAlpha\)"/);
+  assert.match(cssSource, /background-image:\s*url\("\.\/vduckie-welcome\.webp\?v=73\.0"\)/);
+  assert.match(cssSource, /\.vduckie-body-head image\s*\{[^}]*mask:\s*none !important/s);
+  assert.match(cssSource, /\.vduckie-wing,[\s\S]*\.vduckie-eyelids\s*\{[^}]*display:\s*none !important/s);
 });
 
-test('wing selection stops on the annotated shoulder-to-armpit seam without entering the torso', () => {
-  assert.match(indexSource, /id="vduckieWingShape" d="M184 218C159 218 121 224 94 232L95 174L83 122H0V286H72C88 294 105 302 122 307C131 307 138 305 143 301C143 282 140 257 146 241C155 230 170 221 184 218Z"/);
-  assert.doesNotMatch(indexSource, /id="vduckieWingShape" d="M130 215C122 218 111 225 94 232/);
-  assert.doesNotMatch(indexSource, /id="vduckieWingShape" d="[^"]*122 307Z"/);
-  assert.doesNotMatch(indexSource, /M164 214L122 307L104 300L148 220Z/);
-  assert.doesNotMatch(indexSource, /<circle cx="154" cy="235" r="22"/);
-  assert.match(cssSource, /transform-origin: 38\.98% 43\.21%/);
-  assert.doesNotMatch(cssSource, /transform-origin: 33\.87% 39\.29%/);
-  assert.doesNotMatch(cssSource, /transform-origin: 44\.09% 38\.21%/);
-  assert.match(cssSource, /48%\s*\{\s*transform: rotate\(-1deg\)/);
-  assert.doesNotMatch(cssSource, /transform: rotate\(3deg\)/);
-});
-
-test('idle animation breathes and blinks continuously', () => {
-  assert.match(cssSource, /@keyframes vduckie-breathe/);
-  assert.match(cssSource, /@keyframes vduckie-blink/);
-  assert.match(cssSource, /\.vduckie-idle\s*\{[^}]*animation: vduckie-breathe[^;]+infinite/s);
-  assert.match(cssSource, /\.vduckie-eyelids\s*\{[^}]*animation: vduckie-blink[^;]+infinite/s);
-});
-
-test('hover waves the separated wing and success bounces for one second', () => {
-  assert.match(cssSource, /\.home-welcome-card:hover \.vduckie-wing/);
-  assert.match(cssSource, /@keyframes vduckie-wave/);
-  assert.match(cssSource, /\.home-welcome-mascot\.vduckie-success/);
-  assert.match(cssSource, /animation: vduckie-success-bounce 1s/);
-});
-
-test('motion respects the reduced-motion preference', () => {
-  assert.match(cssSource, /@media \(prefers-reduced-motion: reduce\)/);
+test('welcome mascot is completely static', () => {
+  assert.doesNotMatch(cssSource, /@keyframes\s+vduckie-/);
+  assert.doesNotMatch(cssSource, /animation:\s*vduckie-/);
+  assert.match(cssSource, /\.vduckie-mascot\s*\{[^}]*animation:\s*none !important/s);
+  assert.match(cssSource, /\.home-welcome-card:hover \.vduckie-wing\s*\{[^}]*animation:\s*none !important/s);
 });
 
 test('first paint starts in the final home grid mode and waits for a stable shell', () => {
