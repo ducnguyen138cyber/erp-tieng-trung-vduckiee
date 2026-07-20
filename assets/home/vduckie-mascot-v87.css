@@ -9,33 +9,11 @@ html {
   visibility: hidden !important;
 }
 
-/* Final static mascot reset.
-   The original WebP is the only artwork allowed to paint. */
-svg.home-welcome-mascot.vduckie-mascot {
-  display: block !important;
-  overflow: visible !important;
-  pointer-events: none !important;
-  animation: none !important;
-  animation-name: none !important;
-  animation-duration: 0s !important;
-  transition: none !important;
-  transform: none !important;
-  translate: none !important;
-  rotate: none !important;
-  scale: none !important;
-  will-change: auto !important;
-  background-image: url("./vduckie-welcome.webp?v=88.1") !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: 100% 100% !important;
-}
-
-/* Remove every old mask, wing, eyelid and animation layer from rendering. */
-svg.home-welcome-mascot.vduckie-mascot > defs,
-svg.home-welcome-mascot.vduckie-mascot > g,
-svg.home-welcome-mascot.vduckie-mascot * {
-  display: none !important;
-  visibility: hidden !important;
+img.home-welcome-mascot {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  pointer-events: none;
   animation: none !important;
   animation-name: none !important;
   animation-duration: 0s !important;
@@ -47,10 +25,10 @@ svg.home-welcome-mascot.vduckie-mascot * {
   will-change: auto !important;
 }
 
-.home-welcome-card:hover svg.home-welcome-mascot.vduckie-mascot,
-.home-welcome-card:focus-within svg.home-welcome-mascot.vduckie-mascot,
-svg.home-welcome-mascot.vduckie-mascot.vduckie-success,
-.home-welcome-card.vduckie-success svg.home-welcome-mascot.vduckie-mascot {
+.home-welcome-card:hover img.home-welcome-mascot,
+.home-welcome-card:focus-within img.home-welcome-mascot,
+img.home-welcome-mascot.vduckie-success,
+.home-welcome-card.vduckie-success img.home-welcome-mascot {
   animation: none !important;
   animation-name: none !important;
   transition: none !important;
