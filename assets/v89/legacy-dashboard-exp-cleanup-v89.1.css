@@ -1,0 +1,5 @@
+/* The V85 learner-level card uses an unrelated localStorage XP formula.
+   Hide it before JavaScript removes it so only the Supabase-backed EXP remains visible. */
+.v85-level {
+  display: none !important;
+}
