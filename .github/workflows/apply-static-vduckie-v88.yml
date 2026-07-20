@@ -1,16 +1,15 @@
 name: Apply static VDuckie v88
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/apply-static-vduckie-v88.yml'
+  issues:
+    types: [opened]
 
 permissions:
   contents: write
 
 jobs:
   apply:
+    if: github.event.issue.title == 'RUN_STATIC_VDUCKIE_V882'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
