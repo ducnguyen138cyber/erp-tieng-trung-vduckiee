@@ -47,10 +47,10 @@
     var account = document.getElementById("expHeaderAccount");
 
     if (session && session.user) {
-      if (root.VDuckieHomeEXP90 && typeof root.VDuckieHomeEXP90.ensureLayout === "function") {
+      if ((!account || account.hidden) && root.VDuckieHomeEXP90 && typeof root.VDuckieHomeEXP90.ensureLayout === "function") {
         root.VDuckieHomeEXP90.ensureLayout();
+        account = document.getElementById("expHeaderAccount");
       }
-      account = document.getElementById("expHeaderAccount");
       if (account) account.hidden = false;
       if (copy && account && !account.hidden) copy.classList.add("v90-cloud-copy-hidden");
       return;
@@ -72,16 +72,12 @@
     document.addEventListener("vduckie:my-exp-loaded", scheduleSync);
     document.addEventListener("vduckie:exp-updated", scheduleSync);
 
-    var cloudAuth = document.querySelector(".cloud-auth");
-    if (root.MutationObserver && cloudAuth) {
+    var logout = document.getElementById("cloudLogout");
+    var identity = document.getElementById("cloudIdentity");
+    if (root.MutationObserver && (logout || identity)) {
       observer = new MutationObserver(scheduleSync);
-      observer.observe(cloudAuth, {
-        attributes: true,
-        childList: true,
-        characterData: true,
-        subtree: true,
-        attributeFilter: ["class", "hidden"]
-      });
+      if (logout) observer.observe(logout, { attributes: true, attributeFilter: ["class", "hidden"] });
+      if (identity) observer.observe(identity, { childList: true, characterData: true, subtree: true });
     }
 
     root.setTimeout(scheduleSync, 120);
