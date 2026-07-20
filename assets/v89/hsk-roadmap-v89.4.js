@@ -1,7 +1,7 @@
 (function (root, document) {
   "use strict";
 
-  var VERSION = "89.3";
+  var VERSION = "89.4";
   var observer = null;
   var scheduled = false;
   var lockedStages = [
@@ -28,24 +28,31 @@
     }
   }
 
-  function faceMarkup(stage, detail, percent, isCurrent, isBack) {
-    var status = isCurrent ? '<span class="hsk-card-status">Đang học</span>' : "";
-    var faceClass = isBack ? "hsk-card-back" : "hsk-card-front";
-    return '<span class="hsk-card-face ' + faceClass + '"' + (isBack ? ' aria-hidden="true"' : "") + '>' +
-      status +
-      '<span class="v865-road-icon hsk-roadmap-icon">' + escapeHtml(stage.icon) + '</span>' +
-      '<strong>' + escapeHtml(stage.label) + '</strong>' +
-      '<small>' + escapeHtml(detail) + '</small>' +
-      '<span class="v865-road-track hsk-roadmap-track"><i style="width:' + Number(percent || 0) + '%"></i></span>' +
+  function badgeMarkup(icon) {
+    var safeIcon = escapeHtml(icon || "汉");
+    return '<span class="hsk-level-badge" aria-hidden="true">' +
+      '<span class="hsk-badge-inner">' +
+      '<span class="hsk-badge-face hsk-badge-front">' + safeIcon + '</span>' +
+      '<span class="hsk-badge-face hsk-badge-back">' + safeIcon + '</span>' +
+      '</span>' +
       '</span>';
   }
 
+  function cardMarkup(stage, detail, percent, isCurrent) {
+    var status = isCurrent ? '<span class="hsk-card-status">Đang học</span>' : "";
+    return status +
+      badgeMarkup(stage.icon) +
+      '<strong>' + escapeHtml(stage.label) + '</strong>' +
+      '<small>' + escapeHtml(detail) + '</small>' +
+      '<span class="v865-road-track hsk-roadmap-track"><i style="width:' + Number(percent || 0) + '%"></i></span>';
+  }
+
   function enhanceButton(button) {
-    if (!button || button.getAttribute("data-hsk-roadmap-v893") === "ready") return;
-    var icon = button.querySelector(".v865-road-icon");
+    if (!button || button.getAttribute("data-hsk-roadmap-v894") === "ready") return;
+    var icon = button.querySelector(".v865-road-icon, .hsk-badge-front");
     var title = button.querySelector("strong");
     var detail = button.querySelector("small");
-    var fill = button.querySelector(".v865-road-track i");
+    var fill = button.querySelector(".v865-road-track i, .hsk-roadmap-track i");
     var stage = {
       level: Number(button.getAttribute("data-v865-level") || 0),
       label: title ? title.textContent.trim() : "HSK",
@@ -56,12 +63,10 @@
     var isCurrent = button.classList.contains("current");
 
     button.classList.add("hsk-roadmap-card");
-    button.setAttribute("data-hsk-roadmap-v893", "ready");
+    button.setAttribute("data-hsk-roadmap-v894", "ready");
+    button.removeAttribute("data-hsk-roadmap-v893");
     button.setAttribute("aria-label", stage.label + ", " + detailText + (isCurrent ? ", đang học" : ""));
-    button.innerHTML = '<span class="hsk-card-inner">' +
-      faceMarkup(stage, detailText, percent, isCurrent, false) +
-      faceMarkup(stage, detailText, percent, isCurrent, true) +
-      '</span>';
+    button.innerHTML = cardMarkup(stage, detailText, percent, isCurrent);
   }
 
   function createLockedButton(stage, activeLevel) {
@@ -71,12 +76,9 @@
     button.disabled = true;
     button.className = "v865-road-stage hsk-roadmap-card locked" + (isCurrent ? " current" : "");
     button.setAttribute("data-v865-level", String(stage.level));
-    button.setAttribute("data-hsk-roadmap-v893", "ready");
+    button.setAttribute("data-hsk-roadmap-v894", "ready");
     button.setAttribute("aria-label", stage.label + ", sắp mở");
-    button.innerHTML = '<span class="hsk-card-inner">' +
-      faceMarkup(stage, "Sắp mở", 0, isCurrent, false) +
-      faceMarkup(stage, "Sắp mở", 0, isCurrent, true) +
-      '</span>';
+    button.innerHTML = cardMarkup(stage, "Sắp mở", 0, isCurrent);
     return button;
   }
 
@@ -87,8 +89,8 @@
     var scroll = roadmap.querySelector(".v865-road-scroll");
     if (!scroll) return false;
 
-    var readyCards = scroll.querySelectorAll(".hsk-roadmap-card[data-hsk-roadmap-v893='ready']");
-    if (roadmap.getAttribute("data-hsk-roadmap-v893") === "ready" && readyCards.length === 10) return true;
+    var readyCards = scroll.querySelectorAll(".hsk-roadmap-card[data-hsk-roadmap-v894='ready']");
+    if (roadmap.getAttribute("data-hsk-roadmap-v894") === "ready" && readyCards.length === 10) return true;
 
     var existing = Array.prototype.slice.call(scroll.querySelectorAll("button.v865-road-stage"));
     var activeLevel = currentLevel();
@@ -102,7 +104,8 @@
       scroll.appendChild(createLockedButton(stage, activeLevel));
     });
 
-    roadmap.setAttribute("data-hsk-roadmap-v893", "ready");
+    roadmap.removeAttribute("data-hsk-roadmap-v893");
+    roadmap.setAttribute("data-hsk-roadmap-v894", "ready");
     roadmap.setAttribute("data-roadmap-card-count", "10");
     return true;
   }
@@ -120,7 +123,7 @@
     observer.observe(document.body, { childList: true, subtree: true });
   }
 
-  root.VDuckieHSKRoadmapV893 = Object.freeze({ version: VERSION, enhance: enhanceRoadmap });
+  root.VDuckieHSKRoadmapV894 = Object.freeze({ version: VERSION, enhance: enhanceRoadmap });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start, { once: true });
   else start();
 })(window, document);
