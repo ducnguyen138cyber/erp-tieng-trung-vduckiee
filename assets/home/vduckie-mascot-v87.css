@@ -9,114 +9,41 @@ html {
   visibility: hidden !important;
 }
 
+/* Restore the approved original VDuckie artwork and keep it completely still. */
 .vduckie-mascot {
   overflow: visible;
   pointer-events: none;
-  transform-box: border-box;
-  transform-origin: 50% 100%;
-  will-change: transform;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
+  background-image: url("./vduckie-welcome.webp?v=73.0");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
-.vduckie-idle {
-  animation: vduckie-breathe 3.8s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: 50% 88%;
-  will-change: transform;
-}
-
-.vduckie-wing {
-  transform-box: view-box;
-  transform-origin: 38.98% 43.21%;
-  will-change: transform;
-}
-
-.vduckie-eyelids {
-  animation: vduckie-blink 7.2s linear infinite;
-  opacity: 0;
-  transform: scaleY(0.08);
-  transform-box: fill-box;
-  transform-origin: center;
-  will-change: opacity, transform;
-}
-
-.vduckie-eyelids path {
-  fill: none;
-  stroke: #103d2e;
-  stroke-linecap: round;
-  stroke-width: 5;
-}
-
-@keyframes vduckie-breathe {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-3px) scale(1.006);
-  }
-}
-
-@keyframes vduckie-blink {
-  0%, 43.9%, 45.8%, 77.9%, 79.8%, 100% {
-    opacity: 0;
-    transform: scaleY(0.08);
-  }
-  44.6%, 45.1%, 78.6%, 79.1% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-
-@keyframes vduckie-wave {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  24% {
-    transform: rotate(-5deg);
-  }
-  48% {
-    transform: rotate(-1deg);
-  }
-  72% {
-    transform: rotate(-4deg);
-  }
-}
-
-@keyframes vduckie-success-bounce {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-  }
-  22% {
-    transform: translateY(-20px) scale(1.04, 0.97);
-  }
-  42% {
-    transform: translateY(0) scale(0.98, 1.03);
-  }
-  60% {
-    transform: translateY(-9px) scale(1.015, 0.99);
-  }
-  78% {
-    transform: translateY(0) scale(0.995, 1.01);
-  }
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .home-welcome-card:hover .vduckie-wing {
-    animation: vduckie-wave 0.82s ease-in-out 1;
-  }
-}
-
+.vduckie-idle,
+.vduckie-body-head,
+.vduckie-body-head image,
 .home-welcome-mascot.vduckie-success,
 .home-welcome-card.vduckie-success .home-welcome-mascot {
-  animation: vduckie-success-bounce 1s cubic-bezier(0.22, 0.8, 0.28, 1) both;
+  animation: none !important;
+  transform: none !important;
+  will-change: auto;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .vduckie-idle,
-  .vduckie-eyelids,
-  .home-welcome-card:hover .vduckie-wing,
-  .home-welcome-mascot.vduckie-success,
-  .home-welcome-card.vduckie-success .home-welcome-mascot {
-    animation: none;
-    transform: none;
-  }
+/* Show the untouched full WebP instead of the separated animated arm. */
+.vduckie-body-head image {
+  mask: none !important;
+  -webkit-mask: none !important;
+}
+
+.vduckie-wing,
+.vduckie-eyelids {
+  display: none !important;
+}
+
+.home-welcome-card:hover .vduckie-wing {
+  animation: none !important;
+  transform: none !important;
 }
