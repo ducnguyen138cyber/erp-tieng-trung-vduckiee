@@ -23,8 +23,8 @@
         if(!animatedMascot.test(source))throw new Error("Không tìm thấy mascot SVG cần thay thế");
         source=source.replace(animatedMascot,staticMascot);
         source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=89.0");
-        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/v89/exp-leaderboard-v89.css?v=89.0"><link rel="stylesheet" href="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1"><link rel="stylesheet" href="./assets/v89/hsk-roadmap-v89.2.css?v=89.2"></head>');
-        source=source.replace("</body>",'<script src="./assets/v89/exp-core-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-board-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-leaderboard-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-learning-hooks-v89.js?v=89.0"><\/script><script src="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1"><\/script></body>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/v89/exp-leaderboard-v89.css?v=89.0"><link rel="stylesheet" href="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1"><link rel="stylesheet" href="./assets/v89/hsk-roadmap-v89.3.css?v=89.3"></head>');
+        source=source.replace("</body>",'<script src="./assets/v89/exp-core-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-board-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-leaderboard-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-learning-hooks-v89.js?v=89.0"><\/script><script src="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1"><\/script><script src="./assets/v89/hsk-roadmap-v89.3.js?v=89.3"><\/script></body>');
         document.open();
         document.write(source);
         document.close();
