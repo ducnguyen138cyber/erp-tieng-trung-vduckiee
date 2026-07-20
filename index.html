@@ -13,8 +13,8 @@
   </style>
   <script>
     (async function restoreStaticVDuckie(){
-      var shellUrl="./app-shell-v88.html?v=88.3";
-      var staticMascot='<img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=88.3" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
+      var shellUrl="./app-shell-v88.html?v=89.0";
+      var staticMascot='<img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=89.0" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
       try{
         var response=await fetch(shellUrl,{cache:"no-store"});
         if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
@@ -22,13 +22,15 @@
         var animatedMascot=/<svg class="home-welcome-mascot vduckie-mascot"[\s\S]*?<\/svg>/;
         if(!animatedMascot.test(source))throw new Error("Không tìm thấy mascot SVG cần thay thế");
         source=source.replace(animatedMascot,staticMascot);
-        source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=88.3");
+        source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=89.0");
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/v89/exp-leaderboard-v89.css?v=89.0"></head>');
+        source=source.replace("</body>",'<script src="./assets/v89/exp-core-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-board-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-leaderboard-v89.js?v=89.0"><\/script><script src="./assets/v89/exp-learning-hooks-v89.js?v=89.0"><\/script></body>');
         document.open();
         document.write(source);
         document.close();
       }catch(error){
         document.addEventListener("DOMContentLoaded",function(){
-          document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=88.3" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';
+          document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=89.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';
           console.error(error);
         });
       }
