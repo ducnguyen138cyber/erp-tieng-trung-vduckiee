@@ -1,0 +1,107 @@
+name: Apply static VDuckie v88
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-static-vduckie-v88.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Replace mascot SVG with static image
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          index_path = Path('index.html')
+          source = index_path.read_text(encoding='utf-8')
+
+          source, replaced = re.subn(
+              r'<svg class="home-welcome-mascot vduckie-mascot"[\s\S]*?</svg>',
+              '<img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=88.2" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">',
+              source,
+              count=1,
+          )
+          if replaced != 1:
+              raise SystemExit(f'Expected 1 mascot SVG, replaced {replaced}')
+
+          source, versioned = re.subn(
+              r'(<link rel="stylesheet" href="\./assets/home/vduckie-mascot-v87\.css\?v=)[^"]+("\s*>)',
+              r'\g<1>88.2\2',
+              source,
+              count=1,
+          )
+          if versioned != 1:
+              raise SystemExit(f'Expected 1 mascot CSS link, updated {versioned}')
+
+          index_path.write_text(source, encoding='utf-8')
+
+          Path('assets/home/vduckie-mascot-v87.css').write_text('''html {
+            overflow-y: scroll;
+            scrollbar-gutter: stable;
+          }
+
+          .vduckie-layout-booting.v865-home-mode #homeHub {
+            opacity: 0 !important;
+            pointer-events: none !important;
+            visibility: hidden !important;
+          }
+
+          img.home-welcome-mascot {
+            display: block;
+            width: 100%;
+            height: auto;
+            pointer-events: none;
+            animation: none !important;
+            animation-name: none !important;
+            transition: none !important;
+            transform: none !important;
+            translate: none !important;
+            rotate: none !important;
+            scale: none !important;
+            will-change: auto !important;
+          }
+
+          .home-welcome-card:hover img.home-welcome-mascot,
+          .home-welcome-card:focus-within img.home-welcome-mascot,
+          img.home-welcome-mascot.vduckie-success,
+          .home-welcome-card.vduckie-success img.home-welcome-mascot {
+            animation: none !important;
+            transition: none !important;
+            transform: none !important;
+            translate: none !important;
+            rotate: none !important;
+            scale: none !important;
+          }
+          ''', encoding='utf-8')
+          PY
+
+      - name: Verify static source
+        shell: bash
+        run: |
+          grep -F '<img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=88.2"' index.html
+          grep -F 'vduckie-mascot-v87.css?v=88.2' index.html
+          ! grep -F '<svg class="home-welcome-mascot vduckie-mascot"' index.html
+          ! grep -F 'id="vduckieWingShape"' index.html
+
+      - name: Commit final files
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/apply-static-vduckie-v88.yml
+          git add index.html assets/home/vduckie-mascot-v87.css
+          git commit -m "Replace animated VDuckie with original static image v88.2"
+          git pull --rebase origin main
+          git push origin main
