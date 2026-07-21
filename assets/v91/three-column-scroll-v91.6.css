@@ -1,0 +1,43 @@
+/* v91.6: keep the learning menu fixed while center and right columns scroll with the page. */
+@media (min-width: 981px) {
+  .study-layout {
+    align-items: start !important;
+  }
+
+  .study-sidebar {
+    position: sticky !important;
+    top: 96px !important;
+    align-self: start !important;
+    max-height: calc(100vh - 112px) !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  .study-center {
+    position: static !important;
+    top: auto !important;
+    align-self: start !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .study-rail,
+  .v865-home-sidebar {
+    position: static !important;
+    top: auto !important;
+    align-self: start !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+}
+
+/* Preserve the existing drawer/stacked mobile behavior. */
+@media (max-width: 980px) {
+  .study-center,
+  .study-rail,
+  .v865-home-sidebar {
+    max-height: none !important;
+  }
+}
