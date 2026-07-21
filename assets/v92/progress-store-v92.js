@@ -12,7 +12,7 @@
 
   function levelFromTotal(totalEXP) {
     if (!core || typeof core.calculateUserLevel !== "function") {
-      return { level: 1, totalEXP: 0, currentLevelEXP: 0, expRequired: 200, progressPercent: 0, expRemaining: 200 };
+      return { level: 1, totalEXP: Math.max(0, Number(totalEXP || 0)), currentLevelEXP: 0, expRequired: 0, progressPercent: 0, expRemaining: 0 };
     }
     return core.calculateUserLevel(totalEXP);
   }
