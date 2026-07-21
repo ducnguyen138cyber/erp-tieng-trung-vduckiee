@@ -1,4 +1,4 @@
-/* v91.2: stable compact account trigger and white dropdown matching the reference. */
+/* v91.5: full-card hit target and stable white account dropdown. */
 .top{position:relative;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:16px!important;padding:14px 0!important}
 .brand-home{cursor:pointer;transition:background-color .18s ease,box-shadow .18s ease;border-radius:16px}
 .brand-home:hover{background:rgba(255,255,255,.55);box-shadow:0 0 0 6px rgba(255,255,255,.35)}
@@ -7,11 +7,12 @@
 .v91-removed-header-menu{display:none!important}
 .v90-account-host,.cloud-auth.v91-account-ready{position:relative!important;display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:0!important;width:auto!important;min-width:0!important;flex:0 0 auto!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important}
 #cloudLogout,.v91-source-account{display:none!important}
-.cloud-auth .v91-account-trigger,.v91-account-trigger{display:flex!important;align-items:center!important;width:252px!important;max-width:252px!important;min-width:0!important;flex:0 0 252px!important;padding:10px 12px!important;border:1px solid #ddd5c8!important;border-radius:18px!important;background:#fff!important;color:#18352e!important;box-shadow:0 5px 16px rgba(32,53,45,.07)!important;cursor:pointer!important;text-align:left!important;opacity:1!important;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease!important}
+.cloud-auth .v91-account-trigger,.v91-account-trigger{position:relative!important;z-index:20!important;isolation:isolate;display:flex!important;align-items:stretch!important;width:252px!important;max-width:252px!important;min-width:0!important;min-height:64px!important;flex:0 0 252px!important;padding:0!important;border:1px solid #ddd5c8!important;border-radius:18px!important;background:#fff!important;color:#18352e!important;box-shadow:0 5px 16px rgba(32,53,45,.07)!important;cursor:pointer!important;text-align:left!important;opacity:1!important;touch-action:manipulation;transition:border-color .18s ease,box-shadow .18s ease,transform .18s ease!important}
 .cloud-auth .v91-account-trigger[hidden],.v91-account-dropdown[hidden]{display:none!important}
 .cloud-auth .v91-account-trigger:hover,.v91-account-trigger:hover{border-color:#c7baa6!important;background:#fff!important;box-shadow:0 9px 24px rgba(32,53,45,.12)!important}
 .cloud-auth .v91-account-trigger:active,.v91-account-trigger:active{background:#f8faf9!important;transform:translateY(1px)}
-.v91-account-card{display:flex;align-items:center;gap:11px;width:100%;min-width:0}
+.v91-account-trigger>*{pointer-events:none!important}
+.v91-account-card{display:flex;align-items:center;gap:11px;width:100%;min-width:0;padding:10px 12px}
 .v91-account-card .v90-header-avatar{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border-radius:50%;overflow:hidden;background:#cf4014;color:#fff;font-size:16px;font-weight:900}
 .v91-account-card .v90-header-avatar img{width:100%;height:100%;object-fit:cover}
 .v91-account-copy{display:grid;grid-template-columns:minmax(0,1fr);gap:2px;min-width:0;flex:1 1 auto}
@@ -39,8 +40,22 @@
 .v91-account-item.is-danger .v91-item-icon{color:#e3312d}
 .v91-account-item.is-danger:hover,.v91-account-item.is-danger:focus-visible{background:#fff0ef!important;color:#d52622!important}
 .v91-account-item.is-danger:active{background:#fde5e3!important;color:#b91f1b!important}
-.v91-account-modal{position:fixed;inset:0;z-index:1300;display:grid;place-items:center;padding:18px;background:rgba(21,38,32,.45)}.v91-account-modal[hidden]{display:none!important}.v91-account-modal-card{width:min(460px,100%);max-height:min(640px,calc(100vh - 36px));overflow:auto;padding:22px;border-radius:20px;background:#fffdf8;box-shadow:0 24px 70px rgba(21,38,32,.25)}.v91-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.v91-modal-head h2{margin:0;font-size:22px}.v91-modal-close{border:0;border-radius:10px;background:#eee7db;width:36px;height:36px;cursor:pointer}.v91-modal-body{margin-top:18px;color:#53615c;line-height:1.6}.v91-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.v91-stat{padding:14px;border:1px solid #e0d8ca;border-radius:14px;background:#fff}.v91-stat strong{display:block;color:#18352e;font-size:22px}.v91-stat span{display:block;margin-top:4px;font-size:12px}.v91-profile{display:flex;align-items:center;gap:12px}.v91-profile img,.v91-profile .v90-header-avatar{width:54px;height:54px;flex-basis:54px;border-radius:50%}.v91-profile strong,.v91-profile span{display:block}.v91-profile span{margin-top:4px;color:#6b7772;font-size:13px;word-break:break-word}
+.v91-account-modal{position:fixed;inset:0;z-index:1300;display:grid;place-items:center;padding:18px;background:rgba(21,38,32,.45)}
+.v91-account-modal[hidden]{display:none!important}
+.v91-account-modal-card{width:min(460px,100%);max-height:min(640px,calc(100vh - 36px));overflow:auto;padding:22px;border-radius:20px;background:#fffdf8;box-shadow:0 24px 70px rgba(21,38,32,.25)}
+.v91-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.v91-modal-head h2{margin:0;font-size:22px}
+.v91-modal-close{border:0;border-radius:10px;background:#eee7db;width:36px;height:36px;cursor:pointer}
+.v91-modal-body{margin-top:18px;color:#53615c;line-height:1.6}
+.v91-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.v91-stat{padding:14px;border:1px solid #e0d8ca;border-radius:14px;background:#fff}
+.v91-stat strong{display:block;color:#18352e;font-size:22px}
+.v91-stat span{display:block;margin-top:4px;font-size:12px}
+.v91-profile{display:flex;align-items:center;gap:12px}
+.v91-profile img,.v91-profile .v90-header-avatar{width:54px;height:54px;flex-basis:54px;border-radius:50%}
+.v91-profile strong,.v91-profile span{display:block}
+.v91-profile span{margin-top:4px;color:#6b7772;font-size:13px;word-break:break-word}
 @media(max-width:900px){.cloud-auth .v91-account-trigger,.v91-account-trigger{width:220px!important;max-width:220px!important;flex-basis:220px!important}}
-@media(max-width:760px){.top{flex-direction:row!important;align-items:center!important;padding:10px 0!important}.brand-logo{width:46px!important;height:46px!important;flex-basis:46px!important}.brand small{display:none}.top-actions{width:auto!important;flex-direction:row!important}.mobile-menu-button{padding:9px!important;font-size:0}.mobile-menu-button::first-letter{font-size:18px}.cloud-auth .v91-account-trigger,.v91-account-trigger{width:min(205px,50vw)!important;max-width:205px!important;flex-basis:min(205px,50vw)!important;padding:8px 9px!important}.v91-account-card .v90-header-avatar{flex-basis:36px;width:36px;height:36px}.v91-account-copy strong{font-size:12px}.v91-account-copy>span:not(.v91-progress){font-size:10px}.v91-account-dropdown{right:0}}
+@media(max-width:760px){.top{flex-direction:row!important;align-items:center!important;padding:10px 0!important}.brand-logo{width:46px!important;height:46px!important;flex-basis:46px!important}.brand small{display:none}.top-actions{width:auto!important;flex-direction:row!important}.mobile-menu-button{padding:9px!important;font-size:0}.mobile-menu-button::first-letter{font-size:18px}.cloud-auth .v91-account-trigger,.v91-account-trigger{width:min(205px,50vw)!important;max-width:205px!important;flex-basis:min(205px,50vw)!important;min-height:58px!important}.v91-account-card{padding:8px 9px}.v91-account-card .v90-header-avatar{flex-basis:36px;width:36px;height:36px}.v91-account-copy strong{font-size:12px}.v91-account-copy>span:not(.v91-progress){font-size:10px}.v91-account-dropdown{right:0}}
 @media(max-width:480px){.shell{width:min(100% - 18px,1080px)}.brand strong{font-size:13px}.cloud-auth .v91-account-trigger,.v91-account-trigger{width:min(185px,49vw)!important;max-width:185px!important;flex-basis:min(185px,49vw)!important}.v91-account-dropdown{width:min(290px,calc(100vw - 18px))}.v91-stat-grid{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.v91-account-dropdown,.v91-account-chevron,.v91-account-trigger,.v91-account-item{transition:none!important}}
