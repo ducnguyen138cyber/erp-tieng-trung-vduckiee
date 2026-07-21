@@ -16,8 +16,8 @@
   </style>
   <script>
     (async function restoreStaticVDuckie(){
-      var shellUrl="./app-shell-v88.html?v=91.7";
-      var staticMascot='<img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=91.7" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
+      var shellUrl="./app-shell-v88.html?v=91.8";
+      var staticMascot='<img class="home-welcome-mascot" src="./assets/home/vduckie-welcome.webp?v=91.8" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
       try{
         var response=await fetch(shellUrl,{cache:"no-store"});
         if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
@@ -27,17 +27,17 @@
         source=source.replace(animatedMascot,staticMascot);
         source=source.replace(/<title>[\s\S]*?<\/title>/i,'<title>VDuckie – Học tiếng Trung</title>');
         source=source.replace(/<link rel="icon" type="image\/png" href="\.\/assets\/vduckie-logo\.png\?v=1">\s*/i,"");
-        source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=91.7");
-        source=source.replace(/\.\/supabase-config\.js\?v=[^"']+/g,"./supabase-config.js?v=91.7");
-        source=source.replace(/\.\/supabase-sync\.js\?v=[^"']+/g,"./supabase-sync.js?v=91.7");
-        source=source.replace("</head>",'<link rel="icon" type="image/svg+xml" href="./assets/favicon-vduckie.svg?v=2"><link rel="alternate icon" type="image/png" href="./assets/favicon-vduckie-32.png?v=2"><link rel="apple-touch-icon" href="./assets/vduckie-app-icon.png?v=2"><link rel="stylesheet" href="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1"><link rel="stylesheet" href="./assets/v89/hsk-roadmap-v89.4.css?v=89.4"><link rel="stylesheet" href="./assets/v90/exp-system-v90.css?v=90.1"><link rel="stylesheet" href="./assets/v90/home-header-sidebar-v90.1.css?v=90.3"><link rel="stylesheet" href="./assets/v91/header-account-dropdown-v91.css?v=91.5"><link rel="stylesheet" href="./assets/v91/three-column-scroll-v91.7.css?v=91.7"></head>');
-        source=source.replace("</body>",'<script src="./assets/v90/exp-core-v90.js?v=90.0"><\/script><script src="./assets/v90/exp-board-v90.js?v=90.0"><\/script><script src="./assets/v90/exp-leaderboard-v90.js?v=90.0"><\/script><script src="./assets/v89/exp-learning-hooks-v89.js?v=90.0"><\/script><script src="./assets/v90/exp-weekly-v90.js?v=90.0"><\/script><script src="./assets/v90/header-account-session-bridge-v90.3.js?v=90.3"><\/script><script src="./assets/v90/home-exp-sidebar-v90.js?v=90.3"><\/script><script src="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1"><\/script><script src="./assets/v89/hsk-roadmap-v89.4.js?v=89.4"><\/script><script src="./assets/v91/header-account-dropdown-v91.js?v=91.5"><\/script></body>');
+        source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=91.8");
+        source=source.replace(/\.\/supabase-config\.js\?v=[^"']+/g,"./supabase-config.js?v=91.8");
+        source=source.replace(/\.\/supabase-sync\.js\?v=[^"']+/g,"./supabase-sync.js?v=91.8");
+        source=source.replace("</head>",'<link rel="icon" type="image/svg+xml" href="./assets/favicon-vduckie.svg?v=2"><link rel="alternate icon" type="image/png" href="./assets/favicon-vduckie-32.png?v=2"><link rel="apple-touch-icon" href="./assets/vduckie-app-icon.png?v=2"><link rel="stylesheet" href="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1"><link rel="stylesheet" href="./assets/v89/hsk-roadmap-v89.4.css?v=89.4"><link rel="stylesheet" href="./assets/v90/exp-system-v90.css?v=90.1"><link rel="stylesheet" href="./assets/v90/home-header-sidebar-v90.1.css?v=90.3"><link rel="stylesheet" href="./assets/v91/header-account-dropdown-v91.css?v=91.5"><link rel="stylesheet" href="./assets/v91/three-column-scroll-v91.8.css?v=91.8"></head>');
+        source=source.replace("</body>",'<script src="./assets/v90/exp-core-v90.js?v=90.0"><\/script><script src="./assets/v90/exp-board-v90.js?v=90.0"><\/script><script src="./assets/v90/exp-leaderboard-v90.js?v=90.0"><\/script><script src="./assets/v89/exp-learning-hooks-v89.js?v=90.0"><\/script><script src="./assets/v90/exp-weekly-v90.js?v=90.0"><\/script><script src="./assets/v90/header-account-session-bridge-v90.3.js?v=90.3"><\/script><script src="./assets/v90/home-exp-sidebar-v90.js?v=90.3"><\/script><script src="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1"><\/script><script src="./assets/v89/hsk-roadmap-v89.4.js?v=89.4"><\/script><script src="./assets/v91/header-account-dropdown-v91.js?v=91.5"><\/script><script src="./assets/v91/sidebar-wheel-v91.8.js?v=91.8"><\/script></body>');
         document.open();
         document.write(source);
         document.close();
       }catch(error){
         document.addEventListener("DOMContentLoaded",function(){
-          document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=91.7" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';
+          document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=91.8" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';
           console.error(error);
         });
       }
