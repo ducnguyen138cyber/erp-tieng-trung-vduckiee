@@ -8,6 +8,7 @@
 .v90-account-host{position:relative!important;display:flex!important;align-items:center!important;gap:0!important;min-width:0}
 #cloudLogout{display:none!important}
 .v91-account-trigger{display:flex;align-items:center;gap:9px;width:clamp(190px,20vw,245px);min-width:0;padding:7px 9px;border:1px solid rgba(204,193,173,.78);border-radius:15px;background:rgba(255,255,255,.9);box-shadow:0 4px 14px rgba(32,53,45,.07);color:#18352e;cursor:pointer;text-align:left;transition:border-color .18s ease,box-shadow .18s ease,background .18s ease}
+.v91-account-trigger:has(.v90-header-account[hidden]){display:none!important}
 .v91-account-trigger:hover{border-color:#b8aa91;background:#fff;box-shadow:0 8px 22px rgba(32,53,45,.11)}
 .v91-account-trigger .v90-header-account{display:flex!important;width:auto!important;flex:1 1 auto;border:0!important;padding:0!important;background:transparent!important;box-shadow:none!important;pointer-events:none}
 .v91-account-chevron{flex:0 0 auto;width:18px;height:18px;display:grid;place-items:center;color:#68756f;transition:transform .18s ease}
