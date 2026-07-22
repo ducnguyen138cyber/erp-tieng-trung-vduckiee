@@ -470,7 +470,12 @@
     var played = play(state, { force:!!options.force });
     if (!played) return false;
     if (cooldown) eventCooldownUntil[state] = now + cooldown;
-    if (state === "pronunciation-wrong") eventThought("再试一次。", "Thử lại lần nữa.");
+    if (state === "pronunciation-wrong") {
+      var eventLevel = Number(node && node.getAttribute("data-v95-level") || displayLevel());
+      if (eventLevel === 9) eventThought("再听一次。", "Hãy nghe lại lần nữa.");
+      else if (eventLevel === 10) eventThought("慢一点。", "Chậm hơn một chút.");
+      else eventThought("再试一次。", "Thử lại lần nữa.");
+    }
     var duration = Number(DURATIONS[state] || 800);
     eventReleaseTimer = root.setTimeout(drainEventQueue, duration + 30);
     reportDeveloperAnimation(eventName, state, options.note || "");

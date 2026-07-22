@@ -112,7 +112,17 @@
       { id: "lv9-07", zh: "知识需要不断更新。", vi: "Kiến thức cần được cập nhật liên tục." },
       { id: "lv9-08", zh: "找到规律，效率就会提高。", vi: "Tìm ra quy luật thì hiệu suất sẽ tăng." },
       { id: "lv9-09", zh: "真正的成长没有终点。", vi: "Sự trưởng thành thực sự không có điểm dừng." },
-      { id: "lv9-10", zh: "把困难变成新的经验。", vi: "Biến khó khăn thành kinh nghiệm mới." }
+      { id: "lv9-10", zh: "把困难变成新的经验。", vi: "Biến khó khăn thành kinh nghiệm mới." },
+      { id: "lv9-11", zh: "ERP数据必须互相验证。", vi: "Dữ liệu ERP phải được kiểm chứng chéo." },
+      { id: "lv9-12", zh: "先理解业务，再优化系统。", vi: "Hiểu nghiệp vụ trước rồi mới tối ưu hệ thống." },
+      { id: "lv9-13", zh: "HSK只是学习路上的里程碑。", vi: "HSK chỉ là một cột mốc trên con đường học tập." },
+      { id: "lv9-14", zh: "现场情况和报表同样重要。", vi: "Tình hình hiện trường và báo cáo đều quan trọng như nhau." },
+      { id: "lv9-15", zh: "好的管理从准确的数据开始。", vi: "Quản lý tốt bắt đầu từ dữ liệu chính xác." },
+      { id: "lv9-16", zh: "把解决方法记录下来。", vi: "Hãy ghi lại phương pháp giải quyết." },
+      { id: "lv9-17", zh: "先找根因，不要只看表面。", vi: "Tìm nguyên nhân gốc trước, đừng chỉ nhìn bề mặt." },
+      { id: "lv9-18", zh: "学习语言也需要系统思维。", vi: "Học ngôn ngữ cũng cần tư duy hệ thống." },
+      { id: "lv9-19", zh: "让经验帮助团队一起进步。", vi: "Hãy dùng kinh nghiệm để giúp cả đội cùng tiến bộ." },
+      { id: "lv9-20", zh: "数据一致，决策才可靠。", vi: "Dữ liệu đồng nhất thì quyết định mới đáng tin cậy." }
     ]),
     10: Object.freeze([
       { id: "lv10-01", zh: "学无止境！", vi: "Việc học không có điểm dừng!" },
@@ -124,7 +134,17 @@
       { id: "lv10-07", zh: "先读懂问题，再写答案。", vi: "Hiểu rõ vấn đề trước rồi mới viết câu trả lời." },
       { id: "lv10-08", zh: "中文和ERP都要精通。", vi: "Phải thành thạo cả tiếng Trung lẫn ERP." },
       { id: "lv10-09", zh: "完成不是终点，优化才刚开始。", vi: "Hoàn thành chưa phải điểm cuối, tối ưu mới bắt đầu." },
-      { id: "lv10-10", zh: "继续前进，别忘了享受过程。", vi: "Tiếp tục tiến lên và đừng quên tận hưởng hành trình." }
+      { id: "lv10-10", zh: "继续前进，别忘了享受过程。", vi: "Tiếp tục tiến lên và đừng quên tận hưởng hành trình." },
+      { id: "lv10-11", zh: "教别人也是最好的学习。", vi: "Dạy người khác cũng là cách học tốt nhất." },
+      { id: "lv10-12", zh: "终身学习让我们保持清醒。", vi: "Học tập suốt đời giúp chúng ta luôn sáng suốt." },
+      { id: "lv10-13", zh: "流利来自每天真实的使用。", vi: "Sự lưu loát đến từ việc sử dụng thực tế mỗi ngày." },
+      { id: "lv10-14", zh: "ERP连接的是人、流程和数据。", vi: "ERP kết nối con người, quy trình và dữ liệu." },
+      { id: "lv10-15", zh: "解决问题比证明自己更重要。", vi: "Giải quyết vấn đề quan trọng hơn chứng minh bản thân." },
+      { id: "lv10-16", zh: "思考要深入，表达要简单。", vi: "Suy nghĩ phải sâu, diễn đạt phải đơn giản." },
+      { id: "lv10-17", zh: "把复杂的事情讲清楚。", vi: "Hãy trình bày chuyện phức tạp cho thật rõ ràng." },
+      { id: "lv10-18", zh: "保持好奇，才能继续成长。", vi: "Giữ sự tò mò thì mới có thể tiếp tục trưởng thành." },
+      { id: "lv10-19", zh: "真正的熟练来自反复实践。", vi: "Sự thành thạo thực sự đến từ thực hành lặp lại." },
+      { id: "lv10-20", zh: "今天的积累会成为明天的能力。", vi: "Tích lũy hôm nay sẽ trở thành năng lực ngày mai." }
     ])
   });
 

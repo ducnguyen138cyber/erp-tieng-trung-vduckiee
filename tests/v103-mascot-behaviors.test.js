@@ -62,7 +62,7 @@ test("Developer Preview exposes every contextual event without progress writes",
 test("newborn thought data is age appropriate and production order is correct",()=>{
   const thoughts=read("assets/v95/thoughts-v95.js"),index=read("index.html");
   assert.match(thoughts,/这是哪里？/);assert.match(thoughts,/我出生了！/);assert.match(thoughts,/我要快快长大！/);
-  assert.ok(index.indexOf("mascot-behaviors-v103.js")<index.indexOf("vduckie-evolution-v95.js?v=103.0"));
-  assert.ok(index.indexOf("mascot-manifest-v103.js")<index.indexOf("vduckie-mascot-v95.js?v=103.0"));
+  assert.ok(index.indexOf("mascot-behaviors-v103.js")<index.indexOf("vduckie-evolution-v95.js?v=104.0"));
+  assert.ok(index.indexOf("mascot-manifest-v103.js")<index.indexOf("vduckie-mascot-v95.js?v=104.0"));
   assert.match(index,/mascot-learning-events-v103\.js\?v=103\.0/);
 });
