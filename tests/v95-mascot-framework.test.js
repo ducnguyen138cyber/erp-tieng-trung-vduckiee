@@ -119,6 +119,6 @@ test('production loads V95 in dependency order and no longer loads layered V94 r
   assert.match(index, /thoughts-v95\.js[^\n]+mascot-manifest-v95\.js/);
   assert.match(index, /vduckie-mascot-v95\.js[^\n]+customization-store-v94\.js[^\n]+vduckie-evolution-v95\.js[^\n]+developer-preview-v93\.js/);
   assert.match(index, /vduckie-mascot-v95\.css\?v=96\.0/);
-  assert.match(index, /app-shell-v88\.html\?v=98\.0/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
   assert.doesNotMatch(index, /avatar-config-v94\.js|vduckie-avatar-v94\.js|evolution-customization-v94\.css/);
 });
