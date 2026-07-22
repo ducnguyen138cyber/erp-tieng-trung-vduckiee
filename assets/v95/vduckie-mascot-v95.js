@@ -91,7 +91,12 @@
       "--v95-sprite-rows:" + Number(resolved.rows || 1)
     ].join(";");
     var fallback = resolved.fallbackAsset || stage.fallbackAsset || stage.defaultAsset;
-    return '<span class="v95-sprite-stack">' + (fallback ? '<img class="v95-mascot-image v95-sprite-fallback" src="' + esc(fallback) + '" alt="VDuckie ' + esc(stage.name) + '" loading="eager" decoding="async" draggable="false" data-v95-asset data-v95-fallback-asset>' : '') + '<span class="v95-sprite" role="img" aria-label="VDuckie ' + esc(stage.name) + '" style="' + style + '" data-v95-sprite-src="' + esc(resolved.asset) + '"></span></span>';
+    var states = root.VDuckieMascotStates;
+    var plan = states && states.framePlans && states.framePlans[stage.level];
+    var columns = Number(resolved.columns || resolved.frames || plan && plan.columns || 1);
+    function shift(frame) { return (-100 * Number(frame || 0) / columns).toFixed(6).replace(/0+$/, "").replace(/\.$/, "") + "%"; }
+    var stripStyle = "width:" + (columns * 100) + "%;--v102-blink:" + shift(plan && plan.blink) + ";--v102-hover-a:" + shift(plan && plan.hoverA) + ";--v102-hover-b:" + shift(plan && plan.hoverB) + ";--v102-hover:" + shift(plan && (plan.hover == null ? plan.hoverB : plan.hover)) + ";--v102-success:" + shift(plan && plan.success) + ";--v102-sad:" + shift(plan && plan.sad) + ";--v102-outfit:" + shift(plan && plan.outfit);
+    return '<span class="v95-sprite-stack">' + (fallback ? '<img class="v95-mascot-image v95-sprite-fallback" src="' + esc(fallback) + '" alt="VDuckie ' + esc(stage.name) + '" loading="eager" decoding="async" draggable="false" data-v95-asset data-v95-fallback-asset>' : '') + '<img class="v102-sprite-strip" src="' + esc(resolved.asset) + '" alt="" aria-hidden="true" draggable="false" decoding="async" style="' + stripStyle + '"><span class="v95-sprite" role="img" aria-label="VDuckie ' + esc(stage.name) + '" style="' + style + '" data-v95-sprite-src="' + esc(resolved.asset) + '"></span></span>';
   }
 
   function lottieMarkup(resolved, stage) {
@@ -148,7 +153,7 @@
     else visual = fullSkinMarkup(resolved, stage, size === "compact" || size === "tiny" ? "lazy" : "eager");
 
     var style = "--v95-origin:" + esc(motion.transformOrigin) + ";--v95-accent-x:" + esc(motion.accentX) + ";--v95-accent-y:" + esc(motion.accentY) + ";";
-    return '<button type="button" class="' + classes.join(" ") + '" style="' + style + '" data-v95-mascot data-v94-avatar data-v95-level="' + stage.level + '" data-v95-state="' + esc(state) + '" data-v95-requested-state="' + esc(resolved.requestedState || state) + '" data-v95-resolved-state="' + esc(resolved.resolvedState || resolved.state || "idle") + '" data-v95-runtime-state="loading" data-v95-animation-ready="false" data-v95-render-mode="' + esc(resolved.renderMode) + '" data-v95-resolved-asset="' + esc(resolved.asset || '') + '" data-v95-fallback-asset="' + esc(resolved.fallbackAsset || stage.fallbackAsset || stage.defaultAsset || '') + '" data-v95-load-status="loading" data-v95-using-fallback="true" data-v95-missing-combination="' + (resolved.missingCombination ? "true" : "false") + '" aria-label="VDuckie Level ' + stage.level + ': ' + esc(stage.name) + '. Chạm để xem suy nghĩ" aria-expanded="false">' +
+    return '<button type="button" class="' + classes.join(" ") + '" style="' + style + '" data-v95-mascot data-v94-avatar data-v95-level="' + stage.level + '" data-v95-state="' + esc(state) + '" data-v95-requested-state="' + esc(resolved.requestedState || state) + '" data-v95-resolved-state="' + esc(resolved.resolvedState || resolved.state || "idle") + '" data-v95-runtime-state="loading" data-v95-animation-ready="false" data-v95-animation-class="is-' + esc(state) + '" data-v95-animation-duration="0" data-v95-render-mode="' + esc(resolved.renderMode) + '" data-v95-resolved-asset="' + esc(resolved.asset || '') + '" data-v95-fallback-asset="' + esc(resolved.fallbackAsset || stage.fallbackAsset || stage.defaultAsset || '') + '" data-v95-load-status="loading" data-v95-using-fallback="true" data-v95-missing-combination="' + (resolved.missingCombination ? "true" : "false") + '" aria-label="VDuckie Level ' + stage.level + ': ' + esc(stage.name) + '. Chạm để xem suy nghĩ" aria-expanded="false">' +
       backgroundMarkup(background) +
       '<span class="v95-character"><span class="v95-visual">' + visual + '</span><span class="v95-motion-accent" aria-hidden="true"></span><span class="v95-fallback-symbol" aria-hidden="true">' + esc(stage.symbol) + '</span></span>' +
       effectMarkup(effect) +
@@ -237,7 +242,7 @@
       function loaded() {
         if (settled) return;
         settled = true; root.clearTimeout(timeout);
-        if (mascot) { mascot.classList.add("has-decoded-sprite"); mascot.classList.remove("has-missing-asset"); mascot.setAttribute("data-v95-load-status", "loaded"); mascot.setAttribute("data-v95-runtime-state", "ready"); mascot.setAttribute("data-v95-animation-ready", "false"); mascot.setAttribute("data-v95-using-fallback", "true"); }
+        if (mascot) { mascot.classList.add("has-decoded-sprite"); mascot.classList.remove("has-missing-asset"); mascot.setAttribute("data-v95-load-status", "loaded"); mascot.setAttribute("data-v95-runtime-state", "ready"); mascot.setAttribute("data-v95-animation-ready", "true"); mascot.setAttribute("data-v95-using-fallback", "false"); }
       }
       function failed(reason) {
         if (settled) return;

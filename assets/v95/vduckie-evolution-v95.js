@@ -46,9 +46,10 @@
   var animationTimers = new Map();
   var preview = { active: false, level: 1, eggProgress: 50, wardrobe: mascot ? mascot.defaults() : {}, developer: false };
 
-  var ANIMATION_ALIASES = Object.freeze({ "outfit-check": "outfit-change", "egg-hatching": "hatching" });
-  var PRIORITIES = Object.freeze({ idle: 0, hover: 1, tap: 2, sad: 3, success: 4, glow: 4, "outfit-change": 5, "outfit-confirm": 5, hatching: 6, "level-up": 7 });
-  var DURATIONS = Object.freeze({ hover: 920, tap: 720, sad: 860, success: 860, glow: 980, "outfit-change": 1120, "outfit-confirm": 560, hatching: 1120, "level-up": 1180 });
+  var stateConfig = root.VDuckieMascotStates || {};
+  var ANIMATION_ALIASES = stateConfig.aliases || Object.freeze({ "outfit-check": "outfit-change", "egg-hatching": "hatching" });
+  var PRIORITIES = stateConfig.priorities || Object.freeze({ idle: 0, hover: 2, tap: 2, glow: 3, sad: 4, success: 5, "outfit-change": 6, "outfit-confirm": 6, hatching: 7, "level-up": 8 });
+  var DURATIONS = stateConfig.durations || Object.freeze({ hover: 920, tap: 720, glow: 980, sad: 860, success: 860, "outfit-change": 1120, "outfit-confirm": 560, hatching: 1120, "level-up": 1180 });
   var ANIMATION_CLASSES = Object.keys(PRIORITIES).map(function (name) { return "is-" + name; });
 
   function byId(id) { return document.getElementById(id); }
@@ -360,6 +361,18 @@
 
   function normalizedAnimation(name) { return ANIMATION_ALIASES[name] || name; }
 
+  function reportDeveloperAnimation(requested, resolved, note) {
+    if (!canUseDeveloper()) return;
+    var node = card && card.querySelector("[data-v95-mascot]") || document.querySelector("[data-v95-mascot]");
+    document.dispatchEvent(new CustomEvent("vduckie:developer-animation-test", { detail: {
+      button: requested,
+      requestedState: requested,
+      resolvedState: resolved,
+      level: Number(node && node.getAttribute("data-v95-level") || displayLevel()),
+      note: note || ""
+    } }));
+  }
+
   function clearNodeAnimation(node) {
     var timer = animationTimers.get(node);
     if (timer) root.clearTimeout(timer);
@@ -373,14 +386,19 @@
     var state = normalizedAnimation(name);
     if (PRIORITIES[state] == null) return false;
     var current = normalizedAnimation(node.getAttribute("data-v95-state") || "idle");
-    var restartable = options.force || state === "hover" || state === "tap" || state === "outfit-change" || state === "outfit-confirm";
-    if (!restartable && PRIORITIES[state] < (PRIORITIES[current] || 0)) return false;
+    if (!options.force && state !== current && PRIORITIES[state] < (PRIORITIES[current] || 0)) return false;
     clearNodeAnimation(node);
+    // Commit the class removal so repeating the same Developer Preview test
+    // restarts its CSS/sprite animation instead of being coalesced by the browser.
+    if (state !== "idle") void node.offsetWidth;
     node.classList.add("is-" + state);
     node.setAttribute("data-v95-state", state);
     node.setAttribute("data-v95-requested-state", state);
     node.setAttribute("data-v95-runtime-state", state === "idle" ? "idle" : state);
+    node.setAttribute("data-v95-resolved-state", state);
+    node.setAttribute("data-v95-animation-class", "is-" + state);
     var duration = Number(options.duration || DURATIONS[state] || 800);
+    node.setAttribute("data-v95-animation-duration", String(duration));
     if (state !== "idle") {
       var timer = root.setTimeout(function () {
         animationTimers.delete(node);
@@ -391,6 +409,8 @@
         node.setAttribute("data-v95-requested-state", "idle");
         node.setAttribute("data-v95-resolved-state", "idle");
         node.setAttribute("data-v95-runtime-state", "idle");
+        node.setAttribute("data-v95-animation-class", "is-idle");
+        node.setAttribute("data-v95-animation-duration", "0");
       }, duration);
       animationTimers.set(node, timer);
     }
@@ -469,7 +489,7 @@
       node.addEventListener("pointerenter", function (event) {
         if (event.pointerType === "touch" || event.pointerType === "pen") return;
         if (thoughtCloseTimer) { root.clearTimeout(thoughtCloseTimer); thoughtCloseTimer = null; }
-        if (openThought(node)) playNode(node, "hover", { force: true });
+        if (openThought(node)) playNode(node, "hover", { force: false });
       });
       node.addEventListener("pointerleave", function (event) {
         if (event.pointerType === "touch" || event.pointerType === "pen") return;
@@ -604,6 +624,7 @@
       preview.eggProgress = 92;
       refreshDisplaySnapshot();
     }
+    reportDeveloperAnimation("egg-hatching", "hatching", "Egg Hatching chỉ áp dụng cho Level 1; preview đã chuyển sang Level 1.");
     playAfterRender("hatching", { force: true });
     return true;
   }
@@ -686,6 +707,8 @@
         bridgeGuard();
         if (name === "egg-hatching") return playEggHatchingPreview();
         if (!preview.active) setPreviewLevelInternal(realSnapshot && realSnapshot.level || 1);
+        var resolvedName = normalizedAnimation(name);
+        reportDeveloperAnimation(name, resolvedName);
         if (name === "level-up") { playAfterRender("level-up", { force: true }); showLevelUpModal(); return true; }
         if (name === "thought") return testThought();
         if (name === "tap") return play("tap", { force: true });
@@ -767,7 +790,7 @@
     var mascotNode = event.target.closest && event.target.closest("[data-v95-mascot]");
     if (mascotNode) {
       openThought(mascotNode);
-      playNode(mascotNode, "hover", { force: true });
+      playNode(mascotNode, "hover", { force: false });
       return;
     }
     var item = event.target.closest && event.target.closest("[data-v95-item-code]");

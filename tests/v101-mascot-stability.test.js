@@ -26,11 +26,13 @@ test("idle and unknown states always resolve to a valid Level 2-8 asset", () => 
   }
 });
 
-test("static fallback remains visible after sprite decode and in error state", () => {
+test("static fallback remains available under the sprite layer and returns in error state", () => {
   const css = read("assets/v101/mascot-stability-v101.css");
+  const runtimeCss = read("assets/v102/sprite-runtime-v102.css");
   assert.match(css, /has-loaded-sprite[^}]+sprite-fallback\{opacity:1\}/);
   assert.match(css, /runtime-state="error"[^}]+sprite-fallback\{opacity:1;visibility:visible\}/);
-  assert.doesNotMatch(css, /sprite-fallback\{[^}]*opacity:0/);
+  assert.match(runtimeCss, /has-decoded-sprite \.v95-sprite-fallback\{opacity:0\}/);
+  assert.match(runtimeCss, /has-sprite-fallback \.v95-sprite-fallback[^}]+opacity:1/);
 });
 
 test("short animation states deterministically reset to visible idle", () => {
@@ -48,9 +50,10 @@ test("bubble state is separate from mascot animation state", () => {
   assert.match(openThought, /classList\.add\("is-thinking"\)/);
 });
 
-test("production loads V101 stability CSS and runtime diagnostics", () => {
+test("production keeps V101 stability and loads V102 animation runtime", () => {
   const index = read("index.html");
   assert.match(index, /mascot-stability-v101\.css\?v=101\.0/);
-  assert.match(index, /developer-preview-v101\.js\?v=101\.0/);
-  assert.match(index, /vduckie-mascot-v95\.js\?v=101\.0/);
+  assert.match(index, /developer-preview-v101\.js\?v=102\.0/);
+  assert.match(index, /vduckie-mascot-v95\.js\?v=102\.0/);
+  assert.match(index, /sprite-runtime-v102\.css\?v=102\.0/);
 });
