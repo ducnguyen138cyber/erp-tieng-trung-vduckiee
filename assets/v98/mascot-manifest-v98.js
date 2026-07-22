@@ -6,8 +6,8 @@
   if (!base) return;
   var VERSION = "98.0";
   var SPRITES = Object.freeze({
-    5: Object.freeze({ asset: "./assets/vduckie/lv5/office-employee-sprite.webp?v=98.0", fallbackAsset: "./assets/vduckie/lv5/office-employee-sprite.png?v=98.0", frames: 9, columns: 9, rows: 1, fps: 12, frameMap: Object.freeze({ default: 0, blink: 1, readingReport: 2, lookLeft: 3, lookRight: 4, adjustCollar: 5, happy: 6, sad: 7, outfitCheck: 8 }) }),
-    6: Object.freeze({ asset: "./assets/vduckie/lv6/young-manager-sprite.webp?v=98.0", fallbackAsset: "./assets/vduckie/lv6/young-manager-sprite.png?v=98.0", frames: 9, columns: 9, rows: 1, fps: 12, frameMap: Object.freeze({ default: 0, blink: 1, checkTablet: 2, lookLeft: 3, lookRight: 4, adjustSuit: 5, happy: 6, sad: 7, outfitCheck: 8 }) })
+    5: Object.freeze({ asset: "./assets/vduckie/lv5/office-employee-sprite.webp?v=98.0", fallbackAsset: "./assets/vduckie/lv5/office-employee-sprite.webp?v=98.0", frames: 9, columns: 9, rows: 1, fps: 12, frameMap: Object.freeze({ default: 0, blink: 1, readingReport: 2, lookLeft: 3, lookRight: 4, adjustCollar: 5, happy: 6, sad: 7, outfitCheck: 8 }) }),
+    6: Object.freeze({ asset: "./assets/vduckie/lv6/young-manager-sprite.webp?v=98.0", fallbackAsset: "./assets/vduckie/lv6/young-manager-sprite.webp?v=98.0", frames: 9, columns: 9, rows: 1, fps: 12, frameMap: Object.freeze({ default: 0, blink: 1, checkTablet: 2, lookLeft: 3, lookRight: 4, adjustSuit: 5, happy: 6, sad: 7, outfitCheck: 8 }) })
   });
   var levels = Object.assign({}, base.levels);
   [5, 6].forEach(function (level) { levels[level] = Object.freeze(Object.assign({}, base.levels[level], { defaultAsset: SPRITES[level].asset, renderMode: "sprite" })); });

@@ -10,13 +10,13 @@
   var SPRITES = Object.freeze({
     3: Object.freeze({
       asset: "./assets/vduckie/lv3/primary-student-sprite.webp?v=97.0",
-      fallbackAsset: "./assets/vduckie/lv3/primary-student-sprite.png?v=97.0",
+      fallbackAsset: "./assets/vduckie/lv3/primary-student-sprite.webp?v=97.0",
       frames: 8, columns: 8, rows: 1, fps: 12,
       frameMap: Object.freeze({ default: 0, blink: 1, lookLeft: 2, lookRight: 3, adjustGlasses: 4, happy: 5, sad: 6, outfitCheck: 7 })
     }),
     4: Object.freeze({
       asset: "./assets/vduckie/lv4/university-student-sprite.webp?v=97.0",
-      fallbackAsset: "./assets/vduckie/lv4/university-student-sprite.png?v=97.0",
+      fallbackAsset: "./assets/vduckie/lv4/university-student-sprite.webp?v=97.0",
       frames: 9, columns: 9, rows: 1, fps: 12,
       frameMap: Object.freeze({ default: 0, blink: 1, reading: 2, lookLeft: 3, lookRight: 4, adjustGlasses: 5, happy: 6, sad: 7, outfitCheck: 8 })
     })
