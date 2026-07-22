@@ -139,5 +139,5 @@ test("production loads V96 patches after the V95 base in dependency order", () =
   const developerV96 = index.indexOf("developer-preview-v96.js?v=96.0");
   assert.ok(thoughts >= 0 && baseManifest > thoughts && manifest > baseManifest && baseMascot > manifest && mascot > baseMascot && store > mascot && evolution > store && developerV96 > evolution);
   assert.match(index, /vduckie-lv1-lv2-v96\.css\?v=96\.0/);
-  assert.match(index, /app-shell-v88\.html\?v=96\.0/);
+  assert.match(index, /app-shell-v88\.html\?v=97\.0/);
 });

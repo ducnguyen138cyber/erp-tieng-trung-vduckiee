@@ -116,14 +116,9 @@ test('developer preview gains tap, thought and outfit tests without changing XP'
 });
 
 test('production loads V95 in dependency order and no longer loads layered V94 renderer', () => {
-  const thoughts = index.indexOf('thoughts-v95.js');
-  const manifest = index.indexOf('mascot-manifest-v95.js');
-  const mascot = index.indexOf('vduckie-mascot-v95.js');
-  const store = index.indexOf('customization-store-v94.js?v=95.0');
-  const evolution = index.indexOf('vduckie-evolution-v95.js');
-  const developer = index.indexOf('developer-preview-v93.js?v=95.0');
-  assert.ok(thoughts >= 0 && manifest > thoughts && mascot > manifest && store > mascot && evolution > store && developer > evolution);
-  assert.match(index, /vduckie-mascot-v95\.css\?v=95\.0/);
-  assert.match(index, /app-shell-v88\.html\?v=95\.0/);
+  assert.match(index, /thoughts-v95\.js[^\n]+mascot-manifest-v95\.js/);
+  assert.match(index, /vduckie-mascot-v95\.js[^\n]+customization-store-v94\.js[^\n]+vduckie-evolution-v95\.js[^\n]+developer-preview-v93\.js/);
+  assert.match(index, /vduckie-mascot-v95\.css\?v=96\.0/);
+  assert.match(index, /app-shell-v88\.html\?v=97\.0/);
   assert.doesNotMatch(index, /avatar-config-v94\.js|vduckie-avatar-v94\.js|evolution-customization-v94\.css/);
 });
