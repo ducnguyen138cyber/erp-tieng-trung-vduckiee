@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="VDuckie egg normal">
+<defs>
+  <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFFDF4"/>
+    <stop offset="0.58" stop-color="#FFF4D2"/>
+    <stop offset="1" stop-color="#E5C277"/>
+  </linearGradient>
+  <linearGradient id="shellSoft" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFDF4"/>
+    <stop offset="1" stop-color="#EED496"/>
+  </linearGradient>
+</defs>
+<ellipse cx="256" cy="452" rx="106" ry="19" fill="#293D36" opacity=".10"/>
+<g>
+  <path d="M256 58C164 58 116 174 122 291c6 107 59 165 134 165s128-58 134-165C396 174 348 58 256 58Z" fill="url(#shell)" stroke="#293D36" stroke-width="10" stroke-linejoin="round"/>
+  <ellipse cx="207" cy="168" rx="37" ry="71" fill="#FFFFFF" opacity=".34" transform="rotate(20 207 168)"/>
+  <path d="M172 371c45 34 123 42 174 2" fill="none" stroke="#CBA75D" stroke-width="8" opacity=".42" stroke-linecap="round"/>
+  <g opacity=".14">
+    <ellipse cx="224" cy="246" rx="18" ry="24" fill="#293D36"/>
+    <ellipse cx="288" cy="246" rx="18" ry="24" fill="#293D36"/>
+    <path d="M235 282q21-15 42 0q-21 27-42 0Z" fill="#F28A2E" stroke="#B65F24" stroke-width="5"/>
+  </g>
+  <circle cx="188" cy="325" r="8" fill="#DDBE75" opacity=".32"/>
+  <circle cx="326" cy="347" r="6" fill="#DDBE75" opacity=".30"/>
+  <circle cx="169" cy="283" r="5" fill="#DDBE75" opacity=".28"/>
+</g>
+</svg>
