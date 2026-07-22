@@ -59,7 +59,7 @@ test("thought bubble uses one pointerenter trigger and stable-open guard", () =>
 
 test("production shell loads V100 manifest before the shared renderer", () => {
   const source = fs.readFileSync(path.join(root, "index.html"), "utf8");
-  assert.ok(source.indexOf("mascot-manifest-v100.js") < source.indexOf("vduckie-mascot-v95.js?v=100.0"));
-  assert.match(source, /vduckie-evolution-v95\.js\?v=100\.0/);
+  assert.ok(source.indexOf("mascot-manifest-v100.js") < source.indexOf("vduckie-mascot-v95.js?v=101.0"));
+  assert.match(source, /vduckie-evolution-v95\.js\?v=101\.0/);
   assert.match(source, /regression-v100\.css\?v=100\.0/);
 });

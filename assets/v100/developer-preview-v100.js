@@ -3,6 +3,7 @@
   if (root.__VDUCKIE_DEVELOPER_PREVIEW_V100__) return;
   root.__VDUCKIE_DEVELOPER_PREVIEW_V100__ = true;
   var observer = null;
+  var authorized = false;
   function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g, function (character) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[character]; }); }
   function refresh() {
     var panel = document.getElementById("v93DeveloperPreview");
@@ -25,12 +26,14 @@
     return true;
   }
   function watch() {
+    if (!authorized) return;
     refresh();
     if (!root.MutationObserver || observer) return;
     observer = new MutationObserver(refresh);
     observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-v95-level", "data-v95-state", "data-v95-load-status", "data-v95-using-fallback"] });
   }
-  document.addEventListener("vduckie:developer-preview-authorized", watch);
-  document.addEventListener("vduckie:developer-preview-revoked", function () { if (observer) observer.disconnect(); observer = null; });
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", watch, { once: true }); else watch();
+  document.addEventListener("vduckie:developer-preview-authorized", function () { authorized = true; watch(); });
+  document.addEventListener("vduckie:developer-preview-revoked", function () { authorized = false; if (observer) observer.disconnect(); observer = null; });
+  function resumeExistingPanel() { if (document.getElementById("v93DeveloperPreview")) { authorized = true; watch(); } }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", resumeExistingPanel, { once: true }); else resumeExistingPanel();
 })(window, document);

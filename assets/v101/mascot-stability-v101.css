@@ -1,0 +1,8 @@
+/* V101: the decoded static mascot is the permanent visual source of truth. */
+.v95-mascot{opacity:1;visibility:visible;transform-origin:center bottom}
+.v95-sprite-stack>.v95-sprite-fallback,.v95-mascot.has-loaded-sprite .v95-sprite-stack>.v95-sprite-fallback{opacity:1}
+.v95-sprite-stack>.v95-sprite,.v95-mascot.has-loaded-sprite .v95-sprite-stack>.v95-sprite{opacity:0}
+.v95-mascot[data-v95-runtime-state="error"] .v95-sprite-fallback{opacity:1;visibility:visible}
+.v95-mascot[data-v95-runtime-state="error"] .v95-sprite{display:none}
+.v95-level-2 .v95-character,.v95-level-3 .v95-character,.v95-level-4 .v95-character,.v95-level-5 .v95-character,.v95-level-6 .v95-character,.v95-level-7 .v95-character,.v95-level-8 .v95-character{opacity:1;visibility:visible}
+@media(prefers-reduced-motion:reduce){.v95-level-2 .v95-character,.v95-level-3 .v95-character,.v95-level-4 .v95-character,.v95-level-5 .v95-character,.v95-level-6 .v95-character,.v95-level-7 .v95-character,.v95-level-8 .v95-character{animation:none!important;transform:none!important}}

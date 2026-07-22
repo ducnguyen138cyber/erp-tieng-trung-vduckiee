@@ -378,6 +378,8 @@
     clearNodeAnimation(node);
     node.classList.add("is-" + state);
     node.setAttribute("data-v95-state", state);
+    node.setAttribute("data-v95-requested-state", state);
+    node.setAttribute("data-v95-runtime-state", state === "idle" ? "idle" : state);
     var duration = Number(options.duration || DURATIONS[state] || 800);
     if (state !== "idle") {
       var timer = root.setTimeout(function () {
@@ -386,6 +388,9 @@
         ANIMATION_CLASSES.forEach(function (className) { node.classList.remove(className); });
         node.classList.add("is-idle");
         node.setAttribute("data-v95-state", "idle");
+        node.setAttribute("data-v95-requested-state", "idle");
+        node.setAttribute("data-v95-resolved-state", "idle");
+        node.setAttribute("data-v95-runtime-state", "idle");
       }, duration);
       animationTimers.set(node, timer);
     }

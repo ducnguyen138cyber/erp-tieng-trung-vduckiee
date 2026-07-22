@@ -15,16 +15,22 @@
   });
   function normalizedLevel(value) { return Math.max(1, Math.min(10, Math.floor(Number(value || 1)))); }
   function resolve(query) {
-    var resolved = base.resolve(query || {});
+    query = query || {};
+    var requestedState = String(query.state || "idle");
+    var resolved = base.resolve(query);
     var level = normalizedLevel(resolved && resolved.level || query && query.level);
     var fallback = FALLBACKS[level] || resolved.fallbackAsset || base.getLevel(level).defaultAsset;
     return Object.freeze(Object.assign({}, resolved, {
       fallbackAsset: fallback,
+      requestedState: requestedState,
+      resolvedState: resolved.state || "idle",
+      usedFallback: !resolved.asset,
+      isValid: !!(resolved.asset || fallback),
       candidates: Object.freeze([resolved.asset, fallback, base.getLevel(level).defaultAsset].filter(function (asset, index, list) { return !!asset && list.indexOf(asset) === index; }))
     }));
   }
   var levels = Object.assign({}, base.levels);
   Object.keys(FALLBACKS).forEach(function (level) { levels[level] = Object.freeze(Object.assign({}, levels[level], { fallbackAsset: FALLBACKS[level] })); });
   levels = Object.freeze(levels);
-  root.VDuckieMascotManifest = Object.freeze(Object.assign({}, base, { version: "100.0", levels: levels, fallbacks: FALLBACKS, resolve: resolve, getLevel: function (level) { return levels[normalizedLevel(level)]; } }));
+  root.VDuckieMascotManifest = Object.freeze(Object.assign({}, base, { version: "101.0", levels: levels, fallbacks: FALLBACKS, resolve: resolve, resolveMascotAsset: resolve, getLevel: function (level) { return levels[normalizedLevel(level)]; } }));
 })(window);

@@ -148,7 +148,7 @@
     else visual = fullSkinMarkup(resolved, stage, size === "compact" || size === "tiny" ? "lazy" : "eager");
 
     var style = "--v95-origin:" + esc(motion.transformOrigin) + ";--v95-accent-x:" + esc(motion.accentX) + ";--v95-accent-y:" + esc(motion.accentY) + ";";
-    return '<button type="button" class="' + classes.join(" ") + '" style="' + style + '" data-v95-mascot data-v94-avatar data-v95-level="' + stage.level + '" data-v95-state="' + esc(state) + '" data-v95-render-mode="' + esc(resolved.renderMode) + '" data-v95-resolved-asset="' + esc(resolved.asset || '') + '" data-v95-fallback-asset="' + esc(resolved.fallbackAsset || stage.fallbackAsset || stage.defaultAsset || '') + '" data-v95-load-status="loading" data-v95-using-fallback="' + (resolved.renderMode === "sprite" ? "true" : "false") + '" data-v95-missing-combination="' + (resolved.missingCombination ? "true" : "false") + '" aria-label="VDuckie Level ' + stage.level + ': ' + esc(stage.name) + '. Chạm để xem suy nghĩ" aria-expanded="false">' +
+    return '<button type="button" class="' + classes.join(" ") + '" style="' + style + '" data-v95-mascot data-v94-avatar data-v95-level="' + stage.level + '" data-v95-state="' + esc(state) + '" data-v95-requested-state="' + esc(resolved.requestedState || state) + '" data-v95-resolved-state="' + esc(resolved.resolvedState || resolved.state || "idle") + '" data-v95-runtime-state="loading" data-v95-animation-ready="false" data-v95-render-mode="' + esc(resolved.renderMode) + '" data-v95-resolved-asset="' + esc(resolved.asset || '') + '" data-v95-fallback-asset="' + esc(resolved.fallbackAsset || stage.fallbackAsset || stage.defaultAsset || '') + '" data-v95-load-status="loading" data-v95-using-fallback="true" data-v95-missing-combination="' + (resolved.missingCombination ? "true" : "false") + '" aria-label="VDuckie Level ' + stage.level + ': ' + esc(stage.name) + '. Chạm để xem suy nghĩ" aria-expanded="false">' +
       backgroundMarkup(background) +
       '<span class="v95-character"><span class="v95-visual">' + visual + '</span><span class="v95-motion-accent" aria-hidden="true"></span><span class="v95-fallback-symbol" aria-hidden="true">' + esc(stage.symbol) + '</span></span>' +
       effectMarkup(effect) +
@@ -211,12 +211,12 @@
       function loaded() {
         image.classList.add("is-loaded");
         var mascot = image.closest && image.closest("[data-v95-mascot]");
-        if (mascot) { mascot.classList.add("has-loaded-asset"); if (!image.hasAttribute("data-v95-fallback-asset")) mascot.setAttribute("data-v95-load-status", "loaded"); }
+        if (mascot) { mascot.classList.add("has-loaded-asset"); mascot.setAttribute("data-v95-runtime-state", "ready"); if (!image.hasAttribute("data-v95-fallback-asset")) mascot.setAttribute("data-v95-load-status", "loaded"); }
       }
       function failed() {
         image.hidden = true;
         var mascot = image.closest && image.closest("[data-v95-mascot]");
-        if (mascot) { mascot.classList.add("has-missing-asset"); mascot.setAttribute("data-v95-load-status", "failed"); }
+        if (mascot) { mascot.classList.add("has-missing-asset"); mascot.setAttribute("data-v95-load-status", "failed"); mascot.setAttribute("data-v95-runtime-state", "error"); }
       }
       image.addEventListener("load", loaded, { once: true });
       image.addEventListener("error", failed, { once: true });
@@ -237,12 +237,12 @@
       function loaded() {
         if (settled) return;
         settled = true; root.clearTimeout(timeout);
-        if (mascot) { mascot.classList.add("has-loaded-sprite"); mascot.classList.remove("has-missing-asset"); mascot.setAttribute("data-v95-load-status", "loaded"); mascot.setAttribute("data-v95-using-fallback", "false"); }
+        if (mascot) { mascot.classList.add("has-decoded-sprite"); mascot.classList.remove("has-missing-asset"); mascot.setAttribute("data-v95-load-status", "loaded"); mascot.setAttribute("data-v95-runtime-state", "ready"); mascot.setAttribute("data-v95-animation-ready", "false"); mascot.setAttribute("data-v95-using-fallback", "true"); }
       }
       function failed(reason) {
         if (settled) return;
         settled = true; root.clearTimeout(timeout); element.hidden = true;
-        if (mascot) { mascot.classList.add("has-sprite-fallback"); mascot.setAttribute("data-v95-load-status", "failed"); mascot.setAttribute("data-v95-using-fallback", "true"); }
+        if (mascot) { mascot.classList.add("has-sprite-fallback"); mascot.setAttribute("data-v95-load-status", "failed"); mascot.setAttribute("data-v95-runtime-state", "error"); mascot.setAttribute("data-v95-animation-ready", "false"); mascot.setAttribute("data-v95-using-fallback", "true"); }
         if (root.location && /^(localhost|127\.0\.0\.1)$/.test(root.location.hostname) && root.console && console.warn) console.warn("VDuckie sprite fallback", source, reason || "load-error");
       }
       image.onload = loaded; image.onerror = failed; image.decoding = "async"; image.src = source;
