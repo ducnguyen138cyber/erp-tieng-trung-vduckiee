@@ -1,0 +1,37 @@
+(function(root,document){
+  "use strict";
+  if(root.__VDUCKIE_POLISH_V106__)return;
+  root.__VDUCKIE_POLISH_V106__=true;
+  var manifest=root.VDuckieMascotManifest,renderer=root.VDuckieMascot,store=root.VDuckieProgressStore;
+  var reduced=root.matchMedia&&root.matchMedia("(prefers-reduced-motion: reduce)");
+  var lastLevel=store&&store.getSnapshot?Number(store.getSnapshot().level||1):1;
+  var preloadImages=[],timers=[],raf=0,audio=null,activeCinematic=null,parallaxHost=null;
+  function later(fn,delay){var id=root.setTimeout(function(){var index=timers.indexOf(id);if(index>=0)timers.splice(index,1);fn()},delay);timers.push(id);return id}
+  function safeLevel(value){return Math.max(1,Math.min(10,Math.floor(Number(value||1))))}
+  function assetFor(level){var result=manifest&&manifest.resolve?manifest.resolve({level:safeLevel(level),state:"idle"}):null;return result&&(result.asset||result.fallbackAsset)||""}
+  function preload(level){
+    preloadImages.length=0;[safeLevel(level),safeLevel(level+1)].filter(function(value,index,list){return list.indexOf(value)===index}).forEach(function(value){var src=assetFor(value);if(!src)return;var image=new Image();image.decoding="async";image.src=src;preloadImages.push(image)});
+  }
+  function ensureAudio(){if(audio)return audio;var AudioContext=root.AudioContext||root.webkitAudioContext;if(!AudioContext)return null;try{audio=new AudioContext()}catch(error){return null}return audio}
+  function tone(kind){
+    var ctx=audio;if(!ctx||ctx.state!=="running")return;var map={hover:[520,.025,.045],click:[390,.03,.05],unlock:[660,.05,.16],"level-up":[740,.055,.28],"correct-answer":[620,.04,.12],"wrong-answer":[240,.025,.13],"pronunciation-wrong":[290,.025,.14]};var spec=map[kind]||map.click,now=ctx.currentTime,osc=ctx.createOscillator(),gain=ctx.createGain();osc.type="sine";osc.frequency.setValueAtTime(spec[0],now);if(kind==="level-up"||kind==="unlock")osc.frequency.exponentialRampToValueAtTime(spec[0]*1.35,now+spec[2]);gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(spec[1],now+.018);gain.gain.exponentialRampToValueAtTime(.0001,now+spec[2]);osc.connect(gain).connect(ctx.destination);osc.start(now);osc.stop(now+spec[2]+.02);
+  }
+  function unlockAudio(){var ctx=ensureAudio();if(ctx&&ctx.state==="suspended")ctx.resume().catch(function(){})}
+  function unlockedOutfit(level){if(!manifest||!manifest.getItems)return null;var items=manifest.getItems("outfit");for(var i=0;i<items.length;i+=1)if(Number(items[i].minimumLevel||0)===Number(level))return items[i];return null}
+  function mascotMarkup(level,className){if(!renderer||!renderer.render)return"";return '<div class="'+className+'">'+renderer.render({level:safeLevel(level),animationState:"idle",size:"large",previewMode:true})+'</div>'}
+  function closeCinematic(){if(!activeCinematic)return;var node=activeCinematic;activeCinematic=null;node.classList.add("is-closing");later(function(){if(node.parentNode)node.parentNode.removeChild(node)},260)}
+  function cinematic(fromLevel,toLevel,preview){
+    if(activeCinematic)closeCinematic();var gift=unlockedOutfit(toLevel),host=document.createElement("div");host.className="v106-cinematic";host.setAttribute("role","status");host.setAttribute("aria-live","polite");host.innerHTML='<section class="v106-cinematic-stage"><div class="v106-cinematic-progress"><i></i></div><p class="v106-cinematic-copy">Level '+safeLevel(fromLevel)+' → Level '+safeLevel(toLevel)+(preview?' · Preview':'')+'</p><div class="v106-cinematic-sparkles" aria-hidden="true"></div><div class="v106-cinematic-mascots">'+mascotMarkup(fromLevel,"v106-cinematic-old")+mascotMarkup(toLevel,"v106-cinematic-new")+'</div><p class="v106-cinematic-thought"><strong>谢谢你陪我成长。</strong><span>(Cảm ơn vì đã cùng tôi trưởng thành.)</span></p>'+(gift?'<span class="v106-unlock-gift"><b>🎁</b>Mở khóa: '+String(gift.name||"Trang phục")+'</span>':'')+'</section>';document.body.appendChild(host);activeCinematic=host;if(renderer&&renderer.hydrate)renderer.hydrate(host);tone("level-up");if(gift)later(function(){tone("unlock")},2300);later(closeCinematic,reduced&&reduced.matches?1800:4300);
+  }
+  function onProgress(event){var next=safeLevel(event&&event.detail&&event.detail.level||lastLevel);preload(next);if(next>lastLevel)cinematic(lastLevel,next,false);lastLevel=next}
+  function onDeveloper(event){var detail=event&&event.detail||{};if(detail.requestedState==="level-up"||detail.button==="level-up"){var level=safeLevel(detail.level||lastLevel);cinematic(level,Math.min(10,level+1),true)}}
+  function onMascotEvent(event){var name=event&&event.detail&&event.detail.event;if(name)tone(name)}
+  function onPointerEnter(event){var mascot=event.target;if(mascot&&mascot.matches&&mascot.matches("[data-v95-mascot]"))tone("hover")}
+  function onClick(event){unlockAudio();if(event.target&&event.target.closest&&event.target.closest("button"))tone("click")}
+  function parallax(event){
+    if(reduced&&reduced.matches)return;var host=event.target&&event.target.closest&&event.target.closest(".v92-evolution-visual");if(!host)return;parallaxHost=host;var rect=host.getBoundingClientRect(),x=Math.max(-1,Math.min(1,(event.clientX-rect.left)/rect.width*2-1)),y=Math.max(-1,Math.min(1,(event.clientY-rect.top)/rect.height*2-1));if(raf)root.cancelAnimationFrame(raf);raf=root.requestAnimationFrame(function(){raf=0;var mascot=host.querySelector("[data-v95-mascot]");if(!mascot)return;mascot.style.setProperty("--v106-tilt-x",(x*1.1).toFixed(2)+"deg");mascot.style.setProperty("--v106-tilt-y",(-y*.8).toFixed(2)+"deg");mascot.style.setProperty("--v106-bubble-x",(-x*3).toFixed(1)+"px");mascot.style.setProperty("--v106-bubble-y",(-y*1.5).toFixed(1)+"px");mascot.style.setProperty("--v106-bg-x",(-x*2).toFixed(1)+"px");mascot.style.setProperty("--v106-bg-y",(-y*1.5).toFixed(1)+"px")})
+  }
+  function resetParallax(event){var host=event.target;if(!host||!host.matches||!host.matches(".v92-evolution-visual"))return;var mascot=host.querySelector("[data-v95-mascot]");if(mascot)["--v106-tilt-x","--v106-tilt-y","--v106-bubble-x","--v106-bubble-y","--v106-bg-x","--v106-bg-y"].forEach(function(name){mascot.style.removeProperty(name)});if(parallaxHost===host)parallaxHost=null}
+  function destroy(){["vduckie:progress-updated","vduckie:developer-animation-test","vduckie:mascot-event"].forEach(function(name,index){document.removeEventListener(name,[onProgress,onDeveloper,onMascotEvent][index])});document.removeEventListener("pointerenter",onPointerEnter,true);document.removeEventListener("pointermove",parallax,true);document.removeEventListener("pointerleave",resetParallax,true);document.removeEventListener("click",onClick,true);timers.forEach(root.clearTimeout);timers.length=0;if(raf)root.cancelAnimationFrame(raf);if(audio)audio.close().catch(function(){});preloadImages.length=0;if(activeCinematic&&activeCinematic.parentNode)activeCinematic.parentNode.removeChild(activeCinematic);activeCinematic=null}
+  document.addEventListener("vduckie:progress-updated",onProgress);document.addEventListener("vduckie:developer-animation-test",onDeveloper);document.addEventListener("vduckie:mascot-event",onMascotEvent);document.addEventListener("pointerenter",onPointerEnter,true);document.addEventListener("pointermove",parallax,true);document.addEventListener("pointerleave",resetParallax,true);document.addEventListener("click",onClick,true);preload(lastLevel);root.VDuckiePolishV106=Object.freeze({version:"106.0",preload:preload,cinematic:cinematic,destroy:destroy});
+})(window,document);
