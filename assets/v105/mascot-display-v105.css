@@ -1,0 +1,18 @@
+/* V105: larger, roomier 16:9 mascot stage without changing renderer or animation state. */
+.v92-evolution-card{width:100%;grid-template-columns:minmax(0,.9fr) minmax(480px,1.1fr);gap:24px;padding:24px;overflow:visible}
+.v92-evolution-visual{width:100%;min-width:0;min-height:390px;padding:14px 18px 10px;overflow:visible}
+.v92-evolution-visual .v95-mascot{width:min(100%,640px);max-height:360px;overflow:visible}
+.v95-size-large{--v95-size:290px;max-height:360px}
+.v95-size-medium{--v95-size:223px;max-height:250px}
+.v95-size-compact{--v95-size:140px;max-height:200px}
+.v95-size-tiny{--v95-size:95px;max-height:120px}
+.v95-character,.v95-visual,.v92-stage-card-visual,.v95-wardrobe-preview,.v95-levelup-content{overflow:visible}
+.v92-stage-card{grid-template-columns:148px minmax(0,1fr) 28px;padding:14px}
+.v92-stage-card-visual{height:132px;padding:8px}
+.v92-stage-card .v95-mascot{width:min(100%,224px);max-height:126px}
+.v95-wardrobe-preview{padding:24px}.v95-wardrobe-preview .v95-mascot{--v95-size:350px;max-height:360px}
+.v95-levelup-content .v95-mascot{--v95-size:300px;max-height:360px}
+@media(max-width:1180px){.v92-evolution-card{grid-template-columns:minmax(0,1fr) minmax(390px,.9fr)}.v92-evolution-visual{min-height:330px}.v92-evolution-visual .v95-mascot{max-height:310px}}
+@media(max-width:900px){.v92-evolution-card{grid-template-columns:1fr;padding:20px}.v92-evolution-visual{order:-1;min-height:290px;padding:12px}.v92-evolution-visual .v95-mascot{width:min(100%,520px);max-height:292px}}
+@media(max-width:700px){.v92-evolution-card{padding:16px}.v92-evolution-visual{min-height:220px;padding:8px 4px}.v92-evolution-visual .v95-mascot{width:min(100%,390px);max-height:220px}.v95-size-large{--v95-size:238px;max-height:220px}.v95-size-medium{--v95-size:190px;max-height:190px}.v95-size-compact{--v95-size:126px;max-height:160px}.v92-stage-card{grid-template-columns:112px minmax(0,1fr) 22px}.v92-stage-card-visual{height:104px;padding:5px}.v92-stage-card .v95-mascot{max-height:96px}.v95-wardrobe-preview{padding:12px}.v95-wardrobe-preview .v95-mascot{--v95-size:238px;max-height:220px}}
+@media(max-width:390px){.v92-evolution-visual .v95-mascot{width:min(100%,340px);max-height:192px}.v95-size-large{--v95-size:214px;max-height:192px}.v95-size-compact{--v95-size:118px;max-height:148px}}
