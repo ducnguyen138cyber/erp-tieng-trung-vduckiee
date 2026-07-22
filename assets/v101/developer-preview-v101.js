@@ -31,7 +31,7 @@
     }
     var data = details(node);
     var fallbackReason = data.fallbackActive === "true" ? "animation asset unavailable; static fallback retained" : "none";
-    var extra = 'Button: ' + lastTest.button + '<br>Requested/resolved: ' + data.requestedState + ' / ' + data.resolvedState + '<br>Mode: ' + data.renderMode + ' · class: ' + data.animationClass + ' · duration: ' + data.duration + ' ms<br>Asset: <code>' + data.asset + '</code><br>Runtime: ' + data.runtimeState + ' · animation ready: ' + data.animationReady + '<br>Image: ' + data.imageLoaded + ' · fallback: ' + data.fallbackActive + ' (' + fallbackReason + ')<br>Opacity: ' + data.opacity + ' · visibility: ' + data.visibility + (lastTest.note ? '<br><em>' + lastTest.note + '</em>' : '');
+    var extra = 'Event: ' + lastTest.button + '<br>Requested/resolved: ' + data.requestedState + ' / ' + data.resolvedState + '<br>Mode: ' + data.renderMode + ' · class: ' + data.animationClass + ' · duration: ' + data.duration + ' ms<br>Queue: ' + (lastTest.queueStatus || 'empty') + ' · cooldown: ' + (lastTest.cooldownStatus || 'ready') + '<br>Asset: <code>' + data.asset + '</code><br>Runtime: ' + data.runtimeState + ' · animation ready: ' + data.animationReady + '<br>Image: ' + data.imageLoaded + ' · fallback: ' + data.fallbackActive + ' (' + fallbackReason + ')<br>Opacity: ' + data.opacity + ' · visibility: ' + data.visibility + (lastTest.note ? '<br><em>' + lastTest.note + '</em>' : '');
     var detailsNode = status.querySelector("[data-v101-details]"); if (detailsNode.innerHTML !== extra) detailsNode.innerHTML = extra;
     var signature = JSON.stringify(data);
     if (signature !== lastLog && root.console && console.debug) { lastLog = signature; console.debug("VDuckie runtime", data); }

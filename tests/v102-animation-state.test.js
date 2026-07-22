@@ -19,7 +19,7 @@ test("one shared state vocabulary drives preview, renderer and CSS", () => {
 test("six Developer Preview buttons map to six distinct requested states", () => {
   const preview = read("assets/v93/developer-preview-v93.js");
   const evolution = read("assets/v95/vduckie-evolution-v95.js");
-  for (const state of ["level-up", "egg-hatching", "success", "sad", "hover", "glow"]) {
+  for (const state of ["level-up", "egg-hatching", "correct-answer", "wrong-answer", "hover", "streak-lost"]) {
     assert.match(preview, new RegExp(`data-v93-test="${state}"`));
   }
   assert.match(preview, /bridge\.test\(test\.getAttribute\("data-v93-test"\)\)/);
@@ -54,7 +54,7 @@ test("hatching is Level 1-only and pointer hover cannot override a test animatio
   const evolution = read("assets/v95/vduckie-evolution-v95.js");
   assert.match(evolution, /preview\.level = 1/);
   assert.match(evolution, /Egg Hatching chỉ áp dụng cho Level 1/);
-  assert.match(evolution, /playNode\(mascotNode, "hover", \{ force: false \}\)/);
+  assert.match(evolution, /requestMascotEvent\("hover", \{ force:false \}\)/);
   assert.match(evolution, /state !== current && PRIORITIES\[state\] < \(PRIORITIES\[current\]/);
 });
 

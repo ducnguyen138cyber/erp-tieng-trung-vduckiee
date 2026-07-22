@@ -44,6 +44,11 @@
   var authorizationRequest = 0;
   var developerBridge = null;
   var animationTimers = new Map();
+  var eventQueue = [];
+  var eventCooldownUntil = Object.create(null);
+  var eventReleaseTimer = null;
+  var pointerInsideMascot = false;
+  var pointerResetTimer = null;
   var preview = { active: false, level: 1, eggProgress: 50, wardrobe: mascot ? mascot.defaults() : {}, developer: false };
 
   var stateConfig = root.VDuckieMascotStates || {};
@@ -369,7 +374,9 @@
       requestedState: requested,
       resolvedState: resolved,
       level: Number(node && node.getAttribute("data-v95-level") || displayLevel()),
-      note: note || ""
+      note: note || "",
+      queueStatus: eventQueue.length ? eventQueue.map(function(item){return item.event}).join(", ") : "empty",
+      cooldownStatus: eventCooldownUntil[resolved] > Date.now() ? "active" : "ready"
     } }));
   }
 
@@ -424,6 +431,50 @@
     var played = false;
     nodes.forEach(function (node) { if (playNode(node, name, options)) played = true; });
     return played;
+  }
+
+  function eventThought(textZh, textVi) {
+    var node = card && card.querySelector("[data-v95-mascot]") || document.querySelector("[data-v95-mascot]");
+    if (!node) return;
+    closeThought(node);
+    var zh = node.querySelector("[data-v95-thought-zh]"), vi = node.querySelector("[data-v95-thought-vi]");
+    if (zh) zh.textContent = textZh;
+    if (vi) vi.textContent = "(" + textVi + ")";
+    node.classList.add("is-thinking"); node.setAttribute("aria-expanded", "true"); activeThought = node;
+    root.requestAnimationFrame(function(){positionThought(node)});
+    thoughtTimer = root.setTimeout(function(){if(activeThought===node)closeThought()}, 2600);
+  }
+
+  function drainEventQueue() {
+    eventReleaseTimer = null;
+    if (!eventQueue.length) return;
+    var next = eventQueue.shift();
+    requestMascotEvent(next.event, Object.assign({}, next.options, { fromQueue:true }));
+  }
+
+  function requestMascotEvent(eventName, options) {
+    options = options || {};
+    var state = normalizedAnimation(eventName), now = Date.now();
+    if (PRIORITIES[state] == null) return false;
+    var cooldown = Number(stateConfig.cooldowns && stateConfig.cooldowns[state] || 0);
+    if (!options.force && !options.fromQueue && eventCooldownUntil[state] > now) {
+      reportDeveloperAnimation(eventName, state, "Cooldown đang hoạt động."); return false;
+    }
+    var node = card && card.querySelector("[data-v95-mascot]") || document.querySelector("[data-v95-mascot]");
+    var current = normalizedAnimation(node && node.getAttribute("data-v95-state") || "idle");
+    if (!options.force && state !== "hover" && PRIORITIES[current] > PRIORITIES[state]) {
+      if (!eventQueue.some(function(item){return item.event===eventName})) eventQueue.push({event:eventName,options:options});
+      reportDeveloperAnimation(eventName, state, "Đang chờ animation ưu tiên cao hơn."); return false;
+    }
+    if (eventReleaseTimer) root.clearTimeout(eventReleaseTimer);
+    var played = play(state, { force:!!options.force });
+    if (!played) return false;
+    if (cooldown) eventCooldownUntil[state] = now + cooldown;
+    if (state === "pronunciation-wrong") eventThought("再试一次。", "Thử lại lần nữa.");
+    var duration = Number(DURATIONS[state] || 800);
+    eventReleaseTimer = root.setTimeout(drainEventQueue, duration + 30);
+    reportDeveloperAnimation(eventName, state, options.note || "");
+    return true;
   }
 
   function playAfterRender(name, options) {
@@ -488,18 +539,29 @@
       if (boundMascotTriggers) boundMascotTriggers.add(node);
       node.addEventListener("pointerenter", function (event) {
         if (event.pointerType === "touch" || event.pointerType === "pen") return;
+        if (pointerResetTimer) { root.clearTimeout(pointerResetTimer); pointerResetTimer = null; }
         if (thoughtCloseTimer) { root.clearTimeout(thoughtCloseTimer); thoughtCloseTimer = null; }
-        if (openThought(node)) playNode(node, "hover", { force: false });
+        if (pointerInsideMascot) return;
+        pointerInsideMascot = true;
+        openThought(node);
+        requestMascotEvent("hover", { force:false });
       });
       node.addEventListener("pointerleave", function (event) {
         if (event.pointerType === "touch" || event.pointerType === "pen") return;
         scheduleThoughtClose(node);
+        if (pointerResetTimer) root.clearTimeout(pointerResetTimer);
+        var x = event.clientX, y = event.clientY;
+        pointerResetTimer = root.setTimeout(function(){
+          var under = document.elementFromPoint && document.elementFromPoint(x,y);
+          if (!(under && under.closest && under.closest("[data-v95-mascot]"))) pointerInsideMascot = false;
+          pointerResetTimer = null;
+        }, 80);
       });
       node.addEventListener("pointerup", function (event) {
         if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
         event.preventDefault();
         if (activeThought === node && node.classList.contains("is-thinking")) closeThought();
-        else { openThought(node); playNode(node, "tap", { force: true }); }
+        else { openThought(node); requestMascotEvent("hover", { force:true }); }
       });
     });
   }
@@ -626,6 +688,12 @@
     }
     reportDeveloperAnimation("egg-hatching", "hatching", "Egg Hatching chỉ áp dụng cho Level 1; preview đã chuyển sang Level 1.");
     playAfterRender("hatching", { force: true });
+    root.setTimeout(function(){
+      if (!preview.active || preview.level !== 1) return;
+      preview.eggProgress = 100;
+      refreshDisplaySnapshot();
+      root.setTimeout(function(){requestMascotEvent("hover", { force:true, note:"VDuckie sơ sinh đã xuất hiện." })}, 80);
+    }, 1120);
     return true;
   }
 
@@ -711,9 +779,8 @@
         reportDeveloperAnimation(name, resolvedName);
         if (name === "level-up") { playAfterRender("level-up", { force: true }); showLevelUpModal(); return true; }
         if (name === "thought") return testThought();
-        if (name === "tap") return play("tap", { force: true });
-        if (name === "outfit-change" || name === "outfit-check") return play("outfit-change", { force: true });
-        return play(name, { force: true });
+        if (name === "idle") return play("idle", { force:true });
+        return requestMascotEvent(name, { force:true });
       },
       getState: function () { bridgeGuard(); return developerState(); },
       getCatalog: function () {
@@ -790,7 +857,7 @@
     var mascotNode = event.target.closest && event.target.closest("[data-v95-mascot]");
     if (mascotNode) {
       openThought(mascotNode);
-      playNode(mascotNode, "hover", { force: false });
+      requestMascotEvent("hover", { force:false });
       return;
     }
     var item = event.target.closest && event.target.closest("[data-v95-item-code]");
@@ -808,9 +875,10 @@
 
   function onVisibilityChange() { document.documentElement.classList.toggle("v95-page-hidden", document.hidden); }
   function onResize() { if (activeThought) positionThought(activeThought); }
-  function onExpUpdated(event) { if (event.detail && event.detail.awarded) root.setTimeout(function () { play("success", { force: true }); }, 90); }
-  function onSuccess() { play("success", { force: true }); }
-  function onSad() { play("sad", { force: true }); }
+  function onExpUpdated(event) { if (event.detail && event.detail.awarded) root.setTimeout(function () { requestMascotEvent("correct-answer"); }, 90); }
+  function onSuccess() { requestMascotEvent("correct-answer"); }
+  function onSad() { requestMascotEvent("wrong-answer"); }
+  function onMascotEvent(event) { if (event && event.detail && event.detail.event) requestMascotEvent(event.detail.event, event.detail.options || {}); }
 
   function bind() {
     if (bound) return;
@@ -822,6 +890,7 @@
     document.addEventListener("vduckie:exp-updated", onExpUpdated);
     document.addEventListener("vduckie:evolution-success", onSuccess);
     document.addEventListener("vduckie:evolution-sad", onSad);
+    document.addEventListener("vduckie:mascot-event", onMascotEvent);
     root.addEventListener("resize", onResize, { passive: true });
   }
 
@@ -835,6 +904,7 @@
     document.removeEventListener("vduckie:exp-updated", onExpUpdated);
     document.removeEventListener("vduckie:evolution-success", onSuccess);
     document.removeEventListener("vduckie:evolution-sad", onSad);
+    document.removeEventListener("vduckie:mascot-event", onMascotEvent);
     root.removeEventListener("resize", onResize);
   }
 
@@ -880,6 +950,9 @@
     cancelWardrobeSwap();
     animationTimers.forEach(function (timer) { root.clearTimeout(timer); });
     animationTimers.clear();
+    if (eventReleaseTimer) root.clearTimeout(eventReleaseTimer);
+    if (pointerResetTimer) root.clearTimeout(pointerResetTimer);
+    eventQueue.length = 0;
     if (unsubscribeProgress) unsubscribeProgress();
     if (unsubscribeCustomization) unsubscribeCustomization();
     if (unsubscribeSession) unsubscribeSession();
@@ -892,6 +965,7 @@
     open: openOverlay,
     close: closeOverlay,
     play: play,
+    emit: requestMascotEvent,
     showThought: function () { return testThought(); },
     getStage: function () { return stageFor((snapshot || progressStore.getSnapshot()).level); },
     getSelection: function () { return Object.freeze(selectionForDisplay()); },

@@ -53,7 +53,7 @@ test("bubble state is separate from mascot animation state", () => {
 test("production keeps V101 stability and loads V102 animation runtime", () => {
   const index = read("index.html");
   assert.match(index, /mascot-stability-v101\.css\?v=101\.0/);
-  assert.match(index, /developer-preview-v101\.js\?v=102\.0/);
-  assert.match(index, /vduckie-mascot-v95\.js\?v=102\.0/);
+  assert.match(index, /developer-preview-v101\.js\?v=103\.0/);
+  assert.match(index, /vduckie-mascot-v95\.js\?v=103\.0/);
   assert.match(index, /sprite-runtime-v102\.css\?v=102\.0/);
 });

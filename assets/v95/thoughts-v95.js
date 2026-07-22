@@ -4,6 +4,8 @@
 
   var DATA = Object.freeze({
     1: Object.freeze([
+      { id: "lv1-00a", zh: "这是哪里？", vi: "Đây là đâu vậy?" },
+      { id: "lv1-00b", zh: "我出生了！", vi: "Tôi nở rồi!" },
       { id: "lv1-01", zh: "我要出生啦！", vi: "Tôi sắp chào đời rồi!" },
       { id: "lv1-02", zh: "外面的世界是什么样？", vi: "Thế giới bên ngoài trông như thế nào nhỉ?" },
       { id: "lv1-03", zh: "再努力一点点！", vi: "Cố thêm một chút nữa nào!" },
@@ -17,6 +19,7 @@
     ]),
     2: Object.freeze([
       { id: "lv2-01", zh: "今天学什么？", vi: "Hôm nay học gì nhỉ?" },
+      { id: "lv2-00", zh: "我要快快长大！", vi: "Tôi muốn lớn thật nhanh!" },
       { id: "lv2-02", zh: "我会认真听课。", vi: "Tôi sẽ chăm chú nghe bài." },
       { id: "lv2-03", zh: "这个汉字真有意思！", vi: "Chữ Hán này thú vị thật!" },
       { id: "lv2-04", zh: "再学十个词吧。", vi: "Học thêm mười từ nữa nhé." },

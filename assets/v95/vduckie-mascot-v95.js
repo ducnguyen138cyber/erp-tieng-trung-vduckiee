@@ -61,14 +61,14 @@
     return selection;
   }
 
-  function resolveAsset(level, selection, state, allowIncompatible) {
+  function resolveAsset(level, selection, state, allowIncompatible, extra) {
     var normalized = resolveSelection(level, selection, allowIncompatible);
-    return manifest.resolve({
+    return manifest.resolve(Object.assign({
       level: level,
       outfit: normalized.outfit,
       accessory: normalized.accessory,
       state: state || "idle"
-    });
+    }, extra || {}));
   }
 
   function eggMarkup(progressPercent) {
@@ -128,7 +128,8 @@
     var stage = getStage(options.level);
     var selection = resolveSelection(stage.level, options.selectedItems, !!options.allowIncompatible);
     var state = manifest.states.indexOf(options.animationState) >= 0 ? options.animationState : "idle";
-    var resolved = resolveAsset(stage.level, selection, state, !!options.allowIncompatible);
+    var hatched = stage.level === 1 && Number(options.progressPercent || 0) >= 100;
+    var resolved = resolveAsset(stage.level, selection, state, !!options.allowIncompatible, { hatched: hatched });
     var background = getItem("background", selection.background);
     var effect = getItem("effect", selection.effect);
     var motion = manifest.motion[stage.level] || manifest.motion[1];
@@ -140,14 +141,16 @@
       "v95-profile-" + motion.profile,
       "is-" + state
     ];
-    if (stage.level === 1) classes.push("is-egg");
+    if (stage.level === 1 && !hatched) classes.push("is-egg");
+    if (hatched) classes.push("v103-is-newborn");
+    if (Number(resolved.frameAspect || 0) > 1.5) classes.push("v103-wide-sprite");
     if (options.previewMode) classes.push("is-preview");
     if (resolved.missingCombination) classes.push("has-missing-combination");
     if (effect && effect.code !== "none") classes.push("has-effect-" + effect.code);
     if (background) classes.push("has-background-" + background.code);
 
     var visual;
-    if (stage.level === 1 || resolved.renderMode === "css-egg") visual = eggMarkup(options.progressPercent);
+    if (stage.level === 1 && resolved.renderMode !== "sprite" || resolved.renderMode === "css-egg") visual = eggMarkup(options.progressPercent);
     else if (resolved.renderMode === "sprite") visual = spriteMarkup(resolved, stage);
     else if (resolved.renderMode === "lottie") visual = lottieMarkup(resolved, stage);
     else visual = fullSkinMarkup(resolved, stage, size === "compact" || size === "tiny" ? "lazy" : "eager");

@@ -32,12 +32,18 @@
       '<p class="v93-dev-note">EXP, Level và dữ liệu Supabase thật không thay đổi.</p>' +
       '<div class="v93-dev-open"><button type="button" data-v93-open="journey">Hành trình</button><button type="button" data-v93-open="wardrobe">Tủ đồ</button></div>' +
       '<div class="v93-dev-tests" aria-label="Kiểm thử animation">' +
-      '<button type="button" data-v93-test="level-up">Test Level Up</button>' +
-      '<button type="button" data-v93-test="egg-hatching">Test Egg Hatching</button>' +
-      '<button type="button" data-v93-test="success">Test Success</button>' +
-      '<button type="button" data-v93-test="sad">Test Sad</button>' +
+      '<button type="button" data-v93-test="idle">Test Idle</button>' +
       '<button type="button" data-v93-test="hover">Test Hover</button>' +
-      '<button type="button" data-v93-test="glow">Test Glow</button>' +
+      '<button type="button" data-v93-test="correct-answer">Test Correct Answer</button>' +
+      '<button type="button" data-v93-test="wrong-answer">Test Wrong Answer</button>' +
+      '<button type="button" data-v93-test="pronunciation-good">Test Pronunciation Good</button>' +
+      '<button type="button" data-v93-test="pronunciation-wrong">Test Pronunciation Wrong</button>' +
+      '<button type="button" data-v93-test="lesson-complete">Test Lesson Complete</button>' +
+      '<button type="button" data-v93-test="level-up">Test Level Up</button>' +
+      '<button type="button" data-v93-test="streak-increased">Test Streak Increased</button>' +
+      '<button type="button" data-v93-test="streak-lost">Test Streak Lost</button>' +
+      '<button type="button" data-v93-test="outfit-change">Test Outfit Change</button>' +
+      '<button type="button" data-v93-test="egg-hatching">Test Hatching</button>' +
       '</div>' +
       '<button type="button" class="v93-dev-real" data-v93-real>Dùng dữ liệu thật</button>' +
       '</div>';
