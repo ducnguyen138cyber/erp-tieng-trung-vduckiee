@@ -11,7 +11,7 @@ const manifestSource = read('assets/v95/mascot-manifest-v95.js');
 const mascotSource = read('assets/v95/vduckie-mascot-v95.js');
 const evolutionSource = read('assets/v95/vduckie-evolution-v95.js');
 const developerSource = read('assets/v95/developer-preview-v95.js');
-const css = read('assets/v95/vduckie-mascot-v95.css');
+const css = ['core','motion','layout'].map(part => read(`assets/v95/vduckie-mascot-${part}-v95.css`)).join('\n');
 const index = read('index.html');
 
 function loadBrowserModule(source) {
