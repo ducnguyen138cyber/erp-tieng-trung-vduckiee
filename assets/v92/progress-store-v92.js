@@ -8,6 +8,7 @@
   var listeners = [];
   var requestId = 0;
   var snapshot = null;
+  var progressMeta = null;
   var unsubscribeSession = null;
 
   function levelFromTotal(totalEXP) {
@@ -36,37 +37,60 @@
       a.expRequired === b.expRequired && a.progressPercent === b.progressPercent;
   }
 
-  function publish(next) {
-    if (same(snapshot, next)) return snapshot;
-    snapshot = next;
-    listeners.slice().forEach(function (listener) {
-      try { listener(snapshot); } catch (error) { console.error("VDuckie progress listener failed", error); }
-    });
-    document.dispatchEvent(new CustomEvent("vduckie:progress-updated", { detail: snapshot }));
-    return snapshot;
-  }
-
   function currentSession() {
     return core && typeof core.session === "function" ? core.session() : null;
   }
 
-  function setTotal(totalEXP, authenticated) {
-    return publish(buildSnapshot(totalEXP, authenticated));
+  function identityOf(session) {
+    var user = session && session.user;
+    return user && String(user.id || user.email || "") || "guest";
   }
 
-  function refresh() {
+  function buildMeta(options) {
+    options = options || {};
+    return Object.freeze({
+      source: String(options.source || "sync"),
+      hydrated: options.hydrated === true,
+      sessionIdentity: String(options.sessionIdentity || identityOf(currentSession()))
+    });
+  }
+
+  function sameMeta(a, b) {
+    return !!a && !!b && a.source === b.source && a.hydrated === b.hydrated && a.sessionIdentity === b.sessionIdentity;
+  }
+
+  function publish(next, options) {
+    var nextMeta = buildMeta(options);
+    if (same(snapshot, next) && sameMeta(progressMeta, nextMeta)) return snapshot;
+    snapshot = next;
+    progressMeta = nextMeta;
+    listeners.slice().forEach(function (listener) {
+      try { listener(snapshot); } catch (error) { console.error("VDuckie progress listener failed", error); }
+    });
+    document.dispatchEvent(new CustomEvent("vduckie:progress-updated", { detail: Object.assign({}, snapshot, { progressMeta: progressMeta }) }));
+    return snapshot;
+  }
+
+  function setTotal(totalEXP, authenticated, options) {
+    return publish(buildSnapshot(totalEXP, authenticated), options);
+  }
+
+  function refresh(source, expectedIdentity) {
     var session = currentSession();
+    var identity = identityOf(session);
     var authenticated = !!(session && session.user);
     var currentRequest = ++requestId;
+    var eventSource = String(source || "sync");
+    if (expectedIdentity && expectedIdentity !== identity) return Promise.resolve(snapshot);
     if (!authenticated || !exp || typeof exp.getCurrentUserEXP !== "function") {
-      return Promise.resolve(setTotal(0, false));
+      return Promise.resolve(setTotal(0, false, { source: eventSource, hydrated: true, sessionIdentity: identity }));
     }
     return exp.getCurrentUserEXP().then(function (total) {
-      if (currentRequest !== requestId) return snapshot;
-      return setTotal(Number(total || 0), true);
+      if (currentRequest !== requestId || identityOf(currentSession()) !== identity) return snapshot;
+      return setTotal(Number(total || 0), true, { source: eventSource, hydrated: true, sessionIdentity: identity });
     }).catch(function () {
-      if (currentRequest !== requestId) return snapshot;
-      return setTotal(0, true);
+      if (currentRequest !== requestId || identityOf(currentSession()) !== identity) return snapshot;
+      return setTotal(0, true, { source: eventSource, hydrated: true, sessionIdentity: identity });
     });
   }
 
@@ -81,30 +105,39 @@
   }
 
   function init() {
-    snapshot = buildSnapshot(0, !!(currentSession() && currentSession().user));
+    var initialSession = currentSession();
+    snapshot = buildSnapshot(0, !!(initialSession && initialSession.user));
+    progressMeta = buildMeta({ source: "initial", hydrated: false, sessionIdentity: identityOf(initialSession) });
     if (core && typeof core.onSession === "function") {
       unsubscribeSession = core.onSession(function (session) {
-        if (!session || !session.user) setTotal(0, false);
-        else root.setTimeout(refresh, 0);
+        var identity = identityOf(session);
+        if (!session || !session.user) {
+          setTotal(0, false, { source: "session", hydrated: true, sessionIdentity: identity });
+          return;
+        }
+        publish(snapshot || buildSnapshot(0, true), { source: "session", hydrated: false, sessionIdentity: identity });
+        root.setTimeout(function () { refresh("hydrate", identity); }, 0);
       });
     }
     document.addEventListener("vduckie:my-exp-loaded", function (event) {
       var detail = event.detail || {};
-      setTotal(Number(detail.totalEXP || 0), !detail.guest && !!(currentSession() && currentSession().user));
+      setTotal(Number(detail.totalEXP || 0), !detail.guest && !!(currentSession() && currentSession().user), { source: "hydrate", hydrated: true, sessionIdentity: identityOf(currentSession()) });
     });
-    document.addEventListener("vduckie:exp-updated", function () { refresh(); });
+    document.addEventListener("vduckie:exp-updated", function () { refresh("mutation"); });
     document.addEventListener("visibilitychange", function () {
-      if (!document.hidden && currentSession() && currentSession().user) refresh();
+      if (!document.hidden && currentSession() && currentSession().user) refresh("sync");
     });
-    refresh();
+    refresh("hydrate");
   }
 
   root.VDuckieProgressStore = Object.freeze({
     getSnapshot: function () { return snapshot || buildSnapshot(0, false); },
+    getProgressMeta: function () { return progressMeta || buildMeta({ source: "initial", hydrated: false }); },
     subscribe: subscribe,
-    refresh: refresh,
-    setFromExistingEXP: function (totalEXP) { return setTotal(totalEXP, !!(currentSession() && currentSession().user)); },
+    refresh: function () { return refresh("sync"); },
+    setFromExistingEXP: function (totalEXP) { return setTotal(totalEXP, !!(currentSession() && currentSession().user), { source: "sync", hydrated: true, sessionIdentity: identityOf(currentSession()) }); },
     destroy: function () {
+      requestId += 1;
       if (unsubscribeSession) unsubscribeSession();
       unsubscribeSession = null;
       listeners.length = 0;
