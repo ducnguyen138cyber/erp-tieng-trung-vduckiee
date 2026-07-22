@@ -14,6 +14,7 @@ const hatching = read("assets/vduckie/lv1/egg-hatching.svg");
 const sprite = read("assets/vduckie/lv2/duckling-sprite.svg");
 const manifestSource = read("assets/v96/mascot-manifest-v96.js");
 const mascotSource = read("assets/v96/vduckie-mascot-v96.js");
+const sharedMascotSource = read("assets/v95/vduckie-mascot-v95.js");
 const css = read("assets/v96/vduckie-lv1-lv2-v96.css");
 const developer = read("assets/v96/developer-preview-v96.js");
 const index = read("index.html");
@@ -101,8 +102,8 @@ test("renderer uses the Level 1 frame sequence and Level 2 sprite with safe fall
   assert.match(mascotSource, /frame-cracked/);
   assert.match(mascotSource, /frame-hatching/);
   assert.match(mascotSource, /v96-sprite-level-2/);
-  assert.match(mascotSource, /hydrateSprite/);
-  assert.match(mascotSource, /has-missing-asset/);
+  assert.match(sharedMascotSource, /hydratedSprites/);
+  assert.match(sharedMascotSource, /has-sprite-fallback/);
   assert.doesNotMatch(mascotSource, /glasses-layer|accessory-front-layer|accessory-behind-layer|outfit-layer/);
 });
 

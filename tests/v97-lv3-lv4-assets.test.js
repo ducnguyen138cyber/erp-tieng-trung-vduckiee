@@ -68,7 +68,7 @@ test("Developer Preview covers Level 3-4 states without touching EXP", () => {
 
 test("V97 patches load in dependency order using relative URLs", () => {
   assert.match(index, /mascot-manifest-v97\.js\?v=97\.0[^\n]+vduckie-mascot-v95\.js\?v=96\.0/);
-  assert.match(index, /vduckie-mascot-v97\.js\?v=97\.0[^\n]+customization-store-v94\.js\?v=96\.0/);
+  assert.match(index, /vduckie-mascot-v97\.js\?v=100\.0[^\n]+customization-store-v94\.js\?v=96\.0/);
   assert.match(index, /developer-preview-v97\.js\?v=97\.0/);
   assert.match(index, /vduckie-lv3-lv4-v97\.css\?v=97\.0/);
   assert.doesNotMatch(manifestSource + renderer + index, /https:\/\/vduckie\.pages\.dev/);

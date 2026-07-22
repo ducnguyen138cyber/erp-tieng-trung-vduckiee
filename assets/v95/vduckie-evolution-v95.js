@@ -34,6 +34,8 @@
   var wardrobeSwapToken = 0;
   var activeThought = null;
   var thoughtTimer = null;
+  var thoughtCloseTimer = null;
+  var boundMascotTriggers = typeof WeakSet === "function" ? new WeakSet() : null;
   var lastFocus = null;
   var unsubscribeProgress = null;
   var unsubscribeCustomization = null;
@@ -233,7 +235,11 @@
     document.body.appendChild(levelUpOverlay);
   }
 
-  function hydrate(scope) { if (mascot && typeof mascot.hydrate === "function") mascot.hydrate(scope || document); }
+  function hydrate(scope) {
+    var host = scope || document;
+    if (mascot && typeof mascot.hydrate === "function") mascot.hydrate(host);
+    bindMascotThoughtTriggers(host);
+  }
 
   function renderLevelUpModal() {
     ensureLevelUpOverlay();
@@ -404,6 +410,8 @@
   function closeThought(except) {
     if (thoughtTimer) root.clearTimeout(thoughtTimer);
     thoughtTimer = null;
+    if (thoughtCloseTimer) root.clearTimeout(thoughtCloseTimer);
+    thoughtCloseTimer = null;
     if (activeThought && activeThought !== except) {
       activeThought.classList.remove("is-thinking");
       activeThought.setAttribute("aria-expanded", "false");
@@ -425,6 +433,7 @@
 
   function openThought(node) {
     if (!node || !thoughts) return false;
+    if (activeThought === node && node.classList.contains("is-thinking")) return false;
     closeThought(node);
     var level = Number(node.getAttribute("data-v95-level") || 1);
     var thought = thoughts.next(level);
@@ -440,6 +449,34 @@
       if (activeThought === node) closeThought();
     }, 4700);
     return true;
+  }
+
+  function scheduleThoughtClose(node) {
+    if (thoughtCloseTimer) root.clearTimeout(thoughtCloseTimer);
+    thoughtCloseTimer = root.setTimeout(function () { if (activeThought === node) closeThought(); }, 200);
+  }
+
+  function bindMascotThoughtTriggers(scope) {
+    var host = scope && scope.querySelectorAll ? scope : document;
+    Array.prototype.forEach.call(host.querySelectorAll("[data-v95-mascot]"), function (node) {
+      if (boundMascotTriggers && boundMascotTriggers.has(node)) return;
+      if (boundMascotTriggers) boundMascotTriggers.add(node);
+      node.addEventListener("pointerenter", function (event) {
+        if (event.pointerType === "touch" || event.pointerType === "pen") return;
+        if (thoughtCloseTimer) { root.clearTimeout(thoughtCloseTimer); thoughtCloseTimer = null; }
+        if (openThought(node)) playNode(node, "hover", { force: true });
+      });
+      node.addEventListener("pointerleave", function (event) {
+        if (event.pointerType === "touch" || event.pointerType === "pen") return;
+        scheduleThoughtClose(node);
+      });
+      node.addEventListener("pointerup", function (event) {
+        if (event.pointerType !== "touch" && event.pointerType !== "pen") return;
+        event.preventDefault();
+        if (activeThought === node && node.classList.contains("is-thinking")) closeThought();
+        else { openThought(node); playNode(node, "tap", { force: true }); }
+      });
+    });
   }
 
   function setSaveStatus(message, kind) {
@@ -715,23 +752,10 @@
     if (event.target.closest && event.target.closest("[data-v95-close]")) { closeOverlay(); return; }
     var mascotNode = event.target.closest && event.target.closest("[data-v95-mascot]");
     if (mascotNode) {
-      openThought(mascotNode);
-      playNode(mascotNode, "tap", { force: true });
+      if (event.detail === 0) { openThought(mascotNode); playNode(mascotNode, "tap", { force: true }); }
       return;
     }
     closeThought();
-  }
-
-  function onPointerOver(event) {
-    if (event.pointerType === "touch") return;
-    var mascotNode = event.target.closest && event.target.closest("[data-v95-mascot]");
-    if (mascotNode && !(event.relatedTarget && mascotNode.contains(event.relatedTarget))) {
-      openThought(mascotNode);
-      playNode(mascotNode, "hover", { force: true });
-      return;
-    }
-    var item = event.target.closest && event.target.closest("[data-v95-item-code]");
-    if (item) mascot.preloadItem(item.getAttribute("data-v95-item-type"), item.getAttribute("data-v95-item-code"), displayLevel(), wardrobeDraft || savedSelection);
   }
 
   function onFocusIn(event) {
@@ -764,7 +788,6 @@
     if (bound) return;
     bound = true;
     document.addEventListener("click", onDocumentClick);
-    document.addEventListener("pointerover", onPointerOver);
     document.addEventListener("focusin", onFocusIn);
     document.addEventListener("keydown", onKeyDown);
     document.addEventListener("visibilitychange", onVisibilityChange);
@@ -778,7 +801,6 @@
     if (!bound) return;
     bound = false;
     document.removeEventListener("click", onDocumentClick);
-    document.removeEventListener("pointerover", onPointerOver);
     document.removeEventListener("focusin", onFocusIn);
     document.removeEventListener("keydown", onKeyDown);
     document.removeEventListener("visibilitychange", onVisibilityChange);

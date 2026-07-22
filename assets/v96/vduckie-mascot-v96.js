@@ -7,8 +7,6 @@
   var manifest = root.VDuckieMascotManifest;
   if (!base || !manifest) return;
 
-  var hydratedSprites = typeof WeakSet === "function" ? new WeakSet() : null;
-
   function esc(value) {
     var core = root.VDuckieEXPCore;
     return core && core.escapeHtml ? core.escapeHtml(value) : String(value == null ? "" : value).replace(/[&<>"']/g, function (character) {
@@ -56,29 +54,8 @@
     return markup;
   }
 
-  function hydrateSprite(element) {
-    if (!element || hydratedSprites && hydratedSprites.has(element)) return;
-    if (hydratedSprites) hydratedSprites.add(element);
-    var src = element.getAttribute("data-v95-sprite-src");
-    if (!src || !root.Image) return;
-    var image = new Image();
-    image.decoding = "async";
-    image.onload = function () {
-      var mascot = element.closest && element.closest("[data-v95-mascot]");
-      if (mascot) mascot.classList.add("has-loaded-asset");
-    };
-    image.onerror = function () {
-      element.hidden = true;
-      var mascot = element.closest && element.closest("[data-v95-mascot]");
-      if (mascot) mascot.classList.add("has-missing-asset");
-    };
-    image.src = src;
-  }
-
   function hydrate(scope) {
     base.hydrate(scope);
-    var host = scope && scope.querySelectorAll ? scope : document;
-    Array.prototype.forEach.call(host.querySelectorAll("[data-v95-sprite-src]"), hydrateSprite);
   }
 
   function itemThumbnail(item, level) {

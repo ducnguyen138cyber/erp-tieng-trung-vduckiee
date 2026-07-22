@@ -16,7 +16,7 @@
     options = options || {};
     var level = Math.max(1, Math.min(10, Number(options.level || 1)));
     var markup = base.render(options);
-    if (level === 3 || level === 4) {
+    if ((level === 3 || level === 4) && markup.indexOf("data-v95-sprite-src") === -1) {
       var sprite = manifest.levelSprites[level];
       markup = addClass(markup, "v97-mascot is-sprite-level-" + level);
       markup = markup.replace(/<img class="v95-mascot-image"[^>]*>/, spriteMarkup(sprite, level));

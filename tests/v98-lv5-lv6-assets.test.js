@@ -62,7 +62,7 @@ test("Developer Preview covers every Level 5-6 runtime state without EXP writes"
 
 test("V98 production patches load after V97 using only relative paths", () => {
   assert.match(index, /mascot-manifest-v97\.js\?v=97\.0[^\n]+mascot-manifest-v98\.js\?v=98\.0[^\n]+vduckie-mascot-v95\.js/);
-  assert.match(index, /vduckie-mascot-v97\.js\?v=97\.0[^\n]+vduckie-mascot-v98\.js\?v=98\.0[^\n]+customization-store-v94\.js/);
+  assert.match(index, /vduckie-mascot-v97\.js\?v=100\.0[^\n]+vduckie-mascot-v98\.js\?v=100\.0[^\n]+customization-store-v94\.js/);
   assert.match(index, /vduckie-lv5-lv6-v98\.css\?v=98\.0/);
   assert.match(index, /developer-preview-v98\.js\?v=98\.0/);
   assert.doesNotMatch(manifestSource + renderer + index, /https:\/\/vduckie\.pages\.dev/);

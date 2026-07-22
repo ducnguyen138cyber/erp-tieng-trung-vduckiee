@@ -1,0 +1,7 @@
+/* V100 regression guard: a static fallback remains visible until a sprite is decoded. */
+.v95-sprite-stack{contain:paint}.v95-sprite-stack>.v95-sprite-fallback{object-fit:contain}
+.v95-thought{width:min(280px,calc(100vw - 24px));max-width:280px;pointer-events:none;transition:opacity .22s ease,transform .22s cubic-bezier(.2,.75,.25,1),visibility .18s ease;will-change:opacity,transform}
+.v95-mascot.is-thinking .v95-thought{animation:none}
+.v100-dev-status{display:grid;gap:4px;padding:9px;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:rgba(255,255,255,.055);font-size:9px;line-height:1.45;overflow-wrap:anywhere}.v100-dev-status strong{font-size:10px}.v100-dev-status [data-v100-fallback="true"]{color:#ffd37a}
+@media(max-width:390px){.v95-thought{width:min(250px,calc(100vw - 16px));max-width:250px}}
+@media(prefers-reduced-motion:reduce){.v95-sprite-stack>.v95-sprite,.v95-sprite-stack>.v95-sprite-fallback,.v95-thought{transition:opacity .18s ease!important;animation:none!important}}
