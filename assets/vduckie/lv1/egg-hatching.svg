@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="VDuckie egg hatching">
+<defs>
+  <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FFFDF4"/>
+    <stop offset="0.58" stop-color="#FFF4D2"/>
+    <stop offset="1" stop-color="#E5C277"/>
+  </linearGradient>
+  <linearGradient id="shellSoft" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFDF4"/>
+    <stop offset="1" stop-color="#EED496"/>
+  </linearGradient>
+</defs>
+<ellipse cx="256" cy="452" rx="110" ry="20" fill="#293D36" opacity=".11"/>
+<g>
+  <path d="M143 286l27-24 29 18 30-30 29 28 30-28 30 30 30-18 27 24 c-1 109-54 170-128 170s-127-61-128-170Z" fill="url(#shellSoft)" stroke="#293D36" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M143 286l27-24 29 18 30-30 29 28 30-28 30 30 30-18 27 24" fill="none" stroke="#8C642D" stroke-width="7" stroke-linejoin="round"/>
+  <g>
+    <ellipse cx="256" cy="235" rx="93" ry="82" fill="#FFD447" stroke="#293D36" stroke-width="10"/>
+    <path d="M215 159q13-26 26 0q15-34 30 1q15-24 27 2" fill="#FFD447" stroke="#293D36" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="221" cy="229" rx="31" ry="39" fill="#FFFDF5" stroke="#293D36" stroke-width="8"/>
+    <ellipse cx="291" cy="229" rx="31" ry="39" fill="#FFFDF5" stroke="#293D36" stroke-width="8"/>
+    <ellipse cx="226" cy="234" rx="11" ry="17" fill="#1E302B"/>
+    <ellipse cx="286" cy="234" rx="11" ry="17" fill="#1E302B"/>
+    <circle cx="222" cy="226" r="4" fill="#FFF"/>
+    <circle cx="282" cy="226" r="4" fill="#FFF"/>
+    <path d="M226 276q30-19 60 0q-30 35-60 0Z" fill="#F28A2E" stroke="#293D36" stroke-width="8" stroke-linejoin="round"/>
+    <ellipse cx="191" cy="274" rx="18" ry="10" fill="#F3A064" opacity=".45"/>
+    <ellipse cx="321" cy="274" rx="18" ry="10" fill="#F3A064" opacity=".45"/>
+  </g>
+  <path d="M160 111l28-28 24 17 24-27 24 25 27-25 23 27 25-17 29 28 -20 69-38 34-48 8-49-8-37-34Z" fill="url(#shell)" stroke="#293D36" stroke-width="10" stroke-linejoin="round" transform="translate(0 -20) rotate(-4 256 150)"/>
+  <ellipse cx="211" cy="119" rx="27" ry="48" fill="#FFF" opacity=".28" transform="rotate(20 211 119)"/>
+</g>
+</svg>
