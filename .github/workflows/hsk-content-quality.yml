@@ -32,6 +32,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Install full regression dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
       - name: Check HSK and test JavaScript syntax
         run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate HSK content
