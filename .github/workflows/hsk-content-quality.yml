@@ -48,6 +48,7 @@ jobs:
           set +e
           node --test --test-reporter=dot tests/*.test.js > /tmp/regression.log 2>&1
           status=$?
+          cp /tmp/regression.log ./hsk-regression.log
           if [ "$status" -ne 0 ]; then
             echo '=== FAILED TEST NAMES ==='
             grep -E '^✖ ' /tmp/regression.log || true
@@ -57,14 +58,15 @@ jobs:
             cat /tmp/regression.log
           fi
           exit "$status"
-      - name: Upload regression failure log
+      - name: Upload regression checkout for diagnosis
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: hsk-regression-failure
-          path: /tmp/regression.log
+          name: hsk-regression-debug-checkout
+          path: .
+          include-hidden-files: false
           if-no-files-found: error
-          retention-days: 3
+          retention-days: 1
       - name: Verify whitespace and deterministic reports
         run: |
           git diff --check
