@@ -23,6 +23,6 @@ test('home right sidebar is not nested sticky', () => {
 
 test('v91.10 stylesheet is cache-busted and old wheel patch is absent', () => {
   assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
-  assert.match(index, /app-shell-v88\.html\?v=91\.10/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
   assert.doesNotMatch(index, /sidebar-wheel-v91\.8\.js/);
 });

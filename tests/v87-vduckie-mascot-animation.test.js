@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.join(__dirname, '..');
-const indexSource = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const indexSource = fs.readFileSync(path.join(root, 'index.html'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'app-shell-v88.html'), 'utf8');
 const cssSource = fs.readFileSync(
   path.join(root, 'assets', 'home', 'vduckie-mascot-v87.css'),
   'utf8'
@@ -35,19 +35,20 @@ const loaderSource = fs.readFileSync(
   'utf8'
 );
 
-test('welcome mascot restores the original WebP artwork', () => {
-  assert.match(indexSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
-  assert.match(indexSource, /href="\.\/assets\/home\/vduckie-welcome\.webp\?v=73\.0"/);
-  assert.match(cssSource, /background-image:\s*url\("\.\/vduckie-welcome\.webp\?v=73\.0"\)/);
-  assert.match(cssSource, /\.vduckie-body-head image\s*\{[^}]*mask:\s*none !important/s);
-  assert.match(cssSource, /\.vduckie-wing,[\s\S]*\.vduckie-eyelids\s*\{[^}]*display:\s*none !important/s);
+test('welcome mascot bootstrap restores the current WebP artwork', () => {
+  const entrySource = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const shellSource = fs.readFileSync(path.join(root, 'app-shell-v88.html'), 'utf8');
+  assert.match(shellSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
+  assert.match(entrySource, /staticMascot='<img class="home-welcome-mascot" src="\.\/assets\/home\/vduckie-welcome\.webp\?v=96\.0"/);
+  assert.match(entrySource, /source=source\.replace\(animatedMascot,staticMascot\)/);
+  assert.match(cssSource, /img\.home-welcome-mascot/);
 });
 
 test('welcome mascot is completely static', () => {
   assert.doesNotMatch(cssSource, /@keyframes\s+vduckie-/);
   assert.doesNotMatch(cssSource, /animation:\s*vduckie-/);
-  assert.match(cssSource, /\.vduckie-mascot\s*\{[^}]*animation:\s*none !important/s);
-  assert.match(cssSource, /\.home-welcome-card:hover \.vduckie-wing\s*\{[^}]*animation:\s*none !important/s);
+  assert.match(cssSource, /img\.home-welcome-mascot\s*\{[^}]*animation:\s*none !important/s);
+  assert.match(cssSource, /\.home-welcome-card:hover img\.home-welcome-mascot[^{]*\{[^}]*animation:\s*none !important/s);
 });
 
 test('first paint starts in the final home grid mode and waits for a stable shell', () => {

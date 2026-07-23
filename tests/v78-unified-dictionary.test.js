@@ -71,9 +71,9 @@ test('independent dictionary navigation, lookup buttons and speech remain instal
   assert.match(source, /vduckie:erp-v77-ready/);
   assert.match(source, /speechSynthesis\.speak/);
   assert.match(source, /version: "78\.0"/);
-  assert.match(communityLoader, /unified-dictionary-v78\.js\?v=78\.0/);
+  assert.match(communityLoader, /unified-dictionary-v79\.js\?v=79\.0/);
   assert.match(erpPipeline, /erp-terms-v77-finalize\.js\?v=77\.1/);
-  assert.match(erpPipeline, /unified-dictionary-v78\.js\?v=78\.0/);
+  assert.match(erpPipeline, /unified-dictionary-v79\.js\?v=79\.0/);
   assert.match(erpFinalizer, /var target=1600/);
   assert.match(runtimeLoader, /Promise\.all\(tasks\)/);
   for (let number = 1; number <= 5; number++) assert.match(runtimeLoader, new RegExp(`part"\\+index\\+"\\.txt\\?v=78\\.0`));

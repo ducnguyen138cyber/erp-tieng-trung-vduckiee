@@ -1,0 +1,27 @@
+{
+  "findings": [
+    {
+      "intentionalReview": true,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/fixtures/hsk1/practice/hsk1-fixture-exercises.json",
+      "leftId": "hsk1-fixture-ex-vocab-01",
+      "reviewReason": "spaced-recall",
+      "rightFile": "data/hsk/fixtures/hsk1/practice/hsk1-fixture-exercises.json",
+      "rightId": "hsk1-fixture-ex-vocab-review-01",
+      "rule": "exact-duplicate",
+      "severity": "info",
+      "similarity": 1
+    }
+  ],
+  "qualityGate": "pass-for-phase1-fixture",
+  "schemaVersion": "1.0.0",
+  "summary": {
+    "blockers": 0,
+    "candidates": 28,
+    "exact": 1,
+    "findings": 1,
+    "intentionalReviews": 1,
+    "nearReview": 0,
+    "normalized": 0
+  }
+}

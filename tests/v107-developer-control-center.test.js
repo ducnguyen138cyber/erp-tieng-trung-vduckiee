@@ -28,7 +28,7 @@ test("canonical Developer Center exposes exactly eight workflow tabs", () => {
 
 test("legacy sidebar renderer is removed and old enhancer scripts are absent from production loader", () => {
   const legacy = read("assets/v93/developer-preview-v93.js");
-  const index = read("index.html");
+  const index = read("index.html") + "\n" + read("app-shell-v88.html");
   assert.doesNotMatch(legacy, /panelMarkup|ensurePanel|v93DeveloperPreview|document\.body\.appendChild\(panel\)/);
   for (const old of [
     "developer-preview-v93.js", "developer-preview-v95.js", "developer-preview-v96.js",
@@ -38,7 +38,7 @@ test("legacy sidebar renderer is removed and old enhancer scripts are absent fro
 });
 
 test("production loader uses one canonical V108 entrypoint in dependency order", () => {
-  const index = read("index.html");
+  const index = read("index.html") + "\n" + read("app-shell-v88.html");
   const ordered = [
     "mascot-polish-v106.js?v=106.1",
     "developer-runtime/runtime.js?v=108.1",

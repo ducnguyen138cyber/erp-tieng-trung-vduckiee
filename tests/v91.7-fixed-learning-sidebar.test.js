@@ -25,6 +25,6 @@ test('tablet and mobile keep the existing drawer behavior', () => {
 });
 
 test('v91.7 layout asset is cache-busted', () => {
-  assert.match(index, /app-shell-v88\.html\?v=91\.7/);
-  assert.match(index, /three-column-scroll-v91\.7\.css\?v=91\.7/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
+  assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
 });

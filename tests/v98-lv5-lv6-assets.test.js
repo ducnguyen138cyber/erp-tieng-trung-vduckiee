@@ -10,7 +10,7 @@ const renderer = read("assets/v98/vduckie-mascot-v98.js");
 const css = read("assets/v98/vduckie-lv5-lv6-v98.css");
 const developer = read("assets/v98/developer-preview-v98.js");
 const thoughts = read("assets/v95/thoughts-v95.js");
-const index = read("index.html");
+const index = read("index.html") + "\n" + read("app-shell-v88.html");
 
 function baseManifest() {
   const levels = {};
@@ -64,6 +64,6 @@ test("V98 production patches load after V97 using only relative paths", () => {
   assert.match(index, /mascot-manifest-v97\.js\?v=97\.0[^\n]+mascot-manifest-v98\.js\?v=98\.0[^\n]+vduckie-mascot-v95\.js/);
   assert.match(index, /vduckie-mascot-v97\.js\?v=100\.0[^\n]+vduckie-mascot-v98\.js\?v=100\.0[^\n]+customization-store-v94\.js/);
   assert.match(index, /vduckie-lv5-lv6-v98\.css\?v=98\.0/);
-  assert.match(index, /developer-preview-v98\.js\?v=98\.0/);
+  assert.match(index, /developer-control-center\.js\?v=108\.1/);
   assert.doesNotMatch(manifestSource + renderer + index, /https:\/\/vduckie\.pages\.dev/);
 });

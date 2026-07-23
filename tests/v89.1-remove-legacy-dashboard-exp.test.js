@@ -24,6 +24,6 @@ test('legacy learner-level card is hidden before paint and removed after render'
 test('entry loads the v89.1 cleanup assets after the Supabase EXP UI', () => {
   assert.match(entry, /legacy-dashboard-exp-cleanup-v89\.1\.css\?v=89\.1/);
   assert.match(entry, /legacy-dashboard-exp-cleanup-v89\.1\.js\?v=89\.1/);
-  assert.match(entry, /exp-leaderboard-v89\.css\?v=89\.0[\s\S]+legacy-dashboard-exp-cleanup-v89\.1\.css/);
-  assert.match(entry, /exp-learning-hooks-v89\.js\?v=89\.0[\s\S]+legacy-dashboard-exp-cleanup-v89\.1\.js/);
+  assert.match(entry, /legacy-dashboard-exp-cleanup-v89\.1\.css\?v=89\.1[\s\S]+exp-system-v90\.css\?v=90\.1/);
+  assert.match(entry, /exp-learning-hooks-v89\.js\?v=90\.0[\s\S]+legacy-dashboard-exp-cleanup-v89\.1\.js/);
 });

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0.0",
+  "mappingStatus": "review-required",
+  "mappings": [
+    {
+      "legacyId": "foundation-*",
+      "canonicalId": null,
+      "status": "unmapped",
+      "confidence": 0,
+      "mappingRule": "Pattern retained for audit only; each foundation lesson needs semantic review.",
+      "risk": "Legacy completion must remain preserved until a confirmed canonical equivalent exists."
+    },
+    {
+      "legacyId": "hsk1-*",
+      "canonicalId": null,
+      "status": "review-required",
+      "confidence": 0.2,
+      "mappingRule": "HSK 1 V75 overwrites legacy level data, so IDs and semantic equivalence must be extracted before mapping.",
+      "risk": "Automatic mapping could falsely mark newly structured lessons complete."
+    },
+    {
+      "legacyId": "hsk2-*",
+      "canonicalId": null,
+      "status": "review-required",
+      "confidence": 0.2,
+      "mappingRule": "Map only after Phase 3 compares objectives, vocabulary and assessment coverage.",
+      "risk": "Topic-name similarity is not sufficient evidence."
+    },
+    {
+      "legacyId": "hsk3-*",
+      "canonicalId": null,
+      "status": "review-required",
+      "confidence": 0.2,
+      "mappingRule": "Map only after Phase 4 semantic review.",
+      "risk": "Legacy lesson scope is much thinner than the canonical curriculum."
+    },
+    {
+      "legacyId": "hsk4-*",
+      "canonicalId": null,
+      "status": "review-required",
+      "confidence": 0.2,
+      "mappingRule": "Map only after Phase 5 semantic review.",
+      "risk": "Completion must not be inferred from matching order numbers."
+    }
+  ]
+}

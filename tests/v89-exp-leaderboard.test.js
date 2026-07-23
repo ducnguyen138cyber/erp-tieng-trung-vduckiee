@@ -12,14 +12,14 @@ const css = fs.readFileSync(path.join(root, 'assets/v89/exp-leaderboard-v89.css'
 const sql = fs.readFileSync(path.join(root, 'supabase/migrations/create_exp_leaderboard.sql'), 'utf8');
 const frontend = [core, board, ui, hooks].join('\n');
 
-test('entry loads EXP assets without changing static mascot architecture', () => {
-  assert.match(entry, /app-shell-v88\.html\?v=89\.0/);
-  assert.match(entry, /vduckie-welcome\.webp\?v=89\.0/);
-  assert.match(entry, /exp-leaderboard-v89\.css\?v=89\.0/);
-  assert.match(entry, /exp-core-v89\.js\?v=89\.0/);
-  assert.match(entry, /exp-board-v89\.js\?v=89\.0/);
-  assert.match(entry, /exp-leaderboard-v89\.js\?v=89\.0/);
-  assert.match(entry, /exp-learning-hooks-v89\.js\?v=89\.0/);
+test('entry loads the current EXP assets without changing static mascot architecture', () => {
+  assert.match(entry, /app-shell-v88\.html\?v=99\.0/);
+  assert.match(entry, /vduckie-welcome\.webp\?v=96\.0/);
+  assert.match(entry, /exp-system-v90\.css\?v=90\.1/);
+  assert.match(entry, /exp-core-v90\.js\?v=90\.0/);
+  assert.match(entry, /exp-board-v90\.js\?v=90\.0/);
+  assert.match(entry, /exp-leaderboard-v90\.js\?v=90\.0/);
+  assert.match(entry, /exp-learning-hooks-v89\.js\?v=90\.0/);
 });
 
 test('frontend exposes activity APIs but never accepts an EXP amount', () => {

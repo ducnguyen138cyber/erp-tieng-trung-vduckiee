@@ -36,7 +36,7 @@ test("Level 9-10 sprite sheets have nine square alpha frames without black edge 
   for (const [level, name] of [[9, "master"], [10, "grandmaster"]]) {
     const sprite = path.join(root, `assets/vduckie/lv${level}/${name}-sprite-v104.webp`);
     const dimensions = execFileSync("identify", ["-format", "%wx%h %[opaque]", sprite], { encoding:"utf8" });
-    assert.equal(dimensions, "4608x512 false");
+    assert.equal(dimensions.toLowerCase(), "4608x512 false");
     for (let frame = 0; frame < 9; frame += 1) {
       const file = path.join(root, `assets/vduckie/lv${level}/v104/frame-${frame}.webp`);
       assert.ok(fs.statSync(file).size > 1000);
@@ -69,7 +69,7 @@ test("Level 9 and 10 each have at least twenty age-appropriate bilingual thought
 });
 
 test("production loads V104 behavior, manifest and CSS before the shared renderer", () => {
-  const index = read("index.html");
+  const index = read("index.html") + "\n" + read("app-shell-v88.html");
   assert.match(index, /mascot-runtime-v104\.css\?v=104\.0/);
   assert.ok(index.indexOf("mascot-behaviors-v104.js") < index.indexOf("vduckie-mascot-v95.js?v=104.0"));
   assert.ok(index.indexOf("mascot-manifest-v104.js") < index.indexOf("vduckie-mascot-v95.js?v=104.0"));

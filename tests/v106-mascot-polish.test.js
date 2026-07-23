@@ -6,7 +6,7 @@ const root = path.join(__dirname, "..");
 const read = file => fs.readFileSync(path.join(root, file), "utf8");
 
 test("production loads V106.1 after the stable V105 renderer display layer", () => {
-  const index = read("index.html");
+  const index = read("index.html") + "\n" + read("app-shell-v88.html");
   assert.ok(index.indexOf("mascot-display-v105.css") < index.indexOf("mascot-polish-v106.css"));
   assert.ok(index.indexOf("learning-events-v103.js") < index.indexOf("mascot-polish-v106.js"));
   assert.match(index, /progress-store-v92\.js\?v=106\.1/);

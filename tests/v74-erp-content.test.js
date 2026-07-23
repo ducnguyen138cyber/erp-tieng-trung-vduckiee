@@ -4,7 +4,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const html = fs.readFileSync(path.join(root, "index.html"), "utf8") + "\n" + fs.readFileSync(path.join(root, "app-shell-v88.html"), "utf8");
 const dialogue = fs.readFileSync(path.join(root, "dialogue.js"), "utf8");
 const context = { window: {} };
 
