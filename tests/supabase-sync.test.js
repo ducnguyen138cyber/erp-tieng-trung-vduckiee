@@ -111,7 +111,10 @@ async function boot({ configured, signedIn }) {
     },
     history: { replaceState() {} },
     addEventListener() {},
-    setTimeout
+    setTimeout,
+    clearTimeout,
+    setInterval() { return 1; },
+    clearInterval() {}
   };
   const context = {
     window,
@@ -143,11 +146,15 @@ async function boot({ configured, signedIn }) {
   const active = await boot({ configured: true, signedIn: true });
   assert.equal(active.clientCreates, 1);
   assert.equal(active.ids.cloudIdentity.textContent, "Student One");
-  assert.deepEqual(active.merged.map((row) => row.word_key), ["库存"]);
-  assert.equal(active.upserts.length, 1);
-  assert.equal(active.upserts[0].options.onConflict, "user_id,word_key");
-  assert.equal(active.upserts[0].rows[0].user_id, "9a65e956-2e3d-4b5f-a393-7c4ce6cdba03");
-  assert.equal(active.ids.cloudSyncStatus.textContent, "Đã đồng bộ");
+  assert.deepEqual(Array.from(active.merged, (row) => row.word_key), ["库存"]);
+  assert.equal(active.upserts.length, 2);
+  const wordUpsert = active.upserts.find((entry) => entry.rows.some((row) => row.word_key === "库存"));
+  const progressUpsert = active.upserts.find((entry) => entry.rows.some((row) => row.word_key === "__vduckie_hsk_progress_v1__"));
+  assert.ok(wordUpsert);
+  assert.ok(progressUpsert);
+  assert.equal(wordUpsert.options.onConflict, "user_id,word_key");
+  assert.equal(wordUpsert.rows[0].user_id, "9a65e956-2e3d-4b5f-a393-7c4ce6cdba03");
+  assert.equal(active.ids.cloudSyncStatus.textContent, "Đã đồng bộ từ vựng và tiến độ");
 
   const sql = fs.readFileSync("supabase/schema.sql", "utf8");
   assert.match(sql, /enable row level security/i);

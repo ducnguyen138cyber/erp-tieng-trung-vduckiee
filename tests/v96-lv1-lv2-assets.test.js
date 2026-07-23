@@ -17,7 +17,7 @@ const mascotSource = read("assets/v96/vduckie-mascot-v96.js");
 const sharedMascotSource = read("assets/v95/vduckie-mascot-v95.js");
 const css = read("assets/v96/vduckie-lv1-lv2-v96.css");
 const developer = read("assets/v96/developer-preview-v96.js");
-const index = read("index.html");
+const index = read("index.html") + "\n" + read("app-shell-v88.html");
 
 function loadBrowserModule(source, seed) {
   const window = seed || {};
@@ -137,8 +137,8 @@ test("production loads V96 patches after the V95 base in dependency order", () =
   const mascot = index.indexOf("vduckie-mascot-v96.js");
   const store = index.indexOf("customization-store-v94.js?v=96.0");
   const evolution = index.indexOf("vduckie-evolution-v95.js?v=96.0");
-  const developerV96 = index.indexOf("developer-preview-v96.js?v=96.0");
-  assert.ok(thoughts >= 0 && baseManifest > thoughts && manifest > baseManifest && baseMascot > manifest && mascot > baseMascot && store > mascot && evolution > store && developerV96 > evolution);
+  const developerCenter = index.indexOf("developer-control-center.js?v=108.1");
+  assert.ok(thoughts >= 0 && baseManifest > thoughts && manifest > baseManifest && baseMascot > manifest && mascot > baseMascot && store > mascot && evolution > store && developerCenter > evolution);
   assert.match(index, /vduckie-lv1-lv2-v96\.css\?v=96\.0/);
   assert.match(index, /app-shell-v88\.html\?v=99\.0/);
 });

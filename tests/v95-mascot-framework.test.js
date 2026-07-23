@@ -12,7 +12,7 @@ const mascotSource = read('assets/v95/vduckie-mascot-v95.js');
 const evolutionSource = read('assets/v95/vduckie-evolution-v95.js');
 const developerSource = read('assets/v95/developer-preview-v95.js');
 const css = ['core','motion','layout'].map(part => read(`assets/v95/vduckie-mascot-${part}-v95.css`)).join('\n');
-const index = read('index.html');
+const index = read('index.html') + '\n' + read('app-shell-v88.html');
 
 function loadBrowserModule(source) {
   const window = {};
@@ -117,7 +117,9 @@ test('developer preview gains tap, thought and outfit tests without changing XP'
 
 test('production loads V95 in dependency order and no longer loads layered V94 renderer', () => {
   assert.match(index, /thoughts-v95\.js[^\n]+mascot-manifest-v95\.js/);
-  assert.match(index, /vduckie-mascot-v95\.js[^\n]+customization-store-v94\.js[^\n]+vduckie-evolution-v95\.js[^\n]+developer-preview-v93\.js/);
+  assert.match(index, /vduckie-mascot-v95\.js\?v=96\.0[^\n]+customization-store-v94\.js\?v=96\.0[^\n]+vduckie-evolution-v95\.js\?v=104\.0/);
+  assert.match(index, /mascot-behaviors-v103\.js\?v=103\.0[^\n]+vduckie-mascot-v95\.js\?v=104\.0/);
+  assert.match(index, /vduckie-evolution-v95\.js\?v=104\.0[\s\S]+developer-control-center\.js\?v=108\.1/);
   assert.match(index, /vduckie-mascot-v95\.css\?v=100\.0/);
   assert.match(index, /app-shell-v88\.html\?v=99\.0/);
   assert.doesNotMatch(index, /avatar-config-v94\.js|vduckie-avatar-v94\.js|evolution-customization-v94\.css/);

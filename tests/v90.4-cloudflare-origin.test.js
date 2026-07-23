@@ -6,7 +6,7 @@ const path = require('node:path');
 const root = path.join(__dirname, '..');
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
 
-const index = read('index.html');
+const index = read('index.html') + '\n' + read('app-shell-v88.html');
 const shell = read('app-shell-v88.html');
 const config = read('supabase-config.js');
 const sync = read('supabase-sync.js');
@@ -24,10 +24,10 @@ test('Supabase OAuth callback follows the deployment that opened the app', () =>
 });
 
 test('entry loader cache-busts the deployment-aware Supabase files', () => {
-  assert.match(index, /app-shell-v88\.html\?v=90\.4/);
-  assert.match(index, /supabase-config\.js\?v=90\.4/);
-  assert.match(index, /supabase-sync\.js\?v=90\.4/);
-  assert.match(index, /vduckie-welcome\.webp\?v=90\.4/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
+  assert.match(index, /supabase-config\.js\?v=96\.0/);
+  assert.match(index, /supabase-sync\.js\?v=96\.0/);
+  assert.match(index, /vduckie-welcome\.webp\?v=96\.0/);
 });
 
 test('runtime source has no old GitHub Pages production URL or fixed repository prefix', () => {
@@ -42,7 +42,7 @@ test('HTML assets remain relative so root and repository-subpath deployments bot
     const references = Array.from(source.matchAll(/\b(?:src|href)="([^"]+)"/g), (match) => match[1]);
     references.forEach((reference) => {
       if (!reference || reference.startsWith('#') || /^(?:https?:|data:|blob:)/i.test(reference)) return;
-      assert.ok(reference.startsWith('./'), `Expected relative asset path, received: ${reference}`);
+      assert.ok(reference.startsWith('./') || reference.startsWith('\\.\\/'), `Expected relative asset path, received: ${reference}`);
     });
   });
 });

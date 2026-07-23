@@ -29,5 +29,5 @@ test('follow-up click cannot immediately close the dropdown', () => {
 test('v91.5 assets are cache-busted', () => {
   assert.match(index, /header-account-dropdown-v91\.css\?v=91\.5/);
   assert.match(index, /header-account-dropdown-v91\.js\?v=91\.5/);
-  assert.match(index, /app-shell-v88\.html\?v=91\.5/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
 });

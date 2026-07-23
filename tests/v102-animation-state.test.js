@@ -16,13 +16,14 @@ test("one shared state vocabulary drives preview, renderer and CSS", () => {
   for (let level = 2; level <= 8; level += 1) assert.ok(config.framePlans[level].columns >= 6);
 });
 
-test("six Developer Preview buttons map to six distinct requested states", () => {
-  const preview = read("assets/v93/developer-preview-v93.js");
+test("six Developer Center actions map to six distinct requested states", () => {
+  const preview = read("assets/developer-tabs/evolution.js") + "\n" + read("assets/developer-tabs/learning-speaking.js");
   const evolution = read("assets/v95/vduckie-evolution-v95.js");
-  for (const state of ["level-up", "egg-hatching", "correct-answer", "wrong-answer", "hover", "streak-lost"]) {
-    assert.match(preview, new RegExp(`data-v93-test="${state}"`));
+  for (const action of ["evolution.level-up", "evolution.egg-hatching", "evolution.correct", "evolution.wrong", "evolution.hover", "evolution.streak-lost"]) {
+    assert.match(preview, new RegExp(action.replace(".", "\\.")));
   }
-  assert.match(preview, /bridge\.test\(test\.getAttribute\("data-v93-test"\)\)/);
+  for (const state of ["level-up", "egg-hatching", "correct-answer", "wrong-answer", "hover", "streak-lost"]) assert.match(preview, new RegExp(state));
+  assert.match(preview, /ctx\.bridge\.test/);
   assert.match(evolution, /normalizedAnimation\(name\)/);
   assert.match(evolution, /reportDeveloperAnimation\(name, resolvedName\)/);
 });

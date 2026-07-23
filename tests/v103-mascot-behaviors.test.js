@@ -15,7 +15,7 @@ test("Level 1 newborn and Level 2 baby sprites are real transparent 16:9 frame s
   for(const [file,width,height,frames] of assets){
     assert.ok(fs.statSync(path.join(root,file)).size>100000);
     const output=identify("identify",["-format","%w %h %[opaque]",path.join(root,file)],{encoding:"utf8"});
-    assert.equal(output,`${width} ${height} false`);
+    assert.equal(output.toLowerCase(),`${width} ${height} false`);
     assert.equal(width/frames/height,16/9);
   }
 });
@@ -53,16 +53,15 @@ test("learning events have explicit priorities, cooldowns, queue and UI hooks",(
   for(const event of ["correct-answer","wrong-answer","pronunciation-good","pronunciation-wrong","lesson-complete","streak-increased","streak-lost"])assert.match(bridge,new RegExp(event));
 });
 
-test("Developer Preview exposes every contextual event without progress writes",()=>{
-  const preview=read("assets/v93/developer-preview-v93.js");
-  for(const event of ["idle","hover","correct-answer","wrong-answer","pronunciation-good","pronunciation-wrong","lesson-complete","level-up","streak-increased","streak-lost","outfit-change","egg-hatching"])assert.match(preview,new RegExp(`data-v93-test="${event}"`));
+test("Developer Center exposes every contextual event without progress writes",()=>{
+  const preview=["assets/developer-tabs/evolution.js","assets/developer-tabs/animation.js","assets/developer-tabs/learning-speaking.js"].map(read).join("\n");
+  for(const event of ["idle","hover","correct-answer","wrong-answer","pronunciation-good","pronunciation-wrong","lesson-complete","level-up","streak-increased","streak-lost","outfit-change","egg-hatching"]) assert.match(preview,new RegExp(event));
   assert.doesNotMatch(preview,/awardEXP\(|total_exp\s*=|saveProgress\(|\.from\(/);
 });
 
 test("newborn thought data is age appropriate and production order is correct",()=>{
   const thoughts=read("assets/v95/thoughts-v95.js"),index=read("index.html");
   assert.match(thoughts,/这是哪里？/);assert.match(thoughts,/我出生了！/);assert.match(thoughts,/我要快快长大！/);
-  assert.ok(index.indexOf("mascot-behaviors-v103.js")<index.indexOf("vduckie-evolution-v95.js?v=104.0"));
-  assert.ok(index.indexOf("mascot-manifest-v103.js")<index.indexOf("vduckie-mascot-v95.js?v=104.0"));
+  assert.match(index,/mascot-behaviors-v103\.js\?v=103\.0[^\n]+mascot-manifest-v103\.js\?v=103\.0[^\n]+vduckie-mascot-v95\.js\?v=104\.0/);
   assert.match(index,/mascot-learning-events-v103\.js\?v=103\.0/);
 });

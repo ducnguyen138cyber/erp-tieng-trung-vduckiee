@@ -3,7 +3,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8");
+const html = fs.readFileSync(path.join(root, "index.html"), "utf8") + "\n" + fs.readFileSync(path.join(root, "app-shell-v88.html"), "utf8");
 const css = fs.readFileSync(path.join(root, "v72-layout.css"), "utf8");
 
 for (const requiredId of ["brandHome", "homeHub", "homeHubTitle", "homeRecommendedTitle", "homeJourney"]) {

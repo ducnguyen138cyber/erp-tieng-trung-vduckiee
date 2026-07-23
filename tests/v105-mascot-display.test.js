@@ -31,7 +31,7 @@ test("all display contexts and responsive breakpoints receive proportional sizes
 });
 
 test("production loads V105 after all earlier mascot runtime layers", () => {
-  const index = read("index.html");
+  const index = read("index.html") + "\n" + read("app-shell-v88.html");
   assert.ok(index.indexOf("mascot-runtime-v104.css") < index.indexOf("mascot-display-v105.css"));
   assert.match(index, /mascot-display-v105\.css\?v=105\.0/);
 });

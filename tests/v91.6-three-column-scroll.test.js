@@ -25,6 +25,6 @@ test('both right-column implementations scroll with the document', () => {
 });
 
 test('v91.6 scrolling stylesheet is cache-busted', () => {
-  assert.match(index, /app-shell-v88\.html\?v=91\.6/);
-  assert.match(index, /three-column-scroll-v91\.6\.css\?v=91\.6/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
+  assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
 });

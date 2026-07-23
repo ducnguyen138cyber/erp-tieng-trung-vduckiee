@@ -32,7 +32,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Check changed JavaScript syntax
+      - name: Check HSK and test JavaScript syntax
         run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate HSK content
         run: node scripts/validate-hsk-content.js
@@ -46,9 +46,8 @@ jobs:
         shell: bash
         run: |
           set +e
-          node --test --test-reporter=dot tests/*.test.js > /tmp/regression.log 2>&1
+          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js > /tmp/regression.log 2>&1
           status=$?
-          cp /tmp/regression.log ./hsk-regression.log
           if [ "$status" -ne 0 ]; then
             echo '=== FAILED TEST NAMES ==='
             grep -E '^✖ ' /tmp/regression.log || true
@@ -58,15 +57,14 @@ jobs:
             cat /tmp/regression.log
           fi
           exit "$status"
-      - name: Upload regression checkout for diagnosis
+      - name: Upload regression failure log
         if: failure()
         uses: actions/upload-artifact@v4
         with:
-          name: hsk-regression-debug-checkout
-          path: .
-          include-hidden-files: false
+          name: hsk-regression-failure
+          path: /tmp/regression.log
           if-no-files-found: error
-          retention-days: 1
+          retention-days: 3
       - name: Verify whitespace and deterministic reports
         run: |
           git diff --check

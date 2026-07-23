@@ -27,8 +27,8 @@ test('tablet and mobile keep the existing independently scrollable drawer', () =
   assert.match(mobile, /overflow-y:\s*auto\s*!important/);
 });
 
-test('v91.8 CSS and wheel script are cache-busted', () => {
-  assert.match(index, /three-column-scroll-v91\.8\.css\?v=91\.8/);
-  assert.match(index, /sidebar-wheel-v91\.8\.js\?v=91\.8/);
-  assert.match(index, /app-shell-v88\.html\?v=91\.8/);
+test('current v91.10 layout supersedes the old wheel patch', () => {
+  assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
+  assert.doesNotMatch(index, /sidebar-wheel-v91\.8\.js/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
 });

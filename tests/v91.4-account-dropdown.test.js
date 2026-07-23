@@ -15,14 +15,15 @@ test('account dropdown uses one explicit open state', () => {
   assert.match(script, /dropdown\.classList\.toggle\("is-open",isOpen\)/);
 });
 
-test('account trigger owns a capture-phase click handler', () => {
-  assert.match(script, /trigger\.addEventListener\("click"/);
+test('account trigger owns a capture-phase pointer handler', () => {
+  assert.match(script, /function handleAccountPointer\(event\)/);
   assert.match(script, /event\.stopImmediatePropagation\(\)/);
-  assert.match(script, /toggle\(\)\},true\)/);
+  assert.match(script, /root\.addEventListener\("pointerdown",handleAccountPointer,true\)/);
+  assert.match(script, /toggle\(\)/);
 });
 
 test('v91.4 assets are cache-busted', () => {
-  assert.match(index, /header-account-dropdown-v91\.css\?v=91\.4/);
-  assert.match(index, /header-account-dropdown-v91\.js\?v=91\.4/);
-  assert.match(index, /app-shell-v88\.html\?v=91\.4/);
+  assert.match(index, /header-account-dropdown-v91\.css\?v=91\.5/);
+  assert.match(index, /header-account-dropdown-v91\.js\?v=91\.5/);
+  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
 });

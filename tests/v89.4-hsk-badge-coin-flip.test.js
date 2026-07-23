@@ -50,8 +50,9 @@ test('card text, progress and card body never receive flip transforms', () => {
   assert.match(css, /\.hsk-roadmap-card strong[\s\S]*transform:\s*none/);
   assert.match(css, /\.hsk-roadmap-card small[\s\S]*transform:\s*none/);
   assert.match(css, /\.hsk-roadmap-track[\s\S]*transform:\s*none/);
-  assert.doesNotMatch(css, /\.hsk-roadmap-card[^\{]*\{[^\}]*rotateX/s);
-  assert.doesNotMatch(css, /\.hsk-roadmap-card[^\{]*\{[^\}]*animation:\s*hsk-badge-coin-flip/s);
+  const cardBlock = (css.match(/\.hsk-roadmap-card\s*\{([^}]*)\}/) || [])[1] || '';
+  assert.doesNotMatch(cardBlock, /rotateX/);
+  assert.doesNotMatch(cardBlock, /animation:\s*hsk-badge-coin-flip/);
 });
 
 test('all ten palettes and accessibility fallbacks remain present', () => {
