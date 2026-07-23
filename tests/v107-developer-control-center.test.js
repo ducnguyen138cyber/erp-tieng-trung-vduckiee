@@ -41,19 +41,19 @@ test("production loader uses one canonical V108 entrypoint in dependency order",
   const index = read("index.html");
   const ordered = [
     "mascot-polish-v106.js?v=106.1",
-    "developer-runtime/runtime.js?v=108.0",
-    "developer-events/actions.js?v=108.0",
-    "developer-tabs/overview.js?v=108.0",
-    "developer-tabs/evolution.js?v=108.0",
-    "developer-tabs/animation.js?v=108.0",
-    "developer-debug/debug.js?v=108.0",
-    "developer-ui/developer-center-core.js?v=108.0",
-    "developer-ui/developer-center.js?v=108.0",
-    "developer/developer-control-center.js?v=108.0"
+    "developer-runtime/runtime.js?v=108.1",
+    "developer-events/actions.js?v=108.1",
+    "developer-tabs/overview.js?v=108.1",
+    "developer-tabs/evolution.js?v=108.1",
+    "developer-tabs/animation.js?v=108.1",
+    "developer-debug/debug.js?v=108.1",
+    "developer-ui/developer-center-core.js?v=108.1",
+    "developer-ui/developer-center.js?v=108.1",
+    "developer/developer-control-center.js?v=108.1"
   ];
   ordered.forEach(marker => assert.ok(index.includes(marker), marker));
   for (let i = 1; i < ordered.length; i += 1) assert.ok(index.indexOf(ordered[i - 1]) < index.indexOf(ordered[i]), `${ordered[i - 1]} before ${ordered[i]}`);
-  assert.match(index, /developer-center\.css\?v=108\.0/);
+  assert.match(index, /developer-center\.css\?v=108\.1/);
 });
 
 test("controller authorizes from session without recursively listening to bridge authorization", () => {
@@ -62,6 +62,10 @@ test("controller authorizes from session without recursively listening to bridge
   assert.match(controller, /evolution\.requestDeveloperBridge\(\)/);
   assert.doesNotMatch(controller, /vduckie:developer-preview-authorized/);
   assert.match(controller, /purgeLegacy/);
+  assert.match(controller, /ready\(bridge, openAfterAuthorize\)/);
+  assert.match(controller, /if \(openAfterAuthorize\) ns\.ui\.open\(\)/);
+  assert.match(controller, /core\.onSession\(function \(session\) \{ authorize\(session, false\); \}\)/);
+  assert.match(controller, /authorize\(currentSession\(\), true\)/);
 });
 
 test("Developer modules retain preview-only safety", () => {

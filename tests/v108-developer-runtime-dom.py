@@ -36,8 +36,17 @@ with sync_playwright() as p:
         console_errors = []
         page.on("console", lambda message, sink=console_errors: sink.append(message.text) if message.type == "error" else None)
         page.set_content(fixture, wait_until="load")
-        page.wait_for_selector("#vduckie-developer-center:not([hidden])")
+        page.wait_for_selector("#vduckie-developer-center", state="attached")
         page.wait_for_timeout(80)
+        closed_initial = page.evaluate("""() => ({
+          hidden: document.querySelector('#vduckie-developer-center').hidden,
+          bodyLocked: document.body.classList.contains('dev-center-open'),
+          rootCount: document.querySelectorAll('#vduckie-developer-center').length
+        })""")
+        assert closed_initial == {"hidden": True, "bodyLocked": False, "rootCount": 1}, closed_initial
+        page.keyboard.press("Control+Shift+D")
+        page.wait_for_selector("#vduckie-developer-center:not([hidden])")
+        page.wait_for_timeout(40)
         initial = page.evaluate("""() => {
           const root = document.querySelector('#vduckie-developer-center');
           const dialog = root.querySelector('.dev-center-dialog');
