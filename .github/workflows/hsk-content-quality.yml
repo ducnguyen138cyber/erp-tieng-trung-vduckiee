@@ -43,7 +43,20 @@ jobs:
       - name: Generate deterministic HSK reports
         run: node scripts/generate-hsk-report.js
       - name: Run all website regression tests
-        run: node --test --test-reporter=dot tests/*.test.js
+        shell: bash
+        run: |
+          set +e
+          node --test --test-reporter=dot tests/*.test.js > /tmp/regression.log 2>&1
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            echo '=== FAILED TEST NAMES ==='
+            grep -E '^✖ ' /tmp/regression.log || true
+            echo '=== REGRESSION LOG TAIL ==='
+            tail -n 300 /tmp/regression.log
+          else
+            cat /tmp/regression.log
+          fi
+          exit "$status"
       - name: Verify whitespace and deterministic reports
         run: |
           git diff --check
