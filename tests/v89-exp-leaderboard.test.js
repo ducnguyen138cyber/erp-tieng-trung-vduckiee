@@ -3,7 +3,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.join(__dirname, '..');
-const entry = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const { getRuntimeSnapshot, assertAssetLoaded, assertAssetNotLoaded } = require('./helpers/runtime-snapshot');
+const snapshot = getRuntimeSnapshot();
 const core = fs.readFileSync(path.join(root, 'assets/v89/exp-core-v89.js'), 'utf8');
 const board = fs.readFileSync(path.join(root, 'assets/v89/exp-board-v89.js'), 'utf8');
 const ui = fs.readFileSync(path.join(root, 'assets/v89/exp-leaderboard-v89.js'), 'utf8');
@@ -12,14 +13,13 @@ const css = fs.readFileSync(path.join(root, 'assets/v89/exp-leaderboard-v89.css'
 const sql = fs.readFileSync(path.join(root, 'supabase/migrations/create_exp_leaderboard.sql'), 'utf8');
 const frontend = [core, board, ui, hooks].join('\n');
 
-test('entry loads the current EXP assets without changing static mascot architecture', () => {
-  assert.match(entry, /app-shell-v88\.html\?v=99\.0/);
-  assert.match(entry, /vduckie-welcome\.webp\?v=96\.0/);
-  assert.match(entry, /exp-system-v90\.css\?v=90\.1/);
-  assert.match(entry, /exp-core-v90\.js\?v=90\.0/);
-  assert.match(entry, /exp-board-v90\.js\?v=90\.0/);
-  assert.match(entry, /exp-leaderboard-v90\.js\?v=90\.0/);
-  assert.match(entry, /exp-learning-hooks-v89\.js\?v=90\.0/);
+test('entry loads the current cache-busted EXP system without restoring retired v89 core assets', () => {
+  for (const asset of ['app-shell-v88.html', 'vduckie-welcome.webp', 'exp-system-v90.css', 'exp-core-v90.js', 'exp-board-v90.js', 'exp-leaderboard-v90.js', 'exp-learning-hooks-v89.js']) {
+    assertAssetLoaded(assert, asset, { snapshot });
+  }
+  assertAssetNotLoaded(assert, 'exp-core-v89.js', { snapshot });
+  assertAssetNotLoaded(assert, 'exp-board-v89.js', { snapshot });
+  assertAssetNotLoaded(assert, 'exp-leaderboard-v89.js', { snapshot });
 });
 
 test('frontend exposes activity APIs but never accepts an EXP amount', () => {

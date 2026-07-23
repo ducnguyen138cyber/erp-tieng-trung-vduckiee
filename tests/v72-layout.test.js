@@ -1,15 +1,17 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const { getRuntimeSnapshot, assertAssetLoaded } = require("./helpers/runtime-snapshot");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8") + "\n" + fs.readFileSync(path.join(root, "app-shell-v88.html"), "utf8");
+const snapshot = getRuntimeSnapshot();
+const html = snapshot.effectiveHtml;
 const css = fs.readFileSync(path.join(root, "v72-layout.css"), "utf8");
 const hsk = fs.readFileSync(path.join(root, "hsk-lessons.js"), "utf8");
 
-const ids = Array.from(html.matchAll(/\sid="([^"]+)"/g), (match) => match[1]);
+const ids = Array.from(snapshot.shellSource.matchAll(/\sid="([^"]+)"/g), (match) => match[1]);
 const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
-assert.deepEqual(duplicates, [], `Duplicate IDs: ${duplicates.join(", ")}`);
+assert.deepEqual(duplicates, [], `Duplicate IDs in app shell: ${duplicates.join(", ")}`);
 
 for (const requiredId of [
   "studySidebar",
@@ -25,8 +27,8 @@ for (const requiredId of [
   assert.match(html, new RegExp(`id="${requiredId}"`), `Missing #${requiredId}`);
 }
 
-assert.match(html, /v72-layout\.css\?v=73\.1/);
-assert.match(html, /hsk-lessons\.js\?v=72\.0/);
+assertAssetLoaded(assert, "v72-layout.css", { snapshot });
+assertAssetLoaded(assert, "hsk-lessons.js", { snapshot });
 assert.ok(html.indexOf("study-sidebar") < html.indexOf("study-center"));
 assert.ok(html.indexOf("study-center") < html.indexOf("study-rail"));
 

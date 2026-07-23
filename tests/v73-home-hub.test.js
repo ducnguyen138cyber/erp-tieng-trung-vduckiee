@@ -1,9 +1,11 @@
 const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
+const { getRuntimeSnapshot, assertAssetLoaded } = require("./helpers/runtime-snapshot");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8") + "\n" + fs.readFileSync(path.join(root, "app-shell-v88.html"), "utf8");
+const snapshot = getRuntimeSnapshot();
+const html = snapshot.effectiveHtml;
 const css = fs.readFileSync(path.join(root, "v72-layout.css"), "utf8");
 
 for (const requiredId of ["brandHome", "homeHub", "homeHubTitle", "homeRecommendedTitle", "homeJourney"]) {
@@ -44,7 +46,7 @@ for (const file of mascotFiles) {
   const size = fs.statSync(filePath).size;
   assert.ok(size > 1_000, `${file} is unexpectedly small`);
   assert.ok(size < 100_000, `${file} is too large for the homepage`);
-  assert.ok(html.includes(`./assets/home/${file}?v=73.0`), `Homepage does not use ${file}`);
+  assertAssetLoaded(assert, file, { snapshot });
 }
 
 console.log("v73 home hub tests passed");

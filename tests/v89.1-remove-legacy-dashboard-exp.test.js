@@ -4,7 +4,8 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const root = path.join(__dirname, '..');
-const entry = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const { getRuntimeSnapshot, assertAssetLoaded, assetPosition } = require('./helpers/runtime-snapshot');
+const snapshot = getRuntimeSnapshot();
 const legacyDashboard = fs.readFileSync(path.join(root, 'assets/v85/personal-dashboard-v85.js'), 'utf8');
 const cleanup = fs.readFileSync(path.join(root, 'assets/v89/legacy-dashboard-exp-cleanup-v89.1.js'), 'utf8');
 const cleanupCss = fs.readFileSync(path.join(root, 'assets/v89/legacy-dashboard-exp-cleanup-v89.1.css'), 'utf8');
@@ -21,9 +22,10 @@ test('legacy learner-level card is hidden before paint and removed after render'
   assert.match(cleanup, /MutationObserver/);
 });
 
-test('entry loads the v89.1 cleanup assets after the Supabase EXP UI', () => {
-  assert.match(entry, /legacy-dashboard-exp-cleanup-v89\.1\.css\?v=89\.1/);
-  assert.match(entry, /legacy-dashboard-exp-cleanup-v89\.1\.js\?v=89\.1/);
-  assert.match(entry, /legacy-dashboard-exp-cleanup-v89\.1\.css\?v=89\.1[\s\S]+exp-system-v90\.css\?v=90\.1/);
-  assert.match(entry, /exp-learning-hooks-v89\.js\?v=90\.0[\s\S]+legacy-dashboard-exp-cleanup-v89\.1\.js/);
+test('entry loads the cleanup assets and runs cleanup after current EXP learning hooks', () => {
+  assertAssetLoaded(assert, 'legacy-dashboard-exp-cleanup-v89.1.css', { snapshot });
+  assertAssetLoaded(assert, 'legacy-dashboard-exp-cleanup-v89.1.js', { snapshot });
+  assertAssetLoaded(assert, 'exp-system-v90.css', { snapshot });
+  assertAssetLoaded(assert, 'exp-learning-hooks-v89.js', { snapshot });
+  assert.ok(assetPosition('exp-learning-hooks-v89.js', snapshot) < assetPosition('legacy-dashboard-exp-cleanup-v89.1.js', snapshot));
 });

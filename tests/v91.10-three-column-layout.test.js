@@ -2,10 +2,11 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { getRuntimeSnapshot, assertAssetLoaded, assertAssetNotLoaded } = require('./helpers/runtime-snapshot');
 
 const root = path.join(__dirname, '..');
 const css = fs.readFileSync(path.join(root, 'assets/v91/three-column-scroll-v91.10.css'), 'utf8');
-const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const snapshot = getRuntimeSnapshot();
 
 test('left learning sidebar stays sticky on desktop', () => {
   assert.match(css, /\.study-sidebar\s*\{[\s\S]*?grid-column:\s*1 !important;[\s\S]*?position:\s*sticky !important;/);
@@ -21,8 +22,8 @@ test('home right sidebar is not nested sticky', () => {
   assert.doesNotMatch(css, /html\.v865-home-mode \.v865-home-sidebar\s*\{[\s\S]*?position:\s*sticky !important;/);
 });
 
-test('v91.10 stylesheet is cache-busted and old wheel patch is absent', () => {
-  assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
-  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
-  assert.doesNotMatch(index, /sidebar-wheel-v91\.8\.js/);
+test('current stylesheet is cache-busted and old wheel patch is absent', () => {
+  assertAssetLoaded(assert, 'three-column-scroll-v91.10.css', { snapshot });
+  assertAssetLoaded(assert, 'app-shell-v88.html', { snapshot });
+  assertAssetNotLoaded(assert, 'sidebar-wheel-v91.8.js', { snapshot });
 });

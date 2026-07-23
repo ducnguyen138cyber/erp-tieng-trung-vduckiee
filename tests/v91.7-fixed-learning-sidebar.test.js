@@ -2,10 +2,11 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { getRuntimeSnapshot, assertAssetLoaded, assertAssetNotLoaded } = require('./helpers/runtime-snapshot');
 
 const root = path.join(__dirname, '..');
 const css = fs.readFileSync(path.join(root, 'assets/v91/three-column-scroll-v91.7.css'), 'utf8');
-const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const snapshot = getRuntimeSnapshot();
 
 test('desktop learning sidebar is fixed to the viewport', () => {
   assert.match(css, /@media \(min-width: 981px\)[\s\S]*?\.study-sidebar\s*\{[\s\S]*?position:\s*fixed\s*!important/);
@@ -24,7 +25,7 @@ test('tablet and mobile keep the existing drawer behavior', () => {
   assert.match(css, /width:\s*min\(310px, 86vw\)\s*!important/);
 });
 
-test('v91.7 layout asset is cache-busted', () => {
-  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
-  assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
+test('current three-column layout and app shell are cache-busted', () => {
+  assertAssetLoaded(assert, 'app-shell-v88.html', { snapshot });
+  assertAssetLoaded(assert, 'three-column-scroll-v91.10.css', { snapshot });
 });

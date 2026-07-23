@@ -2,11 +2,12 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { getRuntimeSnapshot, assertAssetLoaded, assertAssetNotLoaded } = require('./helpers/runtime-snapshot');
 
 const root = path.join(__dirname, '..');
 const script = fs.readFileSync(path.join(root, 'assets/v91/header-account-dropdown-v91.js'), 'utf8');
 const css = fs.readFileSync(path.join(root, 'assets/v91/header-account-dropdown-v91.css'), 'utf8');
-const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const snapshot = getRuntimeSnapshot();
 
 test('the whole account card is a hit target', () => {
   assert.match(css, /\.v91-account-trigger>\*\{pointer-events:none!important\}/);
@@ -26,8 +27,8 @@ test('follow-up click cannot immediately close the dropdown', () => {
   assert.match(script, /root\.addEventListener\("click",suppressFollowupClick,true\)/);
 });
 
-test('v91.5 assets are cache-busted', () => {
-  assert.match(index, /header-account-dropdown-v91\.css\?v=91\.5/);
-  assert.match(index, /header-account-dropdown-v91\.js\?v=91\.5/);
-  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
+test('current account dropdown assets and app shell are cache-busted', () => {
+  assertAssetLoaded(assert, 'header-account-dropdown-v91.css', { snapshot });
+  assertAssetLoaded(assert, 'header-account-dropdown-v91.js', { snapshot });
+  assertAssetLoaded(assert, 'app-shell-v88.html', { snapshot });
 });

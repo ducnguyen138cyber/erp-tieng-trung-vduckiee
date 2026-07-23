@@ -2,9 +2,11 @@ const assert = require("node:assert/strict");
 const fs = require("node:fs");
 const path = require("node:path");
 const vm = require("node:vm");
+const { getRuntimeSnapshot, assertAssetLoaded } = require("./helpers/runtime-snapshot");
 
 const root = path.resolve(__dirname, "..");
-const html = fs.readFileSync(path.join(root, "index.html"), "utf8") + "\n" + fs.readFileSync(path.join(root, "app-shell-v88.html"), "utf8");
+const snapshot = getRuntimeSnapshot();
+const html = snapshot.effectiveHtml;
 const dialogue = fs.readFileSync(path.join(root, "dialogue.js"), "utf8");
 const context = { window: {} };
 
@@ -32,8 +34,8 @@ for (const lesson of content.lessons) {
 assert.match(html, /id="lessons" class="panel hidden"/);
 assert.match(html, /id="erpLessonApp"/);
 assert.match(html, /data-view="lessons"/);
-assert.match(html, /erp-content-v74\.js\?v=74\.0/);
-assert.match(html, /erp-lessons-v74\.js\?v=74\.0/);
+assertAssetLoaded(assert, "erp-content-v74.js", { snapshot });
+assertAssetLoaded(assert, "erp-lessons-v74.js", { snapshot });
 assert.match(html, /views=\["lessons","cards","dialogue","quiz","glossary","personal","community"\]/);
 assert.match(dialogue, /scenarios = scenarios\.concat\(root\.ERPScenariosV74\)/);
 

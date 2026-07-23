@@ -2,11 +2,12 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { getRuntimeSnapshot, assertAssetLoaded, assertAssetNotLoaded } = require('./helpers/runtime-snapshot');
 
 const root = path.join(__dirname, '..');
 const css = fs.readFileSync(path.join(root, 'assets/v91/three-column-scroll-v91.8.css'), 'utf8');
 const script = fs.readFileSync(path.join(root, 'assets/v91/sidebar-wheel-v91.8.js'), 'utf8');
-const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+const snapshot = getRuntimeSnapshot();
 
 test('desktop learning sidebar stays fixed without its own scroll container', () => {
   assert.match(css, /\.study-sidebar\s*\{[\s\S]*position:\s*fixed\s*!important/);
@@ -27,8 +28,8 @@ test('tablet and mobile keep the existing independently scrollable drawer', () =
   assert.match(mobile, /overflow-y:\s*auto\s*!important/);
 });
 
-test('current v91.10 layout supersedes the old wheel patch', () => {
-  assert.match(index, /three-column-scroll-v91\.10\.css\?v=91\.10/);
-  assert.doesNotMatch(index, /sidebar-wheel-v91\.8\.js/);
-  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
+test('current layout supersedes the wheel patch and remains cache-busted', () => {
+  assertAssetLoaded(assert, 'three-column-scroll-v91.10.css', { snapshot });
+  assertAssetLoaded(assert, 'app-shell-v88.html', { snapshot });
+  assertAssetNotLoaded(assert, 'sidebar-wheel-v91.8.js', { snapshot });
 });
