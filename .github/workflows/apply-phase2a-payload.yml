@@ -1,8 +1,8 @@
 name: Apply Phase 2A Payload
 
 on:
-  push:
-    branches: [hsk-phase2a-verified-vocabulary]
+  pull_request:
+    branches: [main]
     paths:
       - '.phase2a-payload/**'
       - '.github/workflows/apply-phase2a-payload.yml'
