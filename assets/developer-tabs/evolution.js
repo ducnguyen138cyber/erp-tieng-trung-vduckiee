@@ -21,18 +21,15 @@
   bridgeAction("evolution.pronunciation-wrong","Pronunciation Wrong","pronunciation-wrong","wrong");
   bridgeAction("evolution.lesson-complete","Lesson Complete","lesson-complete","correct");
   bridgeAction("evolution.level-up","Level Up","level-up"); bridgeAction("evolution.glow","Glow","glow","unlock");
-  bridgeAction("evolution.streak-lost","Streak Lost","streak-lost","streak");
-  bridgeAction("evolution.egg-hatching","Egg Hatching","egg-hatching","unlock");
+  bridgeAction("evolution.streak-lost","Streak Lost","streak-lost","streak"); bridgeAction("evolution.egg-hatching","Hatching","egg-hatching","unlock");
+  bridgeAction("evolution.outfit-change","Outfit Change","outfit-change","unlock");
   actions.register({id:"evolution.thought",tab:"evolution",label:"Thought Bubble",keywords:["bubble","thought"],run:function(ctx){if(ctx.bridge){ctx.bridge.enable(ctx.state.level);ctx.bridge.test("thought");}}});
-  actions.register({id:"evolution.outfit-unlock",tab:"evolution",label:"Outfit Unlock",keywords:["outfit","unlock","gift"],run:function(ctx){
-    var next=Math.min(10,ctx.state.level+1); if(root.VDuckiePolishV106&&root.VDuckiePolishV106.cinematic)root.VDuckiePolishV106.cinematic(ctx.state.level,next,true); else if(ctx.bridge)ctx.bridge.test("level-up");
-    runtime.emit("toast",{message:"Preview mở khóa Outfit tại Level "+next,tone:"good"});
-  }});
-  actions.register({id:"evolution.replay",tab:"evolution",label:"Replay Animation",keywords:["replay","current"],favorite:true,run:function(){return actions.replay(actions.history()[1]||null);}});
-  function actionButton(id,label){return '<button type="button" data-vdev-action="'+id+'">'+esc(label)+'</button>';}
+  actions.register({id:"evolution.replay",tab:"evolution",label:"Replay",keywords:["replay","current"],favorite:true,run:function(){return actions.replay(actions.history()[1]||null);}});
+  function button(id,label){return '<button type="button" data-vdev-action="'+id+'">'+esc(label)+'</button>';}
   registerTab({id:"evolution",icon:"🦆",label:"Evolution",render:function(state){
-    var renderer=root.VDuckieMascot,mascot=renderer&&renderer.render?renderer.render({level:state.level,animationState:"idle",size:"large",previewMode:true,allowIncompatible:true,selectedItems:state.inventory}):'<p>Renderer chưa sẵn sàng.</p>';
-    var buttons=[["evolution.idle","Idle"],["evolution.hover","Hover"],["evolution.correct","Correct"],["evolution.wrong","Wrong"],["evolution.pronunciation-good","Pronunciation Good"],["evolution.pronunciation-wrong","Pronunciation Wrong"],["evolution.lesson-complete","Lesson Complete"],["evolution.level-up","Level Up"],["evolution.glow","Glow"],["evolution.streak-lost","Streak Lost"],["evolution.outfit-unlock","Outfit Unlock"],["evolution.egg-hatching","Egg Hatching"],["evolution.thought","Thought Bubble"],["evolution.replay","Replay Animation"]];
-    return '<div class="vdev-two-column"><section class="vdev-preview-stage">'+mascot+'<div class="vdev-stat-row"><span>Level <b>'+state.level+'</b></span><span>XP <b>'+state.xp+'</b></span><span>State <b>'+esc(state.animation.current)+'</b></span><span>Event <b>'+esc(state.currentAction||"—")+'</b></span></div></section><section><div class="vdev-field-grid"><label>Level<select data-vdev-change-action="evolution.set-level">'+(function(){var html='';for(var l=1;l<=10;l+=1)html+='<option value="'+l+'"'+(l===state.level?' selected':'')+'>Level '+l+'</option>';return html})()+'</select></label><label>XP Preview<input type="number" min="0" value="'+state.xp+'" data-vdev-change-action="evolution.set-xp"></label><label>Outfit<input value="'+esc(state.inventory.outfit)+'" disabled></label><label>Accessory<input value="'+esc(state.inventory.accessory)+'" disabled></label></div><div class="vdev-action-grid">'+buttons.map(function(item){return actionButton(item[0],item[1]);}).join('')+'</div></section></div>';
+    var renderer=root.VDuckieMascot;
+    var mascot=renderer&&renderer.render?renderer.render({level:state.level,animationState:"idle",size:"large",previewMode:true,allowIncompatible:true,selectedItems:state.inventory}):'<p>Renderer chưa sẵn sàng.</p>';
+    var options=""; for(var level=1;level<=10;level+=1) options+='<option value="'+level+'"'+(level===state.level?' selected':'')+'>Level '+level+'</option>';
+    return '<div class="dev-center-two-column"><section class="dev-center-preview" data-dev-single-preview>'+mascot+'<div class="dev-center-stat-row"><span>Level <b>'+state.level+'</b></span><span>Outfit <b>'+esc(state.inventory.outfit)+'</b></span><span>Accessory <b>'+esc(state.inventory.accessory)+'</b></span></div></section><section><div class="dev-center-field-grid"><label>Level preview<select data-vdev-change-action="evolution.set-level">'+options+'</select></label><label>XP Preview<input type="number" min="0" value="'+state.xp+'" data-vdev-change-action="evolution.set-xp"></label></div><div class="dev-center-action-grid">'+[["evolution.egg-hatching","Hatching"],["evolution.thought","Thought Bubble"],["evolution.level-up","Level Up"],["evolution.outfit-change","Outfit Change"],["evolution.replay","Replay"]].map(function(item){return button(item[0],item[1]);}).join("")+'</div></section></div>';
   }});
 })(window);
