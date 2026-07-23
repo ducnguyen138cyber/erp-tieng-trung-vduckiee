@@ -1,13 +1,12 @@
 name: Apply Phase 2A Payload
 
 on:
-  schedule:
-    - cron: '7-59/5 * * * *'
-  pull_request:
+  push:
     branches: [main]
     paths:
-      - '.phase2a-payload/**'
-      - '.github/workflows/apply-phase2a-payload.yml'
+      - '.phase2a-materialize-trigger'
+  schedule:
+    - cron: '7-59/5 * * * *'
 
 permissions:
   contents: write
@@ -36,6 +35,7 @@ jobs:
           tar -xJf /tmp/phase2a.tar.xz -C .
           rm -rf .phase2a-payload
           rm -f .github/workflows/apply-phase2a-payload.yml
+          rm -f .phase2a-materialize-trigger
       - name: Install regression dependencies
         if: steps.payload.outputs.pending == 'true'
         run: |
