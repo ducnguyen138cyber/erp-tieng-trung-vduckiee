@@ -1,0 +1,24 @@
+{
+  "duplicateBlockers": 0,
+  "manualReviewRequired": [
+    "derived-dataset-license",
+    "vietnamese-human-review",
+    "official-level-item-extraction",
+    "legacy-progress-semantic-mapping"
+  ],
+  "phase": 1,
+  "phase2Allowed": true,
+  "plannedLevels": 9,
+  "productionCurriculumAllowed": false,
+  "productionEnabled": false,
+  "productionReadyLevels": 0,
+  "qualityGate": "locked",
+  "schemaVersion": "1.0.0",
+  "validation": {
+    "errors": 0,
+    "records": 39,
+    "schemas": 8,
+    "sources": 9,
+    "warnings": 0
+  }
+}

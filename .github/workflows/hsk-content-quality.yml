@@ -1,0 +1,50 @@
+name: HSK Content Quality
+
+on:
+  pull_request:
+    paths:
+      - 'data/hsk/**'
+      - 'assets/hsk-content/**'
+      - 'scripts/*hsk*'
+      - 'tests/*hsk*'
+      - 'docs/hsk-*'
+      - 'reports/hsk-*'
+      - '.github/workflows/hsk-content-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/hsk/**'
+      - 'assets/hsk-content/**'
+      - 'scripts/*hsk*'
+      - 'tests/*hsk*'
+      - 'docs/hsk-*'
+      - 'reports/hsk-*'
+      - '.github/workflows/hsk-content-quality.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-hsk-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Check changed JavaScript syntax
+        run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+      - name: Validate HSK content
+        run: node scripts/validate-hsk-content.js
+      - name: Check HSK duplicates
+        run: node scripts/check-hsk-duplicates.js
+      - name: Check HSK coverage
+        run: node scripts/check-hsk-coverage.js
+      - name: Generate deterministic HSK reports
+        run: node scripts/generate-hsk-report.js
+      - name: Run all website regression tests
+        run: node --test tests/*.test.js
+      - name: Verify whitespace and deterministic reports
+        run: |
+          git diff --check
+          git diff --exit-code -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json

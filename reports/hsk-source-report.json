@@ -1,0 +1,62 @@
+{
+  "automaticProductionGate": "no-fixture-record-uses-review-required-source",
+  "byLicenseStatus": {
+    "reuse-limited": 5,
+    "review-required": 2,
+    "verified": 2
+  },
+  "reviewRequiredSources": [
+    "legacy-cvdict",
+    "legacy-ivankra-hsk30"
+  ],
+  "schemaVersion": "1.0.0",
+  "sourceCount": 9,
+  "usage": [
+    {
+      "licenseStatus": "verified",
+      "recordCount": 0,
+      "sourceId": "cc-cedict-current"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 37,
+      "sourceId": "cti-hsk3-current-syllabus-2026"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 0,
+      "sourceId": "cti-hsk79-first-test-2022"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 0,
+      "sourceId": "cti-test-calendar-2026"
+    },
+    {
+      "licenseStatus": "review-required",
+      "recordCount": 0,
+      "sourceId": "legacy-cvdict"
+    },
+    {
+      "licenseStatus": "review-required",
+      "recordCount": 0,
+      "sourceId": "legacy-ivankra-hsk30"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 0,
+      "sourceId": "moe-gf0025-2021-qa"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 39,
+      "sourceId": "moe-gf0025-2021-standard"
+    },
+    {
+      "licenseStatus": "verified",
+      "recordCount": 5,
+      "sourceId": "unicode-unihan-17"
+    }
+  ],
+  "usedReviewRequiredSources": []
+}

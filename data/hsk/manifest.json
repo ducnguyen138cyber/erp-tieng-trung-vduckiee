@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "curriculumId": "vduckie-hsk-canonical",
+  "syllabusVersion": "GF0025-2021",
+  "examBlueprintVersion": "CTI-HSK3.0-2026",
+  "qualityGate": "locked",
+  "productionEnabled": false,
+  "publicOverrideAllowed": false,
+  "sourceRegistryPath": "sources.json",
+  "legacyMappingPath": "legacy-mapping.json",
+  "schemas": {
+    "level": "schemas/level.schema.json",
+    "unit": "schemas/unit.schema.json",
+    "lesson": "schemas/lesson.schema.json",
+    "vocabulary": "schemas/vocabulary.schema.json",
+    "grammar": "schemas/grammar.schema.json",
+    "character": "schemas/character.schema.json",
+    "exercise": "schemas/exercise.schema.json",
+    "assessment": "schemas/assessment.schema.json"
+  },
+  "levels": [
+    {"level": 1, "stage": "elementary", "status": "planned", "path": "hsk1/level.json", "productionReady": false},
+    {"level": 2, "stage": "elementary", "status": "planned", "path": "hsk2/level.json", "productionReady": false},
+    {"level": 3, "stage": "elementary", "status": "planned", "path": "hsk3/level.json", "productionReady": false},
+    {"level": 4, "stage": "intermediate", "status": "planned", "path": "hsk4/level.json", "productionReady": false},
+    {"level": 5, "stage": "intermediate", "status": "planned", "path": "hsk5/level.json", "productionReady": false},
+    {"level": 6, "stage": "intermediate", "status": "planned", "path": "hsk6/level.json", "productionReady": false},
+    {"level": 7, "stage": "advanced", "status": "planned", "path": "hsk7/level.json", "productionReady": false},
+    {"level": 8, "stage": "advanced", "status": "planned", "path": "hsk8/level.json", "productionReady": false},
+    {"level": 9, "stage": "advanced", "status": "planned", "path": "hsk9/level.json", "productionReady": false}
+  ],
+  "previewFixtures": [
+    {"id": "phase1-hsk1-foundation", "manifestPath": "fixtures/manifest.json", "developerOnly": true, "writesProgress": false}
+  ]
+}
