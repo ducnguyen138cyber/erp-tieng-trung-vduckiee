@@ -3,6 +3,7 @@ const assert=require("node:assert/strict");
 const fs=require("node:fs");
 const path=require("node:path");
 const vm=require("node:vm");
+const {getRuntimeSnapshot,assertAssetLoaded,assetPosition}=require("./helpers/runtime-snapshot");
 const root=path.join(__dirname,"..");
 const read=file=>fs.readFileSync(path.join(root,file),"utf8");
 
@@ -60,8 +61,12 @@ test("Developer Center exposes every contextual event without progress writes",(
 });
 
 test("newborn thought data is age appropriate and production order is correct",()=>{
-  const thoughts=read("assets/v95/thoughts-v95.js"),index=read("index.html");
+  const thoughts=read("assets/v95/thoughts-v95.js");
+  const snapshot=getRuntimeSnapshot();
   assert.match(thoughts,/这是哪里？/);assert.match(thoughts,/我出生了！/);assert.match(thoughts,/我要快快长大！/);
-  assert.match(index,/mascot-behaviors-v103\.js\?v=103\.0[^\n]+mascot-manifest-v103\.js\?v=103\.0[^\n]+vduckie-mascot-v95\.js\?v=104\.0/);
-  assert.match(index,/mascot-learning-events-v103\.js\?v=103\.0/);
+  for(const asset of ["mascot-behaviors-v103.js","mascot-manifest-v103.js","vduckie-mascot-v95.js","mascot-learning-events-v103.js"]) assertAssetLoaded(assert,asset,{snapshot});
+  const behavior=assetPosition("mascot-behaviors-v103.js",snapshot);
+  const manifest=assetPosition("mascot-manifest-v103.js",snapshot);
+  const renderer=snapshot.assets.findIndex((reference,index)=>index>manifest&&/vduckie-mascot-v95\.js(?:\?|$)/.test(reference));
+  assert.ok(behavior>=0&&manifest>behavior&&renderer>manifest,"V103 behavior and manifest must load before the shared renderer");
 });

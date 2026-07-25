@@ -2,13 +2,18 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { getRuntimeSnapshot, assertAssetLoaded, assetPosition } = require('./helpers/runtime-snapshot');
+
 const root = path.join(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
 const store = read('assets/v92/progress-store-v92.js');
 const manifest = read('assets/v92/evolution-manifest-v92.js');
 const evolution = read('assets/v95/vduckie-evolution-v95.js');
-const css = read('assets/v92/vduckie-evolution-v92.css');
-const index = read('index.html');
+const mascot = read('assets/v95/vduckie-mascot-v95.js');
+const coreCss = read('assets/v95/vduckie-mascot-core-v95.css');
+const motionCss = read('assets/v95/vduckie-mascot-motion-v95.css');
+const advancedCss = read('assets/v104/mascot-runtime-v104.css');
+const snapshot = getRuntimeSnapshot();
 
 test('progress store delegates level calculation to the existing EXP core', () => {
   assert.match(store, /core\.calculateUserLevel\(totalEXP\)/);
@@ -29,19 +34,24 @@ test('level one preview uses current progress percentage for the egg', () => {
   assert.doesNotMatch(evolution, /totalEXP\s*[<>]=?\s*\d+/);
 });
 
-test('evolution renders separate HTML thought bubbles and reduced-motion CSS', () => {
-  assert.match(css, /v92-thought-bubble/);
+test('current evolution renders a separate thought cloud and reduced-motion fallbacks', () => {
+  assert.match(mascot, /v95-thought-cloud/);
+  assert.match(mascot, /data-v95-thought-zh/);
   assert.match(evolution, /function openThought/);
-  assert.match(css, /@keyframes v92-idle/);
-  assert.match(css, /@keyframes v92-success/);
-  assert.match(css, /@keyframes v92-sad/);
-  assert.match(css, /prefers-reduced-motion/);
+  assert.match(coreCss, /\.v95-thought-cloud/);
+  assert.match(motionCss, /@keyframes v95-success/);
+  assert.match(motionCss, /@keyframes v95-sad/);
+  assert.match(advancedCss, /@media\(prefers-reduced-motion:reduce\)/);
 });
 
 test('current evolution assets load after EXP and before Developer Center', () => {
-  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
-  assert.match(index, /vduckie-evolution-v92\.css\?v=96\.0/);
-  assert.match(index, /exp-core-v90\.js\?v=90\.0[^\n]+progress-store-v92\.js\?v=106\.1/);
-  assert.match(index, /evolution-manifest-v92\.js\?v=96\.0[^\n]+vduckie-evolution-v95\.js\?v=104\.0/);
-  assert.match(index, /vduckie-evolution-v95\.js\?v=104\.0[\s\S]+developer-control-center\.js\?v=108\.1/);
+  for (const asset of ['app-shell-v88.html', 'vduckie-evolution-v92.css', 'exp-core-v90.js', 'progress-store-v92.js', 'evolution-manifest-v92.js', 'vduckie-evolution-v95.js', 'mascot-runtime-v104.css', 'developer-control-center.js']) assertAssetLoaded(assert, asset, { snapshot });
+  const exp = assetPosition('exp-core-v90.js', snapshot);
+  const progress = assetPosition('progress-store-v92.js', snapshot);
+  const manifestPosition = assetPosition('evolution-manifest-v92.js', snapshot);
+  const evolutionPosition = assetPosition('vduckie-evolution-v95.js', snapshot);
+  const developer = assetPosition('developer-control-center.js', snapshot);
+  assert.ok(exp >= 0 && progress > exp, 'Progress store must load after EXP core');
+  assert.ok(manifestPosition >= 0 && evolutionPosition > manifestPosition, 'Current evolution runtime must load after its manifest');
+  assert.ok(developer > evolutionPosition, 'Developer Center must load after the current evolution runtime');
 });

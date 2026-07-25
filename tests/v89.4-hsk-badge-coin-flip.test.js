@@ -9,6 +9,11 @@ const ui = fs.readFileSync(path.join(root, 'assets/v89/hsk-roadmap-v89.4.js'), '
 const css = fs.readFileSync(path.join(root, 'assets/v89/hsk-roadmap-v89.4.css'), 'utf8');
 const dashboard = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.js'), 'utf8');
 
+function ruleBlock(selector) {
+  const escaped = selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return (css.match(new RegExp(`${escaped}\\s*\\{([^}]*)\\}`)) || [])[1] || '';
+}
+
 test('entry loads only badge-flip roadmap v89.4', () => {
   assert.match(entry, /hsk-roadmap-v89\.4\.css\?v=89\.4/);
   assert.match(entry, /hsk-roadmap-v89\.4\.js\?v=89\.4/);
@@ -26,9 +31,7 @@ test('runtime creates two faces only inside the round badge', () => {
 });
 
 test('HSK 5 through HSK 9 remain separate locked cards', () => {
-  [5, 6, 7, 8, 9].forEach((level) => {
-    assert.match(ui, new RegExp('level: ' + level + ', label: "HSK ' + level + '"'));
-  });
+  [5, 6, 7, 8, 9].forEach((level) => assert.match(ui, new RegExp('level: ' + level + ', label: "HSK ' + level + '"')));
   assert.match(ui, /data-roadmap-card-count", "10"/);
   assert.match(ui, /button\.disabled = true/);
 });
@@ -46,19 +49,16 @@ test('only the badge performs the two-sided coin flip', () => {
 });
 
 test('card text, progress and card body never receive flip transforms', () => {
-  assert.match(css, /\.hsk-roadmap-card[\s\S]*transform:\s*none/);
-  assert.match(css, /\.hsk-roadmap-card strong[\s\S]*transform:\s*none/);
-  assert.match(css, /\.hsk-roadmap-card small[\s\S]*transform:\s*none/);
-  assert.match(css, /\.hsk-roadmap-track[\s\S]*transform:\s*none/);
-  const cardBlock = (css.match(/\.hsk-roadmap-card\s*\{([^}]*)\}/) || [])[1] || '';
-  assert.doesNotMatch(cardBlock, /rotateX/);
-  assert.doesNotMatch(cardBlock, /animation:\s*hsk-badge-coin-flip/);
+  for (const selector of ['.hsk-roadmap-card', '.hsk-roadmap-card strong', '.hsk-roadmap-card small', '.hsk-roadmap-track']) {
+    const block = ruleBlock(selector);
+    assert.ok(block, `Missing CSS rule for ${selector}`);
+    assert.match(block, /transform:\s*none/);
+    assert.doesNotMatch(block, /rotateX|animation:\s*hsk-badge-coin-flip/);
+  }
 });
 
 test('all ten palettes and accessibility fallbacks remain present', () => {
-  for (let level = 0; level <= 9; level += 1) {
-    assert.match(css, new RegExp('data-v865-level="' + level + '"'));
-  }
+  for (let level = 0; level <= 9; level += 1) assert.match(css, new RegExp('data-v865-level="' + level + '"'));
   assert.match(css, /@media \(hover:hover\) and \(pointer:fine\)/);
   assert.match(css, /@media \(hover:none\), \(pointer:coarse\)/);
   assert.match(css, /@media \(prefers-reduced-motion:reduce\)/);

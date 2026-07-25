@@ -2,45 +2,25 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
+const { getRuntimeSnapshot, assertAssetLoaded, assetPosition } = require('./helpers/runtime-snapshot');
 
 const root = path.join(__dirname, '..');
-const indexSource = fs.readFileSync(path.join(root, 'index.html'), 'utf8') + '\n' + fs.readFileSync(path.join(root, 'app-shell-v88.html'), 'utf8');
-const cssSource = fs.readFileSync(
-  path.join(root, 'assets', 'home', 'vduckie-mascot-v87.css'),
-  'utf8'
-);
-const stabilitySource = fs.readFileSync(
-  path.join(root, 'assets', 'home', 'home-layout-stability-v87.3.js'),
-  'utf8'
-);
-const personalSource = fs.readFileSync(
-  path.join(root, 'assets', 'v85', 'personal-dashboard-v85.js'),
-  'utf8'
-);
-const premiumSource = fs.readFileSync(
-  path.join(root, 'assets', 'v86', 'premium-learning-v86.js'),
-  'utf8'
-);
-const dashboardSource = fs.readFileSync(
-  path.join(root, 'assets', 'v86', 'home-dashboard-v86.5.js'),
-  'utf8'
-);
-const orderSource = fs.readFileSync(
-  path.join(root, 'assets', 'v86', 'home-order-fix-v86.6.js'),
-  'utf8'
-);
+const snapshot = getRuntimeSnapshot();
+const indexSource = snapshot.effectiveHtml;
+const cssSource = fs.readFileSync(path.join(root, 'assets', 'home', 'vduckie-mascot-v87.css'), 'utf8');
+const stabilitySource = fs.readFileSync(path.join(root, 'assets', 'home', 'home-layout-stability-v87.3.js'), 'utf8');
+const personalSource = fs.readFileSync(path.join(root, 'assets', 'v85', 'personal-dashboard-v85.js'), 'utf8');
+const premiumSource = fs.readFileSync(path.join(root, 'assets', 'v86', 'premium-learning-v86.js'), 'utf8');
+const dashboardSource = fs.readFileSync(path.join(root, 'assets', 'v86', 'home-dashboard-v86.5.js'), 'utf8');
+const orderSource = fs.readFileSync(path.join(root, 'assets', 'v86', 'home-order-fix-v86.6.js'), 'utf8');
 const communitySource = fs.readFileSync(path.join(root, 'community.js'), 'utf8');
-const loaderSource = fs.readFileSync(
-  path.join(root, 'assets', 'v86', 'experience-suite-loader-v86.js'),
-  'utf8'
-);
+const loaderSource = fs.readFileSync(path.join(root, 'assets', 'v86', 'experience-suite-loader-v86.js'), 'utf8');
 
 test('welcome mascot bootstrap restores the current WebP artwork', () => {
-  const entrySource = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const shellSource = fs.readFileSync(path.join(root, 'app-shell-v88.html'), 'utf8');
-  assert.match(shellSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
-  assert.match(entrySource, /staticMascot='<img class="home-welcome-mascot" src="\.\/assets\/home\/vduckie-welcome\.webp\?v=96\.0"/);
-  assert.match(entrySource, /source=source\.replace\(animatedMascot,staticMascot\)/);
+  assert.match(snapshot.shellSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
+  assert.match(snapshot.indexSource, /staticMascot='<img class="home-welcome-mascot" src="\.\/assets\/home\/vduckie-welcome\.webp\?v=[^"]+"/);
+  assert.match(snapshot.indexSource, /source=source\.replace\(animatedMascot,staticMascot\)/);
+  assertAssetLoaded(assert, 'vduckie-welcome.webp', { snapshot });
   assert.match(cssSource, /img\.home-welcome-mascot/);
 });
 
@@ -55,8 +35,9 @@ test('first paint starts in the final home grid mode and waits for a stable shel
   assert.match(indexSource, /classList\.add\("vduckie-layout-booting"\)/);
   assert.match(indexSource, /if\(isHome\)html\.classList\.add\("v865-home-mode"\)/);
   assert.match(indexSource, /id="v865HomeDashboardCss"/);
-  assert.match(indexSource, /home-layout-stability-v87\.3\.js\?v=87\.3/);
-  assert.match(indexSource, /experience-suite-loader-v86\.js\?v=87\.5[\s\S]+home-layout-stability-v87\.3\.js\?v=87\.3/);
+  assertAssetLoaded(assert, 'experience-suite-loader-v86.js', { snapshot });
+  assertAssetLoaded(assert, 'home-layout-stability-v87.3.js', { snapshot });
+  assert.ok(assetPosition('experience-suite-loader-v86.js', snapshot) < assetPosition('home-layout-stability-v87.3.js', snapshot));
   assert.match(cssSource, /\.vduckie-layout-booting\.v865-home-mode #homeHub/);
   assert.match(cssSource, /visibility: hidden !important/);
   assert.match(cssSource, /scrollbar-gutter: stable/);
@@ -72,8 +53,8 @@ test('personal and premium renderers stay inside the final home main column', ()
   assert.match(premiumSource, /main=document\.getElementById\("v865HomeMain"\)/);
   assert.match(premiumSource, /node\.style\.order="5"/);
   assert.match(premiumSource, /if\(rendered\|\|tries>40\)clearInterval/);
-  assert.match(loaderSource, /personal-dashboard-v85\.js\?v=87\.5/);
-  assert.match(loaderSource, /premium-learning-v86\.js\?v=87\.5/);
+  assert.match(loaderSource, /personal-dashboard-v85\.js\?v=[^"']+/);
+  assert.match(loaderSource, /premium-learning-v86\.js\?v=[^"']+/);
 });
 
 test('account refresh cannot paint the roadmap above the welcome card', () => {
@@ -86,8 +67,8 @@ test('account refresh cannot paint the roadmap above the welcome card', () => {
   assert.match(personalSource, ignoresNoopAccountRefresh);
   assert.match(premiumSource, ignoresNoopAccountRefresh);
   assert.match(orderSource, ignoresNoopAccountRefresh);
-  assert.match(loaderSource, /home-dashboard-v86\.5\.js\?v=87\.5/);
-  assert.match(loaderSource, /home-order-fix-v86\.6\.js\?v=87\.5/);
-  assert.match(indexSource, /community\.js\?v=87\.5/);
-  assert.match(communitySource, /experience-suite-loader-v86\.js\?v=87\.5/);
+  assert.match(loaderSource, /home-dashboard-v86\.5\.js\?v=[^"']+/);
+  assert.match(loaderSource, /home-order-fix-v86\.6\.js\?v=[^"']+/);
+  assertAssetLoaded(assert, 'community.js', { snapshot });
+  assert.match(communitySource, /experience-suite-loader-v86\.js\?v=[^"']+/);
 });

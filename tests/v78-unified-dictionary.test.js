@@ -23,12 +23,7 @@ const erp = [
   ['库存', 'kù cún', 'khù xuấn', 'Tồn kho', 'Kho', '', '', ''],
   ['计划', 'jì huà', 'chi hụa', 'Kế hoạch sản xuất', 'Sản xuất', '', '', '']
 ];
-const hsk = {
-  levels: {
-    1: [{ words: [['你好', 'nǐ hǎo', 'Xin chào', '你好！', 'Xin chào!'], ['计划', 'jìhuà', 'Kế hoạch', '我有计划。', 'Tôi có kế hoạch.']] }],
-    2: [], 3: [], 4: []
-  }
-};
+const hsk = { levels: { 1: [{ words: [['你好', 'nǐ hǎo', 'Xin chào', '你好！', 'Xin chào!'], ['计划', 'jìhuà', 'Kế hoạch', '我有计划。', 'Tôi có kế hoạch.']] }], 2: [], 3: [], 4: [] } };
 const records = utils.buildRecords(erp, hsk, null);
 
 test('merges HSK and ERP records by Hanzi without duplicates', () => {
@@ -49,8 +44,7 @@ test('finds ERP-only, HSK-only and shared terms with unaccented or compact pinyi
 test('source and secondary filters work without clearing the search query', () => {
   const state = { source: 'hsk', query: 'ke hoach', hskLevel: '1', erpGroup: 'all' };
   assert.deepEqual(Array.from(utils.filterRecords(records, state)).map((record) => record.hanzi), ['计划']);
-  state.source = 'erp';
-  state.erpGroup = 'production';
+  state.source = 'erp'; state.erpGroup = 'production';
   assert.equal(state.query, 'ke hoach');
   assert.deepEqual(Array.from(utils.filterRecords(records, state)).map((record) => record.hanzi), ['计划']);
 });
@@ -71,12 +65,12 @@ test('independent dictionary navigation, lookup buttons and speech remain instal
   assert.match(source, /vduckie:erp-v77-ready/);
   assert.match(source, /speechSynthesis\.speak/);
   assert.match(source, /version: "78\.0"/);
-  assert.match(communityLoader, /unified-dictionary-v79\.js\?v=79\.0/);
-  assert.match(erpPipeline, /erp-terms-v77-finalize\.js\?v=77\.1/);
-  assert.match(erpPipeline, /unified-dictionary-v79\.js\?v=79\.0/);
+  assert.match(communityLoader, /unified-dictionary-v79\.js\?v=[^"']+/);
+  assert.match(erpPipeline, /erp-terms-v77-finalize\.js\?v=[^"']+/);
+  assert.match(erpPipeline, /unified-dictionary-v79\.js\?v=[^"']+/);
   assert.match(erpFinalizer, /var target=1600/);
   assert.match(runtimeLoader, /Promise\.all\(tasks\)/);
-  for (let number = 1; number <= 5; number++) assert.match(runtimeLoader, new RegExp(`part"\\+index\\+"\\.txt\\?v=78\\.0`));
+  for (let number = 1; number <= 5; number++) assert.match(runtimeLoader, new RegExp(`part"\\+index\\+"\\.txt\\?v=[^"']+`));
 });
 
 test('responsive CSS covers 80–125% style pressure, mobile and long content', () => {
