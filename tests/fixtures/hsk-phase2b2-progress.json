@@ -1,0 +1,31 @@
+{
+  "legacyLessons": [
+    {
+      "id": "hsk1-1",
+      "words": [
+        ["爱", "ài", "Yêu"],
+        [" 愛 ", "ài", "Yêu thích"],
+        ["后 面", "hòumiàn", "Phía sau"],
+        ["行", "xíng", "Được; ổn"],
+        ["不存在", "bù cúnzài", "Không tồn tại"]
+      ]
+    }
+  ],
+  "canonicalVocabulary": [
+    { "id": "hsk1-v-0001", "simplified": "爱", "traditional": "愛", "pinyin": "ài", "pinyinNormalized": "ai", "meaningVi": "yêu; yêu thích" },
+    { "id": "hsk1-v-0002", "simplified": "后面", "traditional": "後面", "pinyin": "hòumiàn", "pinyinNormalized": "houmian", "meaningVi": "phía sau" },
+    { "id": "hsk1-v-0003", "simplified": "行", "traditional": "行", "pinyin": "xíng", "pinyinNormalized": "xing", "meaningVi": "được; ổn" },
+    { "id": "hsk1-v-0004", "simplified": "行", "traditional": "行", "pinyin": "háng", "pinyinNormalized": "hang", "meaningVi": "hàng; nghề" }
+  ],
+  "canonicalLessons": [
+    {
+      "id": "hsk1-canonical-preview-01",
+      "words": [
+        ["爱", "ài", "Yêu", "", "", [], "hsk1-v-0001"],
+        ["后面", "hòumiàn", "Phía sau", "", "", [], "hsk1-v-0002"],
+        ["行", "xíng", "Được", "", "", [], "hsk1-v-0003"],
+        ["行", "háng", "Hàng", "", "", [], "hsk1-v-0004"]
+      ]
+    }
+  ]
+}
