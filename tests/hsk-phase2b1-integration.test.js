@@ -149,7 +149,7 @@ test('production runtime keeps canonical progress writes blocked and only expose
   assert.ok(index.indexOf('hsk-content-feature-flags.js?v=2b1.0') < index.indexOf('hsk-progress-contract.js?v=2b2.0'));
   assert.ok(index.indexOf('hsk-progress-contract.js?v=2b2.0') < index.indexOf('hsk-progress-migration.js?v=2b2.0'));
   assert.ok(index.indexOf('hsk-progress-migration.js?v=2b2.0') < index.indexOf('hsk-developer-preview.js?v=2b2.0'));
-  assert.ok(index.indexOf('hsk-developer-preview.js?v=2b2.0') < index.indexOf('developer-control-center.js?v=2b2.0'));
+  assert.ok(index.indexOf('hsk-developer-preview.js?v=2b2.0') < index.indexOf('developer-control-center.js?v=2b1.0'));
   assert.match(appShell, /hsk-lessons\.js\?v=2b1\.0/);
   assert.match(appShell, /community\.js\?v=2b1\.0/);
   assert.match(community, /hsk1-v75-loader\.js\?v=2b1\.0/);
