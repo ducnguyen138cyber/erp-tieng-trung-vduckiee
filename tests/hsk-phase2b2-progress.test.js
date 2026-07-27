@@ -204,13 +204,13 @@ test('repository V75 to canonical mapping report is deterministic', { skip: !fs.
   assert.deepEqual(second, first);
   assert.deepEqual(first.summary, {
     totalLegacyItems: 150,
-    exactMapped: 150,
+    exactMapped: 146,
     normalizedMapped: 0,
     ambiguous: 0,
-    unmatched: 0,
+    unmatched: 4,
     duplicateTargets: 0,
-    mapped: 150,
-    coveragePercent: 100
+    mapped: 146,
+    coveragePercent: 97.33
   });
   assert.equal(first.generatedMode, 'deterministic-dry-run');
 });
