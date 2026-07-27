@@ -42,6 +42,7 @@
   }
 
   function refreshIfNeeded() {
+    if (root.HSKCurriculum && root.HSKCurriculum.previewMode === "canonical") return;
     var state = readJson(STATE_KEY, { level: 0, lesson: 0 });
     if (Number(state.level) !== 1) { patchStaticCopy(); return; }
     var links = document.querySelectorAll("#hskLessonList [data-hsk-lesson]");
@@ -72,11 +73,15 @@
       return;
     }
     installStyles();
-    root.HSKCurriculum.levels[1] = lessons;
-    var total = 0;
-    for (var level = 0; level <= 4; level++) total += (root.HSKCurriculum.levels[level] || []).length;
-    root.HSKCurriculum.lessonCount = total;
-    root.HSKCurriculum.standard = "HSK 1 hoàn chỉnh · 150 từ · v75";
+    if (root.VDuckieHskRuntime && typeof root.VDuckieHskRuntime.installLegacyCurriculum === "function") {
+      root.VDuckieHskRuntime.installLegacyCurriculum(lessons, { standard: "HSK 1 hoàn chỉnh · 150 từ · v75" });
+    } else {
+      root.HSKCurriculum.levels[1] = lessons;
+      var total = 0;
+      for (var level = 0; level <= 4; level++) total += (root.HSKCurriculum.levels[level] || []).length;
+      root.HSKCurriculum.lessonCount = total;
+      root.HSKCurriculum.standard = "HSK 1 hoàn chỉnh · 150 từ · v75";
+    }
     patchStaticCopy();
     bindReviewEvents();
     refreshIfNeeded();

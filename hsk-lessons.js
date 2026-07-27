@@ -580,6 +580,11 @@
   var writingAnimating = false;
   var writingPaused = false;
   var lessonSectionIndex = 0;
+  var DEVELOPER_EMAIL = "ducnguyenn138@gmail.com";
+  var developerAuthorizationRequest = 0;
+  var authorizedDeveloperId = null;
+  var developerBridge = null;
+  var previewState = { mode: "legacy", readOnly: false, legacy: null };
 
   function byId(id) { return document.getElementById(id); }
   function escapeHtml(value) {
@@ -596,10 +601,12 @@
     try { completed = JSON.parse(localStorage.getItem(progressKey) || "{}"); } catch (error) { completed = {}; }
   }
   function saveState() {
+    if (previewState.readOnly) return false;
     try {
       localStorage.setItem(stateKey, JSON.stringify({ level: selectedLevel, lesson: selectedLesson }));
       localStorage.setItem(progressKey, JSON.stringify(completed));
     } catch (error) {}
+    return true;
   }
   function reading(value, fallbackPinyin) {
     try {
@@ -687,7 +694,8 @@
     var html = "";
     for (var i = 0; i < levels[selectedLevel].length; i++) {
       var item = levels[selectedLevel][i];
-      html += '<button class="hsk-lesson-link' + (selectedLesson === i ? " active" : "") + (completed[item.id] ? " done" : "") + '" data-hsk-lesson="' + i + '"><span class="hsk-lesson-number">' + (completed[item.id] ? "✓" : (i + 1)) + "</span><span><strong>" + escapeHtml(item.title) + "</strong><small>" + (item.foundation ? item.items.length + " nội dung nền tảng" : "6 từ · viết · đọc · nghe") + "</small></span>" + (completed[item.id] ? '<span class="hsk-check">✓</span>' : "") + "</button>";
+      var summary = item.foundation ? item.items.length + " nội dung nền tảng" : item.canonicalPreview ? item.canonicalVocabularyCount + " từ · " + item.canonicalSentenceCount + " câu · DEV" : "6 từ · viết · đọc · nghe";
+      html += '<button class="hsk-lesson-link' + (selectedLesson === i ? " active" : "") + (completed[item.id] ? " done" : "") + '" data-hsk-lesson="' + i + '"><span class="hsk-lesson-number">' + (completed[item.id] ? "✓" : (i + 1)) + "</span><span><strong>" + escapeHtml(item.title) + "</strong><small>" + summary + "</small></span>" + (completed[item.id] ? '<span class="hsk-check">✓</span>' : "") + "</button>";
     }
     byId("hskLessonList").innerHTML = html;
   }
@@ -696,7 +704,18 @@
     for (var i = 0; i < item.words.length; i++) {
       var word = item.words[i];
       var wordReading = reading(word[0], word[1]);
-      html += '<article class="hsk-word"><button class="hsk-speak" data-hsk-speak="' + escapeHtml(word[0]) + '" aria-label="Nghe ' + escapeHtml(word[0]) + '">♪</button><strong>' + escapeHtml(word[0]) + "</strong><b>" + escapeHtml(word[1]) + '</b><i>Gần âm: ' + escapeHtml(wordReading.nearVi) + "</i><p>" + escapeHtml(word[2]) + '</p><small><button class="hsk-speak hsk-example-speak" data-hsk-speak="' + escapeHtml(word[3]) + '" aria-label="Nghe câu mẫu">句</button>' + escapeHtml(word[3]) + "<br>" + escapeHtml(word[4]) + "</small></article>";
+      html += '<article class="hsk-word"><button class="hsk-speak" data-hsk-speak="' + escapeHtml(word[0]) + '" aria-label="Nghe ' + escapeHtml(word[0]) + '">♪</button><strong>' + escapeHtml(word[0]) + "</strong><b>" + escapeHtml(word[1]) + '</b><i>Gần âm: ' + escapeHtml(wordReading.nearVi) + "</i><p>" + escapeHtml(word[2]) + "</p>";
+      if (item.canonicalPreview && Array.isArray(word[5])) {
+        html += '<div class="hsk-canonical-examples">';
+        for (var exampleIndex = 0; exampleIndex < word[5].length; exampleIndex++) {
+          var example = word[5][exampleIndex];
+          html += '<small><button class="hsk-speak hsk-example-speak" data-hsk-speak="' + escapeHtml(example[1]) + '" aria-label="Nghe câu canonical">句</button><b>' + escapeHtml(example[1]) + '</b><br><span>' + escapeHtml(example[2]) + '</span><br>' + escapeHtml(example[3]) + "</small>";
+        }
+        html += "</div>";
+      } else {
+        html += '<small><button class="hsk-speak hsk-example-speak" data-hsk-speak="' + escapeHtml(word[3]) + '" aria-label="Nghe câu mẫu">句</button>' + escapeHtml(word[3]) + "<br>" + escapeHtml(word[4]) + "</small>";
+      }
+      html += "</article>";
     }
     return html + "</div></div>";
   }
@@ -804,8 +823,9 @@
     var html = '<div class="hsk-section hsk-quiz"><div class="hsk-quiz-head"><h4>' + sectionNumber + '. Kiểm tra cuối bài</h4><span class="step">CẦN ĐÚNG 4/5</span></div>';
     if (quiz.index >= 5) {
       var passed = quiz.score >= 4;
-      if (passed && !completed[item.id]) { completed[item.id] = true; saveState(); }
-      html += '<div class="hsk-result ' + (passed ? "pass" : "retry") + '"><strong>' + quiz.score + '/5</strong><h4>' + (passed ? "Đã qua bài" : "Chưa qua bài") + "</h4><p>" + (passed ? "Tiến độ đã được lưu. Có thể chuyển sang bài tiếp theo." : "Ôn lại từ mới và làm lại, lần này đừng đoán mò nhé bro.") + '</p><div class="hsk-actions" style="justify-content:center"><button class="muted" data-hsk-action="quiz-restart">Làm lại</button><button class="accent" data-hsk-action="next-lesson">Bài tiếp theo →</button></div></div>';
+      if (passed && !previewState.readOnly && !completed[item.id]) { completed[item.id] = true; saveState(); }
+      var resultCopy = previewState.readOnly ? "Developer Preview chỉ đọc; kết quả không được lưu." : passed ? "Tiến độ đã được lưu. Có thể chuyển sang bài tiếp theo." : "Ôn lại từ mới và làm lại, lần này đừng đoán mò nhé bro.";
+      html += '<div class="hsk-result ' + (passed ? "pass" : "retry") + '"><strong>' + quiz.score + '/5</strong><h4>' + (passed ? "Đã qua bài" : "Chưa qua bài") + "</h4><p>" + resultCopy + '</p><div class="hsk-actions" style="justify-content:center"><button class="muted" data-hsk-action="quiz-restart">Làm lại</button><button class="accent" data-hsk-action="next-lesson">Bài tiếp theo →</button></div></div>';
       return html + "</div>";
     }
     var word = item.words[quiz.index];
@@ -858,8 +878,8 @@
     stepper.innerHTML = '<div class="hsk-mobile-step-meta"><strong>Phần ' + (current + 1) + "/" + sections.length + '</strong><span>' + escapeHtml(titles[current]) + '</span></div><div class="hsk-mobile-step-track"><i style="width:' + percent + '%"></i></div>';
     lesson.insertBefore(stepper, sections[0]);
     var isLast = current === sections.length - 1;
-    var nextAction = isLast ? (completed[currentLesson().id] ? "next-lesson" : "section-complete") : "section-next";
-    var nextLabel = isLast ? (completed[currentLesson().id] ? "Bài kế tiếp →" : "✓ Đánh dấu hoàn thành") : "Tiếp: " + titles[current + 1] + " →";
+    var nextAction = isLast ? (previewState.readOnly || completed[currentLesson().id] ? "next-lesson" : "section-complete") : "section-next";
+    var nextLabel = isLast ? (previewState.readOnly || completed[currentLesson().id] ? "Bài kế tiếp →" : "✓ Đánh dấu hoàn thành") : "Tiếp: " + titles[current + 1] + " →";
     var bottom = document.createElement("div");
     bottom.className = "hsk-mobile-step-bottom";
     bottom.innerHTML = '<button data-hsk-action="section-prev"' + (current === 0 ? " disabled" : "") + '>← Phần trước</button><button data-hsk-action="' + nextAction + '">' + escapeHtml(nextLabel) + "</button>";
@@ -877,7 +897,8 @@
     var item = currentLesson();
     var done = Boolean(completed[item.id]);
     var levelLabel = selectedLevel === 0 ? "NỀN TẢNG" : "HSK " + selectedLevel;
-    var html = '<div class="hsk-lesson-head"><div><span class="step">' + levelLabel + " · BÀI " + (selectedLesson + 1) + " / " + levels[selectedLevel].length + "</span><h3>" + escapeHtml(item.title) + "</h3><p>" + escapeHtml(item.goal) + '</p></div><div class="hsk-actions"><button class="' + (done ? "hsk-speak" : "muted") + '" data-hsk-action="complete">' + (done ? "✓ Đã hoàn thành" : "Đánh dấu đã học") + '</button><button class="accent" data-hsk-action="next-lesson">Bài tiếp →</button></div></div>';
+    var completeButton = previewState.readOnly ? '<button class="muted" type="button" disabled>🔒 Chỉ đọc · không lưu</button>' : '<button class="' + (done ? "hsk-speak" : "muted") + '" data-hsk-action="complete">' + (done ? "✓ Đã hoàn thành" : "Đánh dấu đã học") + "</button>";
+    var html = '<div class="hsk-lesson-head"><div><span class="step">' + levelLabel + " · BÀI " + (selectedLesson + 1) + " / " + levels[selectedLevel].length + "</span><h3>" + escapeHtml(item.title) + "</h3><p>" + escapeHtml(item.goal) + '</p></div><div class="hsk-actions">' + completeButton + '<button class="accent" data-hsk-action="next-lesson">Bài tiếp →</button></div></div>';
     if (item.foundation) html += renderFoundation(item);
     else html += renderWords(item) + renderWriting(item, 2) + renderGrammar(item).replace("<h4>2.", "<h4>3.") + renderReading(item, 4) + renderDictation(item, 5) + renderQuiz(item, 6);
     byId("hskLesson").innerHTML = html;
@@ -894,6 +915,7 @@
     var preservedScrollX = root.scrollX || 0;
     var preservedScrollY = root.scrollY || root.pageYOffset || 0;
     if (selectedLesson < levels[selectedLevel].length - 1) selectedLesson++;
+    else if (previewState.mode === "canonical" && selectedLevel === 1) selectedLesson = 0;
     else if (selectedLevel < 4) { selectedLevel++; selectedLesson = 0; }
     resetQuiz();
     resetWriting();
@@ -969,9 +991,11 @@
       if (action === "section-prev") moveLessonSection(-1);
       else if (action === "section-next") moveLessonSection(1);
       else if (action === "section-complete") {
+        if (previewState.readOnly) return;
         completed[currentLesson().id] = true;
         saveState(); renderAll();
       } else if (action === "complete") {
+        if (previewState.readOnly) return;
         var id = currentLesson().id;
         if (completed[id]) delete completed[id]; else completed[id] = true;
         saveState(); renderAll();
@@ -1061,7 +1085,182 @@
     };
   }
 
+  function copy(value) {
+    return JSON.parse(JSON.stringify(value));
+  }
+  function normalizedEmail(value) {
+    return String(value || "").trim().toLowerCase();
+  }
+  function currentSession() {
+    var core = root.VDuckieEXPCore;
+    return core && typeof core.session === "function" ? core.session() : null;
+  }
+  function isAuthorizedDeveloper() {
+    var session = currentSession();
+    return !!(authorizedDeveloperId && session && session.user && session.user.id === authorizedDeveloperId && normalizedEmail(session.user.email) === DEVELOPER_EMAIL);
+  }
+  function captureIntroCopy() {
+    var intro = document.querySelector(".hsk-intro");
+    var level = document.querySelector('#hskLevels [data-hsk-level="1"] small');
+    return {
+      strong: intro && intro.querySelector("strong") ? intro.querySelector("strong").textContent : null,
+      paragraph: intro && intro.querySelector("p") ? intro.querySelector("p").textContent : null,
+      badge: intro && intro.querySelector(".hsk-standard") ? intro.querySelector(".hsk-standard").textContent : null,
+      level: level ? level.textContent : null
+    };
+  }
+  function restoreIntroCopy(snapshot) {
+    if (!snapshot) return;
+    var intro = document.querySelector(".hsk-intro");
+    var level = document.querySelector('#hskLevels [data-hsk-level="1"] small');
+    if (intro && intro.querySelector("strong") && snapshot.strong !== null) intro.querySelector("strong").textContent = snapshot.strong;
+    if (intro && intro.querySelector("p") && snapshot.paragraph !== null) intro.querySelector("p").textContent = snapshot.paragraph;
+    if (intro && intro.querySelector(".hsk-standard") && snapshot.badge !== null) intro.querySelector(".hsk-standard").textContent = snapshot.badge;
+    if (level && snapshot.level !== null) level.textContent = snapshot.level;
+  }
+  function applyCanonicalCopy(metadata) {
+    var intro = document.querySelector(".hsk-intro");
+    var level = document.querySelector('#hskLevels [data-hsk-level="1"] small');
+    if (intro && intro.querySelector("strong")) intro.querySelector("strong").textContent = "Developer Preview · Canonical HSK 1";
+    if (intro && intro.querySelector("p")) intro.querySelector("p").textContent = metadata.vocabulary + " từ và " + metadata.sentences + " câu canonical đang chạy ở chế độ chỉ đọc. Production vẫn dùng curriculum cũ.";
+    if (intro && intro.querySelector(".hsk-standard")) intro.querySelector(".hsk-standard").textContent = "DEV ONLY · CANONICAL · READ-ONLY";
+    if (level) level.textContent = metadata.lessons + " bài · " + metadata.vocabulary + " từ · DEV";
+  }
+  function totalLessonCount(hsk1Lessons) {
+    var total = 0;
+    for (var level = 0; level <= 4; level++) total += (level === 1 ? hsk1Lessons : levels[level] || []).length;
+    return total;
+  }
+  function installLegacyCurriculum(lessons, metadata) {
+    if (!Array.isArray(lessons) || !lessons.length) throw new Error("Legacy HSK 1 curriculum is unavailable.");
+    metadata = metadata || {};
+    if (previewState.mode === "canonical" && previewState.legacy) {
+      previewState.legacy.lessons = lessons;
+      previewState.legacy.standard = metadata.standard || previewState.legacy.standard;
+      previewState.legacy.lessonCount = totalLessonCount(lessons);
+      return { mode: "canonical", applied: false };
+    }
+    levels[1] = lessons;
+    if (selectedLevel === 1 && selectedLesson >= lessons.length) selectedLesson = Math.max(0, lessons.length - 1);
+    if (root.HSKCurriculum) {
+      root.HSKCurriculum.lessonCount = totalLessonCount(lessons);
+      if (metadata.standard) root.HSKCurriculum.standard = metadata.standard;
+    }
+    resetQuiz();
+    resetWriting();
+    lessonSectionIndex = 0;
+    renderAll();
+    return { mode: "legacy", applied: true };
+  }
+  function useCanonicalCurriculum(lessons, metadata) {
+    if (!Array.isArray(lessons) || lessons.length !== 15) throw new Error("Canonical HSK 1 preview requires 15 adapted lessons.");
+    metadata = metadata || {};
+    if (!previewState.legacy) {
+      previewState.legacy = {
+        lessons: levels[1],
+        selectedLevel: selectedLevel,
+        selectedLesson: selectedLesson,
+        completed: copy(completed),
+        standard: root.HSKCurriculum.standard,
+        lessonCount: root.HSKCurriculum.lessonCount,
+        introCopy: captureIntroCopy()
+      };
+    }
+    previewState.mode = "canonical";
+    previewState.readOnly = true;
+    levels[1] = lessons;
+    selectedLevel = 1;
+    selectedLesson = 0;
+    completed = {};
+    lessonSectionIndex = 0;
+    root.HSKCurriculum.standard = metadata.standard || "HSK 1 canonical · DEV ONLY";
+    root.HSKCurriculum.lessonCount = totalLessonCount(lessons);
+    root.HSKCurriculum.previewMode = "canonical";
+    root.HSKCurriculum.previewMetadata = copy(metadata);
+    resetQuiz();
+    resetWriting();
+    renderAll();
+    applyCanonicalCopy(metadata);
+    if (document.body) document.body.setAttribute("data-hsk-curriculum-preview", "canonical");
+    return { mode: "canonical", readOnly: true, lessons: lessons.length };
+  }
+  function useLegacyCurriculum() {
+    var snapshot = previewState.legacy;
+    previewState.mode = "legacy";
+    previewState.readOnly = false;
+    if (snapshot) {
+      levels[1] = snapshot.lessons;
+      selectedLevel = snapshot.selectedLevel;
+      selectedLesson = Math.min(snapshot.selectedLesson, Math.max(0, levels[selectedLevel].length - 1));
+      completed = copy(snapshot.completed);
+      root.HSKCurriculum.standard = snapshot.standard;
+      root.HSKCurriculum.lessonCount = snapshot.lessonCount;
+    }
+    root.HSKCurriculum.previewMode = "legacy";
+    root.HSKCurriculum.previewMetadata = null;
+    lessonSectionIndex = 0;
+    resetQuiz();
+    resetWriting();
+    renderAll();
+    if (snapshot) restoreIntroCopy(snapshot.introCopy);
+    previewState.legacy = null;
+    if (document.body) document.body.removeAttribute("data-hsk-curriculum-preview");
+    return { mode: "legacy", readOnly: false, lessons: levels[1].length };
+  }
+  function bridgeGuard() {
+    if (!isAuthorizedDeveloper()) throw new Error("Canonical HSK 1 Developer Preview is not authorized for this session.");
+  }
+  function createDeveloperBridge() {
+    if (developerBridge) return developerBridge;
+    developerBridge = Object.freeze({
+      useCanonical: function (lessons, metadata) { bridgeGuard(); return useCanonicalCurriculum(lessons, metadata); },
+      useLegacy: function () { bridgeGuard(); return useLegacyCurriculum(); },
+      getState: function () {
+        bridgeGuard();
+        return { mode: previewState.mode, readOnly: previewState.readOnly, progressWritesEnabled: false, lessons: levels[1].length };
+      },
+      disable: function () {
+        if (previewState.mode === "canonical") useLegacyCurriculum();
+        authorizedDeveloperId = null;
+        developerBridge = null;
+      }
+    });
+    return developerBridge;
+  }
+  function requestDeveloperBridge() {
+    var request = ++developerAuthorizationRequest;
+    var session = currentSession();
+    var user = session && session.user;
+    var core = root.VDuckieEXPCore;
+    var client = core && typeof core.client === "function" ? core.client() : null;
+    if (!user || normalizedEmail(user.email) !== DEVELOPER_EMAIL || !session.access_token || !client || !client.auth || typeof client.auth.getUser !== "function") {
+      authorizedDeveloperId = null;
+      developerBridge = null;
+      return Promise.reject(new Error("Canonical HSK 1 Developer Preview is not available."));
+    }
+    return client.auth.getUser(session.access_token).then(function (result) {
+      if (request !== developerAuthorizationRequest) throw new Error("HSK developer authorization request expired.");
+      if (result.error) throw result.error;
+      var verified = result.data && result.data.user;
+      if (!verified || verified.id !== user.id || normalizedEmail(verified.email) !== DEVELOPER_EMAIL) throw new Error("HSK developer account verification failed.");
+      authorizedDeveloperId = verified.id;
+      return createDeveloperBridge();
+    }).catch(function (error) {
+      if (request === developerAuthorizationRequest) {
+        if (previewState.mode === "canonical") useLegacyCurriculum();
+        authorizedDeveloperId = null;
+        developerBridge = null;
+      }
+      throw error;
+    });
+  }
+
   root.HSKCurriculum = { levels: levels, lessonCount: 44, availableThrough: 4, displayedThrough: 9, standard: "Bộ bài thử nghiệm · 2026-07" };
+  root.VDuckieHskRuntime = Object.freeze({
+    installLegacyCurriculum: installLegacyCurriculum,
+    requestDeveloperBridge: requestDeveloperBridge,
+    getPublicState: function () { return { mode: "legacy", readOnly: false, canonicalAvailable: false, progressWritesEnabled: false }; }
+  });
   loadState();
   resetQuiz();
   renderAll();

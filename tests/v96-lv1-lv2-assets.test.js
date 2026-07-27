@@ -137,7 +137,7 @@ test("production loads V96 patches after the V95 base in dependency order", () =
   const mascot = index.indexOf("vduckie-mascot-v96.js");
   const store = index.indexOf("customization-store-v94.js?v=96.0");
   const evolution = index.indexOf("vduckie-evolution-v95.js?v=96.0");
-  const developerCenter = index.indexOf("developer-control-center.js?v=108.1");
+  const developerCenter = index.indexOf("developer-control-center.js?v=2b1.0");
   assert.ok(thoughts >= 0 && baseManifest > thoughts && manifest > baseManifest && baseMascot > manifest && mascot > baseMascot && store > mascot && evolution > store && developerCenter > evolution);
   assert.match(index, /vduckie-lv1-lv2-v96\.css\?v=96\.0/);
   assert.match(index, /app-shell-v88\.html\?v=99\.0/);

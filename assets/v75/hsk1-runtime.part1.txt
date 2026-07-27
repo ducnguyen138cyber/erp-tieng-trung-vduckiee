@@ -65,6 +65,7 @@
   }
 
   function patchStaticCopy() {
+    if (root.HSKCurriculum && root.HSKCurriculum.previewMode === "canonical") return;
     var intro = document.querySelector(".hsk-intro");
     if (intro) {
       var strong = intro.querySelector("strong");

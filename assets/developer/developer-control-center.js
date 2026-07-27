@@ -6,8 +6,9 @@
   var ns = root.VDuckieDeveloper;
   var core = root.VDuckieEXPCore;
   var evolution = root.VDuckieEvolution;
+  var hskPreview = root.VDuckieHskDeveloperPreview;
   var DEVELOPER_EMAIL = "ducnguyenn138@gmail.com";
-  var authorized = false, currentBridge = null, token = 0, unsubscribeSession = null, offs = [];
+  var authorized = false, currentBridge = null, currentHskBridge = null, token = 0, unsubscribeSession = null, offs = [];
 
   function normalizedEmail(value) { return String(value || "").trim().toLowerCase(); }
   function currentSession() { return core && typeof core.session === "function" ? core.session() : null; }
@@ -18,14 +19,18 @@
     authorized = true;
     currentBridge = bridge;
     ns.runtime.setBridge(bridge);
+    ns.hskPreview = currentHskBridge;
     purgeLegacy();
     ns.ui.mount();
     if (openAfterAuthorize) ns.ui.open();
   }
   function revoke() {
     token += 1; authorized = false;
+    if (currentHskBridge && currentHskBridge.disable) { try { currentHskBridge.disable(); } catch (error) {} }
     if (currentBridge && currentBridge.disable) { try { currentBridge.disable(); } catch (error) {} }
+    currentHskBridge = null;
     currentBridge = null;
+    if (ns) ns.hskPreview = null;
     if (ns && ns.ui) ns.ui.destroy();
     document.body.classList.remove("dev-center-open");
   }
@@ -33,8 +38,13 @@
     var request = ++token;
     if (!isDeveloper(session) || !evolution || typeof evolution.requestDeveloperBridge !== "function") { revoke(); return Promise.resolve(false); }
     return evolution.requestDeveloperBridge().then(function (bridge) {
-      if (request !== token) return false;
-      ready(bridge, !!openAfterAuthorize); return true;
+      currentBridge = bridge;
+      var hskRequest = hskPreview && typeof hskPreview.requestDeveloperBridge === "function" ? hskPreview.requestDeveloperBridge() : Promise.resolve(null);
+      return hskRequest.then(function (hskBridge) {
+        if (request !== token) { if (hskBridge && hskBridge.disable) hskBridge.disable(); return false; }
+        currentHskBridge = hskBridge;
+        ready(bridge, !!openAfterAuthorize); return true;
+      });
     }).catch(function () { if (request === token) revoke(); return false; });
   }
   function onKey(event) {

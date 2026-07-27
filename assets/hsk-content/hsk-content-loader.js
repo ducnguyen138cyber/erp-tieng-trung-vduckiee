@@ -64,6 +64,21 @@
     } else if (expectedType === 'assessment') {
       errors = requiredFields(value, ['recordType', 'id', 'level', 'exerciseRefs']);
       if (value && value.recordType !== 'assessment') errors.push('recordType must be assessment');
+    } else if (expectedType === 'hsk1-content-index') {
+      errors = requiredFields(value, ['schemaVersion', 'level', 'expectedVocabulary', 'expectedSentences', 'vocabularyIndex', 'sentenceIndex', 'productionEnabled', 'publicOverrideAllowed', 'writesProgress', 'developerOnly', 'readOnly', 'qualityGate']);
+      if (value && Number(value.level) !== 1) errors.push('level must be 1');
+      if (value && value.productionEnabled !== false) errors.push('productionEnabled must be false');
+      if (value && value.publicOverrideAllowed !== false) errors.push('publicOverrideAllowed must be false');
+      if (value && value.writesProgress !== false) errors.push('writesProgress must be false');
+      if (value && value.developerOnly !== true) errors.push('developerOnly must be true');
+      if (value && value.readOnly !== true) errors.push('readOnly must be true');
+      if (value && value.qualityGate !== 'locked') errors.push('qualityGate must be locked');
+    } else if (expectedType === 'collection-index') {
+      errors = requiredFields(value, ['schemaVersion', 'level', 'expectedCount', 'actualCount', 'shards']);
+      if (value && !Array.isArray(value.shards)) errors.push('shards must be an array');
+    } else if (expectedType === 'collection') {
+      errors = requiredFields(value, ['schemaVersion', 'collectionType', 'level', 'records']);
+      if (value && !Array.isArray(value.records)) errors.push('records must be an array');
     }
     return errors;
   }
@@ -80,6 +95,7 @@
     var manifestResource = resolveResource(baseUrl, manifestPath);
     var manifestDirectory = dirname(manifestPath);
     var levelResources = new Map();
+    var canonicalHsk1Promise = null;
 
     if (!fetchImpl) throw new HskContentError('FETCH_UNAVAILABLE', 'No fetch implementation is available.');
 
@@ -191,9 +207,75 @@
       });
     }
 
+    function loadCollection(indexPath, expectedCollectionType) {
+      var indexResource = resolveResource(baseUrl, indexPath);
+      return fetchJson(indexResource, 'collection-index').then(function (index) {
+        var directory = dirname(indexPath);
+        return Promise.all((index.shards || []).map(function (shard) {
+          if (!shard || !shard.file) throw new HskContentError('INDEX_INVALID', 'Canonical collection shard is missing its file path.', { indexPath: indexPath, shard: shard || null });
+          return fetchJson(resolveResource(baseUrl, directory + shard.file), 'collection').then(function (collection) {
+            if (collection.collectionType !== expectedCollectionType) {
+              throw new HskContentError('COLLECTION_MISMATCH', 'Canonical collection type does not match its index.', {
+                indexPath: indexPath,
+                expected: expectedCollectionType,
+                actual: collection.collectionType
+              });
+            }
+            if (Number(collection.level) !== 1) throw new HskContentError('LEVEL_MISMATCH', 'Canonical HSK 1 collection has a different level.', { indexPath: indexPath, actual: collection.level });
+            return collection.records;
+          });
+        })).then(function (shards) {
+          var records = [];
+          shards.forEach(function (items) { records = records.concat(items); });
+          if (records.length !== Number(index.expectedCount) || records.length !== Number(index.actualCount)) {
+            throw new HskContentError('COUNT_MISMATCH', 'Canonical collection count does not match its index.', {
+              indexPath: indexPath,
+              expected: Number(index.expectedCount),
+              actual: records.length
+            });
+          }
+          return { index: index, records: records };
+        });
+      });
+    }
+
+    function loadCanonicalHsk1() {
+      if (canonicalHsk1Promise) return canonicalHsk1Promise;
+      var contentIndexPath = 'hsk1/content-index.json';
+      var contentIndexResource = resolveResource(baseUrl, contentIndexPath);
+      canonicalHsk1Promise = fetchJson(contentIndexResource, 'hsk1-content-index').then(function (contentIndex) {
+        var directory = dirname(contentIndexPath);
+        return Promise.all([
+          loadCollection(directory + contentIndex.vocabularyIndex, 'vocabulary'),
+          loadCollection(directory + contentIndex.sentenceIndex, 'sentence')
+        ]).then(function (collections) {
+          var vocabulary = collections[0];
+          var sentences = collections[1];
+          if (vocabulary.records.length !== Number(contentIndex.expectedVocabulary) || sentences.records.length !== Number(contentIndex.expectedSentences)) {
+            throw new HskContentError('COUNT_MISMATCH', 'Canonical HSK 1 dataset does not match its content index.', {
+              expectedVocabulary: Number(contentIndex.expectedVocabulary),
+              actualVocabulary: vocabulary.records.length,
+              expectedSentences: Number(contentIndex.expectedSentences),
+              actualSentences: sentences.records.length
+            });
+          }
+          return Object.freeze({
+            contentIndex: contentIndex,
+            vocabularyIndex: vocabulary.index,
+            sentenceIndex: sentences.index,
+            vocabulary: Object.freeze(vocabulary.records.slice()),
+            sentences: Object.freeze(sentences.records.slice())
+          });
+        });
+      });
+      canonicalHsk1Promise.catch(function () { canonicalHsk1Promise = null; });
+      return canonicalHsk1Promise;
+    }
+
     function clearHskContentCache() {
       cache.clear();
       levelResources.clear();
+      canonicalHsk1Promise = null;
       setState('idle', null, null);
     }
 
@@ -213,6 +295,7 @@
       loadHskUnit: loadHskUnit,
       loadHskLesson: loadHskLesson,
       loadHskAssessment: loadHskAssessment,
+      loadCanonicalHsk1: loadCanonicalHsk1,
       clearHskContentCache: clearHskContentCache,
       getHskContentLoaderState: getHskContentLoaderState
     });

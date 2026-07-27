@@ -3,7 +3,7 @@
   function loadParts(prefix,count){
     var tasks=[];
     for(var i=1;i<=count;i++){
-      tasks.push(fetch("./assets/v75/"+prefix+".part"+i+".txt?v=75.0",{cache:"no-store"}).then(function(response){
+      tasks.push(fetch("./assets/v75/"+prefix+".part"+i+".txt?v=2b1.0",{cache:"no-store"}).then(function(response){
         if(!response.ok)throw new Error("Thiếu gói HSK 1 v75");
         return response.text();
       }));
