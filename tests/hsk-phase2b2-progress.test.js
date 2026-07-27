@@ -202,10 +202,17 @@ test('repository V75 to canonical mapping report is deterministic', { skip: !fs.
   const first = generator.generate(path.join(__dirname, '..'));
   const second = generator.generate(path.join(__dirname, '..'));
   assert.deepEqual(second, first);
-  assert.equal(first.summary.totalLegacyItems, 150);
-  assert.equal(first.summary.exactMapped + first.summary.normalizedMapped + first.summary.ambiguous + first.summary.unmatched, 150);
+  assert.deepEqual(first.summary, {
+    totalLegacyItems: 150,
+    exactMapped: 150,
+    normalizedMapped: 0,
+    ambiguous: 0,
+    unmatched: 0,
+    duplicateTargets: 0,
+    mapped: 150,
+    coveragePercent: 100
+  });
   assert.equal(first.generatedMode, 'deterministic-dry-run');
-  console.log(`PHASE2B2_MAPPING_METRICS=${JSON.stringify(first.summary)}`);
 });
 
 test('contract rejects invalid counters and dry-run is hard locked', () => {
