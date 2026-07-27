@@ -1,0 +1,3421 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary",
+  "level": 1,
+  "records": [
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0251",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "雪",
+      "traditional": null,
+      "pinyin": "xuě",
+      "pinyinNormalized": "xue",
+      "pinyinTone": "xuě",
+      "pinyinNumber": "xue3",
+      "meaningVi": "tuyết",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:251"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0251",
+        "hsk1-s-0551",
+        "hsk1-s-0851"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "外边有雪。",
+          "vi": "Bên ngoài có tuyết.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0252",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "要",
+      "traditional": null,
+      "pinyin": "yào",
+      "pinyinNormalized": "yao",
+      "pinyinTone": "yào",
+      "pinyinNumber": "yao4",
+      "meaningVi": "muốn; cần",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:252"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0252",
+        "hsk1-s-0552",
+        "hsk1-s-0852"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我要一杯茶。",
+          "vi": "Tôi muốn một cốc trà.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0253",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "也",
+      "traditional": null,
+      "pinyin": "yě",
+      "pinyinNormalized": "ye",
+      "pinyinTone": "yě",
+      "pinyinNumber": "ye3",
+      "meaningVi": "cũng",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:253"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0253",
+        "hsk1-s-0553",
+        "hsk1-s-0853"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我也是学生。",
+          "vi": "Tôi cũng là học sinh.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0254",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "一",
+      "traditional": null,
+      "pinyin": "yī",
+      "pinyinNormalized": "yi",
+      "pinyinTone": "yī",
+      "pinyinNumber": "yi1",
+      "meaningVi": "một",
+      "partOfSpeech": [
+        "numeral"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:254"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:numeral"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0254",
+        "hsk1-s-0554",
+        "hsk1-s-0854"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我有一本书。",
+          "vi": "Tôi có một quyển sách.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0255",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "衣服",
+      "traditional": null,
+      "pinyin": "yī fu",
+      "pinyinNormalized": "yifu",
+      "pinyinTone": "yī fu",
+      "pinyinNumber": "yi1 fu5",
+      "meaningVi": "quần áo",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:255"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0255",
+        "hsk1-s-0555",
+        "hsk1-s-0855"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这是我的衣服。",
+          "vi": "Đây là quần áo của tôi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0256",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "医生",
+      "traditional": "醫生",
+      "pinyin": "yī shēng",
+      "pinyinNormalized": "yisheng",
+      "pinyinTone": "yī shēng",
+      "pinyinNumber": "yi1 sheng1",
+      "meaningVi": "bác sĩ",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:256"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0256",
+        "hsk1-s-0556",
+        "hsk1-s-0856"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "他是医生。",
+          "vi": "Anh ấy là bác sĩ.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0257",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "医院",
+      "traditional": "醫院",
+      "pinyin": "yī yuàn",
+      "pinyinNormalized": "yiyuan",
+      "pinyinTone": "yī yuàn",
+      "pinyinNumber": "yi1 yuan4",
+      "meaningVi": "bệnh viện",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:257"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0257",
+        "hsk1-s-0557",
+        "hsk1-s-0857"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "今天我去医院。",
+          "vi": "Hôm nay tôi đến bệnh viện.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0258",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "一半",
+      "traditional": null,
+      "pinyin": "yí bàn",
+      "pinyinNormalized": "yiban",
+      "pinyinTone": "yí bàn",
+      "pinyinNumber": "yi2 ban4",
+      "meaningVi": "một nửa",
+      "partOfSpeech": [
+        "numeral"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:258"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:numeral"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0258",
+        "hsk1-s-0558",
+        "hsk1-s-0858"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我吃了一半。",
+          "vi": "Tôi đã ăn một nửa.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0259",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "一下",
+      "traditional": null,
+      "pinyin": "yí xià",
+      "pinyinNormalized": "yixia",
+      "pinyinTone": "yí xià",
+      "pinyinNumber": "yi2 xia4",
+      "meaningVi": "một chút; một lần",
+      "partOfSpeech": [
+        "classifier",
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:259"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:classifier",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0259",
+        "hsk1-s-0559",
+        "hsk1-s-0859"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "请等一下。",
+          "vi": "Vui lòng đợi một chút.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0260",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "椅子",
+      "traditional": null,
+      "pinyin": "yǐ zi",
+      "pinyinNormalized": "yizi",
+      "pinyinTone": "yǐ zi",
+      "pinyinNumber": "yi3 zi5",
+      "meaningVi": "ghế",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:260"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0260",
+        "hsk1-s-0560",
+        "hsk1-s-0860"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这是我的椅子。",
+          "vi": "Đây là ghế của tôi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0261",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "一点儿",
+      "traditional": "一點兒",
+      "pinyin": "yì diǎnr",
+      "pinyinNormalized": "yidianr",
+      "pinyinTone": "yì diǎnr",
+      "pinyinNumber": "yi4 dianr3",
+      "meaningVi": "một chút",
+      "partOfSpeech": [
+        "classifier"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:261"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:classifier"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0261",
+        "hsk1-s-0561",
+        "hsk1-s-0861"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我喝一点儿水。",
+          "vi": "Tôi uống một chút nước.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0262",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "一些",
+      "traditional": null,
+      "pinyin": "yì xiē",
+      "pinyinNormalized": "yixie",
+      "pinyinTone": "yì xiē",
+      "pinyinNumber": "yi4 xie1",
+      "meaningVi": "một số; một vài",
+      "partOfSpeech": [
+        "classifier"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:262"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:classifier"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0262",
+        "hsk1-s-0562",
+        "hsk1-s-0862"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我买了一些苹果。",
+          "vi": "Tôi đã mua một ít táo.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0263",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "有",
+      "traditional": null,
+      "pinyin": "yǒu",
+      "pinyinNormalized": "you",
+      "pinyinTone": "yǒu",
+      "pinyinNumber": "you3",
+      "meaningVi": "có",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:263"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0263",
+        "hsk1-s-0563",
+        "hsk1-s-0863"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我有一个妹妹。",
+          "vi": "Tôi có một em gái.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0264",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "有的",
+      "traditional": null,
+      "pinyin": "yǒu de",
+      "pinyinNormalized": "youde",
+      "pinyinTone": "yǒu de",
+      "pinyinNumber": "you3 de5",
+      "meaningVi": "có cái; một số",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:264"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0264",
+        "hsk1-s-0564",
+        "hsk1-s-0864"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "有的是新的。",
+          "vi": "Có cái là đồ mới.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0265",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "有点儿",
+      "traditional": "有點兒",
+      "pinyin": "yǒu diǎnr",
+      "pinyinNormalized": "youdianr",
+      "pinyinTone": "yǒu diǎnr",
+      "pinyinNumber": "you3 dianr3",
+      "meaningVi": "hơi; có chút",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:265"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0265",
+        "hsk1-s-0565",
+        "hsk1-s-0865"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "今天有点儿冷。",
+          "vi": "Hôm nay hơi lạnh.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0266",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "有些",
+      "traditional": null,
+      "pinyin": "yǒu xiē",
+      "pinyinNormalized": "youxie",
+      "pinyinTone": "yǒu xiē",
+      "pinyinNumber": "you3 xie1",
+      "meaningVi": "một số; hơi",
+      "partOfSpeech": [
+        "pronoun",
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:266"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0266",
+        "hsk1-s-0566",
+        "hsk1-s-0866"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "有些学生没来。",
+          "vi": "Một số học sinh chưa đến.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0267",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "雨",
+      "traditional": null,
+      "pinyin": "yǔ",
+      "pinyinNormalized": "yu",
+      "pinyinTone": "yǔ",
+      "pinyinNumber": "yu3",
+      "meaningVi": "mưa",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:267"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0267",
+        "hsk1-s-0567",
+        "hsk1-s-0867"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "今天有雨。",
+          "vi": "Hôm nay có mưa.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0268",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "元",
+      "traditional": null,
+      "pinyin": "yuán",
+      "pinyinNormalized": "yuan",
+      "pinyinTone": "yuán",
+      "pinyinNumber": "yuan2",
+      "meaningVi": "nhân dân tệ; đồng",
+      "partOfSpeech": [
+        "classifier"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:268"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:classifier"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0268",
+        "hsk1-s-0568",
+        "hsk1-s-0868"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这个苹果三元。",
+          "vi": "Quả táo này ba tệ.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0269",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "月",
+      "traditional": null,
+      "pinyin": "yuè",
+      "pinyinNormalized": "yue",
+      "pinyinTone": "yuè",
+      "pinyinNumber": "yue4",
+      "meaningVi": "tháng; mặt trăng",
+      "partOfSpeech": [
+        "noun",
+        "classifier"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:269"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun",
+        "pos:classifier"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0269",
+        "hsk1-s-0569",
+        "hsk1-s-0869"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "一年有十二个月。",
+          "vi": "Một năm có mười hai tháng.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0270",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "再",
+      "traditional": null,
+      "pinyin": "zài",
+      "pinyinNormalized": "zai",
+      "pinyinTone": "zài",
+      "pinyinNumber": "zai4",
+      "meaningVi": "lại; rồi",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:270"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0270",
+        "hsk1-s-0570",
+        "hsk1-s-0870"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "请再说一遍。",
+          "vi": "Vui lòng nói lại một lần.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0271",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "在",
+      "traditional": null,
+      "pinyin": "zài",
+      "pinyinNormalized": "zai",
+      "pinyinTone": "zài",
+      "pinyinNumber": "zai4",
+      "meaningVi": "ở; tại; đang",
+      "partOfSpeech": [
+        "verb",
+        "preposition",
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:271"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb",
+        "pos:preposition",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0271",
+        "hsk1-s-0571",
+        "hsk1-s-0871"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我在学校。",
+          "vi": "Tôi ở trường.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0272",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "再见",
+      "traditional": "再見",
+      "pinyin": "zài jiàn",
+      "pinyinNormalized": "zaijian",
+      "pinyinTone": "zài jiàn",
+      "pinyinNumber": "zai4 jian4",
+      "meaningVi": "tạm biệt",
+      "partOfSpeech": [
+        "expression"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:272"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:expression"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0272",
+        "hsk1-s-0572",
+        "hsk1-s-0872"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "老师，再见！",
+          "vi": "Tạm biệt thầy/cô!",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0273",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "早",
+      "traditional": null,
+      "pinyin": "zǎo",
+      "pinyinNormalized": "zao",
+      "pinyinTone": "zǎo",
+      "pinyinNumber": "zao3",
+      "meaningVi": "sớm",
+      "partOfSpeech": [
+        "adjective",
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:273"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:adjective",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0273",
+        "hsk1-s-0573",
+        "hsk1-s-0873"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "今天我起得很早。",
+          "vi": "Hôm nay tôi dậy rất sớm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0274",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "早饭",
+      "traditional": "早飯",
+      "pinyin": "zǎo fàn",
+      "pinyinNormalized": "zaofan",
+      "pinyinTone": "zǎo fàn",
+      "pinyinNumber": "zao3 fan4",
+      "meaningVi": "bữa sáng",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:274"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0274",
+        "hsk1-s-0574",
+        "hsk1-s-0874"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我七点吃早饭。",
+          "vi": "Tôi ăn sáng lúc bảy giờ.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0275",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "早上",
+      "traditional": null,
+      "pinyin": "zǎo shang",
+      "pinyinNormalized": "zaoshang",
+      "pinyinTone": "zǎo shang",
+      "pinyinNumber": "zao3 shang5",
+      "meaningVi": "buổi sáng",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:275"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0275",
+        "hsk1-s-0575",
+        "hsk1-s-0875"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "早上我喝牛奶。",
+          "vi": "Buổi sáng tôi uống sữa.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0276",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "怎么",
+      "traditional": "怎麼",
+      "pinyin": "zěn me",
+      "pinyinNormalized": "zenme",
+      "pinyinTone": "zěn me",
+      "pinyinNumber": "zen3 me5",
+      "meaningVi": "như thế nào; làm sao",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:276"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0276",
+        "hsk1-s-0576",
+        "hsk1-s-0876"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这个字怎么读？",
+          "vi": "Chữ này đọc thế nào?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0277",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "怎么样",
+      "traditional": "怎麼樣",
+      "pinyin": "zěn me yàng",
+      "pinyinNormalized": "zenmeyang",
+      "pinyinTone": "zěn me yàng",
+      "pinyinNumber": "zen3 me5 yang4",
+      "meaningVi": "thế nào",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:277"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0277",
+        "hsk1-s-0577",
+        "hsk1-s-0877"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "今天天气怎么样？",
+          "vi": "Thời tiết hôm nay thế nào?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0278",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "找",
+      "traditional": null,
+      "pinyin": "zhǎo",
+      "pinyinNormalized": "zhao",
+      "pinyinTone": "zhǎo",
+      "pinyinNumber": "zhao3",
+      "meaningVi": "tìm",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:278"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0278",
+        "hsk1-s-0578",
+        "hsk1-s-0878"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我找手机。",
+          "vi": "Tôi tìm điện thoại.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0279",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "这",
+      "traditional": "這",
+      "pinyin": "zhè",
+      "pinyinNormalized": "zhe",
+      "pinyinTone": "zhè",
+      "pinyinNumber": "zhe4",
+      "meaningVi": "này; đây",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:279"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0279",
+        "hsk1-s-0579",
+        "hsk1-s-0879"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这是我新买的书。",
+          "vi": "Đây là quyển sách tôi mới mua.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0280",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "这边",
+      "traditional": "這邊",
+      "pinyin": "zhè biān",
+      "pinyinNormalized": "zhebian",
+      "pinyinTone": "zhè biān",
+      "pinyinNumber": "zhe4 bian1",
+      "meaningVi": "phía này; bên này",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:280"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0280",
+        "hsk1-s-0580",
+        "hsk1-s-0880"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "请坐这边。",
+          "vi": "Mời ngồi phía này.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0281",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "这个",
+      "traditional": "這個",
+      "pinyin": "zhè ge",
+      "pinyinNormalized": "zhege",
+      "pinyinTone": "zhè ge",
+      "pinyinNumber": "zhe4 ge5",
+      "meaningVi": "cái này; người này",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:281"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0281",
+        "hsk1-s-0581",
+        "hsk1-s-0881"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这个是我的。",
+          "vi": "Cái này là của tôi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0282",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "这里",
+      "traditional": "這裡",
+      "pinyin": "zhè lǐ",
+      "pinyinNormalized": "zheli",
+      "pinyinTone": "zhè lǐ",
+      "pinyinNumber": "zhe4 li3",
+      "meaningVi": "ở đây",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:282"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0282",
+        "hsk1-s-0582",
+        "hsk1-s-0882"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我住在这里。",
+          "vi": "Tôi sống ở đây.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0283",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "这儿",
+      "traditional": "這兒",
+      "pinyin": "zhèr",
+      "pinyinNormalized": "zher",
+      "pinyinTone": "zhèr",
+      "pinyinNumber": "zher4",
+      "meaningVi": "ở đây",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:283"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0283",
+        "hsk1-s-0583",
+        "hsk1-s-0883"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这儿很安静。",
+          "vi": "Ở đây rất yên tĩnh.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0284",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "这些",
+      "traditional": "這些",
+      "pinyin": "zhè xiē",
+      "pinyinNormalized": "zhexie",
+      "pinyinTone": "zhè xiē",
+      "pinyinNumber": "zhe4 xie1",
+      "meaningVi": "những cái này",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:284"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:pronoun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0284",
+        "hsk1-s-0584",
+        "hsk1-s-0884"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这些是我的书。",
+          "vi": "Những cái này là sách của tôi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0285",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "真",
+      "traditional": null,
+      "pinyin": "zhēn",
+      "pinyinNormalized": "zhen",
+      "pinyinTone": "zhēn",
+      "pinyinNumber": "zhen1",
+      "meaningVi": "thật; thật sự",
+      "partOfSpeech": [
+        "adverb",
+        "adjective"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:285"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:adverb",
+        "pos:adjective"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0285",
+        "hsk1-s-0585",
+        "hsk1-s-0885"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这个电影真好看。",
+          "vi": "Bộ phim này thật hay.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0286",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "正在",
+      "traditional": null,
+      "pinyin": "zhèng zài",
+      "pinyinNormalized": "zhengzai",
+      "pinyinTone": "zhèng zài",
+      "pinyinNumber": "zheng4 zai4",
+      "meaningVi": "đang",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:286"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:adverb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0286",
+        "hsk1-s-0586",
+        "hsk1-s-0886"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我正在吃饭。",
+          "vi": "Tôi đang ăn cơm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0287",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "只",
+      "traditional": "隻",
+      "pinyin": "zhī",
+      "pinyinNormalized": "zhi",
+      "pinyinTone": "zhī",
+      "pinyinNumber": "zhi1",
+      "meaningVi": "lượng từ cho động vật hoặc một chiếc",
+      "partOfSpeech": [
+        "classifier"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:287"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:classifier"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0287",
+        "hsk1-s-0587",
+        "hsk1-s-0887"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我家有一只小猫。",
+          "vi": "Nhà tôi có một chú mèo nhỏ.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0288",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "知道",
+      "traditional": null,
+      "pinyin": "zhī dào",
+      "pinyinNormalized": "zhidao",
+      "pinyinTone": "zhī dào",
+      "pinyinNumber": "zhi1 dao4",
+      "meaningVi": "biết",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:288"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0288",
+        "hsk1-s-0588",
+        "hsk1-s-0888"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我知道这件事。",
+          "vi": "Tôi biết việc này.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0289",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "中国",
+      "traditional": "中國",
+      "pinyin": "zhōng guó",
+      "pinyinNormalized": "zhongguo",
+      "pinyinTone": "zhōng guó",
+      "pinyinNumber": "zhong1 guo2",
+      "meaningVi": "Trung Quốc",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:289"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0289",
+        "hsk1-s-0589",
+        "hsk1-s-0889"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我明年去中国。",
+          "vi": "Năm sau tôi đi Trung Quốc.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0290",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "中文",
+      "traditional": null,
+      "pinyin": "zhōng wén",
+      "pinyinNormalized": "zhongwen",
+      "pinyinTone": "zhōng wén",
+      "pinyinNumber": "zhong1 wen2",
+      "meaningVi": "tiếng Trung",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:290"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0290",
+        "hsk1-s-0590",
+        "hsk1-s-0890"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我会说中文。",
+          "vi": "Tôi biết nói tiếng Trung.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0291",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "中午",
+      "traditional": null,
+      "pinyin": "zhōng wǔ",
+      "pinyinNormalized": "zhongwu",
+      "pinyinTone": "zhōng wǔ",
+      "pinyinNumber": "zhong1 wu3",
+      "meaningVi": "buổi trưa",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:291"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0291",
+        "hsk1-s-0591",
+        "hsk1-s-0891"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "中午我们吃米饭。",
+          "vi": "Buổi trưa chúng tôi ăn cơm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0292",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "中学",
+      "traditional": "中學",
+      "pinyin": "zhōng xué",
+      "pinyinNormalized": "zhongxue",
+      "pinyinTone": "zhōng xué",
+      "pinyinNumber": "zhong1 xue2",
+      "meaningVi": "trường trung học",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:292"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0292",
+        "hsk1-s-0592",
+        "hsk1-s-0892"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "今天我去中学。",
+          "vi": "Hôm nay tôi đến trường trung học.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0293",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "中学生",
+      "traditional": "中學生",
+      "pinyin": "zhōng xué shēng",
+      "pinyinNormalized": "zhongxuesheng",
+      "pinyinTone": "zhōng xué shēng",
+      "pinyinNumber": "zhong1 xue2 sheng1",
+      "meaningVi": "học sinh trung học",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:293"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0293",
+        "hsk1-s-0593",
+        "hsk1-s-0893"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "他是中学生。",
+          "vi": "Anh ấy là học sinh trung học.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0294",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "住",
+      "traditional": null,
+      "pinyin": "zhù",
+      "pinyinNormalized": "zhu",
+      "pinyinTone": "zhù",
+      "pinyinNumber": "zhu4",
+      "meaningVi": "sống; ở",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:294"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0294",
+        "hsk1-s-0594",
+        "hsk1-s-0894"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我住在中国。",
+          "vi": "Tôi sống ở Trung Quốc.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0295",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "桌子",
+      "traditional": null,
+      "pinyin": "zhuō zi",
+      "pinyinNormalized": "zhuozi",
+      "pinyinTone": "zhuō zi",
+      "pinyinNumber": "zhuo1 zi5",
+      "meaningVi": "bàn",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:295"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0295",
+        "hsk1-s-0595",
+        "hsk1-s-0895"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这是我的桌子。",
+          "vi": "Đây là bàn của tôi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0296",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "字",
+      "traditional": null,
+      "pinyin": "zì",
+      "pinyinNormalized": "zi",
+      "pinyinTone": "zì",
+      "pinyinNumber": "zi4",
+      "meaningVi": "chữ",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:296"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0296",
+        "hsk1-s-0596",
+        "hsk1-s-0896"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "这个字我会读。",
+          "vi": "Chữ này tôi biết đọc.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0297",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "昨天",
+      "traditional": null,
+      "pinyin": "zuó tiān",
+      "pinyinNormalized": "zuotian",
+      "pinyinTone": "zuó tiān",
+      "pinyinNumber": "zuo2 tian1",
+      "meaningVi": "hôm qua",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:297"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:noun"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0297",
+        "hsk1-s-0597",
+        "hsk1-s-0897"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "昨天我没有上班。",
+          "vi": "Hôm qua tôi không đi làm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0298",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "坐",
+      "traditional": null,
+      "pinyin": "zuò",
+      "pinyinNormalized": "zuo",
+      "pinyinTone": "zuò",
+      "pinyinNumber": "zuo4",
+      "meaningVi": "ngồi; đi bằng",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:298"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0298",
+        "hsk1-s-0598",
+        "hsk1-s-0898"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我坐出租车。",
+          "vi": "Tôi đi taxi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0299",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "做",
+      "traditional": null,
+      "pinyin": "zuò",
+      "pinyinNormalized": "zuo",
+      "pinyinTone": "zuò",
+      "pinyinNumber": "zuo4",
+      "meaningVi": "làm",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:299"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0299",
+        "hsk1-s-0599",
+        "hsk1-s-0899"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我做这件事。",
+          "vi": "Tôi làm việc này.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk1-v-0300",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "simplified": "做饭",
+      "traditional": "做飯",
+      "pinyin": "zuò fàn",
+      "pinyinNormalized": "zuofan",
+      "pinyinTone": "zuò fàn",
+      "pinyinNumber": "zuo4 fan4",
+      "meaningVi": "nấu cơm",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-syllabus-pdf-2026",
+          "fields": [
+            "level",
+            "simplified",
+            "pinyin",
+            "partOfSpeech"
+          ],
+          "locator": "vocabulary:hsk1:300"
+        },
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "meaningVi",
+            "sentenceIds"
+          ],
+          "locator": "editorial-batch:phase2a-2026-07"
+        }
+      ],
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "tags": [
+        "hsk1",
+        "canonical",
+        "pos:verb"
+      ],
+      "sentenceIds": [
+        "hsk1-s-0300",
+        "hsk1-s-0600",
+        "hsk1-s-0900"
+      ],
+      "contextMeaningsVi": [],
+      "collocations": [],
+      "examples": [
+        {
+          "zh": "我做饭。",
+          "vi": "Tôi nấu cơm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "commonErrorsVi": [],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    }
+  ]
+}

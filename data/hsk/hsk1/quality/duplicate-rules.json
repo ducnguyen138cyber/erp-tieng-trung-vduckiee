@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "1.0.0",
+  "blockingRules": [
+    "duplicate-record-id",
+    "vocabulary-simplified-pinyin-meaning",
+    "sentence-exact",
+    "sentence-normalized"
+  ],
+  "reviewRules": [
+    "vocabulary-same-simplified-different-pinyin",
+    "sentence-near-duplicate",
+    "sentence-template-family"
+  ],
+  "sentenceNearDuplicateThreshold": 0.92,
+  "normalization": {
+    "unicode": "NFKC comparison key only",
+    "removeWhitespace": true,
+    "removePunctuation": true,
+    "persistedText": "NFC"
+  }
+}

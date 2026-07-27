@@ -1,0 +1,81 @@
+{
+  "counts": {
+    "phase2aRecords": 1200,
+    "repositoryRecords": 1239,
+    "schemas": 9,
+    "sentenceShards": 9,
+    "sentences": 900,
+    "sources": 13,
+    "vocabulary": 300,
+    "vocabularyShards": 6
+  },
+  "coverage": {
+    "humanPedagogyReviewPercent": 0,
+    "humanVietnameseReviewPercent": 0,
+    "releaseDimensions": {
+      "duplicate-blockers": true,
+      "human-pedagogy-review": false,
+      "human-vietnamese-review": false,
+      "inventory-count": true,
+      "pinyin": true,
+      "reference-integrity": true,
+      "schema": true,
+      "sentence-coverage": true,
+      "source-provenance": true,
+      "stable-id": true,
+      "unicode": true
+    },
+    "releasePassed": 9,
+    "releaseReadinessPercent": 81.82,
+    "releaseTotal": 11,
+    "sourceReferencePercent": 100,
+    "structuralDimensions": {
+      "duplicate-blockers": true,
+      "inventory-count": true,
+      "pinyin": true,
+      "reference-integrity": true,
+      "schema": true,
+      "sentence-coverage": true,
+      "source-provenance": true,
+      "stable-id": true,
+      "unicode": true
+    },
+    "structuralPassed": 9,
+    "structuralPercent": 100,
+    "structuralTotal": 9
+  },
+  "datasetVersion": "1.0.0",
+  "duplicates": {
+    "blockers": 0,
+    "exact": 1,
+    "nearReview": 233,
+    "normalized": 0
+  },
+  "generatedAt": "deterministic",
+  "issues": {
+    "coverage": [],
+    "sentenceIndex": [],
+    "validation": [],
+    "vocabularyIndex": []
+  },
+  "phase": "2A",
+  "phase2aComplete": true,
+  "productionEnabled": false,
+  "progressWritesEnabled": false,
+  "publicOverrideAllowed": false,
+  "qualityGate": "locked",
+  "schemaVersion": "1.0.0",
+  "status": "complete-structural-production-locked",
+  "validation": {
+    "coverageErrors": 0,
+    "indexErrors": 0,
+    "ok": true,
+    "phase2aErrors": 0,
+    "pinyinErrors": 0,
+    "referenceErrors": 0,
+    "repositoryErrors": 0,
+    "repositoryWarnings": 0,
+    "requiredFieldErrors": 0,
+    "unicodeErrors": 0
+  }
+}

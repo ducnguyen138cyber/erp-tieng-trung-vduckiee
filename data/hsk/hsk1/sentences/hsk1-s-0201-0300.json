@@ -1,0 +1,5507 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "sentence",
+  "level": 1,
+  "records": [
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0201",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "它是一只猫。",
+      "pinyin": "tā shì yī zhī māo",
+      "pinyinNormalized": "tashiyizhimao",
+      "pinyinTone": "tā shì yī zhī māo",
+      "pinyinNumber": "ta1 shi4 yi1 zhi1 mao1",
+      "vietnamese": "Nó là một con mèo.",
+      "meaningVi": "Nó là một con mèo.",
+      "vocabularyIds": [
+        "hsk1-v-0201"
+      ],
+      "primaryVocabularyId": "hsk1-v-0201",
+      "grammarTags": [
+        "pronoun-ta-animal",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:201"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0202",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "她是我姐姐。",
+      "pinyin": "tā shì wǒ jiě jie",
+      "pinyinNormalized": "tashiwojiejie",
+      "pinyinTone": "tā shì wǒ jiě jie",
+      "pinyinNumber": "ta1 shi4 wo3 jie3 jie5",
+      "vietnamese": "Cô ấy là chị gái tôi.",
+      "meaningVi": "Cô ấy là chị gái tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0202"
+      ],
+      "primaryVocabularyId": "hsk1-v-0202",
+      "grammarTags": [
+        "pronoun-ta",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:202"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0203",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他们都是学生。",
+      "pinyin": "tā men dōu shì xué shēng",
+      "pinyinNormalized": "tamendoushixuesheng",
+      "pinyinTone": "tā men dōu shì xué shēng",
+      "pinyinNumber": "ta1 men5 dou1 shi4 xue2 sheng1",
+      "vietnamese": "Họ đều là học sinh.",
+      "meaningVi": "Họ đều là học sinh.",
+      "vocabularyIds": [
+        "hsk1-v-0203"
+      ],
+      "primaryVocabularyId": "hsk1-v-0203",
+      "grammarTags": [
+        "plural-pronoun",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:203"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0204",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "它们是两只猫。",
+      "pinyin": "tā men shì liǎng zhī māo",
+      "pinyinNormalized": "tamenshiliangzhimao",
+      "pinyinTone": "tā men shì liǎng zhī māo",
+      "pinyinNumber": "ta1 men5 shi4 liang3 zhi1 mao1",
+      "vietnamese": "Chúng là hai con mèo.",
+      "meaningVi": "Chúng là hai con mèo.",
+      "vocabularyIds": [
+        "hsk1-v-0204"
+      ],
+      "primaryVocabularyId": "hsk1-v-0204",
+      "grammarTags": [
+        "plural-pronoun",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:204"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0205",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "她们都是老师。",
+      "pinyin": "tā men dōu shì lǎo shī",
+      "pinyinNormalized": "tamendoushilaoshi",
+      "pinyinTone": "tā men dōu shì lǎo shī",
+      "pinyinNumber": "ta1 men5 dou1 shi4 lao3 shi1",
+      "vietnamese": "Họ đều là giáo viên nữ.",
+      "meaningVi": "Họ đều là giáo viên nữ.",
+      "vocabularyIds": [
+        "hsk1-v-0205"
+      ],
+      "primaryVocabularyId": "hsk1-v-0205",
+      "grammarTags": [
+        "plural-pronoun",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:205"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0206",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天太热了。",
+      "pinyin": "jīn tiān tài rè le",
+      "pinyinNormalized": "jintiantairele",
+      "pinyinTone": "jīn tiān tài rè le",
+      "pinyinNumber": "jin1 tian1 tai4 re4 le5",
+      "vietnamese": "Hôm nay nóng quá.",
+      "meaningVi": "Hôm nay nóng quá.",
+      "vocabularyIds": [
+        "hsk1-v-0206"
+      ],
+      "primaryVocabularyId": "hsk1-v-0206",
+      "grammarTags": [
+        "degree-tai",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:206"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0207",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天是晴天。",
+      "pinyin": "jīn tiān shì qíng tiān",
+      "pinyinNormalized": "jintianshiqingtian",
+      "pinyinTone": "jīn tiān shì qíng tiān",
+      "pinyinNumber": "jin1 tian1 shi4 qing2 tian1",
+      "vietnamese": "Hôm nay trời nắng.",
+      "meaningVi": "Hôm nay trời nắng.",
+      "vocabularyIds": [
+        "hsk1-v-0207"
+      ],
+      "primaryVocabularyId": "hsk1-v-0207",
+      "grammarTags": [
+        "noun-tian",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:207"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0208",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "北京今天天气很好。",
+      "pinyin": "běi jīng jīn tiān tiān qì hěn hǎo",
+      "pinyinNormalized": "beijingjintiantianqihenhao",
+      "pinyinTone": "běi jīng jīn tiān tiān qì hěn hǎo",
+      "pinyinNumber": "bei3 jing1 jin1 tian1 tian1 qi4 hen3 hao3",
+      "vietnamese": "Thời tiết Bắc Kinh hôm nay rất đẹp.",
+      "meaningVi": "Thời tiết Bắc Kinh hôm nay rất đẹp.",
+      "vocabularyIds": [
+        "hsk1-v-0208"
+      ],
+      "primaryVocabularyId": "hsk1-v-0208",
+      "grammarTags": [
+        "weather",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:208"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0209",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我听歌。",
+      "pinyin": "wǒ tīng gē",
+      "pinyinNormalized": "wotingge",
+      "pinyinTone": "wǒ tīng gē",
+      "pinyinNumber": "wo3 ting1 ge1",
+      "vietnamese": "Tôi nghe bài hát.",
+      "meaningVi": "Tôi nghe bài hát.",
+      "vocabularyIds": [
+        "hsk1-v-0209"
+      ],
+      "primaryVocabularyId": "hsk1-v-0209",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:209"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0210",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我听见电话了。",
+      "pinyin": "wǒ tīng jiàn diàn huà le",
+      "pinyinNormalized": "wotingjiandianhuale",
+      "pinyinTone": "wǒ tīng jiàn diàn huà le",
+      "pinyinNumber": "wo3 ting1 jian4 dian4 hua4 le5",
+      "vietnamese": "Tôi nghe thấy điện thoại rồi.",
+      "meaningVi": "Tôi nghe thấy điện thoại rồi.",
+      "vocabularyIds": [
+        "hsk1-v-0210"
+      ],
+      "primaryVocabularyId": "hsk1-v-0210",
+      "grammarTags": [
+        "resultative-tingjian",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:210"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0211",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这是我的同学。",
+      "pinyin": "zhè shì wǒ de tóng xué",
+      "pinyinNormalized": "zheshiwodetongxue",
+      "pinyinTone": "zhè shì wǒ de tóng xué",
+      "pinyinNumber": "zhe4 shi4 wo3 de5 tong2 xue2",
+      "vietnamese": "Đây là bạn học của tôi.",
+      "meaningVi": "Đây là bạn học của tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0211"
+      ],
+      "primaryVocabularyId": "hsk1-v-0211",
+      "grammarTags": [
+        "possessive-de",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:211"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0212",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他在门外。",
+      "pinyin": "tā zài mén wài",
+      "pinyinNormalized": "tazaimenwai",
+      "pinyinTone": "tā zài mén wài",
+      "pinyinNumber": "ta1 zai4 men2 wai4",
+      "vietnamese": "Anh ấy ở ngoài cửa.",
+      "meaningVi": "Anh ấy ở ngoài cửa.",
+      "vocabularyIds": [
+        "hsk1-v-0212"
+      ],
+      "primaryVocabularyId": "hsk1-v-0212",
+      "grammarTags": [
+        "location-wai",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:212"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0213",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "外边很冷。",
+      "pinyin": "wài bian hěn lěng",
+      "pinyinNormalized": "waibianhenleng",
+      "pinyinTone": "wài bian hěn lěng",
+      "pinyinNumber": "wai4 bian5 hen3 leng3",
+      "vietnamese": "Bên ngoài rất lạnh.",
+      "meaningVi": "Bên ngoài rất lạnh.",
+      "vocabularyIds": [
+        "hsk1-v-0213"
+      ],
+      "primaryVocabularyId": "hsk1-v-0213",
+      "grammarTags": [
+        "location-waibian",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:213"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0214",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我玩。",
+      "pinyin": "wǒ wán",
+      "pinyinNormalized": "wowan",
+      "pinyinTone": "wǒ wán",
+      "pinyinNumber": "wo3 wan2",
+      "vietnamese": "Tôi chơi.",
+      "meaningVi": "Tôi chơi.",
+      "vocabularyIds": [
+        "hsk1-v-0214"
+      ],
+      "primaryVocabularyId": "hsk1-v-0214",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:214"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0215",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我今天来晚了。",
+      "pinyin": "wǒ jīn tiān lái wǎn le",
+      "pinyinNormalized": "wojintianlaiwanle",
+      "pinyinTone": "wǒ jīn tiān lái wǎn le",
+      "pinyinNumber": "wo3 jin1 tian1 lai2 wan3 le5",
+      "vietnamese": "Hôm nay tôi đến muộn.",
+      "meaningVi": "Hôm nay tôi đến muộn.",
+      "vocabularyIds": [
+        "hsk1-v-0215"
+      ],
+      "primaryVocabularyId": "hsk1-v-0215",
+      "grammarTags": [
+        "adjective-wan",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:215"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0216",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我们六点吃晚饭。",
+      "pinyin": "wǒ men liù diǎn chī wǎn fàn",
+      "pinyinNormalized": "womenliudianchiwanfan",
+      "pinyinTone": "wǒ men liù diǎn chī wǎn fàn",
+      "pinyinNumber": "wo3 men5 liu4 dian3 chi1 wan3 fan4",
+      "vietnamese": "Chúng tôi ăn tối lúc sáu giờ.",
+      "meaningVi": "Chúng tôi ăn tối lúc sáu giờ.",
+      "vocabularyIds": [
+        "hsk1-v-0216"
+      ],
+      "primaryVocabularyId": "hsk1-v-0216",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:216"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0217",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "晚上我在家。",
+      "pinyin": "wǎn shang wǒ zài jiā",
+      "pinyinNormalized": "wanshangwozaijia",
+      "pinyinTone": "wǎn shang wǒ zài jiā",
+      "pinyinNumber": "wan3 shang5 wo3 zai4 jia1",
+      "vietnamese": "Buổi tối tôi ở nhà.",
+      "meaningVi": "Buổi tối tôi ở nhà.",
+      "vocabularyIds": [
+        "hsk1-v-0217"
+      ],
+      "primaryVocabularyId": "hsk1-v-0217",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:217"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0218",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "喂，你好！",
+      "pinyin": "wèi nǐ hǎo",
+      "pinyinNormalized": "weinihao",
+      "pinyinTone": "wèi nǐ hǎo",
+      "pinyinNumber": "wei4 ni3 hao3",
+      "vietnamese": "A lô, xin chào!",
+      "meaningVi": "A lô, xin chào!",
+      "vocabularyIds": [
+        "hsk1-v-0218"
+      ],
+      "primaryVocabularyId": "hsk1-v-0218",
+      "grammarTags": [
+        "telephone-greeting",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:218"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0219",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我问老师。",
+      "pinyin": "wǒ wèn lǎo shī",
+      "pinyinNormalized": "wowenlaoshi",
+      "pinyinTone": "wǒ wèn lǎo shī",
+      "pinyinNumber": "wo3 wen4 lao3 shi1",
+      "vietnamese": "Tôi hỏi giáo viên.",
+      "meaningVi": "Tôi hỏi giáo viên.",
+      "vocabularyIds": [
+        "hsk1-v-0219"
+      ],
+      "primaryVocabularyId": "hsk1-v-0219",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:219"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0220",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我有一个问题。",
+      "pinyin": "wǒ yǒu yī gè wèn tí",
+      "pinyinNormalized": "woyouyigewenti",
+      "pinyinTone": "wǒ yǒu yī gè wèn tí",
+      "pinyinNumber": "wo3 you3 yi1 ge4 wen4 ti2",
+      "vietnamese": "Tôi có một câu hỏi.",
+      "meaningVi": "Tôi có một câu hỏi.",
+      "vocabularyIds": [
+        "hsk1-v-0220"
+      ],
+      "primaryVocabularyId": "hsk1-v-0220",
+      "grammarTags": [
+        "noun-wenti",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:220"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0221",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我是中国人。",
+      "pinyin": "wǒ shì zhōng guó rén",
+      "pinyinNormalized": "woshizhongguoren",
+      "pinyinTone": "wǒ shì zhōng guó rén",
+      "pinyinNumber": "wo3 shi4 zhong1 guo2 ren2",
+      "vietnamese": "Tôi là người Trung Quốc.",
+      "meaningVi": "Tôi là người Trung Quốc.",
+      "vocabularyIds": [
+        "hsk1-v-0221"
+      ],
+      "primaryVocabularyId": "hsk1-v-0221",
+      "grammarTags": [
+        "pronoun-wo",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:221"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0222",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我们都是中国人。",
+      "pinyin": "wǒ men dōu shì zhōng guó rén",
+      "pinyinNormalized": "womendoushizhongguoren",
+      "pinyinTone": "wǒ men dōu shì zhōng guó rén",
+      "pinyinNumber": "wo3 men5 dou1 shi4 zhong1 guo2 ren2",
+      "vietnamese": "Chúng tôi đều là người Trung Quốc.",
+      "meaningVi": "Chúng tôi đều là người Trung Quốc.",
+      "vocabularyIds": [
+        "hsk1-v-0222"
+      ],
+      "primaryVocabularyId": "hsk1-v-0222",
+      "grammarTags": [
+        "plural-pronoun",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:222"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0223",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我有五本书。",
+      "pinyin": "wǒ yǒu wǔ běn shū",
+      "pinyinNormalized": "woyouwubenshu",
+      "pinyinTone": "wǒ yǒu wǔ běn shū",
+      "pinyinNumber": "wo3 you3 wu3 ben3 shu1",
+      "vietnamese": "Tôi có năm quyển sách.",
+      "meaningVi": "Tôi có năm quyển sách.",
+      "vocabularyIds": [
+        "hsk1-v-0223"
+      ],
+      "primaryVocabularyId": "hsk1-v-0223",
+      "grammarTags": [
+        "number-classifier",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:223"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0224",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "中午我们吃午饭。",
+      "pinyin": "zhōng wǔ wǒ men chī wǔ fàn",
+      "pinyinNormalized": "zhongwuwomenchiwufan",
+      "pinyinTone": "zhōng wǔ wǒ men chī wǔ fàn",
+      "pinyinNumber": "zhong1 wu3 wo3 men5 chi1 wu3 fan4",
+      "vietnamese": "Buổi trưa chúng tôi ăn trưa.",
+      "meaningVi": "Buổi trưa chúng tôi ăn trưa.",
+      "vocabularyIds": [
+        "hsk1-v-0224"
+      ],
+      "primaryVocabularyId": "hsk1-v-0224",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:224"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0225",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我喜欢汉语。",
+      "pinyin": "wǒ xǐ huan hàn yǔ",
+      "pinyinNormalized": "woxihuanhanyu",
+      "pinyinTone": "wǒ xǐ huan hàn yǔ",
+      "pinyinNumber": "wo3 xi3 huan5 han4 yu3",
+      "vietnamese": "Tôi thích tiếng Trung.",
+      "meaningVi": "Tôi thích tiếng Trung.",
+      "vocabularyIds": [
+        "hsk1-v-0225"
+      ],
+      "primaryVocabularyId": "hsk1-v-0225",
+      "grammarTags": [
+        "verb-xihuan",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:225"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0226",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "书在桌子下。",
+      "pinyin": "shū zài zhuō zi xià",
+      "pinyinNormalized": "shuzaizhuozixia",
+      "pinyinTone": "shū zài zhuō zi xià",
+      "pinyinNumber": "shu1 zai4 zhuo1 zi5 xia4",
+      "vietnamese": "Quyển sách ở dưới bàn.",
+      "meaningVi": "Quyển sách ở dưới bàn.",
+      "vocabularyIds": [
+        "hsk1-v-0226"
+      ],
+      "primaryVocabularyId": "hsk1-v-0226",
+      "grammarTags": [
+        "location-xia",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:226"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0227",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "外边正在下雨。",
+      "pinyin": "wài bian zhèng zài xià yǔ",
+      "pinyinNormalized": "waibianzhengzaixiayu",
+      "pinyinTone": "wài bian zhèng zài xià yǔ",
+      "pinyinNumber": "wai4 bian5 zheng4 zai4 xia4 yu3",
+      "vietnamese": "Bên ngoài đang mưa.",
+      "meaningVi": "Bên ngoài đang mưa.",
+      "vocabularyIds": [
+        "hsk1-v-0227"
+      ],
+      "primaryVocabularyId": "hsk1-v-0227",
+      "grammarTags": [
+        "weather-verb",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:227"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0228",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我下班。",
+      "pinyin": "wǒ xià bān",
+      "pinyinNormalized": "woxiaban",
+      "pinyinTone": "wǒ xià bān",
+      "pinyinNumber": "wo3 xia4 ban1",
+      "vietnamese": "Tôi tan làm.",
+      "meaningVi": "Tôi tan làm.",
+      "vocabularyIds": [
+        "hsk1-v-0228"
+      ],
+      "primaryVocabularyId": "hsk1-v-0228",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:228"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0229",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我下课。",
+      "pinyin": "wǒ xià kè",
+      "pinyinNormalized": "woxiake",
+      "pinyinTone": "wǒ xià kè",
+      "pinyinNumber": "wo3 xia4 ke4",
+      "vietnamese": "Tôi tan học.",
+      "meaningVi": "Tôi tan học.",
+      "vocabularyIds": [
+        "hsk1-v-0229"
+      ],
+      "primaryVocabularyId": "hsk1-v-0229",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:229"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0230",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "下午我去超市。",
+      "pinyin": "xià wǔ wǒ qù chāo shì",
+      "pinyinNormalized": "xiawuwoquchaoshi",
+      "pinyinTone": "xià wǔ wǒ qù chāo shì",
+      "pinyinNumber": "xia4 wu3 wo3 qu4 chao1 shi4",
+      "vietnamese": "Buổi chiều tôi đi siêu thị.",
+      "meaningVi": "Buổi chiều tôi đi siêu thị.",
+      "vocabularyIds": [
+        "hsk1-v-0230"
+      ],
+      "primaryVocabularyId": "hsk1-v-0230",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:230"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0231",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "王先生是老师。",
+      "pinyin": "wáng xiān sheng shì lǎo shī",
+      "pinyinNormalized": "wangxianshengshilaoshi",
+      "pinyinTone": "wáng xiān sheng shì lǎo shī",
+      "pinyinNumber": "wang2 xian1 sheng5 shi4 lao3 shi1",
+      "vietnamese": "Ông Vương là giáo viên.",
+      "meaningVi": "Ông Vương là giáo viên.",
+      "vocabularyIds": [
+        "hsk1-v-0231"
+      ],
+      "primaryVocabularyId": "hsk1-v-0231",
+      "grammarTags": [
+        "title-xiansheng",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:231"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0232",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "现在是八点。",
+      "pinyin": "xiàn zài shì bā diǎn",
+      "pinyinNormalized": "xianzaishibadian",
+      "pinyinTone": "xiàn zài shì bā diǎn",
+      "pinyinNumber": "xian4 zai4 shi4 ba1 dian3",
+      "vietnamese": "Bây giờ là tám giờ.",
+      "meaningVi": "Bây giờ là tám giờ.",
+      "vocabularyIds": [
+        "hsk1-v-0232"
+      ],
+      "primaryVocabularyId": "hsk1-v-0232",
+      "grammarTags": [
+        "time-now",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:232"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0233",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我想去中国。",
+      "pinyin": "wǒ xiǎng qù zhōng guó",
+      "pinyinNormalized": "woxiangquzhongguo",
+      "pinyinTone": "wǒ xiǎng qù zhōng guó",
+      "pinyinNumber": "wo3 xiang3 qu4 zhong1 guo2",
+      "vietnamese": "Tôi muốn đi Trung Quốc.",
+      "meaningVi": "Tôi muốn đi Trung Quốc.",
+      "vocabularyIds": [
+        "hsk1-v-0233"
+      ],
+      "primaryVocabularyId": "hsk1-v-0233",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:233"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0234",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这只狗很小。",
+      "pinyin": "zhè zhī gǒu hěn xiǎo",
+      "pinyinNormalized": "zhezhigouhenxiao",
+      "pinyinTone": "zhè zhī gǒu hěn xiǎo",
+      "pinyinNumber": "zhe4 zhi1 gou3 hen3 xiao3",
+      "vietnamese": "Con chó này rất nhỏ.",
+      "meaningVi": "Con chó này rất nhỏ.",
+      "vocabularyIds": [
+        "hsk1-v-0234"
+      ],
+      "primaryVocabularyId": "hsk1-v-0234",
+      "grammarTags": [
+        "adjective-predicate",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:234"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0235",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他是小朋友。",
+      "pinyin": "tā shì xiǎo péng yǒu",
+      "pinyinNormalized": "tashixiaopengyou",
+      "pinyinTone": "tā shì xiǎo péng yǒu",
+      "pinyinNumber": "ta1 shi4 xiao3 peng2 you3",
+      "vietnamese": "Anh ấy là trẻ em.",
+      "meaningVi": "Anh ấy là trẻ em.",
+      "vocabularyIds": [
+        "hsk1-v-0235"
+      ],
+      "primaryVocabularyId": "hsk1-v-0235",
+      "grammarTags": [
+        "copula-shi",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:235"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0236",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我每天学习两个小时。",
+      "pinyin": "wǒ měi tiān xué xí liǎng gè xiǎo shí",
+      "pinyinNormalized": "womeitianxuexilianggexiaoshi",
+      "pinyinTone": "wǒ měi tiān xué xí liǎng gè xiǎo shí",
+      "pinyinNumber": "wo3 mei3 tian1 xue2 xi2 liang3 ge4 xiao3 shi2",
+      "vietnamese": "Mỗi ngày tôi học hai tiếng.",
+      "meaningVi": "Mỗi ngày tôi học hai tiếng.",
+      "vocabularyIds": [
+        "hsk1-v-0236"
+      ],
+      "primaryVocabularyId": "hsk1-v-0236",
+      "grammarTags": [
+        "duration-hour",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:236"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0237",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天我去小学。",
+      "pinyin": "jīn tiān wǒ qù xiǎo xué",
+      "pinyinNormalized": "jintianwoquxiaoxue",
+      "pinyinTone": "jīn tiān wǒ qù xiǎo xué",
+      "pinyinNumber": "jin1 tian1 wo3 qu4 xiao3 xue2",
+      "vietnamese": "Hôm nay tôi đến trường tiểu học.",
+      "meaningVi": "Hôm nay tôi đến trường tiểu học.",
+      "vocabularyIds": [
+        "hsk1-v-0237"
+      ],
+      "primaryVocabularyId": "hsk1-v-0237",
+      "grammarTags": [
+        "directional-verb",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:237"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0238",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他是小学生。",
+      "pinyin": "tā shì xiǎo xué shēng",
+      "pinyinNormalized": "tashixiaoxuesheng",
+      "pinyinTone": "tā shì xiǎo xué shēng",
+      "pinyinNumber": "ta1 shi4 xiao3 xue2 sheng1",
+      "vietnamese": "Anh ấy là học sinh tiểu học.",
+      "meaningVi": "Anh ấy là học sinh tiểu học.",
+      "vocabularyIds": [
+        "hsk1-v-0238"
+      ],
+      "primaryVocabularyId": "hsk1-v-0238",
+      "grammarTags": [
+        "copula-shi",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:238"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0239",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我买了些水果。",
+      "pinyin": "wǒ mǎi le xiē shuǐ guǒ",
+      "pinyinNormalized": "womailexieshuiguo",
+      "pinyinTone": "wǒ mǎi le xiē shuǐ guǒ",
+      "pinyinNumber": "wo3 mai3 le5 xie1 shui3 guo3",
+      "vietnamese": "Tôi đã mua một ít trái cây.",
+      "meaningVi": "Tôi đã mua một ít trái cây.",
+      "vocabularyIds": [
+        "hsk1-v-0239"
+      ],
+      "primaryVocabularyId": "hsk1-v-0239",
+      "grammarTags": [
+        "classifier-xie",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:239"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0240",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我写汉字。",
+      "pinyin": "wǒ xiě hàn zì",
+      "pinyinNormalized": "woxiehanzi",
+      "pinyinTone": "wǒ xiě hàn zì",
+      "pinyinNumber": "wo3 xie3 han4 zi4",
+      "vietnamese": "Tôi viết chữ Hán.",
+      "meaningVi": "Tôi viết chữ Hán.",
+      "vocabularyIds": [
+        "hsk1-v-0240"
+      ],
+      "primaryVocabularyId": "hsk1-v-0240",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:240"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0241",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "谢谢你的帮助。",
+      "pinyin": "xiè xie nǐ de bāng zhù",
+      "pinyinNormalized": "xiexienidebangzhu",
+      "pinyinTone": "xiè xie nǐ de bāng zhù",
+      "pinyinNumber": "xie4 xie5 ni3 de5 bang1 zhu4",
+      "vietnamese": "Cảm ơn sự giúp đỡ của bạn.",
+      "meaningVi": "Cảm ơn sự giúp đỡ của bạn.",
+      "vocabularyIds": [
+        "hsk1-v-0241"
+      ],
+      "primaryVocabularyId": "hsk1-v-0241",
+      "grammarTags": [
+        "thanks",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:241"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0242",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这个电脑很新。",
+      "pinyin": "zhè ge diàn nǎo hěn xīn",
+      "pinyinNormalized": "zhegediannaohenxin",
+      "pinyinTone": "zhè ge diàn nǎo hěn xīn",
+      "pinyinNumber": "zhe4 ge5 dian4 nao3 hen3 xin1",
+      "vietnamese": "Máy tính này rất mới.",
+      "meaningVi": "Máy tính này rất mới.",
+      "vocabularyIds": [
+        "hsk1-v-0242"
+      ],
+      "primaryVocabularyId": "hsk1-v-0242",
+      "grammarTags": [
+        "adjective-predicate",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:242"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0243",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "一个星期有七天。",
+      "pinyin": "yī gè xīng qī yǒu qī tiān",
+      "pinyinNormalized": "yigexingqiyouqitian",
+      "pinyinTone": "yī gè xīng qī yǒu qī tiān",
+      "pinyinNumber": "yi1 ge4 xing1 qi1 you3 qi1 tian1",
+      "vietnamese": "Một tuần có bảy ngày.",
+      "meaningVi": "Một tuần có bảy ngày.",
+      "vocabularyIds": [
+        "hsk1-v-0243"
+      ],
+      "primaryVocabularyId": "hsk1-v-0243",
+      "grammarTags": [
+        "week-expression",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:243"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0244",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "星期日我休息。",
+      "pinyin": "xīng qī rì wǒ xiū xi",
+      "pinyinNormalized": "xingqiriwoxiuxi",
+      "pinyinTone": "xīng qī rì wǒ xiū xi",
+      "pinyinNumber": "xing1 qi1 ri4 wo3 xiu1 xi5",
+      "vietnamese": "Chủ nhật tôi nghỉ.",
+      "meaningVi": "Chủ nhật tôi nghỉ.",
+      "vocabularyIds": [
+        "hsk1-v-0244"
+      ],
+      "primaryVocabularyId": "hsk1-v-0244",
+      "grammarTags": [
+        "day-of-week",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:244"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0245",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "星期天不用上班。",
+      "pinyin": "xīng qī tiān bù yòng shàng bān",
+      "pinyinNormalized": "xingqitianbuyongshangban",
+      "pinyinTone": "xīng qī tiān bù yòng shàng bān",
+      "pinyinNumber": "xing1 qi1 tian1 bu4 yong4 shang4 ban1",
+      "vietnamese": "Chủ nhật không phải đi làm.",
+      "meaningVi": "Chủ nhật không phải đi làm.",
+      "vocabularyIds": [
+        "hsk1-v-0245"
+      ],
+      "primaryVocabularyId": "hsk1-v-0245",
+      "grammarTags": [
+        "day-of-week",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:245"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0246",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我休息。",
+      "pinyin": "wǒ xiū xi",
+      "pinyinNormalized": "woxiuxi",
+      "pinyinTone": "wǒ xiū xi",
+      "pinyinNumber": "wo3 xiu1 xi5",
+      "vietnamese": "Tôi nghỉ ngơi.",
+      "meaningVi": "Tôi nghỉ ngơi.",
+      "vocabularyIds": [
+        "hsk1-v-0246"
+      ],
+      "primaryVocabularyId": "hsk1-v-0246",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:246"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0247",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我学汉语。",
+      "pinyin": "wǒ xué hàn yǔ",
+      "pinyinNormalized": "woxuehanyu",
+      "pinyinTone": "wǒ xué hàn yǔ",
+      "pinyinNumber": "wo3 xue2 han4 yu3",
+      "vietnamese": "Tôi học tiếng Trung.",
+      "meaningVi": "Tôi học tiếng Trung.",
+      "vocabularyIds": [
+        "hsk1-v-0247"
+      ],
+      "primaryVocabularyId": "hsk1-v-0247",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:247"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0248",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他是学生。",
+      "pinyin": "tā shì xué shēng",
+      "pinyinNormalized": "tashixuesheng",
+      "pinyinTone": "tā shì xué shēng",
+      "pinyinNumber": "ta1 shi4 xue2 sheng1",
+      "vietnamese": "Anh ấy là học sinh.",
+      "meaningVi": "Anh ấy là học sinh.",
+      "vocabularyIds": [
+        "hsk1-v-0248"
+      ],
+      "primaryVocabularyId": "hsk1-v-0248",
+      "grammarTags": [
+        "copula-shi",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:248"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0249",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我学习中文。",
+      "pinyin": "wǒ xué xí zhōng wén",
+      "pinyinNormalized": "woxuexizhongwen",
+      "pinyinTone": "wǒ xué xí zhōng wén",
+      "pinyinNumber": "wo3 xue2 xi2 zhong1 wen2",
+      "vietnamese": "Tôi học tiếng Trung.",
+      "meaningVi": "Tôi học tiếng Trung.",
+      "vocabularyIds": [
+        "hsk1-v-0249"
+      ],
+      "primaryVocabularyId": "hsk1-v-0249",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:249"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0250",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天我去学校。",
+      "pinyin": "jīn tiān wǒ qù xué xiào",
+      "pinyinNormalized": "jintianwoquxuexiao",
+      "pinyinTone": "jīn tiān wǒ qù xué xiào",
+      "pinyinNumber": "jin1 tian1 wo3 qu4 xue2 xiao4",
+      "vietnamese": "Hôm nay tôi đến trường.",
+      "meaningVi": "Hôm nay tôi đến trường.",
+      "vocabularyIds": [
+        "hsk1-v-0250"
+      ],
+      "primaryVocabularyId": "hsk1-v-0250",
+      "grammarTags": [
+        "directional-verb",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:250"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0251",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "外边有雪。",
+      "pinyin": "wài bian yǒu xuě",
+      "pinyinNormalized": "waibianyouxue",
+      "pinyinTone": "wài bian yǒu xuě",
+      "pinyinNumber": "wai4 bian5 you3 xue3",
+      "vietnamese": "Bên ngoài có tuyết.",
+      "meaningVi": "Bên ngoài có tuyết.",
+      "vocabularyIds": [
+        "hsk1-v-0251"
+      ],
+      "primaryVocabularyId": "hsk1-v-0251",
+      "grammarTags": [
+        "weather",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:251"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0252",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我要一杯茶。",
+      "pinyin": "wǒ yào yī bēi chá",
+      "pinyinNormalized": "woyaoyibeicha",
+      "pinyinTone": "wǒ yào yī bēi chá",
+      "pinyinNumber": "wo3 yao4 yi1 bei1 cha2",
+      "vietnamese": "Tôi muốn một cốc trà.",
+      "meaningVi": "Tôi muốn một cốc trà.",
+      "vocabularyIds": [
+        "hsk1-v-0252"
+      ],
+      "primaryVocabularyId": "hsk1-v-0252",
+      "grammarTags": [
+        "modal-yao",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:252"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0253",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我也是学生。",
+      "pinyin": "wǒ yě shì xué shēng",
+      "pinyinNormalized": "woyeshixuesheng",
+      "pinyinTone": "wǒ yě shì xué shēng",
+      "pinyinNumber": "wo3 ye3 shi4 xue2 sheng1",
+      "vietnamese": "Tôi cũng là học sinh.",
+      "meaningVi": "Tôi cũng là học sinh.",
+      "vocabularyIds": [
+        "hsk1-v-0253"
+      ],
+      "primaryVocabularyId": "hsk1-v-0253",
+      "grammarTags": [
+        "adverb-ye",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:253"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0254",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我有一本书。",
+      "pinyin": "wǒ yǒu yī běn shū",
+      "pinyinNormalized": "woyouyibenshu",
+      "pinyinTone": "wǒ yǒu yī běn shū",
+      "pinyinNumber": "wo3 you3 yi1 ben3 shu1",
+      "vietnamese": "Tôi có một quyển sách.",
+      "meaningVi": "Tôi có một quyển sách.",
+      "vocabularyIds": [
+        "hsk1-v-0254"
+      ],
+      "primaryVocabularyId": "hsk1-v-0254",
+      "grammarTags": [
+        "number-classifier",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:254"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0255",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这是我的衣服。",
+      "pinyin": "zhè shì wǒ de yī fu",
+      "pinyinNormalized": "zheshiwodeyifu",
+      "pinyinTone": "zhè shì wǒ de yī fu",
+      "pinyinNumber": "zhe4 shi4 wo3 de5 yi1 fu5",
+      "vietnamese": "Đây là quần áo của tôi.",
+      "meaningVi": "Đây là quần áo của tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0255"
+      ],
+      "primaryVocabularyId": "hsk1-v-0255",
+      "grammarTags": [
+        "possessive-de",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:255"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0256",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他是医生。",
+      "pinyin": "tā shì yī shēng",
+      "pinyinNormalized": "tashiyisheng",
+      "pinyinTone": "tā shì yī shēng",
+      "pinyinNumber": "ta1 shi4 yi1 sheng1",
+      "vietnamese": "Anh ấy là bác sĩ.",
+      "meaningVi": "Anh ấy là bác sĩ.",
+      "vocabularyIds": [
+        "hsk1-v-0256"
+      ],
+      "primaryVocabularyId": "hsk1-v-0256",
+      "grammarTags": [
+        "copula-shi",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:256"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0257",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天我去医院。",
+      "pinyin": "jīn tiān wǒ qù yī yuàn",
+      "pinyinNormalized": "jintianwoquyiyuan",
+      "pinyinTone": "jīn tiān wǒ qù yī yuàn",
+      "pinyinNumber": "jin1 tian1 wo3 qu4 yi1 yuan4",
+      "vietnamese": "Hôm nay tôi đến bệnh viện.",
+      "meaningVi": "Hôm nay tôi đến bệnh viện.",
+      "vocabularyIds": [
+        "hsk1-v-0257"
+      ],
+      "primaryVocabularyId": "hsk1-v-0257",
+      "grammarTags": [
+        "directional-verb",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:257"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0258",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我吃了一半。",
+      "pinyin": "wǒ chī le yí bàn",
+      "pinyinNormalized": "wochileyiban",
+      "pinyinTone": "wǒ chī le yí bàn",
+      "pinyinNumber": "wo3 chi1 le5 yi2 ban4",
+      "vietnamese": "Tôi đã ăn một nửa.",
+      "meaningVi": "Tôi đã ăn một nửa.",
+      "vocabularyIds": [
+        "hsk1-v-0258"
+      ],
+      "primaryVocabularyId": "hsk1-v-0258",
+      "grammarTags": [
+        "fraction",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:258"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0259",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "请等一下。",
+      "pinyin": "qǐng děng yí xià",
+      "pinyinNormalized": "qingdengyixia",
+      "pinyinTone": "qǐng děng yí xià",
+      "pinyinNumber": "qing3 deng3 yi2 xia4",
+      "vietnamese": "Vui lòng đợi một chút.",
+      "meaningVi": "Vui lòng đợi một chút.",
+      "vocabularyIds": [
+        "hsk1-v-0259"
+      ],
+      "primaryVocabularyId": "hsk1-v-0259",
+      "grammarTags": [
+        "brief-action",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:259"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0260",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这是我的椅子。",
+      "pinyin": "zhè shì wǒ de yǐ zi",
+      "pinyinNormalized": "zheshiwodeyizi",
+      "pinyinTone": "zhè shì wǒ de yǐ zi",
+      "pinyinNumber": "zhe4 shi4 wo3 de5 yi3 zi5",
+      "vietnamese": "Đây là ghế của tôi.",
+      "meaningVi": "Đây là ghế của tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0260"
+      ],
+      "primaryVocabularyId": "hsk1-v-0260",
+      "grammarTags": [
+        "possessive-de",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:260"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0261",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我喝一点儿水。",
+      "pinyin": "wǒ hē yì diǎnr shuǐ",
+      "pinyinNormalized": "woheyidianrshui",
+      "pinyinTone": "wǒ hē yì diǎnr shuǐ",
+      "pinyinNumber": "wo3 he1 yi4 dianr3 shui3",
+      "vietnamese": "Tôi uống một chút nước.",
+      "meaningVi": "Tôi uống một chút nước.",
+      "vocabularyIds": [
+        "hsk1-v-0261"
+      ],
+      "primaryVocabularyId": "hsk1-v-0261",
+      "grammarTags": [
+        "small-quantity",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:261"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0262",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我买了一些苹果。",
+      "pinyin": "wǒ mǎi le yì xiē píng guǒ",
+      "pinyinNormalized": "womaileyixiepingguo",
+      "pinyinTone": "wǒ mǎi le yì xiē píng guǒ",
+      "pinyinNumber": "wo3 mai3 le5 yi4 xie1 ping2 guo3",
+      "vietnamese": "Tôi đã mua một ít táo.",
+      "meaningVi": "Tôi đã mua một ít táo.",
+      "vocabularyIds": [
+        "hsk1-v-0262"
+      ],
+      "primaryVocabularyId": "hsk1-v-0262",
+      "grammarTags": [
+        "indefinite-quantity",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:262"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0263",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我有一个妹妹。",
+      "pinyin": "wǒ yǒu yī gè mèi mei",
+      "pinyinNormalized": "woyouyigemeimei",
+      "pinyinTone": "wǒ yǒu yī gè mèi mei",
+      "pinyinNumber": "wo3 you3 yi1 ge4 mei4 mei5",
+      "vietnamese": "Tôi có một em gái.",
+      "meaningVi": "Tôi có một em gái.",
+      "vocabularyIds": [
+        "hsk1-v-0263"
+      ],
+      "primaryVocabularyId": "hsk1-v-0263",
+      "grammarTags": [
+        "existential-you",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:263"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0264",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "有的是新的。",
+      "pinyin": "yǒu de shì xīn de",
+      "pinyinNormalized": "youdeshixinde",
+      "pinyinTone": "yǒu de shì xīn de",
+      "pinyinNumber": "you3 de5 shi4 xin1 de5",
+      "vietnamese": "Có cái là đồ mới.",
+      "meaningVi": "Có cái là đồ mới.",
+      "vocabularyIds": [
+        "hsk1-v-0264"
+      ],
+      "primaryVocabularyId": "hsk1-v-0264",
+      "grammarTags": [
+        "pronoun-youde",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:264"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0265",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天有点儿冷。",
+      "pinyin": "jīn tiān yǒu diǎnr lěng",
+      "pinyinNormalized": "jintianyoudianrleng",
+      "pinyinTone": "jīn tiān yǒu diǎnr lěng",
+      "pinyinNumber": "jin1 tian1 you3 dianr3 leng3",
+      "vietnamese": "Hôm nay hơi lạnh.",
+      "meaningVi": "Hôm nay hơi lạnh.",
+      "vocabularyIds": [
+        "hsk1-v-0265"
+      ],
+      "primaryVocabularyId": "hsk1-v-0265",
+      "grammarTags": [
+        "degree-youidianr",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:265"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0266",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "有些学生没来。",
+      "pinyin": "yǒu xiē xué shēng méi lái",
+      "pinyinNormalized": "youxiexueshengmeilai",
+      "pinyinTone": "yǒu xiē xué shēng méi lái",
+      "pinyinNumber": "you3 xie1 xue2 sheng1 mei2 lai2",
+      "vietnamese": "Một số học sinh chưa đến.",
+      "meaningVi": "Một số học sinh chưa đến.",
+      "vocabularyIds": [
+        "hsk1-v-0266"
+      ],
+      "primaryVocabularyId": "hsk1-v-0266",
+      "grammarTags": [
+        "pronoun-youxie",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:266"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0267",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天有雨。",
+      "pinyin": "jīn tiān yǒu yǔ",
+      "pinyinNormalized": "jintianyouyu",
+      "pinyinTone": "jīn tiān yǒu yǔ",
+      "pinyinNumber": "jin1 tian1 you3 yu3",
+      "vietnamese": "Hôm nay có mưa.",
+      "meaningVi": "Hôm nay có mưa.",
+      "vocabularyIds": [
+        "hsk1-v-0267"
+      ],
+      "primaryVocabularyId": "hsk1-v-0267",
+      "grammarTags": [
+        "weather",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:267"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0268",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这个苹果三元。",
+      "pinyin": "zhè ge píng guǒ sān yuán",
+      "pinyinNormalized": "zhegepingguosanyuan",
+      "pinyinTone": "zhè ge píng guǒ sān yuán",
+      "pinyinNumber": "zhe4 ge5 ping2 guo3 san1 yuan2",
+      "vietnamese": "Quả táo này ba tệ.",
+      "meaningVi": "Quả táo này ba tệ.",
+      "vocabularyIds": [
+        "hsk1-v-0268"
+      ],
+      "primaryVocabularyId": "hsk1-v-0268",
+      "grammarTags": [
+        "money-yuan",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:268"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0269",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "一年有十二个月。",
+      "pinyin": "yī nián yǒu shí èr gè yuè",
+      "pinyinNormalized": "yinianyoushiergeyue",
+      "pinyinTone": "yī nián yǒu shí èr gè yuè",
+      "pinyinNumber": "yi1 nian2 you3 shi2 er4 ge4 yue4",
+      "vietnamese": "Một năm có mười hai tháng.",
+      "meaningVi": "Một năm có mười hai tháng.",
+      "vocabularyIds": [
+        "hsk1-v-0269"
+      ],
+      "primaryVocabularyId": "hsk1-v-0269",
+      "grammarTags": [
+        "month-expression",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:269"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0270",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "请再说一遍。",
+      "pinyin": "qǐng zài shuō yī biàn",
+      "pinyinNormalized": "qingzaishuoyibian",
+      "pinyinTone": "qǐng zài shuō yī biàn",
+      "pinyinNumber": "qing3 zai4 shuo1 yi1 bian4",
+      "vietnamese": "Vui lòng nói lại một lần.",
+      "meaningVi": "Vui lòng nói lại một lần.",
+      "vocabularyIds": [
+        "hsk1-v-0270"
+      ],
+      "primaryVocabularyId": "hsk1-v-0270",
+      "grammarTags": [
+        "adverb-zai",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:270"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0271",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我在学校。",
+      "pinyin": "wǒ zài xué xiào",
+      "pinyinNormalized": "wozaixuexiao",
+      "pinyinTone": "wǒ zài xué xiào",
+      "pinyinNumber": "wo3 zai4 xue2 xiao4",
+      "vietnamese": "Tôi ở trường.",
+      "meaningVi": "Tôi ở trường.",
+      "vocabularyIds": [
+        "hsk1-v-0271"
+      ],
+      "primaryVocabularyId": "hsk1-v-0271",
+      "grammarTags": [
+        "location-zai",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:271"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0272",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "老师，再见！",
+      "pinyin": "lǎo shī zài jiàn",
+      "pinyinNormalized": "laoshizaijian",
+      "pinyinTone": "lǎo shī zài jiàn",
+      "pinyinNumber": "lao3 shi1 zai4 jian4",
+      "vietnamese": "Tạm biệt thầy/cô!",
+      "meaningVi": "Tạm biệt thầy/cô!",
+      "vocabularyIds": [
+        "hsk1-v-0272"
+      ],
+      "primaryVocabularyId": "hsk1-v-0272",
+      "grammarTags": [
+        "farewell",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:272"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0273",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天我起得很早。",
+      "pinyin": "jīn tiān wǒ qǐ dé hěn zǎo",
+      "pinyinNormalized": "jintianwoqidehenzao",
+      "pinyinTone": "jīn tiān wǒ qǐ dé hěn zǎo",
+      "pinyinNumber": "jin1 tian1 wo3 qi3 de2 hen3 zao3",
+      "vietnamese": "Hôm nay tôi dậy rất sớm.",
+      "meaningVi": "Hôm nay tôi dậy rất sớm.",
+      "vocabularyIds": [
+        "hsk1-v-0273"
+      ],
+      "primaryVocabularyId": "hsk1-v-0273",
+      "grammarTags": [
+        "adjective-zao",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:273"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0274",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我七点吃早饭。",
+      "pinyin": "wǒ qī diǎn chī zǎo fàn",
+      "pinyinNormalized": "woqidianchizaofan",
+      "pinyinTone": "wǒ qī diǎn chī zǎo fàn",
+      "pinyinNumber": "wo3 qi1 dian3 chi1 zao3 fan4",
+      "vietnamese": "Tôi ăn sáng lúc bảy giờ.",
+      "meaningVi": "Tôi ăn sáng lúc bảy giờ.",
+      "vocabularyIds": [
+        "hsk1-v-0274"
+      ],
+      "primaryVocabularyId": "hsk1-v-0274",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:274"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0275",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "早上我喝牛奶。",
+      "pinyin": "zǎo shang wǒ hē niú nǎi",
+      "pinyinNormalized": "zaoshangwoheniunai",
+      "pinyinTone": "zǎo shang wǒ hē niú nǎi",
+      "pinyinNumber": "zao3 shang5 wo3 he1 niu2 nai3",
+      "vietnamese": "Buổi sáng tôi uống sữa.",
+      "meaningVi": "Buổi sáng tôi uống sữa.",
+      "vocabularyIds": [
+        "hsk1-v-0275"
+      ],
+      "primaryVocabularyId": "hsk1-v-0275",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:275"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0276",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这个字怎么读？",
+      "pinyin": "zhè ge zì zěn me dú",
+      "pinyinNormalized": "zhegezizenmedu",
+      "pinyinTone": "zhè ge zì zěn me dú",
+      "pinyinNumber": "zhe4 ge5 zi4 zen3 me5 du2",
+      "vietnamese": "Chữ này đọc thế nào?",
+      "meaningVi": "Chữ này đọc thế nào?",
+      "vocabularyIds": [
+        "hsk1-v-0276"
+      ],
+      "primaryVocabularyId": "hsk1-v-0276",
+      "grammarTags": [
+        "manner-question",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:276"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0277",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天天气怎么样？",
+      "pinyin": "jīn tiān tiān qì zěn me yàng",
+      "pinyinNormalized": "jintiantianqizenmeyang",
+      "pinyinTone": "jīn tiān tiān qì zěn me yàng",
+      "pinyinNumber": "jin1 tian1 tian1 qi4 zen3 me5 yang4",
+      "vietnamese": "Thời tiết hôm nay thế nào?",
+      "meaningVi": "Thời tiết hôm nay thế nào?",
+      "vocabularyIds": [
+        "hsk1-v-0277"
+      ],
+      "primaryVocabularyId": "hsk1-v-0277",
+      "grammarTags": [
+        "evaluation-question",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:277"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0278",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我找手机。",
+      "pinyin": "wǒ zhǎo shǒu jī",
+      "pinyinNormalized": "wozhaoshouji",
+      "pinyinTone": "wǒ zhǎo shǒu jī",
+      "pinyinNumber": "wo3 zhao3 shou3 ji1",
+      "vietnamese": "Tôi tìm điện thoại.",
+      "meaningVi": "Tôi tìm điện thoại.",
+      "vocabularyIds": [
+        "hsk1-v-0278"
+      ],
+      "primaryVocabularyId": "hsk1-v-0278",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:278"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0279",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这是我新买的书。",
+      "pinyin": "zhè shì wǒ xīn mǎi de shū",
+      "pinyinNormalized": "zheshiwoxinmaideshu",
+      "pinyinTone": "zhè shì wǒ xīn mǎi de shū",
+      "pinyinNumber": "zhe4 shi4 wo3 xin1 mai3 de5 shu1",
+      "vietnamese": "Đây là quyển sách tôi mới mua.",
+      "meaningVi": "Đây là quyển sách tôi mới mua.",
+      "vocabularyIds": [
+        "hsk1-v-0279"
+      ],
+      "primaryVocabularyId": "hsk1-v-0279",
+      "grammarTags": [
+        "demonstrative-zhe",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:279"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0280",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "请坐这边。",
+      "pinyin": "qǐng zuò zhè biān",
+      "pinyinNormalized": "qingzuozhebian",
+      "pinyinTone": "qǐng zuò zhè biān",
+      "pinyinNumber": "qing3 zuo4 zhe4 bian1",
+      "vietnamese": "Mời ngồi phía này.",
+      "meaningVi": "Mời ngồi phía này.",
+      "vocabularyIds": [
+        "hsk1-v-0280"
+      ],
+      "primaryVocabularyId": "hsk1-v-0280",
+      "grammarTags": [
+        "location",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:280"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0281",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这个是我的。",
+      "pinyin": "zhè ge shì wǒ de",
+      "pinyinNormalized": "zhegeshiwode",
+      "pinyinTone": "zhè ge shì wǒ de",
+      "pinyinNumber": "zhe4 ge5 shi4 wo3 de5",
+      "vietnamese": "Cái này là của tôi.",
+      "meaningVi": "Cái này là của tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0281"
+      ],
+      "primaryVocabularyId": "hsk1-v-0281",
+      "grammarTags": [
+        "demonstrative-zhege",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:281"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0282",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我住在这里。",
+      "pinyin": "wǒ zhù zài zhè lǐ",
+      "pinyinNormalized": "wozhuzaizheli",
+      "pinyinTone": "wǒ zhù zài zhè lǐ",
+      "pinyinNumber": "wo3 zhu4 zai4 zhe4 li3",
+      "vietnamese": "Tôi sống ở đây.",
+      "meaningVi": "Tôi sống ở đây.",
+      "vocabularyIds": [
+        "hsk1-v-0282"
+      ],
+      "primaryVocabularyId": "hsk1-v-0282",
+      "grammarTags": [
+        "location",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:282"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0283",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这儿很安静。",
+      "pinyin": "zhèr hěn ān jìng",
+      "pinyinNormalized": "zherhenanjing",
+      "pinyinTone": "zhèr hěn ān jìng",
+      "pinyinNumber": "zher4 hen3 an1 jing4",
+      "vietnamese": "Ở đây rất yên tĩnh.",
+      "meaningVi": "Ở đây rất yên tĩnh.",
+      "vocabularyIds": [
+        "hsk1-v-0283"
+      ],
+      "primaryVocabularyId": "hsk1-v-0283",
+      "grammarTags": [
+        "location",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:283"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0284",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这些是我的书。",
+      "pinyin": "zhè xiē shì wǒ de shū",
+      "pinyinNormalized": "zhexieshiwodeshu",
+      "pinyinTone": "zhè xiē shì wǒ de shū",
+      "pinyinNumber": "zhe4 xie1 shi4 wo3 de5 shu1",
+      "vietnamese": "Những cái này là sách của tôi.",
+      "meaningVi": "Những cái này là sách của tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0284"
+      ],
+      "primaryVocabularyId": "hsk1-v-0284",
+      "grammarTags": [
+        "demonstrative-zhexie",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:284"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0285",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这个电影真好看。",
+      "pinyin": "zhè ge diàn yǐng zhēn hǎo kàn",
+      "pinyinNormalized": "zhegedianyingzhenhaokan",
+      "pinyinTone": "zhè ge diàn yǐng zhēn hǎo kàn",
+      "pinyinNumber": "zhe4 ge5 dian4 ying3 zhen1 hao3 kan4",
+      "vietnamese": "Bộ phim này thật hay.",
+      "meaningVi": "Bộ phim này thật hay.",
+      "vocabularyIds": [
+        "hsk1-v-0285"
+      ],
+      "primaryVocabularyId": "hsk1-v-0285",
+      "grammarTags": [
+        "degree-zhen",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:285"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0286",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我正在吃饭。",
+      "pinyin": "wǒ zhèng zài chī fàn",
+      "pinyinNormalized": "wozhengzaichifan",
+      "pinyinTone": "wǒ zhèng zài chī fàn",
+      "pinyinNumber": "wo3 zheng4 zai4 chi1 fan4",
+      "vietnamese": "Tôi đang ăn cơm.",
+      "meaningVi": "Tôi đang ăn cơm.",
+      "vocabularyIds": [
+        "hsk1-v-0286"
+      ],
+      "primaryVocabularyId": "hsk1-v-0286",
+      "grammarTags": [
+        "progressive-zhengzai",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:286"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0287",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我家有一只小猫。",
+      "pinyin": "wǒ jiā yǒu yī zhī xiǎo māo",
+      "pinyinNormalized": "wojiayouyizhixiaomao",
+      "pinyinTone": "wǒ jiā yǒu yī zhī xiǎo māo",
+      "pinyinNumber": "wo3 jia1 you3 yi1 zhi1 xiao3 mao1",
+      "vietnamese": "Nhà tôi có một chú mèo nhỏ.",
+      "meaningVi": "Nhà tôi có một chú mèo nhỏ.",
+      "vocabularyIds": [
+        "hsk1-v-0287"
+      ],
+      "primaryVocabularyId": "hsk1-v-0287",
+      "grammarTags": [
+        "classifier-zhi",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:287"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0288",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我知道这件事。",
+      "pinyin": "wǒ zhī dào zhè jiàn shì",
+      "pinyinNormalized": "wozhidaozhejianshi",
+      "pinyinTone": "wǒ zhī dào zhè jiàn shì",
+      "pinyinNumber": "wo3 zhi1 dao4 zhe4 jian4 shi4",
+      "vietnamese": "Tôi biết việc này.",
+      "meaningVi": "Tôi biết việc này.",
+      "vocabularyIds": [
+        "hsk1-v-0288"
+      ],
+      "primaryVocabularyId": "hsk1-v-0288",
+      "grammarTags": [
+        "verb-zhidao",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:288"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0289",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我明年去中国。",
+      "pinyin": "wǒ míng nián qù zhōng guó",
+      "pinyinNormalized": "womingnianquzhongguo",
+      "pinyinTone": "wǒ míng nián qù zhōng guó",
+      "pinyinNumber": "wo3 ming2 nian2 qu4 zhong1 guo2",
+      "vietnamese": "Năm sau tôi đi Trung Quốc.",
+      "meaningVi": "Năm sau tôi đi Trung Quốc.",
+      "vocabularyIds": [
+        "hsk1-v-0289"
+      ],
+      "primaryVocabularyId": "hsk1-v-0289",
+      "grammarTags": [
+        "proper-noun",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:289"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0290",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我会说中文。",
+      "pinyin": "wǒ huì shuō zhōng wén",
+      "pinyinNormalized": "wohuishuozhongwen",
+      "pinyinTone": "wǒ huì shuō zhōng wén",
+      "pinyinNumber": "wo3 hui4 shuo1 zhong1 wen2",
+      "vietnamese": "Tôi biết nói tiếng Trung.",
+      "meaningVi": "Tôi biết nói tiếng Trung.",
+      "vocabularyIds": [
+        "hsk1-v-0290"
+      ],
+      "primaryVocabularyId": "hsk1-v-0290",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:290"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0291",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "中午我们吃米饭。",
+      "pinyin": "zhōng wǔ wǒ men chī mǐ fàn",
+      "pinyinNormalized": "zhongwuwomenchimifan",
+      "pinyinTone": "zhōng wǔ wǒ men chī mǐ fàn",
+      "pinyinNumber": "zhong1 wu3 wo3 men5 chi1 mi3 fan4",
+      "vietnamese": "Buổi trưa chúng tôi ăn cơm.",
+      "meaningVi": "Buổi trưa chúng tôi ăn cơm.",
+      "vocabularyIds": [
+        "hsk1-v-0291"
+      ],
+      "primaryVocabularyId": "hsk1-v-0291",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:291"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0292",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "今天我去中学。",
+      "pinyin": "jīn tiān wǒ qù zhōng xué",
+      "pinyinNormalized": "jintianwoquzhongxue",
+      "pinyinTone": "jīn tiān wǒ qù zhōng xué",
+      "pinyinNumber": "jin1 tian1 wo3 qu4 zhong1 xue2",
+      "vietnamese": "Hôm nay tôi đến trường trung học.",
+      "meaningVi": "Hôm nay tôi đến trường trung học.",
+      "vocabularyIds": [
+        "hsk1-v-0292"
+      ],
+      "primaryVocabularyId": "hsk1-v-0292",
+      "grammarTags": [
+        "directional-verb",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:292"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0293",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "他是中学生。",
+      "pinyin": "tā shì zhōng xué shēng",
+      "pinyinNormalized": "tashizhongxuesheng",
+      "pinyinTone": "tā shì zhōng xué shēng",
+      "pinyinNumber": "ta1 shi4 zhong1 xue2 sheng1",
+      "vietnamese": "Anh ấy là học sinh trung học.",
+      "meaningVi": "Anh ấy là học sinh trung học.",
+      "vocabularyIds": [
+        "hsk1-v-0293"
+      ],
+      "primaryVocabularyId": "hsk1-v-0293",
+      "grammarTags": [
+        "copula-shi",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:293"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0294",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我住在中国。",
+      "pinyin": "wǒ zhù zài zhōng guó",
+      "pinyinNormalized": "wozhuzaizhongguo",
+      "pinyinTone": "wǒ zhù zài zhōng guó",
+      "pinyinNumber": "wo3 zhu4 zai4 zhong1 guo2",
+      "vietnamese": "Tôi sống ở Trung Quốc.",
+      "meaningVi": "Tôi sống ở Trung Quốc.",
+      "vocabularyIds": [
+        "hsk1-v-0294"
+      ],
+      "primaryVocabularyId": "hsk1-v-0294",
+      "grammarTags": [
+        "location-zai",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:294"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0295",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这是我的桌子。",
+      "pinyin": "zhè shì wǒ de zhuō zi",
+      "pinyinNormalized": "zheshiwodezhuozi",
+      "pinyinTone": "zhè shì wǒ de zhuō zi",
+      "pinyinNumber": "zhe4 shi4 wo3 de5 zhuo1 zi5",
+      "vietnamese": "Đây là bàn của tôi.",
+      "meaningVi": "Đây là bàn của tôi.",
+      "vocabularyIds": [
+        "hsk1-v-0295"
+      ],
+      "primaryVocabularyId": "hsk1-v-0295",
+      "grammarTags": [
+        "possessive-de",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:295"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0296",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "这个字我会读。",
+      "pinyin": "zhè ge zì wǒ huì dú",
+      "pinyinNormalized": "zhegeziwohuidu",
+      "pinyinTone": "zhè ge zì wǒ huì dú",
+      "pinyinNumber": "zhe4 ge5 zi4 wo3 hui4 du2",
+      "vietnamese": "Chữ này tôi biết đọc.",
+      "meaningVi": "Chữ này tôi biết đọc.",
+      "vocabularyIds": [
+        "hsk1-v-0296"
+      ],
+      "primaryVocabularyId": "hsk1-v-0296",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:296"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0297",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "昨天我没有上班。",
+      "pinyin": "zuó tiān wǒ méi yǒu shàng bān",
+      "pinyinNormalized": "zuotianwomeiyoushangban",
+      "pinyinTone": "zuó tiān wǒ méi yǒu shàng bān",
+      "pinyinNumber": "zuo2 tian1 wo3 mei2 you3 shang4 ban1",
+      "vietnamese": "Hôm qua tôi không đi làm.",
+      "meaningVi": "Hôm qua tôi không đi làm.",
+      "vocabularyIds": [
+        "hsk1-v-0297"
+      ],
+      "primaryVocabularyId": "hsk1-v-0297",
+      "grammarTags": [
+        "hsk1-basic",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:297"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0298",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我坐出租车。",
+      "pinyin": "wǒ zuò chū zū chē",
+      "pinyinNormalized": "wozuochuzuche",
+      "pinyinTone": "wǒ zuò chū zū chē",
+      "pinyinNumber": "wo3 zuo4 chu1 zu1 che1",
+      "vietnamese": "Tôi đi taxi.",
+      "meaningVi": "Tôi đi taxi.",
+      "vocabularyIds": [
+        "hsk1-v-0298"
+      ],
+      "primaryVocabularyId": "hsk1-v-0298",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:298"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0299",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我做这件事。",
+      "pinyin": "wǒ zuò zhè jiàn shì",
+      "pinyinNormalized": "wozuozhejianshi",
+      "pinyinTone": "wǒ zuò zhè jiàn shì",
+      "pinyinNumber": "wo3 zuo4 zhe4 jian4 shi4",
+      "vietnamese": "Tôi làm việc này.",
+      "meaningVi": "Tôi làm việc này.",
+      "vocabularyIds": [
+        "hsk1-v-0299"
+      ],
+      "primaryVocabularyId": "hsk1-v-0299",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:299"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    },
+    {
+      "recordType": "sentence",
+      "id": "hsk1-s-0300",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "hskLevel": 1,
+      "chinese": "我做饭。",
+      "pinyin": "wǒ zuò fàn",
+      "pinyinNormalized": "wozuofan",
+      "pinyinTone": "wǒ zuò fàn",
+      "pinyinNumber": "wo3 zuo4 fan4",
+      "vietnamese": "Tôi nấu cơm.",
+      "meaningVi": "Tôi nấu cơm.",
+      "vocabularyIds": [
+        "hsk1-v-0300"
+      ],
+      "primaryVocabularyId": "hsk1-v-0300",
+      "grammarTags": [
+        "subject-verb-object",
+        "hsk1-original"
+      ],
+      "difficulty": 1,
+      "sourceRefs": [
+        {
+          "sourceId": "vduckie-hsk1-phase2a-original",
+          "fields": [
+            "chinese",
+            "vietnamese",
+            "grammarTags"
+          ],
+          "locator": "sentence-pass:1:vocabulary:300"
+        },
+        {
+          "sourceId": "moe-gbt-16159-2012",
+          "fields": [
+            "pinyin"
+          ],
+          "locator": "basic-orthography"
+        }
+      ],
+      "sourceIds": [
+        "vduckie-hsk1-phase2a-original",
+        "moe-gbt-16159-2012"
+      ],
+      "reviewStatus": "linguistic-reviewed",
+      "translationReviewStatus": "machine-assisted",
+      "validationStatus": "validated",
+      "contentStatus": "machine-assisted",
+      "authorship": {
+        "origin": "original-vduckie",
+        "method": "controlled-template-with-linguistic-review",
+        "copiedFromSource": false
+      },
+      "contentVersion": 1
+    }
+  ]
+}

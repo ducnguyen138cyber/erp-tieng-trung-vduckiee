@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "1.0.0",
+  "expectedVocabulary": 300,
+  "expectedSentences": 900,
+  "sentencesPerVocabulary": 3,
+  "requiredDifficultyValues": [1, 2, 3],
+  "requiredSourceReferenceCoverage": 1,
+  "requiredBidirectionalReferenceCoverage": 1,
+  "requiredUnicodeNfcCoverage": 1,
+  "requiredPinyinFormatCoverage": 1,
+  "releaseReadinessDimensions": [
+    "inventory-count",
+    "schema",
+    "stable-id",
+    "unicode",
+    "pinyin",
+    "source-provenance",
+    "reference-integrity",
+    "duplicate-blockers",
+    "sentence-coverage",
+    "human-vietnamese-review",
+    "human-pedagogy-review"
+  ],
+  "productionLock": {
+    "productionEnabled": false,
+    "publicOverrideAllowed": false,
+    "writesProgress": false,
+    "qualityGate": "locked"
+  }
+}

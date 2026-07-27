@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "1.0.0",
+  "frozenAt": "2026-07-27",
+  "sources": [
+    {
+      "sourceId": "cti-hsk3-syllabus-pdf-2026",
+      "role": "canonical-membership",
+      "locator": "HSK vocabulary syllabus, Level 1 rows 1-300",
+      "expectedItems": 300,
+      "verification": {
+        "officialLandingPage": "https://www.chinesetest.cn/hsk",
+        "officialSyllabusPage": "https://www.chinesetest.cn/syllabus",
+        "officialPdf": "https://hsk.cn-bj.ufileos.com/3.0/%E6%96%B0%E7%89%88HSK%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B21219.pdf",
+        "secondaryDisplayChecks": [
+          "https://mandarinbean.com/new-hsk-1-word-list/",
+          "https://studycli.org/chinese-tools/hsk-1-vocabulary/"
+        ]
+      },
+      "copiedContent": "factual inventory fields only"
+    },
+    {
+      "sourceId": "moe-gbt-16159-2012",
+      "role": "pinyin-orthography",
+      "locator": "basic rules of Hanyu Pinyin orthography",
+      "copiedContent": "none"
+    },
+    {
+      "sourceId": "unicode-uax15-current",
+      "role": "unicode-normalization",
+      "locator": "Normalization Form C",
+      "copiedContent": "none"
+    },
+    {
+      "sourceId": "unicode-unihan-17",
+      "role": "traditional-and-variant-cross-check",
+      "locator": "Unihan character properties",
+      "copiedContent": "none"
+    },
+    {
+      "sourceId": "vduckie-hsk1-phase2a-original",
+      "role": "original-editorial-content",
+      "locator": "Phase 2A editorial batch 2026-07",
+      "copiedContent": "not applicable"
+    }
+  ],
+  "conflictPolicy": [
+    "The current CTI syllabus decides HSK level membership and official ordering.",
+    "GB/T 16159-2012 decides pinyin orthography; CTI lexical readings remain authoritative for listed vocabulary.",
+    "Unicode NFC is mandatory for persisted strings.",
+    "Supplemental web displays may identify extraction mistakes but cannot override CTI."
+  ],
+  "copyrightPolicy": {
+    "bulkTextbookOrTestCopyingAllowed": false,
+    "officialInventoryRepublishedAsFacts": true,
+    "exampleSentencesOriginal": true,
+    "machineAssistedVietnameseRequiresHumanReviewBeforeProduction": true
+  }
+}

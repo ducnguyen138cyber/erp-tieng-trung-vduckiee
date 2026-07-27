@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "1.0.0",
+  "level": 1,
+  "expectedCount": 900,
+  "actualCount": 900,
+  "shards": [
+    {
+      "file": "hsk1-s-0001-0100.json",
+      "firstId": "hsk1-s-0001",
+      "lastId": "hsk1-s-0100",
+      "count": 100,
+      "sha256": "8e5366e69634628922039bf9b27774447fd2c26e49955034a37af6d38501585c"
+    },
+    {
+      "file": "hsk1-s-0101-0200.json",
+      "firstId": "hsk1-s-0101",
+      "lastId": "hsk1-s-0200",
+      "count": 100,
+      "sha256": "403dafcd6dc2246b1131e055ff8b612b037808b75aa552d312e689c794caa349"
+    },
+    {
+      "file": "hsk1-s-0201-0300.json",
+      "firstId": "hsk1-s-0201",
+      "lastId": "hsk1-s-0300",
+      "count": 100,
+      "sha256": "168d5e8933c9f15457bb185515bd0e5ad67676bef93ca51cc92bf9a13a038c7d"
+    },
+    {
+      "file": "hsk1-s-0301-0400.json",
+      "firstId": "hsk1-s-0301",
+      "lastId": "hsk1-s-0400",
+      "count": 100,
+      "sha256": "d22f97a0a4b86f5295b754e6540feafb57aa5eaa301984fd20c24f1df920d36f"
+    },
+    {
+      "file": "hsk1-s-0401-0500.json",
+      "firstId": "hsk1-s-0401",
+      "lastId": "hsk1-s-0500",
+      "count": 100,
+      "sha256": "ed376a4457e01a4d496f0264e2b5f021326a13226c8398a9c593a283ca0f907c"
+    },
+    {
+      "file": "hsk1-s-0501-0600.json",
+      "firstId": "hsk1-s-0501",
+      "lastId": "hsk1-s-0600",
+      "count": 100,
+      "sha256": "180887a402f475ae545e395de4cb4024f9975789169b9f9b5ce335e69b554407"
+    },
+    {
+      "file": "hsk1-s-0601-0700.json",
+      "firstId": "hsk1-s-0601",
+      "lastId": "hsk1-s-0700",
+      "count": 100,
+      "sha256": "aaeb31890459505e7135bd22e70d4e33878e7b76819fd22cba278edcc477a020"
+    },
+    {
+      "file": "hsk1-s-0701-0800.json",
+      "firstId": "hsk1-s-0701",
+      "lastId": "hsk1-s-0800",
+      "count": 100,
+      "sha256": "42c56bc6d8a7ccc0f6c9c2e27b340dcda760f693d72c4fcba08033abd5eeddda"
+    },
+    {
+      "file": "hsk1-s-0801-0900.json",
+      "firstId": "hsk1-s-0801",
+      "lastId": "hsk1-s-0900",
+      "count": 100,
+      "sha256": "483b2c88b6314346a63e5f405b5140954a5da309d6e78712cd03d399b6dff213"
+    }
+  ]
+}

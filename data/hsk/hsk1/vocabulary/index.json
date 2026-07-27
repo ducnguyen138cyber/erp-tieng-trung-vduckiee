@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "1.0.0",
+  "level": 1,
+  "expectedCount": 300,
+  "actualCount": 300,
+  "shards": [
+    {
+      "file": "hsk1-v-0001-0050.json",
+      "firstId": "hsk1-v-0001",
+      "lastId": "hsk1-v-0050",
+      "count": 50,
+      "sha256": "e357f9898c458117003330411b222985da2dfc8cdaa2017e95bfd63c9269387e"
+    },
+    {
+      "file": "hsk1-v-0051-0100.json",
+      "firstId": "hsk1-v-0051",
+      "lastId": "hsk1-v-0100",
+      "count": 50,
+      "sha256": "a0cf71978ef0db6421ed3d13cd64ed11eedf8a9a7dd0d5ec57c63067ad24a14f"
+    },
+    {
+      "file": "hsk1-v-0101-0150.json",
+      "firstId": "hsk1-v-0101",
+      "lastId": "hsk1-v-0150",
+      "count": 50,
+      "sha256": "d73013f6da74c5d0b0170e802b777b9f6146f1a496ca4fe9def91eac342d7396"
+    },
+    {
+      "file": "hsk1-v-0151-0200.json",
+      "firstId": "hsk1-v-0151",
+      "lastId": "hsk1-v-0200",
+      "count": 50,
+      "sha256": "cdac34dea88cb1a7f14ec959505c3e00d31a99a7355f917a19c0cf1b5d34b46e"
+    },
+    {
+      "file": "hsk1-v-0201-0250.json",
+      "firstId": "hsk1-v-0201",
+      "lastId": "hsk1-v-0250",
+      "count": 50,
+      "sha256": "647d5e28c8984bccad425f011c6b26ca356995cc68c25b255eb6f516016210c9"
+    },
+    {
+      "file": "hsk1-v-0251-0300.json",
+      "firstId": "hsk1-v-0251",
+      "lastId": "hsk1-v-0300",
+      "count": 50,
+      "sha256": "6e60445b2d24bc9626e775aa9acb99f0c36568e4e2cbaeb0750446e67ceb81bf"
+    }
+  ]
+}

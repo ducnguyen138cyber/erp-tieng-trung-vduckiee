@@ -5,6 +5,30 @@ const path = require('node:path');
 const loader = require('./hsk-repository-loader');
 const { CONTENT_STATUSES, TRANSLATION_REVIEW_STATUSES, relativePath, makeIssue, normalizeAnswer, loadRepository, basicManifestIssues, sourceRegistryIssues, schemaValidationIssues } = loader;
 
+function visitStrings(value, callback, pointer = '$') {
+  if (typeof value === 'string') {
+    callback(value, pointer);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => visitStrings(item, callback, `${pointer}[${index}]`));
+    return;
+  }
+  if (value && typeof value === 'object') {
+    Object.entries(value).forEach(([key, item]) => visitStrings(item, callback, `${pointer}.${key}`));
+  }
+}
+
+function normalizePinyin(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/u[\u0304\u0301\u030C\u0300]?\u0308/gu, 'v')
+    .replace(/\p{M}/gu, '')
+    .replace(/ü/gu, 'v')
+    .replace(/[^a-zv]/giu, '')
+    .toLowerCase();
+}
+
 function recordRuleIssues(repository) {
   const issues = [];
   const validPinyinTone = /^[\p{L}\p{M}\s'-]+$/u;
@@ -20,6 +44,16 @@ function recordRuleIssues(repository) {
     if (record.translationReviewStatus && !TRANSLATION_REVIEW_STATUSES.has(record.translationReviewStatus)) issues.push(makeIssue(rel, record.id, 'translation-status', `Invalid translationReviewStatus ${record.translationReviewStatus}`));
     if (!Number.isInteger(record.contentVersion) || record.contentVersion < 1) issues.push(makeIssue(rel, record.id, 'content-version', 'contentVersion must be an integer >= 1'));
     if (Array.isArray(record.sourceIds)) record.sourceIds.forEach((sourceId) => { if (!repository.sourcesById.has(sourceId)) issues.push(makeIssue(rel, record.id, 'source-reference', `Missing source ${sourceId}`)); });
+    if (Array.isArray(record.sourceRefs)) {
+      record.sourceRefs.forEach((sourceRef) => {
+        if (!sourceRef || !repository.sourcesById.has(sourceRef.sourceId)) issues.push(makeIssue(rel, record.id, 'source-reference', `Missing source ${sourceRef && sourceRef.sourceId}`));
+        if (sourceRef && Array.isArray(record.sourceIds) && !record.sourceIds.includes(sourceRef.sourceId)) issues.push(makeIssue(rel, record.id, 'source-reference-consistency', `sourceRefs uses ${sourceRef.sourceId} but sourceIds does not`));
+      });
+    }
+    visitStrings(record, (value, pointer) => {
+      if (value !== value.normalize('NFC')) issues.push(makeIssue(rel, record.id, 'unicode-nfc', `${pointer} is not NFC normalized`));
+      if (/[\u200B-\u200D\u2060\uFEFF]/u.test(value)) issues.push(makeIssue(rel, record.id, 'unicode-hidden-character', `${pointer} contains a forbidden zero-width character`));
+    });
     if (record.contentStatus === 'production-ready') {
       if (record.translationReviewStatus && record.translationReviewStatus !== 'human-reviewed') issues.push(makeIssue(rel, record.id, 'production-translation-gate', 'Production-ready records require human-reviewed Vietnamese'));
       for (const sourceId of record.sourceIds || []) {
@@ -32,6 +66,37 @@ function recordRuleIssues(repository) {
       if (!validPinyinTone.test(record.pinyinTone || '')) issues.push(makeIssue(rel, record.id, 'pinyin-tone', `Invalid pinyinTone ${record.pinyinTone}`));
       if (!validPinyinNumber.test(record.pinyinNumber || '')) issues.push(makeIssue(rel, record.id, 'pinyin-number', `Invalid pinyinNumber ${record.pinyinNumber}`));
       if (!String(record.meaningVi || '').trim()) issues.push(makeIssue(rel, record.id, 'vietnamese-required', 'meaningVi is empty'));
+      if (/^hsk1-v-\d{4}$/.test(record.id)) {
+        if (record.level !== 1 || record.hskLevel !== 1) issues.push(makeIssue(rel, record.id, 'hsk1-level', 'Canonical HSK 1 vocabulary must use level=1 and hskLevel=1'));
+        for (const field of ['pinyin', 'pinyinNormalized', 'sourceRefs', 'tags', 'sentenceIds']) {
+          if (!Object.prototype.hasOwnProperty.call(record, field)) issues.push(makeIssue(rel, record.id, 'hsk1-required', `Missing ${field}`));
+        }
+        if (record.pinyin !== record.pinyinTone) issues.push(makeIssue(rel, record.id, 'pinyin-consistency', 'pinyin must equal pinyinTone'));
+        if (record.pinyinNormalized !== normalizePinyin(record.pinyinTone)) issues.push(makeIssue(rel, record.id, 'pinyin-normalized', 'pinyinNormalized does not match pinyinTone'));
+        if (!Array.isArray(record.sentenceIds) || record.sentenceIds.length !== 3) issues.push(makeIssue(rel, record.id, 'sentence-coverage', 'Canonical HSK 1 vocabulary must reference exactly 3 sentences'));
+        for (const sentenceId of record.sentenceIds || []) {
+          const sentence = repository.recordsById.get(sentenceId);
+          if (!sentence || sentence.record.recordType !== 'sentence') issues.push(makeIssue(rel, record.id, 'sentence-reference', `Missing sentence ${sentenceId}`));
+          else if (!Array.isArray(sentence.record.vocabularyIds) || !sentence.record.vocabularyIds.includes(record.id)) issues.push(makeIssue(rel, record.id, 'sentence-backlink', `${sentenceId} does not link back to ${record.id}`));
+        }
+      }
+    }
+
+    if (record.recordType === 'sentence') {
+      if (!validPinyinTone.test(record.pinyinTone || '')) issues.push(makeIssue(rel, record.id, 'pinyin-tone', `Invalid pinyinTone ${record.pinyinTone}`));
+      if (!validPinyinNumber.test(record.pinyinNumber || '')) issues.push(makeIssue(rel, record.id, 'pinyin-number', `Invalid pinyinNumber ${record.pinyinNumber}`));
+      if (record.pinyin !== record.pinyinTone) issues.push(makeIssue(rel, record.id, 'pinyin-consistency', 'pinyin must equal pinyinTone'));
+      if (record.pinyinNormalized !== normalizePinyin(record.pinyinTone)) issues.push(makeIssue(rel, record.id, 'pinyin-normalized', 'pinyinNormalized does not match pinyinTone'));
+      if (!Array.isArray(record.vocabularyIds) || !record.vocabularyIds.includes(record.primaryVocabularyId)) issues.push(makeIssue(rel, record.id, 'primary-vocabulary', 'primaryVocabularyId must be present in vocabularyIds'));
+      for (const vocabularyId of record.vocabularyIds || []) {
+        const vocabulary = repository.recordsById.get(vocabularyId);
+        if (!vocabulary || vocabulary.record.recordType !== 'vocabulary') issues.push(makeIssue(rel, record.id, 'vocabulary-reference', `Missing vocabulary ${vocabularyId}`));
+        else {
+          if (!Array.isArray(vocabulary.record.sentenceIds) || !vocabulary.record.sentenceIds.includes(record.id)) issues.push(makeIssue(rel, record.id, 'vocabulary-backlink', `${vocabularyId} does not link back to ${record.id}`));
+          if (vocabularyId === record.primaryVocabularyId && !String(record.chinese || '').includes(vocabulary.record.simplified)) issues.push(makeIssue(rel, record.id, 'target-surface-form', `Sentence does not contain ${vocabulary.record.simplified}`));
+        }
+      }
+      if (!String(record.vietnamese || '').trim()) issues.push(makeIssue(rel, record.id, 'vietnamese-required', 'vietnamese is empty'));
     }
 
     if (record.recordType === 'exercise') {
@@ -202,4 +267,4 @@ function validateRepository(rootDirectory, options = {}) {
   };
 }
 
-module.exports = { ...loader, recordRuleIssues, detectCycles, orderingIssues, validateRepository };
+module.exports = { ...loader, visitStrings, normalizePinyin, recordRuleIssues, detectCycles, orderingIssues, validateRepository };

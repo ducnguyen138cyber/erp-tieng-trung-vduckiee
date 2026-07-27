@@ -6,7 +6,7 @@ const path = require('node:path');
 const CONTENT_STATUSES = new Set(['planned', 'draft', 'machine-assisted', 'human-reviewed', 'production-ready', 'fixture']);
 const TRANSLATION_REVIEW_STATUSES = new Set(['draft', 'machine-assisted', 'human-reviewed']);
 const SOURCE_LICENSE_STATUSES = new Set(['verified', 'reuse-limited', 'review-required']);
-const RECORD_TYPES = new Set(['level', 'unit', 'lesson', 'vocabulary', 'grammar', 'character', 'exercise', 'assessment']);
+const RECORD_TYPES = new Set(['level', 'unit', 'lesson', 'vocabulary', 'sentence', 'grammar', 'character', 'exercise', 'assessment']);
 const SKILLS = ['vocabulary', 'grammar', 'listening', 'speaking', 'reading', 'writing', 'translation', 'integrated'];
 
 function toPosix(value) {

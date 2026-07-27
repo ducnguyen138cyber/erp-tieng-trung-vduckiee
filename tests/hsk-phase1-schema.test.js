@@ -25,7 +25,7 @@ function mutateJson(workspace, relative, mutate) {
 test('valid Phase 1 fixture passes schemas and integrity rules', () => {
   const result = validateRepository(root);
   assert.equal(result.ok, true, JSON.stringify(result.errors, null, 2));
-  assert.equal(result.summary.schemas, 8);
+  assert.equal(result.summary.schemas, 9);
   assert.equal(result.summary.errors, 0);
 });
 

@@ -1,24 +1,28 @@
 {
   "duplicateBlockers": 0,
   "manualReviewRequired": [
-    "derived-dataset-license",
     "vietnamese-human-review",
-    "official-level-item-extraction",
+    "sentence-pedagogy-human-review",
     "legacy-progress-semantic-mapping"
   ],
-  "phase": 1,
+  "phase": "2A",
   "phase2Allowed": true,
+  "phase2aDataGate": "pass-structural",
   "plannedLevels": 9,
   "productionCurriculumAllowed": false,
   "productionEnabled": false,
   "productionReadyLevels": 0,
+  "progressWritesEnabled": false,
+  "publicOverrideAllowed": false,
   "qualityGate": "locked",
+  "releaseReadinessCoverage": 81.82,
   "schemaVersion": "1.0.0",
+  "structuralCoverage": 100,
   "validation": {
     "errors": 0,
-    "records": 39,
-    "schemas": 8,
-    "sources": 9,
+    "records": 1239,
+    "schemas": 9,
+    "sources": 13,
     "warnings": 0
   }
 }

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "1.0.0",
+  "curriculumId": "vduckie-hsk1-phase2a-canonical",
+  "syllabusVersion": "CTI-HSK3.0-2026",
+  "level": 1,
+  "status": "phase2a-structurally-validated",
+  "expectedVocabulary": 300,
+  "expectedSentences": 900,
+  "vocabularyIndex": "vocabulary/index.json",
+  "sentenceIndex": "sentences/index.json",
+  "sourceSnapshot": "provenance/source-snapshot.json",
+  "productionEnabled": false,
+  "publicOverrideAllowed": false,
+  "writesProgress": false,
+  "developerOnly": true,
+  "readOnly": true,
+  "qualityGate": "locked"
+}

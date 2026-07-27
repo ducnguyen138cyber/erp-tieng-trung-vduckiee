@@ -1,0 +1,187 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]*$",
+      "minLength": 3
+    },
+    "sourceIds": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "sourceRef": {
+      "type": "object",
+      "required": ["sourceId", "fields", "locator"],
+      "properties": {
+        "sourceId": {
+          "type": "string",
+          "minLength": 3
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 3
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "title": "HSK sentence",
+  "type": "object",
+  "required": [
+    "recordType",
+    "id",
+    "syllabusVersion",
+    "level",
+    "hskLevel",
+    "chinese",
+    "pinyin",
+    "pinyinNormalized",
+    "pinyinTone",
+    "pinyinNumber",
+    "vietnamese",
+    "meaningVi",
+    "vocabularyIds",
+    "primaryVocabularyId",
+    "grammarTags",
+    "difficulty",
+    "sourceRefs",
+    "sourceIds",
+    "reviewStatus",
+    "translationReviewStatus",
+    "validationStatus",
+    "contentStatus",
+    "authorship",
+    "contentVersion"
+  ],
+  "properties": {
+    "recordType": {
+      "const": "sentence"
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "syllabusVersion": {
+      "type": "string",
+      "minLength": 3
+    },
+    "level": {
+      "const": 1
+    },
+    "hskLevel": {
+      "const": 1
+    },
+    "chinese": {
+      "type": "string",
+      "minLength": 2
+    },
+    "pinyin": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pinyinNormalized": {
+      "type": "string",
+      "pattern": "^[a-zv]+$",
+      "minLength": 1
+    },
+    "pinyinTone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pinyinNumber": {
+      "type": "string",
+      "minLength": 2
+    },
+    "vietnamese": {
+      "type": "string",
+      "minLength": 2
+    },
+    "meaningVi": {
+      "type": "string",
+      "minLength": 2
+    },
+    "vocabularyIds": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/id"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "primaryVocabularyId": {
+      "$ref": "#/$defs/id"
+    },
+    "grammarTags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "difficulty": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "sourceRefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourceRef"
+      },
+      "minItems": 1
+    },
+    "sourceIds": {
+      "$ref": "#/$defs/sourceIds"
+    },
+    "reviewStatus": {
+      "enum": ["unreviewed", "linguistic-reviewed", "pedagogy-reviewed", "approved"]
+    },
+    "translationReviewStatus": {
+      "enum": ["draft", "machine-assisted", "human-reviewed"]
+    },
+    "validationStatus": {
+      "enum": ["draft", "validated", "blocked"]
+    },
+    "contentStatus": {
+      "enum": ["draft", "machine-assisted", "human-reviewed", "production-ready"]
+    },
+    "authorship": {
+      "type": "object",
+      "required": ["origin", "method", "copiedFromSource"],
+      "properties": {
+        "origin": {
+          "const": "original-vduckie"
+        },
+        "method": {
+          "type": "string",
+          "minLength": 3
+        },
+        "copiedFromSource": {
+          "const": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "contentVersion": {
+      "type": "integer",
+      "minimum": 1
+    }
+  },
+  "additionalProperties": false
+}

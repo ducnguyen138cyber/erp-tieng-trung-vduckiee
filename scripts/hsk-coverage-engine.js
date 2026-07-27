@@ -2,6 +2,7 @@
 
 const path = require('node:path');
 const duplicate = require('./hsk-duplicate-engine');
+const { checkHsk1 } = require('./hsk1-quality-engine');
 const { RECORD_TYPES, SKILLS, stableSort, writeJsonDeterministic, validateRepository, checkDuplicates } = duplicate;
 
 function summarizeRecords(records) {
@@ -60,11 +61,12 @@ function generateSourceReport(repository) {
 function generateReports(rootDirectory) {
   const root = path.resolve(rootDirectory || process.cwd());
   const validation = validateRepository(root), duplication = checkDuplicates(root), coverage = checkCoverage(root);
+  const phase2a = checkHsk1(root, { duplication });
   const source = generateSourceReport(validation.repository);
-  const quality = { schemaVersion: '1.0.0', qualityGate: 'locked', productionEnabled: false, phase: 1, validation: validation.summary, duplicateBlockers: duplication.summary.blockers, plannedLevels: coverage.totals.plannedLevels, productionReadyLevels: 0, manualReviewRequired: ['derived-dataset-license', 'vietnamese-human-review', 'official-level-item-extraction', 'legacy-progress-semantic-mapping'], phase2Allowed: validation.ok && duplication.summary.blockers === 0, productionCurriculumAllowed: false };
-  const reports = { 'hsk-quality-report.json': quality, 'hsk-coverage-report.json': coverage, 'hsk-duplication-report.json': duplication, 'hsk-source-report.json': source };
+  const quality = { schemaVersion: '1.0.0', qualityGate: 'locked', productionEnabled: false, publicOverrideAllowed: false, progressWritesEnabled: false, phase: '2A', phase2aDataGate: phase2a.phase2aComplete ? 'pass-structural' : 'blocked', structuralCoverage: phase2a.coverage.structuralPercent, releaseReadinessCoverage: phase2a.coverage.releaseReadinessPercent, validation: validation.summary, duplicateBlockers: duplication.summary.blockers, plannedLevels: coverage.totals.plannedLevels, productionReadyLevels: 0, manualReviewRequired: ['vietnamese-human-review', 'sentence-pedagogy-human-review', 'legacy-progress-semantic-mapping'], phase2Allowed: phase2a.phase2aComplete, productionCurriculumAllowed: false };
+  const reports = { 'hsk-quality-report.json': quality, 'hsk-coverage-report.json': coverage, 'hsk-duplication-report.json': duplication, 'hsk-source-report.json': source, 'hsk1-phase2a-report.json': phase2a };
   for (const [name, report] of Object.entries(reports)) writeJsonDeterministic(path.join(root, 'reports', name), report);
-  return { validation, duplication, coverage, source, quality, reports };
+  return { validation, duplication, coverage, source, quality, phase2a, reports };
 }
 
 module.exports = { ...duplicate, summarizeRecords, checkCoverage, generateSourceReport, generateReports };

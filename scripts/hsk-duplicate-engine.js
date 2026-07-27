@@ -37,7 +37,11 @@ function collectDuplicateCandidates(repository) {
     const { record, file } = entry;
     const base = { record, file: relativePath(repository.root, file), level: record.level || record.hskLevel || null };
     if (record.recordType === 'exercise' && record.prompt) candidates.push({ ...base, kind: 'exercise-prompt', text: record.prompt, id: record.id });
-    if (record.recordType === 'vocabulary') (record.examples || []).forEach((example, index) => candidates.push({ ...base, kind: 'example', text: example.zh, id: `${record.id}#example${index + 1}` }));
+    if (record.recordType === 'sentence' && record.chinese) candidates.push({ ...base, kind: 'sentence', text: record.chinese, id: record.id });
+    if (record.recordType === 'vocabulary') {
+      const kind = /^hsk1-v-\d{4}$/.test(record.id) ? 'canonical-vocabulary-example' : 'example';
+      (record.examples || []).forEach((example, index) => candidates.push({ ...base, kind, text: example.zh, id: `${record.id}#example${index + 1}` }));
+    }
     if (record.recordType === 'grammar') {
       (record.correctExamples || []).forEach((example, index) => candidates.push({ ...base, kind: 'example', text: example.zh, id: `${record.id}#correct${index + 1}` }));
       (record.incorrectExamples || []).forEach((example, index) => candidates.push({ ...base, kind: 'example', text: example.zh, id: `${record.id}#incorrect${index + 1}` }));
@@ -81,9 +85,19 @@ function checkDuplicates(rootDirectory, options = {}) {
         if (exact) { rule = 'exact-duplicate'; severity = intentional ? 'info' : 'critical'; }
         else if (normalizedEqual) { rule = 'normalized-duplicate'; severity = intentional ? 'info' : 'serious'; }
         else if (skeletonEqual && normalizeText(left.text) !== normalizeText(right.text)) { rule = 'name-or-number-mutation'; severity = intentional ? 'info' : 'review'; }
-        else if (similarity >= (options.nearThreshold || 0.82)) { rule = 'near-duplicate'; severity = intentional ? 'info' : 'review'; }
+        else if (similarity >= (kind === 'sentence' ? (options.sentenceNearThreshold || 0.92) : (options.nearThreshold || 0.82))) { rule = 'near-duplicate'; severity = intentional ? 'info' : 'review'; }
         if (rule) findings.push({ rule, severity, kind, leftId: left.id, rightId: right.id, leftFile: left.file, rightFile: right.file, similarity: Number(similarity.toFixed(4)), intentionalReview: intentional, reviewReason: intentional ? ((left.record.reviewMetadata || right.record.reviewMetadata).reviewReason) : null });
       }
+    }
+  }
+  const vocabularyByKey = new Map();
+  for (const { record, file } of repository.records.filter((entry) => entry.record.recordType === 'vocabulary' && /^hsk1-v-\d{4}$/.test(entry.record.id))) {
+    const key = `${normalizeText(record.simplified)}|${record.pinyinNormalized}|${normalizeText(String(record.meaningVi || '').split(';')[0])}`;
+    if (vocabularyByKey.has(key)) {
+      const prior = vocabularyByKey.get(key);
+      findings.push({ rule: 'vocabulary-blocking-duplicate', severity: 'critical', kind: 'vocabulary', leftId: prior.record.id, rightId: record.id, leftFile: relativePath(repository.root, prior.file), rightFile: relativePath(repository.root, file), similarity: 1, intentionalReview: false, reviewReason: null });
+    } else {
+      vocabularyByKey.set(key, { record, file });
     }
   }
   for (const { record, file } of repository.records.filter((entry) => entry.record.recordType === 'exercise')) {

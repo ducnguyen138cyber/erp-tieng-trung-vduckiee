@@ -135,6 +135,66 @@
       "licenseStatus": "review-required",
       "licenseNote": "CC BY-SA 4.0; project notes indicate many translations were machine-assisted and may contain errors.",
       "derivedDataNote": "Vietnamese text must be human-reviewed before production-ready status."
+    },
+    {
+      "sourceId": "cti-hsk3-syllabus-pdf-2026",
+      "title": "新版HSK考试大纲 2026",
+      "publisher": "Chinese Testing International / Chinese Test Service",
+      "sourceType": "official-exam-syllabus",
+      "url": "https://hsk.cn-bj.ufileos.com/3.0/%E6%96%B0%E7%89%88HSK%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B21219.pdf",
+      "accessDate": "2026-07-27",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "levels": [1,2,3,4,5,6,"7-9"],
+      "scope": ["official-level-membership","vocabulary-order","simplified","pinyin","part-of-speech"],
+      "confidence": "authoritative-current",
+      "licenseStatus": "reuse-limited",
+      "licenseNote": "Only the factual Level 1 inventory, short field values and row locators are represented; no sample tests, answer keys or bulk prose are copied.",
+      "derivedDataNote": "Determines the 300-item HSK 1 inventory. VDuckie meanings and sentences remain independently authored."
+    },
+    {
+      "sourceId": "moe-gbt-16159-2012",
+      "title": "汉语拼音正词法基本规则 GB/T 16159-2012",
+      "publisher": "Ministry of Education of the People's Republic of China",
+      "sourceType": "official-language-standard",
+      "url": "https://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113091717604.pdf",
+      "accessDate": "2026-07-27",
+      "syllabusVersion": "GB-T-16159-2012",
+      "levels": ["cross-level"],
+      "scope": ["pinyin-orthography","word-segmentation","capitalization"],
+      "confidence": "authoritative",
+      "licenseStatus": "reuse-limited",
+      "licenseNote": "Referenced as an orthographic standard; the standard text is not redistributed.",
+      "derivedDataNote": "Used to normalize VDuckie pinyin fields and checker rules."
+    },
+    {
+      "sourceId": "unicode-uax15-current",
+      "title": "Unicode Standard Annex #15: Unicode Normalization Forms",
+      "publisher": "Unicode Consortium",
+      "sourceType": "authoritative-technical-standard",
+      "url": "https://www.unicode.org/reports/tr15/",
+      "accessDate": "2026-07-27",
+      "syllabusVersion": "Unicode-current",
+      "levels": ["cross-level"],
+      "scope": ["unicode-normalization","nfc"],
+      "confidence": "authoritative-technical",
+      "licenseStatus": "verified",
+      "licenseNote": "Used under Unicode Terms of Use.",
+      "derivedDataNote": "Defines the NFC gate for every canonical string."
+    },
+    {
+      "sourceId": "vduckie-hsk1-phase2a-original",
+      "title": "VDuckie HSK 1 Phase 2A original editorial corpus",
+      "publisher": "VDuckie project",
+      "sourceType": "original-project-content",
+      "url": "https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee",
+      "accessDate": "2026-07-27",
+      "syllabusVersion": "VDUCKIE-HSK1-PHASE2A-1.0.0",
+      "levels": [1],
+      "scope": ["vietnamese-glosses","original-example-sentences","vietnamese-translations","grammar-tags"],
+      "confidence": "project-authored-machine-assisted",
+      "licenseStatus": "verified",
+      "licenseNote": "Original project-authored material; no sentence corpus or textbook examples were copied.",
+      "derivedDataNote": "Machine-assisted editorial content remains blocked from production until human review."
     }
   ]
 }

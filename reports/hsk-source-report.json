@@ -1,16 +1,16 @@
 {
   "automaticProductionGate": "no-fixture-record-uses-review-required-source",
   "byLicenseStatus": {
-    "reuse-limited": 5,
+    "reuse-limited": 7,
     "review-required": 2,
-    "verified": 2
+    "verified": 4
   },
   "reviewRequiredSources": [
     "legacy-cvdict",
     "legacy-ivankra-hsk30"
   ],
   "schemaVersion": "1.0.0",
-  "sourceCount": 9,
+  "sourceCount": 13,
   "usage": [
     {
       "licenseStatus": "verified",
@@ -21,6 +21,11 @@
       "licenseStatus": "reuse-limited",
       "recordCount": 37,
       "sourceId": "cti-hsk3-current-syllabus-2026"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 300,
+      "sourceId": "cti-hsk3-syllabus-pdf-2026"
     },
     {
       "licenseStatus": "reuse-limited",
@@ -44,6 +49,11 @@
     },
     {
       "licenseStatus": "reuse-limited",
+      "recordCount": 900,
+      "sourceId": "moe-gbt-16159-2012"
+    },
+    {
+      "licenseStatus": "reuse-limited",
       "recordCount": 0,
       "sourceId": "moe-gf0025-2021-qa"
     },
@@ -54,8 +64,18 @@
     },
     {
       "licenseStatus": "verified",
+      "recordCount": 0,
+      "sourceId": "unicode-uax15-current"
+    },
+    {
+      "licenseStatus": "verified",
       "recordCount": 5,
       "sourceId": "unicode-unihan-17"
+    },
+    {
+      "licenseStatus": "verified",
+      "recordCount": 1200,
+      "sourceId": "vduckie-hsk1-phase2a-original"
     }
   ],
   "usedReviewRequiredSources": []
