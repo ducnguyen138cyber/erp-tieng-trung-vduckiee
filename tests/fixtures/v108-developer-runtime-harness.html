@@ -28,7 +28,6 @@ html,body{margin:0;min-height:100%;background:#f4f0e7;color:#18352e;font-family:
   function simpleAction(id,tab,label,stateName){actions.register({id:id,tab:tab,label:label,keywords:[label],run:function(ctx){if(stateName&&ctx.bridge)ctx.bridge.test(stateName);}})}
   [["learning.correct","learning","Correct","correct-answer"],["learning.wrong","learning","Wrong","wrong-answer"],["learning.hint","learning","Hint","hover"],["learning.timeout","learning","Timeout","wrong-answer"],["speaking.mic-test","speaking","Microphone","hover"],["speaking.recognition-test","speaking","Speech Recognition","hover"],["progress.xp5","progress","+5 XP",null],["progress.streak-up","progress","+1 Streak","streak-increased"],["progress.complete-lesson","progress","Complete Lesson","lesson-complete"]].forEach(function(x){simpleAction(x[0],x[1],x[2],x[3])});
   var ns=window.VDuckieDeveloper;
-  ns.tabs.learning={id:"learning",icon:"📚",label:"Learning",render:function(){return'<p class="vdev-note">HSK · ERP · Quiz · Dictation · Flashcard · Listening</p><div class="vdev-action-grid"><button data-vdev-action="learning.correct">Correct</button><button data-vdev-action="learning.wrong">Wrong</button><button data-vdev-action="learning.hint">Hint</button><button data-vdev-action="learning.timeout">Timeout</button></div>'}};
   ns.tabs.speaking={id:"speaking",icon:"🎤",label:"Speaking",render:function(s){return'<div class="vdev-field-grid"><label>Pronunciation Score<input type="range" min="0" max="100" value="'+s.speakingScore+'"></label><article class="vdev-status-card"><span>Mic</span><strong>'+s.microphone+'</strong></article></div><div class="vdev-action-grid"><button data-vdev-action="speaking.mic-test">Microphone</button><button data-vdev-action="speaking.recognition-test">Speech Recognition</button></div>'}};
   ns.tabs.progress={id:"progress",icon:"🔥",label:"Progress",render:function(s){return'<div class="vdev-metric-grid"><article><span>XP</span><strong>'+s.xp+'</strong></article><article><span>Level</span><strong>'+s.level+'</strong></article><article><span>Streak</span><strong>'+s.streak+'</strong></article></div><div class="vdev-action-grid"><button data-vdev-action="progress.xp5">+5 XP</button><button data-vdev-action="progress.streak-up">+1 Streak</button><button data-vdev-action="progress.complete-lesson">Complete Lesson</button></div>'}};
   ns.tabs.achievement={id:"achievement",icon:"🏆",label:"Achievement",render:function(){return'<div class="vdev-achievement-grid"><article><strong>First Lesson</strong><button>Preview</button></article></div>'}};
@@ -39,6 +38,7 @@ html,body{margin:0;min-height:100%;background:#f4f0e7;color:#18352e;font-family:
 <script src="./assets/developer-tabs/overview.js"></script>
 <script src="./assets/developer-tabs/evolution.js"></script>
 <script src="./assets/developer-tabs/animation.js"></script>
+<script src="./assets/developer-tabs/learning-speaking.js"></script>
 <script src="./assets/developer-debug/debug.js"></script>
 <script src="./assets/developer-ui/developer-center-core.js"></script>
 <script src="./assets/developer-ui/developer-center.js"></script>

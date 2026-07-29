@@ -14,6 +14,7 @@ for rel in [
     "assets/developer-tabs/overview.js",
     "assets/developer-tabs/evolution.js",
     "assets/developer-tabs/animation.js",
+    "assets/developer-tabs/learning-speaking.js",
     "assets/developer-debug/debug.js",
     "assets/developer-ui/developer-center-core.js",
     "assets/developer-ui/developer-center.js",
@@ -83,6 +84,27 @@ with sync_playwright() as p:
         page.click('[data-tab-panel="animation"]:not([hidden]) [data-vdev-action="evolution.hover"]')
         page.wait_for_timeout(40)
         assert page.evaluate("window.VDuckieDeveloper.runtime.snapshot().animation.current") == "hover"
+
+        page.click('[data-dev-tab="learning"]')
+        review = page.evaluate("""() => {
+          const panel = document.querySelector('[data-tab-panel="learning"]');
+          const heading = [...panel.querySelectorAll('h3')].find(node => node.textContent.includes('Human Review'));
+          const approve = panel.querySelector('[data-vdev-action="hsk-progress.review-approve"]');
+          return {
+            heading: heading && heading.textContent,
+            productionBlocked: panel.textContent.includes('BLOCKED'),
+            inMemoryOnly: panel.textContent.includes('In-memory only'),
+            approveDisabled: approve && approve.disabled,
+            buildButton: Boolean(panel.querySelector('[data-vdev-action="hsk-progress.review-build"]'))
+          };
+        }""")
+        assert review == {
+            "heading": "Human Review · In-memory only",
+            "productionBlocked": True,
+            "inMemoryOnly": True,
+            "approveDisabled": True,
+            "buildButton": True
+        }, review
 
         page.click('[data-dev-tab="debug"]')
         assert page.evaluate("[...document.querySelectorAll('[data-tab-panel=\"debug\"] details')].every(node => !node.open)")

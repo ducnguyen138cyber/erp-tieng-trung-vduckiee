@@ -14,6 +14,7 @@
     var adapterApi = options.adapterApi || root.VDuckieHskContentAdapter;
     var contractApi = options.contractApi || root.VDuckieHskProgressContract;
     var migrationApi = options.migrationApi || root.VDuckieHskProgressMigration;
+    var reviewApi = options.reviewApi || root.VDuckieHskProgressReview;
     var runtimeApi = options.runtimeApi || root.VDuckieHskRuntime;
     var loader = options.loader || (loaderApi && loaderApi.createHskContentLoader ? loaderApi.createHskContentLoader({ baseUrl: './data/hsk/' }) : null);
     var runtimeBridge = null;
@@ -22,6 +23,10 @@
     var legacyInventory = null;
     var mappingReport = null;
     var lastDryRun = null;
+    var reviewQueue = null;
+    var reviewSession = null;
+    var reviewCursor = 0;
+    var selectedReviewCandidate = null;
     var state = {
       mode: 'legacy',
       status: 'idle',
@@ -50,7 +55,27 @@
         invalidRecords: 0,
         writesDisabled: true,
         beforeAfterEqual: null,
-        rollback: 'not-run'
+        rollback: 'not-run',
+        review: emptyReviewState()
+      };
+    }
+
+    function emptyReviewState() {
+      return {
+        status: 'not-built',
+        total: 0,
+        ambiguous: 0,
+        unmatched: 0,
+        withSuggestions: 0,
+        withoutSuggestions: 0,
+        reviewed: 0,
+        approvedMappings: 0,
+        keptUnmatched: 0,
+        unresolved: 0,
+        productionBlocked: true,
+        writesDisabled: true,
+        appliedToMapping: false,
+        current: null
       };
     }
 
@@ -315,6 +340,155 @@
       });
     }
 
+    function applyReviewState(status) {
+      if (!reviewQueue || !reviewSession) {
+        state.progress.review = emptyReviewState();
+        return;
+      }
+      var manifest = reviewSession.exportManifest();
+      var items = reviewQueue.items || [];
+      if (reviewCursor < 0 || reviewCursor >= items.length) reviewCursor = 0;
+      var current = items[reviewCursor] || null;
+      var currentDecision = current ? manifest.decisions.filter(function (decision) { return decision.reviewId === current.reviewId; })[0] || null : null;
+      state.progress.review = {
+        status: status || 'ready',
+        total: reviewQueue.summary.total,
+        ambiguous: reviewQueue.summary.ambiguous,
+        unmatched: reviewQueue.summary.unmatched,
+        withSuggestions: reviewQueue.summary.withSuggestions,
+        withoutSuggestions: reviewQueue.summary.withoutSuggestions,
+        reviewed: manifest.summary.reviewed,
+        approvedMappings: manifest.summary.approvedMappings,
+        keptUnmatched: manifest.summary.keptUnmatched,
+        unresolved: manifest.summary.unresolved,
+        productionBlocked: true,
+        writesDisabled: manifest.writesPerformed === false && manifest.apiWrites === 0 && manifest.storageWrites === 0,
+        appliedToMapping: manifest.appliedToMapping === true,
+        current: current ? {
+          position: reviewCursor + 1,
+          reviewId: current.reviewId,
+          simplified: current.simplified,
+          pinyin: current.pinyin,
+          meaningVi: current.meaningVi,
+          mappingStatus: current.mappingStatus,
+          candidates: copy(current.candidates),
+          selectedCandidateId: selectedReviewCandidate,
+          decision: currentDecision ? copy(currentDecision) : null
+        } : null
+      };
+      state.progress.status = status || 'review-ready';
+    }
+
+    function buildProgressReviewQueue() {
+      guard();
+      if (!reviewApi || typeof reviewApi.createReviewQueue !== 'function' || typeof reviewApi.createReviewSession !== 'function') {
+        return Promise.reject(new Error('HSK progress human-review tooling is unavailable.'));
+      }
+      var before = captureSafetySnapshot();
+      return Promise.all([getMappingReport(), loadBundle()]).then(function (results) {
+        reviewQueue = reviewApi.createReviewQueue({
+          mappingReport: results[0],
+          canonicalVocabulary: results[1].dataset.vocabulary
+        });
+        reviewSession = reviewApi.createReviewSession(reviewQueue);
+        reviewCursor = 0;
+        selectedReviewCandidate = null;
+        var after = captureSafetySnapshot();
+        var equal = stableStringify(before) === stableStringify(after);
+        if (!equal) throw new Error('Human-review queue changed legacy state.');
+        state.progress.beforeAfterEqual = equal;
+        applyReviewState('review-ready');
+        state.error = null;
+        publish();
+        return copy(reviewQueue);
+      }).catch(function (error) {
+        state.progress.status = 'error';
+        state.error = error && error.message || String(error);
+        publish();
+        throw error;
+      });
+    }
+
+    function getProgressReviewQueue() {
+      guard();
+      return reviewQueue ? Promise.resolve(copy(reviewQueue)) : buildProgressReviewQueue();
+    }
+
+    function selectProgressReviewCandidate(canonicalVocabularyId) {
+      guard();
+      return getProgressReviewQueue().then(function () {
+        var current = reviewQueue.items[reviewCursor] || null;
+        var candidateId = text(canonicalVocabularyId);
+        if (!current) throw new Error('Review queue is empty.');
+        if (candidateId && !current.candidates.some(function (candidate) { return candidate.canonicalVocabularyId === candidateId; })) {
+          throw new Error('Selected target is not a candidate for the current review item.');
+        }
+        selectedReviewCandidate = candidateId || null;
+        applyReviewState('review-candidate-selected');
+        publish();
+        return copy(state.progress.review);
+      });
+    }
+
+    function nextProgressReviewItem() {
+      guard();
+      return getProgressReviewQueue().then(function () {
+        if (!reviewQueue.items.length) throw new Error('Review queue is empty.');
+        reviewCursor = (reviewCursor + 1) % reviewQueue.items.length;
+        selectedReviewCandidate = null;
+        applyReviewState('review-ready');
+        publish();
+        return copy(state.progress.review.current);
+      });
+    }
+
+    function recordProgressReviewDecision(decision) {
+      guard();
+      return getProgressReviewQueue().then(function () {
+        var before = captureSafetySnapshot();
+        var current = reviewQueue.items[reviewCursor] || null;
+        var reviewer = currentOwnerKey();
+        if (!current) throw new Error('Review queue is empty.');
+        if (reviewer === 'guest') throw new Error('Verified developer identity is required for a review decision.');
+        var manifest = reviewSession.recordDecision(current.reviewId, {
+          decision: decision,
+          canonicalVocabularyId: decision === 'map' ? selectedReviewCandidate : null,
+          reviewer: reviewer,
+          note: 'Explicit Developer Center human-review preview decision.'
+        });
+        var after = captureSafetySnapshot();
+        var equal = stableStringify(before) === stableStringify(after);
+        if (!equal) throw new Error('Human-review decision changed legacy state.');
+        state.progress.beforeAfterEqual = equal;
+        if (manifest.unresolvedReviewIds.length) {
+          var unresolved = manifest.unresolvedReviewIds[0];
+          reviewCursor = reviewQueue.items.findIndex(function (item) { return item.reviewId === unresolved; });
+          if (reviewCursor < 0) reviewCursor = 0;
+        }
+        selectedReviewCandidate = null;
+        applyReviewState('review-decision-preview');
+        publish();
+        return copy(manifest);
+      });
+    }
+
+    function getProgressReviewReport() {
+      guard();
+      return getProgressReviewQueue().then(function () { return copy(reviewSession.exportManifest()); });
+    }
+
+    function resetProgressReviewSession() {
+      guard();
+      return getProgressReviewQueue().then(function () {
+        var manifest = reviewSession.reset();
+        reviewCursor = 0;
+        selectedReviewCandidate = null;
+        applyReviewState('review-reset');
+        publish();
+        return copy(manifest);
+      });
+    }
+
     function verifyRollback() {
       guard();
       var originalMode = state.mode;
@@ -344,6 +518,13 @@
         runMigrationDryRun: runMigrationDryRun,
         getMappingReport: getMappingReport,
         verifyRollback: verifyRollback,
+        buildProgressReviewQueue: buildProgressReviewQueue,
+        getProgressReviewQueue: getProgressReviewQueue,
+        selectProgressReviewCandidate: selectProgressReviewCandidate,
+        nextProgressReviewItem: nextProgressReviewItem,
+        recordProgressReviewDecision: recordProgressReviewDecision,
+        getProgressReviewReport: getProgressReviewReport,
+        resetProgressReviewSession: resetProgressReviewSession,
         getState: function () { guard(); return copy(state); },
         disable: function () {
           if (!active) return;
@@ -354,6 +535,10 @@
           legacyInventory = null;
           mappingReport = null;
           lastDryRun = null;
+          reviewQueue = null;
+          reviewSession = null;
+          reviewCursor = 0;
+          selectedReviewCandidate = null;
           state.mode = 'legacy';
           state.status = 'idle';
           state.vocabulary = 0;

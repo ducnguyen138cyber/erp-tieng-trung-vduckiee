@@ -188,7 +188,8 @@ test('production locks and source wiring remain write-disabled', () => {
   const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
   const ui = fs.readFileSync(path.join(root, 'assets/developer-tabs/learning-speaking.js'), 'utf8');
   assert.ok(index.indexOf('hsk-progress-contract.js?v=2b2.0') < index.indexOf('hsk-progress-migration.js?v=2b2.0'));
-  assert.ok(index.indexOf('hsk-progress-migration.js?v=2b2.0') < index.indexOf('hsk-developer-preview.js?v=2b2.0'));
+  assert.ok(index.indexOf('hsk-progress-migration.js?v=2b2.0') < index.indexOf('hsk-progress-review.js?v=2b3.0'));
+  assert.ok(index.indexOf('hsk-progress-review.js?v=2b3.0') < index.indexOf('hsk-developer-preview.js?v=2b3.0'));
   assert.match(ui, /Phân tích Progress Legacy/);
   assert.match(ui, /Chạy Migration Dry Run/);
   assert.match(ui, /Xem Mapping Report/);
