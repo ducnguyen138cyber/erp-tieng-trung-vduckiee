@@ -1,0 +1,277 @@
+{
+  "architecture": {
+    "architectureHash": "d88f7e211383e0c446035db56b579a878534d70c9b5ff511e260fb5f9114478d",
+    "lessonSections": 16,
+    "levels": 9,
+    "path": "data/hsk/curriculum/architecture.json",
+    "plannedCoreLessons": 408,
+    "stages": 3,
+    "units": 119
+  },
+  "auditDate": "2026-07-29",
+  "baselineCommit": "9cee996de80c775ba288b896455917fd89add81c",
+  "canonicalHsk1Quality": {
+    "antonymCoverage": 0,
+    "audioReferences": 0,
+    "authoringNote": "The 900 sentence records give three linked sentences per vocabulary item, while each vocabulary record embeds only its first example. All Vietnamese translations remain machine-assisted.",
+    "collocationCoverage": 0,
+    "commonErrorCoverage": 0,
+    "contextMeaningCoverage": 0,
+    "duplicateBaseline": {
+      "blockers": 0,
+      "exact": 1,
+      "nearReview": 233,
+      "normalized": 0
+    },
+    "humanReviewedTranslations": 0,
+    "machineAssistedTranslations": 300,
+    "sentenceLengthCharacters": {
+      "max": 12,
+      "mean": 6.19,
+      "min": 2
+    },
+    "structurallyValidated": true,
+    "synonymCoverage": 0,
+    "vocabularyWithOneEmbeddedExample": 300,
+    "vocabularyWithThreeEmbeddedExamples": 0
+  },
+  "contentDecision": {
+    "doNotPromote": [
+      "machine-assisted translation as expert-reviewed",
+      "legacy HSK1 V75 as current official HSK1",
+      "HSK7–9 pedagogic split as official word membership"
+    ],
+    "keep": [
+      "canonical 300-word CTI inventory",
+      "900 original sentence candidates",
+      "stable IDs/sourceRefs/sharding",
+      "legacy production until quality gates pass",
+      "existing pronunciation/writing/mobile capabilities"
+    ],
+    "rewriteOrEnrich": [
+      "Vietnamese gloss depth",
+      "collocations/usage/errors",
+      "lesson sequence",
+      "grammar explanations",
+      "dialogues",
+      "skill tasks",
+      "assessments and answer explanations"
+    ]
+  },
+  "decision": {
+    "blockersForC1Start": [],
+    "blockersForProduction": [
+      "C1 content graph absent",
+      "human review incomplete",
+      "canonical audio/assessments absent",
+      "learner UI not connected to approved content",
+      "HSK 3.0 operational status must be reverified"
+    ],
+    "phaseC0Complete": true,
+    "phaseC1Allowed": true,
+    "phaseC1ProductionReleaseAllowed": false,
+    "productionAllowed": false
+  },
+  "gaps": [
+    {
+      "area": "curriculum",
+      "finding": "Canonical HSK1 has no unit, lesson, grammar, character or assessment records.",
+      "id": "C0-GAP-001",
+      "remediation": "Author the C1 level graph and all referenced learning objects.",
+      "severity": "blocking-for-c1-release"
+    },
+    {
+      "area": "Vietnamese review",
+      "finding": "300/300 vocabulary translations remain machine-assisted; human-reviewed count is zero.",
+      "id": "C0-GAP-002",
+      "remediation": "Human review meanings, usage, examples and translations before production.",
+      "severity": "blocking-for-c1-release"
+    },
+    {
+      "area": "vocabulary depth",
+      "finding": "Context meanings, collocations and common Vietnamese-learner errors have zero coverage.",
+      "id": "C0-GAP-003",
+      "remediation": "Enrich by pedagogic priority and validate against authoritative dictionaries/corpora.",
+      "severity": "high"
+    },
+    {
+      "area": "sentence pedagogy",
+      "finding": "900 sentences are structurally valid but template-assisted; prior duplicate gate flags 233 near-review items.",
+      "id": "C0-GAP-004",
+      "remediation": "Assign sentences to lessons, dependency-check them and manually review a representative sample before use.",
+      "severity": "high"
+    },
+    {
+      "area": "audio",
+      "finding": "Canonical vocabulary has no owned audio references; runtime falls back to browser speech synthesis.",
+      "id": "C0-GAP-005",
+      "remediation": "Create an audio script/manifest and reviewed recordings or explicitly licensed TTS assets.",
+      "severity": "high"
+    },
+    {
+      "area": "assessment",
+      "finding": "No canonical diagnostic, unit, mid, final, speaking or writing assessment exists.",
+      "id": "C0-GAP-006",
+      "remediation": "Author original assessment blueprints and rubrics aligned to current CTI tasks.",
+      "severity": "high"
+    },
+    {
+      "area": "learner experience",
+      "finding": "Current UI mixes lesson data/rendering and limits persisted selectable levels to 0–4.",
+      "id": "C0-GAP-007",
+      "remediation": "Only after content exists, add a content adapter and learner-facing unit navigation without expanding Developer Center.",
+      "severity": "medium"
+    },
+    {
+      "area": "levels 2-9",
+      "finding": "Canonical level shells are empty; legacy HSK2–4 are thin and HSK5–9 have no learning content.",
+      "id": "C0-GAP-008",
+      "remediation": "Build level-by-level after C1 gates; never fill with placeholders.",
+      "severity": "high"
+    },
+    {
+      "area": "exam status",
+      "finding": "HSK 3.0 is in a 2026 transition; regular test status must be rechecked before release.",
+      "id": "C0-GAP-009",
+      "remediation": "Revisit CTI notice/calendar at every level release.",
+      "severity": "warning"
+    }
+  ],
+  "inventory": {
+    "canonical": {
+      "assessments": 0,
+      "hsk1Sentences": 900,
+      "hsk1Vocabulary": 300,
+      "hsk2To4LevelRecords": [
+        {
+          "level": 2,
+          "status": "planned",
+          "unitRefs": 0
+        },
+        {
+          "level": 3,
+          "status": "planned",
+          "unitRefs": 0
+        },
+        {
+          "level": 4,
+          "status": "planned",
+          "unitRefs": 0
+        }
+      ],
+      "hsk5To9EmptyLevelShells": 5,
+      "lessons": 0,
+      "units": 0
+    },
+    "production": {
+      "canonicalEnabled": false,
+      "curriculum": "legacy-hsk1-v75",
+      "hsk1Lessons": 15,
+      "hsk1Vocabulary": 150,
+      "qualityGate": "locked"
+    }
+  },
+  "phase": "C0",
+  "productionSafety": {
+    "productionCurriculum": "legacy-hsk1-v75",
+    "productionEnabled": false,
+    "publicOverrideAllowed": false,
+    "qualityGate": "locked",
+    "supabaseChanged": false,
+    "userDataChanged": false
+  },
+  "reportVersion": "1.0.0",
+  "reviewSampling": {
+    "findings": [
+      "Schema/provenance usable.",
+      "Vocabulary enrichment fields empty.",
+      "Translations still require human Vietnamese review.",
+      "Sentence candidates need lesson dependency and naturalness review."
+    ],
+    "machineAuditSample": [
+      "hsk1-v-0001",
+      "hsk1-v-0004",
+      "hsk1-v-0038",
+      "hsk1-v-0100",
+      "hsk1-v-0150",
+      "hsk1-v-0200",
+      "hsk1-v-0250",
+      "hsk1-v-0300",
+      "hsk1-s-0001",
+      "hsk1-s-0301",
+      "hsk1-s-0601",
+      "hsk1-s-0900"
+    ],
+    "productionClaimAllowed": false,
+    "status": "human-review-not-completed"
+  },
+  "runtimeAudit": {
+    "evidence": {
+      "canonicalDeveloperPreviewOnly": true,
+      "persistedLevelCapThrough4": true,
+      "speechSynthesisFallback": true
+    },
+    "file": "hsk-lessons.js",
+    "learnerFeatures": [
+      "level selection",
+      "lesson list",
+      "pinyin/meaning reveal",
+      "speech synthesis",
+      "stroke-order animation",
+      "reading question",
+      "dictation",
+      "five-item quiz",
+      "mobile section stepper",
+      "local progress"
+    ],
+    "limitations": [
+      "Lesson data and renderer are coupled in one global file.",
+      "Quiz primarily checks word-meaning recognition and uses generated distractors without rationales.",
+      "No canonical unit/assessment navigation exists.",
+      "Browser speechSynthesis is not a reviewed audio curriculum."
+    ]
+  },
+  "scope": "Current HSK content, schemas, runtime learning journey, source coverage and C0 architecture. No user data or production curriculum changed.",
+  "sourceAudit": {
+    "allRequiredC0SourcesPresent": true,
+    "copyrightRule": "No commercial textbook/test content copied; architecture paraphrases public standards and requires original VDuckie teaching content.",
+    "officialClaimsSeparatedFromPedagogicDesign": true,
+    "registryCount": 16,
+    "requiredC0SourceIds": [
+      "moe-gf0025-2021-standard",
+      "moe-gf0025-2021-qa",
+      "cti-hsk3-syllabus-pdf-2026",
+      "cti-hsk3-pilot-notice-2026",
+      "cti-hsk3-competency-profile-2026",
+      "blcu-new-standard-pedagogy-2025",
+      "vduckie-hsk1-phase2a-original"
+    ]
+  },
+  "strengths": [
+    {
+      "area": "official inventory",
+      "evidence": "300 HSK1 vocabulary records follow the current CTI syllabus order with row locators.",
+      "keep": true
+    },
+    {
+      "area": "stable data",
+      "evidence": "Stable IDs, six vocabulary shards, nine sentence shards, checksums and sourceRefs are present.",
+      "keep": true
+    },
+    {
+      "area": "structural validation",
+      "evidence": "Existing Phase 2A schema/reference/pinyin/Unicode/count gates pass.",
+      "keep": true
+    },
+    {
+      "area": "legacy learner flow",
+      "evidence": "Production includes pronunciation foundation, vocabulary, writing animation, grammar, reading, dictation, quiz and mobile step navigation.",
+      "keep": true
+    },
+    {
+      "area": "safety",
+      "evidence": "Canonical curriculum remains developer-only/read-only; production and public override are locked.",
+      "keep": true
+    }
+  ]
+}

@@ -7,6 +7,7 @@
   "productionEnabled": false,
   "publicOverrideAllowed": false,
   "sourceRegistryPath": "sources.json",
+  "curriculumArchitecturePath": "curriculum/architecture.json",
   "legacyMappingPath": "legacy-mapping.json",
   "schemas": {
     "level": "schemas/level.schema.json",

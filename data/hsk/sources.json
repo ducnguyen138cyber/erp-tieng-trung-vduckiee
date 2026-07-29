@@ -195,6 +195,51 @@
       "licenseStatus": "verified",
       "licenseNote": "Original project-authored material; no sentence corpus or textbook examples were copied.",
       "derivedDataNote": "Machine-assisted editorial content remains blocked from production until human review."
+    },
+    {
+      "sourceId": "cti-hsk3-pilot-notice-2026",
+      "title": "HSK 3.0 Global Pilot Notice and 2026 Transition Status",
+      "publisher": "Chinese Testing International / Chinese Test Service",
+      "sourceType": "official-current-status",
+      "url": "https://www.chinesetest.cn/notice",
+      "accessDate": "2026-07-29",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "levels": [1,2,3,4,5,6],
+      "scope": ["pilot-date","exam-duration","oral-test-bundling","transition-status"],
+      "confidence": "authoritative-current",
+      "licenseStatus": "reuse-limited",
+      "licenseNote": "Used only to record current implementation status and short factual parameters; re-check before every release.",
+      "derivedDataNote": "The notice prevents VDuckie from presenting HSK 3.0 as the universal regular examination before CTI announces the formal changeover."
+    },
+    {
+      "sourceId": "cti-hsk3-competency-profile-2026",
+      "title": "HSK 3.0 Examination Competency Profile",
+      "publisher": "Chinese Testing International / Chinese Test Service",
+      "sourceType": "official-competency-profile",
+      "url": "https://hsk.cn-bj.ufileos.com/3.0/HSK3.0%E8%80%83%E8%AF%95%E8%83%BD%E5%8A%9B%E6%8F%8F%E8%BF%B0.pdf",
+      "accessDate": "2026-07-29",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "levels": [1,2,3,4,5,6,7,8,9],
+      "scope": ["level-output-descriptors","life-domain","study-domain","work-domain","academic-domain"],
+      "confidence": "authoritative-current",
+      "licenseStatus": "reuse-limited",
+      "licenseNote": "Level outcomes are paraphrased for curriculum alignment; the official profile is not republished.",
+      "derivedDataNote": "Determines the direction and increasing depth of output objectives, not VDuckie lesson wording."
+    },
+    {
+      "sourceId": "blcu-new-standard-pedagogy-2025",
+      "title": "Teaching seminars on international Chinese education under the new standards",
+      "publisher": "Beijing Language and Culture University",
+      "sourceType": "university-pedagogy",
+      "url": "https://news.blcu.edu.cn/info/1011/28947.htm",
+      "accessDate": "2026-07-29",
+      "syllabusVersion": "cross-level-2025",
+      "levels": [1,2,3,4,5,6,7,8,9],
+      "scope": ["integrated-skills","discourse-pragmatics-culture","reading-writing","academic-chinese","curriculum-development"],
+      "confidence": "institutional-pedagogy",
+      "licenseStatus": "reuse-limited",
+      "licenseNote": "Used as institutional pedagogic evidence; no course materials, lesson text or teaching demonstrations are copied.",
+      "derivedDataNote": "Supports integrated skill strands and advanced discourse design but does not determine official exam inventory."
     }
   ]
 }

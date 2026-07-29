@@ -1,7 +1,7 @@
 {
   "automaticProductionGate": "no-fixture-record-uses-review-required-source",
   "byLicenseStatus": {
-    "reuse-limited": 7,
+    "reuse-limited": 10,
     "review-required": 2,
     "verified": 4
   },
@@ -10,8 +10,13 @@
     "legacy-ivankra-hsk30"
   ],
   "schemaVersion": "1.0.0",
-  "sourceCount": 13,
+  "sourceCount": 16,
   "usage": [
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 0,
+      "sourceId": "blcu-new-standard-pedagogy-2025"
+    },
     {
       "licenseStatus": "verified",
       "recordCount": 0,
@@ -19,8 +24,18 @@
     },
     {
       "licenseStatus": "reuse-limited",
+      "recordCount": 0,
+      "sourceId": "cti-hsk3-competency-profile-2026"
+    },
+    {
+      "licenseStatus": "reuse-limited",
       "recordCount": 37,
       "sourceId": "cti-hsk3-current-syllabus-2026"
+    },
+    {
+      "licenseStatus": "reuse-limited",
+      "recordCount": 0,
+      "sourceId": "cti-hsk3-pilot-notice-2026"
     },
     {
       "licenseStatus": "reuse-limited",

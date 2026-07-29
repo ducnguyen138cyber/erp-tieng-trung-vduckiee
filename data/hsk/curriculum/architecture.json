@@ -1,0 +1,4733 @@
+{
+  "assessmentFramework": {
+    "answerQuality": [
+      "acceptedAnswers",
+      "explanationVi",
+      "distractorRationale",
+      "contentProvenance"
+    ],
+    "principle": "Không đồng nhất đạt quiz nhận biết với năng lực sang cấp.",
+    "requiredEvidence": [
+      "lesson mastery",
+      "unit checkpoint",
+      "mid-level",
+      "final",
+      "speaking sample",
+      "writing sample",
+      "mock/challenge"
+    ],
+    "rubricDimensions": [
+      "độ chính xác",
+      "từ vựng",
+      "ngữ pháp",
+      "mạch lạc",
+      "phát âm",
+      "hoàn thành nhiệm vụ",
+      "phong cách",
+      "tính tự nhiên"
+    ]
+  },
+  "baselineCommit": "9cee996de80c775ba288b896455917fd89add81c",
+  "contentTracks": {
+    "separationRule": "Từ chuyên ngành không được gắn level HSK chính thức nếu không có membership source.",
+    "specialistAfterStandard": [
+      "công sở",
+      "nhà máy",
+      "ERP",
+      "sản xuất",
+      "kho",
+      "mua hàng",
+      "chất lượng",
+      "kỹ thuật"
+    ],
+    "standard": "HSK 1–9 theo source chính thức."
+  },
+  "curriculumId": "vduckie-hsk-content-program",
+  "designPrinciples": [
+    "Năng lực có thể làm được dẫn đường cho từ, ngữ pháp, văn bản và bài tập.",
+    "Input vừa sức đi trước output; output chuyển dần từ có kiểm soát sang độc lập.",
+    "Mỗi nội dung mới có vòng introduce–retrieve–expand–assess.",
+    "Nhận biết, hồi tưởng, vận dụng và sản sinh đều phải được đánh giá.",
+    "Tiếng Việt dùng để giải thích bản chất và cảnh báo chuyển di, không thay pinyin chuẩn.",
+    "Luyện thi dùng blueprint chính thức nhưng toàn bộ bài, transcript, distractor và lời giải do VDuckie tự biên soạn.",
+    "Validator là gate kỹ thuật; human review ngôn ngữ và sư phạm vẫn bắt buộc."
+  ],
+  "knowledgeLifecycle": {
+    "assessment": "Có evidence receptive và productive.",
+    "expansion": "Dùng trong ngữ cảnh hoặc register mới với expansionOf.",
+    "firstIntroduction": "Record có firstIntroducedIn và prerequisiteIds.",
+    "retrieval": "Tái hiện ở định dạng khác, không sao chép nguyên câu hỏi.",
+    "spacingDays": [
+      1,
+      3,
+      7,
+      14,
+      30
+    ],
+    "weakAreaMetadata": [
+      "skillTags",
+      "grammarPrerequisites",
+      "difficulty",
+      "errorTags",
+      "acceptedAnswers"
+    ]
+  },
+  "learnerJourney": [
+    "chọn level",
+    "xem mục tiêu",
+    "chọn unit",
+    "bắt đầu bài",
+    "từ vựng",
+    "chữ Hán",
+    "ngữ pháp",
+    "nghe",
+    "nói",
+    "đọc",
+    "viết",
+    "bài tập",
+    "giải thích",
+    "ôn tập",
+    "tiến độ"
+  ],
+  "lessonContract": {
+    "adaptiveRule": "Khối lượng thay đổi theo mục tiêu, nhưng mọi phần bị lược phải có lý do trong lesson metadata.",
+    "dialogueRequirement": "Mỗi unit có ít nhất một input hội thoại/tình huống chính, comprehension, shadowing, role-play và biến thể cá nhân hóa.",
+    "productionRequirement": "Mỗi lesson có ít nhất một task buộc người học tự nói hoặc tự viết.",
+    "sections": [
+      {
+        "id": "objectives",
+        "purposeVi": "Nêu năng lực có thể thực hiện sau bài học.",
+        "required": true
+      },
+      {
+        "id": "warm-up",
+        "purposeVi": "Kích hoạt ngữ cảnh, trải nghiệm và kiến thức nền.",
+        "required": true
+      },
+      {
+        "id": "vocabulary",
+        "purposeVi": "Dạy nghĩa, cách dùng, kết hợp từ và lỗi dễ mắc.",
+        "required": true
+      },
+      {
+        "id": "characters",
+        "purposeVi": "Nhận diện chữ; luyện viết theo yêu cầu cấp độ.",
+        "required": true
+      },
+      {
+        "id": "grammar",
+        "purposeVi": "Dạy hình thức, ý nghĩa, ngữ dụng và đối chiếu.",
+        "required": true
+      },
+      {
+        "id": "input",
+        "purposeVi": "Hội thoại hoặc bài đọc chính có mục đích giao tiếp.",
+        "required": true
+      },
+      {
+        "id": "comprehension",
+        "purposeVi": "Giải mã ý chính, chi tiết, hàm ý phù hợp cấp độ.",
+        "required": true
+      },
+      {
+        "id": "listening",
+        "purposeVi": "Nghe ý chính, chi tiết, chép chính tả và shadowing.",
+        "required": true
+      },
+      {
+        "id": "speaking",
+        "purposeVi": "Phản xạ, role-play hoặc sản sinh lời nói.",
+        "required": true
+      },
+      {
+        "id": "reading",
+        "purposeVi": "Đọc có chiến lược và giải thích đáp án.",
+        "required": true
+      },
+      {
+        "id": "writing",
+        "purposeVi": "Viết từ chữ/câu đến văn bản theo cấp độ.",
+        "required": true
+      },
+      {
+        "id": "translation",
+        "purposeVi": "Trung–Việt hoặc Việt–Trung khi mục tiêu yêu cầu.",
+        "required": false
+      },
+      {
+        "id": "integrated-practice",
+        "purposeVi": "Vận dụng nhiều kỹ năng trong một nhiệm vụ.",
+        "required": true
+      },
+      {
+        "id": "summary",
+        "purposeVi": "Tóm tắt điều đã học và checklist tự đánh giá.",
+        "required": true
+      },
+      {
+        "id": "spaced-review",
+        "purposeVi": "Gắn lịch ôn 1/3/7/14/30 ngày và mục tiêu yếu.",
+        "required": true
+      },
+      {
+        "id": "real-world-task",
+        "purposeVi": "Hoàn thành một tình huống dùng tiếng Trung thật.",
+        "required": true
+      }
+    ],
+    "targetVocabularyExamples": 3
+  },
+  "levels": [
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 80,
+          "mandatory": [
+            "phát âm nền tảng",
+            "final assessment",
+            "nhiệm vụ nói"
+          ],
+          "productive": 70,
+          "receptive": 75
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": false,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Định hướng phát âm và chữ Hán",
+        "Gặp gỡ lần đầu",
+        "Gia đình và người quen",
+        "Lớp học và ngôn ngữ",
+        "Số, ngày và cuộc hẹn",
+        "Một ngày của tôi",
+        "Ăn uống hằng ngày",
+        "Mua sắm và đồ vật",
+        "Đi lại và phương hướng",
+        "Thời tiết, sức khỏe và kế hoạch"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "nghe chọn/điền",
+        "dictation",
+        "flashcard recall",
+        "ghép collocation",
+        "sắp xếp câu",
+        "sửa lỗi",
+        "role-play",
+        "viết có hướng dẫn"
+      ],
+      "id": "hsk1",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Nhận diện inventory HSK1 chính thức; luyện viết bộ chữ tần suất cao sau khi xác minh với danh sách viết chính thức."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "Trật tự chủ–vị–tân và vị ngữ tính từ",
+            "是, 有, 在 và câu tồn hiện cơ bản",
+            "的 chỉ sở hữu/định ngữ",
+            "不, 没（有） và câu phủ định",
+            "吗, 呢, 谁, 什么, 哪, 哪儿, 几, 多少, 怎么, 怎么样",
+            "Số–lượng từ–danh từ; biểu thức thời gian đứng trước động từ",
+            "会, 能, 可以, 想, 要",
+            "正在/在…呢, 了 ở mức nhập môn, 吧 để đề nghị"
+          ],
+          "standardCumulativeBenchmark": 48
+        },
+        "pronunciation": "Explicit Vietnamese-learner pronunciation strand with perception, articulation, minimal pairs and shadowing.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": true,
+          "scopeVi": "Bám inventory chính thức 1; mục tiêu tích lũy 300 từ theo đề cương thi mới."
+        }
+      },
+      "level": 1,
+      "levelStructure": {
+        "coreLessonCount": 24,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "phát âm",
+          "nghe–nói",
+          "đọc–viết"
+        ],
+        "unitCount": 10
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Official level-specific exam inventory.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "1",
+        "examVocabularyCumulativeTarget": 300,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 300,
+          "grammar": 48,
+          "syllables": 269,
+          "vocabulary": 500
+        }
+      },
+      "officialCompetencyParaphraseVi": "Giao tiếp đơn giản về thông tin cá nhân, sự vật, thời gian, nơi chốn và nhu cầu thường nhật.",
+      "outputObjectivesVi": [
+        "Chào hỏi, tự giới thiệu và hỏi–đáp thông tin cá nhân cơ bản.",
+        "Xử lý giao dịch rất ngắn về thời gian, ăn uống, mua sắm, phương hướng và sức khỏe.",
+        "Nghe/đọc thông tin rõ ràng trong câu ngắn; tạo câu đơn có trật tự đúng.",
+        "Nhận diện âm tiết, thanh điệu và chữ Hán trọng tâm; tự sửa các lỗi phát âm phổ biến của người Việt."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 35,
+          "min": 5
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 135,
+          "min": 90
+        },
+        "textCharacters": {
+          "max": 80,
+          "min": 5
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Âm tiết, từ, câu 2–12 chữ và hội thoại 2–4 lượt; nghe ý chính, số liệu, lựa chọn và chép câu ngắn.",
+        "readingVi": "Biển báo, danh thiếp, menu, tin nhắn và đoạn 20–80 chữ có hỗ trợ pinyin tùy chọn.",
+        "speakingVi": "Bắt chước thanh điệu, trả lời nhanh, hỏi–đáp, role-play 30–60 giây và giới thiệu 45–90 giây.",
+        "translationVi": "Chuyển đạt câu ngắn để chứng minh hiểu nghĩa; ưu tiên tiếng Việt tự nhiên, không đối dịch từng chữ.",
+        "writingVi": "Nét/chữ trọng tâm, sắp xếp thành câu và viết 3–5 câu theo mẫu có thay thông tin."
+      },
+      "stage": "elementary",
+      "units": [
+        {
+          "communicativeTaskVi": "Phân biệt thanh điệu, nhóm âm khó với người Việt và viết nét cơ bản.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Định hướng phát âm và chữ Hán"
+        },
+        {
+          "communicativeTaskVi": "Chào, nói tên, quốc tịch, vai trò và hỏi lại lịch sự.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Gặp gỡ lần đầu"
+        },
+        {
+          "communicativeTaskVi": "Giới thiệu quan hệ, số người và thông tin rất ngắn về một người.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Gia đình và người quen"
+        },
+        {
+          "communicativeTaskVi": "Hỏi nghĩa, xin nhắc lại, nói khả năng và đồ dùng học tập.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Lớp học và ngôn ngữ"
+        },
+        {
+          "communicativeTaskVi": "Nói số, ngày, giờ, điện thoại và hẹn thời điểm đơn giản.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Số, ngày và cuộc hẹn"
+        },
+        {
+          "communicativeTaskVi": "Nói hoạt động, nơi chốn, trình tự và thói quen cơ bản.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Một ngày của tôi"
+        },
+        {
+          "communicativeTaskVi": "Gọi món đơn giản, nói thích/không thích, số lượng và nhu cầu.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Ăn uống hằng ngày"
+        },
+        {
+          "communicativeTaskVi": "Hỏi giá, màu sắc, kích thước, lượng và đưa ra lựa chọn.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Mua sắm và đồ vật"
+        },
+        {
+          "communicativeTaskVi": "Hỏi nơi chốn, vị trí, phương tiện và chỉ đường rất ngắn.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Đi lại và phương hướng"
+        },
+        {
+          "communicativeTaskVi": "Mô tả thời tiết, cảm giác cơ thể và kế hoạch gần.",
+          "contentStatus": "planned",
+          "id": "hsk1-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Thời tiết, sức khỏe và kế hoạch"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 80,
+          "mandatory": [
+            "unit checkpoints",
+            "final assessment",
+            "nói kể theo tranh"
+          ],
+          "productive": 72,
+          "receptive": 75
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": false,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Ôn cầu nối HSK1",
+        "Lịch sinh hoạt và tần suất",
+        "Nhà ở và khu phố",
+        "Đi lại và du lịch ngắn",
+        "Ăn uống và dịch vụ",
+        "Sức khỏe và chăm sóc bản thân",
+        "Học tập và kỹ năng",
+        "Công việc thường ngày",
+        "Giải trí và quan hệ",
+        "Trải nghiệm và kế hoạch"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "nghe chọn/điền",
+        "dictation",
+        "flashcard recall",
+        "ghép collocation",
+        "sắp xếp câu",
+        "sửa lỗi",
+        "role-play",
+        "viết có hướng dẫn"
+      ],
+      "id": "hsk2",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Mở rộng nhận diện/viết theo inventory HSK2; ôn có khoảng cách chữ HSK1 qua từ ghép mới."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "了/过 ở mức cơ bản",
+            "正在 và thời lượng",
+            "比 và so sánh",
+            "因为…所以…",
+            "虽然…但是…",
+            "先…再…然后…",
+            "bổ ngữ kết quả nhập môn",
+            "câu kiêm ngữ và câu chữ 把 nhập môn có kiểm soát"
+          ],
+          "standardCumulativeBenchmark": 129
+        },
+        "pronunciation": "Explicit Vietnamese-learner pronunciation strand with perception, articulation, minimal pairs and shadowing.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": true,
+          "scopeVi": "Bám inventory chính thức 2; mục tiêu tích lũy 500 từ theo đề cương thi mới."
+        }
+      },
+      "level": 2,
+      "levelStructure": {
+        "coreLessonCount": 28,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "phát âm",
+          "nghe–nói",
+          "đọc–viết"
+        ],
+        "unitCount": 10
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Official level-specific exam inventory.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "2",
+        "examVocabularyCumulativeTarget": 500,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 600,
+          "grammar": 129,
+          "syllables": 468,
+          "vocabulary": 1272
+        }
+      },
+      "officialCompetencyParaphraseVi": "Giao tiếp cơ bản trong đời sống, học tập và công việc quen thuộc bằng chuỗi câu có liên kết.",
+      "outputObjectivesVi": [
+        "Duy trì hội thoại ngắn về lịch trình, dịch vụ, sở thích, trải nghiệm và nhu cầu.",
+        "Hiểu thông báo/tin nhắn ngắn và kể lại một chuỗi sự việc đơn giản.",
+        "Viết đoạn thực dụng 5–8 câu với thời gian, trình tự và quan hệ nguyên nhân cơ bản."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 65,
+          "min": 15
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 150,
+          "min": 105
+        },
+        "textCharacters": {
+          "max": 180,
+          "min": 30
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Hội thoại 4–8 lượt, thông báo và chuyện ngắn 20–60 giây; nghe ý chính, thời gian và quan hệ sự việc.",
+        "readingVi": "Tin nhắn, thông báo, hướng dẫn và đoạn 60–180 chữ.",
+        "speakingVi": "Role-play 1–2 phút, kể lại theo tranh, giải thích lựa chọn và phản hồi lời mời/đề nghị.",
+        "translationVi": "Chuyển đạt thông tin thực dụng ngắn, chú ý chủ ngữ lược bỏ và trật tự thời gian.",
+        "writingVi": "Câu liên kết và đoạn 60–100 chữ: tin nhắn, ghi chú, mô tả và kể ngắn."
+      },
+      "stage": "elementary",
+      "units": [
+        {
+          "communicativeTaskVi": "Khôi phục phản xạ âm, chữ, câu và chiến lược học.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Ôn cầu nối HSK1"
+        },
+        {
+          "communicativeTaskVi": "Sắp xếp lịch, nói tần suất, thời lượng và thay đổi kế hoạch.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Lịch sinh hoạt và tần suất"
+        },
+        {
+          "communicativeTaskVi": "Mô tả phòng, vị trí, tiện ích và hỏi thông tin khu vực.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Nhà ở và khu phố"
+        },
+        {
+          "communicativeTaskVi": "Mua vé, hỏi tuyến, nói điểm đi/đến và xử lý thay đổi.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Đi lại và du lịch ngắn"
+        },
+        {
+          "communicativeTaskVi": "Đặt món, nêu yêu cầu, nhận xét và giải quyết thiếu/sai đơn giản.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Ăn uống và dịch vụ"
+        },
+        {
+          "communicativeTaskVi": "Mô tả triệu chứng cơ bản, lời khuyên và lịch hẹn.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Sức khỏe và chăm sóc bản thân"
+        },
+        {
+          "communicativeTaskVi": "Nói mục tiêu, tiến bộ, khó khăn và cách luyện tập.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Học tập và kỹ năng"
+        },
+        {
+          "communicativeTaskVi": "Mô tả nhiệm vụ, đồng nghiệp, thời hạn và nhờ hỗ trợ.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Công việc thường ngày"
+        },
+        {
+          "communicativeTaskVi": "Mời, từ chối lịch sự, kể hoạt động và bày tỏ cảm xúc.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Giải trí và quan hệ"
+        },
+        {
+          "communicativeTaskVi": "Kể việc đã làm, so sánh lựa chọn và lập kế hoạch gần.",
+          "contentStatus": "planned",
+          "id": "hsk2-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Trải nghiệm và kế hoạch"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 82,
+          "mandatory": [
+            "mid-level assessment",
+            "final assessment",
+            "project sơ cấp"
+          ],
+          "productive": 75,
+          "receptive": 78
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": false,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Cầu nối sang giao tiếp theo đoạn",
+        "Học tập và chiến lược",
+        "Tìm việc và môi trường làm việc",
+        "Du lịch và sự cố",
+        "Nhà ở và chuyển nhà",
+        "Sức khỏe và lối sống",
+        "Quan hệ và giao tiếp số",
+        "Mua sắm và quyền lợi",
+        "Kể chuyện và trải nghiệm",
+        "Văn hóa đời sống",
+        "Môi trường quanh ta",
+        "Dự án tổng hợp sơ cấp"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "nghe chọn/điền",
+        "dictation",
+        "flashcard recall",
+        "ghép collocation",
+        "sắp xếp câu",
+        "sửa lỗi",
+        "role-play",
+        "viết có hướng dẫn"
+      ],
+      "id": "hsk3",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Hoàn tất inventory sơ cấp theo đề cương; ưu tiên nhận diện nhanh, gõ/viết từ nhiệm vụ và phân biệt chữ gần hình."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "把/被 cơ bản",
+            "bổ ngữ kết quả/hướng/khả năng",
+            "越…越…",
+            "一边…一边…",
+            "除了…以外…",
+            "只要…就…",
+            "nối câu và lược bỏ",
+            "câu phức nguyên nhân–điều kiện–nhượng bộ cơ bản"
+          ],
+          "standardCumulativeBenchmark": 210
+        },
+        "pronunciation": "Explicit Vietnamese-learner pronunciation strand with perception, articulation, minimal pairs and shadowing.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": true,
+          "scopeVi": "Bám inventory chính thức 3; mục tiêu tích lũy 1.000 từ theo đề cương thi mới."
+        }
+      },
+      "level": 3,
+      "levelStructure": {
+        "coreLessonCount": 36,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "phát âm",
+          "nghe–nói",
+          "đọc–viết"
+        ],
+        "unitCount": 12
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Official level-specific exam inventory.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "3",
+        "examVocabularyCumulativeTarget": 1000,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 900,
+          "grammar": 210,
+          "syllables": 608,
+          "vocabulary": 2245
+        }
+      },
+      "officialCompetencyParaphraseVi": "Giao tiếp hiệu quả về các nhiệm vụ quen thuộc, xử lý vấn đề đơn giản và diễn đạt thành đoạn.",
+      "outputObjectivesVi": [
+        "Xử lý tình huống du lịch, học tập, công việc và quan hệ xã hội có nhiều bước.",
+        "Nắm ý chính/chi tiết của hội thoại và bài kể gần tốc độ tự nhiên.",
+        "Kể, mô tả và viết đoạn có trình tự, nguyên nhân, kết quả và đánh giá."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 130,
+          "min": 35
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 165,
+          "min": 120
+        },
+        "textCharacters": {
+          "max": 350,
+          "min": 100
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Hội thoại nhiều lượt, thông báo và kể chuyện 45–120 giây ở tốc độ chậm đến gần tự nhiên.",
+        "readingVi": "Email, hướng dẫn, câu chuyện và bài thông tin 150–350 chữ.",
+        "speakingVi": "Kể lại 2–3 phút, mô tả tranh/sự kiện, giải quyết vấn đề và nêu ý kiến có lý do.",
+        "translationVi": "Dịch câu/đoạn có hướng dẫn, xử lý khác biệt trật tự và đại từ theo ngữ cảnh.",
+        "writingVi": "Email/đoạn kể hoặc mô tả 100–180 chữ, có liên kết và tự sửa theo checklist."
+      },
+      "stage": "elementary",
+      "units": [
+        {
+          "communicativeTaskVi": "Ôn cấu trúc nền và chuyển từ câu rời sang đoạn.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Cầu nối sang giao tiếp theo đoạn"
+        },
+        {
+          "communicativeTaskVi": "Mô tả mục tiêu, phương pháp, kết quả và điều chỉnh.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Học tập và chiến lược"
+        },
+        {
+          "communicativeTaskVi": "Đọc tin tuyển dụng, trao đổi lịch và nhiệm vụ.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Tìm việc và môi trường làm việc"
+        },
+        {
+          "communicativeTaskVi": "Lập lịch trình, hỏi thông tin và giải quyết lỡ/chậm/thất lạc.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Du lịch và sự cố"
+        },
+        {
+          "communicativeTaskVi": "So sánh, thương lượng, mô tả quy trình và vấn đề.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Nhà ở và chuyển nhà"
+        },
+        {
+          "communicativeTaskVi": "Mô tả tình trạng, nguyên nhân, thói quen và lời khuyên.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Sức khỏe và lối sống"
+        },
+        {
+          "communicativeTaskVi": "Giải thích hiểu lầm, bày tỏ thái độ và ứng xử online.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Quan hệ và giao tiếp số"
+        },
+        {
+          "communicativeTaskVi": "So sánh sản phẩm, đổi trả và trình bày lý do.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Mua sắm và quyền lợi"
+        },
+        {
+          "communicativeTaskVi": "Dùng mốc thời gian, điểm ngoặt và cảm nhận.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Kể chuyện và trải nghiệm"
+        },
+        {
+          "communicativeTaskVi": "Hiểu lời mời, quà tặng, phép lịch sự và khác biệt ngữ cảnh.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn hóa đời sống"
+        },
+        {
+          "communicativeTaskVi": "Mô tả thay đổi, vấn đề và giải pháp cá nhân.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Môi trường quanh ta"
+        },
+        {
+          "communicativeTaskVi": "Hoàn thành nhiệm vụ nghe–nói–đọc–viết nhiều bước.",
+          "contentStatus": "planned",
+          "id": "hsk3-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Dự án tổng hợp sơ cấp"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 82,
+          "mandatory": [
+            "speaking task",
+            "writing portfolio",
+            "mock challenge"
+          ],
+          "productive": 76,
+          "receptive": 80
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": false,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Cầu nối diễn ngôn trung cấp",
+        "Nhà ở và dịch vụ đô thị",
+        "Tuyển dụng và phỏng vấn",
+        "Làm việc nhóm",
+        "Giáo dục và lựa chọn học tập",
+        "Du lịch có kế hoạch",
+        "Sức khỏe cộng đồng",
+        "Truyền thông và mạng xã hội",
+        "Môi trường và tiêu dùng",
+        "Văn hóa và quan hệ",
+        "Kể chuyện có điểm nhìn",
+        "Dự án giao tiếp thực tế"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "nghe ghi chú",
+        "đọc suy luận",
+        "phân biệt gần nghĩa",
+        "sửa lỗi",
+        "tóm tắt",
+        "thuyết trình",
+        "viết theo thể loại",
+        "dịch theo ngữ cảnh",
+        "mixed review"
+      ],
+      "id": "hsk4",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Mở rộng chữ trung cấp theo inventory chính thức; tăng tốc nhận diện và viết đoạn, không chỉ chép chữ đơn."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "liên kết tham chiếu và tỉnh lược",
+            "把/被 mở rộng",
+            "bổ ngữ phức",
+            "既然…就…",
+            "即使…也…",
+            "不但…而且…",
+            "mệnh đề định ngữ dài",
+            "khẩu ngữ–trang trọng cơ bản"
+          ],
+          "standardCumulativeBenchmark": 286
+        },
+        "pronunciation": "Pronunciation continues through rhythm, prominence, connected speech, register and presentation delivery.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": true,
+          "scopeVi": "Bám inventory chính thức 4; mục tiêu tích lũy 2.000 từ theo đề cương thi mới."
+        }
+      },
+      "level": 4,
+      "levelStructure": {
+        "coreLessonCount": 40,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "nghe ghi chú",
+          "thuyết trình",
+          "viết theo thể loại"
+        ],
+        "unitCount": 12
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Official level-specific exam inventory.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "4",
+        "examVocabularyCumulativeTarget": 2000,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 1200,
+          "grammar": 286,
+          "syllables": 724,
+          "vocabulary": 3245
+        }
+      },
+      "officialCompetencyParaphraseVi": "Giao tiếp đầy đủ, liên tục về đời sống, học tập và công việc; giải thích quan điểm quen thuộc.",
+      "outputObjectivesVi": [
+        "Theo dõi hội thoại dài, chỉ dẫn và bài trình bày phổ thông; nhận biết thái độ rõ.",
+        "Trình bày/viết có bố cục về trải nghiệm, quy trình, vấn đề và giải pháp.",
+        "Đọc suy luận từ bài thực dụng và bài báo phổ thông ngắn."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 190,
+          "min": 60
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 185,
+          "min": 140
+        },
+        "textCharacters": {
+          "max": 650,
+          "min": 220
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Hội thoại dài, phỏng vấn, thông báo và kể chuyện 1–3 phút gần tốc độ tự nhiên.",
+        "readingVi": "Email, bài báo, truyện và hướng dẫn 300–650 chữ với câu hỏi suy luận.",
+        "speakingVi": "Trình bày 3–4 phút, so sánh, giải thích quan điểm và xử lý tình huống nghề nghiệp quen thuộc.",
+        "translationVi": "Dịch ngắn theo ngữ cảnh, ưu tiên chức năng câu và sắc thái lịch sự.",
+        "writingVi": "Email, tường thuật, mô tả và báo cáo 180–300 chữ."
+      },
+      "stage": "intermediate",
+      "units": [
+        {
+          "communicativeTaskVi": "Ôn liên kết, tóm tắt và chiến lược đoán nghĩa.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Cầu nối diễn ngôn trung cấp"
+        },
+        {
+          "communicativeTaskVi": "Trao đổi hợp đồng, sửa chữa và khiếu nại lịch sự.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Nhà ở và dịch vụ đô thị"
+        },
+        {
+          "communicativeTaskVi": "Giới thiệu năng lực, hỏi việc và phản hồi phỏng vấn.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Tuyển dụng và phỏng vấn"
+        },
+        {
+          "communicativeTaskVi": "Phân công, cập nhật, góp ý và xử lý bất đồng.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Làm việc nhóm"
+        },
+        {
+          "communicativeTaskVi": "So sánh chương trình, mục tiêu và kết quả.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Giáo dục và lựa chọn học tập"
+        },
+        {
+          "communicativeTaskVi": "Đọc hướng dẫn, điều chỉnh lịch và giải quyết sự cố.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Du lịch có kế hoạch"
+        },
+        {
+          "communicativeTaskVi": "Hiểu tư vấn, trình bày thói quen và đánh giá khuyến nghị.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Sức khỏe cộng đồng"
+        },
+        {
+          "communicativeTaskVi": "Tóm tắt thông tin, phân biệt ý kiến và sự kiện.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Truyền thông và mạng xã hội"
+        },
+        {
+          "communicativeTaskVi": "Phân tích hành vi, tác động và đề xuất thay đổi.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Môi trường và tiêu dùng"
+        },
+        {
+          "communicativeTaskVi": "Điều chỉnh cách nói theo vai, khoảng cách và ngữ cảnh.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn hóa và quan hệ"
+        },
+        {
+          "communicativeTaskVi": "Tổ chức sự kiện, nhân vật, động cơ và kết quả.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Kể chuyện có điểm nhìn"
+        },
+        {
+          "communicativeTaskVi": "Thực hiện phỏng vấn, báo cáo và phản hồi.",
+          "contentStatus": "planned",
+          "id": "hsk4-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Dự án giao tiếp thực tế"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 84,
+          "mandatory": [
+            "source-based writing",
+            "presentation",
+            "final assessment"
+          ],
+          "productive": 78,
+          "receptive": 82
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": true,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Tóm tắt và cấu trúc thông tin",
+        "Giáo dục và phát triển cá nhân",
+        "Công nghệ trong đời sống",
+        "Truyền thông và độ tin cậy",
+        "Kinh tế đời sống",
+        "Tổ chức và quản lý",
+        "Tâm lý và quan hệ",
+        "Sức khỏe và khoa học phổ thông",
+        "Môi trường và thành phố",
+        "Văn hóa và sáng tạo",
+        "Lịch sử qua câu chuyện",
+        "Thuyết trình và hỏi đáp",
+        "Viết thực dụng nhiều đoạn",
+        "Dự án tổng hợp"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "nghe ghi chú",
+        "đọc suy luận",
+        "phân biệt gần nghĩa",
+        "sửa lỗi",
+        "tóm tắt",
+        "thuyết trình",
+        "viết theo thể loại",
+        "dịch theo ngữ cảnh",
+        "mixed review"
+      ],
+      "id": "hsk5",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Tăng tự động hóa đọc chữ, nhận diện hình vị và dùng chữ/từ đúng register trong văn bản nhiều đoạn."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "liên kết logic đa dạng",
+            "danh hóa và nén thông tin",
+            "câu phức nhiều tầng vừa phải",
+            "thái độ và mức độ chắc chắn",
+            "từ nối văn viết",
+            "so sánh cấu trúc gần nghĩa",
+            "collocation và register"
+          ],
+          "standardCumulativeBenchmark": 357
+        },
+        "pronunciation": "Pronunciation continues through rhythm, prominence, connected speech, register and presentation delivery.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": true,
+          "scopeVi": "Bám inventory chính thức 5; mục tiêu tích lũy 3.600 từ theo đề cương thi mới."
+        }
+      },
+      "level": 5,
+      "levelStructure": {
+        "coreLessonCount": 48,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "nghe ghi chú",
+          "thuyết trình",
+          "viết theo thể loại"
+        ],
+        "unitCount": 14
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Official level-specific exam inventory.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "5",
+        "examVocabularyCumulativeTarget": 3600,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 1500,
+          "grammar": 357,
+          "syllables": 822,
+          "vocabulary": 4316
+        }
+      },
+      "officialCompetencyParaphraseVi": "Giao tiếp chính xác, phù hợp hơn trong công việc và học thuật phổ thông; tóm tắt và lập luận đơn giản.",
+      "outputObjectivesVi": [
+        "Hiểu phỏng vấn, tin ngắn và thuyết trình; phân biệt ý chính, chứng cứ và thái độ.",
+        "Tóm tắt, trình bày và viết nhiều đoạn có lập luận nhất quán.",
+        "Điều chỉnh từ ngữ theo ngữ cảnh thân mật, trung tính và trang trọng."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 320,
+          "min": 100
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 205,
+          "min": 160
+        },
+        "textCharacters": {
+          "max": 1000,
+          "min": 400
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Phỏng vấn, tin ngắn và bài nói 2–5 phút ở tốc độ tự nhiên, có ghi chú.",
+        "readingVi": "Bài báo, bình luận và bài giải thích 500–1000 chữ.",
+        "speakingVi": "Tóm tắt và trình bày 4–6 phút, trả lời chất vấn và đưa dẫn chứng.",
+        "translationVi": "Trung–Việt và Việt–Trung đoạn ngắn, xử lý kết hợp từ, register và cấu trúc thông tin.",
+        "writingVi": "Tóm tắt, email trang trọng, báo cáo/đề xuất 300–500 chữ."
+      },
+      "stage": "intermediate",
+      "units": [
+        {
+          "communicativeTaskVi": "Ghi ý, nhận diện luận điểm và diễn đạt lại.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Tóm tắt và cấu trúc thông tin"
+        },
+        {
+          "communicativeTaskVi": "Phân tích lựa chọn, động lực và kết quả.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Giáo dục và phát triển cá nhân"
+        },
+        {
+          "communicativeTaskVi": "Giải thích tính năng, tác động và rủi ro.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Công nghệ trong đời sống"
+        },
+        {
+          "communicativeTaskVi": "So sánh nguồn, nhận diện thiên lệch và tóm tắt tin.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Truyền thông và độ tin cậy"
+        },
+        {
+          "communicativeTaskVi": "Giải thích giá cả, tiêu dùng, tiết kiệm và xu hướng.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Kinh tế đời sống"
+        },
+        {
+          "communicativeTaskVi": "Báo cáo tiến độ, ưu tiên, rủi ro và cải tiến.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Tổ chức và quản lý"
+        },
+        {
+          "communicativeTaskVi": "Phân tích cảm xúc, động cơ và chiến lược giao tiếp.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Tâm lý và quan hệ"
+        },
+        {
+          "communicativeTaskVi": "Đọc/đánh giá lời khuyên và chứng cứ cơ bản.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Sức khỏe và khoa học phổ thông"
+        },
+        {
+          "communicativeTaskVi": "Lập luận về chính sách đời sống và trách nhiệm.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Môi trường và thành phố"
+        },
+        {
+          "communicativeTaskVi": "Phân tích tác phẩm/sự kiện ở mức phổ thông.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn hóa và sáng tạo"
+        },
+        {
+          "communicativeTaskVi": "Kết nối sự kiện, bối cảnh và góc nhìn.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Lịch sử qua câu chuyện"
+        },
+        {
+          "communicativeTaskVi": "Tổ chức bài nói, dùng dẫn chứng và xử lý câu hỏi.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Thuyết trình và hỏi đáp"
+        },
+        {
+          "communicativeTaskVi": "Email trang trọng, báo cáo và đề xuất.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-13",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 11 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 11"
+            ]
+          },
+          "order": 13,
+          "reviewAfterUnit": false,
+          "titleVi": "Viết thực dụng nhiều đoạn"
+        },
+        {
+          "communicativeTaskVi": "Tổng hợp hai nguồn ngắn thành sản phẩm nói/viết.",
+          "contentStatus": "planned",
+          "id": "hsk5-unit-14",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 12 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 12"
+            ]
+          },
+          "order": 14,
+          "reviewAfterUnit": true,
+          "titleVi": "Dự án tổng hợp"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 85,
+          "mandatory": [
+            "analytical essay",
+            "debate",
+            "mock exam"
+          ],
+          "productive": 80,
+          "receptive": 83
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": true,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Đọc sâu và suy luận",
+        "Tin tức và diễn ngôn công cộng",
+        "Khoa học và công nghệ",
+        "Kinh tế và tổ chức",
+        "Giáo dục và nghiên cứu",
+        "Xã hội và thế hệ",
+        "Lịch sử và ký ức",
+        "Văn học và phong cách",
+        "Môi trường và chính sách",
+        "Đạo đức trong đời sống",
+        "Giao tiếp nghề nghiệp nâng cao",
+        "Tóm tắt và diễn đạt lại",
+        "Tranh luận có chứng cứ",
+        "Dự án kết thúc trung cấp"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "nghe ghi chú",
+        "đọc suy luận",
+        "phân biệt gần nghĩa",
+        "sửa lỗi",
+        "tóm tắt",
+        "thuyết trình",
+        "viết theo thể loại",
+        "dịch theo ngữ cảnh",
+        "mixed review"
+      ],
+      "id": "hsk6",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Hoàn tất inventory HSK6; đọc nhanh từ đa hình vị, sửa lỗi chữ trong văn bản và chọn từ theo văn phong."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "cấu trúc văn viết và nén thông tin",
+            "phương tiện liên kết diễn ngôn",
+            "hàm ý và tiền giả định cơ bản",
+            "thành ngữ có ngữ cảnh",
+            "thái độ/stance",
+            "câu phức đa tầng",
+            "đối chiếu register"
+          ],
+          "standardCumulativeBenchmark": 424
+        },
+        "pronunciation": "Pronunciation continues through rhythm, prominence, connected speech, register and presentation delivery.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": true,
+          "scopeVi": "Bám inventory chính thức 6; mục tiêu tích lũy 5.400 từ theo đề cương thi mới."
+        }
+      },
+      "level": 6,
+      "levelStructure": {
+        "coreLessonCount": 52,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "nghe ghi chú",
+          "thuyết trình",
+          "viết theo thể loại"
+        ],
+        "unitCount": 14
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Official level-specific exam inventory.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "6",
+        "examVocabularyCumulativeTarget": 5400,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 1800,
+          "grammar": 424,
+          "syllables": 908,
+          "vocabulary": 5456
+        }
+      },
+      "officialCompetencyParaphraseVi": "Dùng tiếng Trung phong phú, lưu loát trong bối cảnh nghề nghiệp, học thuật và chủ đề phổ thông tương đối phức tạp.",
+      "outputObjectivesVi": [
+        "Xử lý văn bản dài, suy luận hàm ý và đánh giá quan hệ giữa luận điểm–chứng cứ.",
+        "Tranh luận, thuyết trình và viết bài phân tích có bố cục, sắc thái và phản hồi quan điểm khác.",
+        "Diễn đạt lại/tóm tắt nguồn mà không làm sai lập trường."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 440,
+          "min": 160
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 220,
+          "min": 175
+        },
+        "textCharacters": {
+          "max": 1800,
+          "min": 700
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Tin, phỏng vấn, tranh luận và bài giảng 3–7 phút ở tốc độ tự nhiên, có hàm ý.",
+        "readingVi": "Bài báo, báo cáo, tiểu luận phổ thông và văn học 800–1800 chữ.",
+        "speakingVi": "Thuyết trình/tranh luận 6–8 phút, tóm tắt nguồn và phản hồi có cấu trúc.",
+        "translationVi": "Dịch văn bản phổ thông tương đối dài, giải thích lựa chọn với đa nghĩa, thuật ngữ và phong cách.",
+        "writingVi": "Bài luận, báo cáo và tổng hợp nguồn 500–800 chữ."
+      },
+      "stage": "intermediate",
+      "units": [
+        {
+          "communicativeTaskVi": "Theo dõi tham chiếu, hàm ý, cấu trúc và giọng điệu.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Đọc sâu và suy luận"
+        },
+        {
+          "communicativeTaskVi": "Phân tích khung tin, nguồn và cách trình bày.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Tin tức và diễn ngôn công cộng"
+        },
+        {
+          "communicativeTaskVi": "Giải thích quy trình, bằng chứng, giới hạn và tác động.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Khoa học và công nghệ"
+        },
+        {
+          "communicativeTaskVi": "Đọc dữ liệu mô tả, nguyên nhân, rủi ro và quyết định.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Kinh tế và tổ chức"
+        },
+        {
+          "communicativeTaskVi": "Hiểu câu hỏi nghiên cứu, phương pháp và kết quả phổ thông.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Giáo dục và nghiên cứu"
+        },
+        {
+          "communicativeTaskVi": "So sánh quan điểm, bối cảnh và hệ quả.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Xã hội và thế hệ"
+        },
+        {
+          "communicativeTaskVi": "Phân biệt sự kiện, diễn giải và góc nhìn.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Lịch sử và ký ức"
+        },
+        {
+          "communicativeTaskVi": "Đọc hình ảnh, giọng kể và hiệu quả biểu đạt.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn học và phong cách"
+        },
+        {
+          "communicativeTaskVi": "Đánh giá lợi ích, chi phí và bên liên quan.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Môi trường và chính sách"
+        },
+        {
+          "communicativeTaskVi": "Xây lập luận, phản ví dụ và nhượng bộ.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Đạo đức trong đời sống"
+        },
+        {
+          "communicativeTaskVi": "Chủ trì họp, đàm phán và xử lý bất đồng.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Giao tiếp nghề nghiệp nâng cao"
+        },
+        {
+          "communicativeTaskVi": "Tổng hợp nguồn, tránh chép và giữ độ chính xác.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Tóm tắt và diễn đạt lại"
+        },
+        {
+          "communicativeTaskVi": "Phản biện lập luận và trả lời chất vấn.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-13",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 11 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 11"
+            ]
+          },
+          "order": 13,
+          "reviewAfterUnit": false,
+          "titleVi": "Tranh luận có chứng cứ"
+        },
+        {
+          "communicativeTaskVi": "Thực hiện báo cáo đa kỹ năng có nguồn.",
+          "contentStatus": "planned",
+          "id": "hsk6-unit-14",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 12 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 12"
+            ]
+          },
+          "order": 14,
+          "reviewAfterUnit": true,
+          "titleVi": "Dự án kết thúc trung cấp"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 85,
+          "mandatory": [
+            "translation portfolio",
+            "academic presentation",
+            "level challenge"
+          ],
+          "productive": 81,
+          "receptive": 84
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": true,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Cầu nối diễn ngôn cao cấp",
+        "Báo chí và cấu trúc tin",
+        "Bài giảng và ghi chú",
+        "Nghiên cứu nhập môn",
+        "Chính sách công cơ bản",
+        "Kinh tế và dữ liệu mô tả",
+        "Khoa học và truyền thông",
+        "Văn hóa và bản sắc",
+        "Văn học hiện đại",
+        "Giao tiếp nghề nghiệp",
+        "Lập luận và phản biện",
+        "Dịch thông tin",
+        "Phiên dịch nối tiếp nhập môn",
+        "Viết học thuật nhập môn",
+        "Dự án cấp 7"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "tổng hợp nhiều nguồn",
+        "đánh giá lập luận",
+        "tranh luận",
+        "source-based writing",
+        "dịch/hiệu đính",
+        "phiên dịch",
+        "phân tích register",
+        "biên tập theo rubric"
+      ],
+      "id": "hsk7",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Dùng combined official 7–9 inventory; pedagogicTargetLevel=7 chỉ là trình tự nội bộ, không phải membership chính thức."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "tổ chức diễn ngôn nâng cao",
+            "thái độ học thuật",
+            "danh hóa/cấu trúc bị động trang trọng",
+            "thành ngữ theo register",
+            "hàm ý",
+            "chuỗi lập luận",
+            "đối chiếu biên dịch"
+          ],
+          "standardCumulativeBenchmark": 572
+        },
+        "pronunciation": "Pronunciation continues through rhythm, prominence, connected speech, register and presentation delivery.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": false,
+          "scopeVi": "Bám inventory chính thức 7-9; mục tiêu tích lũy 11.000 từ theo đề cương thi mới."
+        }
+      },
+      "level": 7,
+      "levelStructure": {
+        "coreLessonCount": 56,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "đọc học thuật",
+          "tranh luận",
+          "dịch nói",
+          "dịch viết"
+        ],
+        "unitCount": 15
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Combined official 7-9 membership; pedagogicTargetLevel is internal sequencing only.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "7-9",
+        "examVocabularyCumulativeTarget": 11000,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 3000,
+          "grammar": 572,
+          "syllables": 1110,
+          "vocabulary": 11092
+        }
+      },
+      "officialCompetencyParaphraseVi": "Dùng tiếng Trung chuẩn mực, lưu loát trong nghề nghiệp, chuyên môn phổ thông và học thuật; bắt đầu dịch có hệ thống.",
+      "outputObjectivesVi": [
+        "Theo dõi bài giảng, bài báo và lập luận nâng cao; ghi chú và tóm tắt chính xác.",
+        "Trình bày quan điểm có luận cứ, nhận biết phong cách và chuyển register có kiểm soát.",
+        "Dịch thông tin nói/viết có chuẩn bị và giải thích vấn đề thuật ngữ cơ bản."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 560,
+          "min": 240
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 225,
+          "min": 185
+        },
+        "textCharacters": {
+          "max": 2400,
+          "min": 900
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Bài giảng, phỏng vấn, tin và thảo luận 4–9 phút; ghi chú, suy luận và tổng hợp.",
+        "readingVi": "Báo chí, bài luận và văn bản học thuật phổ thông 1000–2400 chữ.",
+        "speakingVi": "Tóm tắt học thuật, thuyết trình 8–10 phút, bảo vệ quan điểm và phiên dịch nối tiếp đoạn ngắn.",
+        "translationVi": "Dịch thông tin và lập luận phổ thông; nêu bối cảnh, thuật ngữ, phương án và lỗi dịch từng chữ.",
+        "writingVi": "Phân tích có nguồn, báo cáo và tóm tắt 700–1100 chữ."
+      },
+      "stage": "advanced",
+      "units": [
+        {
+          "communicativeTaskVi": "Chuẩn hóa ghi chú, tóm tắt, register và chiến lược từ vựng 7–9.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Cầu nối diễn ngôn cao cấp"
+        },
+        {
+          "communicativeTaskVi": "Phân tích tiêu đề, nguồn, dẫn lời, khung và hàm ý.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Báo chí và cấu trúc tin"
+        },
+        {
+          "communicativeTaskVi": "Tổ chức luận điểm, ví dụ, chuyển ý và câu hỏi.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Bài giảng và ghi chú"
+        },
+        {
+          "communicativeTaskVi": "Đọc tóm tắt, câu hỏi, phương pháp và kết luận.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Nghiên cứu nhập môn"
+        },
+        {
+          "communicativeTaskVi": "Nhận diện vấn đề, bên liên quan, công cụ và tác động.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Chính sách công cơ bản"
+        },
+        {
+          "communicativeTaskVi": "Diễn giải xu hướng, nguyên nhân và giới hạn.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Kinh tế và dữ liệu mô tả"
+        },
+        {
+          "communicativeTaskVi": "So sánh nghiên cứu với cách báo chí diễn giải.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Khoa học và truyền thông"
+        },
+        {
+          "communicativeTaskVi": "Phân tích khái niệm, ví dụ và khác biệt góc nhìn.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn hóa và bản sắc"
+        },
+        {
+          "communicativeTaskVi": "Đọc giọng kể, hình tượng và bối cảnh.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Văn học hiện đại"
+        },
+        {
+          "communicativeTaskVi": "Thuyết trình, thương lượng và biên bản ở mức nâng cao.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Giao tiếp nghề nghiệp"
+        },
+        {
+          "communicativeTaskVi": "Kiểm tra giả định, chứng cứ và ngụy biện phổ biến.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Lập luận và phản biện"
+        },
+        {
+          "communicativeTaskVi": "Dịch tin, giới thiệu, tóm tắt và lời nói có chuẩn bị.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Dịch thông tin"
+        },
+        {
+          "communicativeTaskVi": "Nghe–ghi chú–chuyển đạt đoạn ngắn theo ý.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-13",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 11 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 11"
+            ]
+          },
+          "order": 13,
+          "reviewAfterUnit": false,
+          "titleVi": "Phiên dịch nối tiếp nhập môn"
+        },
+        {
+          "communicativeTaskVi": "Xây đoạn luận, trích dẫn ý và tránh sao chép.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-14",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 12 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 12"
+            ]
+          },
+          "order": 14,
+          "reviewAfterUnit": true,
+          "titleVi": "Viết học thuật nhập môn"
+        },
+        {
+          "communicativeTaskVi": "Tổng hợp nhiều nguồn thành báo cáo và thuyết trình.",
+          "contentStatus": "planned",
+          "id": "hsk7-unit-15",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 13 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 13"
+            ]
+          },
+          "order": 15,
+          "reviewAfterUnit": false,
+          "titleVi": "Dự án cấp 7"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 86,
+          "mandatory": [
+            "multi-source essay",
+            "debate",
+            "bilingual portfolio"
+          ],
+          "productive": 83,
+          "receptive": 85
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": true,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Tổng hợp nhiều nguồn",
+        "Chính sách và quản trị",
+        "Luật và ngôn ngữ quy phạm",
+        "Kinh tế và phân tích",
+        "Đạo đức và công nghệ",
+        "Khoa học, bằng chứng và bất định",
+        "Giáo dục và bất bình đẳng",
+        "Môi trường và phát triển",
+        "Truyền thông và tu từ",
+        "Văn học và phê bình",
+        "Xã hội và bản sắc",
+        "Giao tiếp lãnh đạo",
+        "Tranh luận và phản bác",
+        "Dịch theo chức năng",
+        "Phiên dịch nối tiếp",
+        "Dự án cấp 8"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "tổng hợp nhiều nguồn",
+        "đánh giá lập luận",
+        "tranh luận",
+        "source-based writing",
+        "dịch/hiệu đính",
+        "phiên dịch",
+        "phân tích register",
+        "biên tập theo rubric"
+      ],
+      "id": "hsk8",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Tiếp tục combined 7–9 inventory theo tần suất/chủ đề; tăng độ chính xác khi đọc, viết, biên tập và dịch."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "tu từ và lập luận",
+            "cấu trúc thông tin",
+            "ẩn dụ khái niệm",
+            "hàm ý tinh tế",
+            "register chuyên nghiệp",
+            "collocation nâng cao",
+            "biên tập và chuyển đổi thể loại"
+          ],
+          "standardCumulativeBenchmark": 572
+        },
+        "pronunciation": "Pronunciation continues through rhythm, prominence, connected speech, register and presentation delivery.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": false,
+          "scopeVi": "Bám inventory chính thức 7-9; mục tiêu tích lũy 11.000 từ theo đề cương thi mới."
+        }
+      },
+      "level": 8,
+      "levelStructure": {
+        "coreLessonCount": 60,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "đọc học thuật",
+          "tranh luận",
+          "dịch nói",
+          "dịch viết"
+        ],
+        "unitCount": 16
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Combined official 7-9 membership; pedagogicTargetLevel is internal sequencing only.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "7-9",
+        "examVocabularyCumulativeTarget": 11000,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 3000,
+          "grammar": 572,
+          "syllables": 1110,
+          "vocabulary": 11092
+        }
+      },
+      "officialCompetencyParaphraseVi": "Dùng tiếng Trung thích hợp, có chiều sâu trong nghề nghiệp và học thuật; tổng hợp, phản biện và dịch theo mục đích.",
+      "outputObjectivesVi": [
+        "Đánh giá nhiều nguồn, lập trường, hàm ý và độ tin cậy trong diễn ngôn phức tạp.",
+        "Tranh luận, phản biện và viết bài dựa trên nguồn với register nhất quán.",
+        "Dịch/hiệu đính văn bản phức tạp vừa phải và biện minh lựa chọn."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 680,
+          "min": 300
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 235,
+          "min": 195
+        },
+        "textCharacters": {
+          "max": 3400,
+          "min": 1400
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Bài giảng, tranh luận, tin chuyên sâu và họp 5–11 phút; nhận diện stance và tổng hợp nguồn.",
+        "readingVi": "Bài nghiên cứu phổ thông, chính sách, bình luận và văn học 1600–3400 chữ.",
+        "speakingVi": "Tranh luận 10–12 phút, phản biện, thuyết trình dựa trên nguồn và phiên dịch nối tiếp.",
+        "translationVi": "Dịch/hiệu đính văn bản thông tin–lập luận; xử lý register, thuật ngữ và nhiều phương án hợp lệ.",
+        "writingVi": "Bài dựa trên nhiều nguồn, policy brief và biên tập 1000–1500 chữ."
+      },
+      "stage": "advanced",
+      "units": [
+        {
+          "communicativeTaskVi": "Kết nối điểm đồng/khác, bằng chứng và khoảng trống.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Tổng hợp nhiều nguồn"
+        },
+        {
+          "communicativeTaskVi": "Đánh giá mục tiêu, công cụ, hệ quả và đánh đổi.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Chính sách và quản trị"
+        },
+        {
+          "communicativeTaskVi": "Hiểu định nghĩa, điều kiện, ngoại lệ và mức độ bắt buộc.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Luật và ngôn ngữ quy phạm"
+        },
+        {
+          "communicativeTaskVi": "Diễn giải dữ liệu, mô hình, rủi ro và quan điểm.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Kinh tế và phân tích"
+        },
+        {
+          "communicativeTaskVi": "Xây luận điểm, phản biện và xử lý xung đột giá trị.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Đạo đức và công nghệ"
+        },
+        {
+          "communicativeTaskVi": "Đánh giá phương pháp, xác suất và giới hạn kết luận.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Khoa học, bằng chứng và bất định"
+        },
+        {
+          "communicativeTaskVi": "Tổng hợp nghiên cứu và quan điểm chính sách.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Giáo dục và bất bình đẳng"
+        },
+        {
+          "communicativeTaskVi": "Phân tích hệ thống, đánh đổi và trách nhiệm.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Môi trường và phát triển"
+        },
+        {
+          "communicativeTaskVi": "Phân tích framing, ẩn dụ, giọng điệu và thuyết phục.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Truyền thông và tu từ"
+        },
+        {
+          "communicativeTaskVi": "Đối chiếu cách đọc, thủ pháp và bối cảnh.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn học và phê bình"
+        },
+        {
+          "communicativeTaskVi": "Xử lý khái niệm trừu tượng và quan điểm đa chiều.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Xã hội và bản sắc"
+        },
+        {
+          "communicativeTaskVi": "Chủ trì, đàm phán, giải trình và xử lý khủng hoảng.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Giao tiếp lãnh đạo"
+        },
+        {
+          "communicativeTaskVi": "Xây rebuttal, concession và tổng kết.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-13",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 11 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 11"
+            ]
+          },
+          "order": 13,
+          "reviewAfterUnit": false,
+          "titleVi": "Tranh luận và phản bác"
+        },
+        {
+          "communicativeTaskVi": "Điều chỉnh nội dung cho đối tượng, thể loại và mục đích.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-14",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 12 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 12"
+            ]
+          },
+          "order": 14,
+          "reviewAfterUnit": true,
+          "titleVi": "Dịch theo chức năng"
+        },
+        {
+          "communicativeTaskVi": "Xử lý đoạn dài hơn, số liệu, thuật ngữ và tự sửa.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-15",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 13 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 13"
+            ]
+          },
+          "order": 15,
+          "reviewAfterUnit": false,
+          "titleVi": "Phiên dịch nối tiếp"
+        },
+        {
+          "communicativeTaskVi": "Tổng hợp nguồn, phản biện và sản phẩm song ngữ.",
+          "contentStatus": "planned",
+          "id": "hsk8-unit-16",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 14 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 14"
+            ]
+          },
+          "order": 16,
+          "reviewAfterUnit": true,
+          "titleVi": "Dự án cấp 8"
+        }
+      ]
+    },
+    {
+      "assessments": {
+        "diagnostic": true,
+        "final": true,
+        "lessonQuiz": true,
+        "masteryCriteria": {
+          "knowledge": 87,
+          "mandatory": [
+            "capstone",
+            "translation/interpreting portfolio",
+            "mastery review"
+          ],
+          "productive": 84,
+          "receptive": 86
+        },
+        "midLevel": true,
+        "mockExam": true,
+        "speaking": true,
+        "translation": true,
+        "unitCheckpoint": true,
+        "writing": true
+      },
+      "communicativeDomains": [
+        "Đọc nghiên cứu chuyên sâu",
+        "Lý thuyết và khái niệm trừu tượng",
+        "Chính sách và phân tích hệ thống",
+        "Kinh tế vĩ mô và xã hội",
+        "Khoa học liên ngành",
+        "Luật, hành chính và ngoại giao",
+        "Triết học và đạo đức",
+        "Văn học và liên văn bản",
+        "Truyền thông công chúng",
+        "Nghiên cứu và tổng quan tài liệu",
+        "Thuyết trình chuyên nghiệp",
+        "Tranh luận chuyên sâu",
+        "Dịch học thuật",
+        "Dịch nghề nghiệp",
+        "Phiên dịch và quản lý thông tin",
+        "Capstone HSK 1–9"
+      ],
+      "contentStatus": "architecture-approved",
+      "exerciseFamilies": [
+        "tổng hợp nhiều nguồn",
+        "đánh giá lập luận",
+        "tranh luận",
+        "source-based writing",
+        "dịch/hiệu đính",
+        "phiên dịch",
+        "phân tích register",
+        "biên tập theo rubric"
+      ],
+      "id": "hsk9",
+      "languageSystem": {
+        "characters": {
+          "authoringRequirements": [
+            "bộ thủ",
+            "cấu trúc",
+            "số nét",
+            "stroke data có nguồn",
+            "từ đã học",
+            "mnemonic gắn nhãn",
+            "chữ dễ nhầm"
+          ],
+          "scopeVi": "Hoàn tất combined 7–9 inventory theo nhu cầu đọc/viết chuyên sâu; không tuyên bố một official Level 9 word list riêng."
+        },
+        "grammar": {
+          "authoringRequirements": [
+            "mục tiêu giao tiếp",
+            "công thức",
+            "điều kiện dùng",
+            "ngữ dụng",
+            "phủ định/nghi vấn",
+            "đối chiếu",
+            "lỗi người Việt",
+            "bài sản sinh"
+          ],
+          "focusVi": [
+            "ngữ dụng và hàm ý cấp cao",
+            "tu từ thể loại",
+            "liên văn bản",
+            "register chuyên ngành",
+            "nén/mở rộng thông tin",
+            "thành ngữ có kiểm soát",
+            "biên tập và lý giải lựa chọn dịch"
+          ],
+          "standardCumulativeBenchmark": 572
+        },
+        "pronunciation": "Pronunciation continues through rhythm, prominence, connected speech, register and presentation delivery.",
+        "vocabulary": {
+          "authoringRequirements": [
+            "nghĩa tiếng Việt theo ngữ cảnh",
+            "từ loại",
+            "collocation",
+            "sắc thái",
+            "từ dễ nhầm",
+            "lỗi người Việt",
+            "ba ví dụ đã review"
+          ],
+          "officialSplit": false,
+          "scopeVi": "Bám inventory chính thức 7-9; mục tiêu tích lũy 11.000 từ theo đề cương thi mới."
+        }
+      },
+      "level": 9,
+      "levelStructure": {
+        "coreLessonCount": 64,
+        "finalAssessment": true,
+        "masteryReview": true,
+        "midLevelAssessment": true,
+        "mockOrChallenge": true,
+        "orientation": true,
+        "remedialPractice": true,
+        "reviews": "Sau mỗi hai unit và cumulative review giữa/cuối cấp.",
+        "skillWorkshops": [
+          "đọc học thuật",
+          "tranh luận",
+          "dịch nói",
+          "dịch viết"
+        ],
+        "unitCount": 16
+      },
+      "officialAlignment": {
+        "advancedBandSplitPolicy": "Combined official 7-9 membership; pedagogicTargetLevel is internal sequencing only.",
+        "examSyllabus": "CTI-HSK3.0-2026",
+        "examVocabularyBand": "7-9",
+        "examVocabularyCumulativeTarget": 11000,
+        "framework": "GF0025-2021",
+        "sourceIds": [
+          "moe-gf0025-2021-standard",
+          "cti-hsk3-syllabus-pdf-2026",
+          "cti-hsk3-competency-profile-2026"
+        ],
+        "standardCumulativeBenchmark": {
+          "characters": 3000,
+          "grammar": 572,
+          "syllables": 1110,
+          "vocabulary": 11092
+        }
+      },
+      "officialCompetencyParaphraseVi": "Dùng tiếng Trung chính xác, sâu sắc trong bối cảnh nghề nghiệp, chuyên môn và học thuật phức tạp.",
+      "outputObjectivesVi": [
+        "Xử lý diễn ngôn mật độ cao, liên văn bản, hàm ý và biến đổi phong cách.",
+        "Sản sinh lập luận dài, tổng hợp nghiên cứu và thảo luận ở mức chuyên nghiệp.",
+        "Dịch nói/viết, biên tập và bảo vệ giải pháp dựa trên mục đích giao tiếp."
+      ],
+      "pedagogicEnvelopes": {
+        "audioSeconds": {
+          "max": 840,
+          "min": 360
+        },
+        "note": "VDuckie design ranges, not official exam timing or text-length claims.",
+        "speechSyllablesPerMinute": {
+          "max": 245,
+          "min": 205
+        },
+        "textCharacters": {
+          "max": 5000,
+          "min": 2000
+        }
+      },
+      "productionReady": false,
+      "skills": {
+        "listeningVi": "Hội thảo, diễn thuyết, tranh luận và nội dung chuyên sâu 6–14 phút với mật độ cao.",
+        "readingVi": "Nghiên cứu, báo cáo, chính sách, văn học và văn bản chuyên ngành 2200–5000 chữ.",
+        "speakingVi": "Thuyết trình 12–15 phút, đối thoại chuyên môn, phản biện và phiên dịch nối tiếp nâng cao.",
+        "translationVi": "Dịch nói/viết và biên tập ở mức nâng cao; trình bày thuật ngữ, phương án, đánh đổi và tiêu chí chất lượng.",
+        "writingVi": "Tổng hợp nghiên cứu, báo cáo, bài luận và sản phẩm chuyên nghiệp 1400–2200 chữ."
+      },
+      "stage": "advanced",
+      "units": [
+        {
+          "communicativeTaskVi": "Đánh giá câu hỏi, phương pháp, bằng chứng và giới hạn.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-01",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "chiến lược cấp độ",
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "đầu vào cấp trước"
+            ]
+          },
+          "order": 1,
+          "reviewAfterUnit": false,
+          "titleVi": "Đọc nghiên cứu chuyên sâu"
+        },
+        {
+          "communicativeTaskVi": "Giải thích, đối chiếu và vận dụng khái niệm.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-02",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 2,
+          "reviewAfterUnit": true,
+          "titleVi": "Lý thuyết và khái niệm trừu tượng"
+        },
+        {
+          "communicativeTaskVi": "Tổng hợp nhiều cấp độ, bên liên quan và hệ quả dài hạn.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-03",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 1 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 1"
+            ]
+          },
+          "order": 3,
+          "reviewAfterUnit": false,
+          "titleVi": "Chính sách và phân tích hệ thống"
+        },
+        {
+          "communicativeTaskVi": "Phân tích lập luận, dữ liệu và giả định.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-04",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 2 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 2"
+            ]
+          },
+          "order": 4,
+          "reviewAfterUnit": true,
+          "titleVi": "Kinh tế vĩ mô và xã hội"
+        },
+        {
+          "communicativeTaskVi": "Kết nối mô hình, bằng chứng và cách truyền đạt.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-05",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 3 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 3"
+            ]
+          },
+          "order": 5,
+          "reviewAfterUnit": false,
+          "titleVi": "Khoa học liên ngành"
+        },
+        {
+          "communicativeTaskVi": "Xử lý register chính thức, điều kiện và tính mơ hồ có chủ ý.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-06",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 4 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 4"
+            ]
+          },
+          "order": 6,
+          "reviewAfterUnit": true,
+          "titleVi": "Luật, hành chính và ngoại giao"
+        },
+        {
+          "communicativeTaskVi": "Xây/đánh giá lập luận trừu tượng và phản ví dụ.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-07",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 5 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 5"
+            ]
+          },
+          "order": 7,
+          "reviewAfterUnit": false,
+          "titleVi": "Triết học và đạo đức"
+        },
+        {
+          "communicativeTaskVi": "Phân tích phong cách, giọng, biểu tượng và đối thoại văn bản.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-08",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 6 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 6"
+            ]
+          },
+          "order": 8,
+          "reviewAfterUnit": true,
+          "titleVi": "Văn học và liên văn bản"
+        },
+        {
+          "communicativeTaskVi": "Biên tập thông điệp cho đối tượng và kênh khác nhau.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-09",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 7 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 7"
+            ]
+          },
+          "order": 9,
+          "reviewAfterUnit": false,
+          "titleVi": "Truyền thông công chúng"
+        },
+        {
+          "communicativeTaskVi": "Tổ chức nguồn, lập khoảng trống và tổng hợp.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-10",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 8 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 8"
+            ]
+          },
+          "order": 10,
+          "reviewAfterUnit": true,
+          "titleVi": "Nghiên cứu và tổng quan tài liệu"
+        },
+        {
+          "communicativeTaskVi": "Thuyết trình dài, hỏi đáp khó và ứng biến.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-11",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 9 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 9"
+            ]
+          },
+          "order": 11,
+          "reviewAfterUnit": false,
+          "titleVi": "Thuyết trình chuyên nghiệp"
+        },
+        {
+          "communicativeTaskVi": "Xử lý định nghĩa, chứng cứ, phản bác và tổng kết.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-12",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 10 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 10"
+            ]
+          },
+          "order": 12,
+          "reviewAfterUnit": true,
+          "titleVi": "Tranh luận chuyên sâu"
+        },
+        {
+          "communicativeTaskVi": "Dịch khái niệm, lập luận, trích dẫn và cấu trúc thông tin.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-13",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 11 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 11"
+            ]
+          },
+          "order": 13,
+          "reviewAfterUnit": false,
+          "titleVi": "Dịch học thuật"
+        },
+        {
+          "communicativeTaskVi": "Dịch báo cáo, hành chính, truyền thông và tình huống họp.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-14",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 12 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 12"
+            ]
+          },
+          "order": 14,
+          "reviewAfterUnit": true,
+          "titleVi": "Dịch nghề nghiệp"
+        },
+        {
+          "communicativeTaskVi": "Ghi chú, phân đoạn, tự sửa và giữ lập trường người nói.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-15",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 13 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 13"
+            ]
+          },
+          "order": 15,
+          "reviewAfterUnit": false,
+          "titleVi": "Phiên dịch và quản lý thông tin"
+        },
+        {
+          "communicativeTaskVi": "Hoàn thành nghiên cứu/tình huống đa kỹ năng có phản biện.",
+          "contentStatus": "planned",
+          "id": "hsk9-unit-16",
+          "lifecycle": {
+            "assess": [
+              "nhiệm vụ giao tiếp",
+              "mini-checkpoint",
+              "tự đánh giá"
+            ],
+            "expand": [
+              "ngôn ngữ từ unit 14 trong ngữ cảnh mới"
+            ],
+            "introduce": [
+              "năng lực mới của unit"
+            ],
+            "retrieve": [
+              "nội dung unit 14"
+            ]
+          },
+          "order": 16,
+          "reviewAfterUnit": true,
+          "titleVi": "Capstone HSK 1–9"
+        }
+      ]
+    }
+  ],
+  "normativeModel": {
+    "examTrack": {
+      "lastVerified": "2026-07-29",
+      "reverifyBeforeRelease": true,
+      "role": "Đề cương nhiệm vụ/chủ đề/inventory/blueprint dùng để biên soạn và luyện thi.",
+      "rolloutNoteVi": "CTI tổ chức pilot HSK 3.0 cấp 1–6 ngày 31/01/2026; lịch thi thường kỳ 2026 vẫn dùng HSK 2.0 cho đến khi CTI công bố ngày áp dụng chính thức.",
+      "rolloutStatus": "transition",
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026",
+        "cti-hsk3-pilot-notice-2026",
+        "cti-hsk3-competency-profile-2026"
+      ],
+      "version": "CTI-HSK3.0-2026"
+    },
+    "examVocabularyCumulative": {
+      "1": 300,
+      "2": 500,
+      "3": 1000,
+      "4": 2000,
+      "5": 3600,
+      "6": 5400,
+      "7-9": 11000
+    },
+    "framework": {
+      "role": "Chuẩn năng lực ba bậc, chín cấp; bốn chiều âm tiết/chữ/từ/ngữ pháp; năm kỹ năng nghe/nói/đọc/viết/dịch.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "moe-gf0025-2021-qa"
+      ],
+      "version": "GF0025-2021"
+    },
+    "nonEquivalenceRule": "Không dùng quota GF0025-2021 như thể đó là số câu/từ của đề thi; không dùng rollout HSK 3.0 để tuyên bố mọi kỳ thi hiện đã chuyển đổi.",
+    "standardCumulativeBenchmarks": {
+      "1": {
+        "characters": 300,
+        "grammar": 48,
+        "syllables": 269,
+        "vocabulary": 500
+      },
+      "2": {
+        "characters": 600,
+        "grammar": 129,
+        "syllables": 468,
+        "vocabulary": 1272
+      },
+      "3": {
+        "characters": 900,
+        "grammar": 210,
+        "syllables": 608,
+        "vocabulary": 2245
+      },
+      "4": {
+        "characters": 1200,
+        "grammar": 286,
+        "syllables": 724,
+        "vocabulary": 3245
+      },
+      "5": {
+        "characters": 1500,
+        "grammar": 357,
+        "syllables": 822,
+        "vocabulary": 4316
+      },
+      "6": {
+        "characters": 1800,
+        "grammar": 424,
+        "syllables": 908,
+        "vocabulary": 5456
+      },
+      "7-9": {
+        "characters": 3000,
+        "grammar": 572,
+        "syllables": 1110,
+        "vocabulary": 11092
+      }
+    }
+  },
+  "phase": "C0",
+  "productionSafety": {
+    "curriculumEnabled": false,
+    "note": "C0 chỉ thiết kế và audit; production tiếp tục HSK1 V75 legacy.",
+    "publicOverrideAllowed": false,
+    "qualityGate": "locked",
+    "supabaseMigration": false,
+    "userDataMigration": false
+  },
+  "researchedAt": "2026-07-29",
+  "reviewPolicy": {
+    "humanSamplingPerLevel": {
+      "answerExplanations": 20,
+      "dialogues": 5,
+      "exampleSentences": 45,
+      "exercises": 40,
+      "grammar": 10,
+      "listening": 5,
+      "reading": 5,
+      "translations": 30,
+      "vocabulary": 30,
+      "writing": 5
+    },
+    "productionRule": "Không level nào production-ready nếu mẫu review chưa hoàn tất hoặc còn blocking issue.",
+    "requiredReviewFields": [
+      "itemId",
+      "reviewer",
+      "reviewedAt",
+      "errorsFound",
+      "fixes",
+      "status",
+      "confidence",
+      "unresolvedIssues"
+    ],
+    "validators": [
+      "schema",
+      "pinyin",
+      "simplified characters",
+      "references",
+      "difficulty/dependency",
+      "duplicates",
+      "answer integrity",
+      "source coverage",
+      "placeholder detection"
+    ]
+  },
+  "schemaVersion": "1.0.0",
+  "sourceClaims": [
+    {
+      "claimId": "three-stages-nine-levels",
+      "confidence": "authoritative",
+      "contentUse": "stage/level architecture and five-skill model",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "moe-gf0025-2021-qa"
+      ]
+    },
+    {
+      "claimId": "new-exam-inventory-and-tasks",
+      "confidence": "authoritative-current",
+      "contentUse": "official vocabulary bands, task families, topics, hanzi and grammar extraction targets",
+      "sourceIds": [
+        "cti-hsk3-syllabus-pdf-2026"
+      ]
+    },
+    {
+      "claimId": "exam-transition-2026",
+      "confidence": "authoritative-current-reverify",
+      "contentUse": "avoid falsely describing HSK 3.0 as universal operational exam",
+      "sourceIds": [
+        "cti-hsk3-pilot-notice-2026"
+      ]
+    },
+    {
+      "claimId": "level-competency-progression",
+      "confidence": "authoritative-current",
+      "contentUse": "paraphrased output goals per level",
+      "sourceIds": [
+        "cti-hsk3-competency-profile-2026"
+      ]
+    },
+    {
+      "claimId": "integrated-pedagogy",
+      "confidence": "institutional-pedagogy",
+      "contentUse": "integrated skills, discourse/pragmatics/culture and academic pathway design",
+      "sourceIds": [
+        "blcu-new-standard-pedagogy-2025"
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "discourseFocus": "Giao tiếp đời sống, học tập và công việc cơ bản.",
+      "id": "elementary",
+      "labelVi": "Sơ cấp",
+      "levels": [
+        1,
+        2,
+        3
+      ],
+      "progressionVi": "Từ âm–từ–câu kiểm soát đến tương tác quen thuộc nhiều lượt và đoạn văn ngắn.",
+      "translationRole": "Chuyển đạt nghĩa ngắn để kiểm tra hiểu; không dạy dịch từng chữ."
+    },
+    {
+      "discourseFocus": "Đời sống xã hội, nghề nghiệp, giáo dục, truyền thông và kiến thức phổ thông.",
+      "id": "intermediate",
+      "labelVi": "Trung cấp",
+      "levels": [
+        4,
+        5,
+        6
+      ],
+      "progressionVi": "Từ diễn đạt mạch lạc về tình huống quen thuộc đến lập luận và xử lý văn bản dài.",
+      "translationRole": "Dịch ngắn có ngữ cảnh, sắc thái, cấu trúc thông tin và thuật ngữ phổ thông."
+    },
+    {
+      "discourseFocus": "Học thuật, nghề nghiệp, xã hội, khoa học, chính sách, văn học và liên văn bản.",
+      "id": "advanced",
+      "labelVi": "Cao cấp",
+      "levels": [
+        7,
+        8,
+        9
+      ],
+      "progressionVi": "Từ xử lý diễn ngôn nâng cao đến tổng hợp, phản biện và sử dụng ngôn ngữ chuyên nghiệp chính xác.",
+      "translationRole": "Dịch nói/viết, biên tập và giải thích lựa chọn theo mục đích, đối tượng và phong cách."
+    }
+  ],
+  "status": "architecture-approved-content-not-yet-approved"
+}
