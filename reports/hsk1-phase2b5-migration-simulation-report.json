@@ -1,0 +1,929 @@
+{
+  "reportVersion": "1.0.0",
+  "phase": "2B-5",
+  "title": "Large HSK1 migration simulation and failure injection",
+  "baselineCommit": "2a0e94dc030ca402260a5dba7cd4f5e437aa1f5b",
+  "mode": "synthetic-read-only-memory-only",
+  "generatedBy": "scripts/hsk1-phase2b5-migration-simulation-report.js",
+  "fixtureSeed": 20260729,
+  "fixtureSizes": {
+    "small": 100,
+    "medium": 1000,
+    "large": 10000
+  },
+  "fixtureCategories": [
+    "empty",
+    "viewed-last-seen",
+    "learned",
+    "saved",
+    "mastered",
+    "quiz-correct",
+    "quiz-incorrect",
+    "dictation-correct",
+    "dictation-incorrect",
+    "lesson-completion",
+    "mixed",
+    "missing-fields",
+    "extra-fields",
+    "timestamp-variants",
+    "duplicate-record",
+    "conflict-record",
+    "invalid-id",
+    "null-record",
+    "undefined-record",
+    "wrong-type",
+    "reordered-progress",
+    "no-hsk1-progress",
+    "outside-hsk1",
+    "stale-canonical-like",
+    "unknown-legacy-id"
+  ],
+  "mappingMetrics": {
+    "totalLegacyItems": 150,
+    "exactMapped": 146,
+    "normalizedMapped": 0,
+    "ambiguous": 0,
+    "unmatched": 4,
+    "duplicateTargets": 0,
+    "mapped": 146,
+    "coveragePercent": 97.33
+  },
+  "unresolvedReviewItems": [
+    "前面",
+    "小姐",
+    "后面",
+    "北京"
+  ],
+  "simulationRuns": {
+    "small": {
+      "fixture": {
+        "version": "1.0.0",
+        "seed": 20260729,
+        "size": 100,
+        "hash": "8028c3dfba6e8a06a457334d283e9a44d7ffef62399ee3f59c3e1803462a4cee",
+        "syntheticOnly": true,
+        "categoryCounts": {
+          "empty": 4,
+          "viewed-last-seen": 4,
+          "learned": 4,
+          "saved": 4,
+          "mastered": 4,
+          "quiz-correct": 4,
+          "quiz-incorrect": 4,
+          "dictation-correct": 4,
+          "dictation-incorrect": 4,
+          "lesson-completion": 4,
+          "mixed": 4,
+          "missing-fields": 4,
+          "extra-fields": 4,
+          "timestamp-variants": 4,
+          "duplicate-record": 4,
+          "conflict-record": 4,
+          "invalid-id": 4,
+          "null-record": 4,
+          "undefined-record": 4,
+          "wrong-type": 4,
+          "reordered-progress": 4,
+          "no-hsk1-progress": 4,
+          "outside-hsk1": 4,
+          "stale-canonical-like": 4,
+          "unknown-legacy-id": 4
+        }
+      },
+      "run": {
+        "state": "completed",
+        "totalProfiles": 100,
+        "processed": 100,
+        "succeeded": 68,
+        "skipped": 16,
+        "reviewRequired": 16,
+        "unmatched": 4,
+        "invalid": 16,
+        "conflicts": 12,
+        "duplicateTargets": 0,
+        "failed": 0,
+        "retried": 0,
+        "rolledBack": true,
+        "batchSize": 25,
+        "batchCount": 4,
+        "deterministicDurationTicks": 71,
+        "observedDurationMs": 21.94,
+        "observedProfilesPerSecond": 4557.89,
+        "peakInMemoryRecordCount": 189,
+        "estimatedTargetBytes": 31484,
+        "outputHash": "0b75c59ebb75f5c4e4d417ad99730e1426f84dc8daf95175be6a76b624f6f255",
+        "legacyBeforeHash": "cb4528287fa87bc71d67d233aaf9361554c7410e985889d03ead5e872df779a7",
+        "legacyAfterHash": "cb4528287fa87bc71d67d233aaf9361554c7410e985889d03ead5e872df779a7",
+        "legacyUnchanged": true,
+        "simulatedTargetHash": "0b75c59ebb75f5c4e4d417ad99730e1426f84dc8daf95175be6a76b624f6f255",
+        "rollbackHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rollbackExpectedHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "writeCount": 0,
+        "storageCanonicalWriteCount": 0,
+        "supabaseWriteCount": 0,
+        "rpcWriteCount": 0,
+        "expWriteCount": 0,
+        "telemetry": {
+          "emitted": 73,
+          "stored": 73,
+          "dropped": 0,
+          "errorCount": 0,
+          "warningCount": 60,
+          "retryCount": 0,
+          "rollbackCount": 1,
+          "blockedWriteCount": 0,
+          "suppressedProductionCallCount": 0
+        },
+        "postRollbackTargetHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rollbackIdempotent": true
+      }
+    },
+    "medium": {
+      "fixture": {
+        "version": "1.0.0",
+        "seed": 20260729,
+        "size": 1000,
+        "hash": "64a89f4513188057df44fae86d364849bf530a2026ce27af63f12d734c5af97f",
+        "syntheticOnly": true,
+        "categoryCounts": {
+          "empty": 40,
+          "viewed-last-seen": 40,
+          "learned": 40,
+          "saved": 40,
+          "mastered": 40,
+          "quiz-correct": 40,
+          "quiz-incorrect": 40,
+          "dictation-correct": 40,
+          "dictation-incorrect": 40,
+          "lesson-completion": 40,
+          "mixed": 40,
+          "missing-fields": 40,
+          "extra-fields": 40,
+          "timestamp-variants": 40,
+          "duplicate-record": 40,
+          "conflict-record": 40,
+          "invalid-id": 40,
+          "null-record": 40,
+          "undefined-record": 40,
+          "wrong-type": 40,
+          "reordered-progress": 40,
+          "no-hsk1-progress": 40,
+          "outside-hsk1": 40,
+          "stale-canonical-like": 40,
+          "unknown-legacy-id": 40
+        }
+      },
+      "run": {
+        "state": "completed",
+        "totalProfiles": 1000,
+        "processed": 1000,
+        "succeeded": 680,
+        "skipped": 160,
+        "reviewRequired": 160,
+        "unmatched": 40,
+        "invalid": 160,
+        "conflicts": 120,
+        "duplicateTargets": 0,
+        "failed": 0,
+        "retried": 0,
+        "rolledBack": true,
+        "batchSize": 100,
+        "batchCount": 10,
+        "deterministicDurationTicks": 623,
+        "observedDurationMs": 217.4,
+        "observedProfilesPerSecond": 4599.82,
+        "peakInMemoryRecordCount": 1740,
+        "estimatedTargetBytes": 314836,
+        "outputHash": "d1b7beb2cca91beb2e5c2ae625186053355426d18508a25df329d656c36c7e77",
+        "legacyBeforeHash": "3ac7b026c3fe174a35c59f09f0b1b1faa29da96bd33e745161586b225041a411",
+        "legacyAfterHash": "3ac7b026c3fe174a35c59f09f0b1b1faa29da96bd33e745161586b225041a411",
+        "legacyUnchanged": true,
+        "simulatedTargetHash": "d1b7beb2cca91beb2e5c2ae625186053355426d18508a25df329d656c36c7e77",
+        "rollbackHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rollbackExpectedHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "writeCount": 0,
+        "storageCanonicalWriteCount": 0,
+        "supabaseWriteCount": 0,
+        "rpcWriteCount": 0,
+        "expWriteCount": 0,
+        "telemetry": {
+          "emitted": 625,
+          "stored": 625,
+          "dropped": 0,
+          "errorCount": 0,
+          "warningCount": 600,
+          "retryCount": 0,
+          "rollbackCount": 1,
+          "blockedWriteCount": 0,
+          "suppressedProductionCallCount": 0
+        },
+        "postRollbackTargetHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rollbackIdempotent": true
+      }
+    },
+    "large": {
+      "fixture": {
+        "version": "1.0.0",
+        "seed": 20260729,
+        "size": 10000,
+        "hash": "55da363a052b49731051bf456af0547c5cca616a1d3463337dd6774b0faee2cf",
+        "syntheticOnly": true,
+        "categoryCounts": {
+          "empty": 400,
+          "viewed-last-seen": 400,
+          "learned": 400,
+          "saved": 400,
+          "mastered": 400,
+          "quiz-correct": 400,
+          "quiz-incorrect": 400,
+          "dictation-correct": 400,
+          "dictation-incorrect": 400,
+          "lesson-completion": 400,
+          "mixed": 400,
+          "missing-fields": 400,
+          "extra-fields": 400,
+          "timestamp-variants": 400,
+          "duplicate-record": 400,
+          "conflict-record": 400,
+          "invalid-id": 400,
+          "null-record": 400,
+          "undefined-record": 400,
+          "wrong-type": 400,
+          "reordered-progress": 400,
+          "no-hsk1-progress": 400,
+          "outside-hsk1": 400,
+          "stale-canonical-like": 400,
+          "unknown-legacy-id": 400
+        }
+      },
+      "run": {
+        "state": "completed",
+        "totalProfiles": 10000,
+        "processed": 10000,
+        "succeeded": 6800,
+        "skipped": 1600,
+        "reviewRequired": 1600,
+        "unmatched": 400,
+        "invalid": 1600,
+        "conflicts": 1200,
+        "duplicateTargets": 0,
+        "failed": 0,
+        "retried": 0,
+        "rolledBack": true,
+        "batchSize": 250,
+        "batchCount": 40,
+        "deterministicDurationTicks": 6083,
+        "observedDurationMs": 2676.87,
+        "observedProfilesPerSecond": 3735.71,
+        "peakInMemoryRecordCount": 16650,
+        "estimatedTargetBytes": 3148502,
+        "outputHash": "542c859ca477e2b4d8bc44f5de9111f5dce9bf2437e1d95b40c1b9b6404efdf5",
+        "legacyBeforeHash": "c2e0dceebe95e40dbfe7ec1d5b38ca0d93abd4f2f9c026725459865d305b7e03",
+        "legacyAfterHash": "c2e0dceebe95e40dbfe7ec1d5b38ca0d93abd4f2f9c026725459865d305b7e03",
+        "legacyUnchanged": true,
+        "simulatedTargetHash": "542c859ca477e2b4d8bc44f5de9111f5dce9bf2437e1d95b40c1b9b6404efdf5",
+        "rollbackHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rollbackExpectedHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "writeCount": 0,
+        "storageCanonicalWriteCount": 0,
+        "supabaseWriteCount": 0,
+        "rpcWriteCount": 0,
+        "expWriteCount": 0,
+        "telemetry": {
+          "emitted": 6085,
+          "stored": 2048,
+          "dropped": 4037,
+          "errorCount": 0,
+          "warningCount": 6000,
+          "retryCount": 0,
+          "rollbackCount": 1,
+          "blockedWriteCount": 0,
+          "suppressedProductionCallCount": 0
+        },
+        "postRollbackTargetHash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "rollbackIdempotent": true
+      }
+    }
+  },
+  "failureMatrix": {
+    "total": 40,
+    "pass": 40,
+    "fail": 0,
+    "telemetrySummary": {
+      "emitted": 959,
+      "stored": 959,
+      "dropped": 0,
+      "errorCount": 31,
+      "warningCount": 735,
+      "retryCount": 2,
+      "rollbackCount": 24,
+      "blockedWriteCount": 3,
+      "suppressedProductionCallCount": 6
+    },
+    "eventTypes": [
+      "batch_completed",
+      "batch_started",
+      "cancel_requested",
+      "checkpoint_created",
+      "checkpoint_restored",
+      "conflict_detected",
+      "failure_injected",
+      "fixture_generated",
+      "kill_switch_triggered",
+      "production_call_suppressed",
+      "profile_invalid",
+      "profile_skipped",
+      "retry_completed",
+      "retry_started",
+      "review_required",
+      "rollback_completed",
+      "rollback_failed",
+      "rollback_started",
+      "simulation_completed",
+      "simulation_failed",
+      "simulation_started",
+      "write_blocked"
+    ],
+    "missingRequiredEventTypes": [],
+    "cases": [
+      {
+        "id": "FI-01",
+        "area": "loader",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "CANONICAL_INDEX_404 surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-02",
+        "area": "loader",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "VOCABULARY_SHARD_FAILED surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-03",
+        "area": "loader",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "SENTENCE_SHARD_FAILED surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-04",
+        "area": "loader",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "MALFORMED_JSON surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-05",
+        "area": "loader",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "COUNT_MISMATCH surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-06",
+        "area": "loader",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "DUPLICATE_CANONICAL_ID surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-07",
+        "area": "mapping",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "UNKNOWN_LEGACY_ID surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-08",
+        "area": "mapping",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "UNKNOWN_CANONICAL_ID surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-09",
+        "area": "mapping",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Mapping exception stayed inside the in-memory batch transaction."
+      },
+      {
+        "id": "FI-10",
+        "area": "review",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "REVIEW_ENGINE_THROW surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-11",
+        "area": "contract",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Contract validation failures were classified invalid, stayed read-only, and rolled back."
+      },
+      {
+        "id": "FI-12",
+        "area": "batch",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "BATCH_BEFORE_THROW surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-13",
+        "area": "batch",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "BATCH_MID_THROW surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-14",
+        "area": "batch",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "BATCH_AFTER_RECORDS_THROW surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-15",
+        "area": "adapter",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "SIMULATED_ADAPTER_THROW surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-16",
+        "area": "rollback",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Rollback failure remained visible and retry restored the initial target hash."
+      },
+      {
+        "id": "FI-17",
+        "area": "storage",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "STORAGE_READ_THROW surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-18",
+        "area": "write-isolation",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Canonical storage spy call was blocked before write."
+      },
+      {
+        "id": "FI-19",
+        "area": "write-isolation",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Supabase spy call was blocked before write."
+      },
+      {
+        "id": "FI-20",
+        "area": "write-isolation",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "RPC spy call was blocked before write."
+      },
+      {
+        "id": "FI-21",
+        "area": "timeout",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "SIMULATION_TIMEOUT surfaced; rollback=true; legacyUnchanged=true."
+      },
+      {
+        "id": "FI-22",
+        "area": "control",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Cancel stopped at a batch boundary and rollback removed the in-memory target."
+      },
+      {
+        "id": "FI-23",
+        "area": "control",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Pause blocked processing until an explicit resume."
+      },
+      {
+        "id": "FI-24",
+        "area": "retry",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "The failed batch retried once and completed without duplicate targets."
+      },
+      {
+        "id": "FI-25",
+        "area": "retry",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "A duplicate retry request was rejected."
+      },
+      {
+        "id": "FI-26",
+        "area": "checkpoint",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Stale fixture checkpoint was rejected."
+      },
+      {
+        "id": "FI-27",
+        "area": "checkpoint",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Corrupt checkpoint signature was rejected."
+      },
+      {
+        "id": "FI-28",
+        "area": "checkpoint",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Wrong checkpoint version was rejected."
+      },
+      {
+        "id": "FI-29",
+        "area": "concurrency",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Third concurrent session was rejected by the configured maximum."
+      },
+      {
+        "id": "FI-30",
+        "area": "concurrency",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Two isolated tab sessions for one synthetic owner produced the same output hash."
+      },
+      {
+        "id": "FI-31",
+        "area": "authorization",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Logout between batches failed closed and rollback passed."
+      },
+      {
+        "id": "FI-32",
+        "area": "authorization",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Permission revocation between batches failed closed."
+      },
+      {
+        "id": "FI-33",
+        "area": "feature-lock",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "A feature flag change was rejected at the next batch boundary."
+      },
+      {
+        "id": "FI-34",
+        "area": "feature-lock",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "An unlocked quality gate was rejected before simulation started."
+      },
+      {
+        "id": "FI-35",
+        "area": "feature-lock",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "A true progress-write flag was rejected before simulation started."
+      },
+      {
+        "id": "FI-36",
+        "area": "kill-switch",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Emergency stop between batches produced telemetry and rollback passed."
+      },
+      {
+        "id": "FI-37",
+        "area": "checkpoint",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "A memory checkpoint restored after simulated browser reload matched uninterrupted output."
+      },
+      {
+        "id": "FI-38",
+        "area": "review",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Stale synthetic review manifest was rejected and never applied."
+      },
+      {
+        "id": "FI-39",
+        "area": "review",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Duplicate synthetic review decision was rejected."
+      },
+      {
+        "id": "FI-40",
+        "area": "review",
+        "status": "pass",
+        "failClosed": true,
+        "productionWrites": 0,
+        "partialExternalState": false,
+        "evidence": "Invalid synthetic candidate decision was rejected."
+      }
+    ]
+  },
+  "determinism": {
+    "pass": true,
+    "outputHash": "0b75c59ebb75f5c4e4d417ad99730e1426f84dc8daf95175be6a76b624f6f255",
+    "mappingHashStable": true,
+    "mappingHash": "3a16a33ca3535e1be7bb49c77daad924f3a61f9b609474c7396a525ca5611e0d",
+    "inputOrderIndependent": true,
+    "progressOrderIndependent": true,
+    "batchSizeIndependent": true
+  },
+  "idempotency": {
+    "pass": true,
+    "retryDoesNotDuplicateTargets": true,
+    "repeatedRunPreservesLegacy": true
+  },
+  "checkpointResume": {
+    "pass": true,
+    "checkpointResultHash": "92471509e19f46209aa7aafd77f05b1d23c150ea5fa8ff040ce9a0ed55cbb777",
+    "resumedOutputHash": "0b75c59ebb75f5c4e4d417ad99730e1426f84dc8daf95175be6a76b624f6f255",
+    "staleCorruptWrongVersionRejected": true
+  },
+  "pauseResume": {
+    "pass": true
+  },
+  "rollback": {
+    "pass": true,
+    "full": true,
+    "partial": true,
+    "afterFailure": true,
+    "failureVisible": true,
+    "retryPass": true,
+    "idempotent": true
+  },
+  "performance": {
+    "small": {
+      "observedDurationMs": 21.94,
+      "observedProfilesPerSecond": 4557.89,
+      "batchCount": 4,
+      "peakInMemoryRecordCount": 189,
+      "estimatedTargetBytes": 31484,
+      "deterministicDurationTicks": 71
+    },
+    "medium": {
+      "observedDurationMs": 217.4,
+      "observedProfilesPerSecond": 4599.82,
+      "batchCount": 10,
+      "peakInMemoryRecordCount": 1740,
+      "estimatedTargetBytes": 314836,
+      "deterministicDurationTicks": 623
+    },
+    "large": {
+      "observedDurationMs": 2676.87,
+      "observedProfilesPerSecond": 3735.71,
+      "batchCount": 40,
+      "peakInMemoryRecordCount": 16650,
+      "estimatedTargetBytes": 3148502,
+      "deterministicDurationTicks": 6083
+    }
+  },
+  "resourceGuards": {
+    "maxFixtureSize": 10000,
+    "maxBatchSize": 1000,
+    "maxReportEvents": 2048,
+    "maxRetryCount": 3,
+    "maxConcurrentSessions": 2,
+    "maxSimulationTicks": 200000,
+    "status": "pass"
+  },
+  "telemetry": {
+    "mode": "in-memory-only",
+    "schemaVersion": "1.0.0",
+    "durable": false,
+    "productionAnalyticsCalled": false,
+    "containsRealIdentity": false,
+    "runSummaries": {
+      "small": {
+        "emitted": 73,
+        "stored": 73,
+        "dropped": 0,
+        "errorCount": 0,
+        "warningCount": 60,
+        "retryCount": 0,
+        "rollbackCount": 1,
+        "blockedWriteCount": 0,
+        "suppressedProductionCallCount": 0
+      },
+      "medium": {
+        "emitted": 625,
+        "stored": 625,
+        "dropped": 0,
+        "errorCount": 0,
+        "warningCount": 600,
+        "retryCount": 0,
+        "rollbackCount": 1,
+        "blockedWriteCount": 0,
+        "suppressedProductionCallCount": 0
+      },
+      "large": {
+        "emitted": 6085,
+        "stored": 2048,
+        "dropped": 4037,
+        "errorCount": 0,
+        "warningCount": 6000,
+        "retryCount": 0,
+        "rollbackCount": 1,
+        "blockedWriteCount": 0,
+        "suppressedProductionCallCount": 0
+      }
+    },
+    "failureMatrixSummary": {
+      "emitted": 959,
+      "stored": 959,
+      "dropped": 0,
+      "errorCount": 31,
+      "warningCount": 735,
+      "retryCount": 2,
+      "rollbackCount": 24,
+      "blockedWriteCount": 3,
+      "suppressedProductionCallCount": 6
+    },
+    "verifiedEventTypes": [
+      "batch_completed",
+      "batch_started",
+      "cancel_requested",
+      "checkpoint_created",
+      "checkpoint_restored",
+      "conflict_detected",
+      "failure_injected",
+      "fixture_generated",
+      "kill_switch_triggered",
+      "production_call_suppressed",
+      "profile_invalid",
+      "profile_skipped",
+      "retry_completed",
+      "retry_started",
+      "review_required",
+      "rollback_completed",
+      "rollback_failed",
+      "rollback_started",
+      "simulation_completed",
+      "simulation_failed",
+      "simulation_started",
+      "write_blocked"
+    ],
+    "missingRequiredEventTypes": []
+  },
+  "killSwitch": {
+    "simulationOnly": true,
+    "productionAdapterLinked": false,
+    "defaultEngaged": true,
+    "missingConfig": {
+      "allowed": false,
+      "reasonCode": "KILL_SWITCH_CONFIG_MISSING"
+    },
+    "invalidConfig": {
+      "allowed": false,
+      "reasonCode": "KILL_SWITCH_CONFIG_INVALID"
+    },
+    "engaged": {
+      "allowed": false,
+      "reasonCode": "KILL_SWITCH_ENGAGED"
+    },
+    "permissionRevoked": {
+      "allowed": false,
+      "reasonCode": "PERMISSION_REVOKED"
+    },
+    "failClosed": true
+  },
+  "writeIsolation": {
+    "pass": true,
+    "canonicalProductionWriteCount": 0,
+    "storageCanonicalWriteCount": 0,
+    "expWriteCount": 0,
+    "productionAdapterLinked": false
+  },
+  "SupabaseIsolation": {
+    "pass": true,
+    "writeCount": 0,
+    "rpcCount": 0,
+    "schemaChanged": false,
+    "migrationCreated": false
+  },
+  "legacyIntegrity": {
+    "pass": true,
+    "userDataUsed": false,
+    "userDataChanged": false,
+    "syntheticProfilesOnly": true
+  },
+  "productionLocks": {
+    "HSK_CURRICULUM_V2_ENABLED": false,
+    "productionEnabled": false,
+    "publicOverrideAllowed": false,
+    "HSK_CURRICULUM_V2_PROGRESS_WRITES_ENABLED": false,
+    "writesProgress": false,
+    "qualityGate": "locked"
+  },
+  "warnings": [
+    "Four human-review items remain unresolved and are not applied to the production mapping.",
+    "Simulation telemetry is bounded and in-memory; it is not durable production telemetry.",
+    "The write kill switch is a simulation-only contract and is not connected to a real migration writer.",
+    "No human production approval has been granted."
+  ],
+  "blockers": [],
+  "readiness": {
+    "phase2b5Complete": true,
+    "phase2b6Allowed": true,
+    "realMigrationAllowed": false,
+    "productionAllowed": false,
+    "realMigrationBlockers": [
+      "Four human-review items require explicit human decisions.",
+      "A production migration writer, durable telemetry, operational kill switch, staged rehearsal, and approval do not exist.",
+      "Canonical progress writes remain disabled."
+    ],
+    "productionBlockers": [
+      "Real migration is not allowed.",
+      "Canonical production and public override remain disabled.",
+      "The quality gate remains locked and no production approval exists."
+    ]
+  }
+}
