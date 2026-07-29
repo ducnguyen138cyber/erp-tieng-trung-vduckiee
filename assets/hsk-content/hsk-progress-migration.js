@@ -120,6 +120,7 @@
     asArray(canonicalLessons).forEach(function (lesson) {
       asArray(lesson && lesson.words).forEach(function (word) {
         var id = Array.isArray(word) ? text(word[6]) : '';
+        if (id && output[id]) throw new Error('Canonical vocabulary ID is assigned to multiple preview lessons: ' + id);
         if (id) output[id] = text(lesson.id);
       });
     });
@@ -192,6 +193,10 @@
         knownUpdatedAt: row.known_updated_at || null,
         savedUpdatedAt: row.saved_updated_at || null
       };
+    }).sort(function (left, right) {
+      return left.key.localeCompare(right.key) ||
+        left.hanzi.localeCompare(right.hanzi) ||
+        left.pinyin.localeCompare(right.pinyin);
     });
   }
 

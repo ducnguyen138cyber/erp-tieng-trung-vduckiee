@@ -28,7 +28,7 @@
   }
   function loadHsk1V75(){
     var script=document.createElement("script");
-    script.src="./assets/v75/hsk1-v75-loader.js?v=2b1.0";
+    script.src="./assets/v75/hsk1-v75-loader.js?v=2b4.0";
     script.onerror=function(){console.error("Không nạp được HSK 1 v75.");};
     document.head.appendChild(script);
   }

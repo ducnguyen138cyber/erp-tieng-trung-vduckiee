@@ -216,8 +216,8 @@ test('source wiring exposes review UI while every production lock remains closed
   assert.equal(flags.FLAGS.HSK_CURRICULUM_V2_PUBLIC_OVERRIDE_ALLOWED, false);
   assert.equal(flags.FLAGS.HSK_CURRICULUM_V2_PROGRESS_WRITES_ENABLED, false);
   assert.equal(flags.FLAGS.HSK_CURRICULUM_V2_QUALITY_GATE, 'locked');
-  assert.ok(index.indexOf('hsk-progress-migration.js?v=2b2.0') < index.indexOf('hsk-progress-review.js?v=2b3.0'));
-  assert.ok(index.indexOf('hsk-progress-review.js?v=2b3.0') < index.indexOf('hsk-developer-preview.js?v=2b3.0'));
+  assert.ok(index.indexOf('hsk-progress-migration.js?v=2b4.0') < index.indexOf('hsk-progress-review.js?v=2b4.0'));
+  assert.ok(index.indexOf('hsk-progress-review.js?v=2b4.0') < index.indexOf('hsk-developer-preview.js?v=2b4.0'));
   assert.match(ui, /Human Review · In-memory only/);
   assert.match(ui, /Approve candidate trong RAM/);
   assert.match(ui, /Production<\/span><strong>BLOCKED/);

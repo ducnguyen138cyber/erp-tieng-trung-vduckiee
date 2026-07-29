@@ -6,6 +6,12 @@
   function byId(id) { return document.getElementById(id); }
   function award(code, source) { return root.VDuckieEXP.awardEXP(code, source); }
   function clean(value) { return String(value || "").replace(/[\s，。！？、,.!?]/g, ""); }
+  function hskPreviewReadOnly() {
+    return !!(
+      (root.HSKCurriculum && root.HSKCurriculum.previewMode === "canonical") ||
+      (document.body && document.body.getAttribute("data-hsk-curriculum-preview") === "canonical")
+    );
+  }
   function readERP() {
     try { var value = JSON.parse(localStorage.getItem("vduckie-erp-v74-progress") || "{}"); return value && typeof value === "object" && !Array.isArray(value) ? value : {}; }
     catch (error) { return {}; }
@@ -41,6 +47,7 @@
     document.addEventListener("click", function (event) {
       var button = event.target.closest ? event.target.closest("#hskLesson button") : null;
       if (!button) return;
+      if (hskPreviewReadOnly()) return;
       var action = button.getAttribute("data-hsk-action");
       if (action === "section-complete" || action === "complete") {
         var source = hskSource("lesson"), id = source.split(":")[1];
@@ -52,6 +59,7 @@
       }
       if (action === "dictation-check") {
         setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
           var input = byId("hskDictationInput"), answer = button.getAttribute("data-answer");
           if (input && input.value.trim() && clean(input.value) === clean(answer)) award("dictation_complete", hskSource("dictation"));
         }, 0);
@@ -59,6 +67,7 @@
     }, true);
     var host = byId("hskLesson");
     if (host && root.MutationObserver) new MutationObserver(function () {
+      if (hskPreviewReadOnly()) { observedHSK = ""; return; }
       var passed = host.querySelector(".hsk-result.pass");
       if (!passed) { observedHSK = ""; return; }
       var quiz = hskSource("quiz");

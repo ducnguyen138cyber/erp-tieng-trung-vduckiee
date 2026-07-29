@@ -3,12 +3,14 @@
   function loadParts(prefix,count){
     var tasks=[];
     for(var i=1;i<=count;i++){
-      tasks.push(fetch("./assets/v75/"+prefix+".part"+i+".txt?v=2b1.0",{cache:"no-store"}).then(function(response){
+      tasks.push(fetch("./assets/v75/"+prefix+".part"+i+".txt?v=2b4.0",{cache:"no-store"}).then(function(response){
         if(!response.ok)throw new Error("Thiếu gói HSK 1 v75");
         return response.text();
       }));
     }
-    return Promise.all(tasks).then(function(parts){return parts.join("");});
+    return Promise.all(tasks).then(function(parts){
+      return parts.map(function(part,index){return index<parts.length-1?part.replace(/[\r\n]+$/,""):part;}).join("");
+    });
   }
   loadParts("hsk1-data",4).then(function(code){
     Function(code)();

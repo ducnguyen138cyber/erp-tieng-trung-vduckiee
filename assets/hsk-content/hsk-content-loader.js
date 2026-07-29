@@ -96,6 +96,8 @@
     var manifestDirectory = dirname(manifestPath);
     var levelResources = new Map();
     var canonicalHsk1Promise = null;
+    var canonicalHsk1Prefix = resolveResource(baseUrl, 'hsk1/');
+    var canonicalHsk1Error = null;
 
     if (!fetchImpl) throw new HskContentError('FETCH_UNAVAILABLE', 'No fetch implementation is available.');
 
@@ -222,11 +224,42 @@
               });
             }
             if (Number(collection.level) !== 1) throw new HskContentError('LEVEL_MISMATCH', 'Canonical HSK 1 collection has a different level.', { indexPath: indexPath, actual: collection.level });
-            return collection.records;
+            if (collection.records.length !== Number(shard.count)) {
+              throw new HskContentError('SHARD_COUNT_MISMATCH', 'Canonical collection shard count does not match its index.', {
+                indexPath: indexPath,
+                shard: shard.file,
+                expected: Number(shard.count),
+                actual: collection.records.length
+              });
+            }
+            return { shard: shard, records: collection.records };
           });
-        })).then(function (shards) {
+        })).then(function (loadedShards) {
           var records = [];
-          shards.forEach(function (items) { records = records.concat(items); });
+          var seenIds = Object.create(null);
+          loadedShards.forEach(function (loaded) {
+            var items = loaded.records;
+            var shard = loaded.shard;
+            var firstId = items.length && items[0] && String(items[0].id || '');
+            var lastId = items.length && items[items.length - 1] && String(items[items.length - 1].id || '');
+            if (String(shard.firstId || '') !== firstId || String(shard.lastId || '') !== lastId) {
+              throw new HskContentError('SHARD_BOUNDARY_MISMATCH', 'Canonical collection shard boundaries do not match its index.', {
+                indexPath: indexPath,
+                shard: shard.file,
+                expectedFirstId: shard.firstId || null,
+                actualFirstId: firstId || null,
+                expectedLastId: shard.lastId || null,
+                actualLastId: lastId || null
+              });
+            }
+            items.forEach(function (record) {
+              var id = record && String(record.id || '').trim();
+              if (!id) throw new HskContentError('RECORD_ID_INVALID', 'Canonical collection record is missing its ID.', { indexPath: indexPath, shard: shard.file });
+              if (seenIds[id]) throw new HskContentError('DUPLICATE_ID', 'Canonical collection contains a duplicate ID.', { indexPath: indexPath, shard: shard.file, id: id });
+              seenIds[id] = true;
+              records.push(record);
+            });
+          });
           if (records.length !== Number(index.expectedCount) || records.length !== Number(index.actualCount)) {
             throw new HskContentError('COUNT_MISMATCH', 'Canonical collection count does not match its index.', {
               indexPath: indexPath,
@@ -241,6 +274,7 @@
 
     function loadCanonicalHsk1() {
       if (canonicalHsk1Promise) return canonicalHsk1Promise;
+      canonicalHsk1Error = null;
       var contentIndexPath = 'hsk1/content-index.json';
       var contentIndexResource = resolveResource(baseUrl, contentIndexPath);
       canonicalHsk1Promise = fetchJson(contentIndexResource, 'hsk1-content-index').then(function (contentIndex) {
@@ -268,7 +302,14 @@
           });
         });
       });
-      canonicalHsk1Promise.catch(function () { canonicalHsk1Promise = null; });
+      canonicalHsk1Promise.catch(function (error) {
+        canonicalHsk1Promise = null;
+        canonicalHsk1Error = error;
+        setState('error', error && error.detail && error.detail.resource || null, error);
+        Array.from(cache.keys()).forEach(function (resource) {
+          if (String(resource).indexOf(canonicalHsk1Prefix) === 0) cache.delete(resource);
+        });
+      });
       return canonicalHsk1Promise;
     }
 
@@ -276,14 +317,18 @@
       cache.clear();
       levelResources.clear();
       canonicalHsk1Promise = null;
+      canonicalHsk1Error = null;
       setState('idle', null, null);
     }
 
     function getHskContentLoaderState() {
+      var effectiveState = canonicalHsk1Error
+        ? { status: 'error', error: canonicalHsk1Error, lastResource: canonicalHsk1Error.detail && canonicalHsk1Error.detail.resource || null }
+        : state;
       return {
-        status: state.status,
-        error: state.error,
-        lastResource: state.lastResource,
+        status: effectiveState.status,
+        error: effectiveState.error,
+        lastResource: effectiveState.lastResource,
         cacheEntries: cache.size,
         cachedResources: Array.from(cache.keys()).sort()
       };

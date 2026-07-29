@@ -14,8 +14,9 @@
   function currentSession() { return core && typeof core.session === "function" ? core.session() : null; }
   function isDeveloper(session) { return !!(session && session.user && normalizedEmail(session.user.email) === DEVELOPER_EMAIL); }
   function purgeLegacy() { if (ns && ns.ui && ns.ui.purgeLegacy) ns.ui.purgeLegacy(); else Array.prototype.forEach.call(document.querySelectorAll("#v93DeveloperPreview,.v93-developer-panel"),function(node){node.remove();}); }
+  function safeDisable(bridge) { if (bridge && bridge.disable) { try { bridge.disable(); } catch (error) {} } }
   function ready(bridge, openAfterAuthorize) {
-    if (!ns || !ns.runtime || !ns.ui) return;
+    if (!ns || !ns.runtime || !ns.ui) { safeDisable(currentHskBridge); safeDisable(bridge); return false; }
     authorized = true;
     currentBridge = bridge;
     ns.runtime.setBridge(bridge);
@@ -23,11 +24,12 @@
     purgeLegacy();
     ns.ui.mount();
     if (openAfterAuthorize) ns.ui.open();
+    return true;
   }
   function revoke() {
     token += 1; authorized = false;
-    if (currentHskBridge && currentHskBridge.disable) { try { currentHskBridge.disable(); } catch (error) {} }
-    if (currentBridge && currentBridge.disable) { try { currentBridge.disable(); } catch (error) {} }
+    safeDisable(currentHskBridge);
+    safeDisable(currentBridge);
     currentHskBridge = null;
     currentBridge = null;
     if (ns) ns.hskPreview = null;
@@ -38,12 +40,12 @@
     var request = ++token;
     if (!isDeveloper(session) || !evolution || typeof evolution.requestDeveloperBridge !== "function") { revoke(); return Promise.resolve(false); }
     return evolution.requestDeveloperBridge().then(function (bridge) {
-      currentBridge = bridge;
+      if (request !== token) { safeDisable(bridge); return false; }
       var hskRequest = hskPreview && typeof hskPreview.requestDeveloperBridge === "function" ? hskPreview.requestDeveloperBridge() : Promise.resolve(null);
       return hskRequest.then(function (hskBridge) {
-        if (request !== token) { if (hskBridge && hskBridge.disable) hskBridge.disable(); return false; }
+        if (request !== token) { safeDisable(hskBridge); safeDisable(bridge); return false; }
         currentHskBridge = hskBridge;
-        ready(bridge, !!openAfterAuthorize); return true;
+        return ready(bridge, !!openAfterAuthorize);
       });
     }).catch(function () { if (request === token) revoke(); return false; });
   }
@@ -60,8 +62,8 @@
     offs.push(ns.runtime.listen(document,"keydown",onKey,true));
     offs.push(ns.runtime.listen(document,"vduckie:developer-animation-test",animationReport));
     if (typeof core.onSession === "function") unsubscribeSession = core.onSession(function (session) { authorize(session, false); });
-    root.addEventListener("online",function(){if(!authorized)authorize(currentSession(), false);});
-    document.addEventListener("visibilitychange",function(){if(!document.hidden&&!authorized)authorize(currentSession(), false);});
+    offs.push(ns.runtime.listen(root,"online",function(){authorize(currentSession(), false);}));
+    offs.push(ns.runtime.listen(document,"visibilitychange",function(){if(!document.hidden)authorize(currentSession(), false);}));
     if (!unsubscribeSession) authorize(currentSession(), false);
   }
   function destroy() { if(unsubscribeSession)unsubscribeSession();unsubscribeSession=null;offs.forEach(function(off){off();});offs.length=0;revoke();if(ns&&ns.runtime)ns.runtime.destroy(); }

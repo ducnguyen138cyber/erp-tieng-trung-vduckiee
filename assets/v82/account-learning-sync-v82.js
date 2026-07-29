@@ -473,6 +473,13 @@
     return "lesson";
   }
 
+  function hskPreviewReadOnly() {
+    return !!(
+      (root.HSKCurriculum && root.HSKCurriculum.previewMode === "canonical") ||
+      (root.document && root.document.body && root.document.body.getAttribute("data-hsk-curriculum-preview") === "canonical")
+    );
+  }
+
   function recordHskSection(section, completed) {
     var lessonId = activeHskLessonId();
     var currentTime = now();
@@ -546,10 +553,12 @@
     var button = event.target && event.target.closest ? event.target.closest("button") : null;
     if (!button) return;
     if (button.closest && button.closest("#hskLesson")) {
+      if (hskPreviewReadOnly()) return;
       var section = sectionName(button);
       recordHskSection(section, false);
       if (button.hasAttribute("data-hsk-option")) {
         root.setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
           var card = button.closest(".hsk-quiz");
           var correct = button.classList.contains("correct");
           var wordNode = card && card.querySelector(".hsk-quiz-prompt strong");
@@ -558,6 +567,7 @@
         }, 220);
       } else if (button.getAttribute("data-hsk-action") === "dictation-check") {
         root.setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
           var feedback = root.document.getElementById("hskDictationFeedback");
           var answer = button.getAttribute("data-answer") || "";
           var correct = feedback && /good|chính xác|đúng/i.test((feedback.className || "") + " " + (feedback.textContent || "")) && !/bad|sai|chưa đúng/i.test((feedback.className || "") + " " + (feedback.textContent || ""));
@@ -570,6 +580,7 @@
         if (readingCorrect) recordHskSection("reading", true);
       } else if (button.hasAttribute("data-v62-order-check")) {
         root.setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
           var card = button.closest("[data-v62-grammar-trap]");
           var feedback = card && card.querySelector("[data-v62-order-feedback]");
           var correct = feedback && /good|chính xác|đúng/i.test((feedback.className || "") + " " + (feedback.textContent || "")) && !/bad|sai|chưa đúng/i.test((feedback.className || "") + " " + (feedback.textContent || ""));

@@ -37,7 +37,7 @@ test("current Developer Center exposes evolution, animation, learning and wardro
 });
 
 test("developer panel is removable and real data is restored", () => {
-  assert.match(controller, /currentBridge\.disable\(\)/);
+  assert.match(controller, /safeDisable\(currentBridge\)/);
   assert.match(controller, /ns\.ui\.destroy\(\)/);
   assert.match(evolution, /preview\.active = false/);
   assert.match(evolution, /snapshot = realSnapshot/);
@@ -46,8 +46,8 @@ test("developer panel is removable and real data is restored", () => {
 
 test("current Developer Center loads after Evolution and the old V93 runtime is retired", () => {
   assert.match(index, /developer-preview-v93\.css\?v=108\.1/);
-  assert.match(index, /vduckie-evolution-v95\.js\?v=104\.0[\s\S]+developer-control-center\.js\?v=2b1\.0/);
-  assert.match(index, /app-shell-v88\.html\?v=99\.0/);
+  assert.match(index, /vduckie-evolution-v95\.js\?v=104\.0[\s\S]+developer-control-center\.js\?v=2b4\.0/);
+  assert.match(index, /app-shell-v88\.html\?v=2b4\.0/);
   assert.match(legacy, /removed:\s*true/);
   assert.doesNotMatch(index, /developer-preview-v93\.js/);
 });

@@ -42,12 +42,12 @@ test("production loader uses one canonical V108 entrypoint in dependency order",
   const ordered = [
     "mascot-polish-v106.js?v=106.1",
     "hsk-content/hsk-content-feature-flags.js?v=2b1.0",
-    "hsk-content/hsk-content-loader.js?v=2b1.0",
+    "hsk-content/hsk-content-loader.js?v=2b4.0",
     "hsk-content/hsk-content-adapter.js?v=2b1.0",
     "hsk-content/hsk-progress-contract.js?v=2b2.0",
-    "hsk-content/hsk-progress-migration.js?v=2b2.0",
-    "hsk-content/hsk-progress-review.js?v=2b3.0",
-    "hsk-content/hsk-developer-preview.js?v=2b3.0",
+    "hsk-content/hsk-progress-migration.js?v=2b4.0",
+    "hsk-content/hsk-progress-review.js?v=2b4.0",
+    "hsk-content/hsk-developer-preview.js?v=2b4.0",
     "developer-runtime/runtime.js?v=108.1",
     "developer-events/actions.js?v=108.1",
     "developer-tabs/overview.js?v=108.1",
@@ -56,7 +56,7 @@ test("production loader uses one canonical V108 entrypoint in dependency order",
     "developer-debug/debug.js?v=108.1",
     "developer-ui/developer-center-core.js?v=108.1",
     "developer-ui/developer-center.js?v=108.1",
-    "developer/developer-control-center.js?v=2b1.0"
+    "developer/developer-control-center.js?v=2b4.0"
   ];
   ordered.forEach(marker => assert.ok(index.includes(marker), marker));
   for (let i = 1; i < ordered.length; i += 1) assert.ok(index.indexOf(ordered[i - 1]) < index.indexOf(ordered[i]), `${ordered[i - 1]} before ${ordered[i]}`);

@@ -110,6 +110,49 @@
       if (!active || !runtimeBridge) throw new Error('Canonical HSK 1 Developer Preview is not authorized.');
     }
 
+    function setLegacyState(status, error) {
+      state.mode = 'legacy';
+      state.status = status || 'ready';
+      state.vocabulary = 0;
+      state.sentences = 0;
+      state.lessons = 0;
+      state.error = error ? (error.message || String(error)) : null;
+    }
+
+    function restoreLegacyRuntime(permanent) {
+      var bridge = runtimeBridge;
+      var restored = false;
+      var recoveryErrors = [];
+      if (bridge && typeof bridge.useLegacy === 'function') {
+        try {
+          bridge.useLegacy();
+          restored = true;
+        } catch (error) {
+          recoveryErrors.push(error);
+        }
+      }
+      if (bridge && (permanent || !restored) && typeof bridge.disable === 'function') {
+        try {
+          bridge.disable();
+          restored = true;
+        } catch (error) {
+          recoveryErrors.push(error);
+        }
+      }
+      if (!restored && legacyInventory && root.HSKCurriculum && root.HSKCurriculum.levels) {
+        root.HSKCurriculum.levels[1] = copy(legacyInventory.lessons);
+        root.HSKCurriculum.previewMode = 'legacy';
+        root.HSKCurriculum.previewMetadata = null;
+        if (root.document && root.document.body) root.document.body.removeAttribute('data-hsk-curriculum-preview');
+        restored = true;
+      }
+      if (permanent || !restored) {
+        active = false;
+        runtimeBridge = null;
+      }
+      return { restored: restored, errors: recoveryErrors };
+    }
+
     function loadBundle() {
       if (bundlePromise) return bundlePromise;
       if (!loader || !adapterApi || typeof adapterApi.adaptCanonicalHsk1 !== 'function') return Promise.reject(new Error('Canonical HSK 1 loader is unavailable.'));
@@ -122,7 +165,7 @@
 
     function storageValue(key) {
       try { return root.localStorage && root.localStorage.getItem ? root.localStorage.getItem(key) : null; }
-      catch (error) { return null; }
+      catch (error) { throw new Error('Unable to read legacy storage key ' + key + ': ' + (error && error.message || String(error))); }
     }
 
     function currentOwnerKey() {
@@ -138,7 +181,7 @@
       try {
         var rows = bridge.prepareForCloud();
         return Array.isArray(rows) ? copy(rows) : [];
-      } catch (error) { return []; }
+      } catch (error) { throw new Error('Unable to read legacy word progress: ' + (error && error.message || String(error))); }
     }
 
     function effectiveLegacyLessons() {
@@ -202,18 +245,28 @@
       guard();
       mode = mode === 'canonical' ? 'canonical' : 'legacy';
       if (mode === 'legacy') {
-        runtimeBridge.useLegacy();
-        state.mode = 'legacy';
-        state.status = 'ready';
-        state.vocabulary = 0;
-        state.sentences = 0;
-        state.lessons = 0;
-        state.error = null;
-        refreshDictionary();
-        publish();
-        return Promise.resolve(copy(state));
+        try {
+          runtimeBridge.useLegacy();
+          setLegacyState('ready', null);
+          refreshDictionary();
+          publish();
+          return Promise.resolve(copy(state));
+        } catch (error) {
+          restoreLegacyRuntime(false);
+          setLegacyState('error', error);
+          refreshDictionary();
+          publish();
+          return Promise.reject(error);
+        }
       }
-      if (migrationApi && contractApi) captureLegacyInventory(true);
+      try {
+        if (migrationApi && contractApi) captureLegacyInventory(true);
+      } catch (error) {
+        restoreLegacyRuntime(false);
+        setLegacyState('error', error);
+        publish();
+        return Promise.reject(error);
+      }
       var access = flags && flags.resolveHskCurriculumAccess ? flags.resolveHskCurriculumAccess({ developerAuthorized: true, previewRequested: true }) : null;
       if (!access || access.mode !== 'developer-preview' || access.readOnly !== true || access.progressWritesEnabled !== false || access.qualityGate !== 'locked') {
         return Promise.reject(new Error('Canonical HSK 1 access gate is locked.'));
@@ -241,8 +294,9 @@
         publish();
         return copy(state);
       }).catch(function (error) {
-        state.status = 'error';
-        state.error = error && error.message || String(error);
+        restoreLegacyRuntime(false);
+        setLegacyState('error', error);
+        refreshDictionary();
         publish();
         throw error;
       });
@@ -310,8 +364,16 @@
     function runMigrationDryRun() {
       guard();
       if (!migrationApi || typeof migrationApi.runDryRun !== 'function' || !contractApi) return Promise.reject(new Error('HSK migration dry-run engine is unavailable.'));
-      var before = captureSafetySnapshot();
-      var inventory = captureLegacyInventory(true);
+      var before, inventory;
+      try {
+        before = captureSafetySnapshot();
+        inventory = captureLegacyInventory(true);
+      } catch (error) {
+        state.progress.status = 'error';
+        state.error = error && error.message || String(error);
+        publish();
+        return Promise.reject(error);
+      }
       return getMappingReport().then(function (report) {
         lastDryRun = migrationApi.runDryRun({
           mappingReport: report,
@@ -505,6 +567,14 @@
           if (!equal) throw new Error('Rollback verification changed legacy state.');
           return { pass: true, before: before, after: after, canonicalWrites: 0, apiWrites: 0 };
         });
+      }).catch(function (error) {
+        restoreLegacyRuntime(false);
+        setLegacyState('error', error);
+        state.progress.rollback = 'fail';
+        state.progress.status = 'rollback-fail';
+        refreshDictionary();
+        publish();
+        throw error;
       });
     }
 
@@ -528,8 +598,7 @@
         getState: function () { guard(); return copy(state); },
         disable: function () {
           if (!active) return;
-          try { runtimeBridge.useLegacy(); } catch (error) {}
-          try { runtimeBridge.disable(); } catch (error) {}
+          var recovery = restoreLegacyRuntime(true);
           active = false;
           runtimeBridge = null;
           legacyInventory = null;
@@ -539,12 +608,7 @@
           reviewSession = null;
           reviewCursor = 0;
           selectedReviewCandidate = null;
-          state.mode = 'legacy';
-          state.status = 'idle';
-          state.vocabulary = 0;
-          state.sentences = 0;
-          state.lessons = 0;
-          state.error = null;
+          setLegacyState(recovery.restored ? 'idle' : 'error', recovery.restored ? null : new Error('Unable to restore legacy HSK 1 during developer bridge cleanup.'));
           state.progress = emptyProgressState();
           refreshDictionary();
           publish();

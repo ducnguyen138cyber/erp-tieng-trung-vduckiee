@@ -150,6 +150,50 @@
     }).slice(0, limit);
   }
 
+  function queueSignature(queue) {
+    return hash(stableStringify({
+      canonicalVocabularyIds: asArray(queue.canonicalVocabularyIds),
+      items: asArray(queue.items),
+      duplicateTargets: asArray(queue.duplicateTargets),
+      sourceSummary: queue.sourceSummary || {}
+    }));
+  }
+
+  function validateReviewQueue(queue) {
+    if (!queue || queue.schemaVersion !== SCHEMA_VERSION || queue.mode !== REVIEW_MODE || !Array.isArray(queue.items)) {
+      throw new Error('A valid in-memory review queue is required.');
+    }
+    var canonicalIds = asArray(queue.canonicalVocabularyIds);
+    var canonicalSet = Object.create(null);
+    canonicalIds.forEach(function (id) {
+      id = text(id);
+      if (!id || canonicalSet[id]) throw new Error('Review queue canonical dataset IDs must be unique and non-empty.');
+      canonicalSet[id] = true;
+    });
+    if (canonicalIds.length !== Number(queue.canonicalVocabularyCount)) throw new Error('Review queue canonical dataset count is invalid.');
+    if (queue.deterministicSignature !== queueSignature(queue)) throw new Error('Review queue deterministic signature is invalid.');
+
+    var reviewIds = Object.create(null);
+    var legacyIds = Object.create(null);
+    queue.items.forEach(function (item) {
+      var reviewId = text(item && item.reviewId);
+      var legacyId = text(item && item.legacyVocabularyId);
+      if (!reviewId || reviewId !== 'review-' + legacyId || reviewIds[reviewId]) throw new Error('Review queue contains an invalid or duplicate review ID.');
+      if (!legacyId || legacyIds[legacyId]) throw new Error('Review queue contains an invalid or duplicate legacy ID.');
+      if (item.mappingStatus !== 'ambiguous' && item.mappingStatus !== 'unmatched') throw new Error('Review queue contains a resolved mapping item.');
+      reviewIds[reviewId] = true;
+      legacyIds[legacyId] = true;
+      var candidateIds = Object.create(null);
+      asArray(item.candidates).forEach(function (candidate) {
+        var candidateId = text(candidate && candidate.canonicalVocabularyId);
+        if (!candidateId || !canonicalSet[candidateId]) throw new Error('Review candidate is outside the canonical dataset.');
+        if (candidateIds[candidateId]) throw new Error('Review queue contains a duplicate candidate ID.');
+        candidateIds[candidateId] = true;
+      });
+    });
+    return true;
+  }
+
   function createReviewQueue(options) {
     options = options || {};
     var report = options.mappingReport;
@@ -195,17 +239,18 @@
       apiWrites: 0,
       storageWrites: 0,
       canonicalVocabularyCount: targets.length,
+      canonicalVocabularyIds: targets.map(function (target) { return target.id; }),
       sourceSummary: clone(report.summary),
       summary: summary,
       items: items,
       duplicateTargets: duplicateTargets
     };
-    queue.deterministicSignature = hash(stableStringify({ items: items, duplicateTargets: duplicateTargets, sourceSummary: queue.sourceSummary }));
+    queue.deterministicSignature = queueSignature(queue);
     return freeze(queue);
   }
 
   function createReviewSession(queue) {
-    if (!queue || queue.mode !== REVIEW_MODE || !Array.isArray(queue.items)) throw new Error('A valid in-memory review queue is required.');
+    validateReviewQueue(queue);
     var source = clone(queue);
     var decisions = Object.create(null);
 
@@ -235,6 +280,7 @@
       var note = text(input.note);
       var targetId = text(input.canonicalVocabularyId) || null;
       if (!item) throw new Error('Unknown review item.');
+      if (decisions[item.reviewId]) throw new Error('Review item already has a decision; reset the in-memory session before deciding again.');
       if (decision !== 'map' && decision !== 'keep-unmatched') throw new Error('Review decision must be map or keep-unmatched.');
       if (!reviewer) throw new Error('Reviewer identity is required.');
       if (!note) throw new Error('A human review note is required.');
@@ -293,11 +339,57 @@
     });
   }
 
+  function validateReviewManifest(manifest, queue) {
+    validateReviewQueue(queue);
+    if (!manifest || manifest.schemaVersion !== SCHEMA_VERSION || manifest.mode !== REVIEW_MODE || !Array.isArray(manifest.decisions)) {
+      throw new Error('Malformed review decision manifest.');
+    }
+    if (manifest.queueSignature !== queue.deterministicSignature) throw new Error('Review decision manifest is stale for the current queue signature.');
+    if (manifest.appliedToMapping !== false || manifest.writesPerformed !== false || Number(manifest.apiWrites) !== 0 || Number(manifest.storageWrites) !== 0) {
+      throw new Error('Review decision manifest violates the read-only safety contract.');
+    }
+    var items = Object.create(null);
+    queue.items.forEach(function (item) { items[item.reviewId] = item; });
+    var decisions = Object.create(null);
+    var targets = Object.create(null);
+    manifest.decisions.forEach(function (decision) {
+      var reviewId = text(decision && decision.reviewId);
+      var item = items[reviewId];
+      var targetId = text(decision && decision.canonicalVocabularyId) || null;
+      if (!item || decisions[reviewId]) throw new Error('Review decision manifest contains an unknown or duplicate review ID.');
+      if (text(decision.legacyVocabularyId) !== item.legacyVocabularyId) throw new Error('Review decision manifest contains an unknown legacy ID.');
+      if (decision.decision !== 'map' && decision.decision !== 'keep-unmatched') throw new Error('Review decision manifest contains a malformed decision.');
+      if (!text(decision.reviewer) || !text(decision.note) || decision.applied !== false || decision.mode !== REVIEW_MODE) {
+        throw new Error('Review decision manifest is missing required human-review evidence.');
+      }
+      if (decision.decision === 'map') {
+        if (!targetId || !item.candidates.some(function (candidate) { return candidate.canonicalVocabularyId === targetId; })) {
+          throw new Error('Review decision manifest contains an unknown canonical ID.');
+        }
+        if (targets[targetId]) throw new Error('Review decision manifest contains a duplicate canonical target.');
+        targets[targetId] = true;
+      } else if (targetId) {
+        throw new Error('Keep-unmatched decisions cannot contain a canonical target.');
+      }
+      decisions[reviewId] = true;
+    });
+    var expectedUnresolved = queue.items.map(function (item) { return item.reviewId; }).filter(function (reviewId) { return !decisions[reviewId]; });
+    if (stableStringify(expectedUnresolved) !== stableStringify(asArray(manifest.unresolvedReviewIds))) {
+      throw new Error('Review decision manifest unresolved IDs are invalid.');
+    }
+    var values = manifest.decisions.map(clone).sort(function (left, right) { return left.reviewId.localeCompare(right.reviewId); });
+    var expectedSignature = hash(stableStringify({ queue: manifest.queueSignature, decisions: values }));
+    if (manifest.deterministicSignature !== expectedSignature) throw new Error('Review decision manifest deterministic signature is invalid.');
+    return true;
+  }
+
   return Object.freeze({
     SCHEMA_VERSION: SCHEMA_VERSION,
     REVIEW_MODE: REVIEW_MODE,
     stableStringify: stableStringify,
     createReviewQueue: createReviewQueue,
-    createReviewSession: createReviewSession
+    createReviewSession: createReviewSession,
+    validateReviewQueue: validateReviewQueue,
+    validateReviewManifest: validateReviewManifest
   });
 });

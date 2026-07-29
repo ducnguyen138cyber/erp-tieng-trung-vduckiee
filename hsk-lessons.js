@@ -1208,7 +1208,12 @@
     return { mode: "legacy", readOnly: false, lessons: levels[1].length };
   }
   function bridgeGuard() {
-    if (!isAuthorizedDeveloper()) throw new Error("Canonical HSK 1 Developer Preview is not authorized for this session.");
+    if (!isAuthorizedDeveloper()) {
+      try { if (previewState.mode === "canonical") useLegacyCurriculum(); } catch (error) {}
+      authorizedDeveloperId = null;
+      developerBridge = null;
+      throw new Error("Canonical HSK 1 Developer Preview is not authorized for this session.");
+    }
   }
   function createDeveloperBridge() {
     if (developerBridge) return developerBridge;
@@ -1220,9 +1225,13 @@
         return { mode: previewState.mode, readOnly: previewState.readOnly, progressWritesEnabled: false, lessons: levels[1].length };
       },
       disable: function () {
-        if (previewState.mode === "canonical") useLegacyCurriculum();
-        authorizedDeveloperId = null;
-        developerBridge = null;
+        developerAuthorizationRequest += 1;
+        try {
+          if (previewState.mode === "canonical") useLegacyCurriculum();
+        } finally {
+          authorizedDeveloperId = null;
+          developerBridge = null;
+        }
       }
     });
     return developerBridge;
@@ -1234,6 +1243,7 @@
     var core = root.VDuckieEXPCore;
     var client = core && typeof core.client === "function" ? core.client() : null;
     if (!user || normalizedEmail(user.email) !== DEVELOPER_EMAIL || !session.access_token || !client || !client.auth || typeof client.auth.getUser !== "function") {
+      try { if (previewState.mode === "canonical") useLegacyCurriculum(); } catch (error) {}
       authorizedDeveloperId = null;
       developerBridge = null;
       return Promise.reject(new Error("Canonical HSK 1 Developer Preview is not available."));
@@ -1243,11 +1253,14 @@
       if (result.error) throw result.error;
       var verified = result.data && result.data.user;
       if (!verified || verified.id !== user.id || normalizedEmail(verified.email) !== DEVELOPER_EMAIL) throw new Error("HSK developer account verification failed.");
+      var liveSession = currentSession();
+      var liveUser = liveSession && liveSession.user;
+      if (!liveUser || liveUser.id !== verified.id || normalizedEmail(liveUser.email) !== DEVELOPER_EMAIL) throw new Error("HSK developer authorization expired before bridge creation.");
       authorizedDeveloperId = verified.id;
       return createDeveloperBridge();
     }).catch(function (error) {
       if (request === developerAuthorizationRequest) {
-        if (previewState.mode === "canonical") useLegacyCurriculum();
+        try { if (previewState.mode === "canonical") useLegacyCurriculum(); } catch (restoreError) {}
         authorizedDeveloperId = null;
         developerBridge = null;
       }
