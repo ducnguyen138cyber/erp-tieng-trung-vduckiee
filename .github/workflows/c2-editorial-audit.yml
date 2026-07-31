@@ -207,6 +207,10 @@ jobs:
             exit 1
           fi
 
+          # Preserve the validated bundle in /tmp, then discard every audit-only
+          # working-tree change before switching to a clean copy of origin/main.
+          git reset --hard HEAD
+          git clean -fd
           git checkout -B c2-clean "$current_main"
           tar -xzf /tmp/hsk1-c2-final.tar.gz
 
