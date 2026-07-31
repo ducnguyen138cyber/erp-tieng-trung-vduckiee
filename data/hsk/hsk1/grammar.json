@@ -51,7 +51,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -101,7 +101,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -151,7 +151,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -201,7 +201,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -251,7 +251,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -279,12 +279,12 @@
       ],
       "incorrectExamples": [
         {
-          "zh": "这书很好。",
-          "explanationVi": "Ở giai đoạn đầu nên dùng lượng từ: 这本书."
+          "zh": "这杯书很好。",
+          "explanationVi": "Lượng từ không khớp: với 书, mẫu cơ bản dùng 本 → 这本书很好。"
         }
       ],
       "commonErrorsVi": [
-        "Bỏ lượng từ vì tiếng Việt không luôn biểu hiện lượng từ."
+        "Bỏ lượng từ trong mẫu đếm/chỉ định cơ bản hoặc dùng 个 cho mọi danh từ."
       ],
       "confusables": [],
       "introducedLevel": 1,
@@ -301,7 +301,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -313,8 +313,8 @@
       "formula": "Ai/cái gì/đâu/bao nhiêu thay đúng vị trí của thông tin cần hỏi",
       "meaningVi": "谁, 什么, 哪儿, 几, 多少, 怎么, 怎么样 không kéo lên đầu câu.",
       "usageVi": [
-        "Không thêm 吗.",
-        "几 thường hỏi số lượng nhỏ, 多少 rộng hơn."
+        "谁、什么、哪儿/哪里、几、多少、怎么、怎么样 giữ vị trí của thành phần cần hỏi.",
+        "Không thêm 吗 vào câu đã có từ nghi vấn; 几 thường đi với lượng từ trong câu hỏi số lượng."
       ],
       "positionVi": "Đứng tại vị trí của câu trả lời.",
       "correctExamples": [
@@ -351,7 +351,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -401,7 +401,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -451,7 +451,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -501,7 +501,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -551,7 +551,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -601,7 +601,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -651,7 +651,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -663,8 +663,8 @@
       "formula": "Chủ ngữ + 在/正在 + động từ + (tân ngữ) + 呢",
       "meaningVi": "Diễn tả hành động đang diễn ra tại thời điểm nói.",
       "usageVi": [
-        "Không bắt buộc dùng đủ 正在 và 呢 cùng lúc.",
-        "Không dùng với mọi động từ trạng thái."
+        "在/正在 đứng trước động từ; 正在 nhấn mạnh tiến hành rõ hơn.",
+        "呢 có thể xuất hiện cuối câu tiến hành nhưng không bắt buộc trong mọi câu."
       ],
       "positionVi": "在/正在 đứng trước động từ; 呢 cuối câu.",
       "correctExamples": [
@@ -701,7 +701,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -711,10 +711,10 @@
       "nameZh": "了表示完成或变化",
       "nameVi": "了 chỉ hoàn thành hoặc thay đổi",
       "formula": "Động từ + 了 / Câu + 了",
-      "meaningVi": "Ở HSK1 chỉ giới thiệu hai chức năng cơ bản: hoàn thành có giới hạn và tình huống mới thay đổi.",
+      "meaningVi": "了 có hai chức năng HSK1 cần phân biệt: sau động từ để đánh dấu hành động hoàn thành trong ngữ cảnh phù hợp; cuối câu để báo một tình huống/trạng thái mới.",
       "usageVi": [
-        "Không đồng nhất 了 với mọi động từ quá khứ.",
-        "Phủ định sự việc chưa xảy ra thường dùng 没 và bỏ 了."
+        "Động từ + 了: chú ý phạm vi hành động và ngữ cảnh, không coi 了 là ‘thì quá khứ’.",
+        "Câu + 了: nhấn sự thay đổi/tình huống mới, ví dụ 下雨了、太贵了."
       ],
       "positionVi": "Sau động từ hoặc cuối câu tùy chức năng.",
       "correctExamples": [
@@ -734,7 +734,7 @@
         }
       ],
       "commonErrorsVi": [
-        "Thêm 了 vào mọi câu quá khứ tiếng Việt."
+        "Dùng 了 như dấu quá khứ bắt buộc cho mọi câu có ‘đã’ trong tiếng Việt."
       ],
       "confusables": [],
       "introducedLevel": 1,
@@ -751,7 +751,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -801,7 +801,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "grammar",
@@ -851,7 +851,212 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-measure-words",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "一级量词搭配",
+      "nameVi": "Lượng từ cơ bản HSK1",
+      "formula": "Số từ / 这 / 那 + lượng từ + danh từ",
+      "meaningVi": "Dùng lượng từ giữa số từ hoặc từ chỉ định và danh từ. HSK1 mới chính thức gồm các lượng từ như 本、个、家、口、块、件、只、元 và cách dùng 杯 làm lượng từ.",
+      "usageVi": [
+        "Học theo cụm: 一本书、一个人、这件衣服、一杯茶。",
+        "Không lấy một lượng từ quen thuộc thay cho mọi danh từ; lượng từ gắn với loại danh từ và ngữ cảnh."
+      ],
+      "positionVi": "Lượng từ đứng sau số từ/这/那 và trước danh từ.",
+      "correctExamples": [
+        {
+          "zh": "这是一本书。",
+          "vi": "Đây là một quyển sách."
+        },
+        {
+          "zh": "我要一杯茶。",
+          "vi": "Tôi muốn một cốc trà."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我要一本茶。",
+          "explanationVi": "茶 trong mẫu này dùng 杯: 我要一杯茶。Không dùng 本 cho đồ uống."
+        }
+      ],
+      "commonErrorsVi": [
+        "Bỏ lượng từ sau 这/那 hoặc dùng 个 cho mọi danh từ vì tiếng Việt cho phép cấu trúc đếm khác."
+      ],
+      "confusables": [
+        "本/个/件/杯"
+      ],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 2
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-separable-verbs",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "一级离合词入门",
+      "nameVi": "Động từ ly hợp cơ bản",
+      "formula": "看病 / 睡觉 / 说话 / 上课 / 下课 / 上班 / 下班 / 生病",
+      "meaningVi": "Một số đơn vị có hình thức động–tân ngữ và được liệt kê riêng trong ngữ pháp HSK1. Ở cấp này ưu tiên học nguyên cụm và trật tự thời gian đúng, chưa mở rộng các cách chen thành phần phức tạp.",
+      "usageVi": [
+        "Nói 我八点上班、晚上十一点睡觉, đặt thời gian trước cụm động từ.",
+        "Khi chưa học quy tắc mở rộng của ly hợp từ, không tự chèn thành phần theo trật tự tiếng Việt."
+      ],
+      "positionVi": "Trong câu cơ bản, trạng ngữ thời gian đứng trước cụm ly hợp.",
+      "correctExamples": [
+        {
+          "zh": "我今天上班，明天不上班。",
+          "vi": "Hôm nay tôi đi làm, ngày mai tôi không đi làm."
+        },
+        {
+          "zh": "他今天生病了。",
+          "vi": "Hôm nay anh ấy bị ốm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我上八点班。",
+          "explanationVi": "Nếu chỉ muốn nói giờ bắt đầu làm, dùng 我八点上班。"
+        }
+      ],
+      "commonErrorsVi": [
+        "Tách cụm ly hợp tùy ý ngay từ HSK1 thay vì học các mẫu được kiểm chứng."
+      ],
+      "confusables": [
+        "上班/上课",
+        "下班/下课"
+      ],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 2
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-serial-verbs",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "连动句1",
+      "nameVi": "Câu liên động cơ bản",
+      "formula": "Chủ ngữ + động từ/cụm động từ 1 + động từ/cụm động từ 2",
+      "meaningVi": "Hai hành động cùng một chủ thể có thể nối trực tiếp khi hành động trước là cách thức hoặc nhằm thực hiện hành động sau.",
+      "usageVi": [
+        "坐出租车去公司: đi taxi là cách thức để đi đến công ty.",
+        "去医院看病: đi bệnh viện nhằm khám bệnh."
+      ],
+      "positionVi": "Cụm chỉ cách thức/mục đích đứng theo thứ tự logic của hành động, không cần thêm liên từ.",
+      "correctExamples": [
+        {
+          "zh": "我坐出租车去公司。",
+          "vi": "Tôi đi công ty bằng taxi."
+        },
+        {
+          "zh": "他去医院看病。",
+          "vi": "Anh ấy đi bệnh viện khám bệnh."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我去公司坐出租车。",
+          "explanationVi": "Câu này đổi quan hệ ý nghĩa; nếu nói ‘đi công ty bằng taxi’, đặt 坐出租车 trước 去公司."
+        }
+      ],
+      "commonErrorsVi": [
+        "Chèn từ nối không cần thiết giữa hai động từ hoặc đảo cách thức xuống cuối theo thói quen tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 2
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-double-object",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "双宾语句1",
+      "nameVi": "Câu hai tân ngữ cơ bản",
+      "formula": "Chủ ngữ + động từ + người + nội dung/sự vật",
+      "meaningVi": "Một số động từ có thể nhận hai tân ngữ: người nhận/tác động trước, nội dung hoặc sự vật sau.",
+      "usageVi": [
+        "问 có thể dùng trong mẫu 老师问我名字。",
+        "Ở HSK1 chỉ học các mẫu quen thuộc; không giả định mọi động từ đều nhận hai tân ngữ."
+      ],
+      "positionVi": "Tân ngữ chỉ người đứng trước tân ngữ chỉ nội dung/sự vật trong mẫu cơ bản.",
+      "correctExamples": [
+        {
+          "zh": "老师问我名字。",
+          "vi": "Giáo viên hỏi tên tôi."
+        },
+        {
+          "zh": "朋友问我电话号码。",
+          "vi": "Bạn hỏi số điện thoại của tôi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "老师问名字我。",
+          "explanationVi": "Trong mẫu này, người được hỏi đứng trước nội dung được hỏi."
+        }
+      ],
+      "commonErrorsVi": [
+        "Sắp xếp hai tân ngữ theo trật tự tiếng Việt mà không kiểm tra mẫu của động từ."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 2
     }
   ]
 }

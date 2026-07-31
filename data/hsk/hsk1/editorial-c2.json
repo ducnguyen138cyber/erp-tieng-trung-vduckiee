@@ -1,0 +1,1891 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "C2",
+  "id": "hsk1-professional-editorial-pass",
+  "baselineCommit": "8c5714ce5f22fc438f5588fedbc331291ed6c882",
+  "officialBasis": {
+    "syllabusVersion": "GF0025-2021",
+    "examBlueprintVersion": "CTI-HSK3.0-2026",
+    "sourceIds": [
+      "moe-gf0025-2021-standard",
+      "cti-hsk3-current-syllabus-2026",
+      "cti-hsk3-competency-profile-2026"
+    ],
+    "notes": [
+      "HSK1 grammar audit follows the official 2025-11 syllabus marked for 2026-07 implementation.",
+      "Out-of-level lesson-focus items found during C2 were removed or demoted to explicit support-only use instead of being presented as canonical HSK1 vocabulary.",
+      "No external textbook examples or answer keys are copied; lesson input and exercises are VDuckie-authored."
+    ]
+  },
+  "lessonPatches": {
+    "hsk1-lesson-01": {
+      "reading": {
+        "textZh": "老师读“一、七、八、十”，学生先听。老师再读一次，学生也读一次。",
+        "questions": [
+          {
+            "qVi": "Ai đọc trước?",
+            "answerVi": "Giáo viên đọc trước.",
+            "evidenceZh": "老师读"
+          },
+          {
+            "qVi": "Sau khi nghe, học sinh làm gì?",
+            "answerVi": "Học sinh đọc lại một lần.",
+            "evidenceZh": "学生也读一次"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "老师：请听。一、七、八、十。学生：一、七、八、十。老师：很好。现在请听：四、八、十、七。",
+        "questions": [
+          {
+            "qVi": "Dãy số đầu tiên theo thứ tự là gì?",
+            "answer": "一、七、八、十"
+          },
+          {
+            "qVi": "Ở lượt cuối, số nào được đọc đầu tiên?",
+            "answer": "四"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Nghe bốn số và chỉ thanh điệu trước khi nhìn chữ.",
+        "Đọc từng số chậm một lần, sau đó đọc cả dãy không ngắt quá lâu.",
+        "Đổi thứ tự bốn số và đọc để bạn học chép lại.",
+        "Nghe lại bản ghi của mình và sửa ít nhất một thanh chưa rõ."
+      ],
+      "summaryChecklist": [
+        "Tôi phân biệt được bốn thanh ở từ một âm tiết.",
+        "Tôi đọc 一、七、八、十 đủ rõ để người khác chép đúng.",
+        "Tôi không dùng số thanh để thay cho dấu thanh khi viết pinyin hoàn chỉnh.",
+        "Tôi biết nghe lại và tự sửa một âm."
+      ],
+      "situationVi": "Bạn nghe một dãy số ngắn qua điện thoại. Mục tiêu là nghe đúng thanh và ghi đúng thứ tự."
+    },
+    "hsk1-lesson-02": {
+      "reading": {
+        "textZh": "这是“人”，这是“大”，这是“小”。老师写“日”和“月”，学生看，也写一次。",
+        "questions": [
+          {
+            "qVi": "Ba chữ nào được giới thiệu trước?",
+            "answerVi": "人、大、小。",
+            "evidenceZh": "人”“大”“小"
+          },
+          {
+            "qVi": "Giáo viên viết thêm hai chữ nào?",
+            "answerVi": "日 và 月.",
+            "evidenceZh": "“日”和“月"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "老师：请看。“人”。学生：人。老师：现在写“大”。学生：大。老师：这个字是“小”。学生：小。",
+        "questions": [
+          {
+            "qVi": "Sau chữ 人, giáo viên yêu cầu viết chữ nào?",
+            "answer": "大"
+          },
+          {
+            "qVi": "Chữ cuối cùng được nhắc đến là gì?",
+            "answer": "小"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Nhìn cấu trúc của 人、大、小 trước khi viết, không chép theo trí nhớ.",
+        "Viết từng chữ một lần thật chậm và tự nói điểm bắt đầu của nét.",
+        "So sánh 大 với 人, chỉ ra nét làm hai chữ khác nhau.",
+        "Che mẫu, viết lại một chữ rồi mở mẫu để tự đối chiếu."
+      ],
+      "summaryChecklist": [
+        "Tôi nhận ra 人、大、小 khi không có pinyin.",
+        "Tôi phân biệt được 人 và 大 bằng hình dạng, không đoán theo nghĩa.",
+        "Tôi viết theo nét tĩnh nhưng không coi đó là asset stroke-order đã xác minh.",
+        "Tôi dùng 这是… để gọi tên một chữ."
+      ],
+      "situationVi": "Bạn đang học những chữ Hán đầu tiên và cần nhận ra chữ trước khi tập viết."
+    },
+    "hsk1-lesson-03": {
+      "reading": {
+        "textZh": "小林：你好！安娜：你好！小林：你好吗？安娜：我很好，谢谢。你呢？小林：我也很好。",
+        "questions": [
+          {
+            "qVi": "Ai hỏi “你好吗？”?",
+            "answerVi": "小林.",
+            "evidenceZh": "小林：你好吗"
+          },
+          {
+            "qVi": "安娜 đáp mình thế nào?",
+            "answerVi": "Cô ấy nói mình khỏe và cảm ơn.",
+            "evidenceZh": "我很好，谢谢"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你好！B：你好！A：你好吗？B：我很好，谢谢。你呢？A：我也很好。",
+        "questions": [
+          {
+            "qVi": "Người B trả lời tình trạng của mình thế nào?",
+            "answer": "我很好"
+          },
+          {
+            "qVi": "Câu nào được dùng để hỏi lại người A?",
+            "answer": "你呢？"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Ghép lời chào với lời đáp tự nhiên, không dịch từng chữ từ tiếng Việt.",
+        "Thay 我很好 bằng một câu trạng thái đã học nhưng giữ trật tự đúng.",
+        "Luyện cặp 你好 / 很好 để nghe rõ biến điệu thanh 3.",
+        "Đóng sách và thực hiện hội thoại bốn lượt với bạn học."
+      ],
+      "summaryChecklist": [
+        "Tôi chào và đáp lời không cần nhìn mẫu.",
+        "Tôi dùng 呢 để hỏi lại đúng ngữ cảnh.",
+        "Tôi không nói 我是很好 khi chỉ trạng thái.",
+        "Tôi đọc 你好/很好 với thanh điệu tự nhiên, không giữ hai thanh 3 đầy đủ như hai âm rời."
+      ],
+      "situationVi": "Bạn gặp một bạn học mới ở hành lang và muốn chào, hỏi thăm rồi đáp lại ngắn gọn."
+    },
+    "hsk1-lesson-04": {
+      "reading": {
+        "textZh": "安娜是越南人，是学生。她学习汉语。王明是中国人，也是学生。",
+        "questions": [
+          {
+            "qVi": "安娜 là người nước nào?",
+            "answerVi": "Cô ấy là người Việt Nam.",
+            "evidenceZh": "安娜是越南人"
+          },
+          {
+            "qVi": "安娜 và 王明 có điểm gì giống nhau?",
+            "answerVi": "Cả hai đều là học sinh/sinh viên.",
+            "evidenceZh": "也是学生"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你叫什么名字？B：我叫安娜。A：你是中国人吗？B：不是，我是越南人。A：你是学生吗？B：是。",
+        "questions": [
+          {
+            "qVi": "Người B tên gì?",
+            "answer": "安娜"
+          },
+          {
+            "qVi": "Người B có phải người Trung Quốc không?",
+            "answer": "不是"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Dùng 我叫… để nói tên; dùng 我是… để nói quốc tịch hoặc vai trò.",
+        "Đổi 安娜/越南人/学生 thành thông tin giả an toàn và nói lại ba câu.",
+        "Hỏi lại bằng 什么 và 吗, chú ý hai loại câu hỏi không dùng chồng lên nhau.",
+        "Tự giới thiệu 30–45 giây rồi kiểm tra có dùng 是 đúng chức năng không."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi và nói được tên.",
+        "Tôi nói được quốc tịch/vai trò bằng 是.",
+        "Tôi không thêm 吗 vào câu đã có 什么/谁.",
+        "Tôi có thể tự giới thiệu mà không đọc nguyên mẫu."
+      ],
+      "situationVi": "Bạn làm quen trong lớp tiếng Trung và cần trao đổi tên, quốc tịch và vai trò."
+    },
+    "hsk1-lesson-05": {
+      "reading": {
+        "textZh": "老师说：“我叫王明。”小安没听见，说：“对不起，请再说一次。”老师再说一次，小安听见了。",
+        "questions": [
+          {
+            "qVi": "Vì sao 小安 xin nói lại?",
+            "answerVi": "Vì bạn ấy chưa nghe thấy rõ câu trước.",
+            "evidenceZh": "没听见"
+          },
+          {
+            "qVi": "小安 dùng câu nào để xin nhắc lại?",
+            "answerVi": "对不起，请再说一次。",
+            "evidenceZh": "请再说一次"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：我叫王明。B：对不起，请再说一次。A：我叫王明。B：王明，对吗？A：对。",
+        "questions": [
+          {
+            "qVi": "Người B yêu cầu gì sau lượt nói đầu?",
+            "answer": "请再说一次"
+          },
+          {
+            "qVi": "Người B xác nhận tên nào?",
+            "answer": "王明"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Nghe một câu ngắn; nếu chưa rõ, không đoán mà dùng 对不起，请再说一次。",
+        "Sau khi nghe lại, nhắc đúng phần thông tin cần xác nhận.",
+        "Luyện 请说慢一点儿 và 请再说一次 trong hai tình huống khác nhau.",
+        "Đổi vai để người nói chủ động nói lại rõ hơn, không chỉ lặp nhanh y hệt."
+      ],
+      "summaryChecklist": [
+        "Tôi biết xin nhắc lại khi chưa nghe rõ.",
+        "Tôi dùng 请 để yêu cầu lịch sự.",
+        "Tôi phân biệt 没关系 (đáp lời xin lỗi) với 不客气 (đáp lời cảm ơn).",
+        "Tôi xác nhận lại thông tin thay vì giả vờ đã hiểu."
+      ],
+      "situationVi": "Bạn không nghe rõ tên của người đối diện và cần xin họ nhắc lại một cách lịch sự.",
+      "dialogueZh": "A：对不起，我没听见。请再说一次。\nB：我叫王明。\nA：你叫王明，对吗？\nB：对。没关系。"
+    },
+    "hsk1-lesson-06": {
+      "reading": {
+        "textZh": "我家有四个人：爸爸、妈妈、妹妹和我。爸爸是医生，妈妈是老师。",
+        "questions": [
+          {
+            "qVi": "Gia đình có mấy người?",
+            "answerVi": "Bốn người.",
+            "evidenceZh": "有四个人"
+          },
+          {
+            "qVi": "Mẹ làm nghề gì?",
+            "answerVi": "Giáo viên.",
+            "evidenceZh": "妈妈是老师"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你家有几个人？B：四个人。A：你有哥哥吗？B：没有，我有一个妹妹。A：你妈妈是老师吗？B：是。",
+        "questions": [
+          {
+            "qVi": "Gia đình người B có mấy người?",
+            "answer": "四个人"
+          },
+          {
+            "qVi": "Người B có anh trai không?",
+            "answer": "没有"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Nhìn một sơ đồ gia đình và nói 这是我的… cho hai người.",
+        "Dùng 有/没有 để nói có hay không có anh/chị/em.",
+        "Thay quan hệ gia đình bằng nhân vật hư cấu để luyện mà không phải chia sẻ riêng tư.",
+        "Ôn lại 是 từ bài 4 để nói nghề nghiệp của một thành viên."
+      ],
+      "summaryChecklist": [
+        "Tôi dùng 的 để nói quan hệ sở hữu.",
+        "Tôi phủ định 有 bằng 没有, không dùng 不有.",
+        "Tôi dùng 个 khi đếm người trong mẫu cơ bản.",
+        "Tôi kết hợp được kiến thức tự giới thiệu với giới thiệu gia đình."
+      ],
+      "situationVi": "Bạn cho một người bạn xem sơ đồ gia đình và giới thiệu vài thành viên."
+    },
+    "hsk1-lesson-07": {
+      "reading": {
+        "textZh": "王老师是中国人。他是老师，也很高兴认识新学生。安娜是学生，她也很高兴。",
+        "questions": [
+          {
+            "qVi": "王老师 là ai?",
+            "answerVi": "Ông/thầy Vương là giáo viên người Trung Quốc.",
+            "evidenceZh": "王老师是中国人。他是老师"
+          },
+          {
+            "qVi": "安娜 cảm thấy thế nào?",
+            "answerVi": "Cô ấy vui.",
+            "evidenceZh": "她也很高兴"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：她是谁？B：她是我的同学。A：她怎么样？B：她很好，也很高兴。A：他呢？B：他是老师。",
+        "questions": [
+          {
+            "qVi": "Người nữ được nói tới là ai?",
+            "answer": "同学"
+          },
+          {
+            "qVi": "Cô ấy được miêu tả thế nào?",
+            "answer": "很好，也很高兴"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Phân loại câu nào dùng 是 để xác định và câu nào dùng tính từ trực tiếp.",
+        "Sửa câu 我是很好 thành 我很好 và giải thích vì sao.",
+        "Mô tả một nhân vật bằng vai trò + một trạng thái, tránh nhận xét ngoại hình nhạy cảm.",
+        "Ôn 他/她: khi nghe đều là tā, phải dựa vào ngữ cảnh nếu cần phân biệt chữ viết."
+      ],
+      "summaryChecklist": [
+        "Tôi phân biệt câu 是 với câu vị ngữ tính từ.",
+        "Tôi không chèn 是 trước 很高兴/很好.",
+        "Tôi hiểu 他 và 她 đồng âm trong lời nói.",
+        "Tôi miêu tả người khác bằng thông tin phù hợp, tôn trọng."
+      ],
+      "situationVi": "Bạn cần giới thiệu một bạn học hoặc giáo viên và nói một đặc điểm đơn giản."
+    },
+    "hsk1-lesson-08": {
+      "reading": {
+        "textZh": "小安学习汉语。她问老师：“这是什么字？怎么读？”老师写这个字，也读一次。",
+        "questions": [
+          {
+            "qVi": "小安 hỏi hai điều gì về chữ mới?",
+            "answerVi": "Hỏi đó là chữ gì và đọc thế nào.",
+            "evidenceZh": "这是什么字？怎么读？"
+          },
+          {
+            "qVi": "Giáo viên làm gì?",
+            "answerVi": "Viết chữ và đọc một lần.",
+            "evidenceZh": "写这个字，也读一次"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "学生：老师，这个字怎么读？老师：读“学”。学生：这个字是什么？老师：是“学”。",
+        "questions": [
+          {
+            "qVi": "Học sinh hỏi cách đọc bằng câu nào?",
+            "answer": "这个字怎么读？"
+          },
+          {
+            "qVi": "Chữ được giáo viên đọc là chữ nào?",
+            "answer": "学"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Dùng 这是什么意思？ khi hỏi nghĩa và 这个字怎么读？ khi hỏi cách đọc.",
+        "Lấy một chữ đã học, hỏi bạn hai câu khác nhau: nghĩa và cách đọc.",
+        "Không thêm 吗 vào câu đã có 什么/怎么.",
+        "Ghi câu trả lời vào thẻ từ: chữ – pinyin – nghĩa – một cụm đã học."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi được nghĩa của một từ/chữ.",
+        "Tôi hỏi được cách đọc mà không đảo từ nghi vấn lên đầu câu.",
+        "Tôi không trộn tiếng Việt vào phần hội thoại tiếng Trung.",
+        "Tôi biết dùng từ điển/lookup để kiểm pinyin thay vì đoán."
+      ],
+      "dialogueZh": "学生：老师，这是什么字？\n老师：这是“学”，学习的“学”。\n学生：怎么读？\n老师：读“学”。\n学生：请写一下。",
+      "situationVi": "Bạn gặp một chữ mới trong lớp và muốn hỏi nghĩa, cách đọc và cách viết."
+    },
+    "hsk1-lesson-09": {
+      "reading": {
+        "textZh": "小安会说越南语，也会说一点儿汉语。她会读一些汉字。她不会写很多汉字。",
+        "questions": [
+          {
+            "qVi": "小安 biết nói những ngôn ngữ nào?",
+            "answerVi": "Tiếng Việt và một chút tiếng Trung.",
+            "evidenceZh": "会说越南语，也会说一点儿汉语"
+          },
+          {
+            "qVi": "Kỹ năng nào của cô ấy còn hạn chế?",
+            "answerVi": "Viết chữ Hán.",
+            "evidenceZh": "不会写很多汉字"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你会说汉语吗？B：会说一点儿。A：你会写汉字吗？B：会写一点儿。A：这里可以坐吗？B：可以。",
+        "questions": [
+          {
+            "qVi": "Người B nói tiếng Trung ở mức nào?",
+            "answer": "一点儿"
+          },
+          {
+            "qVi": "Câu nào là câu xin phép?",
+            "answer": "这里可以坐吗？"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Phân biệt 会 (kỹ năng đã học), 能 (khả năng/điều kiện) và 可以 (cho phép/phù hợp).",
+        "Tạo ba câu cùng một chủ ngữ nhưng lần lượt dùng 会、能、可以.",
+        "Đổi một câu sang phủ định 会→不会 hoặc 能→不能.",
+        "Role-play xin phép ngồi và hỏi một kỹ năng; không dùng ba từ thay thế tùy tiện."
+      ],
+      "summaryChecklist": [
+        "Tôi dùng 会 để nói kỹ năng đã học.",
+        "Tôi dùng 可以…吗？ để xin phép trong tình huống đơn giản.",
+        "Tôi đặt 不 trước 会/能/可以 khi phủ định phù hợp.",
+        "Tôi không dịch cả ba từ thành một từ “có thể” rồi dùng ngẫu nhiên."
+      ],
+      "situationVi": "Bạn nói về khả năng ngôn ngữ và hỏi xem một hành động có được phép hay không.",
+      "dialogueZh": "A：你会说汉语吗？\nB：会说一点儿。我不会写很多字。\nA：这里可以坐吗？\nB：可以。"
+    },
+    "hsk1-lesson-10": {
+      "reading": {
+        "textZh": "房间号是508，电话号码是13820567890。房间里有两个人。",
+        "questions": [
+          {
+            "qVi": "Số phòng là bao nhiêu?",
+            "answerVi": "508.",
+            "evidenceZh": "房间号是508"
+          },
+          {
+            "qVi": "Trong phòng có mấy người?",
+            "answerVi": "Hai người.",
+            "evidenceZh": "有两个人"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你的电话号码是多少？B：一三八，二零五六，七八九零。A：房间号呢？B：五零八。",
+        "questions": [
+          {
+            "qVi": "Ba số đầu của số điện thoại là gì?",
+            "answer": "一三八"
+          },
+          {
+            "qVi": "Số phòng là gì?",
+            "answer": "五零八"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Nghe một dãy số và ghi bằng chữ số, sau đó đổi chiều đọc lại bằng tiếng Trung.",
+        "Phân biệt 二 và 两: dãy số đọc 二; trước lượng từ thường dùng 两 trong mẫu đã học.",
+        "Tự tạo số điện thoại giả, không dùng dữ liệu cá nhân thật.",
+        "Ôn 请再说一次 từ bài 5 khi bạn học đọc số quá nhanh."
+      ],
+      "summaryChecklist": [
+        "Tôi nghe và đọc được dãy số từng chữ số.",
+        "Tôi dùng 多少 để hỏi số điện thoại/số lượng phù hợp.",
+        "Tôi phân biệt 二 và 两 trong các mẫu cơ bản.",
+        "Tôi biết xin nhắc lại thay vì đoán số."
+      ],
+      "situationVi": "Bạn cần trao đổi một số liên lạc giả và số phòng, đồng thời xác nhận khi nghe chưa rõ."
+    },
+    "hsk1-lesson-11": {
+      "reading": {
+        "textZh": "汉语课：五月十号，星期五，下午两点上课。五月十一号不上课。",
+        "questions": [
+          {
+            "qVi": "Lớp tiếng Trung diễn ra ngày nào?",
+            "answerVi": "Ngày 10 tháng 5.",
+            "evidenceZh": "五月十号"
+          },
+          {
+            "qVi": "Ngày 11 tháng 5 có học không?",
+            "answerVi": "Không.",
+            "evidenceZh": "五月十一号不上课"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：今天几月几号？B：五月八号，星期三。A：明天呢？B：五月九号，星期四。",
+        "questions": [
+          {
+            "qVi": "Hôm nay là ngày nào?",
+            "answer": "五月八号"
+          },
+          {
+            "qVi": "Ngày mai là thứ mấy?",
+            "answer": "星期四"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Đọc ngày theo thứ tự tháng–ngày trong mẫu tiếng Trung, không bê trật tự tiếng Việt.",
+        "Hỏi 今天几月几号？ rồi đổi sang 明天/昨天.",
+        "Viết ba ngày liên tiếp và kiểm tra 号 đứng sau số ngày.",
+        "Ôn số từ bài 10 nhưng chuyển từ dãy số sang ngày tháng."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi và nói được ngày tháng.",
+        "Tôi đọc mốc ngày theo trật tự tiếng Trung.",
+        "Tôi phân biệt 今天/明天/昨天.",
+        "Tôi dùng 几 cho ngày/giờ trong mẫu đã học."
+      ],
+      "situationVi": "Bạn xem một thông báo lớp học và cần xác định chính xác ngày, thứ và giờ."
+    },
+    "hsk1-lesson-12": {
+      "reading": {
+        "textZh": "星期六上午九点，我们在学校见。小王八点五十分到，小李九点到。",
+        "questions": [
+          {
+            "qVi": "Hai người hẹn gặp lúc mấy giờ?",
+            "answerVi": "9 giờ sáng thứ Bảy.",
+            "evidenceZh": "星期六上午九点"
+          },
+          {
+            "qVi": "Ai đến sớm hơn?",
+            "answerVi": "小王.",
+            "evidenceZh": "八点五十分到"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：我们几点见？B：下午三点。A：三点半可以吗？B：可以。我们三点半在学校见。",
+        "questions": [
+          {
+            "qVi": "Giờ hẹn cuối cùng là mấy giờ?",
+            "answer": "下午三点半"
+          },
+          {
+            "qVi": "Họ gặp ở đâu?",
+            "answer": "学校"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Đặt thời gian trước động từ trong câu cơ bản: 我们三点见。",
+        "Đổi một cuộc hẹn từ 三点 sang 三点半 và xác nhận lại.",
+        "Thêm địa điểm sau mốc thời gian nhưng trước/đúng vị trí theo mẫu đã học.",
+        "Ôn 可以吗 từ bài 9 để thương lượng giờ khác."
+      ],
+      "summaryChecklist": [
+        "Tôi nói được giờ tròn và giờ rưỡi.",
+        "Tôi đặt mốc thời gian đúng vị trí.",
+        "Tôi xác nhận được giờ hẹn cuối cùng sau khi thay đổi.",
+        "Tôi kết hợp ngày + buổi + giờ mà không đảo trật tự."
+      ],
+      "situationVi": "Bạn và bạn học cần thống nhất một giờ gặp, có một lần đề xuất đổi giờ."
+    },
+    "hsk1-lesson-13": {
+      "reading": {
+        "textZh": "我早上七点起床，七点半吃饭。八点上班，下午五点下班，晚上十一点睡觉。",
+        "questions": [
+          {
+            "qVi": "Người nói bắt đầu đi làm lúc mấy giờ?",
+            "answerVi": "8 giờ.",
+            "evidenceZh": "八点上班"
+          },
+          {
+            "qVi": "Hoạt động cuối ngày được nhắc tới là gì?",
+            "answerVi": "Đi ngủ lúc 11 giờ tối.",
+            "evidenceZh": "晚上十一点睡觉"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你早上几点起床？B：七点。A：几点上班？B：八点上班，下午五点下班。A：晚上几点睡觉？B：十一点。",
+        "questions": [
+          {
+            "qVi": "Người B thức dậy lúc mấy giờ?",
+            "answer": "七点"
+          },
+          {
+            "qVi": "Người B tan làm lúc mấy giờ?",
+            "answer": "下午五点"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Sắp xếp 起床→吃饭→上班→下班→睡觉 theo một ngày điển hình.",
+        "Gắn mốc giờ vào ít nhất bốn hoạt động, thời gian đứng trước động từ.",
+        "Dùng 每天 để nói thói quen; dùng 今天 để tạo một ngoại lệ.",
+        "Ôn ngày/giờ từ bài 11–12 trong một đoạn nói 60 giây."
+      ],
+      "summaryChecklist": [
+        "Tôi kể được chuỗi hoạt động theo thời gian.",
+        "Tôi dùng 上班/下班 đúng nghĩa công việc, không nhầm với lên/xuống lớp.",
+        "Tôi đặt thời gian trước động từ trong câu cơ bản.",
+        "Tôi có thể thay một chi tiết mà vẫn giữ câu đúng."
+      ],
+      "situationVi": "Bạn kể lịch một ngày bình thường để người khác hiểu thứ tự và giờ của các hoạt động.",
+      "dialogueZh": "A：你早上几点起床？\nB：我七点起床，八点上班。\nA：几点下班？\nB：五点下班，六点回家。"
+    },
+    "hsk1-lesson-14": {
+      "reading": {
+        "textZh": "房间里有桌子和椅子。电脑在桌子上，书也在桌子上。手机在椅子上。",
+        "questions": [
+          {
+            "qVi": "Máy tính ở đâu?",
+            "answerVi": "Trên bàn.",
+            "evidenceZh": "电脑在桌子上"
+          },
+          {
+            "qVi": "Điện thoại ở đâu?",
+            "answerVi": "Trên ghế.",
+            "evidenceZh": "手机在椅子上"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：我的书在哪儿？B：在桌子上。A：桌子上有手机吗？B：没有。手机在椅子上。",
+        "questions": [
+          {
+            "qVi": "Quyển sách ở đâu?",
+            "answer": "桌子上"
+          },
+          {
+            "qVi": "Điện thoại có ở trên bàn không?",
+            "answer": "没有"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Dùng X 在 Y để nói vị trí của vật đã biết.",
+        "Dùng nơi chốn + 有 + vật để nói nơi đó có gì.",
+        "So sánh 书在桌子上 và 桌子上有书: cùng cảnh nhưng trọng tâm khác nhau.",
+        "Ôn 这/那 bằng cách chỉ hai đồ vật rồi mô tả vị trí."
+      ],
+      "summaryChecklist": [
+        "Tôi phân biệt 在 (ở đâu) và 有 (có gì).",
+        "Tôi dùng 上/下/前面/后面/旁边 theo sơ đồ.",
+        "Tôi không thêm lượng từ ngoài phạm vi chỉ để câu nghe phức tạp hơn.",
+        "Tôi có thể mô tả để người khác vẽ đúng sơ đồ đơn giản."
+      ],
+      "situationVi": "Bạn đang tìm một đồ vật và cần hỏi vị trí rồi mô tả đồ vật khác ở đâu."
+    },
+    "hsk1-lesson-15": {
+      "reading": {
+        "textZh": "现在是晚上八点。爸爸在看电视，妈妈在看书，我正在学习汉语。",
+        "questions": [
+          {
+            "qVi": "Bây giờ là mấy giờ?",
+            "answerVi": "8 giờ tối.",
+            "evidenceZh": "晚上八点"
+          },
+          {
+            "qVi": "Ai đang đọc sách?",
+            "answerVi": "Mẹ.",
+            "evidenceZh": "妈妈在看书"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你在做什么呢？B：我正在看书。A：妈妈呢？B：她在看电视。A：爸爸在工作吗？B：没有，他在休息。",
+        "questions": [
+          {
+            "qVi": "Người B đang làm gì?",
+            "answer": "看书"
+          },
+          {
+            "qVi": "Bố có đang làm việc không?",
+            "answer": "没有"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Biến câu 我看书 thành 我在看书 / 我正在看书 để nhấn hành động đang diễn ra.",
+        "Dùng 呢 trong câu 你在做什么呢？ nhưng không coi 呢 là bắt buộc trong mọi câu tiến hành.",
+        "Mô tả ba người trong một tranh tưởng tượng, mỗi người làm một việc khác nhau.",
+        "Ôn 在 chỉ nơi chốn từ bài 14 và phân biệt với 在 đánh dấu tiến hành bằng vị trí trong câu."
+      ],
+      "summaryChecklist": [
+        "Tôi nói được hành động đang diễn ra.",
+        "Tôi phân biệt 在 + nơi chốn với 在 + động từ theo cấu trúc.",
+        "Tôi hiểu 正在 nhấn mạnh tiến hành rõ hơn.",
+        "Tôi hỏi 你在做什么呢？ và trả lời tự nhiên."
+      ],
+      "situationVi": "Bạn gọi video và mô tả mọi người quanh mình đang làm gì."
+    },
+    "hsk1-lesson-16": {
+      "reading": {
+        "textZh": "小王早上喝水，中午吃米饭和菜，晚上喜欢吃面条儿。他也吃水果。",
+        "questions": [
+          {
+            "qVi": "Buổi trưa 小王 ăn gì?",
+            "answerVi": "Cơm và món ăn.",
+            "evidenceZh": "中午吃米饭和菜"
+          },
+          {
+            "qVi": "Buổi tối anh ấy thích ăn gì?",
+            "answerVi": "Mì.",
+            "evidenceZh": "晚上喜欢吃面条"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你喜欢吃什么？B：我喜欢吃米饭和菜。A：你喜欢喝茶吗？B：喜欢。A：你不喜欢吃什么？B：我不喜欢吃苹果。",
+        "questions": [
+          {
+            "qVi": "Người B thích ăn gì?",
+            "answer": "米饭和菜"
+          },
+          {
+            "qVi": "Người B không thích ăn gì?",
+            "answer": "苹果"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Dùng 喜欢 + danh từ/động từ để nói sở thích, không thêm 是.",
+        "Tạo một cặp 喜欢/不喜欢 về đồ ăn hoặc đồ uống.",
+        "Hỏi bạn 你喜欢吃什么？ rồi báo cáo lại bằng 他/她.",
+        "Ôn 吗 và 什么: một câu hỏi yes/no, một câu hỏi mở."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi được món người khác thích.",
+        "Tôi dùng 不喜欢 đúng vị trí.",
+        "Tôi phân biệt 吃饭 (ăn bữa) và 米饭 (cơm chín) theo ngữ cảnh.",
+        "Tôi có thể nói sở thích mà không biến thành phán xét khẩu vị."
+      ],
+      "situationVi": "Bạn cùng bạn học chọn đồ ăn và cần nói món mình thích hoặc không thích.",
+      "dialogueZh": "A：你喜欢吃什么？\nB：我喜欢吃米饭和菜。你呢？\nA：我喜欢面条儿，不喜欢吃苹果。\nB：你想喝茶吗？\nA：想。"
+    },
+    "hsk1-lesson-17": {
+      "reading": {
+        "textZh": "米饭十块，面条儿十五块，包子三块一个，茶五块一杯。小安要两个包子和一杯茶。",
+        "questions": [
+          {
+            "qVi": "Một cốc trà giá bao nhiêu?",
+            "answerVi": "5 tệ.",
+            "evidenceZh": "茶五块一杯"
+          },
+          {
+            "qVi": "小安 gọi những gì?",
+            "answerVi": "Hai bánh bao và một cốc trà.",
+            "evidenceZh": "两个包子和一杯茶"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：请问，你要什么？B：我要两个包子和一杯茶。A：还要米饭吗？B：不要，谢谢。",
+        "questions": [
+          {
+            "qVi": "Người B gọi hai món gì?",
+            "answer": "两个包子和一杯茶"
+          },
+          {
+            "qVi": "Người B có gọi cơm không?",
+            "answer": "不要"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Ghép đúng lượng từ với danh từ trong các cụm đã học: 一杯茶、一个包子、一本书。",
+        "Dùng 我要… để gọi món; dùng 我想… khi nói mong muốn mềm hơn.",
+        "Role-play phục vụ xác nhận lại món và số lượng trước khi tính tiền.",
+        "Ôn 多少/钱 từ bài 10 bằng câu 多少钱？ nhưng không để câu hỏi giá lấn mục tiêu gọi món."
+      ],
+      "summaryChecklist": [
+        "Tôi dùng lượng từ trong cụm gọi món.",
+        "Tôi phân biệt 想 và 要 ở mức cơ bản.",
+        "Tôi có thể từ chối thêm món bằng 不要，谢谢.",
+        "Tôi xác nhận được món + lượng trước khi kết thúc hội thoại."
+      ],
+      "situationVi": "Bạn gọi món tại quầy và cần nói món, số lượng, đồ uống rồi xác nhận.",
+      "dialogueZh": "A：你好，请问你要什么？\nB：我要两个包子和一杯茶。\nA：还要米饭吗？\nB：不要，谢谢。"
+    },
+    "hsk1-lesson-18": {
+      "reading": {
+        "textZh": "这是我的新手机。手机不大，很好看。那个电脑是我爸爸的，电脑很大。",
+        "questions": [
+          {
+            "qVi": "Điện thoại mới được miêu tả thế nào?",
+            "answerVi": "Không to và trông đẹp.",
+            "evidenceZh": "不大，很好看"
+          },
+          {
+            "qVi": "Máy tính cũ là của ai?",
+            "answerVi": "Của bố người nói.",
+            "evidenceZh": "我爸爸的"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：这件衣服怎么样？B：很好看，也不太大。A：那件呢？B：那件有一点儿小。A：你喜欢哪件？B：我喜欢这件。",
+        "questions": [
+          {
+            "qVi": "Bộ đồ thứ hai thế nào?",
+            "answer": "有一点儿小"
+          },
+          {
+            "qVi": "Người B thích bộ nào?",
+            "answer": "这件"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Dùng 这/那 + lượng từ + danh từ khi chỉ một đồ vật cụ thể.",
+        "Miêu tả bằng 很/不太/有一点儿 + tính từ, không dùng 是 trước tính từ.",
+        "So sánh hai đồ vật và dùng 哪个/哪件 để hỏi lựa chọn phù hợp.",
+        "Ôn 的 từ bài 6 để nói đồ vật thuộc về ai."
+      ],
+      "summaryChecklist": [
+        "Tôi dùng 这/那 với lượng từ phù hợp trong mẫu đã học.",
+        "Tôi miêu tả đồ vật bằng tính từ mà không chèn 是.",
+        "Tôi phân biệt 新/旧 và 大/小 theo ngữ cảnh.",
+        "Tôi hỏi và trả lời lựa chọn giữa hai đồ vật."
+      ],
+      "situationVi": "Bạn so sánh hai món đồ trước khi chọn, tập trung vào kích thước và trạng thái đơn giản.",
+      "dialogueZh": "A：这件衣服怎么样？\nB：很好看，也不太大。\nA：那件呢？\nB：那件很漂亮，有一点儿小。"
+    },
+    "hsk1-lesson-19": {
+      "reading": {
+        "textZh": "商店有苹果、茶和书。苹果五块，茶二十块，这本书三十块。小李买这本书。",
+        "questions": [
+          {
+            "qVi": "Quyển sách giá bao nhiêu?",
+            "answerVi": "30 tệ.",
+            "evidenceZh": "这本书三十块"
+          },
+          {
+            "qVi": "小李 mua gì?",
+            "answerVi": "Quyển sách.",
+            "evidenceZh": "小李买这本书"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：这个多少钱？B：八十块。A：太贵了。那个呢？B：五十块。A：好，我买那个。",
+        "questions": [
+          {
+            "qVi": "Món đầu tiên giá bao nhiêu?",
+            "answer": "八十块"
+          },
+          {
+            "qVi": "Cuối cùng khách chọn món nào?",
+            "answer": "那个"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Hỏi giá bằng 这个多少钱？/那本书多少钱？ với vật đã xác định.",
+        "Dùng 太贵了 để phản ứng, nhận ra 了 ở cuối câu biểu thị trạng thái/đánh giá mới trong ngữ cảnh.",
+        "So sánh hai giá rồi nói lựa chọn cuối cùng bằng 我买…",
+        "Ôn lượng từ 本/件/个/杯 thay vì đưa thêm lượng từ mới chưa học."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi được giá và hiểu câu trả lời bằng 块/元.",
+        "Tôi phân biệt 买 mǎi và 卖 mài.",
+        "Tôi dùng 太…了 như một khung mức độ, không dịch từng từ cứng nhắc.",
+        "Tôi đưa ra lựa chọn cuối cùng rõ ràng."
+      ],
+      "situationVi": "Bạn hỏi giá hai món, thấy món đầu quá đắt và cân nhắc món thứ hai.",
+      "dialogueZh": "A：这个多少钱？\nB：八十块。\nA：太贵了。那个呢？\nB：那个五十块。\nA：好，我买那个。"
+    },
+    "hsk1-lesson-20": {
+      "reading": {
+        "textZh": "商店在学校前边。饭店在商店后边。医院在饭店后边。",
+        "questions": [
+          {
+            "qVi": "Cửa hàng ở đâu so với trường?",
+            "answerVi": "Phía trước trường.",
+            "evidenceZh": "商店在学校前边"
+          },
+          {
+            "qVi": "Bệnh viện ở đâu?",
+            "answerVi": "Phía sau nhà hàng.",
+            "evidenceZh": "医院在饭店后边"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：请问，医院在哪儿？B：在饭店后边。A：商店呢？B：商店在学校前边。A：谢谢。B：不客气。",
+        "questions": [
+          {
+            "qVi": "Bệnh viện ở đâu?",
+            "answer": "饭店后边"
+          },
+          {
+            "qVi": "Cửa hàng ở đâu?",
+            "answer": "学校前边"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Đặt từ nghi vấn 哪儿 đúng vị trí: 医院在哪儿？",
+        "Dùng 在 + địa điểm/từ chỉ phương hướng để trả lời ngắn.",
+        "Dựa vào sơ đồ, đổi 前面/后面/左边/右边 và kiểm tra câu có khớp vị trí thật.",
+        "Ôn 不客气 từ bài 5 khi đáp lời 谢谢."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi được một địa điểm ở đâu.",
+        "Tôi dùng từ chỉ phương hướng theo sơ đồ, không học thuộc câu rời.",
+        "Tôi giữ 哪儿 ở vị trí của thông tin cần hỏi.",
+        "Tôi cảm ơn và đáp lời cảm ơn đúng ngữ cảnh."
+      ],
+      "situationVi": "Bạn ở một khu phố lạ và cần hỏi vị trí bệnh viện/cửa hàng trên sơ đồ.",
+      "dialogueZh": "A：请问，医院在哪儿？\nB：在饭店后边。\nA：商店呢？\nB：商店在学校前边。\nA：谢谢！\nB：不客气。"
+    },
+    "hsk1-lesson-21": {
+      "reading": {
+        "textZh": "明天我去北京。上午坐火车去，下午三点到。朋友下午三点也到。",
+        "questions": [
+          {
+            "qVi": "Người nói đi Bắc Kinh bằng gì?",
+            "answerVi": "Tàu hỏa.",
+            "evidenceZh": "坐火车去"
+          },
+          {
+            "qVi": "Mấy giờ người nói đến?",
+            "answerVi": "3 giờ chiều.",
+            "evidenceZh": "下午三点到"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你怎么去公司？B：我坐出租车去。A：几点到？B：八点到。A：晚上怎么回家？B：我坐车回家。",
+        "questions": [
+          {
+            "qVi": "Người B đi công ty bằng gì?",
+            "answer": "出租车"
+          },
+          {
+            "qVi": "Người B đến lúc mấy giờ?",
+            "answer": "八点"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Sắp xếp chuỗi phương tiện + động từ hướng: 我坐出租车去公司。",
+        "Phân biệt 坐 và 走 bằng tình huống, đồng thời luyện mǎi/mài vs zuò/zǒu ở phát âm nếu cần.",
+        "Hỏi 怎么去…？ rồi trả lời bằng phương tiện.",
+        "Ôn mốc giờ từ bài 12–13 để thêm giờ đến vào hành trình."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi được đi bằng cách nào.",
+        "Tôi nói được mẫu 坐 + phương tiện + 去/来.",
+        "Tôi không nhầm 坐 (ngồi/đi phương tiện) với 做 (làm).",
+        "Tôi kết hợp phương tiện và giờ đến trong một hành trình ngắn."
+      ],
+      "situationVi": "Bạn hỏi một đồng nghiệp/bạn học họ đi đến một địa điểm bằng phương tiện gì và mấy giờ tới.",
+      "dialogueZh": "A：你怎么去公司？\nB：我坐出租车去。你呢？\nA：我坐车去，晚上坐车回家。\nB：你几点到？\nA：八点到。"
+    },
+    "hsk1-lesson-22": {
+      "reading": {
+        "textZh": "星期六天气很热，不下雨。星期天下雨，有一点儿冷。小王星期天在家。",
+        "questions": [
+          {
+            "qVi": "Thứ Bảy thời tiết thế nào?",
+            "answerVi": "Nóng và không mưa.",
+            "evidenceZh": "很热，不下雨"
+          },
+          {
+            "qVi": "Ngày nào trời mưa?",
+            "answerVi": "Chủ nhật.",
+            "evidenceZh": "星期天下雨"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：今天天气怎么样？B：很热。A：明天呢？B：明天下雨，有一点儿冷。A：下雪吗？B：不下雪。",
+        "questions": [
+          {
+            "qVi": "Ngày mai có thời tiết gì?",
+            "answer": "下雨，有一点儿冷"
+          },
+          {
+            "qVi": "Ngày mai có tuyết không?",
+            "answer": "不下雪"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Hỏi 天气怎么样？ rồi trả lời bằng tính từ hoặc 下雨, không thêm 是.",
+        "Dùng 很/太…了/有一点儿 để phân biệt mức độ cơ bản.",
+        "Nghe thông tin hai ngày và ghi lại đúng nóng/lạnh/mưa/tuyết, không suy diễn kế hoạch.",
+        "Ôn 今天/明天 và 吧 để đề xuất kế hoạch sau khi nói thời tiết."
+      ],
+      "summaryChecklist": [
+        "Tôi hỏi và mô tả được thời tiết cơ bản.",
+        "Tôi không dùng 天气是很热 trong câu miêu tả đơn giản.",
+        "Tôi hiểu 下雨 là cụm động từ, không cần 是.",
+        "Tôi có thể nghe và báo lại thời tiết của hai ngày."
+      ],
+      "situationVi": "Bạn xem thời tiết hôm nay và ngày mai để quyết định có đi công viên hay không.",
+      "dialogueZh": "A：今天天气怎么样？\nB：很热。\nA：明天呢？\nB：明天下雨，有一点儿冷。\nA：下雪吗？\nB：不下雪。"
+    },
+    "hsk1-lesson-23": {
+      "reading": {
+        "textZh": "今天小李生病了。他不去上班，在家休息。下午他去医院看病。",
+        "questions": [
+          {
+            "qVi": "Vì sao 小李 không đi làm?",
+            "answerVi": "Vì anh ấy bị ốm.",
+            "evidenceZh": "小李生病了"
+          },
+          {
+            "qVi": "Buổi chiều anh ấy đi đâu và làm gì?",
+            "answerVi": "Đi bệnh viện khám bệnh.",
+            "evidenceZh": "去医院看病"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：你怎么了？B：我生病了。A：你能去医院看病吗？B：能。A：今天不要上班，请休息。B：好，谢谢。",
+        "questions": [
+          {
+            "qVi": "Người B nói mình thế nào?",
+            "answer": "我生病了"
+          },
+          {
+            "qVi": "Người A khuyên gì?",
+            "answer": "不要上班，请休息"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Dùng 生病了 để báo tình trạng cơ bản; không tự suy diễn chẩn đoán cụ thể.",
+        "Dùng 能/不能 để nói khả năng đi bệnh viện hoặc làm việc.",
+        "Viết tin nhắn rất ngắn: hôm nay bị ốm + không đi làm/học + cảm ơn.",
+        "Ôn 医院在哪儿 từ bài 20 để ghép nhu cầu sức khỏe với hỏi địa điểm."
+      ],
+      "summaryChecklist": [
+        "Tôi báo được mình bị ốm bằng câu ngắn.",
+        "Tôi hiểu bài học không thay thế tư vấn/chẩn đoán y tế.",
+        "Tôi dùng 能/不能 đúng chức năng khả năng.",
+        "Tôi có thể nói mình sẽ đi bệnh viện看病 khi cần."
+      ],
+      "situationVi": "Bạn thấy không khỏe và cần báo ngắn gọn tình trạng, xin hỗ trợ hoặc nói mình sẽ đi khám.",
+      "dialogueZh": "A：你怎么了？\nB：我生病了。\nA：你能去医院看病吗？\nB：能。\nA：今天不要上班，请休息。\nB：好，谢谢。"
+    },
+    "hsk1-lesson-24": {
+      "reading": {
+        "textZh": "星期六下午三点，我们在学校见。我们吃饭，再看电影。星期六下雨，我们星期天去。",
+        "questions": [
+          {
+            "qVi": "Kế hoạch ban đầu là gặp khi nào?",
+            "answerVi": "3 giờ chiều thứ Bảy.",
+            "evidenceZh": "星期六下午三点"
+          },
+          {
+            "qVi": "Nếu thứ Bảy mưa, họ đổi sang ngày nào?",
+            "answerVi": "Chủ nhật.",
+            "evidenceZh": "我们星期天去"
+          }
+        ]
+      },
+      "listening": {
+        "scriptZh": "A：星期六你想做什么？B：我想看电影。A：我们看电影吧。B：好。几点？A：下午三点，可以吗？B：可以。",
+        "questions": [
+          {
+            "qVi": "Hoạt động được thống nhất là gì?",
+            "answer": "看电影"
+          },
+          {
+            "qVi": "Họ thống nhất thời gian nào?",
+            "answer": "星期六下午三点"
+          }
+        ]
+      },
+      "guidedSteps": [
+        "Đưa đề xuất bằng 我们…吧 và phản hồi 好/可以 hoặc từ chối lịch sự.",
+        "Thương lượng đủ ba thông tin: hoạt động, thời gian, địa điểm.",
+        "Ôn 想/要/可以 theo chức năng: mong muốn, nhu cầu/kế hoạch, chấp thuận.",
+        "Kéo kiến thức từ bài 12 và 22 vào một kế hoạch cuối tuần có phương án thay đổi."
+      ],
+      "summaryChecklist": [
+        "Tôi đề xuất một hoạt động bằng 吧.",
+        "Tôi hỏi và chốt được thời gian/địa điểm.",
+        "Tôi phân biệt 想、要、可以 ở mức cơ bản.",
+        "Tôi ôn được thời gian, thời tiết và đi lại trong một nhiệm vụ tích hợp."
+      ],
+      "situationVi": "Nhóm bạn cần thống nhất hoạt động cuối tuần, giờ gặp và phương án khi thời tiết thay đổi.",
+      "dialogueZh": "A：星期六你想做什么？\nB：我想看电影。\nA：我们看电影吧。\nB：好。几点？\nA：下午三点，可以吗？\nB：可以。"
+    }
+  },
+  "lessonMetaPatches": {
+    "8": {
+      "titleZh": "这个字怎么读",
+      "titleVi": "Chữ này đọc thế nào?",
+      "objective": "Hỏi cách đọc/cách viết và xử lý một chữ mới trong lớp học.",
+      "removeFocus": [
+        "意思"
+      ],
+      "addFocus": []
+    },
+    "9": {
+      "removeFocus": [
+        "英语"
+      ],
+      "addFocus": []
+    },
+    "11": {
+      "removeFocus": [
+        "生日"
+      ],
+      "addFocus": []
+    },
+    "13": {
+      "titleZh": "我早上八点上班",
+      "titleVi": "Tôi đi làm lúc 8 giờ sáng",
+      "objective": "Kể các hoạt động chính trong ngày theo trình tự thời gian.",
+      "removeFocus": [
+        "每天"
+      ],
+      "addFocus": []
+    },
+    "14": {
+      "removeFocus": [
+        "前面",
+        "后面",
+        "旁边"
+      ],
+      "addFocus": [
+        "外",
+        "前",
+        "后"
+      ]
+    },
+    "17": {
+      "removeFocus": [
+        "碗"
+      ],
+      "addFocus": []
+    },
+    "18": {
+      "removeFocus": [
+        "旧"
+      ],
+      "addFocus": []
+    },
+    "20": {
+      "removeFocus": [
+        "前面",
+        "后面",
+        "左边",
+        "右边",
+        "旁边"
+      ],
+      "addFocus": [
+        "前",
+        "后",
+        "外",
+        "里"
+      ]
+    },
+    "21": {
+      "removeFocus": [
+        "走"
+      ],
+      "addFocus": []
+    },
+    "22": {
+      "removeFocus": [
+        "晴",
+        "阴"
+      ],
+      "addFocus": [
+        "雪"
+      ],
+      "objective": "Mô tả thời tiết hôm nay/ngày mai và hiểu thông tin thời tiết ngắn."
+    },
+    "23": {
+      "titleZh": "我生病了",
+      "titleVi": "Tôi bị ốm rồi",
+      "objective": "Nói mình bị ốm, xin hỗ trợ và hiểu lời khuyên rất ngắn.",
+      "removeFocus": [
+        "身体",
+        "头",
+        "眼睛",
+        "不舒服",
+        "吃药"
+      ],
+      "addFocus": [
+        "病",
+        "生病",
+        "看病"
+      ]
+    },
+    "24": {
+      "titleZh": "星期六我们看电影吧",
+      "titleVi": "Thứ Bảy chúng ta đi xem phim nhé",
+      "objective": "Đề xuất, chấp nhận/từ chối lịch sự và thống nhất một kế hoạch gần.",
+      "removeFocus": [
+        "周末",
+        "一起",
+        "公园",
+        "什么时候"
+      ],
+      "addFocus": [
+        "星期",
+        "六",
+        "电影",
+        "看",
+        "饭店",
+        "学校",
+        "见"
+      ]
+    }
+  },
+  "grammarExercises": {
+    "1": {
+      "format": "sentence-reorder",
+      "prompt": "Sắp xếp thành câu đúng về giờ hiện tại.",
+      "stimulus": {
+        "tokens": [
+          "现在",
+          "九点",
+          "。"
+        ]
+      },
+      "answer": "现在九点。",
+      "accepted": [
+        "现在九点。"
+      ],
+      "explanation": "Mốc thời gian đứng trong câu theo trật tự tự nhiên; không đảo thành 九点现在。"
+    },
+    "2": {
+      "format": "measure-word-choice",
+      "prompt": "Chọn lượng từ đúng: 这___书很好。",
+      "options": [
+        "本",
+        "杯",
+        "个"
+      ],
+      "answer": "本",
+      "explanation": "本 là lượng từ cơ bản của sách: 这本书。"
+    },
+    "3": {
+      "format": "error-correction",
+      "prompt": "Sửa câu sai: 我是很好。",
+      "stimulus": {
+        "sentenceZh": "我是很好。"
+      },
+      "answer": "我很好。",
+      "accepted": [
+        "我很好。"
+      ],
+      "explanation": "Trong câu miêu tả trạng thái bằng tính từ, không dùng 是 trước 很好."
+    },
+    "4": {
+      "format": "sentence-reorder",
+      "prompt": "Sắp xếp thành câu giới thiệu quốc tịch đúng.",
+      "stimulus": {
+        "tokens": [
+          "我",
+          "是",
+          "越南人",
+          "。"
+        ]
+      },
+      "answer": "我是越南人。",
+      "accepted": [
+        "我是越南人。"
+      ],
+      "explanation": "Cấu trúc xác định là chủ ngữ + 是 + thành phần định danh."
+    },
+    "5": {
+      "format": "dialogue-completion",
+      "prompt": "Hoàn thành lời xin nhắc lại: 对不起，________。",
+      "stimulus": {
+        "contextZh": "Bạn chưa nghe rõ tên người đối diện."
+      },
+      "answer": "请再说一次",
+      "accepted": [
+        "请再说一次",
+        "请再说一次。"
+      ],
+      "explanation": "请再说一次 là yêu cầu lịch sự khi chưa nghe rõ."
+    },
+    "6": {
+      "format": "measure-word-choice",
+      "prompt": "Chọn từ đúng: 我有___妹妹。",
+      "options": [
+        "一个",
+        "一本",
+        "一杯"
+      ],
+      "answer": "一个",
+      "explanation": "Khi đếm người trong mẫu cơ bản, 个 là lượng từ phù hợp."
+    },
+    "7": {
+      "format": "error-correction",
+      "prompt": "Sửa câu sai: 她是很漂亮。",
+      "stimulus": {
+        "sentenceZh": "她是很漂亮。"
+      },
+      "answer": "她很漂亮。",
+      "accepted": [
+        "她很漂亮。"
+      ],
+      "explanation": "Tính từ có thể làm vị ngữ; câu miêu tả đơn giản không cần 是."
+    },
+    "8": {
+      "format": "question-word-fill",
+      "prompt": "Điền từ nghi vấn: 这个字___读？",
+      "answer": "怎么",
+      "accepted": [
+        "怎么"
+      ],
+      "explanation": "怎么 hỏi cách thức và giữ vị trí ngay trước động từ 读."
+    },
+    "9": {
+      "format": "modal-choice",
+      "prompt": "Chọn từ phù hợp để nói một kỹ năng đã học: 我___说一点儿汉语。",
+      "options": [
+        "会",
+        "在",
+        "有"
+      ],
+      "answer": "会",
+      "explanation": "会 thường dùng cho kỹ năng đã học: 会说汉语."
+    },
+    "10": {
+      "format": "question-word-choice",
+      "prompt": "Chọn từ đúng: 你的电话号码是___？",
+      "options": [
+        "多少",
+        "什么人",
+        "哪儿"
+      ],
+      "answer": "多少",
+      "explanation": "多少 dùng để hỏi số lượng/số điện thoại trong mẫu này."
+    },
+    "11": {
+      "format": "sentence-reorder",
+      "prompt": "Sắp xếp ngày tháng theo trật tự tiếng Trung.",
+      "stimulus": {
+        "tokens": [
+          "今天",
+          "是",
+          "五月",
+          "八号",
+          "。"
+        ]
+      },
+      "answer": "今天是五月八号。",
+      "accepted": [
+        "今天是五月八号。"
+      ],
+      "explanation": "Ngày tháng đi từ đơn vị lớn đến nhỏ: 五月八号."
+    },
+    "12": {
+      "format": "time-order",
+      "prompt": "Sắp xếp câu hẹn đúng: 我们 / 下午三点 / 见。",
+      "stimulus": {
+        "chunks": [
+          "我们",
+          "下午三点",
+          "见"
+        ]
+      },
+      "answer": "我们下午三点见。",
+      "accepted": [
+        "我们下午三点见。"
+      ],
+      "explanation": "Trong câu cơ bản, mốc thời gian đứng trước động từ 见."
+    },
+    "13": {
+      "format": "time-order",
+      "prompt": "Sắp xếp câu thói quen đúng: 我 / 每天八点 / 上班。",
+      "stimulus": {
+        "chunks": [
+          "我",
+          "每天八点",
+          "上班"
+        ]
+      },
+      "answer": "我每天八点上班。",
+      "accepted": [
+        "我每天八点上班。"
+      ],
+      "explanation": "Mốc thời gian 每天八点 đứng trước động từ 上班."
+    },
+    "14": {
+      "format": "zai-you-contrast",
+      "prompt": "Chọn cặp đúng cho hai câu: 书___桌子上。桌子上___书。",
+      "options": [
+        "在 / 有",
+        "有 / 在",
+        "是 / 在"
+      ],
+      "answer": "在 / 有",
+      "explanation": "在 trả lời ‘ở đâu’; 有 diễn tả ‘ở nơi đó có gì’."
+    },
+    "15": {
+      "format": "grammar-transformation",
+      "prompt": "Đổi câu 我看书。 thành câu nhấn mạnh hành động đang diễn ra.",
+      "stimulus": {
+        "sentenceZh": "我看书。"
+      },
+      "answer": "我正在看书。",
+      "accepted": [
+        "我正在看书。",
+        "我在看书。"
+      ],
+      "explanation": "在/正在 + động từ diễn tả hành động đang diễn ra."
+    },
+    "16": {
+      "format": "negation-fill",
+      "prompt": "Điền từ phủ định: 我___喜欢喝茶。",
+      "answer": "不",
+      "accepted": [
+        "不"
+      ],
+      "explanation": "不 đứng trước 喜欢 để phủ định sở thích trong hiện tại."
+    },
+    "17": {
+      "format": "measure-word-choice",
+      "prompt": "Chọn lượng từ đúng: 一___茶。",
+      "options": [
+        "杯",
+        "本",
+        "件"
+      ],
+      "answer": "杯",
+      "explanation": "杯 là lượng từ/đơn vị chứa tự nhiên cho một cốc trà."
+    },
+    "18": {
+      "format": "measure-word-choice",
+      "prompt": "Chọn lượng từ đúng: 这___衣服很好看。",
+      "options": [
+        "件",
+        "本",
+        "杯"
+      ],
+      "answer": "件",
+      "explanation": "件 là lượng từ thường dùng cho quần áo."
+    },
+    "19": {
+      "format": "particle-fill",
+      "prompt": "Điền trợ từ phù hợp: 太贵___！",
+      "answer": "了",
+      "accepted": [
+        "了"
+      ],
+      "explanation": "Khung 太 + tính từ + 了 biểu thị mức độ nổi bật: 太贵了。"
+    },
+    "20": {
+      "format": "question-word-fill",
+      "prompt": "Điền từ hỏi nơi chốn: 医院在___？",
+      "answer": "哪儿",
+      "accepted": [
+        "哪儿",
+        "哪里"
+      ],
+      "explanation": "哪儿/哪里 đứng tại vị trí của thông tin nơi chốn cần hỏi."
+    },
+    "21": {
+      "format": "serial-verb-reorder",
+      "prompt": "Sắp xếp câu nói phương tiện và hướng đi.",
+      "stimulus": {
+        "chunks": [
+          "我",
+          "坐出租车",
+          "去公司"
+        ]
+      },
+      "answer": "我坐出租车去公司。",
+      "accepted": [
+        "我坐出租车去公司。"
+      ],
+      "explanation": "Trong chuỗi hành động, 坐出租车 nêu cách di chuyển rồi 去公司 nêu đích đến."
+    },
+    "22": {
+      "format": "error-correction",
+      "prompt": "Sửa câu sai: 今天天气是很热。",
+      "stimulus": {
+        "sentenceZh": "今天天气是很热。"
+      },
+      "answer": "今天天气很热。",
+      "accepted": [
+        "今天天气很热。"
+      ],
+      "explanation": "Câu vị ngữ tính từ cơ bản không dùng 是 trước 很热."
+    },
+    "23": {
+      "format": "modal-negation-choice",
+      "prompt": "Chọn từ phù hợp: 我今天不舒服，___上班。",
+      "options": [
+        "不能",
+        "不会",
+        "不有"
+      ],
+      "answer": "不能",
+      "explanation": "不能 diễn tả không thể/không đủ điều kiện thực hiện hành động; 不有 không đúng."
+    },
+    "24": {
+      "format": "particle-fill",
+      "prompt": "Điền trợ từ đề nghị: 我们一起去公园___。",
+      "answer": "吧",
+      "accepted": [
+        "吧"
+      ],
+      "explanation": "吧 đứng cuối câu để làm lời đề nghị mềm hơn."
+    }
+  },
+  "listeningChoiceOptions": {
+    "2": [
+      "大",
+      "人",
+      "小"
+    ],
+    "4": [
+      "安娜",
+      "王明",
+      "小林"
+    ],
+    "6": [
+      "四个人",
+      "三个人",
+      "两个人"
+    ],
+    "8": [
+      "这个字怎么读？",
+      "这个字是什么？",
+      "这个字大吗？"
+    ],
+    "10": [
+      "一三八",
+      "五零八",
+      "二零五六"
+    ],
+    "12": [
+      "下午三点半",
+      "下午三点",
+      "上午九点"
+    ],
+    "14": [
+      "桌子上",
+      "椅子上",
+      "学校里"
+    ],
+    "16": [
+      "米饭和菜",
+      "面条",
+      "苹果"
+    ],
+    "18": [
+      "有一点儿小",
+      "很好看",
+      "很大"
+    ],
+    "20": [
+      "饭店后边",
+      "学校前边",
+      "商店里"
+    ],
+    "22": [
+      "下雨，有一点儿冷",
+      "很热",
+      "不下雨"
+    ],
+    "24": [
+      "看电影",
+      "上班",
+      "学习汉语"
+    ]
+  },
+  "readingChoiceOptions": {
+    "3": [
+      "小林",
+      "安娜",
+      "王明"
+    ],
+    "6": [
+      "四个人",
+      "三个人",
+      "五个人"
+    ],
+    "9": [
+      "越南语和一点儿汉语",
+      "英语和汉语",
+      "只会汉语"
+    ],
+    "12": [
+      "上午九点",
+      "下午三点",
+      "八点五十分"
+    ],
+    "15": [
+      "妈妈",
+      "爸爸",
+      "我"
+    ],
+    "18": [
+      "我爸爸",
+      "我妈妈",
+      "老师"
+    ],
+    "21": [
+      "火车",
+      "出租车",
+      "飞机"
+    ],
+    "24": [
+      "星期天",
+      "星期五",
+      "星期一"
+    ]
+  },
+  "speakingFormats": [
+    "pronunciation-drill",
+    "character-identification",
+    "micro-dialogue",
+    "self-introduction",
+    "repair-role-play",
+    "family-presentation",
+    "person-description",
+    "classroom-role-play",
+    "peer-interview",
+    "number-dictation-pair",
+    "calendar-interview",
+    "appointment-negotiation",
+    "daily-routine-monologue",
+    "information-gap-location",
+    "action-guessing",
+    "food-preference-interview",
+    "restaurant-role-play",
+    "object-description",
+    "shopping-role-play",
+    "map-information-gap",
+    "route-explanation",
+    "weather-brief",
+    "support-request-role-play",
+    "plan-negotiation"
+  ],
+  "writingFormats": [
+    "pinyin-tone-notation",
+    "character-copy-self-check",
+    "chat-writing",
+    "profile-form",
+    "polite-request-writing",
+    "family-paragraph",
+    "contrast-sentence-writing",
+    "vocabulary-card",
+    "ability-sentence-set",
+    "number-transcription",
+    "calendar-writing",
+    "appointment-message",
+    "timeline-writing",
+    "location-description",
+    "scene-description",
+    "menu-plan-writing",
+    "order-writing",
+    "micro-ad-writing",
+    "shopping-dialogue-writing",
+    "map-description",
+    "itinerary-writing",
+    "weather-plan-writing",
+    "absence-message",
+    "invitation-message"
+  ],
+  "grammarAdditions": [
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-measure-words",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "一级量词搭配",
+      "nameVi": "Lượng từ cơ bản HSK1",
+      "formula": "Số từ / 这 / 那 + lượng từ + danh từ",
+      "meaningVi": "Dùng lượng từ giữa số từ hoặc từ chỉ định và danh từ. HSK1 mới chính thức gồm các lượng từ như 本、个、家、口、块、件、只、元 và cách dùng 杯 làm lượng từ.",
+      "usageVi": [
+        "Học theo cụm: 一本书、一个人、这件衣服、一杯茶。",
+        "Không lấy một lượng từ quen thuộc thay cho mọi danh từ; lượng từ gắn với loại danh từ và ngữ cảnh."
+      ],
+      "positionVi": "Lượng từ đứng sau số từ/这/那 và trước danh từ.",
+      "correctExamples": [
+        {
+          "zh": "这是一本书。",
+          "vi": "Đây là một quyển sách."
+        },
+        {
+          "zh": "我要一杯茶。",
+          "vi": "Tôi muốn một cốc trà."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我要一本茶。",
+          "explanationVi": "茶 trong mẫu này dùng 杯: 我要一杯茶。Không dùng 本 cho đồ uống."
+        }
+      ],
+      "commonErrorsVi": [
+        "Bỏ lượng từ sau 这/那 hoặc dùng 个 cho mọi danh từ vì tiếng Việt cho phép cấu trúc đếm khác."
+      ],
+      "confusables": [
+        "本/个/件/杯"
+      ],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-separable-verbs",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "一级离合词入门",
+      "nameVi": "Động từ ly hợp cơ bản",
+      "formula": "看病 / 睡觉 / 说话 / 上课 / 下课 / 上班 / 下班 / 生病",
+      "meaningVi": "Một số đơn vị có hình thức động–tân ngữ và được liệt kê riêng trong ngữ pháp HSK1. Ở cấp này ưu tiên học nguyên cụm và trật tự thời gian đúng, chưa mở rộng các cách chen thành phần phức tạp.",
+      "usageVi": [
+        "Nói 我八点上班、晚上十一点睡觉, đặt thời gian trước cụm động từ.",
+        "Khi chưa học quy tắc mở rộng của ly hợp từ, không tự chèn thành phần theo trật tự tiếng Việt."
+      ],
+      "positionVi": "Trong câu cơ bản, trạng ngữ thời gian đứng trước cụm ly hợp.",
+      "correctExamples": [
+        {
+          "zh": "我今天上班，明天不上班。",
+          "vi": "Hôm nay tôi đi làm, ngày mai tôi không đi làm."
+        },
+        {
+          "zh": "他今天生病了。",
+          "vi": "Hôm nay anh ấy bị ốm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我上八点班。",
+          "explanationVi": "Nếu chỉ muốn nói giờ bắt đầu làm, dùng 我八点上班。"
+        }
+      ],
+      "commonErrorsVi": [
+        "Tách cụm ly hợp tùy ý ngay từ HSK1 thay vì học các mẫu được kiểm chứng."
+      ],
+      "confusables": [
+        "上班/上课",
+        "下班/下课"
+      ],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-serial-verbs",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "连动句1",
+      "nameVi": "Câu liên động cơ bản",
+      "formula": "Chủ ngữ + động từ/cụm động từ 1 + động từ/cụm động từ 2",
+      "meaningVi": "Hai hành động cùng một chủ thể có thể nối trực tiếp khi hành động trước là cách thức hoặc nhằm thực hiện hành động sau.",
+      "usageVi": [
+        "坐出租车去公司: đi taxi là cách thức để đi đến công ty.",
+        "去医院看病: đi bệnh viện nhằm khám bệnh."
+      ],
+      "positionVi": "Cụm chỉ cách thức/mục đích đứng theo thứ tự logic của hành động, không cần thêm liên từ.",
+      "correctExamples": [
+        {
+          "zh": "我坐出租车去公司。",
+          "vi": "Tôi đi công ty bằng taxi."
+        },
+        {
+          "zh": "他去医院看病。",
+          "vi": "Anh ấy đi bệnh viện khám bệnh."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我去公司坐出租车。",
+          "explanationVi": "Câu này đổi quan hệ ý nghĩa; nếu nói ‘đi công ty bằng taxi’, đặt 坐出租车 trước 去公司."
+        }
+      ],
+      "commonErrorsVi": [
+        "Chèn từ nối không cần thiết giữa hai động từ hoặc đảo cách thức xuống cuối theo thói quen tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-double-object",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "双宾语句1",
+      "nameVi": "Câu hai tân ngữ cơ bản",
+      "formula": "Chủ ngữ + động từ + người + nội dung/sự vật",
+      "meaningVi": "Một số động từ có thể nhận hai tân ngữ: người nhận/tác động trước, nội dung hoặc sự vật sau.",
+      "usageVi": [
+        "问 có thể dùng trong mẫu 老师问我名字。",
+        "Ở HSK1 chỉ học các mẫu quen thuộc; không giả định mọi động từ đều nhận hai tân ngữ."
+      ],
+      "positionVi": "Tân ngữ chỉ người đứng trước tân ngữ chỉ nội dung/sự vật trong mẫu cơ bản.",
+      "correctExamples": [
+        {
+          "zh": "老师问我名字。",
+          "vi": "Giáo viên hỏi tên tôi."
+        },
+        {
+          "zh": "朋友问我电话号码。",
+          "vi": "Bạn hỏi số điện thoại của tôi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "老师问名字我。",
+          "explanationVi": "Trong mẫu này, người được hỏi đứng trước nội dung được hỏi."
+        }
+      ],
+      "commonErrorsVi": [
+        "Sắp xếp hai tân ngữ theo trật tự tiếng Việt mà không kiểm tra mẫu của động từ."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    }
+  ],
+  "grammarRefAdditions": {
+    "2": [
+      "hsk1-grammar-measure-words"
+    ],
+    "4": [
+      "hsk1-grammar-double-object"
+    ],
+    "6": [
+      "hsk1-grammar-measure-words"
+    ],
+    "13": [
+      "hsk1-grammar-separable-verbs"
+    ],
+    "17": [
+      "hsk1-grammar-measure-words"
+    ],
+    "18": [
+      "hsk1-grammar-measure-words"
+    ],
+    "19": [
+      "hsk1-grammar-measure-words"
+    ],
+    "21": [
+      "hsk1-grammar-serial-verbs"
+    ],
+    "23": [
+      "hsk1-grammar-separable-verbs",
+      "hsk1-grammar-serial-verbs"
+    ]
+  },
+  "derivedSupportReasons": {
+    "不喜欢": "compositional-hsk1-morphemes",
+    "不能": "compositional-hsk1-morphemes",
+    "吃饭": "compositional-hsk1-morphemes",
+    "回家": "compositional-hsk1-morphemes",
+    "看电影": "compositional-hsk1-morphemes",
+    "杯": "official-hsk1-grammar-measure-word",
+    "越南": "proper-noun-scenario-support",
+    "面条": "surface-variant-support-for-official-面条儿"
+  }
+}
