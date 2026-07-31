@@ -1,0 +1,39 @@
+
+(function (root) {
+  'use strict';
+  if (!root || !root.document) return;
+  var style = root.document.createElement('style');
+  style.id = 'hsk-pro-c2-journey-containment';
+  style.textContent = `
+body[data-hsk-professional="c2-readonly"] #studyRail,
+body[data-hsk-professional="c2-readonly"] #hskJourney,
+body[data-hsk-professional="c2-readonly"] #hskJourney > *,
+body[data-hsk-professional="c2-readonly"] #hskJourney .journey-kicker,
+body[data-hsk-professional="c2-readonly"] #hskJourney .hsk-levels,
+body[data-hsk-professional="c2-readonly"] #hskJourney #hskProgress,
+body[data-hsk-professional="c2-readonly"] #hskJourney #hskLessonList {
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+body[data-hsk-professional="c2-readonly"] #hskJourney {
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+body[data-hsk-professional="c2-readonly"] #hskJourney .journey-kicker {
+  display: block !important;
+  width: auto !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  word-break: break-word !important;
+}
+@media (max-width: 700px) {
+  body[data-hsk-professional="c2-readonly"] #studyRail,
+  body[data-hsk-professional="c2-readonly"] #hskJourney {
+    width: 100% !important;
+    overflow-x: hidden !important;
+  }
+}
+`;
+  root.document.head.appendChild(style);
+})(typeof globalThis !== 'undefined' ? globalThis : this);
