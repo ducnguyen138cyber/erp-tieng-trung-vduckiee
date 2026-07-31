@@ -1,0 +1,101 @@
+exercises, assessments, enrichment, vocabulary);
+      var data = {
+        manifest: manifest,
+        units: units.slice().sort(function (a, b) { return Number(a.order) - Number(b.order); }),
+        lessons: lessons,
+        grammar: grammar,
+        characters: characters,
+        exercises: exercises,
+        assessments: assessments,
+        enrichment: enrichment,
+        vocabulary: vocabulary,
+        lessonById: mapBy(lessons, 'id'),
+        grammarById: mapBy(grammar, 'id'),
+        characterById: mapBy(characters, 'id'),
+        exerciseById: mapBy(exercises, 'id'),
+        assessmentById: mapBy(assessments, 'id'),
+        vocabularyBySimplified: mapBy(vocabulary, 'simplified'),
+        enrichmentBySimplified: mapBy(enrichment, 'simplified')
+      };
+      state.data = data;
+      state.status = 'ready';
+      return data;
+    }).catch(function (error) {
+      state.status = 'error';
+      state.error = error;
+      throw error;
+    });
+  }
+
+  function resolveFocusWord(data, focus) {
+    focus = focus || {};
+    var simplified = text(focus.simplified || (focus.canonicalLookup && focus.canonicalLookup.value));
+    var canonical = data && data.vocabularyBySimplified && data.vocabularyBySimplified[simplified];
+    var enrichment = data && data.enrichmentBySimplified && data.enrichmentBySimplified[simplified];
+    var collocations = array(focus.collocations).length ? focus.collocations : array(enrichment && enrichment.collocations);
+    var commonErrors = array(focus.commonErrorsVi).length ? focus.commonErrorsVi : array(enrichment && enrichment.commonErrorsVi);
+    return {
+      simplified: simplified,
+      pinyin: canonical ? canonical.pinyin : pinyinFor(simplified),
+      meaningVi: canonical ? canonical.meaningVi : (SUPPORT_GLOSSES[simplified] || 'Cụm hỗ trợ — học theo ngữ cảnh trong bài'),
+      partOfSpeech: canonical ? array(canonical.partOfSpeech) : [],
+      collocations: collocations,
+      commonErrorsVi: commonErrors,
+      lexicalStatus: focus.lexicalStatus || (canonical ? 'canonical' : 'support-only'),
+      supportReason: text(focus.supportReason),
+      assessmentEligible: focus.assessmentEligible !== false
+    };
+  }
+
+  function list(items, className) {
+    if (!array(items).length) return '';
+    return '<ul class="' + (className || 'hsk-pro-list') + '">' + items.map(function (item) { return '<li>' + esc(item) + '</li>'; }).join('') + '</ul>';
+  }
+  function sectionCard(title, body, extraClass) {
+    return '<section class="hsk-pro-section ' + (extraClass || '') + '"><h4>' + esc(title) + '</h4>' + body + '</section>';
+  }
+  function speakButton(zh, label) {
+    if (!text(zh)) return '';
+    return '<button type="button" class="hsk-pro-inline-button" data-pro-speak="' + attr(zh) + '">🔊 ' + esc(label || 'Nghe') + '</button>';
+  }
+
+  function renderVocabulary(data, section) {
+    var words = array(section.content && section.content.focusWords).map(function (focus) { return resolveFocusWord(data, focus); });
+    var html = '<p class="hsk-pro-help">' + esc(section.content && section.content.instructionVi || 'Học từ theo cụm và câu.') + '</p><div class="hsk-pro-vocab-grid">';
+    html += words.map(function (word) {
+      var status = word.lexicalStatus === 'canonical' ? 'HSK1 canonical' : 'Từ/cụm hỗ trợ';
+      return '<article class="hsk-pro-vocab-card"><div class="hsk-pro-vocab-head"><div><strong class="hsk-pro-hanzi">' + esc(word.simplified) + '</strong><span class="hsk-pro-pinyin">' + esc(word.pinyin) + '</span></div>' + speakButton(word.simplified, 'Nghe') + '</div>' +
+        '<p class="hsk-pro-meaning">' + esc(word.meaningVi) + '</p>' +
+        (word.partOfSpeech.length ? '<small>' + esc(word.partOfSpeech.join(', ')) + '</small>' : '') +
+        '<span class="hsk-pro-status">' + esc(status) + '</span>' +
+        (word.collocations.length ? '<div class="hsk-pro-mini"><b>Cụm dùng thật</b>' + word.collocations.map(function (c) { return '<p><span lang="zh-CN">' + esc(c.zh) + '</span> — ' + esc(c.vi) + '</p>'; }).join('') + '</div>' : '') +
+        (word.commonErrorsVi.length ? '<div class="hsk-pro-warning"><b>Lỗi dễ mắc</b>' + list(word.commonErrorsVi) + '</div>' : '') +
+        (word.supportReason ? '<p class="hsk-pro-note">' + esc(word.supportReason) + '</p>' : '') +
+      '</article>';
+    }).join('') + '</div>';
+    return sectionCard(section.titleVi || 'Từ vựng', html, 'hsk-pro-section-vocab');
+  }
+
+  function renderCharacters(data, section) {
+    var refs = array(section.content && section.content.characterRefs);
+    var cards = refs.map(function (id) {
+      var item = data.characterById[id];
+      if (!item) return '';
+      return '<article class="hsk-pro-character"><strong>' + esc(item.character) + '</strong><span>' + esc(array(item.readings).join(' / ')) + '</span><p>Bộ: <b>' + esc(item.radical || '—') + '</b></p>' +
+        (array(item.components).length ? '<p>Thành phần: ' + esc(item.components.join(' · ')) + '</p>' : '') +
+        (array(item.confusables).length ? '<p>Dễ nhầm: ' + esc(item.confusables.join(' · ')) + '</p>' : '') +
+        '<small>Thứ tự nét: ' + esc(item.strokeOrderStatus || 'chưa xác minh') + '</small>' + speakButton(item.character, 'Nghe chữ') + '</article>';
+    }).join('');
+    var note = section.content && section.content.noteVi ? '<p class="hsk-pro-note">' + esc(section.content.noteVi) + '</p>' : '';
+    return sectionCard(section.titleVi || 'Chữ Hán', '<div class="hsk-pro-character-grid">' + cards + '</div>' + note);
+  }
+
+  function renderGrammar(data, section) {
+    var refs = array(section.content && section.content.grammarRefs);
+    var html = refs.map(function (id) {
+      var g = data.grammarById[id];
+      if (!g) return '';
+      return '<article class="hsk-pro-grammar"><header><span lang="zh-CN">' + esc(g.nameZh) + '</span><h5>' + esc(g.nameVi) + '</h5></header>' +
+        '<code>' + esc(g.formula) + '</code><p>' + esc(g.meaningVi) + '</p><p><b>Vị trí:</b> ' + esc(g.positionVi) + '</p>' +
+        (array(g.usageVi).length ? '<div><b>Cách dùng</b>' + list(g.usageVi) + '</div>' : '') +
+        '<div class="hsk-pro-example-grid">' + array(
