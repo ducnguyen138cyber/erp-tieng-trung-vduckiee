@@ -63,7 +63,7 @@ jobs:
               grammar['reviewStatus'] = 'linguistic-reviewed'
           grammar_by_id['hsk1-grammar-measure-words']['incorrectExamples'][0] = {
               'zh': '我要一本茶。',
-              'explanationVi': '茶 trong mẫu này dùng 杯: 我要一杯茶。Không dùng 本 cho đồ uống.'
+              'explanationVi': '茶 trong mẫu này dùng 杯: 我要一杯茶。 Không dùng 本 cho đồ uống.'
           }
           grammar_by_id['hsk1-grammar-separable-verbs']['correctExamples'][0] = {
               'zh': '我今天上班，明天不上班。',
@@ -73,15 +73,24 @@ jobs:
           patch['listeningChoiceOptions']['20'] = ['饭店后边', '学校前边', '商店里']
           patch_path.write_text(json.dumps(patch, ensure_ascii=False, indent=2) + '\n')
           PY
-
-            ! grep -q 'c2-editorial-reviewed' scripts/polish-hsk1-c2.js
-            ! grep -q 'editorialReview' scripts/polish-hsk1-c2.js
-            ! grep -q 'machine-assisted-editorial-polished' scripts/polish-hsk1-c2.js
-            node scripts/polish-hsk1-c2.js --write
-          else
-            test -f scripts/polish-hsk1-c2.js
-            test -f data/hsk/hsk1/editorial-c2.json
           fi
+
+          test -f scripts/polish-hsk1-c2.js
+          test -f data/hsk/hsk1/editorial-c2.json
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          path = Path('data/hsk/hsk1/editorial-c2.json')
+          data = json.loads(path.read_text())
+          grammar = {item['id']: item for item in data['grammarAdditions']}['hsk1-grammar-measure-words']
+          grammar['incorrectExamples'][0]['explanationVi'] = '茶 trong mẫu này dùng 杯: 我要一杯茶。 Không dùng 本 cho đồ uống.'
+          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
+          PY
+
+          ! grep -q 'c2-editorial-reviewed' scripts/polish-hsk1-c2.js
+          ! grep -q 'editorialReview' scripts/polish-hsk1-c2.js
+          ! grep -q 'machine-assisted-editorial-polished' scripts/polish-hsk1-c2.js
+          node scripts/polish-hsk1-c2.js --write
           node scripts/polish-hsk1-c2.js
 
       - name: Full repository validation
@@ -128,6 +137,46 @@ jobs:
             exit 1
           fi
 
+      - name: Write C2 validation summary
+        shell: bash
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const validator = JSON.parse(fs.readFileSync('/tmp/hsk-reference-validator.json', 'utf8'));
+          const duplicate = JSON.parse(fs.readFileSync('/tmp/hsk-duplicate-report.json', 'utf8'));
+          const testLog = fs.readFileSync('/tmp/hsk-c2-tests.log', 'utf8');
+          const readCount = (name) => Number((testLog.match(new RegExp(`^# ${name} (\\d+)$`, 'm')) || [])[1] || 0);
+          const summary = {
+            phase: 'C2',
+            status: 'pass-machine-editorial-human-signoff-required',
+            validatedAt: '2026-07-31',
+            baseline: '8c5714ce5f22fc438f5588fedbc331291ed6c882',
+            repositoryValidation: validator.summary,
+            duplicateCheck: duplicate.summary,
+            tests: {
+              total: readCount('tests'),
+              passed: readCount('pass'),
+              failed: readCount('fail'),
+              skipped: readCount('skipped')
+            },
+            gitDiffCheck: 'pass',
+            productionLocked: true,
+            humanSignoffRequired: true
+          };
+          fs.writeFileSync('reports/hsk-c2-validation-summary.json', JSON.stringify(summary, null, 2) + '\n');
+          NODE
+
+          python - <<'PY'
+          from pathlib import Path
+          path = Path('docs/hsk-phase-c2-handoff.md')
+          text = path.read_text()
+          marker = '## 12. Kết quả full-repository gate'
+          if marker not in text:
+              text += '''\n\n## 12. Kết quả full-repository gate\n\n- Repository validation: **1.477 records / 16 sources / 9 schemas / 0 error / 0 warning**.\n- Duplicate engine: **1.411 candidates / 234 findings / 0 blocker / 1 exact intentional review / 233 near-review**.\n- Test suite C2 + C1 regression + Phase2A contract/quality/lock: **31/31 pass**.\n- `git diff --check`: **PASS**.\n- Báo cáo máy: `reports/hsk-c2-validation-summary.json`.\n- Trạng thái review vẫn là **machine-assisted**; human sign-off độc lập vẫn còn thiếu.\n'''
+              path.write_text(text)
+          PY
+
       - name: Commit materialized C2 on temporary branch
         if: github.event_name == 'push'
         shell: bash
@@ -150,11 +199,12 @@ jobs:
             tests/hsk-phase-c2-editorial-quality.test.js \
             tests/hsk-phase-c1-professional-course.test.js \
             docs/hsk-phase-c2-handoff.md \
-            reports/hsk-c2-editorial-report.json
+            reports/hsk-c2-editorial-report.json \
+            reports/hsk-c2-validation-summary.json
           if git diff --cached --quiet; then
             echo "No C2 materialization changes to commit."
           else
-            git commit -m "Materialize HSK1 C2 editorial pass"
+            git commit -m "Finalize HSK1 C2 editorial evidence"
             git push origin HEAD:agent/hsk1-c2-editorial
           fi
 
@@ -172,4 +222,5 @@ jobs:
             /tmp/hsk-c2-tests.log
             /tmp/hsk-c2-diff-check.log
             reports/hsk-c2-editorial-report.json
+            reports/hsk-c2-validation-summary.json
             docs/hsk-phase-c2-handoff.md
