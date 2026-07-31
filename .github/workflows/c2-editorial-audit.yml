@@ -9,7 +9,7 @@ on:
       - main
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   audit-bundle:
@@ -17,6 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: agent/hsk1-c2-editorial
           fetch-depth: 0
 
       - name: Confirm baseline and repository state
@@ -30,27 +31,67 @@ jobs:
           git log --oneline --decorate -15
           git merge-base --is-ancestor 8c5714ce5f22fc438f5588fedbc331291ed6c882 HEAD
 
-      - name: Baseline C1 validation
+      - name: Materialize C2 editorial patch
         shell: bash
         run: |
           set -euo pipefail
-          node scripts/hsk-reference-validator.js
-          node scripts/hsk-duplicate-engine.js
-          node --test tests/hsk-phase-c1-professional-course.test.js tests/hsk-phase2a-contract.test.js tests/hsk-phase2a-quality.test.js tests/hsk-phase2a-lock.test.js
+          test -f .c2-bootstrap.b64
+          base64 -d .c2-bootstrap.b64 | tar -xzf -
+          rm .c2-bootstrap.b64
+          node scripts/polish-hsk1-c2.js --write
+          node scripts/polish-hsk1-c2.js
+
+      - name: Full repository validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/hsk-reference-validator.js | tee /tmp/hsk-reference-validator.log
+          node scripts/hsk-duplicate-engine.js | tee /tmp/hsk-duplicate-engine.log
+          node --test \
+            tests/hsk-phase-c2-editorial-quality.test.js \
+            tests/hsk-phase-c1-professional-course.test.js \
+            tests/hsk-phase2a-contract.test.js \
+            tests/hsk-phase2a-quality.test.js \
+            tests/hsk-phase2a-lock.test.js | tee /tmp/hsk-c2-tests.log
           git diff --check
 
-      - name: Upload HSK1 editorial source bundle
+      - name: Commit materialized C2 on temporary branch
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "VDuckie C2 Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- \
+            .c2-bootstrap.b64 \
+            data/hsk/hsk1/editorial-c2.json \
+            data/hsk/hsk1/lessons.json \
+            data/hsk/hsk1/grammar.json \
+            data/hsk/hsk1/exercises.json \
+            data/hsk/hsk1/assessments.json \
+            data/hsk/hsk1/course-manifest.json \
+            data/hsk/hsk1/level.json \
+            data/hsk/manifest.json \
+            scripts/polish-hsk1-c2.js \
+            tests/hsk-phase-c2-editorial-quality.test.js \
+            tests/hsk-phase-c1-professional-course.test.js \
+            docs/hsk-phase-c2-handoff.md \
+            reports/hsk-c2-editorial-report.json
+          if git diff --cached --quiet; then
+            echo "No C2 materialization changes to commit."
+          else
+            git commit -m "Materialize HSK1 C2 editorial pass"
+            git push origin HEAD:agent/hsk1-c2-editorial
+          fi
+
+      - name: Upload C2 validation evidence
         uses: actions/upload-artifact@v4
         with:
-          name: hsk1-c2-editorial-source
+          name: hsk1-c2-validation-evidence
           if-no-files-found: error
           path: |
-            data/hsk/hsk1/*.json
-            data/hsk/manifest.json
-            scripts/build-hsk-curriculum-c1.js
-            scripts/hsk-reference-validator.js
-            scripts/hsk-duplicate-engine.js
-            tests/hsk-phase-c1-professional-course.test.js
-            docs/hsk-phase-c1-handoff.md
-            reports/hsk-c1-course-report.json
-            reports/hsk-c1-validation-summary.json
+            /tmp/hsk-reference-validator.log
+            /tmp/hsk-duplicate-engine.log
+            /tmp/hsk-c2-tests.log
+            reports/hsk-c2-editorial-report.json
+            docs/hsk-phase-c2-handoff.md
