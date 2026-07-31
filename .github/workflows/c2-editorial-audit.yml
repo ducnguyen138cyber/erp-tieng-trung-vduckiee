@@ -50,6 +50,7 @@ jobs:
           text = text.replace('record.reviewStatus = "c2-editorial-reviewed";', 'record.reviewStatus = "linguistic-reviewed";')
           text = text.replace('exercise.reviewStatus = "c2-editorial-reviewed";', 'exercise.reviewStatus = "linguistic-reviewed";')
           text = text.replace('assessment.reviewStatus = "c2-editorial-reviewed";', 'assessment.reviewStatus = "blueprint-reviewed";')
+          text = text.replace('documents.manifest.levels[0].status = "machine-assisted-editorial-polished";', 'documents.manifest.levels[0].status = "machine-assisted";')
           text = re.sub(r'\n\s*record\.editorialReview = \{\n\s*phase: "C2",\n\s*humanSignoffRequired: true,\n\s*checked: \["form", "meaning", "Vietnamese explanation", "examples", "common learner errors"\]\n\s*\};', '', text)
           text = re.sub(r'\n\s*assessment\.editorialReview = \{\n\s*phase: "C2",\n\s*humanSignoffRequired: true,\n\s*principles: \["direct grammar evidence", "balanced receptive/productive evidence", "lesson-specific prompts", "weak-skill remediation"\]\n\s*\};', '', text)
           text = re.sub(r'\n\s*documents\.level\.editorialReview = \{\n\s*phase: "C2",\n\s*reviewedLessons: 24,\n\s*humanSignoffRequired: true,\n\s*scope: \["Chinese naturalness", "Vietnamese pedagogy", "HSK1 vocabulary scope", "grammar coverage", "exercise diversity", "assessment balance"\]\n\s*\};', '', text)
@@ -57,8 +58,17 @@ jobs:
 
           patch_path = Path('data/hsk/hsk1/editorial-c2.json')
           patch = json.loads(patch_path.read_text())
+          grammar_by_id = {item['id']: item for item in patch['grammarAdditions']}
           for grammar in patch['grammarAdditions']:
               grammar['reviewStatus'] = 'linguistic-reviewed'
+          grammar_by_id['hsk1-grammar-measure-words']['incorrectExamples'][0] = {
+              'zh': '我要一本茶。',
+              'explanationVi': '茶 trong mẫu này dùng 杯: 我要一杯茶。Không dùng 本 cho đồ uống.'
+          }
+          grammar_by_id['hsk1-grammar-separable-verbs']['correctExamples'][0] = {
+              'zh': '我今天上班，明天不上班。',
+              'vi': 'Hôm nay tôi đi làm, ngày mai tôi không đi làm.'
+          }
           patch['listeningChoiceOptions']['8'] = ['这个字怎么读？', '这个字是什么？', '这个字大吗？']
           patch['listeningChoiceOptions']['20'] = ['饭店后边', '学校前边', '商店里']
           patch_path.write_text(json.dumps(patch, ensure_ascii=False, indent=2) + '\n')
@@ -66,6 +76,7 @@ jobs:
 
             ! grep -q 'c2-editorial-reviewed' scripts/polish-hsk1-c2.js
             ! grep -q 'editorialReview' scripts/polish-hsk1-c2.js
+            ! grep -q 'machine-assisted-editorial-polished' scripts/polish-hsk1-c2.js
             node scripts/polish-hsk1-c2.js --write
           else
             test -f scripts/polish-hsk1-c2.js
