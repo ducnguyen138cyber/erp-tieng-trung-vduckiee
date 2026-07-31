@@ -1,0 +1,31 @@
+{
+  "phase": "C2",
+  "status": "pass-machine-editorial-human-signoff-required",
+  "validatedAt": "2026-07-31",
+  "baseline": "8c5714ce5f22fc438f5588fedbc331291ed6c882",
+  "repositoryValidation": {
+    "records": 1477,
+    "sources": 16,
+    "schemas": 9,
+    "errors": 0,
+    "warnings": 0
+  },
+  "duplicateCheck": {
+    "candidates": 1411,
+    "findings": 234,
+    "blockers": 0,
+    "exact": 1,
+    "normalized": 0,
+    "nearReview": 233,
+    "intentionalReviews": 1
+  },
+  "tests": {
+    "total": 31,
+    "passed": 31,
+    "failed": 0,
+    "skipped": 0
+  },
+  "gitDiffCheck": "pass",
+  "productionLocked": true,
+  "humanSignoffRequired": true
+}

@@ -22,17 +22,77 @@
     "assessment": "schemas/assessment.schema.json"
   },
   "levels": [
-    {"level": 1, "stage": "elementary", "status": "machine-assisted", "path": "hsk1/level.json", "courseManifestPath": "hsk1/course-manifest.json", "productionReady": false},
-    {"level": 2, "stage": "elementary", "status": "planned", "path": "hsk2/level.json", "productionReady": false},
-    {"level": 3, "stage": "elementary", "status": "planned", "path": "hsk3/level.json", "productionReady": false},
-    {"level": 4, "stage": "intermediate", "status": "planned", "path": "hsk4/level.json", "productionReady": false},
-    {"level": 5, "stage": "intermediate", "status": "planned", "path": "hsk5/level.json", "productionReady": false},
-    {"level": 6, "stage": "intermediate", "status": "planned", "path": "hsk6/level.json", "productionReady": false},
-    {"level": 7, "stage": "advanced", "status": "planned", "path": "hsk7/level.json", "productionReady": false},
-    {"level": 8, "stage": "advanced", "status": "planned", "path": "hsk8/level.json", "productionReady": false},
-    {"level": 9, "stage": "advanced", "status": "planned", "path": "hsk9/level.json", "productionReady": false}
+    {
+      "level": 1,
+      "stage": "elementary",
+      "status": "machine-assisted",
+      "path": "hsk1/level.json",
+      "courseManifestPath": "hsk1/course-manifest.json",
+      "productionReady": false
+    },
+    {
+      "level": 2,
+      "stage": "elementary",
+      "status": "planned",
+      "path": "hsk2/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 3,
+      "stage": "elementary",
+      "status": "planned",
+      "path": "hsk3/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 4,
+      "stage": "intermediate",
+      "status": "planned",
+      "path": "hsk4/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 5,
+      "stage": "intermediate",
+      "status": "planned",
+      "path": "hsk5/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 6,
+      "stage": "intermediate",
+      "status": "planned",
+      "path": "hsk6/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 7,
+      "stage": "advanced",
+      "status": "planned",
+      "path": "hsk7/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 8,
+      "stage": "advanced",
+      "status": "planned",
+      "path": "hsk8/level.json",
+      "productionReady": false
+    },
+    {
+      "level": 9,
+      "stage": "advanced",
+      "status": "planned",
+      "path": "hsk9/level.json",
+      "productionReady": false
+    }
   ],
   "previewFixtures": [
-    {"id": "phase1-hsk1-foundation", "manifestPath": "fixtures/manifest.json", "developerOnly": true, "writesProgress": false}
+    {
+      "id": "phase1-hsk1-foundation",
+      "manifestPath": "fixtures/manifest.json",
+      "developerOnly": true,
+      "writesProgress": false
+    }
   ]
 }

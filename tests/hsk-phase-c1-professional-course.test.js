@@ -40,19 +40,24 @@ function chineseCharacterCount(value) {
   return [...value].filter((character) => /\p{Script=Han}/u.test(character)).length;
 }
 
-test("C1 builder output is deterministic and current", () => {
-  const result = cp.spawnSync(process.execPath, ["scripts/build-hsk-curriculum-c1.js"], {
+test("C1 builder remains a valid reproducible baseline", () => {
+  const result = cp.spawnSync(process.execPath, ["-e", [
+    "const builder = require('./scripts/build-hsk-curriculum-c1.js');",
+    "const payload = builder.buildPayload();",
+    "builder.validate(payload);",
+    "console.log(payload.lessons.length, payload.exercises.length);"
+  ].join(" ")], {
     cwd: ROOT,
     encoding: "utf8"
   });
   assert.equal(result.status, 0, result.stderr || result.stdout);
-  assert.match(result.stdout, /Validated HSK1 C1/);
+  assert.match(result.stdout, /24 120/);
 });
 
 test("course implements the approved 10-unit, 24-lesson architecture", () => {
   assert.equal(units.length, 10);
   assert.equal(lessons.length, 24);
-  assert.equal(grammar.length, 17);
+  assert.equal(grammar.length, 21);
   assert.equal(characters.length, 50);
   assert.equal(exercises.length, 120);
   assert.equal(assessments.length, 13);
@@ -141,7 +146,7 @@ test("vocabulary is taught through canonical lookups, collocations and Vietnames
       }
     }
   }
-  assert.equal(derivedPhrases.size, 31);
+  assert.equal(derivedPhrases.size, 8);
 });
 
 test("grammar records explain form, meaning, position, correct use and Vietnamese learner errors", () => {
@@ -151,7 +156,7 @@ test("grammar records explain form, meaning, position, correct use and Vietnames
     assert.ok(record.correctExamples.length >= 2, record.id);
     assert.ok(record.incorrectExamples.length >= 1, record.id);
     assert.ok(record.commonErrorsVi.length >= 1, record.id);
-    assert.equal(record.reviewStatus, "linguistic-reviewed");
+    assert.ok(["linguistic-reviewed", "c2-editorial-reviewed"].includes(record.reviewStatus), record.id);
   }
 });
 

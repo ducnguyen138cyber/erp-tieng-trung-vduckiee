@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "phase": "C1",
+  "phase": "C2",
   "curriculumId": "vduckie-hsk1-professional-course",
   "syllabusVersion": "GF0025-2021",
   "examBlueprintVersion": "CTI-HSK3.0-2026",
   "level": 1,
-  "status": "phase-c1-structurally-complete-human-review-required",
+  "status": "phase-c2-editorial-polished-human-signoff-required",
   "productionEnabled": false,
   "publicOverrideAllowed": false,
   "writesProgress": false,
@@ -23,7 +23,7 @@
     },
     "grammar": {
       "path": "grammar.json",
-      "count": 17
+      "count": 21
     },
     "characters": {
       "path": "characters.json",
@@ -111,5 +111,21 @@
     "audioRecorded": false,
     "strokeOrderVerified": false,
     "productionReleaseAllowed": false
+  },
+  "editorialQualityGate": {
+    "status": "pass-machine-editorial-human-signoff-required",
+    "reviewedLessons": 24,
+    "readingSpecificQuestions": true,
+    "listeningTranscriptCoverage": "24/24",
+    "exerciseFormats": 72,
+    "derivedSupportFocusCount": 8,
+    "officialGrammarCoverageAdded": [
+      "HSK1 measure-word inventory",
+      "HSK1 separable verbs",
+      "serial-verb sentences",
+      "double-object sentences"
+    ],
+    "humanVietnameseSignoff": false,
+    "humanChinesePedagogySignoff": false
   }
 }

@@ -14,27 +14,34 @@
       "titleVi": "Checkpoint Unit 1: Định hướng phát âm và chữ Hán",
       "exerciseRefs": [
         "hsk1-lesson-01-exercise-1",
+        "hsk1-lesson-01-exercise-2",
         "hsk1-lesson-01-exercise-3",
         "hsk1-lesson-01-exercise-4",
         "hsk1-lesson-01-exercise-5",
         "hsk1-lesson-02-exercise-1",
+        "hsk1-lesson-02-exercise-2",
         "hsk1-lesson-02-exercise-3",
         "hsk1-lesson-02-exercise-4",
         "hsk1-lesson-02-exercise-5"
       ],
       "sections": {
-        "receptive": 4,
-        "productive": 4
+        "listening": 2,
+        "grammar": 2,
+        "reading": 2,
+        "speaking": 2,
+        "writing": 2
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-numbers-time",
-        "hsk1-grammar-demonstratives"
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-measure-words"
       ],
       "targetVocabulary": [],
       "difficultyDistribution": {
@@ -44,7 +51,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -55,7 +62,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -68,33 +75,41 @@
       "titleVi": "Checkpoint Unit 2: Gặp gỡ lần đầu",
       "exerciseRefs": [
         "hsk1-lesson-03-exercise-1",
+        "hsk1-lesson-03-exercise-2",
         "hsk1-lesson-03-exercise-3",
         "hsk1-lesson-03-exercise-4",
         "hsk1-lesson-03-exercise-5",
         "hsk1-lesson-04-exercise-1",
+        "hsk1-lesson-04-exercise-2",
         "hsk1-lesson-04-exercise-3",
         "hsk1-lesson-04-exercise-4",
         "hsk1-lesson-04-exercise-5",
         "hsk1-lesson-05-exercise-1",
+        "hsk1-lesson-05-exercise-2",
         "hsk1-lesson-05-exercise-3",
         "hsk1-lesson-05-exercise-4",
         "hsk1-lesson-05-exercise-5"
       ],
       "sections": {
-        "receptive": 6,
-        "productive": 6
+        "listening": 3,
+        "grammar": 3,
+        "reading": 3,
+        "speaking": 3,
+        "writing": 3
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-adjective-predicate",
         "hsk1-grammar-ne-follow-up",
         "hsk1-grammar-shi-identity",
         "hsk1-grammar-question-words",
+        "hsk1-grammar-double-object",
         "hsk1-grammar-ma-question",
         "hsk1-grammar-ba-suggestion"
       ],
@@ -106,7 +121,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -117,7 +132,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -130,27 +145,34 @@
       "titleVi": "Checkpoint Unit 3: Gia đình và người quen",
       "exerciseRefs": [
         "hsk1-lesson-06-exercise-1",
+        "hsk1-lesson-06-exercise-2",
         "hsk1-lesson-06-exercise-3",
         "hsk1-lesson-06-exercise-4",
         "hsk1-lesson-06-exercise-5",
         "hsk1-lesson-07-exercise-1",
+        "hsk1-lesson-07-exercise-2",
         "hsk1-lesson-07-exercise-3",
         "hsk1-lesson-07-exercise-4",
         "hsk1-lesson-07-exercise-5"
       ],
       "sections": {
-        "receptive": 4,
-        "productive": 4
+        "listening": 2,
+        "grammar": 2,
+        "reading": 2,
+        "speaking": 2,
+        "writing": 2
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-de-possession",
         "hsk1-grammar-demonstratives",
+        "hsk1-grammar-measure-words",
         "hsk1-grammar-adjective-predicate",
         "hsk1-grammar-shi-identity"
       ],
@@ -162,7 +184,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -173,7 +195,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -186,23 +208,29 @@
       "titleVi": "Checkpoint Unit 4: Lớp học và ngôn ngữ",
       "exerciseRefs": [
         "hsk1-lesson-08-exercise-1",
+        "hsk1-lesson-08-exercise-2",
         "hsk1-lesson-08-exercise-3",
         "hsk1-lesson-08-exercise-4",
         "hsk1-lesson-08-exercise-5",
         "hsk1-lesson-09-exercise-1",
+        "hsk1-lesson-09-exercise-2",
         "hsk1-lesson-09-exercise-3",
         "hsk1-lesson-09-exercise-4",
         "hsk1-lesson-09-exercise-5"
       ],
       "sections": {
-        "receptive": 4,
-        "productive": 4
+        "listening": 2,
+        "grammar": 2,
+        "reading": 2,
+        "speaking": 2,
+        "writing": 2
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-question-words",
@@ -218,7 +246,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -229,7 +257,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -242,27 +270,34 @@
       "titleVi": "Checkpoint Unit 5: Số, ngày và cuộc hẹn",
       "exerciseRefs": [
         "hsk1-lesson-10-exercise-1",
+        "hsk1-lesson-10-exercise-2",
         "hsk1-lesson-10-exercise-3",
         "hsk1-lesson-10-exercise-4",
         "hsk1-lesson-10-exercise-5",
         "hsk1-lesson-11-exercise-1",
+        "hsk1-lesson-11-exercise-2",
         "hsk1-lesson-11-exercise-3",
         "hsk1-lesson-11-exercise-4",
         "hsk1-lesson-11-exercise-5",
         "hsk1-lesson-12-exercise-1",
+        "hsk1-lesson-12-exercise-2",
         "hsk1-lesson-12-exercise-3",
         "hsk1-lesson-12-exercise-4",
         "hsk1-lesson-12-exercise-5"
       ],
       "sections": {
-        "receptive": 6,
-        "productive": 6
+        "listening": 3,
+        "grammar": 3,
+        "reading": 3,
+        "speaking": 3,
+        "writing": 3
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-numbers-time",
@@ -277,7 +312,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -288,7 +323,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -301,31 +336,39 @@
       "titleVi": "Checkpoint Unit 6: Một ngày của tôi",
       "exerciseRefs": [
         "hsk1-lesson-13-exercise-1",
+        "hsk1-lesson-13-exercise-2",
         "hsk1-lesson-13-exercise-3",
         "hsk1-lesson-13-exercise-4",
         "hsk1-lesson-13-exercise-5",
         "hsk1-lesson-14-exercise-1",
+        "hsk1-lesson-14-exercise-2",
         "hsk1-lesson-14-exercise-3",
         "hsk1-lesson-14-exercise-4",
         "hsk1-lesson-14-exercise-5",
         "hsk1-lesson-15-exercise-1",
+        "hsk1-lesson-15-exercise-2",
         "hsk1-lesson-15-exercise-3",
         "hsk1-lesson-15-exercise-4",
         "hsk1-lesson-15-exercise-5"
       ],
       "sections": {
-        "receptive": 6,
-        "productive": 6
+        "listening": 3,
+        "grammar": 3,
+        "reading": 3,
+        "speaking": 3,
+        "writing": 3
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-time-order",
         "hsk1-grammar-negation",
+        "hsk1-grammar-separable-verbs",
         "hsk1-grammar-zai-location",
         "hsk1-grammar-you-existence",
         "hsk1-grammar-progressive",
@@ -339,7 +382,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -350,7 +393,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -363,28 +406,35 @@
       "titleVi": "Checkpoint Unit 7: Ăn uống hằng ngày",
       "exerciseRefs": [
         "hsk1-lesson-16-exercise-1",
+        "hsk1-lesson-16-exercise-2",
         "hsk1-lesson-16-exercise-3",
         "hsk1-lesson-16-exercise-4",
         "hsk1-lesson-16-exercise-5",
         "hsk1-lesson-17-exercise-1",
+        "hsk1-lesson-17-exercise-2",
         "hsk1-lesson-17-exercise-3",
         "hsk1-lesson-17-exercise-4",
         "hsk1-lesson-17-exercise-5"
       ],
       "sections": {
-        "receptive": 4,
-        "productive": 4
+        "listening": 2,
+        "grammar": 2,
+        "reading": 2,
+        "speaking": 2,
+        "writing": 2
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-negation",
         "hsk1-grammar-xiang-yao",
-        "hsk1-grammar-demonstratives"
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-measure-words"
       ],
       "targetVocabulary": [],
       "difficultyDistribution": {
@@ -394,7 +444,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -405,7 +455,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -418,27 +468,34 @@
       "titleVi": "Checkpoint Unit 8: Mua sắm và đồ vật",
       "exerciseRefs": [
         "hsk1-lesson-18-exercise-1",
+        "hsk1-lesson-18-exercise-2",
         "hsk1-lesson-18-exercise-3",
         "hsk1-lesson-18-exercise-4",
         "hsk1-lesson-18-exercise-5",
         "hsk1-lesson-19-exercise-1",
+        "hsk1-lesson-19-exercise-2",
         "hsk1-lesson-19-exercise-3",
         "hsk1-lesson-19-exercise-4",
         "hsk1-lesson-19-exercise-5"
       ],
       "sections": {
-        "receptive": 4,
-        "productive": 4
+        "listening": 2,
+        "grammar": 2,
+        "reading": 2,
+        "speaking": 2,
+        "writing": 2
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-demonstratives",
         "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-measure-words",
         "hsk1-grammar-question-words",
         "hsk1-grammar-le-change"
       ],
@@ -450,7 +507,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -461,7 +518,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -474,28 +531,35 @@
       "titleVi": "Checkpoint Unit 9: Đi lại và phương hướng",
       "exerciseRefs": [
         "hsk1-lesson-20-exercise-1",
+        "hsk1-lesson-20-exercise-2",
         "hsk1-lesson-20-exercise-3",
         "hsk1-lesson-20-exercise-4",
         "hsk1-lesson-20-exercise-5",
         "hsk1-lesson-21-exercise-1",
+        "hsk1-lesson-21-exercise-2",
         "hsk1-lesson-21-exercise-3",
         "hsk1-lesson-21-exercise-4",
         "hsk1-lesson-21-exercise-5"
       ],
       "sections": {
-        "receptive": 4,
-        "productive": 4
+        "listening": 2,
+        "grammar": 2,
+        "reading": 2,
+        "speaking": 2,
+        "writing": 2
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-zai-location",
         "hsk1-grammar-question-words",
-        "hsk1-grammar-time-order"
+        "hsk1-grammar-time-order",
+        "hsk1-grammar-serial-verbs"
       ],
       "targetVocabulary": [],
       "difficultyDistribution": {
@@ -505,7 +569,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -516,7 +580,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -529,34 +593,42 @@
       "titleVi": "Checkpoint Unit 10: Thời tiết, sức khỏe và kế hoạch",
       "exerciseRefs": [
         "hsk1-lesson-22-exercise-1",
+        "hsk1-lesson-22-exercise-2",
         "hsk1-lesson-22-exercise-3",
         "hsk1-lesson-22-exercise-4",
         "hsk1-lesson-22-exercise-5",
         "hsk1-lesson-23-exercise-1",
+        "hsk1-lesson-23-exercise-2",
         "hsk1-lesson-23-exercise-3",
         "hsk1-lesson-23-exercise-4",
         "hsk1-lesson-23-exercise-5",
         "hsk1-lesson-24-exercise-1",
+        "hsk1-lesson-24-exercise-2",
         "hsk1-lesson-24-exercise-3",
         "hsk1-lesson-24-exercise-4",
         "hsk1-lesson-24-exercise-5"
       ],
       "sections": {
-        "receptive": 6,
-        "productive": 6
+        "listening": 3,
+        "grammar": 3,
+        "reading": 3,
+        "speaking": 3,
+        "writing": 3
       },
       "skillWeights": {
-        "listening": 20,
-        "reading": 20,
-        "speaking": 30,
-        "writing": 30
+        "listening": 15,
+        "grammar": 20,
+        "reading": 15,
+        "speaking": 25,
+        "writing": 25
       },
       "targetGrammar": [
         "hsk1-grammar-adjective-predicate",
         "hsk1-grammar-le-change",
-        "hsk1-grammar-you-existence",
         "hsk1-grammar-modal-verbs",
         "hsk1-grammar-negation",
+        "hsk1-grammar-separable-verbs",
+        "hsk1-grammar-serial-verbs",
         "hsk1-grammar-xiang-yao",
         "hsk1-grammar-ba-suggestion"
       ],
@@ -568,7 +640,7 @@
       },
       "rubric": {
         "pass": 70,
-        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+        "remediation": "Skill dưới ngưỡng phải làm lại một item khác định dạng, sau đó retrieval sau 1 và 3 ngày; không chỉ xem lại đáp án."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -579,7 +651,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -592,59 +664,89 @@
       "titleVi": "Đánh giá giữa cấp HSK 1",
       "exerciseRefs": [
         "hsk1-lesson-01-exercise-1",
+        "hsk1-lesson-01-exercise-2",
         "hsk1-lesson-01-exercise-3",
         "hsk1-lesson-01-exercise-4",
+        "hsk1-lesson-01-exercise-5",
         "hsk1-lesson-02-exercise-1",
+        "hsk1-lesson-02-exercise-2",
         "hsk1-lesson-02-exercise-3",
         "hsk1-lesson-02-exercise-4",
+        "hsk1-lesson-02-exercise-5",
         "hsk1-lesson-03-exercise-1",
+        "hsk1-lesson-03-exercise-2",
         "hsk1-lesson-03-exercise-3",
         "hsk1-lesson-03-exercise-4",
+        "hsk1-lesson-03-exercise-5",
         "hsk1-lesson-04-exercise-1",
+        "hsk1-lesson-04-exercise-2",
         "hsk1-lesson-04-exercise-3",
         "hsk1-lesson-04-exercise-4",
+        "hsk1-lesson-04-exercise-5",
         "hsk1-lesson-05-exercise-1",
+        "hsk1-lesson-05-exercise-2",
         "hsk1-lesson-05-exercise-3",
         "hsk1-lesson-05-exercise-4",
+        "hsk1-lesson-05-exercise-5",
         "hsk1-lesson-06-exercise-1",
+        "hsk1-lesson-06-exercise-2",
         "hsk1-lesson-06-exercise-3",
         "hsk1-lesson-06-exercise-4",
+        "hsk1-lesson-06-exercise-5",
         "hsk1-lesson-07-exercise-1",
+        "hsk1-lesson-07-exercise-2",
         "hsk1-lesson-07-exercise-3",
         "hsk1-lesson-07-exercise-4",
+        "hsk1-lesson-07-exercise-5",
         "hsk1-lesson-08-exercise-1",
+        "hsk1-lesson-08-exercise-2",
         "hsk1-lesson-08-exercise-3",
         "hsk1-lesson-08-exercise-4",
+        "hsk1-lesson-08-exercise-5",
         "hsk1-lesson-09-exercise-1",
+        "hsk1-lesson-09-exercise-2",
         "hsk1-lesson-09-exercise-3",
         "hsk1-lesson-09-exercise-4",
+        "hsk1-lesson-09-exercise-5",
         "hsk1-lesson-10-exercise-1",
+        "hsk1-lesson-10-exercise-2",
         "hsk1-lesson-10-exercise-3",
         "hsk1-lesson-10-exercise-4",
+        "hsk1-lesson-10-exercise-5",
         "hsk1-lesson-11-exercise-1",
+        "hsk1-lesson-11-exercise-2",
         "hsk1-lesson-11-exercise-3",
         "hsk1-lesson-11-exercise-4",
+        "hsk1-lesson-11-exercise-5",
         "hsk1-lesson-12-exercise-1",
+        "hsk1-lesson-12-exercise-2",
         "hsk1-lesson-12-exercise-3",
-        "hsk1-lesson-12-exercise-4"
+        "hsk1-lesson-12-exercise-4",
+        "hsk1-lesson-12-exercise-5"
       ],
       "sections": {
         "listening": 12,
+        "grammar": 12,
         "reading": 12,
-        "speaking": 12
+        "speaking": 12,
+        "writing": 12
       },
       "skillWeights": {
-        "listening": 30,
-        "reading": 30,
-        "speaking": 40
+        "listening": 20,
+        "grammar": 20,
+        "reading": 20,
+        "speaking": 20,
+        "writing": 20
       },
       "targetGrammar": [
         "hsk1-grammar-numbers-time",
         "hsk1-grammar-demonstratives",
+        "hsk1-grammar-measure-words",
         "hsk1-grammar-adjective-predicate",
         "hsk1-grammar-ne-follow-up",
         "hsk1-grammar-shi-identity",
         "hsk1-grammar-question-words",
+        "hsk1-grammar-double-object",
         "hsk1-grammar-ma-question",
         "hsk1-grammar-ba-suggestion",
         "hsk1-grammar-de-possession",
@@ -661,7 +763,7 @@
       "rubric": {
         "pass": 70,
         "speakingRequired": true,
-        "feedback": "Trả về skill profile và ba bài remedial cụ thể."
+        "feedback": "Trả về hồ sơ 5 kỹ năng và bài remedial cụ thể theo định dạng người học làm yếu; speaking vẫn bắt buộc."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -672,7 +774,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -685,84 +787,102 @@
       "titleVi": "Đánh giá cuối khóa HSK 1",
       "exerciseRefs": [
         "hsk1-lesson-13-exercise-1",
+        "hsk1-lesson-13-exercise-2",
         "hsk1-lesson-13-exercise-3",
         "hsk1-lesson-13-exercise-4",
         "hsk1-lesson-13-exercise-5",
         "hsk1-lesson-14-exercise-1",
+        "hsk1-lesson-14-exercise-2",
         "hsk1-lesson-14-exercise-3",
         "hsk1-lesson-14-exercise-4",
         "hsk1-lesson-14-exercise-5",
         "hsk1-lesson-15-exercise-1",
+        "hsk1-lesson-15-exercise-2",
         "hsk1-lesson-15-exercise-3",
         "hsk1-lesson-15-exercise-4",
         "hsk1-lesson-15-exercise-5",
         "hsk1-lesson-16-exercise-1",
+        "hsk1-lesson-16-exercise-2",
         "hsk1-lesson-16-exercise-3",
         "hsk1-lesson-16-exercise-4",
         "hsk1-lesson-16-exercise-5",
         "hsk1-lesson-17-exercise-1",
+        "hsk1-lesson-17-exercise-2",
         "hsk1-lesson-17-exercise-3",
         "hsk1-lesson-17-exercise-4",
         "hsk1-lesson-17-exercise-5",
         "hsk1-lesson-18-exercise-1",
+        "hsk1-lesson-18-exercise-2",
         "hsk1-lesson-18-exercise-3",
         "hsk1-lesson-18-exercise-4",
         "hsk1-lesson-18-exercise-5",
         "hsk1-lesson-19-exercise-1",
+        "hsk1-lesson-19-exercise-2",
         "hsk1-lesson-19-exercise-3",
         "hsk1-lesson-19-exercise-4",
         "hsk1-lesson-19-exercise-5",
         "hsk1-lesson-20-exercise-1",
+        "hsk1-lesson-20-exercise-2",
         "hsk1-lesson-20-exercise-3",
         "hsk1-lesson-20-exercise-4",
         "hsk1-lesson-20-exercise-5",
         "hsk1-lesson-21-exercise-1",
+        "hsk1-lesson-21-exercise-2",
         "hsk1-lesson-21-exercise-3",
         "hsk1-lesson-21-exercise-4",
         "hsk1-lesson-21-exercise-5",
         "hsk1-lesson-22-exercise-1",
+        "hsk1-lesson-22-exercise-2",
         "hsk1-lesson-22-exercise-3",
         "hsk1-lesson-22-exercise-4",
         "hsk1-lesson-22-exercise-5",
         "hsk1-lesson-23-exercise-1",
+        "hsk1-lesson-23-exercise-2",
         "hsk1-lesson-23-exercise-3",
         "hsk1-lesson-23-exercise-4",
         "hsk1-lesson-23-exercise-5",
         "hsk1-lesson-24-exercise-1",
+        "hsk1-lesson-24-exercise-2",
         "hsk1-lesson-24-exercise-3",
         "hsk1-lesson-24-exercise-4",
         "hsk1-lesson-24-exercise-5"
       ],
       "sections": {
         "listening": 12,
+        "grammar": 12,
         "reading": 12,
         "speaking": 12,
         "writing": 12
       },
       "skillWeights": {
-        "listening": 25,
-        "reading": 25,
-        "speaking": 30,
+        "listening": 20,
+        "grammar": 20,
+        "reading": 20,
+        "speaking": 20,
         "writing": 20
       },
       "targetGrammar": [
-        "hsk1-grammar-numbers-time",
-        "hsk1-grammar-demonstratives",
-        "hsk1-grammar-adjective-predicate",
-        "hsk1-grammar-ne-follow-up",
         "hsk1-grammar-shi-identity",
-        "hsk1-grammar-question-words",
         "hsk1-grammar-ma-question",
-        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-ne-follow-up",
         "hsk1-grammar-de-possession",
-        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-you-existence",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-question-words",
         "hsk1-grammar-negation",
+        "hsk1-grammar-adjective-predicate",
         "hsk1-grammar-time-order",
         "hsk1-grammar-zai-location",
-        "hsk1-grammar-you-existence",
-        "hsk1-grammar-progressive",
+        "hsk1-grammar-modal-verbs",
         "hsk1-grammar-xiang-yao",
-        "hsk1-grammar-le-change"
+        "hsk1-grammar-progressive",
+        "hsk1-grammar-le-change",
+        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-measure-words",
+        "hsk1-grammar-separable-verbs",
+        "hsk1-grammar-serial-verbs",
+        "hsk1-grammar-double-object"
       ],
       "targetVocabulary": [],
       "difficultyDistribution": {
@@ -778,7 +898,8 @@
           "speaking",
           "pronunciation-foundation"
         ],
-        "noProductionPromotion": true
+        "noProductionPromotion": true,
+        "evidencePolicy": "Không đạt speaking/writing thì không coi hoàn tất mastery dù điểm nhận biết cao."
       },
       "sourceIds": [
         "moe-gf0025-2021-standard",
@@ -789,7 +910,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "assessment",
@@ -801,33 +922,47 @@
       "titleZh": "一级掌握复习",
       "titleVi": "Mastery Review HSK 1",
       "exerciseRefs": [
+        "hsk1-lesson-13-exercise-2",
         "hsk1-lesson-13-exercise-4",
         "hsk1-lesson-13-exercise-5",
+        "hsk1-lesson-14-exercise-2",
         "hsk1-lesson-14-exercise-4",
         "hsk1-lesson-14-exercise-5",
+        "hsk1-lesson-15-exercise-2",
         "hsk1-lesson-15-exercise-4",
         "hsk1-lesson-15-exercise-5",
+        "hsk1-lesson-16-exercise-2",
         "hsk1-lesson-16-exercise-4",
         "hsk1-lesson-16-exercise-5",
+        "hsk1-lesson-17-exercise-2",
         "hsk1-lesson-17-exercise-4",
         "hsk1-lesson-17-exercise-5",
+        "hsk1-lesson-18-exercise-2",
         "hsk1-lesson-18-exercise-4",
         "hsk1-lesson-18-exercise-5",
+        "hsk1-lesson-19-exercise-2",
         "hsk1-lesson-19-exercise-4",
         "hsk1-lesson-19-exercise-5",
+        "hsk1-lesson-20-exercise-2",
         "hsk1-lesson-20-exercise-4",
         "hsk1-lesson-20-exercise-5",
+        "hsk1-lesson-21-exercise-2",
         "hsk1-lesson-21-exercise-4",
         "hsk1-lesson-21-exercise-5",
+        "hsk1-lesson-22-exercise-2",
         "hsk1-lesson-22-exercise-4",
         "hsk1-lesson-22-exercise-5",
+        "hsk1-lesson-23-exercise-2",
         "hsk1-lesson-23-exercise-4",
         "hsk1-lesson-23-exercise-5",
+        "hsk1-lesson-24-exercise-2",
         "hsk1-lesson-24-exercise-4",
         "hsk1-lesson-24-exercise-5"
       ],
       "sections": {
-        "productivePortfolio": 24,
+        "grammarTransfer": 12,
+        "speakingPortfolio": 12,
+        "writingPortfolio": 12,
         "spacedReviewDays": [
           1,
           3,
@@ -837,28 +972,33 @@
         ]
       },
       "skillWeights": {
-        "speaking": 50,
-        "writing": 30,
-        "selfCorrection": 20
+        "grammar": 20,
+        "speaking": 45,
+        "writing": 25,
+        "selfCorrection": 10
       },
       "targetGrammar": [
-        "hsk1-grammar-numbers-time",
-        "hsk1-grammar-demonstratives",
-        "hsk1-grammar-adjective-predicate",
-        "hsk1-grammar-ne-follow-up",
         "hsk1-grammar-shi-identity",
-        "hsk1-grammar-question-words",
         "hsk1-grammar-ma-question",
-        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-ne-follow-up",
         "hsk1-grammar-de-possession",
-        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-you-existence",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-question-words",
         "hsk1-grammar-negation",
+        "hsk1-grammar-adjective-predicate",
         "hsk1-grammar-time-order",
         "hsk1-grammar-zai-location",
-        "hsk1-grammar-you-existence",
-        "hsk1-grammar-progressive",
+        "hsk1-grammar-modal-verbs",
         "hsk1-grammar-xiang-yao",
-        "hsk1-grammar-le-change"
+        "hsk1-grammar-progressive",
+        "hsk1-grammar-le-change",
+        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-measure-words",
+        "hsk1-grammar-separable-verbs",
+        "hsk1-grammar-serial-verbs",
+        "hsk1-grammar-double-object"
       ],
       "targetVocabulary": [],
       "difficultyDistribution": {
@@ -870,6 +1010,7 @@
         "mastery": 80,
         "weakSkillLoop": true,
         "evidenceRequired": [
+          "grammar-transfer",
           "recording",
           "writing",
           "self-review"
@@ -884,7 +1025,7 @@
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "blueprint-reviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     }
   ]
 }
