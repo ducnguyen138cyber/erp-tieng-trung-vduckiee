@@ -43,29 +43,16 @@ jobs:
             python - <<'PY'
           from pathlib import Path
           import json
+          import re
 
           source = Path('scripts/polish-hsk1-c2.js')
           text = source.read_text()
-          text = text.replace('''    record.reviewStatus = "c2-editorial-reviewed";
-              record.editorialReview = {
-                phase: "C2",
-                humanSignoffRequired: true,
-                checked: ["form", "meaning", "Vietnamese explanation", "examples", "common learner errors"]
-              };''', '''    record.reviewStatus = "linguistic-reviewed";''')
+          text = text.replace('record.reviewStatus = "c2-editorial-reviewed";', 'record.reviewStatus = "linguistic-reviewed";')
           text = text.replace('exercise.reviewStatus = "c2-editorial-reviewed";', 'exercise.reviewStatus = "linguistic-reviewed";')
-          text = text.replace('''    assessment.reviewStatus = "c2-editorial-reviewed";
-              assessment.editorialReview = {
-                phase: "C2",
-                humanSignoffRequired: true,
-                principles: ["direct grammar evidence", "balanced receptive/productive evidence", "lesson-specific prompts", "weak-skill remediation"]
-              };''', '''    assessment.reviewStatus = "blueprint-reviewed";''')
-          text = text.replace('''  documents.level.editorialReview = {
-              phase: "C2",
-              reviewedLessons: 24,
-              humanSignoffRequired: true,
-              scope: ["Chinese naturalness", "Vietnamese pedagogy", "HSK1 vocabulary scope", "grammar coverage", "exercise diversity", "assessment balance"]
-            };
-          ''', '')
+          text = text.replace('assessment.reviewStatus = "c2-editorial-reviewed";', 'assessment.reviewStatus = "blueprint-reviewed";')
+          text = re.sub(r'\n\s*record\.editorialReview = \{\n\s*phase: "C2",\n\s*humanSignoffRequired: true,\n\s*checked: \["form", "meaning", "Vietnamese explanation", "examples", "common learner errors"\]\n\s*\};', '', text)
+          text = re.sub(r'\n\s*assessment\.editorialReview = \{\n\s*phase: "C2",\n\s*humanSignoffRequired: true,\n\s*principles: \["direct grammar evidence", "balanced receptive/productive evidence", "lesson-specific prompts", "weak-skill remediation"\]\n\s*\};', '', text)
+          text = re.sub(r'\n\s*documents\.level\.editorialReview = \{\n\s*phase: "C2",\n\s*reviewedLessons: 24,\n\s*humanSignoffRequired: true,\n\s*scope: \["Chinese naturalness", "Vietnamese pedagogy", "HSK1 vocabulary scope", "grammar coverage", "exercise diversity", "assessment balance"\]\n\s*\};', '', text)
           source.write_text(text)
 
           patch_path = Path('data/hsk/hsk1/editorial-c2.json')
@@ -78,6 +65,7 @@ jobs:
           PY
 
             ! grep -q 'c2-editorial-reviewed' scripts/polish-hsk1-c2.js
+            ! grep -q 'editorialReview' scripts/polish-hsk1-c2.js
             node scripts/polish-hsk1-c2.js --write
           else
             test -f scripts/polish-hsk1-c2.js
