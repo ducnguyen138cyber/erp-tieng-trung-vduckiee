@@ -53,14 +53,32 @@ async function waitReady(page) {
     result.mobile.state = mState;
     await mobile.locator('#hskLesson').getByText(/Bài 24/i).first().waitFor();
     result.mobile.overflow = await mobile.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-    if (result.mobile.overflow > 2) throw new Error('Mobile page has horizontal overflow: ' + result.mobile.overflow);
+    result.mobile.widestElements = await mobile.evaluate(() => {
+      const vw = window.innerWidth;
+      return Array.from(document.querySelectorAll('body *')).map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          tag: element.tagName,
+          id: element.id || '',
+          className: typeof element.className === 'string' ? element.className.slice(0, 160) : '',
+          width: Math.round(rect.width),
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          scrollWidth: Math.round(element.scrollWidth || 0),
+          text: (element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100)
+        };
+      }).filter((item) => item.right > vw + 2 || item.width > vw + 2 || item.scrollWidth > vw + 2)
+        .sort((a, b) => Math.max(b.right, b.width, b.scrollWidth) - Math.max(a.right, a.width, a.scrollWidth))
+        .slice(0, 20);
+    });
+    await mobile.screenshot({ path: '/tmp/hsk1-c2-mobile.png', fullPage: true });
+    if (result.mobile.overflow > 2) throw new Error('Mobile page has horizontal overflow: ' + result.mobile.overflow + ' widest=' + JSON.stringify(result.mobile.widestElements.slice(0, 5)));
     const minButton = await mobile.evaluate(() => {
       const buttons = Array.from(document.querySelectorAll('#hskLesson button:not([disabled])'));
       return buttons.length ? Math.min(...buttons.map((button) => button.getBoundingClientRect().height)) : 0;
     });
     result.mobile.minLessonButtonHeight = minButton;
     if (minButton && minButton < 40) throw new Error('Mobile lesson controls are too small: ' + minButton);
-    await mobile.screenshot({ path: '/tmp/hsk1-c2-mobile.png', fullPage: true });
 
     fs.writeFileSync('/tmp/hsk1-c2-browser-smoke.json', JSON.stringify(result, null, 2) + '\n');
     console.log(JSON.stringify(result, null, 2));
