@@ -1,0 +1,34 @@
+g.correctExamples).map(function (ex) { return '<div class="hsk-pro-example good"><span lang="zh-CN">' + esc(ex.zh) + '</span><p>' + esc(ex.vi) + '</p>' + speakButton(ex.zh, 'Nghe câu') + '</div>'; }).join('') + '</div>' +
+        (array(g.incorrectExamples).length ? '<div class="hsk-pro-warning"><b>Sửa lỗi</b>' + array(g.incorrectExamples).map(function (ex) { return '<p><s lang="zh-CN">' + esc(ex.zh) + '</s><br>' + esc(ex.explanationVi) + '</p>'; }).join('') + '</div>' : '') +
+        (array(g.commonErrorsVi).length ? '<div><b>Người Việt dễ mắc</b>' + list(g.commonErrorsVi) + '</div>' : '') +
+      '</article>';
+    }).join('');
+    return sectionCard(section.titleVi || 'Ngữ pháp', html);
+  }
+
+  function renderDialogue(section) {
+    var content = section.content || {};
+    var zh = text(content.scriptZh);
+    return sectionCard(section.titleVi || 'Hội thoại', '<div class="hsk-pro-script"><pre lang="zh-CN">' + esc(zh) + '</pre>' + speakButton(zh, 'Nghe hội thoại bằng TTS') + '</div>' + (array(content.tasks).length ? '<b>Nhiệm vụ</b>' + list(content.tasks) : ''));
+  }
+
+  function renderReading(section) {
+    var content = section.content || {};
+    var key = array(content.answerKey);
+    var body = '<div class="hsk-pro-reading" lang="zh-CN">' + esc(content.textZh) + '</div>' + speakButton(content.textZh, 'Nghe đoạn đọc') +
+      '<ol class="hsk-pro-questions">' + array(content.questionsVi).map(function (q, index) {
+        var answer = key[index] || {};
+        return '<li><p>' + esc(q) + '</p><button type="button" class="hsk-pro-inline-button" data-pro-toggle-answer="reading-' + index + '">Xem đáp án + bằng chứng</button><div class="hsk-pro-answer hidden" data-pro-answer-box="reading-' + index + '"><b>' + esc(answer.answerVi || answer.answer || '') + '</b>' + (answer.evidenceZh ? '<span lang="zh-CN">Bằng chứng: ' + esc(answer.evidenceZh) + '</span>' : '') + '</div></li>';
+      }).join('') + '</ol>';
+    return sectionCard(section.titleVi || 'Đọc hiểu', body);
+  }
+
+  function renderListening(section) {
+    var content = section.content || {};
+    var key = array(content.answerKey);
+    var body = '<div class="hsk-pro-audio-state"><b>Audio chuẩn:</b> ' + esc(content.audioStatus || 'pending') + '<span> · Có thể dùng TTS hỗ trợ và transcript trong lúc chờ audio đã kiểm duyệt.</span></div>' +
+      speakButton(content.scriptZh, 'Phát transcript bằng TTS') +
+      '<button type="button" class="hsk-pro-inline-button" data-pro-toggle-transcript>Hiện/ẩn transcript</button><pre class="hsk-pro-transcript hidden" lang="zh-CN">' + esc(content.scriptZh) + '</pre>' +
+      '<ol class="hsk-pro-questions">' + array(content.questionsVi).map(function (q, index) {
+        var answer = key[index] || {};
+        return '<li><p>' + esc(q) + '</p><button type="button" class="hsk-pro-inline-button" data-pro-toggle-answer="listening-' + index + '">Xem đáp án</button><div class="hsk-pro-an
