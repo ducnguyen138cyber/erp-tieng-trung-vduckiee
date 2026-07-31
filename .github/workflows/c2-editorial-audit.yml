@@ -1,0 +1,54 @@
+name: C2 editorial audit bundle
+
+on:
+  push:
+    branches:
+      - agent/hsk1-c2-editorial
+
+permissions:
+  contents: read
+
+jobs:
+  audit-bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Confirm baseline and repository state
+        shell: bash
+        run: |
+          set -euo pipefail
+          git status -sb
+          git branch --show-current
+          git remote -v
+          git fetch origin main
+          git pull --ff-only origin main
+          git log --oneline --decorate -15
+          git merge-base --is-ancestor 8c5714ce5f22fc438f5588fedbc331291ed6c882 HEAD
+
+      - name: Baseline C1 validation
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/hsk-reference-validator.js
+          node scripts/hsk-duplicate-engine.js
+          node --test tests/hsk-phase-c1-professional-course.test.js tests/hsk-phase2a-contract.test.js tests/hsk-phase2a-quality.test.js tests/hsk-phase2a-lock.test.js
+          git diff --check
+
+      - name: Upload HSK1 editorial source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsk1-c2-editorial-source
+          if-no-files-found: error
+          path: |
+            data/hsk/hsk1/*.json
+            data/hsk/manifest.json
+            scripts/build-hsk-curriculum-c1.js
+            scripts/hsk-reference-validator.js
+            scripts/hsk-duplicate-engine.js
+            tests/hsk-phase-c1-professional-course.test.js
+            docs/hsk-phase-c1-handoff.md
+            reports/hsk-c1-course-report.json
+            reports/hsk-c1-validation-summary.json
