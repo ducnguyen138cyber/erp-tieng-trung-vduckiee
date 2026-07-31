@@ -1,0 +1,296 @@
+{
+  "phase": "A-HSK1-learner-integration",
+  "status": "pass",
+  "validatedAt": "2026-07-31",
+  "baseline": "8b1b4d92d73c7d9b141b2e9bde810e02f783bd21",
+  "mode": "learner-facing-read-only",
+  "curriculum": {
+    "level": 1,
+    "phase": "C2",
+    "units": 10,
+    "lessons": 24,
+    "grammar": 21,
+    "characters": 50,
+    "exercises": 120,
+    "assessments": 13,
+    "vocabulary": 300
+  },
+  "browser": {
+    "base": "http://127.0.0.1:4173/",
+    "desktop": {
+      "state": {
+        "status": "ready",
+        "mounted": true,
+        "readOnly": true,
+        "progressWritesEnabled": false,
+        "selectedLessonId": "hsk1-lesson-01",
+        "selectedAssessmentId": null,
+        "counts": {
+          "units": 10,
+          "lessons": 24,
+          "grammar": 21,
+          "characters": 50,
+          "exercises": 120,
+          "assessments": 13,
+          "vocabulary": 300
+        },
+        "error": null
+      },
+      "currentUrl": "http://127.0.0.1:4173/?area=hsk&hskAssessment=hsk1-assessment-final",
+      "overflow": -15
+    },
+    "mobile": {
+      "state": {
+        "status": "ready",
+        "mounted": true,
+        "readOnly": true,
+        "progressWritesEnabled": false,
+        "selectedLessonId": "hsk1-lesson-24",
+        "selectedAssessmentId": null,
+        "counts": {
+          "units": 10,
+          "lessons": 24,
+          "grammar": 21,
+          "characters": 50,
+          "exercises": 120,
+          "assessments": 13,
+          "vocabulary": 300
+        },
+        "error": null
+      },
+      "overflow": 0,
+      "widestElements": [
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 1627,
+          "right": 1817,
+          "scrollWidth": 188,
+          "text": "HSK 9Sắp mở"
+        },
+        {
+          "tag": "SMALL",
+          "id": "",
+          "className": "",
+          "width": 111,
+          "left": 1695,
+          "right": 1806,
+          "scrollWidth": 111,
+          "text": "Sắp mở"
+        },
+        {
+          "tag": "DIV",
+          "id": "hskLevels",
+          "className": "hsk-levels",
+          "width": 336,
+          "left": 27,
+          "right": 363,
+          "scrollWidth": 1790,
+          "text": "HSK 110 unit · 24 bài · C2HSK 2Sắp mởHSK 3Sắp mởHSK 4Sắp mởHSK 5Sắp mởHSK 6Sắp mởHSK 7Sắp mởHSK 8Sắp"
+        },
+        {
+          "tag": "STRONG",
+          "id": "",
+          "className": "",
+          "width": 50,
+          "left": 1635,
+          "right": 1685,
+          "scrollWidth": 50,
+          "text": "HSK 9"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 1427,
+          "right": 1617,
+          "scrollWidth": 188,
+          "text": "HSK 8Sắp mở"
+        },
+        {
+          "tag": "SMALL",
+          "id": "",
+          "className": "",
+          "width": 111,
+          "left": 1495,
+          "right": 1606,
+          "scrollWidth": 111,
+          "text": "Sắp mở"
+        },
+        {
+          "tag": "STRONG",
+          "id": "",
+          "className": "",
+          "width": 50,
+          "left": 1435,
+          "right": 1485,
+          "scrollWidth": 50,
+          "text": "HSK 8"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 1227,
+          "right": 1417,
+          "scrollWidth": 188,
+          "text": "HSK 7Sắp mở"
+        },
+        {
+          "tag": "SMALL",
+          "id": "",
+          "className": "",
+          "width": 111,
+          "left": 1295,
+          "right": 1406,
+          "scrollWidth": 111,
+          "text": "Sắp mở"
+        },
+        {
+          "tag": "STRONG",
+          "id": "",
+          "className": "",
+          "width": 50,
+          "left": 1235,
+          "right": 1285,
+          "scrollWidth": 50,
+          "text": "HSK 7"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 1027,
+          "right": 1217,
+          "scrollWidth": 188,
+          "text": "HSK 6Sắp mở"
+        },
+        {
+          "tag": "SMALL",
+          "id": "",
+          "className": "",
+          "width": 111,
+          "left": 1095,
+          "right": 1206,
+          "scrollWidth": 111,
+          "text": "Sắp mở"
+        },
+        {
+          "tag": "STRONG",
+          "id": "",
+          "className": "",
+          "width": 50,
+          "left": 1035,
+          "right": 1085,
+          "scrollWidth": 50,
+          "text": "HSK 6"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 827,
+          "right": 1017,
+          "scrollWidth": 188,
+          "text": "HSK 5Sắp mở"
+        },
+        {
+          "tag": "SMALL",
+          "id": "",
+          "className": "",
+          "width": 111,
+          "left": 895,
+          "right": 1006,
+          "scrollWidth": 111,
+          "text": "Sắp mở"
+        },
+        {
+          "tag": "STRONG",
+          "id": "",
+          "className": "",
+          "width": 50,
+          "left": 835,
+          "right": 885,
+          "scrollWidth": 50,
+          "text": "HSK 5"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 627,
+          "right": 817,
+          "scrollWidth": 188,
+          "text": "HSK 4Sắp mở"
+        },
+        {
+          "tag": "SMALL",
+          "id": "",
+          "className": "",
+          "width": 111,
+          "left": 695,
+          "right": 806,
+          "scrollWidth": 111,
+          "text": "Sắp mở"
+        },
+        {
+          "tag": "STRONG",
+          "id": "",
+          "className": "",
+          "width": 50,
+          "left": 635,
+          "right": 685,
+          "scrollWidth": 50,
+          "text": "HSK 4"
+        },
+        {
+          "tag": "BUTTON",
+          "id": "",
+          "className": "hsk-level hsk-pro-level locked",
+          "width": 190,
+          "left": 427,
+          "right": 617,
+          "scrollWidth": 188,
+          "text": "HSK 3Sắp mở"
+        }
+      ],
+      "minLessonButtonHeight": 44
+    },
+    "consoleErrors": [
+      "desktop: Access to fetch at 'https://erp-tieng-trung.vduckie.chatgpt.site/api/community-terms' from origin 'http://127.0.0.1:4173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "desktop: Failed to load resource: net::ERR_FAILED",
+      "desktop: Failed to load resource: the server responded with a status of 404 ()",
+      "desktop: Mini leaderboard failed {code: PGRST202, details: Searched for the function public.get_leaderboard w…r, but no matches were found in the schema cache., hint: null, message: Could not find the function public.get_leaderboard(p_limit, p_period) in the schema cache}",
+      "desktop: Failed to load resource: the server responded with a status of 404 ()",
+      "desktop: Failed to load resource: the server responded with a status of 404 ()",
+      "desktop: Leaderboard failed {code: PGRST202, details: Searched for the function public.get_leaderboard w…r, but no matches were found in the schema cache., hint: null, message: Could not find the function public.get_leaderboard(p_limit, p_period) in the schema cache}",
+      "mobile: Access to fetch at 'https://erp-tieng-trung.vduckie.chatgpt.site/api/community-terms' from origin 'http://127.0.0.1:4173' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.",
+      "mobile: Failed to load resource: net::ERR_FAILED",
+      "mobile: Failed to load resource: the server responded with a status of 404 ()",
+      "mobile: Failed to load resource: the server responded with a status of 404 ()",
+      "mobile: Leaderboard failed {code: PGRST202, details: Searched for the function public.get_leaderboard w…r, but no matches were found in the schema cache., hint: null, message: Could not find the function public.get_leaderboard(p_limit, p_period) in the schema cache}",
+      "mobile: Mini leaderboard failed {code: PGRST202, details: Searched for the function public.get_leaderboard w…r, but no matches were found in the schema cache., hint: null, message: Could not find the function public.get_leaderboard(p_limit, p_period) in the schema cache}",
+      "mobile: Failed to load resource: the server responded with a status of 404 ()"
+    ]
+  },
+  "safety": {
+    "canonicalProductionEnabled": false,
+    "publicOverrideAllowed": false,
+    "progressWritesEnabled": false,
+    "qualityGate": "locked",
+    "supabaseMigration": false,
+    "userDataMigration": false
+  },
+  "urls": {
+    "course": "/?area=hsk",
+    "lesson1": "/?area=hsk&hskLesson=hsk1-lesson-01",
+    "finalAssessment": "/?area=hsk&hskAssessment=hsk1-assessment-final"
+  }
+}
