@@ -1,0 +1,64 @@
+
+(function (root) {
+  'use strict';
+  if (!root || !root.document) return;
+  var style = root.document.createElement('style');
+  style.id = 'hsk-pro-c2-mobile-containment';
+  style.textContent = `
+body[data-hsk-professional="c2-readonly"] #hsk,
+body[data-hsk-professional="c2-readonly"] #hsk .hsk-layout,
+body[data-hsk-professional="c2-readonly"] #hskLesson,
+body[data-hsk-professional="c2-readonly"] #hskLesson > * {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+body[data-hsk-professional="c2-readonly"] #hskLesson {
+  overflow-x: hidden;
+}
+body[data-hsk-professional="c2-readonly"] #hskLesson pre,
+body[data-hsk-professional="c2-readonly"] #hskLesson code,
+body[data-hsk-professional="c2-readonly"] #hskLesson p,
+body[data-hsk-professional="c2-readonly"] #hskLesson li {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+body[data-hsk-professional="c2-readonly"] .hsk-pro-script,
+body[data-hsk-professional="c2-readonly"] .hsk-pro-stimulus,
+body[data-hsk-professional="c2-readonly"] .hsk-pro-reading,
+body[data-hsk-professional="c2-readonly"] .hsk-pro-exercise,
+body[data-hsk-professional="c2-readonly"] .hsk-pro-vocab-card,
+body[data-hsk-professional="c2-readonly"] .hsk-pro-character,
+body[data-hsk-professional="c2-readonly"] .hsk-pro-grammar {
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+@media (max-width: 700px) {
+  body[data-hsk-professional="c2-readonly"] #hsk .hsk-layout {
+    display: block !important;
+    width: 100% !important;
+  }
+  body[data-hsk-professional="c2-readonly"] #hskLesson {
+    width: 100% !important;
+  }
+  .hsk-pro-bottom-nav {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  }
+  .hsk-pro-bottom-nav button,
+  .hsk-pro-inline-button,
+  .hsk-pro-exercise-actions button {
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+  }
+  .hsk-pro-vocab-head,
+  .hsk-pro-exercise header {
+    min-width: 0;
+    flex-wrap: wrap;
+  }
+}
+`;
+  root.document.head.appendChild(style);
+})(typeof globalThis !== 'undefined' ? globalThis : this);
