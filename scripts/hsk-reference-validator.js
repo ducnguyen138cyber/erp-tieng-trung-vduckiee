@@ -224,6 +224,7 @@ function orderingIssues(repository) {
   const unitsByLevel = new Map();
   for (const entry of repository.records) {
     const record = entry.record;
+    if (record.contentStatus === 'fixture') continue;
     if (record.recordType === 'lesson') {
       if (!lessonsByUnit.has(record.unitId)) lessonsByUnit.set(record.unitId, []);
       lessonsByUnit.get(record.unitId).push(entry);

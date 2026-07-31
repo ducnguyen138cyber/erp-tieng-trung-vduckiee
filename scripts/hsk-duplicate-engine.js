@@ -68,10 +68,13 @@ function checkDuplicates(rootDirectory, options = {}) {
   const candidates = collectDuplicateCandidates(repository);
   const byKind = new Map();
   for (const candidate of candidates) {
-    if (!byKind.has(candidate.kind)) byKind.set(candidate.kind, []);
-    byKind.get(candidate.kind).push(candidate);
+    const scope = candidate.record.contentStatus === 'fixture' ? 'fixture' : 'canonical';
+    const key = `${scope}|${candidate.kind}`;
+    if (!byKind.has(key)) byKind.set(key, []);
+    byKind.get(key).push(candidate);
   }
-  for (const [kind, items] of byKind) {
+  for (const [, items] of byKind) {
+    const kind = items[0].kind;
     for (let leftIndex = 0; leftIndex < items.length; leftIndex += 1) {
       for (let rightIndex = leftIndex + 1; rightIndex < items.length; rightIndex += 1) {
         const left = items[leftIndex], right = items[rightIndex];

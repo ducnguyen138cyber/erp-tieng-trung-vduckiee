@@ -1,0 +1,4130 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary-enrichment",
+  "level": 1,
+  "entries": [
+    {
+      "id": "hsk1-vocabulary-enrichment-001",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "爱"
+      },
+      "simplified": "爱",
+      "collocations": [
+        {
+          "zh": "爱家人",
+          "vi": "yêu gia đình"
+        },
+        {
+          "zh": "爱学习",
+          "vi": "thích học"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 爱 cho mọi mức độ ‘thích’; 喜欢 thường trung tính hơn."
+      ],
+      "learnerNoteVi": "Học “爱” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-002",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "吧"
+      },
+      "simplified": "吧",
+      "collocations": [
+        {
+          "zh": "走吧",
+          "vi": "đi nhé"
+        },
+        {
+          "zh": "吃饭吧",
+          "vi": "ăn cơm nhé"
+        }
+      ],
+      "commonErrorsVi": [
+        "吧 đứng cuối câu; không đặt trước lời đề nghị."
+      ],
+      "learnerNoteVi": "Học “吧” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-003",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "爸爸"
+      },
+      "simplified": "爸爸",
+      "collocations": [
+        {
+          "zh": "我爸爸",
+          "vi": "bố tôi"
+        },
+        {
+          "zh": "爸爸妈妈",
+          "vi": "bố mẹ"
+        }
+      ],
+      "commonErrorsVi": [
+        "Âm tiết thứ hai thường đọc thanh nhẹ: bàba."
+      ],
+      "learnerNoteVi": "Học “爸爸” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-004",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "白天"
+      },
+      "simplified": "白天",
+      "collocations": [
+        {
+          "zh": "白天上班",
+          "vi": "ban ngày đi làm"
+        },
+        {
+          "zh": "白天很热",
+          "vi": "ban ngày rất nóng"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không nhầm 白天 với 明天."
+      ],
+      "learnerNoteVi": "Học “白天” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-005",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "请"
+      },
+      "simplified": "请",
+      "collocations": [
+        {
+          "zh": "请坐",
+          "vi": "mời ngồi"
+        },
+        {
+          "zh": "请再说一次",
+          "vi": "xin nói lại lần nữa"
+        }
+      ],
+      "commonErrorsVi": [
+        "请 làm yêu cầu lịch sự hơn nhưng vẫn cần ngữ điệu phù hợp."
+      ],
+      "learnerNoteVi": "Học “请” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-006",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "说"
+      },
+      "simplified": "说",
+      "collocations": [
+        {
+          "zh": "说汉语",
+          "vi": "nói tiếng Trung"
+        },
+        {
+          "zh": "说慢一点儿",
+          "vi": "nói chậm một chút"
+        }
+      ],
+      "commonErrorsVi": [
+        "说 là nói; 告诉 là nói/cho biết có người nhận thông tin."
+      ],
+      "learnerNoteVi": "Học “说” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-007",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "的"
+      },
+      "simplified": "的",
+      "collocations": [
+        {
+          "zh": "我的书",
+          "vi": "sách của tôi"
+        },
+        {
+          "zh": "漂亮的衣服",
+          "vi": "quần áo đẹp"
+        }
+      ],
+      "commonErrorsVi": [
+        "Đừng dùng trật tự tiếng Việt 书我的."
+      ],
+      "learnerNoteVi": "Học “的” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-008",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "有"
+      },
+      "simplified": "有",
+      "collocations": [
+        {
+          "zh": "有时间",
+          "vi": "có thời gian"
+        },
+        {
+          "zh": "学校里有商店",
+          "vi": "trong trường có cửa hàng"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phủ định bằng 没有, không dùng 不有."
+      ],
+      "learnerNoteVi": "Học “有” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-009",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "在"
+      },
+      "simplified": "在",
+      "collocations": [
+        {
+          "zh": "在学校学习",
+          "vi": "học ở trường"
+        },
+        {
+          "zh": "书在桌子上",
+          "vi": "sách ở trên bàn"
+        }
+      ],
+      "commonErrorsVi": [
+        "Cụm 在 + nơi chốn thường đứng trước động từ hành động."
+      ],
+      "learnerNoteVi": "Học “在” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-010",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "会"
+      },
+      "simplified": "会",
+      "collocations": [
+        {
+          "zh": "会说汉语",
+          "vi": "biết nói tiếng Trung"
+        },
+        {
+          "zh": "会开车",
+          "vi": "biết lái xe"
+        }
+      ],
+      "commonErrorsVi": [
+        "会 thiên về kỹ năng đã học; 能/可以 có nghĩa khác."
+      ],
+      "learnerNoteVi": "Học “会” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-011",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "能"
+      },
+      "simplified": "能",
+      "collocations": [
+        {
+          "zh": "能听懂",
+          "vi": "có thể nghe hiểu"
+        },
+        {
+          "zh": "今天不能来",
+          "vi": "hôm nay không thể đến"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không thay mọi 可以 bằng 能 khi hỏi xin phép."
+      ],
+      "learnerNoteVi": "Học “能” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-012",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "可以"
+      },
+      "simplified": "可以",
+      "collocations": [
+        {
+          "zh": "可以坐吗",
+          "vi": "có thể ngồi không"
+        },
+        {
+          "zh": "这里可以看书",
+          "vi": "ở đây có thể đọc sách"
+        }
+      ],
+      "commonErrorsVi": [
+        "Câu xin phép cần ngữ điệu lịch sự, không chỉ thêm 可以."
+      ],
+      "learnerNoteVi": "Học “可以” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-013",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "想"
+      },
+      "simplified": "想",
+      "collocations": [
+        {
+          "zh": "想喝茶",
+          "vi": "muốn uống trà"
+        },
+        {
+          "zh": "想去北京",
+          "vi": "muốn đi Bắc Kinh"
+        }
+      ],
+      "commonErrorsVi": [
+        "想 mềm hơn 要 khi nói mong muốn."
+      ],
+      "learnerNoteVi": "Học “想” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-014",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "要"
+      },
+      "simplified": "要",
+      "collocations": [
+        {
+          "zh": "要一杯水",
+          "vi": "muốn một cốc nước"
+        },
+        {
+          "zh": "明天要上班",
+          "vi": "ngày mai phải/sẽ đi làm"
+        }
+      ],
+      "commonErrorsVi": [
+        "要 có thể là muốn, cần hoặc sắp; phải đọc theo ngữ cảnh."
+      ],
+      "learnerNoteVi": "Học “要” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-015",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "买"
+      },
+      "simplified": "买",
+      "collocations": [
+        {
+          "zh": "买衣服",
+          "vi": "mua quần áo"
+        },
+        {
+          "zh": "买一本书",
+          "vi": "mua một quyển sách"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phân biệt thanh 3 买 với thanh 4 卖."
+      ],
+      "learnerNoteVi": "Học “买” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-016",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "钱"
+      },
+      "simplified": "钱",
+      "collocations": [
+        {
+          "zh": "多少钱",
+          "vi": "bao nhiêu tiền"
+        },
+        {
+          "zh": "没有钱",
+          "vi": "không có tiền"
+        }
+      ],
+      "commonErrorsVi": [
+        "多少钱 là một cụm hỏi giá; không đảo thành 钱多少."
+      ],
+      "learnerNoteVi": "Học “钱” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-017",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "几"
+      },
+      "simplified": "几",
+      "collocations": [
+        {
+          "zh": "几个人",
+          "vi": "mấy người"
+        },
+        {
+          "zh": "几点",
+          "vi": "mấy giờ"
+        }
+      ],
+      "commonErrorsVi": [
+        "几 thường dùng khi dự kiến số lượng nhỏ và cần lượng từ."
+      ],
+      "learnerNoteVi": "Học “几” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-018",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "多少"
+      },
+      "simplified": "多少",
+      "collocations": [
+        {
+          "zh": "多少钱",
+          "vi": "bao nhiêu tiền"
+        },
+        {
+          "zh": "电话号码是多少",
+          "vi": "số điện thoại là bao nhiêu"
+        }
+      ],
+      "commonErrorsVi": [
+        "多少 có thể không cần lượng từ trong nhiều câu hỏi."
+      ],
+      "learnerNoteVi": "Học “多少” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-019",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "哪儿"
+      },
+      "simplified": "哪儿",
+      "collocations": [
+        {
+          "zh": "去哪儿",
+          "vi": "đi đâu"
+        },
+        {
+          "zh": "在哪儿",
+          "vi": "ở đâu"
+        }
+      ],
+      "commonErrorsVi": [
+        "哪儿 giữ vị trí của câu trả lời, không kéo lên đầu câu."
+      ],
+      "learnerNoteVi": "Học “哪儿” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-020",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "怎么"
+      },
+      "simplified": "怎么",
+      "collocations": [
+        {
+          "zh": "怎么去",
+          "vi": "đi bằng cách nào"
+        },
+        {
+          "zh": "这个字怎么读",
+          "vi": "chữ này đọc thế nào"
+        }
+      ],
+      "commonErrorsVi": [
+        "怎么 hỏi cách thức; 怎么样 hỏi đánh giá/trạng thái."
+      ],
+      "learnerNoteVi": "Học “怎么” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-021",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "怎么样"
+      },
+      "simplified": "怎么样",
+      "collocations": [
+        {
+          "zh": "天气怎么样",
+          "vi": "thời tiết thế nào"
+        },
+        {
+          "zh": "这件衣服怎么样",
+          "vi": "bộ đồ này thế nào"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không thay 怎么 trong câu hỏi cách làm."
+      ],
+      "learnerNoteVi": "Học “怎么样” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-022",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "喜欢"
+      },
+      "simplified": "喜欢",
+      "collocations": [
+        {
+          "zh": "喜欢吃米饭",
+          "vi": "thích ăn cơm"
+        },
+        {
+          "zh": "很喜欢学习",
+          "vi": "rất thích học"
+        }
+      ],
+      "commonErrorsVi": [
+        "Tân ngữ hoặc động từ hoạt động đứng sau 喜欢."
+      ],
+      "learnerNoteVi": "Học “喜欢” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-023",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "吃"
+      },
+      "simplified": "吃",
+      "collocations": [
+        {
+          "zh": "吃饭",
+          "vi": "ăn cơm/ăn bữa"
+        },
+        {
+          "zh": "吃水果",
+          "vi": "ăn hoa quả"
+        }
+      ],
+      "commonErrorsVi": [
+        "吃饭 là ăn bữa, không chỉ nghĩa đen ‘ăn cơm’."
+      ],
+      "learnerNoteVi": "Học “吃” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-024",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "喝"
+      },
+      "simplified": "喝",
+      "collocations": [
+        {
+          "zh": "喝水",
+          "vi": "uống nước"
+        },
+        {
+          "zh": "喝茶",
+          "vi": "uống trà"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phân biệt hē với hé (和)."
+      ],
+      "learnerNoteVi": "Học “喝” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-025",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "来"
+      },
+      "simplified": "来",
+      "collocations": [
+        {
+          "zh": "来学校",
+          "vi": "đến trường"
+        },
+        {
+          "zh": "明天来",
+          "vi": "ngày mai đến"
+        }
+      ],
+      "commonErrorsVi": [
+        "来 hướng về điểm quy chiếu; 去 rời điểm quy chiếu."
+      ],
+      "learnerNoteVi": "Học “来” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-026",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "去"
+      },
+      "simplified": "去",
+      "collocations": [
+        {
+          "zh": "去医院",
+          "vi": "đi bệnh viện"
+        },
+        {
+          "zh": "坐车去",
+          "vi": "đi bằng xe"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 来/去 chỉ theo bản dịch tiếng Việt; cần xét hướng."
+      ],
+      "learnerNoteVi": "Học “去” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-027",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "回"
+      },
+      "simplified": "回",
+      "collocations": [
+        {
+          "zh": "回家",
+          "vi": "về nhà"
+        },
+        {
+          "zh": "回公司",
+          "vi": "quay về công ty"
+        }
+      ],
+      "commonErrorsVi": [
+        "回 nhấn mạnh quay lại nơi gốc/quen thuộc."
+      ],
+      "learnerNoteVi": "Học “回” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-028",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "看"
+      },
+      "simplified": "看",
+      "collocations": [
+        {
+          "zh": "看书",
+          "vi": "đọc sách"
+        },
+        {
+          "zh": "看医生",
+          "vi": "đi khám bác sĩ"
+        }
+      ],
+      "commonErrorsVi": [
+        "看 thay đổi nghĩa theo tân ngữ; không dịch cứng thành ‘nhìn’."
+      ],
+      "learnerNoteVi": "Học “看” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-029",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "听"
+      },
+      "simplified": "听",
+      "collocations": [
+        {
+          "zh": "听汉语",
+          "vi": "nghe tiếng Trung"
+        },
+        {
+          "zh": "听老师说",
+          "vi": "nghe giáo viên nói"
+        }
+      ],
+      "commonErrorsVi": [
+        "听 là hành động nghe; 听见/听懂 nói kết quả."
+      ],
+      "learnerNoteVi": "Học “听” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-030",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "写"
+      },
+      "simplified": "写",
+      "collocations": [
+        {
+          "zh": "写汉字",
+          "vi": "viết chữ Hán"
+        },
+        {
+          "zh": "写名字",
+          "vi": "viết tên"
+        }
+      ],
+      "commonErrorsVi": [
+        "Cụm động–tân giữ trật tự 写 + nội dung."
+      ],
+      "learnerNoteVi": "Học “写” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-031",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "读"
+      },
+      "simplified": "读",
+      "collocations": [
+        {
+          "zh": "读课文",
+          "vi": "đọc bài khóa"
+        },
+        {
+          "zh": "怎么读",
+          "vi": "đọc thế nào"
+        }
+      ],
+      "commonErrorsVi": [
+        "读 có thể là đọc thành tiếng/học; 看书 thường là đọc sách."
+      ],
+      "learnerNoteVi": "Học “读” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-032",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "老师"
+      },
+      "simplified": "老师",
+      "collocations": [
+        {
+          "zh": "汉语老师",
+          "vi": "giáo viên tiếng Trung"
+        },
+        {
+          "zh": "王老师",
+          "vi": "thầy/cô Vương"
+        }
+      ],
+      "commonErrorsVi": [
+        "Họ + 老师 là cách xưng hô; không thêm 先生 tùy tiện."
+      ],
+      "learnerNoteVi": "Học “老师” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-033",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "学生"
+      },
+      "simplified": "学生",
+      "collocations": [
+        {
+          "zh": "大学生",
+          "vi": "sinh viên đại học"
+        },
+        {
+          "zh": "我是学生",
+          "vi": "tôi là học sinh/sinh viên"
+        }
+      ],
+      "commonErrorsVi": [
+        "Nghĩa cụ thể phụ thuộc bậc học trong ngữ cảnh."
+      ],
+      "learnerNoteVi": "Học “学生” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-034",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "朋友"
+      },
+      "simplified": "朋友",
+      "collocations": [
+        {
+          "zh": "好朋友",
+          "vi": "bạn tốt/thân"
+        },
+        {
+          "zh": "中国朋友",
+          "vi": "người bạn Trung Quốc"
+        }
+      ],
+      "commonErrorsVi": [
+        "朋友 không tự động mang nghĩa người yêu."
+      ],
+      "learnerNoteVi": "Học “朋友” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-035",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "家"
+      },
+      "simplified": "家",
+      "collocations": [
+        {
+          "zh": "回家",
+          "vi": "về nhà"
+        },
+        {
+          "zh": "我家有四个人",
+          "vi": "nhà/gia đình tôi có bốn người"
+        }
+      ],
+      "commonErrorsVi": [
+        "家 có thể là nhà hoặc gia đình tùy cấu trúc."
+      ],
+      "learnerNoteVi": "Học “家” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-036",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "名字"
+      },
+      "simplified": "名字",
+      "collocations": [
+        {
+          "zh": "叫什么名字",
+          "vi": "tên là gì"
+        },
+        {
+          "zh": "写名字",
+          "vi": "viết tên"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 名字 để xưng hô trực tiếp với người."
+      ],
+      "learnerNoteVi": "Học “名字” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-037",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "今天"
+      },
+      "simplified": "今天",
+      "collocations": [
+        {
+          "zh": "今天上班",
+          "vi": "hôm nay đi làm"
+        },
+        {
+          "zh": "今天几号",
+          "vi": "hôm nay ngày mấy"
+        }
+      ],
+      "commonErrorsVi": [
+        "Biểu thức thời gian thường đứng trước động từ."
+      ],
+      "learnerNoteVi": "Học “今天” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-038",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "明天"
+      },
+      "simplified": "明天",
+      "collocations": [
+        {
+          "zh": "明天见",
+          "vi": "mai gặp"
+        },
+        {
+          "zh": "明天下雨",
+          "vi": "ngày mai trời mưa"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không nhầm 明天 với 白天."
+      ],
+      "learnerNoteVi": "Học “明天” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-039",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "昨天"
+      },
+      "simplified": "昨天",
+      "collocations": [
+        {
+          "zh": "昨天没上班",
+          "vi": "hôm qua không đi làm"
+        },
+        {
+          "zh": "昨天天气很好",
+          "vi": "hôm qua thời tiết đẹp"
+        }
+      ],
+      "commonErrorsVi": [
+        "Khi dùng 没 cho việc không xảy ra, thường không thêm 了."
+      ],
+      "learnerNoteVi": "Học “昨天” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-040",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "现在"
+      },
+      "simplified": "现在",
+      "collocations": [
+        {
+          "zh": "现在几点",
+          "vi": "bây giờ mấy giờ"
+        },
+        {
+          "zh": "现在在工作",
+          "vi": "hiện đang làm việc"
+        }
+      ],
+      "commonErrorsVi": [
+        "现在 là mốc thời gian; 正在 là dấu hiệu tiến hành."
+      ],
+      "learnerNoteVi": "Học “现在” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-041",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "上班"
+      },
+      "simplified": "上班",
+      "collocations": [
+        {
+          "zh": "八点上班",
+          "vi": "8 giờ đi làm"
+        },
+        {
+          "zh": "在公司上班",
+          "vi": "làm việc ở công ty"
+        }
+      ],
+      "commonErrorsVi": [
+        "上班 là đi/làm ca làm, không phải ‘lên lớp’."
+      ],
+      "learnerNoteVi": "Học “上班” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-042",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "下班"
+      },
+      "simplified": "下班",
+      "collocations": [
+        {
+          "zh": "五点下班",
+          "vi": "5 giờ tan làm"
+        },
+        {
+          "zh": "下班以后",
+          "vi": "sau khi tan làm"
+        }
+      ],
+      "commonErrorsVi": [
+        "下班 không dùng cho tan học; tan học là 下课/放学."
+      ],
+      "learnerNoteVi": "Học “下班” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-043",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "起床"
+      },
+      "simplified": "起床",
+      "collocations": [
+        {
+          "zh": "七点起床",
+          "vi": "7 giờ thức dậy"
+        },
+        {
+          "zh": "早起床",
+          "vi": "dậy sớm"
+        }
+      ],
+      "commonErrorsVi": [
+        "起床 là ra khỏi giường, khác 睡醒 là tỉnh giấc."
+      ],
+      "learnerNoteVi": "Học “起床” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-044",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "睡觉"
+      },
+      "simplified": "睡觉",
+      "collocations": [
+        {
+          "zh": "晚上睡觉",
+          "vi": "ngủ buổi tối"
+        },
+        {
+          "zh": "十一点睡觉",
+          "vi": "11 giờ đi ngủ"
+        }
+      ],
+      "commonErrorsVi": [
+        "睡觉 là ngủ/đi ngủ, không dùng 是 trước động từ."
+      ],
+      "learnerNoteVi": "Học “睡觉” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-045",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "米饭"
+      },
+      "simplified": "米饭",
+      "collocations": [
+        {
+          "zh": "吃米饭",
+          "vi": "ăn cơm"
+        },
+        {
+          "zh": "一碗米饭",
+          "vi": "một bát cơm"
+        }
+      ],
+      "commonErrorsVi": [
+        "饭 có thể là bữa ăn; 米饭 là cơm chín."
+      ],
+      "learnerNoteVi": "Học “米饭” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-046",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "茶"
+      },
+      "simplified": "茶",
+      "collocations": [
+        {
+          "zh": "喝茶",
+          "vi": "uống trà"
+        },
+        {
+          "zh": "一杯茶",
+          "vi": "một cốc trà"
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng lượng từ 杯 khi gọi một cốc trà."
+      ],
+      "learnerNoteVi": "Học “茶” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-047",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "水"
+      },
+      "simplified": "水",
+      "collocations": [
+        {
+          "zh": "喝水",
+          "vi": "uống nước"
+        },
+        {
+          "zh": "一杯水",
+          "vi": "một cốc nước"
+        }
+      ],
+      "commonErrorsVi": [
+        "水 là danh từ khối; khi đếm cần đơn vị chứa/lượng."
+      ],
+      "learnerNoteVi": "Học “水” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-048",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "苹果"
+      },
+      "simplified": "苹果",
+      "collocations": [
+        {
+          "zh": "吃苹果",
+          "vi": "ăn táo"
+        },
+        {
+          "zh": "三个苹果",
+          "vi": "ba quả táo"
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng lượng từ 个 trong ngữ cảnh cơ bản."
+      ],
+      "learnerNoteVi": "Học “苹果” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-049",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "衣服"
+      },
+      "simplified": "衣服",
+      "collocations": [
+        {
+          "zh": "买衣服",
+          "vi": "mua quần áo"
+        },
+        {
+          "zh": "这件衣服",
+          "vi": "bộ/chiếc đồ này"
+        }
+      ],
+      "commonErrorsVi": [
+        "件 là lượng từ tự nhiên cho quần áo, không phải 本."
+      ],
+      "learnerNoteVi": "Học “衣服” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-050",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "书"
+      },
+      "simplified": "书",
+      "collocations": [
+        {
+          "zh": "看书",
+          "vi": "đọc sách"
+        },
+        {
+          "zh": "一本书",
+          "vi": "một quyển sách"
+        }
+      ],
+      "commonErrorsVi": [
+        "Lượng từ của sách là 本."
+      ],
+      "learnerNoteVi": "Học “书” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-051",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "电脑"
+      },
+      "simplified": "电脑",
+      "collocations": [
+        {
+          "zh": "用电脑",
+          "vi": "dùng máy tính"
+        },
+        {
+          "zh": "电脑在桌子上",
+          "vi": "máy tính ở trên bàn"
+        }
+      ],
+      "commonErrorsVi": [
+        "电脑 thường chỉ máy tính nói chung; 手机 là điện thoại di động."
+      ],
+      "learnerNoteVi": "Học “电脑” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-052",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "出租车"
+      },
+      "simplified": "出租车",
+      "collocations": [
+        {
+          "zh": "坐出租车",
+          "vi": "đi taxi"
+        },
+        {
+          "zh": "出租车来了",
+          "vi": "taxi đến rồi"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phương tiện dùng 坐, không dùng 做."
+      ],
+      "learnerNoteVi": "Học “出租车” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-053",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "天气"
+      },
+      "simplified": "天气",
+      "collocations": [
+        {
+          "zh": "天气很好",
+          "vi": "thời tiết đẹp"
+        },
+        {
+          "zh": "天气怎么样",
+          "vi": "thời tiết thế nào"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 是 trước tính từ trong miêu tả cơ bản."
+      ],
+      "learnerNoteVi": "Học “天气” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-054",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "下雨"
+      },
+      "simplified": "下雨",
+      "collocations": [
+        {
+          "zh": "今天下雨",
+          "vi": "hôm nay mưa"
+        },
+        {
+          "zh": "下雨了",
+          "vi": "trời mưa rồi"
+        }
+      ],
+      "commonErrorsVi": [
+        "下雨 là động từ–tân ngữ cố định; không thêm 是."
+      ],
+      "learnerNoteVi": "Học “下雨” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-055",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "热"
+      },
+      "simplified": "热",
+      "collocations": [
+        {
+          "zh": "天气很热",
+          "vi": "trời nóng"
+        },
+        {
+          "zh": "太热了",
+          "vi": "nóng quá"
+        }
+      ],
+      "commonErrorsVi": [
+        "Câu tính từ không cần 是."
+      ],
+      "learnerNoteVi": "Học “热” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-056",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "冷"
+      },
+      "simplified": "冷",
+      "collocations": [
+        {
+          "zh": "今天很冷",
+          "vi": "hôm nay lạnh"
+        },
+        {
+          "zh": "有一点儿冷",
+          "vi": "hơi lạnh"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phân biệt lěng với néng trong phát âm."
+      ],
+      "learnerNoteVi": "Học “冷” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-057",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "医生"
+      },
+      "simplified": "医生",
+      "collocations": [
+        {
+          "zh": "看医生",
+          "vi": "đi khám bác sĩ"
+        },
+        {
+          "zh": "他是医生",
+          "vi": "anh ấy là bác sĩ"
+        }
+      ],
+      "commonErrorsVi": [
+        "看医生 nghĩa là đi khám, không chỉ ‘nhìn bác sĩ’."
+      ],
+      "learnerNoteVi": "Học “医生” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-058",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "医院"
+      },
+      "simplified": "医院",
+      "collocations": [
+        {
+          "zh": "去医院",
+          "vi": "đi bệnh viện"
+        },
+        {
+          "zh": "医院在哪儿",
+          "vi": "bệnh viện ở đâu"
+        }
+      ],
+      "commonErrorsVi": [
+        "Cụm nơi chốn với 去 không cần 在: 去医院."
+      ],
+      "learnerNoteVi": "Học “医院” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-059",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "休息"
+      },
+      "simplified": "休息",
+      "collocations": [
+        {
+          "zh": "在家休息",
+          "vi": "nghỉ ở nhà"
+        },
+        {
+          "zh": "好好休息",
+          "vi": "nghỉ ngơi cho tốt"
+        }
+      ],
+      "commonErrorsVi": [
+        "休息 là động từ; không dùng 是休息."
+      ],
+      "learnerNoteVi": "Học “休息” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-060",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "再见"
+      },
+      "simplified": "再见",
+      "collocations": [
+        {
+          "zh": "老师，再见",
+          "vi": "chào thầy/cô"
+        },
+        {
+          "zh": "明天见",
+          "vi": "mai gặp"
+        }
+      ],
+      "commonErrorsVi": [
+        "再见 dùng khi chia tay; không phải lời chào lúc gặp."
+      ],
+      "learnerNoteVi": "Học “再见” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-061",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "谢谢"
+      },
+      "simplified": "谢谢",
+      "collocations": [
+        {
+          "zh": "谢谢你",
+          "vi": "cảm ơn bạn"
+        },
+        {
+          "zh": "谢谢老师",
+          "vi": "cảm ơn thầy/cô"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phản hồi thường là 不客气/不用谢, không phải 没关系 trong mọi tình huống."
+      ],
+      "learnerNoteVi": "Học “谢谢” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-062",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "对不起"
+      },
+      "simplified": "对不起",
+      "collocations": [
+        {
+          "zh": "对不起，我来晚了",
+          "vi": "xin lỗi, tôi đến muộn"
+        },
+        {
+          "zh": "对不起，请再说一次",
+          "vi": "xin lỗi, xin nói lại"
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng cho xin lỗi hoặc mở lời sửa chữa; không lạm dụng khi chỉ cảm ơn."
+      ],
+      "learnerNoteVi": "Học “对不起” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-063",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "没关系"
+      },
+      "simplified": "没关系",
+      "collocations": [
+        {
+          "zh": "A：对不起。B：没关系。",
+          "vi": "A: xin lỗi. B: không sao."
+        },
+        {
+          "zh": "没关系，我们再来一次",
+          "vi": "không sao, chúng ta làm lại"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng thay lời đáp cảm ơn trong mọi trường hợp."
+      ],
+      "learnerNoteVi": "Học “没关系” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-064",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "认识"
+      },
+      "simplified": "认识",
+      "collocations": [
+        {
+          "zh": "认识你很高兴",
+          "vi": "rất vui được biết bạn"
+        },
+        {
+          "zh": "我认识他",
+          "vi": "tôi biết anh ấy"
+        }
+      ],
+      "commonErrorsVi": [
+        "认识 là biết/quen người hoặc sự vật; 知道 thiên về biết thông tin."
+      ],
+      "learnerNoteVi": "Học “认识” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-065",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "工作"
+      },
+      "simplified": "工作",
+      "collocations": [
+        {
+          "zh": "在公司工作",
+          "vi": "làm việc ở công ty"
+        },
+        {
+          "zh": "找工作",
+          "vi": "tìm việc"
+        }
+      ],
+      "commonErrorsVi": [
+        "工作 vừa là động từ vừa là danh từ; trật tự phụ thuộc chức năng."
+      ],
+      "learnerNoteVi": "Học “工作” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-066",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "学习"
+      },
+      "simplified": "学习",
+      "collocations": [
+        {
+          "zh": "学习汉语",
+          "vi": "học tiếng Trung"
+        },
+        {
+          "zh": "在学校学习",
+          "vi": "học ở trường"
+        }
+      ],
+      "commonErrorsVi": [
+        "学习 nhấn mạnh quá trình học; 学 có phạm vi rộng và khẩu ngữ hơn."
+      ],
+      "learnerNoteVi": "Học “学习” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-067",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "学校"
+      },
+      "simplified": "学校",
+      "collocations": [
+        {
+          "zh": "去学校",
+          "vi": "đi trường"
+        },
+        {
+          "zh": "学校里",
+          "vi": "trong trường"
+        }
+      ],
+      "commonErrorsVi": [
+        "去 + nơi chốn không thêm 在."
+      ],
+      "learnerNoteVi": "Học “学校” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-068",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "很"
+      },
+      "simplified": "很",
+      "collocations": [
+        {
+          "zh": "很好",
+          "vi": "rất/tương đối tốt"
+        },
+        {
+          "zh": "很漂亮",
+          "vi": "đẹp"
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong câu tính từ trung tính, 很 có thể chủ yếu làm câu tự nhiên chứ không nhấn ‘rất’."
+      ],
+      "learnerNoteVi": "Học “很” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-069",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "太"
+      },
+      "simplified": "太",
+      "collocations": [
+        {
+          "zh": "太贵了",
+          "vi": "đắt quá"
+        },
+        {
+          "zh": "太好了",
+          "vi": "tốt quá"
+        }
+      ],
+      "commonErrorsVi": [
+        "Mẫu thường là 太 + tính từ + 了."
+      ],
+      "learnerNoteVi": "Học “太” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-070",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "了"
+      },
+      "simplified": "了",
+      "collocations": [
+        {
+          "zh": "下雨了",
+          "vi": "trời mưa rồi"
+        },
+        {
+          "zh": "我吃饭了",
+          "vi": "tôi ăn rồi"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không gắn 了 máy móc vào mọi câu quá khứ."
+      ],
+      "learnerNoteVi": "Học “了” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-071",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "吗"
+      },
+      "simplified": "吗",
+      "collocations": [
+        {
+          "zh": "你好吗",
+          "vi": "bạn khỏe không"
+        },
+        {
+          "zh": "可以吗",
+          "vi": "được không"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 吗 với từ nghi vấn 谁/什么/哪儿."
+      ],
+      "learnerNoteVi": "Học “吗” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-072",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "呢"
+      },
+      "simplified": "呢",
+      "collocations": [
+        {
+          "zh": "你呢",
+          "vi": "còn bạn"
+        },
+        {
+          "zh": "我的书呢",
+          "vi": "sách tôi đâu"
+        }
+      ],
+      "commonErrorsVi": [
+        "呢 không thay thế tùy ý cho 吗."
+      ],
+      "learnerNoteVi": "Học “呢” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-073",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "谁"
+      },
+      "simplified": "谁",
+      "collocations": [
+        {
+          "zh": "他是谁",
+          "vi": "anh ấy là ai"
+        },
+        {
+          "zh": "谁是老师",
+          "vi": "ai là giáo viên"
+        }
+      ],
+      "commonErrorsVi": [
+        "谁 đứng đúng vị trí của người cần hỏi."
+      ],
+      "learnerNoteVi": "Học “谁” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-074",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "什么"
+      },
+      "simplified": "什么",
+      "collocations": [
+        {
+          "zh": "这是什么",
+          "vi": "đây là gì"
+        },
+        {
+          "zh": "你想吃什么",
+          "vi": "bạn muốn ăn gì"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không thêm 吗 sau câu đã có 什么."
+      ],
+      "learnerNoteVi": "Học “什么” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-075",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "本"
+      },
+      "simplified": "本",
+      "collocations": [
+        {
+          "zh": "一本书",
+          "vi": "một quyển sách"
+        },
+        {
+          "zh": "这本书",
+          "vi": "quyển sách này"
+        }
+      ],
+      "commonErrorsVi": [
+        "本 là lượng từ cho sách/tạp chí; không dùng cho người."
+      ],
+      "learnerNoteVi": "Học “本” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-076",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "个"
+      },
+      "simplified": "个",
+      "collocations": [
+        {
+          "zh": "一个人",
+          "vi": "một người"
+        },
+        {
+          "zh": "这个东西",
+          "vi": "đồ vật này"
+        }
+      ],
+      "commonErrorsVi": [
+        "个 là lượng từ chung nhưng không thay mọi lượng từ chuyên biệt."
+      ],
+      "learnerNoteVi": "Học “个” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-077",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "点"
+      },
+      "simplified": "点",
+      "collocations": [
+        {
+          "zh": "八点",
+          "vi": "8 giờ"
+        },
+        {
+          "zh": "一点儿",
+          "vi": "một chút"
+        }
+      ],
+      "commonErrorsVi": [
+        "点 có nhiều nghĩa; 点 trong giờ khác 一点儿 chỉ lượng nhỏ."
+      ],
+      "learnerNoteVi": "Học “点” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-078",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "半"
+      },
+      "simplified": "半",
+      "collocations": [
+        {
+          "zh": "三点半",
+          "vi": "3 giờ rưỡi"
+        },
+        {
+          "zh": "半年",
+          "vi": "nửa năm"
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong giờ, 半 đứng sau 点: 三点半."
+      ],
+      "learnerNoteVi": "Học “半” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-079",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "上"
+      },
+      "simplified": "上",
+      "collocations": [
+        {
+          "zh": "桌子上",
+          "vi": "trên bàn"
+        },
+        {
+          "zh": "上班",
+          "vi": "đi làm"
+        }
+      ],
+      "commonErrorsVi": [
+        "上 trong từ ghép có thể không còn nghĩa không gian trực tiếp."
+      ],
+      "learnerNoteVi": "Học “上” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-080",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "下"
+      },
+      "simplified": "下",
+      "collocations": [
+        {
+          "zh": "桌子下",
+          "vi": "dưới bàn"
+        },
+        {
+          "zh": "下班",
+          "vi": "tan làm"
+        }
+      ],
+      "commonErrorsVi": [
+        "下 có nghĩa không gian và tham gia nhiều từ ghép; phải đọc theo cụm."
+      ],
+      "learnerNoteVi": "Học “下” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-081",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "里"
+      },
+      "simplified": "里",
+      "collocations": [
+        {
+          "zh": "学校里",
+          "vi": "trong trường"
+        },
+        {
+          "zh": "家里",
+          "vi": "ở/trong nhà"
+        }
+      ],
+      "commonErrorsVi": [
+        "Nơi chốn + 里; không đặt 里 trước danh từ."
+      ],
+      "learnerNoteVi": "Học “里” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-082",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "坐"
+      },
+      "simplified": "坐",
+      "collocations": [
+        {
+          "zh": "坐车",
+          "vi": "đi xe"
+        },
+        {
+          "zh": "请坐",
+          "vi": "mời ngồi"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 坐 (ngồi/đi phương tiện) với 做 (làm)."
+      ],
+      "learnerNoteVi": "Học “坐” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-083",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "好看"
+      },
+      "simplified": "好看",
+      "collocations": [
+        {
+          "zh": "衣服很好看",
+          "vi": "quần áo đẹp"
+        },
+        {
+          "zh": "这本书好看",
+          "vi": "quyển sách này hay/dễ xem"
+        }
+      ],
+      "commonErrorsVi": [
+        "好看 dùng cho vẻ ngoài hoặc nội dung hấp dẫn; 漂亮 thiên về đẹp."
+      ],
+      "learnerNoteVi": "Học “好看” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-084",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "漂亮"
+      },
+      "simplified": "漂亮",
+      "collocations": [
+        {
+          "zh": "很漂亮",
+          "vi": "rất đẹp"
+        },
+        {
+          "zh": "漂亮的衣服",
+          "vi": "quần áo đẹp"
+        }
+      ],
+      "commonErrorsVi": [
+        "Khi đứng trước danh từ thường cần 的."
+      ],
+      "learnerNoteVi": "Học “漂亮” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-085",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "大"
+      },
+      "simplified": "大",
+      "collocations": [
+        {
+          "zh": "大房间",
+          "vi": "phòng lớn"
+        },
+        {
+          "zh": "很大",
+          "vi": "rất/là lớn"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 是大 trong câu miêu tả cơ bản."
+      ],
+      "learnerNoteVi": "Học “大” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-086",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "小"
+      },
+      "simplified": "小",
+      "collocations": [
+        {
+          "zh": "小孩子",
+          "vi": "trẻ nhỏ"
+        },
+        {
+          "zh": "有一点儿小",
+          "vi": "hơi nhỏ"
+        }
+      ],
+      "commonErrorsVi": [
+        "小 trước danh từ có thể biểu thị nhỏ hoặc thân mật tùy từ."
+      ],
+      "learnerNoteVi": "Học “小” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-087",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "高兴"
+      },
+      "simplified": "高兴",
+      "collocations": [
+        {
+          "zh": "很高兴认识你",
+          "vi": "rất vui được biết bạn"
+        },
+        {
+          "zh": "今天很高兴",
+          "vi": "hôm nay rất vui"
+        }
+      ],
+      "commonErrorsVi": [
+        "高兴 là cảm xúc; 好 là đánh giá chung, không thay hoàn toàn."
+      ],
+      "learnerNoteVi": "Học “高兴” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-088",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "汉语"
+      },
+      "simplified": "汉语",
+      "collocations": [
+        {
+          "zh": "学习汉语",
+          "vi": "học tiếng Trung"
+        },
+        {
+          "zh": "说汉语",
+          "vi": "nói tiếng Trung"
+        }
+      ],
+      "commonErrorsVi": [
+        "汉语 nhấn mạnh ngôn ngữ; 中文 có phạm vi dùng khác."
+      ],
+      "learnerNoteVi": "Học “汉语” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-089",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "中国"
+      },
+      "simplified": "中国",
+      "collocations": [
+        {
+          "zh": "中国人",
+          "vi": "người Trung Quốc"
+        },
+        {
+          "zh": "去中国",
+          "vi": "đi Trung Quốc"
+        }
+      ],
+      "commonErrorsVi": [
+        "Tên nước + 人 tạo quốc tịch, không thêm 的 trong mẫu cơ bản."
+      ],
+      "learnerNoteVi": "Học “中国” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-090",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "人"
+      },
+      "simplified": "人",
+      "collocations": [
+        {
+          "zh": "一个人",
+          "vi": "một người"
+        },
+        {
+          "zh": "越南人",
+          "vi": "người Việt Nam"
+        }
+      ],
+      "commonErrorsVi": [
+        "Khi đếm người cần lượng từ 个 trong mẫu cơ bản."
+      ],
+      "learnerNoteVi": "Học “人” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-091",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "我"
+      },
+      "simplified": "我",
+      "collocations": [
+        {
+          "zh": "我是学生",
+          "vi": "tôi là học sinh"
+        },
+        {
+          "zh": "我的书",
+          "vi": "sách của tôi"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không lặp đại từ làm chủ ngữ nếu ngữ cảnh đã rõ một cách máy móc."
+      ],
+      "learnerNoteVi": "Học “我” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-092",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "你"
+      },
+      "simplified": "你",
+      "collocations": [
+        {
+          "zh": "你好吗",
+          "vi": "bạn khỏe không"
+        },
+        {
+          "zh": "你的名字",
+          "vi": "tên của bạn"
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong giao tiếp trang trọng có thể cần 您; HSK1 vẫn ưu tiên 你 trong ngữ cảnh phù hợp."
+      ],
+      "learnerNoteVi": "Học “你” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-093",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "他"
+      },
+      "simplified": "他",
+      "collocations": [
+        {
+          "zh": "他是老师",
+          "vi": "anh ấy là giáo viên"
+        },
+        {
+          "zh": "他的朋友",
+          "vi": "bạn của anh ấy"
+        }
+      ],
+      "commonErrorsVi": [
+        "他 và 她 cùng phát âm tā, phải dựa ngữ cảnh khi nghe."
+      ],
+      "learnerNoteVi": "Học “他” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-094",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "她"
+      },
+      "simplified": "她",
+      "collocations": [
+        {
+          "zh": "她很高兴",
+          "vi": "cô ấy rất vui"
+        },
+        {
+          "zh": "她的家",
+          "vi": "nhà/gia đình cô ấy"
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong khẩu ngữ không phân biệt âm với 他."
+      ],
+      "learnerNoteVi": "Học “她” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-095",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "我们"
+      },
+      "simplified": "我们",
+      "collocations": [
+        {
+          "zh": "我们一起去",
+          "vi": "chúng ta cùng đi"
+        },
+        {
+          "zh": "我们的老师",
+          "vi": "giáo viên của chúng tôi"
+        }
+      ],
+      "commonErrorsVi": [
+        "我们 có thể bao gồm hoặc không bao gồm người nghe tùy ngữ cảnh; 咱们 thường bao gồm người nghe."
+      ],
+      "learnerNoteVi": "Học “我们” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-096",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "也"
+      },
+      "simplified": "也",
+      "collocations": [
+        {
+          "zh": "我也很好",
+          "vi": "tôi cũng khỏe"
+        },
+        {
+          "zh": "也喜欢学习",
+          "vi": "cũng thích học"
+        }
+      ],
+      "commonErrorsVi": [
+        "也 đứng trước động từ/tính từ, không đặt cuối câu như ‘cũng’."
+      ],
+      "learnerNoteVi": "Học “也” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-097",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "都"
+      },
+      "simplified": "都",
+      "collocations": [
+        {
+          "zh": "我们都学习汉语",
+          "vi": "chúng tôi đều học tiếng Trung"
+        },
+        {
+          "zh": "这些都很好",
+          "vi": "những cái này đều tốt"
+        }
+      ],
+      "commonErrorsVi": [
+        "都 đứng sau chủ ngữ/chủ đề số nhiều và trước vị ngữ."
+      ],
+      "learnerNoteVi": "Học “都” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-098",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "和"
+      },
+      "simplified": "和",
+      "collocations": [
+        {
+          "zh": "爸爸和妈妈",
+          "vi": "bố và mẹ"
+        },
+        {
+          "zh": "茶和水",
+          "vi": "trà và nước"
+        }
+      ],
+      "commonErrorsVi": [
+        "和 nối danh từ/cụm danh từ; không dùng thay mọi liên từ nối câu."
+      ],
+      "learnerNoteVi": "Học “和” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-099",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "不"
+      },
+      "simplified": "不",
+      "collocations": [
+        {
+          "zh": "不喝茶",
+          "vi": "không uống trà"
+        },
+        {
+          "zh": "不是老师",
+          "vi": "không phải giáo viên"
+        }
+      ],
+      "commonErrorsVi": [
+        "不 thường phủ định hiện tại, thói quen, ý định; không dùng với 有."
+      ],
+      "learnerNoteVi": "Học “不” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-100",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "没有"
+      },
+      "simplified": "没有",
+      "collocations": [
+        {
+          "zh": "没有时间",
+          "vi": "không có thời gian"
+        },
+        {
+          "zh": "今天没有课",
+          "vi": "hôm nay không có tiết"
+        }
+      ],
+      "commonErrorsVi": [
+        "没有 vừa phủ định sở hữu/tồn tại vừa phủ định việc chưa xảy ra; không thêm 不."
+      ],
+      "learnerNoteVi": "Học “没有” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-101",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "是"
+      },
+      "simplified": "是",
+      "collocations": [
+        {
+          "zh": "我是学生",
+          "vi": "tôi là học sinh"
+        },
+        {
+          "zh": "这是书",
+          "vi": "đây là sách"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 是 trước tính từ trong câu miêu tả đơn giản."
+      ],
+      "learnerNoteVi": "Học “是” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-102",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "这"
+      },
+      "simplified": "这",
+      "collocations": [
+        {
+          "zh": "这个人",
+          "vi": "người này"
+        },
+        {
+          "zh": "这本书",
+          "vi": "quyển sách này"
+        }
+      ],
+      "commonErrorsVi": [
+        "Từ chỉ định thường đi với lượng từ trước danh từ."
+      ],
+      "learnerNoteVi": "Học “这” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-103",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "那"
+      },
+      "simplified": "那",
+      "collocations": [
+        {
+          "zh": "那个人",
+          "vi": "người kia"
+        },
+        {
+          "zh": "那本书",
+          "vi": "quyển sách kia"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 那 nà với 哪 nǎ trong phát âm và nghĩa."
+      ],
+      "learnerNoteVi": "Học “那” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-104",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "哪"
+      },
+      "simplified": "哪",
+      "collocations": [
+        {
+          "zh": "哪个人",
+          "vi": "người nào"
+        },
+        {
+          "zh": "哪本书",
+          "vi": "quyển sách nào"
+        }
+      ],
+      "commonErrorsVi": [
+        "哪 thường cần lượng từ khi chọn trong một tập hợp."
+      ],
+      "learnerNoteVi": "Học “哪” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-105",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "时间"
+      },
+      "simplified": "时间",
+      "collocations": [
+        {
+          "zh": "有时间",
+          "vi": "có thời gian"
+        },
+        {
+          "zh": "什么时间",
+          "vi": "thời gian nào"
+        }
+      ],
+      "commonErrorsVi": [
+        "Khi hỏi giờ cụ thể, 什么时候 thường tự nhiên hơn tùy ngữ cảnh."
+      ],
+      "learnerNoteVi": "Học “时间” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-106",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "时候"
+      },
+      "simplified": "时候",
+      "collocations": [
+        {
+          "zh": "什么时候",
+          "vi": "khi nào"
+        },
+        {
+          "zh": "吃饭的时候",
+          "vi": "lúc ăn cơm"
+        }
+      ],
+      "commonErrorsVi": [
+        "时候 thường cần thành phần xác định phía trước, không dùng trống tùy tiện."
+      ],
+      "learnerNoteVi": "Học “时候” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-107",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "上午"
+      },
+      "simplified": "上午",
+      "collocations": [
+        {
+          "zh": "上午九点",
+          "vi": "9 giờ sáng"
+        },
+        {
+          "zh": "上午上班",
+          "vi": "làm việc buổi sáng"
+        }
+      ],
+      "commonErrorsVi": [
+        "Buổi + giờ: 上午九点, không đảo 九点上午."
+      ],
+      "learnerNoteVi": "Học “上午” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-108",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "下午"
+      },
+      "simplified": "下午",
+      "collocations": [
+        {
+          "zh": "下午三点",
+          "vi": "3 giờ chiều"
+        },
+        {
+          "zh": "下午见",
+          "vi": "chiều gặp"
+        }
+      ],
+      "commonErrorsVi": [
+        "下午 đứng trước mốc giờ cụ thể."
+      ],
+      "learnerNoteVi": "Học “下午” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-109",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "中午"
+      },
+      "simplified": "中午",
+      "collocations": [
+        {
+          "zh": "中午吃饭",
+          "vi": "ăn trưa"
+        },
+        {
+          "zh": "中午十二点",
+          "vi": "12 giờ trưa"
+        }
+      ],
+      "commonErrorsVi": [
+        "中午 là khoảng giữa trưa, không phải mọi thời điểm buổi chiều."
+      ],
+      "learnerNoteVi": "Học “中午” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-110",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "星期"
+      },
+      "simplified": "星期",
+      "collocations": [
+        {
+          "zh": "星期三",
+          "vi": "thứ Tư"
+        },
+        {
+          "zh": "这个星期",
+          "vi": "tuần này"
+        }
+      ],
+      "commonErrorsVi": [
+        "星期 + số; Chủ nhật có thể nói 星期天/星期日."
+      ],
+      "learnerNoteVi": "Học “星期” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-111",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "年"
+      },
+      "simplified": "年",
+      "collocations": [
+        {
+          "zh": "二〇二六年",
+          "vi": "năm 2026"
+        },
+        {
+          "zh": "今年",
+          "vi": "năm nay"
+        }
+      ],
+      "commonErrorsVi": [
+        "Năm thường đọc từng chữ số trong ngày tháng."
+      ],
+      "learnerNoteVi": "Học “年” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-112",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "月"
+      },
+      "simplified": "月",
+      "collocations": [
+        {
+          "zh": "五月",
+          "vi": "tháng Năm"
+        },
+        {
+          "zh": "下个月",
+          "vi": "tháng sau"
+        }
+      ],
+      "commonErrorsVi": [
+        "Thứ tự ngày tháng tiếng Trung: tháng trước ngày."
+      ],
+      "learnerNoteVi": "Học “月” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-113",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "号"
+      },
+      "simplified": "号",
+      "collocations": [
+        {
+          "zh": "五月八号",
+          "vi": "ngày 8 tháng 5"
+        },
+        {
+          "zh": "房间号",
+          "vi": "số phòng"
+        }
+      ],
+      "commonErrorsVi": [
+        "Khẩu ngữ dùng 号 cho ngày; văn viết trang trọng có thể dùng 日."
+      ],
+      "learnerNoteVi": "Học “号” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-114",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "分钟"
+      },
+      "simplified": "分钟",
+      "collocations": [
+        {
+          "zh": "十分钟",
+          "vi": "mười phút"
+        },
+        {
+          "zh": "还有五分钟",
+          "vi": "còn năm phút"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phút sau số; không thêm 个."
+      ],
+      "learnerNoteVi": "Học “分钟” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-115",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "开"
+      },
+      "simplified": "开",
+      "collocations": [
+        {
+          "zh": "开车",
+          "vi": "lái xe"
+        },
+        {
+          "zh": "商店开了",
+          "vi": "cửa hàng mở rồi"
+        }
+      ],
+      "commonErrorsVi": [
+        "开 có nhiều nghĩa; phải học theo kết hợp từ."
+      ],
+      "learnerNoteVi": "Học “开” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-116",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "做"
+      },
+      "simplified": "做",
+      "collocations": [
+        {
+          "zh": "做饭",
+          "vi": "nấu cơm"
+        },
+        {
+          "zh": "做什么",
+          "vi": "làm gì"
+        }
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 做 zuò với 坐 zuò bằng chữ và ngữ cảnh."
+      ],
+      "learnerNoteVi": "Học “做” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-117",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "饭店"
+      },
+      "simplified": "饭店",
+      "collocations": [
+        {
+          "zh": "去饭店",
+          "vi": "đi nhà hàng/khách sạn tùy vùng"
+        },
+        {
+          "zh": "饭店里",
+          "vi": "trong nhà hàng"
+        }
+      ],
+      "commonErrorsVi": [
+        "饭店 có thể là nhà hàng hoặc khách sạn tùy khu vực/ngữ cảnh."
+      ],
+      "learnerNoteVi": "Học “饭店” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-118",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "商店"
+      },
+      "simplified": "商店",
+      "collocations": [
+        {
+          "zh": "去商店买东西",
+          "vi": "đi cửa hàng mua đồ"
+        },
+        {
+          "zh": "商店在前面",
+          "vi": "cửa hàng ở phía trước"
+        }
+      ],
+      "commonErrorsVi": [
+        "商店 là cửa hàng nói chung; không tự động là siêu thị."
+      ],
+      "learnerNoteVi": "Học “商店” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-119",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "桌子"
+      },
+      "simplified": "桌子",
+      "collocations": [
+        {
+          "zh": "桌子上",
+          "vi": "trên bàn"
+        },
+        {
+          "zh": "一张桌子",
+          "vi": "một cái bàn"
+        }
+      ],
+      "commonErrorsVi": [
+        "Lượng từ tự nhiên là 张, không phải 个 trong nội dung chuẩn."
+      ],
+      "learnerNoteVi": "Học “桌子” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-120",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "椅子"
+      },
+      "simplified": "椅子",
+      "collocations": [
+        {
+          "zh": "坐在椅子上",
+          "vi": "ngồi trên ghế"
+        },
+        {
+          "zh": "一把椅子",
+          "vi": "một cái ghế"
+        }
+      ],
+      "commonErrorsVi": [
+        "Lượng từ thường là 把; 个 có thể nghe nhưng kém chính xác hơn."
+      ],
+      "learnerNoteVi": "Học “椅子” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-121",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "东西"
+      },
+      "simplified": "东西",
+      "collocations": [
+        {
+          "zh": "买东西",
+          "vi": "mua đồ"
+        },
+        {
+          "zh": "这个东西",
+          "vi": "đồ vật này"
+        }
+      ],
+      "commonErrorsVi": [
+        "东西 dōngxi có âm tiết thứ hai thanh nhẹ trong khẩu ngữ."
+      ],
+      "learnerNoteVi": "Học “东西” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-122",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "电话"
+      },
+      "simplified": "电话",
+      "collocations": [
+        {
+          "zh": "打电话",
+          "vi": "gọi điện"
+        },
+        {
+          "zh": "电话号码",
+          "vi": "số điện thoại"
+        }
+      ],
+      "commonErrorsVi": [
+        "Nói hành động gọi điện bằng 打电话, không dùng 做电话."
+      ],
+      "learnerNoteVi": "Học “电话” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-123",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "看见"
+      },
+      "simplified": "看见",
+      "collocations": [
+        {
+          "zh": "看见老师",
+          "vi": "nhìn thấy giáo viên"
+        },
+        {
+          "zh": "没看见",
+          "vi": "không nhìn thấy"
+        }
+      ],
+      "commonErrorsVi": [
+        "看 là hành động nhìn; 看见 nhấn kết quả nhìn thấy."
+      ],
+      "learnerNoteVi": "Học “看见” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-124",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "听见"
+      },
+      "simplified": "听见",
+      "collocations": [
+        {
+          "zh": "听见声音",
+          "vi": "nghe thấy âm thanh"
+        },
+        {
+          "zh": "没听见",
+          "vi": "không nghe thấy"
+        }
+      ],
+      "commonErrorsVi": [
+        "听见 là kết quả; 听 là hành động."
+      ],
+      "learnerNoteVi": "Học “听见” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-125",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "一点儿"
+      },
+      "simplified": "一点儿",
+      "collocations": [
+        {
+          "zh": "一点儿水",
+          "vi": "một chút nước"
+        },
+        {
+          "zh": "会说一点儿汉语",
+          "vi": "biết nói một chút tiếng Trung"
+        }
+      ],
+      "commonErrorsVi": [
+        "一点儿 đứng trước danh từ hoặc sau động từ tùy cấu trúc; không dịch theo một vị trí cố định."
+      ],
+      "learnerNoteVi": "Học “一点儿” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-126",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "些"
+      },
+      "simplified": "些",
+      "collocations": [
+        {
+          "zh": "这些书",
+          "vi": "những quyển sách này"
+        },
+        {
+          "zh": "买一些水果",
+          "vi": "mua một ít hoa quả"
+        }
+      ],
+      "commonErrorsVi": [
+        "些 biểu thị số nhiều/không xác định, không đi với số đếm cụ thể."
+      ],
+      "learnerNoteVi": "Học “些” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-127",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "二"
+      },
+      "simplified": "二",
+      "collocations": [
+        {
+          "zh": "二月",
+          "vi": "tháng Hai"
+        },
+        {
+          "zh": "二十",
+          "vi": "hai mươi"
+        }
+      ],
+      "commonErrorsVi": [
+        "Trước lượng từ thường dùng 两: 两个人; trong số thứ tự/đếm dùng 二."
+      ],
+      "learnerNoteVi": "Học “二” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-128",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "两"
+      },
+      "simplified": "两",
+      "collocations": [
+        {
+          "zh": "两个人",
+          "vi": "hai người"
+        },
+        {
+          "zh": "两杯茶",
+          "vi": "hai cốc trà"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng 两 trong mọi số ghép: 二十二, không phải 两十二."
+      ],
+      "learnerNoteVi": "Học “两” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-129",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "百"
+      },
+      "simplified": "百",
+      "collocations": [
+        {
+          "zh": "一百块",
+          "vi": "một trăm tệ"
+        },
+        {
+          "zh": "两百人",
+          "vi": "hai trăm người"
+        }
+      ],
+      "commonErrorsVi": [
+        "Trước 百 có thể dùng 两 trong khẩu ngữ phổ biến."
+      ],
+      "learnerNoteVi": "Học “百” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-130",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "十"
+      },
+      "simplified": "十",
+      "collocations": [
+        {
+          "zh": "十个人",
+          "vi": "mười người"
+        },
+        {
+          "zh": "二十块",
+          "vi": "hai mươi tệ"
+        }
+      ],
+      "commonErrorsVi": [
+        "Số 10 đứng một mình là 十, không bắt buộc 一十."
+      ],
+      "learnerNoteVi": "Học “十” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-131",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "零"
+      },
+      "simplified": "零",
+      "collocations": [
+        {
+          "zh": "二〇二六年",
+          "vi": "năm 2026"
+        },
+        {
+          "zh": "一零八",
+          "vi": "108 đọc từng số trong mã"
+        }
+      ],
+      "commonErrorsVi": [
+        "Cách đọc 零 phụ thuộc số lượng, năm hay mã/số điện thoại."
+      ],
+      "learnerNoteVi": "Học “零” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-132",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "好"
+      },
+      "simplified": "好",
+      "collocations": [
+        {
+          "zh": "很好",
+          "vi": "rất/tốt"
+        },
+        {
+          "zh": "好朋友",
+          "vi": "bạn tốt/thân"
+        }
+      ],
+      "commonErrorsVi": [
+        "好 trước động từ có thể biểu thị dễ/tốt trong từ ghép; học theo cụm."
+      ],
+      "learnerNoteVi": "Học “好” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "id": "hsk1-vocabulary-enrichment-133",
+      "canonicalLookup": {
+        "field": "simplified",
+        "value": "不客气"
+      },
+      "simplified": "不客气",
+      "collocations": [
+        {
+          "zh": "A：谢谢。B：不客气。",
+          "vi": "A: cảm ơn. B: không có gì."
+        },
+        {
+          "zh": "不用谢，不客气",
+          "vi": "không cần cảm ơn, không có gì"
+        }
+      ],
+      "commonErrorsVi": [
+        "Chủ yếu đáp lời cảm ơn, không phải đáp lời xin lỗi."
+      ],
+      "learnerNoteVi": "Học “不客气” trong cụm và tự tạo một câu liên quan tới đời sống của bạn.",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    }
+  ]
+}

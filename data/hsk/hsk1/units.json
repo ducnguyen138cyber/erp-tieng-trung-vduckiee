@@ -1,0 +1,455 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "unit",
+  "level": 1,
+  "records": [
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-01",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 1,
+      "topic": "Định hướng phát âm và chữ Hán",
+      "titleZh": "语音和汉字入门",
+      "titleVi": "Định hướng phát âm và chữ Hán",
+      "objectives": [
+        "Phân biệt thanh điệu, nhóm âm khó với người Việt và viết nét cơ bản.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-01",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-02",
+          "path": "lessons.json",
+          "order": 2
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-01",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-02",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 2,
+      "topic": "Gặp gỡ lần đầu",
+      "titleZh": "第一次见面",
+      "titleVi": "Gặp gỡ lần đầu",
+      "objectives": [
+        "Chào, nói tên, quốc tịch, vai trò và hỏi lại lịch sự.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-01"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-03",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-04",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk1-lesson-05",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-02",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-03",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 3,
+      "topic": "Gia đình và người quen",
+      "titleZh": "家人和朋友",
+      "titleVi": "Gia đình và người quen",
+      "objectives": [
+        "Giới thiệu quan hệ, số người và thông tin rất ngắn về một người.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-02"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-06",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-07",
+          "path": "lessons.json",
+          "order": 2
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-03",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-04",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 4,
+      "topic": "Lớp học và ngôn ngữ",
+      "titleZh": "课堂和语言",
+      "titleVi": "Lớp học và ngôn ngữ",
+      "objectives": [
+        "Hỏi nghĩa, xin nhắc lại, nói khả năng và đồ dùng học tập.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-03"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-08",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-09",
+          "path": "lessons.json",
+          "order": 2
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-04",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-05",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 5,
+      "topic": "Số, ngày và cuộc hẹn",
+      "titleZh": "数字日期和约会",
+      "titleVi": "Số, ngày và cuộc hẹn",
+      "objectives": [
+        "Nói số, ngày, giờ, điện thoại và hẹn thời điểm đơn giản.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-04"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-10",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-11",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk1-lesson-12",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-05",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-06",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 6,
+      "topic": "Một ngày của tôi",
+      "titleZh": "我的一天",
+      "titleVi": "Một ngày của tôi",
+      "objectives": [
+        "Nói hoạt động, nơi chốn, trình tự và thói quen cơ bản.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-05"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-13",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-14",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk1-lesson-15",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-06",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-07",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 7,
+      "topic": "Ăn uống hằng ngày",
+      "titleZh": "日常饮食",
+      "titleVi": "Ăn uống hằng ngày",
+      "objectives": [
+        "Gọi món đơn giản, nói thích/không thích, số lượng và nhu cầu.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-06"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-16",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-17",
+          "path": "lessons.json",
+          "order": 2
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-07",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-08",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 8,
+      "topic": "Mua sắm và đồ vật",
+      "titleZh": "买东西",
+      "titleVi": "Mua sắm và đồ vật",
+      "objectives": [
+        "Hỏi giá, màu sắc, kích thước, lượng và đưa ra lựa chọn.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-07"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-18",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-19",
+          "path": "lessons.json",
+          "order": 2
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-08",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-09",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 9,
+      "topic": "Đi lại và phương hướng",
+      "titleZh": "出行和方向",
+      "titleVi": "Đi lại và phương hướng",
+      "objectives": [
+        "Hỏi nơi chốn, vị trí, phương tiện và chỉ đường rất ngắn.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-08"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-20",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-21",
+          "path": "lessons.json",
+          "order": 2
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-09",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk1-unit-10",
+      "syllabusVersion": "GF0025-2021",
+      "level": 1,
+      "order": 10,
+      "topic": "Thời tiết, sức khỏe và kế hoạch",
+      "titleZh": "天气健康和计划",
+      "titleVi": "Thời tiết, sức khỏe và kế hoạch",
+      "objectives": [
+        "Mô tả thời tiết, cảm giác cơ thể và kế hoạch gần.",
+        "Tích hợp ít nhất một nhiệm vụ tiếp nhận và một nhiệm vụ sản sinh.",
+        "Ôn cách quãng theo dữ liệu điểm yếu thay vì chỉ học lại toàn bài."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk1-unit-09"
+      ],
+      "lessonRefs": [
+        {
+          "id": "hsk1-lesson-22",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk1-lesson-23",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk1-lesson-24",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk1-assessment-unit-10",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    }
+  ]
+}

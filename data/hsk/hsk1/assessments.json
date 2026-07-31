@@ -1,0 +1,890 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "assessment",
+  "level": 1,
+  "records": [
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-01",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第1单元检查",
+      "titleVi": "Checkpoint Unit 1: Định hướng phát âm và chữ Hán",
+      "exerciseRefs": [
+        "hsk1-lesson-01-exercise-1",
+        "hsk1-lesson-01-exercise-3",
+        "hsk1-lesson-01-exercise-4",
+        "hsk1-lesson-01-exercise-5",
+        "hsk1-lesson-02-exercise-1",
+        "hsk1-lesson-02-exercise-3",
+        "hsk1-lesson-02-exercise-4",
+        "hsk1-lesson-02-exercise-5"
+      ],
+      "sections": {
+        "receptive": 4,
+        "productive": 4
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-demonstratives"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-02",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第2单元检查",
+      "titleVi": "Checkpoint Unit 2: Gặp gỡ lần đầu",
+      "exerciseRefs": [
+        "hsk1-lesson-03-exercise-1",
+        "hsk1-lesson-03-exercise-3",
+        "hsk1-lesson-03-exercise-4",
+        "hsk1-lesson-03-exercise-5",
+        "hsk1-lesson-04-exercise-1",
+        "hsk1-lesson-04-exercise-3",
+        "hsk1-lesson-04-exercise-4",
+        "hsk1-lesson-04-exercise-5",
+        "hsk1-lesson-05-exercise-1",
+        "hsk1-lesson-05-exercise-3",
+        "hsk1-lesson-05-exercise-4",
+        "hsk1-lesson-05-exercise-5"
+      ],
+      "sections": {
+        "receptive": 6,
+        "productive": 6
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-ne-follow-up",
+        "hsk1-grammar-shi-identity",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-ma-question",
+        "hsk1-grammar-ba-suggestion"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-03",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第3单元检查",
+      "titleVi": "Checkpoint Unit 3: Gia đình và người quen",
+      "exerciseRefs": [
+        "hsk1-lesson-06-exercise-1",
+        "hsk1-lesson-06-exercise-3",
+        "hsk1-lesson-06-exercise-4",
+        "hsk1-lesson-06-exercise-5",
+        "hsk1-lesson-07-exercise-1",
+        "hsk1-lesson-07-exercise-3",
+        "hsk1-lesson-07-exercise-4",
+        "hsk1-lesson-07-exercise-5"
+      ],
+      "sections": {
+        "receptive": 4,
+        "productive": 4
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-de-possession",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-shi-identity"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-04",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第4单元检查",
+      "titleVi": "Checkpoint Unit 4: Lớp học và ngôn ngữ",
+      "exerciseRefs": [
+        "hsk1-lesson-08-exercise-1",
+        "hsk1-lesson-08-exercise-3",
+        "hsk1-lesson-08-exercise-4",
+        "hsk1-lesson-08-exercise-5",
+        "hsk1-lesson-09-exercise-1",
+        "hsk1-lesson-09-exercise-3",
+        "hsk1-lesson-09-exercise-4",
+        "hsk1-lesson-09-exercise-5"
+      ],
+      "sections": {
+        "receptive": 4,
+        "productive": 4
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-negation"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-05",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第5单元检查",
+      "titleVi": "Checkpoint Unit 5: Số, ngày và cuộc hẹn",
+      "exerciseRefs": [
+        "hsk1-lesson-10-exercise-1",
+        "hsk1-lesson-10-exercise-3",
+        "hsk1-lesson-10-exercise-4",
+        "hsk1-lesson-10-exercise-5",
+        "hsk1-lesson-11-exercise-1",
+        "hsk1-lesson-11-exercise-3",
+        "hsk1-lesson-11-exercise-4",
+        "hsk1-lesson-11-exercise-5",
+        "hsk1-lesson-12-exercise-1",
+        "hsk1-lesson-12-exercise-3",
+        "hsk1-lesson-12-exercise-4",
+        "hsk1-lesson-12-exercise-5"
+      ],
+      "sections": {
+        "receptive": 6,
+        "productive": 6
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-time-order"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-06",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第6单元检查",
+      "titleVi": "Checkpoint Unit 6: Một ngày của tôi",
+      "exerciseRefs": [
+        "hsk1-lesson-13-exercise-1",
+        "hsk1-lesson-13-exercise-3",
+        "hsk1-lesson-13-exercise-4",
+        "hsk1-lesson-13-exercise-5",
+        "hsk1-lesson-14-exercise-1",
+        "hsk1-lesson-14-exercise-3",
+        "hsk1-lesson-14-exercise-4",
+        "hsk1-lesson-14-exercise-5",
+        "hsk1-lesson-15-exercise-1",
+        "hsk1-lesson-15-exercise-3",
+        "hsk1-lesson-15-exercise-4",
+        "hsk1-lesson-15-exercise-5"
+      ],
+      "sections": {
+        "receptive": 6,
+        "productive": 6
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-time-order",
+        "hsk1-grammar-negation",
+        "hsk1-grammar-zai-location",
+        "hsk1-grammar-you-existence",
+        "hsk1-grammar-progressive",
+        "hsk1-grammar-ne-follow-up"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-07",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第7单元检查",
+      "titleVi": "Checkpoint Unit 7: Ăn uống hằng ngày",
+      "exerciseRefs": [
+        "hsk1-lesson-16-exercise-1",
+        "hsk1-lesson-16-exercise-3",
+        "hsk1-lesson-16-exercise-4",
+        "hsk1-lesson-16-exercise-5",
+        "hsk1-lesson-17-exercise-1",
+        "hsk1-lesson-17-exercise-3",
+        "hsk1-lesson-17-exercise-4",
+        "hsk1-lesson-17-exercise-5"
+      ],
+      "sections": {
+        "receptive": 4,
+        "productive": 4
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-negation",
+        "hsk1-grammar-xiang-yao",
+        "hsk1-grammar-demonstratives"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-08",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第8单元检查",
+      "titleVi": "Checkpoint Unit 8: Mua sắm và đồ vật",
+      "exerciseRefs": [
+        "hsk1-lesson-18-exercise-1",
+        "hsk1-lesson-18-exercise-3",
+        "hsk1-lesson-18-exercise-4",
+        "hsk1-lesson-18-exercise-5",
+        "hsk1-lesson-19-exercise-1",
+        "hsk1-lesson-19-exercise-3",
+        "hsk1-lesson-19-exercise-4",
+        "hsk1-lesson-19-exercise-5"
+      ],
+      "sections": {
+        "receptive": 4,
+        "productive": 4
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-le-change"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-09",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第9单元检查",
+      "titleVi": "Checkpoint Unit 9: Đi lại và phương hướng",
+      "exerciseRefs": [
+        "hsk1-lesson-20-exercise-1",
+        "hsk1-lesson-20-exercise-3",
+        "hsk1-lesson-20-exercise-4",
+        "hsk1-lesson-20-exercise-5",
+        "hsk1-lesson-21-exercise-1",
+        "hsk1-lesson-21-exercise-3",
+        "hsk1-lesson-21-exercise-4",
+        "hsk1-lesson-21-exercise-5"
+      ],
+      "sections": {
+        "receptive": 4,
+        "productive": 4
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-zai-location",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-time-order"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-unit-10",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mini-checkpoint",
+      "titleZh": "第10单元检查",
+      "titleVi": "Checkpoint Unit 10: Thời tiết, sức khỏe và kế hoạch",
+      "exerciseRefs": [
+        "hsk1-lesson-22-exercise-1",
+        "hsk1-lesson-22-exercise-3",
+        "hsk1-lesson-22-exercise-4",
+        "hsk1-lesson-22-exercise-5",
+        "hsk1-lesson-23-exercise-1",
+        "hsk1-lesson-23-exercise-3",
+        "hsk1-lesson-23-exercise-4",
+        "hsk1-lesson-23-exercise-5",
+        "hsk1-lesson-24-exercise-1",
+        "hsk1-lesson-24-exercise-3",
+        "hsk1-lesson-24-exercise-4",
+        "hsk1-lesson-24-exercise-5"
+      ],
+      "sections": {
+        "receptive": 6,
+        "productive": 6
+      },
+      "skillWeights": {
+        "listening": 20,
+        "reading": 20,
+        "speaking": 30,
+        "writing": 30
+      },
+      "targetGrammar": [
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-le-change",
+        "hsk1-grammar-you-existence",
+        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-negation",
+        "hsk1-grammar-xiang-yao",
+        "hsk1-grammar-ba-suggestion"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 40,
+        "core": 40,
+        "stretch": 20
+      },
+      "rubric": {
+        "pass": 70,
+        "remediation": "Làm lại skill dưới 60%, sau đó retrieval sau 1 và 3 ngày."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-midpoint",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "midpoint",
+      "titleZh": "一级中期评估",
+      "titleVi": "Đánh giá giữa cấp HSK 1",
+      "exerciseRefs": [
+        "hsk1-lesson-01-exercise-1",
+        "hsk1-lesson-01-exercise-3",
+        "hsk1-lesson-01-exercise-4",
+        "hsk1-lesson-02-exercise-1",
+        "hsk1-lesson-02-exercise-3",
+        "hsk1-lesson-02-exercise-4",
+        "hsk1-lesson-03-exercise-1",
+        "hsk1-lesson-03-exercise-3",
+        "hsk1-lesson-03-exercise-4",
+        "hsk1-lesson-04-exercise-1",
+        "hsk1-lesson-04-exercise-3",
+        "hsk1-lesson-04-exercise-4",
+        "hsk1-lesson-05-exercise-1",
+        "hsk1-lesson-05-exercise-3",
+        "hsk1-lesson-05-exercise-4",
+        "hsk1-lesson-06-exercise-1",
+        "hsk1-lesson-06-exercise-3",
+        "hsk1-lesson-06-exercise-4",
+        "hsk1-lesson-07-exercise-1",
+        "hsk1-lesson-07-exercise-3",
+        "hsk1-lesson-07-exercise-4",
+        "hsk1-lesson-08-exercise-1",
+        "hsk1-lesson-08-exercise-3",
+        "hsk1-lesson-08-exercise-4",
+        "hsk1-lesson-09-exercise-1",
+        "hsk1-lesson-09-exercise-3",
+        "hsk1-lesson-09-exercise-4",
+        "hsk1-lesson-10-exercise-1",
+        "hsk1-lesson-10-exercise-3",
+        "hsk1-lesson-10-exercise-4",
+        "hsk1-lesson-11-exercise-1",
+        "hsk1-lesson-11-exercise-3",
+        "hsk1-lesson-11-exercise-4",
+        "hsk1-lesson-12-exercise-1",
+        "hsk1-lesson-12-exercise-3",
+        "hsk1-lesson-12-exercise-4"
+      ],
+      "sections": {
+        "listening": 12,
+        "reading": 12,
+        "speaking": 12
+      },
+      "skillWeights": {
+        "listening": 30,
+        "reading": 30,
+        "speaking": 40
+      },
+      "targetGrammar": [
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-ne-follow-up",
+        "hsk1-grammar-shi-identity",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-ma-question",
+        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-de-possession",
+        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-negation",
+        "hsk1-grammar-time-order"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 35,
+        "core": 50,
+        "stretch": 15
+      },
+      "rubric": {
+        "pass": 70,
+        "speakingRequired": true,
+        "feedback": "Trả về skill profile và ba bài remedial cụ thể."
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-final",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "final",
+      "titleZh": "HSK一级结业评估",
+      "titleVi": "Đánh giá cuối khóa HSK 1",
+      "exerciseRefs": [
+        "hsk1-lesson-13-exercise-1",
+        "hsk1-lesson-13-exercise-3",
+        "hsk1-lesson-13-exercise-4",
+        "hsk1-lesson-13-exercise-5",
+        "hsk1-lesson-14-exercise-1",
+        "hsk1-lesson-14-exercise-3",
+        "hsk1-lesson-14-exercise-4",
+        "hsk1-lesson-14-exercise-5",
+        "hsk1-lesson-15-exercise-1",
+        "hsk1-lesson-15-exercise-3",
+        "hsk1-lesson-15-exercise-4",
+        "hsk1-lesson-15-exercise-5",
+        "hsk1-lesson-16-exercise-1",
+        "hsk1-lesson-16-exercise-3",
+        "hsk1-lesson-16-exercise-4",
+        "hsk1-lesson-16-exercise-5",
+        "hsk1-lesson-17-exercise-1",
+        "hsk1-lesson-17-exercise-3",
+        "hsk1-lesson-17-exercise-4",
+        "hsk1-lesson-17-exercise-5",
+        "hsk1-lesson-18-exercise-1",
+        "hsk1-lesson-18-exercise-3",
+        "hsk1-lesson-18-exercise-4",
+        "hsk1-lesson-18-exercise-5",
+        "hsk1-lesson-19-exercise-1",
+        "hsk1-lesson-19-exercise-3",
+        "hsk1-lesson-19-exercise-4",
+        "hsk1-lesson-19-exercise-5",
+        "hsk1-lesson-20-exercise-1",
+        "hsk1-lesson-20-exercise-3",
+        "hsk1-lesson-20-exercise-4",
+        "hsk1-lesson-20-exercise-5",
+        "hsk1-lesson-21-exercise-1",
+        "hsk1-lesson-21-exercise-3",
+        "hsk1-lesson-21-exercise-4",
+        "hsk1-lesson-21-exercise-5",
+        "hsk1-lesson-22-exercise-1",
+        "hsk1-lesson-22-exercise-3",
+        "hsk1-lesson-22-exercise-4",
+        "hsk1-lesson-22-exercise-5",
+        "hsk1-lesson-23-exercise-1",
+        "hsk1-lesson-23-exercise-3",
+        "hsk1-lesson-23-exercise-4",
+        "hsk1-lesson-23-exercise-5",
+        "hsk1-lesson-24-exercise-1",
+        "hsk1-lesson-24-exercise-3",
+        "hsk1-lesson-24-exercise-4",
+        "hsk1-lesson-24-exercise-5"
+      ],
+      "sections": {
+        "listening": 12,
+        "reading": 12,
+        "speaking": 12,
+        "writing": 12
+      },
+      "skillWeights": {
+        "listening": 25,
+        "reading": 25,
+        "speaking": 30,
+        "writing": 20
+      },
+      "targetGrammar": [
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-ne-follow-up",
+        "hsk1-grammar-shi-identity",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-ma-question",
+        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-de-possession",
+        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-negation",
+        "hsk1-grammar-time-order",
+        "hsk1-grammar-zai-location",
+        "hsk1-grammar-you-existence",
+        "hsk1-grammar-progressive",
+        "hsk1-grammar-xiang-yao",
+        "hsk1-grammar-le-change"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "easy": 25,
+        "core": 55,
+        "stretch": 20
+      },
+      "rubric": {
+        "knowledgeThreshold": 80,
+        "receptiveThreshold": 75,
+        "productiveThreshold": 70,
+        "mandatory": [
+          "speaking",
+          "pronunciation-foundation"
+        ],
+        "noProductionPromotion": true
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "assessment",
+      "id": "hsk1-assessment-mastery",
+      "syllabusVersion": "GF0025-2021",
+      "examBlueprintVersion": "CTI-HSK3.0-2026",
+      "level": 1,
+      "assessmentType": "mastery-review",
+      "titleZh": "一级掌握复习",
+      "titleVi": "Mastery Review HSK 1",
+      "exerciseRefs": [
+        "hsk1-lesson-13-exercise-4",
+        "hsk1-lesson-13-exercise-5",
+        "hsk1-lesson-14-exercise-4",
+        "hsk1-lesson-14-exercise-5",
+        "hsk1-lesson-15-exercise-4",
+        "hsk1-lesson-15-exercise-5",
+        "hsk1-lesson-16-exercise-4",
+        "hsk1-lesson-16-exercise-5",
+        "hsk1-lesson-17-exercise-4",
+        "hsk1-lesson-17-exercise-5",
+        "hsk1-lesson-18-exercise-4",
+        "hsk1-lesson-18-exercise-5",
+        "hsk1-lesson-19-exercise-4",
+        "hsk1-lesson-19-exercise-5",
+        "hsk1-lesson-20-exercise-4",
+        "hsk1-lesson-20-exercise-5",
+        "hsk1-lesson-21-exercise-4",
+        "hsk1-lesson-21-exercise-5",
+        "hsk1-lesson-22-exercise-4",
+        "hsk1-lesson-22-exercise-5",
+        "hsk1-lesson-23-exercise-4",
+        "hsk1-lesson-23-exercise-5",
+        "hsk1-lesson-24-exercise-4",
+        "hsk1-lesson-24-exercise-5"
+      ],
+      "sections": {
+        "productivePortfolio": 24,
+        "spacedReviewDays": [
+          1,
+          3,
+          7,
+          14,
+          30
+        ]
+      },
+      "skillWeights": {
+        "speaking": 50,
+        "writing": 30,
+        "selfCorrection": 20
+      },
+      "targetGrammar": [
+        "hsk1-grammar-numbers-time",
+        "hsk1-grammar-demonstratives",
+        "hsk1-grammar-adjective-predicate",
+        "hsk1-grammar-ne-follow-up",
+        "hsk1-grammar-shi-identity",
+        "hsk1-grammar-question-words",
+        "hsk1-grammar-ma-question",
+        "hsk1-grammar-ba-suggestion",
+        "hsk1-grammar-de-possession",
+        "hsk1-grammar-modal-verbs",
+        "hsk1-grammar-negation",
+        "hsk1-grammar-time-order",
+        "hsk1-grammar-zai-location",
+        "hsk1-grammar-you-existence",
+        "hsk1-grammar-progressive",
+        "hsk1-grammar-xiang-yao",
+        "hsk1-grammar-le-change"
+      ],
+      "targetVocabulary": [],
+      "difficultyDistribution": {
+        "retrieval": 40,
+        "transfer": 40,
+        "reflection": 20
+      },
+      "rubric": {
+        "mastery": 80,
+        "weakSkillLoop": true,
+        "evidenceRequired": [
+          "recording",
+          "writing",
+          "self-review"
+        ]
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk1-phase2a-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "blueprint-reviewed",
+      "contentVersion": 1
+    }
+  ]
+}

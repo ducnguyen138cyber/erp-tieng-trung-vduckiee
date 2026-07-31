@@ -9,6 +9,7 @@
   "sourceRegistryPath": "sources.json",
   "curriculumArchitecturePath": "curriculum/architecture.json",
   "legacyMappingPath": "legacy-mapping.json",
+  "hsk1CourseManifestPath": "hsk1/course-manifest.json",
   "schemas": {
     "level": "schemas/level.schema.json",
     "unit": "schemas/unit.schema.json",
@@ -21,7 +22,7 @@
     "assessment": "schemas/assessment.schema.json"
   },
   "levels": [
-    {"level": 1, "stage": "elementary", "status": "planned", "path": "hsk1/level.json", "productionReady": false},
+    {"level": 1, "stage": "elementary", "status": "machine-assisted", "path": "hsk1/level.json", "courseManifestPath": "hsk1/course-manifest.json", "productionReady": false},
     {"level": 2, "stage": "elementary", "status": "planned", "path": "hsk2/level.json", "productionReady": false},
     {"level": 3, "stage": "elementary", "status": "planned", "path": "hsk3/level.json", "productionReady": false},
     {"level": 4, "stage": "intermediate", "status": "planned", "path": "hsk4/level.json", "productionReady": false},

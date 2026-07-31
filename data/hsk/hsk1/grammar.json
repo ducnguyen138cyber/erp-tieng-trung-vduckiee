@@ -1,0 +1,857 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "grammar",
+  "level": 1,
+  "records": [
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-shi-identity",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "是字句",
+      "nameVi": "Câu với 是 để xác định",
+      "formula": "A + 是 + B",
+      "meaningVi": "Dùng để xác định người, nghề nghiệp, quốc tịch hoặc loại sự vật.",
+      "usageVi": [
+        "Không dùng 是 trước tính từ khi chỉ đơn thuần miêu tả.",
+        "Có thể phủ định bằng 不是."
+      ],
+      "positionVi": "是 đứng giữa chủ ngữ và thành phần định danh.",
+      "correctExamples": [
+        {
+          "zh": "我是学生。",
+          "vi": "Tôi là học sinh."
+        },
+        {
+          "zh": "她是越南人。",
+          "vi": "Cô ấy là người Việt Nam."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我是很好。",
+          "explanationVi": "Không dùng 是 trước 很好 khi chỉ miêu tả trạng thái."
+        }
+      ],
+      "commonErrorsVi": [
+        "Dịch máy móc mọi từ ‘là’ trong tiếng Việt thành 是."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-ma-question",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "吗疑问句",
+      "nameVi": "Câu hỏi có 吗",
+      "formula": "Câu trần thuật + 吗？",
+      "meaningVi": "Biến một nhận định thành câu hỏi đúng/sai, không đổi trật tự từ.",
+      "usageVi": [
+        "Trả lời bằng động từ/tính từ chính hoặc 是/不是.",
+        "Không dùng 吗 cùng từ nghi vấn như 谁, 什么, 哪儿."
+      ],
+      "positionVi": "吗 đứng cuối câu.",
+      "correctExamples": [
+        {
+          "zh": "你是老师吗？",
+          "vi": "Bạn là giáo viên à?"
+        },
+        {
+          "zh": "你忙吗？",
+          "vi": "Bạn bận không?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "你是谁吗？",
+          "explanationVi": "谁 đã tạo câu hỏi nên không thêm 吗."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đảo động từ lên trước như tiếng Anh."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-ne-follow-up",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "呢的用法",
+      "nameVi": "呢 để hỏi tiếp hoặc nhắc chủ đề",
+      "formula": "Chủ đề + 呢？",
+      "meaningVi": "Dùng để hỏi lại cùng một thông tin hoặc hỏi vị trí/trạng thái đang được nhắc tới.",
+      "usageVi": [
+        "Giọng nói thường mềm và ngắn.",
+        "Không thay thế mọi loại câu hỏi có 吗."
+      ],
+      "positionVi": "呢 đứng cuối cụm chủ đề hoặc câu.",
+      "correctExamples": [
+        {
+          "zh": "我很好，你呢？",
+          "vi": "Tôi khỏe, còn bạn?"
+        },
+        {
+          "zh": "我的书呢？",
+          "vi": "Sách của tôi đâu?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "你是学生呢？",
+          "explanationVi": "Nếu hỏi đúng/sai nên dùng 吗."
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng 呢 như một bản dịch cố định của ‘thì sao’ trong mọi ngữ cảnh."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-de-possession",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "的表示领属",
+      "nameVi": "的 chỉ sở hữu và định ngữ",
+      "formula": "Người/đặc điểm + 的 + danh từ",
+      "meaningVi": "Nối người sở hữu hoặc đặc điểm với danh từ.",
+      "usageVi": [
+        "Quan hệ thân thuộc rất gần có thể lược 的: 我妈妈.",
+        "Không đặt 的 sau danh từ trung tâm."
+      ],
+      "positionVi": "的 đứng trước danh từ được bổ nghĩa.",
+      "correctExamples": [
+        {
+          "zh": "这是我的书。",
+          "vi": "Đây là sách của tôi."
+        },
+        {
+          "zh": "她是我的老师。",
+          "vi": "Cô ấy là giáo viên của tôi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这是书我的。",
+          "explanationVi": "的 và phần sở hữu phải đứng trước danh từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đặt trật tự theo tiếng Việt ‘sách của tôi’ thành 书我的."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-you-existence",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "有字句",
+      "nameVi": "有 để nói có và tồn tại",
+      "formula": "Chủ thể/nơi chốn + 有 + danh từ",
+      "meaningVi": "Diễn đạt sở hữu hoặc sự tồn tại tại một nơi.",
+      "usageVi": [
+        "Phủ định bằng 没有, không dùng 不有.",
+        "Câu tồn tại thường đưa nơi chốn lên đầu."
+      ],
+      "positionVi": "有 đứng trước đối tượng tồn tại hoặc được sở hữu.",
+      "correctExamples": [
+        {
+          "zh": "我有一个妹妹。",
+          "vi": "Tôi có một em gái."
+        },
+        {
+          "zh": "学校里有商店。",
+          "vi": "Trong trường có cửa hàng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我不有钱。",
+          "explanationVi": "Phủ định 有 bằng 没有."
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng 不有 do dịch trực tiếp ‘không có’."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-demonstratives",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "这那和量词",
+      "nameVi": "这/那 với lượng từ",
+      "formula": "这/那 + lượng từ + danh từ",
+      "meaningVi": "Chỉ vật/người gần hoặc xa; danh từ đếm được thường cần lượng từ.",
+      "usageVi": [
+        "个 là lượng từ chung nhưng không thay mọi lượng từ.",
+        "本 dùng với sách; 杯 dùng với đồ uống trong cốc."
+      ],
+      "positionVi": "Từ chỉ định đứng trước lượng từ.",
+      "correctExamples": [
+        {
+          "zh": "这本书很好。",
+          "vi": "Quyển sách này rất hay."
+        },
+        {
+          "zh": "那个人是医生。",
+          "vi": "Người kia là bác sĩ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这书很好。",
+          "explanationVi": "Ở giai đoạn đầu nên dùng lượng từ: 这本书."
+        }
+      ],
+      "commonErrorsVi": [
+        "Bỏ lượng từ vì tiếng Việt không luôn biểu hiện lượng từ."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-question-words",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "疑问代词",
+      "nameVi": "Từ nghi vấn giữ nguyên vị trí",
+      "formula": "Ai/cái gì/đâu/bao nhiêu thay đúng vị trí của thông tin cần hỏi",
+      "meaningVi": "谁, 什么, 哪儿, 几, 多少, 怎么, 怎么样 không kéo lên đầu câu.",
+      "usageVi": [
+        "Không thêm 吗.",
+        "几 thường hỏi số lượng nhỏ, 多少 rộng hơn."
+      ],
+      "positionVi": "Đứng tại vị trí của câu trả lời.",
+      "correctExamples": [
+        {
+          "zh": "你叫什么名字？",
+          "vi": "Bạn tên là gì?"
+        },
+        {
+          "zh": "你去哪儿？",
+          "vi": "Bạn đi đâu?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "什么你叫名字？",
+          "explanationVi": "Không kéo 什么 lên đầu câu."
+        }
+      ],
+      "commonErrorsVi": [
+        "Sắp xếp từ nghi vấn theo trật tự tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-negation",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "不和没（有）",
+      "nameVi": "Phủ định với 不 và 没（有）",
+      "formula": "不 + thói quen/ý định/tính chất; 没（有） + sự việc đã xảy ra/sở hữu",
+      "meaningVi": "Chọn phủ định theo thời và loại vị ngữ.",
+      "usageVi": [
+        "不 thường dùng cho hiện tại, tương lai, thói quen.",
+        "没 dùng với 有 và hành động chưa xảy ra/không xảy ra."
+      ],
+      "positionVi": "Đứng trước động từ hoặc tính từ.",
+      "correctExamples": [
+        {
+          "zh": "我不喝咖啡。",
+          "vi": "Tôi không uống cà phê."
+        },
+        {
+          "zh": "我今天没上班。",
+          "vi": "Hôm nay tôi không đi làm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我不有时间。",
+          "explanationVi": "Phải dùng 没有时间."
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng 不 cho mọi câu phủ định."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-adjective-predicate",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "形容词谓语句",
+      "nameVi": "Tính từ làm vị ngữ",
+      "formula": "Chủ ngữ + 很 + tính từ",
+      "meaningVi": "Miêu tả trạng thái mà không cần 是; 很 thường làm câu tự nhiên, không nhất thiết mang nghĩa ‘rất’.",
+      "usageVi": [
+        "太…了 biểu thị mức độ nổi bật.",
+        "Khi đối lập có thể bỏ 很."
+      ],
+      "positionVi": "Tính từ đứng trực tiếp sau chủ ngữ, thường có phó từ mức độ.",
+      "correctExamples": [
+        {
+          "zh": "今天天气很好。",
+          "vi": "Hôm nay thời tiết đẹp."
+        },
+        {
+          "zh": "这个菜太辣了。",
+          "vi": "Món này cay quá."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "天气是很冷。",
+          "explanationVi": "Không dùng 是 trước tính từ trong câu miêu tả đơn giản."
+        }
+      ],
+      "commonErrorsVi": [
+        "Hiểu mọi 很 đều là ‘rất’ và dùng 是 trước tính từ."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-time-order",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "时间词语序",
+      "nameVi": "Trật tự biểu thức thời gian",
+      "formula": "Chủ ngữ + thời gian + nơi chốn + động từ + tân ngữ",
+      "meaningVi": "Đưa mốc thời gian trước động từ để nói lịch và thói quen.",
+      "usageVi": [
+        "Thời gian có thể đứng đầu câu để làm chủ đề.",
+        "Giờ dùng 点; phút dùng 分; 半 là rưỡi."
+      ],
+      "positionVi": "Thường sau chủ ngữ hoặc đầu câu.",
+      "correctExamples": [
+        {
+          "zh": "我八点上班。",
+          "vi": "Tôi đi làm lúc 8 giờ."
+        },
+        {
+          "zh": "明天下午我们见。",
+          "vi": "Chiều mai chúng ta gặp nhau."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我上班八点。",
+          "explanationVi": "Trong câu cơ bản, thời gian đứng trước động từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đặt thời gian cuối câu theo thói quen tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-zai-location",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "在字句",
+      "nameVi": "在 để chỉ nơi chốn",
+      "formula": "Chủ ngữ + 在 + nơi chốn + động từ",
+      "meaningVi": "Nói người/vật ở đâu hoặc hành động xảy ra ở đâu.",
+      "usageVi": [
+        "在 + nơi chốn thường đứng trước động từ chính.",
+        "Câu tồn tại dùng 有, không đổi tự do với 在."
+      ],
+      "positionVi": "Sau chủ ngữ, trước nơi chốn và động từ.",
+      "correctExamples": [
+        {
+          "zh": "我在学校学习。",
+          "vi": "Tôi học ở trường."
+        },
+        {
+          "zh": "书在桌子上。",
+          "vi": "Sách ở trên bàn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我学习在学校。",
+          "explanationVi": "Trong câu cơ bản, cụm 在 + nơi chốn đứng trước động từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đặt nơi chốn cuối câu như tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-modal-verbs",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "会能可以",
+      "nameVi": "会, 能, 可以",
+      "formula": "Chủ ngữ + động từ năng nguyện + động từ chính",
+      "meaningVi": "会 nói kỹ năng đã học; 能 nói khả năng/điều kiện; 可以 nói sự cho phép hoặc khả năng trong ngữ cảnh.",
+      "usageVi": [
+        "Phủ định đặt trước động từ năng nguyện.",
+        "Không dùng hai động từ năng nguyện nếu không có mục đích rõ."
+      ],
+      "positionVi": "Đứng trước động từ chính.",
+      "correctExamples": [
+        {
+          "zh": "我会说一点儿汉语。",
+          "vi": "Tôi biết nói một chút tiếng Trung."
+        },
+        {
+          "zh": "这里可以坐吗？",
+          "vi": "Ở đây có thể ngồi không?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我说会汉语。",
+          "explanationVi": "会 phải đứng trước động từ chính."
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng 会 cho mọi nghĩa ‘có thể’."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-xiang-yao",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "想和要",
+      "nameVi": "想 và 要 để nói mong muốn",
+      "formula": "Chủ ngữ + 想/要 + động từ hoặc danh từ",
+      "meaningVi": "想 mềm hơn, thể hiện mong muốn; 要 trực tiếp hơn, có thể là muốn/cần/sẽ.",
+      "usageVi": [
+        "Trong gọi món, 我要… tự nhiên nhưng trực tiếp.",
+        "想 + động từ phù hợp khi nói kế hoạch."
+      ],
+      "positionVi": "Đứng trước động từ hoặc đối tượng mong muốn.",
+      "correctExamples": [
+        {
+          "zh": "我想喝茶。",
+          "vi": "Tôi muốn uống trà."
+        },
+        {
+          "zh": "我要一杯水。",
+          "vi": "Tôi muốn một cốc nước."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我喝想茶。",
+          "explanationVi": "想 phải đứng trước động từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không phân biệt độ trực tiếp giữa 想 và 要."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-progressive",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "在／正在…呢",
+      "nameVi": "Đang diễn ra",
+      "formula": "Chủ ngữ + 在/正在 + động từ + (tân ngữ) + 呢",
+      "meaningVi": "Diễn tả hành động đang diễn ra tại thời điểm nói.",
+      "usageVi": [
+        "Không bắt buộc dùng đủ 正在 và 呢 cùng lúc.",
+        "Không dùng với mọi động từ trạng thái."
+      ],
+      "positionVi": "在/正在 đứng trước động từ; 呢 cuối câu.",
+      "correctExamples": [
+        {
+          "zh": "我正在吃饭。",
+          "vi": "Tôi đang ăn cơm."
+        },
+        {
+          "zh": "他看书呢。",
+          "vi": "Anh ấy đang đọc sách."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我吃正在饭。",
+          "explanationVi": "正在 phải đứng trước động từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đặt ‘đang’ sau động từ theo trật tự tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-le-change",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "了表示完成或变化",
+      "nameVi": "了 chỉ hoàn thành hoặc thay đổi",
+      "formula": "Động từ + 了 / Câu + 了",
+      "meaningVi": "Ở HSK1 chỉ giới thiệu hai chức năng cơ bản: hoàn thành có giới hạn và tình huống mới thay đổi.",
+      "usageVi": [
+        "Không đồng nhất 了 với mọi động từ quá khứ.",
+        "Phủ định sự việc chưa xảy ra thường dùng 没 và bỏ 了."
+      ],
+      "positionVi": "Sau động từ hoặc cuối câu tùy chức năng.",
+      "correctExamples": [
+        {
+          "zh": "我吃饭了。",
+          "vi": "Tôi ăn cơm rồi."
+        },
+        {
+          "zh": "下雨了。",
+          "vi": "Trời mưa rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我没吃了饭。",
+          "explanationVi": "Với 没, thường bỏ 了: 我没吃饭."
+        }
+      ],
+      "commonErrorsVi": [
+        "Thêm 了 vào mọi câu quá khứ tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-ba-suggestion",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "吧表示建议",
+      "nameVi": "吧 để đề nghị",
+      "formula": "Câu mệnh lệnh/đề nghị + 吧",
+      "meaningVi": "Làm lời đề nghị mềm hơn hoặc mời người nghe cùng hành động.",
+      "usageVi": [
+        "Không dùng trong yêu cầu cần chính xác tuyệt đối.",
+        "Ngữ điệu và quan hệ người nói vẫn quan trọng."
+      ],
+      "positionVi": "吧 đứng cuối câu.",
+      "correctExamples": [
+        {
+          "zh": "我们走吧。",
+          "vi": "Chúng ta đi nhé."
+        },
+        {
+          "zh": "请坐吧。",
+          "vi": "Mời ngồi nhé."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "吧我们走。",
+          "explanationVi": "吧 đứng cuối câu."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đặt 吧 đầu câu vì dịch từ ‘nhé’ không theo trật tự Trung."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk1-grammar-numbers-time",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 1,
+      "nameZh": "数字日期时间",
+      "nameVi": "Số, ngày tháng và giờ",
+      "formula": "Năm + 年; tháng + 月; ngày + 号/日; giờ + 点; phút + 分",
+      "meaningVi": "Đọc số điện thoại từng số; đọc năm từng chữ số; dùng 两 trước lượng từ trong nhiều trường hợp.",
+      "usageVi": [
+        "二 và 两 không hoàn toàn thay thế nhau.",
+        "Ngày nói khẩu ngữ thường dùng 号."
+      ],
+      "positionVi": "Theo thứ tự lớn đến nhỏ.",
+      "correctExamples": [
+        {
+          "zh": "今天是五月八号。",
+          "vi": "Hôm nay là ngày 8 tháng 5."
+        },
+        {
+          "zh": "现在九点半。",
+          "vi": "Bây giờ là 9 giờ rưỡi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "八号五月。",
+          "explanationVi": "Tiếng Trung đi từ đơn vị lớn đến nhỏ: 五月八号."
+        }
+      ],
+      "commonErrorsVi": [
+        "Dùng trật tự ngày-tháng như tiếng Việt."
+      ],
+      "confusables": [],
+      "introducedLevel": 1,
+      "reviewLevels": [
+        2,
+        3
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "linguistic-reviewed",
+      "contentVersion": 1
+    }
+  ]
+}

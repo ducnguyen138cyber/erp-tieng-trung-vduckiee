@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "C1",
+  "status": "pass",
+  "validatedAt": "2026-07-31",
+  "repositoryValidation": {
+    "records": 1473,
+    "sources": 16,
+    "schemas": 9,
+    "errors": 0,
+    "warnings": 0
+  },
+  "duplicateCheck": {
+    "candidates": 1399,
+    "findings": 236,
+    "blockers": 0,
+    "exact": 1,
+    "normalized": 0,
+    "nearReview": 233,
+    "intentionalReviews": 1
+  },
+  "sourceValidation": "pass",
+  "canonicalLookupValidation": "pass-via-hsk-phase-c1-professional-course-test",
+  "tests": [
+    "hsk-phase-c1-professional-course",
+    "hsk-phase2a-contract",
+    "hsk-phase2a-quality",
+    "hsk-phase2a-lock"
+  ],
+  "gitDiffCheck": "pass"
+}

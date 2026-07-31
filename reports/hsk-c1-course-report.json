@@ -1,0 +1,111 @@
+{
+  "reportVersion": "1.0.0",
+  "phase": "C1",
+  "generatedAt": "2026-07-29",
+  "generatedBy": "scripts/build-hsk-curriculum-c1.js",
+  "counts": {
+    "units": 10,
+    "lessons": 24,
+    "grammar": 17,
+    "characters": 50,
+    "exercises": 120,
+    "assessments": 13,
+    "vocabularyEnrichment": 133,
+    "derivedPhraseFocusEntries": 31,
+    "lessonSections": 288
+  },
+  "coverage": {
+    "allArchitectureUnits": true,
+    "coreLessons24": true,
+    "everyLessonHasDialogue": true,
+    "everyLessonHasListening": true,
+    "everyLessonHasSpeakingAndWriting": true,
+    "everyLessonHasSpacedReview": true,
+    "uniqueIds": true
+  },
+  "learnerExperience": {
+    "lessonFlow": [
+      "context",
+      "vocabulary-in-use",
+      "characters",
+      "grammar-for-purpose",
+      "dialogue/input",
+      "comprehension",
+      "listening",
+      "pronunciation",
+      "guided practice",
+      "speaking/writing",
+      "summary",
+      "spaced review",
+      "real-world task"
+    ],
+    "progressiveDisclosure": {
+      "pinyin": "shown-first-pass-then-hideable",
+      "translation": "answer-after-attempt",
+      "explanation": "after-answer-with-evidence"
+    },
+    "resume": {
+      "continueFrom": "last-incomplete-section",
+      "showWeakSkills": true,
+      "onePrimaryAction": true
+    },
+    "mobile": {
+      "tapTargets": "minimum-44px-contract",
+      "singleColumnPractice": true,
+      "audioControlsPersistent": true
+    },
+    "accessibility": {
+      "keyboardReachable": true,
+      "reducedMotionSafe": true,
+      "audioHasScript": true,
+      "colorNotSoleSignal": true
+    },
+    "mastery": {
+      "knowledge": 80,
+      "receptive": 75,
+      "productive": 70,
+      "mandatory": [
+        "pronunciation-foundation",
+        "final-assessment",
+        "speaking-task"
+      ],
+      "spacingDays": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    }
+  },
+  "productionSafety": {
+    "productionEnabled": false,
+    "publicOverrideAllowed": false,
+    "writesProgress": false,
+    "qualityGate": "locked",
+    "supabaseChanged": false,
+    "migrationChanged": false
+  },
+  "reviewStatus": {
+    "machineAssisted": true,
+    "vietnameseHumanReviewRequired": true,
+    "pedagogyHumanReviewRequired": true,
+    "audioProductionRequired": true,
+    "strokeOrderVerificationRequired": true
+  },
+  "sourceValidation": {
+    "sourceIds": [
+      "moe-gf0025-2021-standard",
+      "cti-hsk3-current-syllabus-2026",
+      "cti-hsk3-competency-profile-2026",
+      "blcu-new-standard-pedagogy-2025",
+      "vduckie-hsk1-phase2a-original"
+    ],
+    "allRecordsHaveSourceIds": true
+  },
+  "hashes": {
+    "manifest": "b10f00be6d8007423cf28919b343e8efe839e9c5a4d00becdb1f3b3d47a396e3",
+    "lessons": "687fdf18eb1fbf4d06670afed76babf80aad9f31b8c107545782393eb000c45d",
+    "exercises": "14bb87d36155b469a72b9a779701df644f43e1e2e13898abe97b992952d677f2"
+  }
+}
