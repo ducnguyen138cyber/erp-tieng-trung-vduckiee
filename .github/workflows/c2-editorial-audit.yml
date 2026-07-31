@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - agent/hsk1-c2-editorial
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: read
@@ -24,7 +27,6 @@ jobs:
           git branch --show-current
           git remote -v
           git fetch origin main
-          git pull --ff-only origin main
           git log --oneline --decorate -15
           git merge-base --is-ancestor 8c5714ce5f22fc438f5588fedbc331291ed6c882 HEAD
 
