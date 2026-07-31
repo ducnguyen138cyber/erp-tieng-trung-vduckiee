@@ -1,0 +1,33 @@
+hsk-pro-bottom-nav">' +
+      '<button type="button" class="muted" data-pro-prev ' + (index <= 0 ? 'disabled' : '') + '>← Bài trước</button>' +
+      '<span>' + (index + 1) + ' / ' + data.lessons.length + '</span>' +
+      '<button type="button" class="accent" data-pro-next ' + (index >= data.lessons.length - 1 ? 'disabled' : '') + '>Bài sau →</button></nav>';
+    return body;
+  }
+
+  function renderAssessment(data, assessment) {
+    var refs = array(assessment.exerciseRefs);
+    var exercises = refs.map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
+    var sections = assessment.sections || {};
+    var weights = assessment.skillWeights || {};
+    return '<div class="hsk-pro-lesson-head"><div><span class="step">' + esc(assessment.assessmentType) + '</span><h3><span lang="zh-CN">' + esc(assessment.titleZh) + '</span><small>' + esc(assessment.titleVi) + '</small></h3></div><span class="hsk-pro-readonly">🔒 READ-ONLY</span></div>' +
+      '<section class="hsk-pro-objectives"><b>Cấu trúc đánh giá</b><div class="hsk-pro-metrics">' + Object.keys(sections).map(function (key) { return '<span><strong>' + esc(sections[key]) + '</strong>' + esc(key) + '</span>'; }).join('') + '</div><p>Điểm đạt: <b>' + esc(assessment.rubric && assessment.rubric.pass) + '%</b>. ' + esc(assessment.rubric && assessment.rubric.remediation) + '</p><p>Trọng số: ' + Object.keys(weights).map(function (key) { return esc(key) + ' ' + esc(weights[key]) + '%'; }).join(' · ') + '</p></section>' +
+      '<section class="hsk-pro-section hsk-pro-practice"><h4>Làm assessment</h4><p class="hsk-pro-help">Không lưu điểm lên tài khoản. Các bài nói/viết mở dùng rubric để tự đối chiếu.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, true); }).join('') + '</div></section>';
+  }
+
+  function renderLevels(data) {
+    var node = byId('hskLevels');
+    if (!node) return;
+    var html = '<button type="button" class="hsk-level active hsk-pro-level" data-pro-level="1"><strong>HSK 1</strong><small>10 unit · 24 bài · C2</small></button>';
+    for (var level = 2; level <= 9; level++) html += '<button type="button" class="hsk-level hsk-pro-level locked" disabled aria-disabled="true"><strong>HSK ' + level + '</strong><small>Sắp mở</small></button>';
+    node.innerHTML = html;
+  }
+
+  function renderSidebar(data) {
+    var progress = byId('hskProgress');
+    if (progress) progress.innerHTML = '<div class="hsk-pro-sidebar-status"><strong>HSK 1 Professional</strong><span>10 unit · 24 lesson · 120 bài tập</span><small>Read-only · chưa ghi progress</small></div>';
+    var node = byId('hskLessonList');
+    if (!node) return;
+    var html = '';
+    data.units.forEach(function (unit) {
+      html += '<section class="hsk-pro-unit"><header><span>UNIT ' + esc(unit.order) + '</span><strong>' + esc(unit.titleVi) + '</strong><small lang="zh-CN">' + esc(unit.titleZh) + '</small></he
