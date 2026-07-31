@@ -1,0 +1,36 @@
+skAssessment');
+      } else if (state.selectedAssessmentId) {
+        url.searchParams.set('hskAssessment', state.selectedAssessmentId);
+        url.searchParams.delete('hskLesson');
+      }
+      root.history.replaceState(null, '', url.pathname + '?' + url.searchParams.toString() + (url.hash || ''));
+    } catch (error) {}
+  }
+
+  function renderCurrent() {
+    if (!state.data) return;
+    renderLevels(state.data);
+    renderSidebar(state.data);
+    updateIntro(state.data);
+    var node = byId('hskLesson');
+    if (!node) return;
+    if (state.selectedAssessmentId) {
+      var assessment = state.data.assessmentById[state.selectedAssessmentId];
+      node.innerHTML = assessment ? renderAssessment(state.data, assessment) : '<div class="hsk-pro-error">Không tìm thấy assessment.</div>';
+    } else {
+      var lesson = state.data.lessonById[state.selectedLessonId] || state.data.lessons[0];
+      state.selectedLessonId = lesson && lesson.id;
+      node.innerHTML = lesson ? renderLesson(state.data, lesson) : '<div class="hsk-pro-error">Không tìm thấy lesson.</div>';
+    }
+    if (root.document && root.document.body) {
+      root.document.body.setAttribute('data-hsk-professional', 'c2-readonly');
+      root.document.body.setAttribute('data-hsk-prof-ready', 'true');
+    }
+    writeUrl();
+  }
+
+  function selectLesson(id, shouldScroll) {
+    if (!state.data || !state.data.lessonById[id]) return false;
+    state.selectedLessonId = id;
+    state.selectedAssessmentId = null;
+    r
