@@ -1,0 +1,219 @@
+name: HSK1 learner C2 audit
+
+on:
+  push:
+    branches:
+      - agent/hsk1-learner-c2-web
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  learner-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/hsk1-learner-c2-web
+          fetch-depth: 0
+
+      - name: Confirm baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          git status -sb
+          git branch --show-current
+          git remote -v
+          git fetch origin main
+          git log --oneline --decorate -15
+          git merge-base --is-ancestor 8b1b4d92d73c7d9b141b2e9bde810e02f783bd21 HEAD
+
+      - name: Materialize learner runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .phase-a-runtime-* > assets/hsk-content/hsk-professional-runtime.js
+          node --check assets/hsk-content/hsk-professional-runtime.js
+          node --check assets/hsk-content/hsk-content-feature-flags.js
+          node --check tests/hsk-learner-browser-smoke.js
+          grep -q "HSK_CURRICULUM_V2_LEARNER_READONLY_ENABLED: true" assets/hsk-content/hsk-content-feature-flags.js
+          grep -q "HSK_CURRICULUM_V2_ENABLED: false" assets/hsk-content/hsk-content-feature-flags.js
+          grep -q "HSK_CURRICULUM_V2_PROGRESS_WRITES_ENABLED: false" assets/hsk-content/hsk-content-feature-flags.js
+
+      - name: Contract and content gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test \
+            tests/hsk-learner-c2-integration.test.js \
+            tests/hsk-phase-c2-editorial-quality.test.js \
+            tests/hsk-phase-c1-professional-course.test.js \
+            tests/hsk-phase2a-contract.test.js \
+            tests/hsk-phase2a-quality.test.js \
+            tests/hsk-phase2a-lock.test.js | tee /tmp/hsk-phase-a-tests.log
+          node - <<'NODE' | tee /tmp/hsk-phase-a-validator.log
+          const path = require('node:path');
+          const { validateRepository } = require('./scripts/hsk-reference-validator');
+          const { checkDuplicates } = require('./scripts/hsk-duplicate-engine');
+          const root = path.resolve('.');
+          const validator = validateRepository(root);
+          const duplicate = checkDuplicates(root);
+          console.log(JSON.stringify({ validator: validator.summary, duplicate: duplicate.summary }, null, 2));
+          if (!validator.ok || duplicate.summary.blockers !== 0) process.exit(1);
+          NODE
+          git diff --check
+
+      - name: Install Chromium smoke runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pw
+          cd /tmp/pw
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Browser smoke desktop and mobile
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/hsk-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..30}; do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep 1; done
+          NODE_PATH=/tmp/pw/node_modules node tests/hsk-learner-browser-smoke.js | tee /tmp/hsk-browser-smoke.log
+
+      - name: Write Phase A evidence and handoff
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p reports docs
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const smoke = JSON.parse(fs.readFileSync('/tmp/hsk1-c2-browser-smoke.json', 'utf8'));
+          const report = {
+            phase: 'A-HSK1-learner-integration',
+            status: 'pass',
+            validatedAt: '2026-07-31',
+            baseline: '8b1b4d92d73c7d9b141b2e9bde810e02f783bd21',
+            mode: 'learner-facing-read-only',
+            curriculum: { level: 1, phase: 'C2', units: 10, lessons: 24, grammar: 21, characters: 50, exercises: 120, assessments: 13, vocabulary: 300 },
+            browser: smoke,
+            safety: { canonicalProductionEnabled: false, publicOverrideAllowed: false, progressWritesEnabled: false, qualityGate: 'locked', supabaseMigration: false, userDataMigration: false },
+            urls: {
+              course: '/?area=hsk',
+              lesson1: '/?area=hsk&hskLesson=hsk1-lesson-01',
+              finalAssessment: '/?area=hsk&hskAssessment=hsk1-assessment-final'
+            }
+          };
+          fs.writeFileSync('reports/hsk-phase-a-learner-integration.json', JSON.stringify(report, null, 2) + '\n');
+          NODE
+          cat > docs/hsk-phase-a-learner-integration-handoff.md <<'EOF'
+          # Bàn giao Phase A — HSK1 learner-facing integration
+
+          ## Trạng thái
+          - Baseline: `8b1b4d92d73c7d9b141b2e9bde810e02f783bd21` — `Polish professional HSK 1 editorial content`.
+          - HSK1 C2 được kết nối vào module `Giáo trình HSK` theo chế độ learner-facing **read-only**.
+          - Không sửa curriculum C2.
+          - HSK2–9 vẫn khóa/Sắp mở.
+
+          ## Người học test được
+          - 10 unit / 24 lesson theo đúng curriculum C2.
+          - Vocabulary canonical + support-only, grammar, character, dialogue, reading, listening transcript/TTS fallback, pronunciation, speaking, writing, review.
+          - 120 exercise: nhập/chọn đáp án, xem đúng/sai và giải thích; speaking/writing mở dùng rubric tự đối chiếu.
+          - 10 checkpoint + midpoint + final + mastery review.
+          - Chuyển bài trước/sau và deep-link lesson/assessment bằng query string.
+
+          ## Safety
+          - `HSK_CURRICULUM_V2_ENABLED=false` giữ nguyên.
+          - learner runtime dùng flag riêng `HSK_CURRICULUM_V2_LEARNER_READONLY_ENABLED=true`.
+          - `publicOverrideAllowed=false`, progress writes=false, quality gate=locked.
+          - Không Supabase migration, không user-data migration.
+          - TTS chỉ là fallback cho transcript; không tuyên bố audio đã verified.
+
+          ## Browser smoke
+          - Desktop Chromium viewport 1440×1000.
+          - Mobile Chromium viewport 390×844.
+          - Kiểm 10 unit, 24 lesson, 13 assessment, deep link, prev/next, một exercise có đáp án, final assessment, mobile horizontal overflow và kích thước control.
+          - Evidence: `reports/hsk-phase-a-learner-integration.json` + workflow artifact screenshots.
+
+          ## URL test sau deploy
+          - `https://vduckie.pages.dev/?area=hsk`
+          - `https://vduckie.pages.dev/?area=hsk&hskLesson=hsk1-lesson-01`
+          - `https://vduckie.pages.dev/?area=hsk&hskAssessment=hsk1-assessment-final`
+
+          ## Bước tiếp theo
+          Phase C3 — HSK2 Professional Curriculum. Không quay lại C2 trừ bug integration/content thực tế. HSK2 phải hoàn thiện curriculum + editorial gate, sau đó kết nối web read-only và smoke desktop/mobile trước khi sang HSK3.
+          EOF
+          sed -i 's/^          //' docs/hsk-phase-a-learner-integration-handoff.md
+          git diff --check
+
+      - name: Promote validated learner integration to main
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          set -euo pipefail
+          files=(
+            assets/hsk-content/hsk-content-feature-flags.js
+            assets/hsk-content/hsk-professional-runtime.js
+            assets/hsk-content/hsk-professional-runtime.css
+            tests/hsk-learner-c2-integration.test.js
+            tests/hsk-learner-browser-smoke.js
+            reports/hsk-phase-a-learner-integration.json
+            docs/hsk-phase-a-learner-integration-handoff.md
+          )
+          tar -czf /tmp/hsk-phase-a-final.tar.gz "${files[@]}"
+          git fetch origin main
+          current_main="$(git rev-parse origin/main)"
+          if [[ "$current_main" != "8b1b4d92d73c7d9b141b2e9bde810e02f783bd21" ]]; then
+            echo "origin/main moved to ${current_main}; refusing automatic promotion."
+            exit 1
+          fi
+          git reset --hard
+          git clean -fdx
+          git checkout -B phase-a-clean "$current_main"
+          tar -xzf /tmp/hsk-phase-a-final.tar.gz
+          node --check assets/hsk-content/hsk-professional-runtime.js
+          node --test \
+            tests/hsk-learner-c2-integration.test.js \
+            tests/hsk-phase-c2-editorial-quality.test.js \
+            tests/hsk-phase-c1-professional-course.test.js \
+            tests/hsk-phase2a-contract.test.js \
+            tests/hsk-phase2a-quality.test.js \
+            tests/hsk-phase2a-lock.test.js
+          node - <<'NODE'
+          const path = require('node:path');
+          const { validateRepository } = require('./scripts/hsk-reference-validator');
+          const { checkDuplicates } = require('./scripts/hsk-duplicate-engine');
+          const root = path.resolve('.');
+          const validator = validateRepository(root);
+          const duplicate = checkDuplicates(root);
+          if (!validator.ok || duplicate.summary.blockers !== 0) process.exit(1);
+          NODE
+          git diff --check
+          git config user.name "VDuckie Learner Integration Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -- "${files[@]}"
+          git diff --cached --check
+          git commit -m "Connect professional HSK 1 to learner web"
+          git push origin HEAD:main
+          echo "Promoted Phase A commit: $(git rev-parse HEAD)"
+
+      - name: Upload learner smoke evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsk1-c2-learner-smoke
+          if-no-files-found: warn
+          path: |
+            /tmp/hsk-phase-a-tests.log
+            /tmp/hsk-phase-a-validator.log
+            /tmp/hsk-browser-smoke.log
+            /tmp/hsk1-c2-browser-smoke.json
+            /tmp/hsk1-c2-desktop.png
+            /tmp/hsk1-c2-mobile.png
+            reports/hsk-phase-a-learner-integration.json
+            docs/hsk-phase-a-learner-integration-handoff.md
