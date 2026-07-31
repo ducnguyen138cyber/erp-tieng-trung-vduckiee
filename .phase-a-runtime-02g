@@ -1,0 +1,56 @@
+cted ? selected.value : (input ? input.value : '');
+    if (!text(value)) {
+      feedback.className = 'hsk-pro-feedback bad';
+      feedback.textContent = 'Hãy nhập/chọn câu trả lời trước.';
+      return;
+    }
+    var accepted = array(exercise.acceptedAnswers).slice();
+    if (typeof exercise.answer === 'string') accepted.push(exercise.answer);
+    var normalized = normalizeAnswer(value);
+    var correct = accepted.some(function (answer) { return normalizeAnswer(answer) === normalized; });
+    feedback.className = 'hsk-pro-feedback ' + (correct ? 'good' : 'bad');
+    feedback.innerHTML = '<b>' + (correct ? 'Đúng.' : 'Chưa khớp.') + '</b><p>Đáp án: ' + esc(typeof exercise.answer === 'string' ? exercise.answer : accepted[0] || '') + '</p><p>' + esc(exercise.explanationVi) + '</p>';
+  }
+
+  function bindEvents() {
+    if (listenersBound || !root.document || !root.document.addEventListener) return;
+    listenersBound = true;
+    root.document.addEventListener('click', function (event) {
+      var target = event.target && event.target.closest ? event.target.closest('button') : null;
+      if (!target) return;
+      if (target.hasAttribute('data-pro-retry')) {
+        state.data = null;
+        state.status = 'idle';
+        state.error = null;
+        mount(true).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK1 learner retry:', error); });
+        return;
+      }
+      if (target.getAttribute('data-pro-level') === '1') {
+        if (state.data && state.data.lessons[0]) selectLesson(state.data.lessons[0].id, true);
+        return;
+      }
+      var lessonId = target.getAttribute('data-pro-lesson');
+      if (lessonId) { selectLesson(lessonId, true); return; }
+      var assessmentId = target.getAttribute('data-pro-assessment');
+      if (assessmentId) { selectAssessment(assessmentId, true); return; }
+      var speech = target.getAttribute('data-pro-speak');
+      if (speech) { speak(speech); return; }
+      var answerId = target.getAttribute('data-pro-toggle-answer');
+      if (answerId) {
+        var answerBox = root.document.querySelector('[data-pro-answer-box="' + answerId + '"]');
+        if (answerBox) answerBox.classList.toggle('hidden');
+        return;
+      }
+      if (target.hasAttribute('data-pro-toggle-transcript')) {
+        var transcript = target.parentNode && target.parentNode.querySelector ? target.parentNode.querySelector('.hsk-pro-transcript') : null;
+        if (transcript) transcript.classList.toggle('hidden');
+        return;
+      }
+      if (target.hasAttribute('data-pro-show-evidence')) {
+        var evidence = target.closest('.hsk-pro-exercise').querySelector('[data-pro-evidence]');
+        if (evidence) evidence.classList.toggle('hidden');
+        return;
+      }
+      var checkId = target.getAttribute('data-pro-check');
+      if (checkId) { checkExercise(checkId, target.closest('.hsk-pro-exercise')); return; }
+      if (target.hasAttribute('data-pro-prev') || t
