@@ -1,0 +1,45 @@
+swer hidden" data-pro-answer-box="listening-' + index + '"><b>' + esc(answer.answer || answer.answerVi || '') + '</b></div></li>';
+      }).join('') + '</ol>';
+    return sectionCard(section.titleVi || 'Nghe', body);
+  }
+
+  function renderGenericSection(section) {
+    var content = section.content || {};
+    var chunks = [];
+    ['promptVi','successCriterionVi','coachingVi','speakingVi','writingVi','canDoVi','realWorldTaskVi','reviewPolicyVi'].forEach(function (key) {
+      if (content[key]) chunks.push('<p>' + esc(content[key]) + '</p>');
+    });
+    ['workflow','teachingFlow','passes','selfCheck','steps','checklist','retrievalMix','tasks'].forEach(function (key) {
+      if (array(content[key]).length) chunks.push('<div><b>' + esc(key.replace(/([A-Z])/g, ' $1')) + '</b>' + list(content[key]) + '</div>');
+    });
+    return sectionCard(section.titleVi || section.type || 'Nội dung', chunks.join(''));
+  }
+
+  function exerciseStimulus(exercise) {
+    var s = exercise.stimulus || {};
+    var html = '';
+    if (s.scriptZh) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN">' + esc(s.scriptZh) + '</pre>' + speakButton(s.scriptZh, 'Nghe bằng TTS') + '</div>';
+    if (s.textZh) html += '<div class="hsk-pro-reading" lang="zh-CN">' + esc(s.textZh) + '</div>';
+    if (s.dialogueZh) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN">' + esc(s.dialogueZh) + '</pre></div>';
+    if (array(s.tokens).length) html += '<div class="hsk-pro-tokens">' + s.tokens.map(function (token) { return '<span>' + esc(token) + '</span>'; }).join('') + '</div>';
+    if (s.questionVi) html += '<p class="hsk-pro-help">' + esc(s.questionVi) + '</p>';
+    if (s.evidenceZh) html += '<p class="hsk-pro-evidence hidden" data-pro-evidence>Gợi ý bằng chứng: <span lang="zh-CN">' + esc(s.evidenceZh) + '</span></p>';
+    return html;
+  }
+
+  function renderExercise(exercise, compact) {
+    if (!exercise) return '';
+    var open = exercise.answer && typeof exercise.answer === 'object' && !Array.isArray(exercise.answer);
+    var options = array(exercise.options);
+    var input = '';
+    if (options.length) {
+      input = '<div class="hsk-pro-options">' + options.map(function (option, index) {
+        var value = typeof option === 'object' ? (option.value != null ? option.value : option.text || option.label || JSON.stringify(option)) : option;
+        return '<label><input type="radio" name="' + attr(exercise.id) + '" value="' + attr(value) + '"><span>' + esc(value) + '</span></label>';
+      }).join('') + '</div>';
+    } else if (!open) {
+      input = '<input class="hsk-pro-answer-input" data-pro-input-for="' + attr(exercise.id) + '" autocomplete="off" placeholder="Nhập câu trả lời">';
+    } else {
+      input = '<textarea class="hsk-pro-answer-input" data-pro-input-for="' + attr(exercise.id) + '" rows="3" placeholder="Tự làm nhiệm vụ rồi ghi câu/ý chính của bạn ở đây"></textarea>';
+    }
+    var action = open ? 'Xem rubric tự đối chiếu' 
