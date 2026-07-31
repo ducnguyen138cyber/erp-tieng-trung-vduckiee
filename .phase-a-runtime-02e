@@ -1,0 +1,46 @@
+ader>';
+      array(unit.lessonRefs).forEach(function (ref) {
+        var lesson = data.lessonById[ref.id];
+        if (!lesson) return;
+        var active = state.selectedLessonId === lesson.id ? ' active' : '';
+        html += '<button type="button" class="hsk-pro-lesson-link' + active + '" data-pro-lesson="' + attr(lesson.id) + '"><span>' + esc(lesson.order) + '</span><b>' + esc(lesson.titleVi) + '</b><small lang="zh-CN">' + esc(lesson.titleZh) + '</small></button>';
+      });
+      var checkpoint = unit.checkpointRef && data.assessmentById[unit.checkpointRef.id];
+      if (checkpoint) html += '<button type="button" class="hsk-pro-assessment-link' + (state.selectedAssessmentId === checkpoint.id ? ' active' : '') + '" data-pro-assessment="' + attr(checkpoint.id) + '">✓ Checkpoint Unit ' + esc(unit.order) + '</button>';
+      html += '</section>';
+      if (Number(unit.order) === 5 && data.assessmentById['hsk1-assessment-midpoint']) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === 'hsk1-assessment-midpoint' ? ' active' : '') + '" data-pro-assessment="hsk1-assessment-midpoint">◈ Midpoint Assessment</button>';
+    });
+    ['hsk1-assessment-final','hsk1-assessment-mastery'].forEach(function (id) {
+      var assessment = data.assessmentById[id];
+      if (assessment) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + (id.indexOf('final') >= 0 ? '★ Final Assessment' : '◆ Mastery Review') + '</button>';
+    });
+    node.innerHTML = html;
+  }
+
+  function updateIntro(data) {
+    var intro = root.document && root.document.querySelector ? root.document.querySelector('.hsk-intro') : null;
+    if (intro) {
+      var strong = intro.querySelector('strong');
+      var paragraph = intro.querySelector('p');
+      var badge = intro.querySelector('.hsk-standard');
+      if (strong) strong.textContent = 'HSK 1 Professional · C2 đã kết nối learner-facing';
+      if (paragraph) paragraph.textContent = '10 unit · 24 lesson · 21 điểm ngữ pháp · 50 chữ Hán · 120 bài tập · 13 assessment. Chế độ test read-only: không ghi progress, không migration.';
+      if (badge) badge.textContent = 'C2 · READ-ONLY TEST';
+    }
+    var home = root.document && root.document.querySelector ? root.document.querySelector('.home-resource-tile.resource-hsk') : null;
+    if (home) {
+      var count = home.querySelector('strong');
+      var label = home.querySelector('span');
+      if (count) count.textContent = '24';
+      if (label) label.textContent = 'Bài HSK1 C2';
+    }
+  }
+
+  function writeUrl() {
+    if (!root.history || !root.location) return;
+    try {
+      var url = new URL(root.location.href);
+      url.searchParams.set('area', 'hsk');
+      if (state.selectedLessonId) {
+        url.searchParams.set('hskLesson', state.selectedLessonId);
+        url.searchParams.delete('h
