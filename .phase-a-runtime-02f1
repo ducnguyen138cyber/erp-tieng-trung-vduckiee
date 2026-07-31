@@ -1,0 +1,34 @@
+enderCurrent();
+    if (shouldScroll !== false) {
+      var node = byId('hskLesson');
+      if (node && node.scrollIntoView) node.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    return true;
+  }
+  function selectAssessment(id, shouldScroll) {
+    if (!state.data || !state.data.assessmentById[id]) return false;
+    state.selectedAssessmentId = id;
+    state.selectedLessonId = null;
+    renderCurrent();
+    if (shouldScroll !== false) {
+      var node = byId('hskLesson');
+      if (node && node.scrollIntoView) node.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    return true;
+  }
+
+  function checkExercise(id, article) {
+    var exercise = state.data && state.data.exerciseById[id];
+    if (!exercise || !article) return;
+    var feedback = article.querySelector('[data-pro-feedback="' + id + '"]');
+    if (!feedback) return;
+    var open = exercise.answer && typeof exercise.answer === 'object' && !Array.isArray(exercise.answer);
+    if (open) {
+      var rubric = exercise.answer.rubric || {};
+      feedback.className = 'hsk-pro-feedback';
+      feedback.innerHTML = '<b>Rubric tự đối chiếu</b><p>' + Object.keys(rubric).map(function (key) { return esc(key) + ': ' + esc(rubric[key]) + '%'; }).join(' · ') + '</p><p>' + esc(exercise.explanationVi) + '</p>';
+      return;
+    }
+    var selected = article.querySelector('input[type="radio"]:checked');
+    var input = article.querySelector('[data-pro-input-for="' + id + '"]');
+    var value = sele
