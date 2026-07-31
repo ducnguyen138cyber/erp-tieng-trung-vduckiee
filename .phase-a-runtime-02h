@@ -1,0 +1,71 @@
+arget.hasAttribute('data-pro-next')) {
+        if (!state.selectedLessonId) return;
+        var index = lessonIndex(state.data, state.selectedLessonId) + (target.hasAttribute('data-pro-next') ? 1 : -1);
+        if (index >= 0 && index < state.data.lessons.length) selectLesson(state.data.lessons[index].id, true);
+      }
+    });
+  }
+
+  function initialSelection(data) {
+    var lessonId = null, assessmentId = null;
+    try {
+      var params = new URLSearchParams(root.location && root.location.search || '');
+      lessonId = params.get('hskLesson');
+      assessmentId = params.get('hskAssessment');
+    } catch (error) {}
+    if (assessmentId && data.assessmentById[assessmentId]) state.selectedAssessmentId = assessmentId;
+    else {
+      state.selectedAssessmentId = null;
+      state.selectedLessonId = lessonId && data.lessonById[lessonId] ? lessonId : data.lessons[0].id;
+    }
+  }
+
+  function showLoading() {
+    var node = byId('hskLesson');
+    if (node) node.innerHTML = '<div class="hsk-pro-loading"><b>Đang nạp HSK1 Professional C2…</b><span>10 unit · 24 lesson · read-only</span></div>';
+  }
+  function showError(error) {
+    var node = byId('hskLesson');
+    if (node) node.innerHTML = '<div class="hsk-pro-error"><b>Không nạp được HSK1 C2.</b><p>' + esc(error && error.message || error) + '</p><button class="accent" type="button" data-pro-retry>Thử lại</button></div>';
+    if (root.document && root.document.body) root.document.body.setAttribute('data-hsk-prof-ready', 'error');
+  }
+
+  function mount(force) {
+    var flags = root.VDuckieHskContentFlags && root.VDuckieHskContentFlags.FLAGS;
+    if (!force && (!flags || flags.HSK_CURRICULUM_V2_LEARNER_READONLY_ENABLED !== true)) return Promise.resolve({ mounted: false, reason: 'flag-disabled' });
+    if (!byId('hskLesson') || !byId('hskLevels') || !byId('hskLessonList')) return Promise.resolve({ mounted: false, reason: 'dom-unavailable' });
+    bindEvents();
+    showLoading();
+    return loadCourse().then(function (data) {
+      if (!state.selectedLessonId && !state.selectedAssessmentId) initialSelection(data);
+      state.mounted = true;
+      renderCurrent();
+      return getState();
+    }).catch(function (error) {
+      showError(error);
+      throw error;
+    });
+  }
+
+  function getState() {
+    return {
+      status: state.status,
+      mounted: state.mounted,
+      readOnly: true,
+      progressWritesEnabled: false,
+      selectedLessonId: state.selectedLessonId,
+      selectedAssessmentId: state.selectedAssessmentId,
+      counts: state.data ? {
+        units: state.data.units.length,
+        lessons: state.data.lessons.length,
+        grammar: state.data.grammar.length,
+        characters: state.data.characters.length,
+        exercises: state.data.exercises.length,
+        assessments: state.data.assessments.length,
+        vocabulary: state.data.vocabulary.length
+      } : null,
+      error: state.error ? (state.error.message || String(state.error)) : null
+    };
+  }
+
+  fun
