@@ -1,0 +1,35 @@
+: 'Kiểm tra';
+    return '<article class="hsk-pro-exercise' + (compact ? ' compact' : '') + '" data-pro-exercise="' + attr(exercise.id) + '"><header><span>' + esc(exercise.skill) + ' · ' + esc(exercise.format) + '</span><b>Độ khó ' + esc(exercise.difficulty) + '</b></header><p class="hsk-pro-prompt">' + esc(exercise.prompt) + '</p>' + exerciseStimulus(exercise) + input +
+      '<div class="hsk-pro-exercise-actions"><button type="button" class="accent" data-pro-check="' + attr(exercise.id) + '">' + action + '</button>' + (exercise.stimulus && exercise.stimulus.evidenceZh ? '<button type="button" class="muted" data-pro-show-evidence>Gợi ý bằng chứng</button>' : '') + '</div><div class="hsk-pro-feedback hidden" data-pro-feedback="' + attr(exercise.id) + '"></div></article>';
+  }
+
+  function renderPractice(data, lesson) {
+    var exercises = array(lesson.practiceRefs).map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
+    return sectionCard('Bài tập của lesson', '<p class="hsk-pro-help">Làm trực tiếp trên web. Kết quả chỉ tồn tại trong phiên hiện tại; VDuckie chưa ghi progress C2.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
+  }
+
+  function lessonIndex(data, id) {
+    for (var i = 0; i < data.lessons.length; i++) if (data.lessons[i].id === id) return i;
+    return 0;
+  }
+  function unitForLesson(data, lesson) {
+    for (var i = 0; i < data.units.length; i++) if (data.units[i].id === lesson.unitId) return data.units[i];
+    return null;
+  }
+
+  function renderLesson(data, lesson) {
+    var index = lessonIndex(data, lesson.id);
+    var unit = unitForLesson(data, lesson);
+    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div><span class="hsk-pro-readonly">🔒 READ-ONLY C2</span></div>' +
+      '<section class="hsk-pro-objectives"><b>Sau bài này bạn làm được gì?</b>' + list(lesson.objectives) + '</section>';
+    array(lesson.sections).forEach(function (section) {
+      if (section.type === 'vocabulary') body += renderVocabulary(data, section);
+      else if (section.type === 'character') body += renderCharacters(data, section);
+      else if (section.type === 'grammar') body += renderGrammar(data, section);
+      else if (section.type === 'dialogue') body += renderDialogue(section);
+      else if (section.type === 'reading') body += renderReading(section);
+      else if (section.type === 'listening') body += renderListening(section);
+      else body += renderGenericSection(section);
+    });
+    body += renderPractice(data, lesson);
+    body += '<nav class="
