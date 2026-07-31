@@ -1,0 +1,137 @@
+(function (root, factory) {
+  'use strict';
+  var api = factory(root || {});
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  if (root) root.VDuckieHskProfessionalRuntime = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function (root) {
+  'use strict';
+
+  var BASE = './data/hsk/hsk1/';
+  var SUPPORT_GLOSSES = Object.freeze({
+    '不喜欢': 'không thích',
+    '不能': 'không thể',
+    '吃饭': 'ăn cơm; ăn',
+    '回家': 'về nhà',
+    '杯': 'cốc; ly; lượng từ cho đồ uống',
+    '看电影': 'xem phim',
+    '越南': 'Việt Nam',
+    '面条': 'mì sợi'
+  });
+  var state = {
+    status: 'idle',
+    error: null,
+    data: null,
+    selectedLessonId: null,
+    selectedAssessmentId: null,
+    mounted: false,
+    readOnly: true
+  };
+  var listenersBound = false;
+
+  function text(value) { return String(value == null ? '' : value).trim(); }
+  function esc(value) {
+    return text(value).replace(/[&<>"']/g, function (char) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char];
+    });
+  }
+  function attr(value) { return esc(value).replace(/`/g, '&#96;'); }
+  function byId(id) { return root.document && root.document.getElementById ? root.document.getElementById(id) : null; }
+  function array(value) { return Array.isArray(value) ? value : []; }
+  function mapBy(records, field) {
+    var result = Object.create(null);
+    array(records).forEach(function (record) { if (record && record[field] != null) result[String(record[field])] = record; });
+    return result;
+  }
+  function normalizeAnswer(value) {
+    var output = text(value).toLowerCase();
+    if (output.normalize) output = output.normalize('NFC');
+    return output.replace(/[\s，。！？、,.!?;；:：'“”"‘’（）()\-]/g, '');
+  }
+  function pinyinFor(value) {
+    var zh = text(value);
+    if (!zh) return '';
+    try {
+      if (root.pinyinPro && typeof root.pinyinPro.pinyin === 'function') {
+        return root.pinyinPro.pinyin(zh, { toneType: 'symbol', type: 'string' });
+      }
+    } catch (error) {}
+    return '';
+  }
+  function speak(value, rate) {
+    var zh = text(value);
+    if (!zh || !root.speechSynthesis || typeof root.SpeechSynthesisUtterance !== 'function') return false;
+    try {
+      root.speechSynthesis.cancel();
+      var utterance = new root.SpeechSynthesisUtterance(zh);
+      utterance.lang = 'zh-CN';
+      utterance.rate = Number(rate || 0.72);
+      root.speechSynthesis.speak(utterance);
+      return true;
+    } catch (error) { return false; }
+  }
+
+  function fetchJson(path) {
+    if (typeof root.fetch !== 'function') return Promise.reject(new Error('Trình duyệt không hỗ trợ fetch.'));
+    return root.fetch(path, { cache: 'no-store' }).then(function (response) {
+      if (!response || !response.ok) throw new Error('Không tải được ' + path + ' (HTTP ' + (response && response.status || '?') + ').');
+      return response.json();
+    });
+  }
+  function loadIndexedCollection(indexPath, expectedType) {
+    return fetchJson(indexPath).then(function (index) {
+      var slash = indexPath.lastIndexOf('/');
+      var dir = slash >= 0 ? indexPath.slice(0, slash + 1) : '';
+      return Promise.all(array(index.shards).map(function (shard) {
+        return fetchJson(dir + shard.file).then(function (collection) {
+          if (collection.collectionType !== expectedType) throw new Error('Sai collection type tại ' + shard.file + '.');
+          return array(collection.records);
+        });
+      })).then(function (parts) {
+        var records = [];
+        parts.forEach(function (part) { records = records.concat(part); });
+        if (Number(index.expectedCount || records.length) !== records.length) throw new Error('Sai số lượng ' + expectedType + ': ' + records.length + '.');
+        return records;
+      });
+    });
+  }
+
+  function verifyCourse(manifest, units, lessons, grammar, characters, exercises, assessments, enrichment, vocabulary) {
+    if (!manifest || Number(manifest.level) !== 1 || manifest.phase !== 'C2') throw new Error('HSK1 course manifest C2 không hợp lệ.');
+    if (manifest.writesProgress !== false || manifest.readOnly !== true || manifest.productionEnabled !== false) throw new Error('HSK1 C2 phải giữ read-only và production lock.');
+    var collections = manifest.collections || {};
+    var checks = [
+      ['units', units], ['lessons', lessons], ['grammar', grammar], ['characters', characters], ['exercises', exercises], ['assessments', assessments]
+    ];
+    checks.forEach(function (item) {
+      var expected = collections[item[0]] && Number(collections[item[0]].count);
+      if (expected && item[1].length !== expected) throw new Error('Sai số lượng ' + item[0] + ': cần ' + expected + ', nhận ' + item[1].length + '.');
+    });
+    if (collections.vocabularyEnrichment && enrichment.length !== Number(collections.vocabularyEnrichment.count)) throw new Error('Sai số lượng vocabulary enrichment.');
+    if (vocabulary.length !== 300) throw new Error('Canonical HSK1 vocabulary phải có 300 record.');
+  }
+
+  function loadCourse() {
+    if (state.data) return Promise.resolve(state.data);
+    state.status = 'loading';
+    state.error = null;
+    return Promise.all([
+      fetchJson(BASE + 'course-manifest.json'),
+      fetchJson(BASE + 'units.json'),
+      fetchJson(BASE + 'lessons.json'),
+      fetchJson(BASE + 'grammar.json'),
+      fetchJson(BASE + 'characters.json'),
+      fetchJson(BASE + 'exercises.json'),
+      fetchJson(BASE + 'assessments.json'),
+      fetchJson(BASE + 'vocabulary-enrichment.json'),
+      loadIndexedCollection(BASE + 'vocabulary/index.json', 'vocabulary')
+    ]).then(function (parts) {
+      var manifest = parts[0];
+      var units = array(parts[1].records);
+      var lessons = array(parts[2].records);
+      var grammar = array(parts[3].records);
+      var characters = array(parts[4].records);
+      var exercises = array(parts[5].records);
+      var assessments = array(parts[6].records);
+      var enrichment = array(parts[7].entries);
+      var vocabulary = parts[8];
+      verifyCourse(manifest, units, lessons, grammar, characters, 
