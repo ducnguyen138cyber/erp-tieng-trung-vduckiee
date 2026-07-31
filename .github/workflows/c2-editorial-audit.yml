@@ -177,36 +177,68 @@ jobs:
               path.write_text(text)
           PY
 
-      - name: Commit materialized C2 on temporary branch
-        if: github.event_name == 'push'
+      - name: Promote validated C2 to clean main commit
+        if: github.event_name == 'pull_request'
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name "VDuckie C2 Agent"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A -- \
-            .c2-bootstrap.b64 \
-            '.c2part-*' \
-            data/hsk/hsk1/editorial-c2.json \
-            data/hsk/hsk1/lessons.json \
-            data/hsk/hsk1/grammar.json \
-            data/hsk/hsk1/exercises.json \
-            data/hsk/hsk1/assessments.json \
-            data/hsk/hsk1/course-manifest.json \
-            data/hsk/hsk1/level.json \
-            data/hsk/manifest.json \
-            scripts/polish-hsk1-c2.js \
+          files=(
+            data/hsk/hsk1/editorial-c2.json
+            data/hsk/hsk1/lessons.json
+            data/hsk/hsk1/grammar.json
+            data/hsk/hsk1/exercises.json
+            data/hsk/hsk1/assessments.json
+            data/hsk/hsk1/course-manifest.json
+            data/hsk/hsk1/level.json
+            data/hsk/manifest.json
+            scripts/polish-hsk1-c2.js
+            tests/hsk-phase-c2-editorial-quality.test.js
+            tests/hsk-phase-c1-professional-course.test.js
+            docs/hsk-phase-c2-handoff.md
+            reports/hsk-c2-editorial-report.json
+            reports/hsk-c2-validation-summary.json
+          )
+
+          tar -czf /tmp/hsk1-c2-final.tar.gz "${files[@]}"
+          git fetch origin main
+          current_main="$(git rev-parse origin/main)"
+          if [[ "$current_main" != "8c5714ce5f22fc438f5588fedbc331291ed6c882" ]]; then
+            echo "origin/main moved to ${current_main}; refusing to overwrite a newer main."
+            exit 1
+          fi
+
+          git checkout -B c2-clean "$current_main"
+          tar -xzf /tmp/hsk1-c2-final.tar.gz
+
+          node scripts/polish-hsk1-c2.js
+          node - <<'NODE'
+          const path = require('node:path');
+          const { validateRepository } = require('./scripts/hsk-reference-validator');
+          const { checkDuplicates } = require('./scripts/hsk-duplicate-engine');
+          const root = path.resolve('.');
+          const validator = validateRepository(root);
+          const duplicate = checkDuplicates(root);
+          if (!validator.ok || duplicate.summary.blockers !== 0) {
+            console.error(JSON.stringify({ validator: validator.summary, duplicate: duplicate.summary }, null, 2));
+            process.exit(1);
+          }
+          console.log(JSON.stringify({ validator: validator.summary, duplicate: duplicate.summary }, null, 2));
+          NODE
+          node --test \
             tests/hsk-phase-c2-editorial-quality.test.js \
             tests/hsk-phase-c1-professional-course.test.js \
-            docs/hsk-phase-c2-handoff.md \
-            reports/hsk-c2-editorial-report.json \
-            reports/hsk-c2-validation-summary.json
-          if git diff --cached --quiet; then
-            echo "No C2 materialization changes to commit."
-          else
-            git commit -m "Finalize HSK1 C2 editorial evidence"
-            git push origin HEAD:agent/hsk1-c2-editorial
-          fi
+            tests/hsk-phase2a-contract.test.js \
+            tests/hsk-phase2a-quality.test.js \
+            tests/hsk-phase2a-lock.test.js
+          git diff --check
+
+          git config user.name "VDuckie C2 Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -- "${files[@]}"
+          git diff --cached --check
+          git commit -m "Polish professional HSK 1 editorial content"
+          git push origin HEAD:main
+          echo "Promoted C2 commit: $(git rev-parse HEAD)"
 
       - name: Upload C2 validation evidence
         if: always()
