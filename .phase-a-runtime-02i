@@ -1,0 +1,25 @@
+ction boot() {
+    if (!root.document) return;
+    var start = function () {
+      mount(false).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK1 learner runtime:', error); });
+      if (root.PinyinEngineReady && typeof root.PinyinEngineReady.then === 'function') {
+        root.PinyinEngineReady.then(function () { if (state.data) renderCurrent(); }).catch(function () {});
+      }
+    };
+    if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', start, { once: true });
+    else root.setTimeout(start, 0);
+  }
+
+  if (root.document) boot();
+
+  return Object.freeze({
+    mount: mount,
+    getState: getState,
+    selectLesson: selectLesson,
+    selectAssessment: selectAssessment,
+    normalizeAnswer: normalizeAnswer,
+    resolveFocusWord: resolveFocusWord,
+    verifyCourse: verifyCourse,
+    SUPPORT_GLOSSES: SUPPORT_GLOSSES
+  });
+});
