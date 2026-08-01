@@ -44,43 +44,53 @@
   ],
   "levels": [
     {
-      "assessments": 0,
-      "characters": 0,
-      "checkpoints": 0,
+      "assessments": 13,
+      "characters": 50,
+      "checkpoints": 10,
       "complete": false,
-      "completionReason": "planned-level-has-no-approved-content",
-      "difficultyDistribution": {},
-      "exercises": 0,
+      "completionReason": "quality-gate-locked",
+      "difficultyDistribution": {
+        "1": 25,
+        "2": 55,
+        "3": 40
+      },
+      "exercises": 120,
       "exercisesBySkill": {
-        "grammar": 0,
+        "grammar": 24,
         "integrated": 0,
-        "listening": 0,
-        "reading": 0,
-        "speaking": 0,
+        "listening": 24,
+        "reading": 24,
+        "speaking": 24,
         "translation": 0,
         "vocabulary": 0,
-        "writing": 0
+        "writing": 24
       },
-      "grammar": 0,
+      "grammar": 21,
       "grammarWithoutExercise": [],
-      "lessons": 0,
+      "lessons": 24,
       "level": 1,
       "missingSkills": [
-        "vocabulary",
-        "grammar",
-        "listening",
-        "speaking",
-        "reading",
-        "writing"
+        "vocabulary"
       ],
       "productionReady": false,
       "sourceCoverage": 1,
-      "sourcedRecords": 1201,
+      "sourcedRecords": 1439,
       "stage": "elementary",
-      "status": "planned",
-      "topicDistribution": {},
-      "units": 0,
-      "unreviewedRecords": 1201,
+      "status": "machine-assisted",
+      "topicDistribution": {
+        "Gia đình và người quen": 10,
+        "Gặp gỡ lần đầu": 15,
+        "Lớp học và ngôn ngữ": 10,
+        "Mua sắm và đồ vật": 10,
+        "Một ngày của tôi": 15,
+        "Số, ngày và cuộc hẹn": 15,
+        "Thời tiết, sức khỏe và kế hoạch": 15,
+        "Ăn uống hằng ngày": 10,
+        "Đi lại và phương hướng": 10,
+        "Định hướng phát âm và chữ Hán": 10
+      },
+      "units": 10,
+      "unreviewedRecords": 1416,
       "vocabulary": 300,
       "vocabularyIntroducedButNotPracticed": []
     },
@@ -427,7 +437,7 @@
   "schemaVersion": "1.0.0",
   "totals": {
     "fixtureRecords": 30,
-    "plannedLevels": 9,
+    "plannedLevels": 8,
     "productionReadyLevels": 0,
     "validationErrors": 0
   }
