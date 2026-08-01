@@ -1,0 +1,1 @@
+Temporary branch note: this branch exists only to trigger the existing PR workflow for Level 1 verification. The workflow creates one clean commit from main and does not merge this branch history. Do not merge this branch directly.
