@@ -1,0 +1,162 @@
+name: HSK1 recovery PR verification
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 5d1fa350319593266b3ae3837360f785a509ae60
+          fetch-depth: 0
+
+      - name: Confirm exact main checkpoint
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          git status -sb
+          git status --porcelain
+          git remote -v
+          git log --oneline --decorate -30
+          test "$(git rev-parse HEAD)" = "5d1fa350319593266b3ae3837360f785a509ae60"
+          test "$(git rev-parse origin/main)" = "5d1fa350319593266b3ae3837360f785a509ae60"
+          test -z "$(git status --porcelain)"
+
+      - name: Validate HSK content and integration
+        run: |
+          set -euo pipefail
+          node --check assets/hsk-content/hsk-professional-runtime.js
+          node --check assets/hsk-content/hsk-content-feature-flags.js
+          node scripts/validate-hsk-content.js
+          node scripts/check-hsk-duplicates.js
+          node scripts/check-hsk-coverage.js
+          node scripts/generate-hsk-report.js
+          node --test \
+            tests/hsk-learner-c2-integration.test.js \
+            tests/hsk-phase-c2-editorial-quality.test.js \
+            tests/hsk-phase-c1-professional-course.test.js \
+            tests/hsk-phase2a-contract.test.js \
+            tests/hsk-phase2a-quality.test.js \
+            tests/hsk-phase2a-lock.test.js
+          git diff --check
+          git diff --exit-code -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json
+
+      - name: Install Chromium
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pw && cd /tmp/pw
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Smoke four viewports on main source and production
+        env:
+          NODE_PATH: /tmp/pw/node_modules
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/hsk-recovery-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..30}; do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep 1; done
+          cat >/tmp/smoke.js <<'NODE'
+          const fs = require('node:fs');
+          const { chromium } = require('playwright');
+          const targets = [
+            ['local','http://127.0.0.1:4173/'],
+            ['production','https://vduckie.pages.dev/']
+          ];
+          const sizes = [
+            ['1440x900',1440,900,false],
+            ['1024x768',1024,768,false],
+            ['390x844',390,844,true],
+            ['320x568',320,568,true]
+          ];
+          const expected = {units:10,lessons:24,grammar:21,characters:50,exercises:120,assessments:13,vocabulary:300};
+          const out = {commit:'5d1fa350319593266b3ae3837360f785a509ae60',results:{},failures:[]};
+          const die = m => { throw new Error(m); };
+          async function ready(page){
+            await page.waitForFunction(() => document.body && document.body.getAttribute('data-hsk-prof-ready') === 'true', null, {timeout:30000});
+            return page.evaluate(() => window.VDuckieHskProfessionalRuntime.getState());
+          }
+          async function check(browser,targetName,base,sizeName,w,h,mobile){
+            const label = `${targetName}/${sizeName}`;
+            const page = await browser.newPage({viewport:{width:w,height:h},isMobile:mobile,hasTouch:mobile});
+            const errors=[]; page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
+            try{
+              await page.goto(base+'?recovery=home',{waitUntil:'domcontentloaded',timeout:45000});
+              let state=await ready(page);
+              const home=page.locator('[data-home-area="hsk"]').first();
+              if(await home.count()) await home.click();
+              await page.waitForFunction(()=>document.body.getAttribute('data-current-area')==='hsk');
+              state=await ready(page);
+              if(!state.mounted||state.status!=='ready'||!state.readOnly||state.progressWritesEnabled!==false) die(label+': unsafe/not-ready state');
+              for(const [k,v] of Object.entries(expected)) if(state.counts[k]!==v) die(label+`: ${k}=${state.counts[k]} expected ${v}`);
+              if(await page.locator('.hsk-pro-unit').count()!==10) die(label+': unit count');
+              if(await page.locator('[data-pro-lesson]').count()!==24) die(label+': lesson count');
+              if(await page.locator('[data-pro-assessment]').count()!==13) die(label+': assessment count');
+              if(await page.locator('.hsk-pro-level.locked').count()!==8) die(label+': HSK2-9 must stay locked');
+              await page.locator('#hskLesson').getByText('Nghe rõ bốn thanh',{exact:true}).waitFor();
+              await page.locator('#hskLesson').getByText('听清四声',{exact:true}).waitFor();
+              if(await page.locator('.hsk-pro-section-vocab').count()<1) die(label+': vocabulary missing');
+              if(await page.locator('.hsk-pro-grammar').count()<1) die(label+': grammar missing');
+              if(await page.locator('.hsk-pro-character').count()<1) die(label+': character missing');
+              if(await page.locator('.hsk-pro-transcript').count()<1) die(label+': listening transcript missing');
+              if(await page.locator('.hsk-pro-reading').count()<1) die(label+': reading missing');
+              const ex=page.locator('[data-pro-exercise="hsk1-lesson-01-exercise-1"]');
+              await ex.locator('[data-pro-input-for="hsk1-lesson-01-exercise-1"]').fill('一、七、八、十');
+              await ex.locator('[data-pro-check="hsk1-lesson-01-exercise-1"]').click();
+              await ex.locator('[data-pro-feedback="hsk1-lesson-01-exercise-1"]').getByText('Đúng.',{exact:true}).waitFor();
+              const feedback=await ex.locator('[data-pro-feedback="hsk1-lesson-01-exercise-1"]').textContent();
+              if(!feedback.includes('Đáp án:')) die(label+': answer explanation missing');
+              await page.locator('[data-pro-next]').click();
+              await page.waitForFunction(()=>window.VDuckieHskProfessionalRuntime.getState().selectedLessonId==='hsk1-lesson-02');
+              await page.locator('[data-pro-lesson="hsk1-lesson-13"]').click();
+              await page.waitForFunction(()=>window.VDuckieHskProfessionalRuntime.getState().selectedLessonId==='hsk1-lesson-13');
+              await page.locator('[data-pro-lesson="hsk1-lesson-24"]').click();
+              await page.waitForFunction(()=>window.VDuckieHskProfessionalRuntime.getState().selectedLessonId==='hsk1-lesson-24');
+              await page.locator('[data-pro-assessment="hsk1-assessment-final"]').click();
+              await page.waitForFunction(()=>window.VDuckieHskProfessionalRuntime.getState().selectedAssessmentId==='hsk1-assessment-final');
+              await page.locator('[data-pro-assessment="hsk1-assessment-mastery"]').click();
+              await page.waitForFunction(()=>window.VDuckieHskProfessionalRuntime.getState().selectedAssessmentId==='hsk1-assessment-mastery');
+              await page.goto(base+'?area=hsk&hskLesson=hsk1-lesson-24&recovery=lesson',{waitUntil:'domcontentloaded',timeout:45000});
+              state=await ready(page); if(state.selectedLessonId!=='hsk1-lesson-24') die(label+': lesson deep link');
+              await page.goto(base+'?area=hsk&hskAssessment=hsk1-assessment-final&recovery=assessment',{waitUntil:'domcontentloaded',timeout:45000});
+              state=await ready(page); if(state.selectedAssessmentId!=='hsk1-assessment-final') die(label+': assessment deep link');
+              const layout=await page.evaluate(()=>({vw:innerWidth,doc:document.documentElement.scrollWidth,minButton:(()=>{const b=[...document.querySelectorAll('#hskLesson button:not([disabled])')];return b.length?Math.min(...b.map(x=>x.getBoundingClientRect().height)):0})()}));
+              if(layout.doc-layout.vw>2) die(label+': horizontal overflow '+(layout.doc-layout.vw));
+              if(mobile&&layout.minButton<44) die(label+': touch target '+layout.minButton);
+              const critical=errors.filter(e=>/HSK1 learner runtime|hsk-professional-runtime|course-manifest|data\/hsk\/hsk1|SyntaxError|ReferenceError/i.test(e));
+              if(critical.length) die(label+': critical console '+critical.join(' | '));
+              await page.screenshot({path:`/tmp/recovery-${targetName}-${sizeName}.png`,fullPage:true});
+              return {pass:true,state,layout,consoleErrors:errors};
+            }finally{await page.close()}
+          }
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            try{
+              for(const [tn,base] of targets){out.results[tn]={};for(const [sn,w,h,m] of sizes){try{out.results[tn][sn]=await check(browser,tn,base,sn,w,h,m)}catch(e){out.failures.push({target:tn,viewport:sn,error:e.stack||String(e)});out.results[tn][sn]={pass:false,error:e.stack||String(e)}}}}
+            }finally{await browser.close()}
+            fs.writeFileSync('/tmp/hsk-recovery-four-viewports.json',JSON.stringify(out,null,2)+'\n');
+            console.log(JSON.stringify(out,null,2));
+            if(out.failures.length)process.exit(1);
+          })();
+          NODE
+          node /tmp/smoke.js | tee /tmp/hsk-recovery-four-viewports.log
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsk1-recovery-four-viewports
+          retention-days: 5
+          if-no-files-found: warn
+          path: |
+            /tmp/hsk-recovery-four-viewports.json
+            /tmp/hsk-recovery-four-viewports.log
+            /tmp/recovery-*.png
