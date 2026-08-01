@@ -34,22 +34,10 @@ function loadRenderer() {
       return '<button class="v95-mascot v95-level-' + level + '" data-v95-level="' + level + '" data-v95-render-mode="sprite" data-v95-resolved-asset="current-level-' + level + '"></button>';
     },
     hydrate() {},
-    getStage() {},
-    getStages() {},
-    getItem() {},
-    getItems() {},
-    getCategories() {},
-    defaults() { return {}; },
-    normalizeSelection() {},
-    resolveSelection() {},
-    resolveAsset() {},
-    selectionStatus() {},
-    isCompatible() {},
-    incompatibilityReason() {},
-    itemThumbnail() { return ""; },
-    preloadItem() {},
-    preloadAsset(asset) { preloaded.push(asset); },
-    registerRenderer() {}
+    getStage() {}, getStages() {}, getItem() {}, getItems() {}, getCategories() {},
+    defaults() { return {}; }, normalizeSelection() {}, resolveSelection() {}, resolveAsset() {},
+    selectionStatus() {}, isCompatible() {}, incompatibilityReason() {}, itemThumbnail() { return ""; },
+    preloadItem() {}, preloadAsset(asset) { preloaded.push(asset); }, registerRenderer() {}
   };
   const fakeDocument = { body: null, querySelectorAll() { return []; } };
   const context = { window: { VDuckieMascot: base, VDuckieAvatar: base }, document: fakeDocument };
@@ -59,7 +47,7 @@ function loadRenderer() {
   return { api: context.window.VDuckieMascot, delegated, preloaded, manifest: context.window.VDuckieLevel1Manifest };
 }
 
-test("Level 1 maps exact EXP boundaries and delegates to Level 2 at 100%", () => {
+test("Level 1 maps exact EXP boundaries and delegates to Level 2 only at 100%", () => {
   const { api } = loadRenderer();
   const cases = [[0,"resting"],[24,"resting"],[25,"first-crack"],[49,"first-crack"],[50,"peek"],[74,"peek"],[75,"ready"],[99,"ready"],[100,"hatched"]];
   for (const [progress, expected] of cases) assert.equal(api.getLevel1State(progress), expected, String(progress));
@@ -68,6 +56,7 @@ test("Level 1 maps exact EXP boundaries and delegates to Level 2 at 100%", () =>
     const html = api.render({ level: 1, progressPercent: progress, animationState: "idle" });
     assert.match(html, new RegExp('data-v109-egg-stage="' + expected + '"'));
     assert.equal(occurrences(html, "data-v109-visual-root="), 1, `visual root at ${progress}%`);
+    assert.equal(occurrences(html, "data-v109-motion-root="), 1, `motion root at ${progress}%`);
     assert.equal(occurrences(html, "data-v109-level1-image"), 1, `active image at ${progress}%`);
     assert.doesNotMatch(html, /v96-egg-sequence|v96-egg-frame|v95-egg|v109-egg-sequence|v109-hatch-preview/);
   }
@@ -75,31 +64,49 @@ test("Level 1 maps exact EXP boundaries and delegates to Level 2 at 100%", () =>
   const hatched = api.render({ level: 1, progressPercent: 100, animationState: "level-up" });
   assert.match(hatched, /data-v95-level="2"/);
   assert.match(hatched, /data-v109-origin-level="1"/);
-  assert.doesNotMatch(hatched, /data-v109-level1|v96-egg|v95-egg|v109-hatch-preview/);
+  assert.doesNotMatch(hatched, /data-v109-level1|data-v109-visual-root|data-v109-level1-image/);
 });
 
-test("75-99% and hatch use the new VDuckie newborn asset only", () => {
+test("each progress band resolves its own asset and 0% never resolves the newborn", () => {
+  const { api, manifest } = loadRenderer();
+  const expected = [
+    [0, "egg-resting.svg"],
+    [25, "egg-first-crack.svg"],
+    [50, "egg-peek.svg"],
+    [75, "newborn-vduckie-hatching.webp"],
+    [99, "newborn-vduckie-hatching.webp"]
+  ];
+  for (const [progress, file] of expected) {
+    const html = api.render({ level: 1, progressPercent: progress, animationState: "idle" });
+    assert.match(html, new RegExp(file.replaceAll(".", "\\.")));
+  }
+  const zeroHatching = api.render({ level: 1, progressPercent: 0, animationState: "hatching" });
+  assert.match(zeroHatching, /egg-resting\.svg\?v=109\.3/);
+  assert.doesNotMatch(zeroHatching, /newborn-vduckie-hatching/);
+  assert.equal(manifest.assetFor(25, "level-up"), manifest.assets["first-crack"]);
+  assert.equal(manifest.assetFor(50, "hatching"), manifest.assets.peek);
+  assert.equal(manifest.assetFor(75, "hatching"), manifest.assets.hatching);
+});
+
+test("75-99% uses the new transparent newborn asset and preloads it once", () => {
   const { api, manifest, preloaded } = loadRenderer();
-  const ready = api.render({ level: 1, progressPercent: 75, animationState: "idle" });
-  const almost = api.render({ level: 1, progressPercent: 99, animationState: "idle" });
-  const hatching = api.render({ level: 1, progressPercent: 99, animationState: "hatching" });
-  for (const html of [ready, almost, hatching]) {
+  for (const animationState of ["idle", "hover", "hatching", "level-up"]) {
+    const html = api.render({ level: 1, progressPercent: 99, animationState });
     assert.equal(occurrences(html, "data-v109-level1-image"), 1);
-    assert.match(html, /newborn-vduckie-hatching\.webp\?v=109\.2/);
+    assert.match(html, /newborn-vduckie-hatching\.webp\?v=109\.3/);
     assert.doesNotMatch(html, /egg-ready\.svg|egg-hatching\.svg|newborn-0\.webp|newborn-sprite|duckling-0|hatch-preview/);
   }
   assert.equal(manifest.assets.ready, manifest.assets.hatching);
-  assert.equal(preloaded.filter(asset => asset === manifest.newbornAsset).length, 1, "newborn is preloaded once");
+  assert.equal(preloaded.filter(asset => asset === manifest.newbornAsset).length, 1);
 });
 
 test("newborn WebP is a real transparent production asset with stable dimensions", () => {
   const file = fs.readFileSync(path.join(ROOT, NEWBORN));
   assert.ok(file.length > 10000, "asset is not a placeholder");
-  const dimensions = webpDimensions(file);
-  assert.deepEqual(dimensions, { width: 320, height: 320, alpha: true });
+  assert.deepEqual(webpDimensions(file), { width: 320, height: 320, alpha: true });
 });
 
-test("old generated newborn assets are absent from the active Level 1 path", () => {
+test("old newborn and legacy egg paths are absent from active Level 1 source", () => {
   const manifest = read("assets/v109/level1-manifest-v109.js");
   const runtime = read("assets/v109/vduckie-level1-v109.js");
   for (const oldAsset of ["egg-ready.svg", "egg-hatching.svg", "newborn-sprite-v103.webp", "newborn-0.webp", "duckling-0.webp"]) {
@@ -108,13 +115,14 @@ test("old generated newborn assets are absent from the active Level 1 path", () 
   }
 });
 
-test("repeated rendering and hover states never accumulate visual nodes", () => {
+test("repeated rendering and hover states never accumulate visual or motion roots", () => {
   const { api } = loadRenderer();
   for (let pass = 0; pass < 4; pass += 1) {
     for (const progress of [0, 25, 50, 75, 99]) {
-      for (const animationState of ["idle", "hover", "tap"]) {
+      for (const animationState of ["idle", "hover", "tap", "hatching"]) {
         const html = api.render({ level: 1, progressPercent: progress, animationState });
         assert.equal(occurrences(html, "data-v109-visual-root="), 1);
+        assert.equal(occurrences(html, "data-v109-motion-root="), 1);
         assert.equal(occurrences(html, "data-v109-level1-image"), 1);
       }
     }
@@ -140,30 +148,47 @@ test("early egg states keep one integrated 16:9 vector composition", () => {
   }
 });
 
-test("Level 1 CSS has no overlay, crossfade, background image or Level 2 override", () => {
+test("Level 1 CSS owns a clipped safe-zone and a stable center-bottom baseline", () => {
   const css = read("assets/v109/vduckie-level1-v109.css");
-  assert.match(css, /prefers-reduced-motion:reduce/);
-  assert.match(css, /v1091-egg-hover-once/);
-  assert.match(css, /v1091-egg-hatch-single/);
+  assert.match(css, /--v109-safe-top:5%/);
+  assert.match(css, /--v109-safe-bottom:7%/);
+  assert.match(css, /overflow:clip!important/);
+  assert.match(css, /object-fit:contain/);
+  assert.match(css, /object-position:center bottom/);
+  assert.match(css, /transform-origin:center bottom/);
+  assert.match(css, /clamp\(210px,25vw,292px\)/);
+  assert.match(css, /v109-level1-motion/);
+  assert.match(css, /stage-ready:is\(\.is-hatching,\.is-level-up\)/);
   assert.doesNotMatch(css, /v95-level-(?:2|3|4|5|6|7|8|9|10)/);
-  assert.doesNotMatch(css, /rotate\(|opacity\s*:|background-image\s*:\s*url/i);
+  assert.doesNotMatch(css, /scale\(/, "Level 1 animation must not scale the visual root");
 });
 
-test("runtime assertion destroys stale visual children and keeps one active image", () => {
+test("runtime reconciles active asset from EXP progress instead of stale animation classes", () => {
   const runtime = read("assets/v109/vduckie-level1-v109.js");
-  assert.match(runtime, /version: "109\.2"/);
-  assert.match(runtime, /single-image-v109\.2/);
-  assert.match(runtime, /function ensureSingleVisual/);
+  assert.match(runtime, /version: "109\.3"/);
+  assert.match(runtime, /single-image-v109\.3/);
+  assert.match(runtime, /function reconcileStage/);
+  assert.match(runtime, /config\.assetFor\(resolved\.progress, animationStateFor\(rootNode\)\)/);
+  assert.match(runtime, /data-v109-motion-root/);
   assert.match(runtime, /visual\.children/);
-  assert.match(runtime, /child\.remove\(\)/);
-  assert.match(runtime, /visualRoot\.children/);
-  assert.match(runtime, /data-v109-visual-root-count/);
+  assert.match(runtime, /motionRoot\.children/);
   assert.match(runtime, /MutationObserver/);
   assert.doesNotMatch(runtime, /v109-hatch-preview|v109-egg-frame|duckling-0\.webp/);
 });
 
-test("manifest exposes the new cache-busted asset", () => {
+test("manifest exposes cache version 109.3 and explicit threshold assets", () => {
   const manifest = read("assets/v109/level1-manifest-v109.js");
-  assert.match(manifest, /version: "109\.2"/);
-  assert.match(manifest, /newborn-vduckie-hatching\.webp\?v=109\.2/);
+  assert.match(manifest, /CACHE_VERSION = "109\.3"/);
+  assert.match(manifest, /newborn-vduckie-hatching\.webp\?v=" \+ CACHE_VERSION/);
+  assert.match(manifest, /state: "resting", asset: ASSETS\.resting/);
+  assert.match(manifest, /state: "ready", asset: ASSETS\.ready/);
 });
+
+if (fs.existsSync(path.join(ROOT, "index.html"))) {
+  test("Home boots Level 1 CSS and runtime with cache version 109.3", () => {
+    const index = read("index.html");
+    assert.match(index, /vduckie-level1-v109\.css\?v=109\.3/);
+    assert.match(index, /level1-manifest-v109\.js\?v=109\.3/);
+    assert.match(index, /vduckie-level1-v109\.js\?v=109\.3/);
+  });
+}

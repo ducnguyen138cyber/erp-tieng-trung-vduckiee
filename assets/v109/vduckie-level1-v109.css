@@ -1,9 +1,38 @@
-/* V109.1 Level 1 only: exactly one visual root and one active image. */
+/* V109.3 Level 1: progress-owned frame mapping inside a fixed visual safe-zone. */
+.v95-level-1.v109-level1{
+  --v109-safe-top:5%;
+  --v109-safe-inline:8%;
+  --v109-safe-bottom:7%;
+  transform-origin:center bottom;
+}
+
+/* Keep the Level 1 viewport responsive but smaller than the generic V105 stage. */
+.v92-evolution-visual .v95-level-1.v109-level1{
+  width:min(100%,calc(clamp(210px,25vw,292px)*16/9));
+  height:auto;
+  max-height:clamp(210px,25vw,292px);
+  aspect-ratio:16/9;
+  overflow:visible;
+}
+
+.v95-level-1.v109-level1 .v95-background{
+  background:none!important;
+  background-image:none!important;
+  transform:none!important;
+}
+.v95-level-1.v109-level1 .v95-character{
+  padding:0!important;
+  animation:none!important;
+  transform:none!important;
+}
+.v95-level-1.v109-level1 .v95-character::after{display:none!important}
 .v95-level-1.v109-level1 .v95-visual{
-  inset:0;
+  inset:var(--v109-safe-top) var(--v109-safe-inline) var(--v109-safe-bottom)!important;
   display:grid;
   place-items:center;
-  overflow:visible;
+  box-sizing:border-box;
+  overflow:clip!important;
+  contain:layout paint;
   background:none!important;
   background-image:none!important;
 }
@@ -11,95 +40,79 @@
   position:absolute;
   inset:0;
   display:grid;
-  place-items:center;
-  overflow:visible;
+  place-items:end center;
+  overflow:clip;
+  contain:layout paint;
+}
+.v95-level-1.v109-level1 .v109-level1-motion{
+  display:grid;
+  place-items:end center;
+  width:100%;
+  height:calc(100% - 6px);
+  margin-top:6px;
+  min-width:0;
+  min-height:0;
+  transform-origin:center bottom;
 }
 .v95-level-1.v109-level1 .v109-level1-image{
   display:block;
-  width:100%;
+  width:auto;
   height:100%;
+  max-width:100%;
+  max-height:100%;
+  min-width:0;
+  min-height:0;
   object-fit:contain;
+  object-position:center bottom;
   pointer-events:none;
   user-select:none;
   backface-visibility:hidden;
-  transform-origin:50% 86%;
 }
 
-/* V95/V96 may remain loaded for Level 2, but their Level 1 motion cannot run here. */
-.v95-level-1.v109-level1 .v95-character{
-  animation:none!important;
-  transform:none!important;
-}
+/* Old Level 1 layers are never part of the active visual tree. */
 .v95-level-1.v109-level1 .v96-egg-sequence,
 .v95-level-1.v109-level1 .v95-egg,
 .v95-level-1.v109-level1 .v95-sprite-stack,
 .v95-level-1.v109-level1 .v95-sprite,
 .v95-level-1.v109-level1 .v95-sprite-fallback,
 .v95-level-1.v109-level1 .v109-egg-sequence,
-.v95-level-1.v109-level1 .v109-hatch-preview{
-  display:none!important;
-}
+.v95-level-1.v109-level1 .v109-hatch-preview{display:none!important}
 
-/* Long quiet timelines. No looped shake, rotation, pulse or opacity crossfade. */
-.v95-level-1.v109-level1.stage-resting.is-idle .v109-level1-image{
-  animation:v1091-egg-sleep 8.8s ease-in-out infinite;
-}
-.v95-level-1.v109-level1.stage-first-crack.is-idle .v109-level1-image{
-  animation:v1091-egg-stir 8.1s ease-in-out infinite;
-}
-.v95-level-1.v109-level1.stage-peek.is-idle .v109-level1-image{
-  animation:v1091-egg-listen 7.8s ease-in-out infinite;
-}
-.v95-level-1.v109-level1.stage-ready.is-idle .v109-level1-image{
-  animation:v1091-egg-ready 7.2s ease-in-out infinite;
-}
-@keyframes v1091-egg-sleep{
-  0%,50%,100%{transform:translateY(0)}
-  56%{transform:translateY(-1px)}
-  62%{transform:translateY(0)}
-}
-@keyframes v1091-egg-stir{
-  0%,58%,100%{transform:translate(0,0)}
-  64%{transform:translate(1px,-1px)}
-  70%{transform:translate(0,0)}
-}
-@keyframes v1091-egg-listen{
-  0%,62%,100%{transform:translate(0,0)}
-  68%{transform:translate(-1px,-2px)}
-  74%{transform:translate(1px,-1px)}
-  80%{transform:translate(0,0)}
-}
-@keyframes v1091-egg-ready{
-  0%,66%,100%{transform:translate(0,0)}
-  72%{transform:translate(-2px,-2px)}
-  77%{transform:translate(2px,-3px)}
-  82%{transform:translate(0,0)}
-}
+/* Motion lives on the inner layer; the viewport and layout box never scale. */
+.v95-level-1.v109-level1.stage-resting.is-idle .v109-level1-motion{animation:v1093-egg-sleep 8.8s ease-in-out infinite}
+.v95-level-1.v109-level1.stage-first-crack.is-idle .v109-level1-motion{animation:v1093-egg-stir 8.1s ease-in-out infinite}
+.v95-level-1.v109-level1.stage-peek.is-idle .v109-level1-motion{animation:v1093-egg-listen 7.8s ease-in-out infinite}
+.v95-level-1.v109-level1.stage-ready.is-idle .v109-level1-motion{animation:v1093-egg-ready 7.2s ease-in-out infinite}
+@keyframes v1093-egg-sleep{0%,50%,100%{transform:translateY(0)}56%{transform:translateY(-1px)}62%{transform:translateY(0)}}
+@keyframes v1093-egg-stir{0%,58%,100%{transform:translate(0,0)}64%{transform:translate(1px,-1px)}70%{transform:translate(0,0)}}
+@keyframes v1093-egg-listen{0%,62%,100%{transform:translate(0,0)}68%{transform:translate(-1px,-2px)}74%{transform:translate(1px,-1px)}80%{transform:translate(0,0)}}
+@keyframes v1093-egg-ready{0%,66%,100%{transform:translate(0,0)}72%{transform:translate(-2px,-2px)}77%{transform:translate(2px,-3px)}82%{transform:translate(0,0)}}
+.v95-level-1.v109-level1:is(.is-hover,.is-tap) .v109-level1-motion{animation:v1093-egg-hover-once .9s cubic-bezier(.22,.78,.25,1) both!important}
+@keyframes v1093-egg-hover-once{0%,100%{transform:translateY(0)}36%{transform:translateY(-4px)}68%{transform:translateY(-2px)}}
+.v95-level-1.v109-level1.stage-ready:is(.is-hatching,.is-level-up) .v109-level1-motion{animation:v1093-egg-hatch-single 1.12s cubic-bezier(.2,.76,.25,1) both!important}
+@keyframes v1093-egg-hatch-single{0%{transform:translateY(0)}32%{transform:translateY(-5px)}62%{transform:translateY(-2px)}82%{transform:translateY(-4px)}100%{transform:translateY(0)}}
 
-/* Existing Evolution controller releases hover/tap and enforces cooldown. */
-.v95-level-1.v109-level1:is(.is-hover,.is-tap) .v109-level1-image{
-  animation:v1091-egg-hover-once .9s cubic-bezier(.22,.78,.25,1) both!important;
+@media(max-width:700px){
+  .v95-level-1.v109-level1{--v109-safe-top:6%;--v109-safe-inline:7%;--v109-safe-bottom:8%}
+  .v92-evolution-visual .v95-level-1.v109-level1{
+    width:min(100%,390px);
+    max-height:220px;
+  }
 }
-@keyframes v1091-egg-hover-once{
-  0%,100%{transform:translateY(0)}
-  36%{transform:translateY(-5px)}
-  68%{transform:translateY(-2px)}
+@media(max-width:390px){
+  .v92-evolution-visual .v95-level-1.v109-level1{
+    width:min(100%,340px);
+    max-height:192px;
+  }
 }
-
-/* One image is swapped to the hatching SVG by the runtime; no overlay/crossfade. */
-.v95-level-1.v109-level1:is(.is-hatching,.is-level-up) .v109-level1-image{
-  animation:v1091-egg-hatch-single 1.12s cubic-bezier(.2,.76,.25,1) both!important;
+@media(max-width:340px){
+  .v92-evolution-visual .v95-level-1.v109-level1{
+    width:min(100%,300px);
+    max-height:169px;
+  }
 }
-@keyframes v1091-egg-hatch-single{
-  0%{transform:translateY(0)}
-  32%{transform:translateY(-7px)}
-  62%{transform:translateY(-2px)}
-  82%{transform:translateY(-5px)}
-  100%{transform:translateY(0)}
-}
-
 @media(prefers-reduced-motion:reduce){
-  .v95-level-1.v109-level1:is(.is-idle,.is-hover,.is-tap,.is-hatching,.is-level-up) .v109-level1-image,
+  .v95-level-1.v109-level1 .v109-level1-motion,
   .v95-level-1.v109-level1 .v95-character{
     animation:none!important;
     transition:none!important;
