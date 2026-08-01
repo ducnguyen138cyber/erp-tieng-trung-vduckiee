@@ -120,6 +120,7 @@
     });
 
     var asset = activeAsset(rootNode);
+    image.hidden = false;
     if (image.getAttribute("src") !== asset) image.setAttribute("src", asset);
     rootNode.setAttribute("data-v95-resolved-asset", asset);
     rootNode.setAttribute("data-v109-active-asset", asset);
@@ -134,10 +135,16 @@
     if (observer || !document || !document.body || typeof root.MutationObserver !== "function") return;
     observer = new root.MutationObserver(function (records) {
       records.forEach(function (record) {
-        if (record.target && record.target.matches && record.target.matches('[data-v109-level1="true"]')) ensureSingleVisual(record.target);
+        var owner = record.target && record.target.closest ? record.target.closest('[data-v109-level1="true"]') : null;
+        if (owner) ensureSingleVisual(owner);
+        Array.prototype.forEach.call(record.addedNodes || [], function (node) {
+          if (!node || node.nodeType !== 1) return;
+          if (node.matches && node.matches('[data-v109-level1="true"]')) ensureSingleVisual(node);
+          else scan(node);
+        });
       });
     });
-    observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"] });
+    observer.observe(document.body, { subtree: true, attributes: true, attributeFilter: ["class"], childList: true });
   }
 
   function hydrate(scope) {
@@ -146,7 +153,7 @@
     ensureObserver();
   }
 
-  if (typeof base.preloadAsset === "function") base.preloadAsset(config.assets.hatching);
+  if (typeof base.preloadAsset === "function") Object.keys(config.assets).forEach(function (key) { base.preloadAsset(config.assets[key]); });
 
   var api = Object.freeze(Object.assign({}, base, {
     version: "109.1",
