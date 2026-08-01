@@ -90,13 +90,13 @@ test("Level 1 CSS is scoped and respects reduced motion", () => {
   assert.doesNotMatch(css, /rotate\(/);
 });
 
-test("Home loads V109 after the existing mascot stack and before Evolution captures it", () => {
+test("Home composes V109 after V99 and before Evolution captures the final API", () => {
   const index = read("index.html");
   assert.match(index, /vduckie-level1-v109\.css\?v=109\.0/);
   assert.match(index, /level1-manifest-v109\.js\?v=109\.0/);
   assert.match(index, /vduckie-level1-v109\.js\?v=109\.0/);
-  assert.ok(index.indexOf("vduckie-mascot-v99.js?v=100.0") < index.indexOf("vduckie-level1-v109.js?v=109.0"));
-  assert.ok(index.indexOf("vduckie-level1-v109.js?v=109.0") < index.indexOf("vduckie-evolution-v95.js?v=104.0"));
+  assert.match(index, /vduckie-mascot-v99\.js\?v=100\.0[\s\S]*level1-manifest-v109\.js\?v=109\.0[\s\S]*vduckie-level1-v109\.js\?v=109\.0[\s\S]*customization-store-v94\.js\?v=96\.0/);
+  assert.match(index, /customization-store-v94\.js\?v=96\.0[\s\S]*vduckie-evolution-v95\.js\?v=104\.0/);
 });
 
 test("obsolete PR-wide Adam workflows are removed while HSK CI remains", () => {
