@@ -43,11 +43,10 @@ jobs:
           data = p.read_bytes()
           assert len(data) == 27678, len(data)
           assert data[:4] == b'RIFF' and data[8:12] == b'WEBP'
-          assert data[12:16] == b'VP8L' and data[20] == 0x2f
-          bits = int.from_bytes(data[21:25], 'little')
-          width = (bits & 0x3fff) + 1
-          height = ((bits >> 14) & 0x3fff) + 1
-          alpha = bool(bits & (1 << 28))
+          assert data[12:16] == b'VP8X'
+          width = int.from_bytes(data[24:27], 'little') + 1
+          height = int.from_bytes(data[27:30], 'little') + 1
+          alpha = bool(data[20] & 0x10)
           assert (width, height, alpha) == (320, 320, True), (width, height, alpha)
           print(f'WebP verified: {width}x{height}, alpha={alpha}, bytes={len(data)}')
           PY

@@ -12,13 +12,11 @@ const NEWBORN = "assets/vduckie/lv1/v109/newborn-vduckie-hatching.webp";
 function webpDimensions(buffer) {
   assert.equal(buffer.toString("ascii", 0, 4), "RIFF");
   assert.equal(buffer.toString("ascii", 8, 12), "WEBP");
-  assert.equal(buffer.toString("ascii", 12, 16), "VP8L");
-  assert.equal(buffer[20], 0x2f);
-  const bits = buffer.readUInt32LE(21);
+  assert.equal(buffer.toString("ascii", 12, 16), "VP8X");
   return {
-    width: (bits & 0x3fff) + 1,
-    height: ((bits >>> 14) & 0x3fff) + 1,
-    alpha: !!(bits & (1 << 28))
+    width: buffer.readUIntLE(24, 3) + 1,
+    height: buffer.readUIntLE(27, 3) + 1,
+    alpha: !!(buffer[20] & 0x10)
   };
 }
 
@@ -98,7 +96,7 @@ test("newborn WebP is a real transparent production asset with stable dimensions
   const file = fs.readFileSync(path.join(ROOT, NEWBORN));
   assert.ok(file.length > 10000, "asset is not a placeholder");
   const dimensions = webpDimensions(file);
-  assert.deepEqual(dimensions, { width: 448, height: 448, alpha: true });
+  assert.deepEqual(dimensions, { width: 320, height: 320, alpha: true });
 });
 
 test("old generated newborn assets are absent from the active Level 1 path", () => {
