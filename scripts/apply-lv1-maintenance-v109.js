@@ -24,10 +24,10 @@ if (!index.includes('./assets/v109/vduckie-level1-v109.css?v=109.0')) {
   index = index.replace(cssAnchor, cssInsert);
 }
 
-const jsAnchor = '<script src="./assets/v94/customization-store-v94.js?v=96.0"><\\/script>';
-const jsInsert = '<script src="./assets/v109/level1-manifest-v109.js?v=109.0"><\\/script><script src="./assets/v109/vduckie-level1-v109.js?v=109.0"><\\/script>' + jsAnchor;
+const jsAnchor = '<script src="./assets/v99/vduckie-mascot-v99.js?v=100.0"><\\/script><script src="./assets/v94/customization-store-v94.js?v=96.0"><\\/script>';
+const jsInsert = '<script src="./assets/v99/vduckie-mascot-v99.js?v=100.0"><\\/script><script src="./assets/v109/level1-manifest-v109.js?v=109.0"><\\/script><script src="./assets/v109/vduckie-level1-v109.js?v=109.0"><\\/script><script src="./assets/v94/customization-store-v94.js?v=96.0"><\\/script>';
 if (!index.includes('./assets/v109/vduckie-level1-v109.js?v=109.0')) {
-  if (!index.includes(jsAnchor)) throw new Error('Missing customization-store anchor in index.html');
+  if (!index.includes(jsAnchor)) throw new Error('Missing final mascot renderer anchor in index.html');
   index = index.replace(jsAnchor, jsInsert);
 }
 
