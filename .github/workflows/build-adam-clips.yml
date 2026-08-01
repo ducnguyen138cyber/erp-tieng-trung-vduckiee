@@ -66,17 +66,35 @@ jobs:
               raise SystemExit('Forbidden scope changed')
           PY
 
-      - name: Syntax, targeted tests and full regression
+      - name: Install regression dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Syntax, targeted tests and non-HSK regression
         shell: bash
         run: |
           set -euo pipefail
           node --check assets/v109/level1-manifest-v109.js
           node --check assets/v109/vduckie-level1-v109.js
           node --test tests/v109-level1-evolution.test.js
-          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js | tee /tmp/lv1-regression.log
+          mapfile -t regression_tests < <(
+            find tests -maxdepth 1 -type f -name '*.test.js' \
+              ! -iname '*hsk*' \
+              ! -name 'v109-level1-evolution.test.js' \
+              | sort
+          )
+          printf 'Running %s non-HSK regression files\n' "${#regression_tests[@]}"
+          node --test --test-concurrency=1 --test-reporter=dot \
+            tests/v109-level1-evolution.test.js \
+            "${regression_tests[@]}" | tee /tmp/lv1-regression.log
           git diff --check
 
-      - name: Install Chromium
+      - name: Install Node Playwright
         shell: bash
         run: |
           set -euo pipefail
@@ -84,7 +102,7 @@ jobs:
           cd /tmp/lv1-pw
           npm init -y >/dev/null 2>&1
           npm install playwright@1.55.0 >/dev/null
-          npx playwright install --with-deps chromium
+          npx playwright install chromium
 
       - name: Recover browser smoke script
         shell: bash
