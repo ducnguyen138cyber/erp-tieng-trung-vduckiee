@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const { execFileSync } = require('node:child_process');
 
 const root = path.resolve(__dirname, '..');
 const remove = relative => {
@@ -32,4 +33,13 @@ if (!index.includes('./assets/v109/vduckie-level1-v109.js?v=109.0')) {
 }
 
 fs.writeFileSync(indexPath, index, 'utf8');
+
+// The PR workflow checks this helper out only to apply the clean patch. Remove
+// its staged state so it can be deleted without leaking an AD entry into main.
+try {
+  execFileSync('git', ['reset', '--', 'scripts/apply-lv1-maintenance-v109.js'], { cwd: root, stdio: 'ignore' });
+} catch (error) {
+  // Running outside Git is harmless; CI still removes the temporary file.
+}
+
 console.log('Applied workflow cleanup and Level 1 V109 boot wiring.');
