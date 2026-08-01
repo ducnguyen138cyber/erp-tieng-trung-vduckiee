@@ -1,0 +1,131 @@
+/* V109 Level 1 only. The existing Level 2-10 assets and animation rules are not redefined. */
+.v95-level-1.v109-level1 .v95-visual{
+  inset:0;
+  display:grid;
+  place-items:center;
+  overflow:visible;
+}
+.v109-egg-sequence{
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  overflow:visible;
+}
+.v109-egg-frame,
+.v109-hatch-preview{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  opacity:0;
+  pointer-events:none;
+  user-select:none;
+  transform-origin:50% 86%;
+  backface-visibility:hidden;
+}
+.v109-egg-sequence.stage-resting .frame-resting,
+.v109-egg-sequence.stage-first-crack .frame-first-crack,
+.v109-egg-sequence.stage-peek .frame-peek,
+.v109-egg-sequence.stage-ready .frame-ready{
+  opacity:1;
+}
+
+/* Cancel the old V96/V103 wobble only for the new Level 1 renderer. */
+.v95-level-1.v109-level1 .v95-character{
+  animation:none;
+  transform:none;
+}
+
+/* Long quiet timelines: most of each cycle is completely still. */
+.v95-level-1.v109-level1.stage-resting.is-idle .v109-egg-frame{
+  animation:v109-egg-sleep 8.4s ease-in-out infinite;
+}
+.v95-level-1.v109-level1.stage-first-crack.is-idle .v109-egg-frame{
+  animation:v109-egg-warmth 7.6s ease-in-out infinite;
+}
+.v95-level-1.v109-level1.stage-peek.is-idle .v109-egg-frame{
+  animation:v109-egg-listen 7.2s ease-in-out infinite;
+}
+.v95-level-1.v109-level1.stage-ready.is-idle .v109-egg-frame{
+  animation:v109-egg-near-hatch 8.8s ease-in-out infinite;
+}
+@keyframes v109-egg-sleep{
+  0%,46%,100%{transform:translateY(0)}
+  52%{transform:translateY(-1px)}
+  58%{transform:translateY(0)}
+}
+@keyframes v109-egg-warmth{
+  0%,55%,100%{transform:translateY(0);filter:none}
+  62%{transform:translateY(-1px);filter:brightness(1.015)}
+  69%{transform:translateY(0);filter:none}
+}
+@keyframes v109-egg-listen{
+  0%,60%,100%{transform:translate(0,0)}
+  66%{transform:translate(1px,-1px)}
+  72%{transform:translate(0,0)}
+}
+@keyframes v109-egg-near-hatch{
+  0%,69%,100%{transform:translate(0,0)}
+  74%{transform:translate(-1px,-2px)}
+  78%{transform:translate(2px,-2px)}
+  82%{transform:translate(0,0)}
+}
+
+/* Existing runtime supplies one hover event with pointer-leave reset/cooldown. */
+.v95-level-1.v109-level1.is-hover .v95-character,
+.v95-level-1.v109-level1.is-tap .v95-character{
+  animation:v109-egg-hover-once 1.02s cubic-bezier(.22,.78,.25,1) both;
+}
+@keyframes v109-egg-hover-once{
+  0%,100%{transform:translateY(0)}
+  32%{transform:translateY(-5px)}
+  58%{transform:translateY(-2px)}
+  78%{transform:translateY(-4px)}
+}
+
+/* At the hatch event the ready shell gives way to the current Level 2 fallback.
+   The next render at 100% delegates to the untouched real Level 2 renderer. */
+.v95-level-1.v109-level1.is-hatching .v95-character,
+.v95-level-1.v109-level1.is-level-up .v95-character{
+  animation:none;
+}
+.v95-level-1.v109-level1:is(.is-hatching,.is-level-up) .frame-ready{
+  opacity:1;
+  animation:v109-shell-open 1.5s cubic-bezier(.2,.76,.25,1) both;
+}
+.v95-level-1.v109-level1:is(.is-hatching,.is-level-up) .v109-hatch-preview{
+  animation:v109-duckling-arrive 1.5s cubic-bezier(.2,.76,.25,1) both;
+}
+@keyframes v109-shell-open{
+  0%{opacity:1;transform:translateY(0) scale(1)}
+  48%{opacity:1;transform:translateY(-5px) scale(1.012)}
+  72%{opacity:.62;transform:translateY(-9px) scale(1.025)}
+  100%{opacity:0;transform:translateY(-13px) scale(1.04)}
+}
+@keyframes v109-duckling-arrive{
+  0%,48%{opacity:0;transform:translateY(7px) scale(.95)}
+  72%{opacity:.76;transform:translateY(-2px) scale(1.01)}
+  100%{opacity:1;transform:none}
+}
+.v95-mascot.v109-hatch-target{
+  animation:v109-level2-settle .72s cubic-bezier(.2,.78,.25,1) both;
+}
+@keyframes v109-level2-settle{
+  0%{opacity:.75;transform:translateY(4px) scale(.98)}
+  100%{opacity:1;transform:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .v95-level-1.v109-level1 .v109-egg-frame,
+  .v95-level-1.v109-level1 .v109-hatch-preview,
+  .v95-level-1.v109-level1 .v95-character,
+  .v95-mascot.v109-hatch-target{
+    animation:none!important;
+    transition:none!important;
+    transform:none!important;
+  }
+  .v95-level-1.v109-level1:is(.is-hatching,.is-level-up) .frame-ready{opacity:0!important}
+  .v95-level-1.v109-level1:is(.is-hatching,.is-level-up) .v109-hatch-preview{opacity:1!important}
+}
