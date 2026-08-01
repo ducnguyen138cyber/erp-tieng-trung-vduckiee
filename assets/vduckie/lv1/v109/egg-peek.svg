@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-label="VDuckie Level 1 — duckling peeking through the shell">
+<defs>
+  <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFFDF4"/><stop offset=".55" stop-color="#FFF5D4"/><stop offset="1" stop-color="#EED496"/></linearGradient>
+  <radialGradient id="warmth" cx="50%" cy="44%" r="58%"><stop offset="0" stop-color="#FFE98A" stop-opacity=".78"/><stop offset=".62" stop-color="#FFD447" stop-opacity=".24"/><stop offset="1" stop-color="#FFD447" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="480" cy="477" rx="120" ry="18" fill="#293D36" opacity=".11"/>
+<ellipse cx="480" cy="269" rx="200" ry="220" fill="url(#warmth)" opacity=".60"/>
+<path d="M480 69c-91 0-158 116-158 246 0 105 57 160 158 160s158-55 158-160c0-130-67-246-158-246Z" fill="url(#shell)" stroke="#293D36" stroke-width="11" stroke-linejoin="round"/>
+<path d="M385 139c22-43 52-60 78-57-25 30-38 66-43 106-5 34-17 59-38 61-20 2-27-56 3-110Z" fill="#FFFFFF" opacity=".32"/>
+<path d="M471 78l-17 31 20 20-24 29 18 20-20 30 31 21 27-23 27 20 21-30" fill="none" stroke="#8C642D" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M454 109l-25 9m45 11 24 4m-48 25-27 12m45 8 25 16m40 2 23 12" fill="none" stroke="#8C642D" stroke-width="6" stroke-linecap="round"/>
+<path d="M444 196q34-31 72 1l-13 42q-22 17-46 1Z" fill="#FFD447" stroke="#293D36" stroke-width="8" stroke-linejoin="round"/>
+<path d="M463 188q11-23 23 0q12-29 26 2" fill="#FFD447" stroke="#293D36" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="474" cy="215" rx="15" ry="19" fill="#FFFDF5" stroke="#293D36" stroke-width="6"/>
+<ellipse cx="478" cy="219" rx="6" ry="9" fill="#1E302B"/>
+<circle cx="476" cy="215" r="2.4" fill="#FFF"/>
+<path d="M481 234q15-10 30 0q-15 17-30 0Z" fill="#F28A2E" stroke="#293D36" stroke-width="5" stroke-linejoin="round"/>
+<path d="M404 408c45 25 110 27 156 0" fill="none" stroke="#CBA75D" stroke-width="7" stroke-linecap="round" opacity=".28"/>
+</svg>
