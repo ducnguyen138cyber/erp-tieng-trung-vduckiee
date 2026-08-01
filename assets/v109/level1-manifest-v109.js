@@ -4,10 +4,11 @@
   root.__VDUCKIE_LEVEL1_MANIFEST_V109__ = true;
 
   var ASSETS = Object.freeze({
-    resting: "./assets/vduckie/lv1/v109/egg-resting.svg?v=109.0",
-    "first-crack": "./assets/vduckie/lv1/v109/egg-first-crack.svg?v=109.0",
-    peek: "./assets/vduckie/lv1/v109/egg-peek.svg?v=109.0",
-    ready: "./assets/vduckie/lv1/v109/egg-ready.svg?v=109.0"
+    resting: "./assets/vduckie/lv1/v109/egg-resting.svg?v=109.1",
+    "first-crack": "./assets/vduckie/lv1/v109/egg-first-crack.svg?v=109.1",
+    peek: "./assets/vduckie/lv1/v109/egg-peek.svg?v=109.1",
+    ready: "./assets/vduckie/lv1/v109/egg-ready.svg?v=109.1",
+    hatching: "./assets/vduckie/lv1/v109/egg-hatching.svg?v=109.1"
   });
 
   function clamp(value) {
@@ -23,8 +24,18 @@
     return "resting";
   }
 
+  function isHatchAnimation(animationState) {
+    return animationState === "hatching" || animationState === "level-up";
+  }
+
+  function assetFor(progressPercent, animationState) {
+    var state = stateFor(progressPercent);
+    if (state !== "hatched" && isHatchAnimation(animationState)) return ASSETS.hatching;
+    return ASSETS[state] || "";
+  }
+
   root.VDuckieLevel1Manifest = Object.freeze({
-    version: "109.0",
+    version: "109.1",
     assets: ASSETS,
     thresholds: Object.freeze([
       Object.freeze({ min: 0, max: 24, state: "resting" }),
@@ -33,14 +44,10 @@
       Object.freeze({ min: 75, max: 99, state: "ready" }),
       Object.freeze({ min: 100, max: 100, state: "hatched", targetLevel: 2 })
     ]),
-    hatchTarget: Object.freeze({
-      level: 2,
-      fallbackAsset: "./assets/vduckie/lv2/v103/duckling-0.webp?v=103.0"
-    }),
+    hatchTarget: Object.freeze({ level: 2 }),
     clampProgress: clamp,
     stateFor: stateFor,
-    assetFor: function (progressPercent) {
-      return ASSETS[stateFor(progressPercent)] || "";
-    }
+    isHatchAnimation: isHatchAnimation,
+    assetFor: assetFor
   });
 })(window);

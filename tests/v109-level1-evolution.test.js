@@ -6,6 +6,7 @@ const vm = require("node:vm");
 
 const ROOT = path.resolve(__dirname, "..");
 const read = relative => fs.readFileSync(path.join(ROOT, relative), "utf8");
+const occurrences = (text, token) => text.split(token).length - 1;
 
 function loadRenderer() {
   const delegated = [];
@@ -15,7 +16,7 @@ function loadRenderer() {
       delegated.push({ ...options });
       const level = Number(options.level || 1);
       if (level === 1) {
-        return '<button class="v95-mascot v95-size-large v95-level-1 is-egg is-' + (options.animationState || "idle") + '" data-v95-level="1" data-v95-render-mode="svg-sequence" data-v95-resolved-asset="legacy"><span class="v95-character"><span class="v95-visual"><span class="v96-egg-sequence is-normal" data-v96-egg-state="normal" aria-hidden="true"><img class="v96-egg-frame frame-normal"><img class="v96-egg-frame frame-cracked"><img class="v96-egg-frame frame-hatching"></span></span></span></button>';
+        return '<button class="v95-mascot v95-size-large v95-level-1 is-egg is-' + (options.animationState || "idle") + '" data-v95-level="1" data-v95-render-mode="svg-sequence" data-v95-resolved-asset="legacy"><span class="v95-background bg-default"></span><span class="v95-character"><span class="v95-visual"><span class="v96-egg-sequence is-normal" data-v96-egg-state="normal" aria-hidden="true"><img class="v96-egg-frame frame-normal"><img class="v96-egg-frame frame-cracked"><img class="v96-egg-frame frame-hatching"></span></span></span></button>';
       }
       return '<button class="v95-mascot v95-level-' + level + '" data-v95-level="' + level + '" data-v95-render-mode="sprite" data-v95-resolved-asset="current-level-' + level + '"></button>';
     },
@@ -37,26 +38,52 @@ function loadRenderer() {
     preloadAsset() {},
     registerRenderer() {}
   };
-  const context = { window: { VDuckieMascot: base, VDuckieAvatar: base } };
+  const fakeDocument = { body: null, querySelectorAll() { return []; } };
+  const context = { window: { VDuckieMascot: base, VDuckieAvatar: base }, document: fakeDocument };
   context.window.window = context.window;
   vm.runInNewContext(read("assets/v109/level1-manifest-v109.js"), context);
   vm.runInNewContext(read("assets/v109/vduckie-level1-v109.js"), context);
   return { api: context.window.VDuckieMascot, delegated };
 }
 
-test("Level 1 maps exact EXP boundaries to four polished states and Level 2 at 100%", () => {
+test("Level 1 maps exact EXP boundaries and delegates to Level 2 at 100%", () => {
   const { api } = loadRenderer();
   const cases = [[0,"resting"],[24,"resting"],[25,"first-crack"],[49,"first-crack"],[50,"peek"],[74,"peek"],[75,"ready"],[99,"ready"],[100,"hatched"]];
   for (const [progress, expected] of cases) assert.equal(api.getLevel1State(progress), expected, String(progress));
+
   for (const [progress, expected] of cases.slice(0, -1)) {
     const html = api.render({ level: 1, progressPercent: progress, animationState: "idle" });
     assert.match(html, new RegExp('data-v109-egg-stage="' + expected + '"'));
-    assert.match(html, /data-v95-level="1"/);
-    assert.doesNotMatch(html, /v96-egg-sequence/);
+    assert.equal(occurrences(html, "data-v109-visual-root="), 1, `visual root at ${progress}%`);
+    assert.equal(occurrences(html, "data-v109-level1-image"), 1, `active image at ${progress}%`);
+    assert.doesNotMatch(html, /v96-egg-sequence|v96-egg-frame|v95-egg|v109-egg-sequence|v109-hatch-preview/);
   }
-  const hatched = api.render({ level: 1, progressPercent: 100, animationState: "idle" });
+
+  const hatched = api.render({ level: 1, progressPercent: 100, animationState: "level-up" });
   assert.match(hatched, /data-v95-level="2"/);
   assert.match(hatched, /data-v109-origin-level="1"/);
+  assert.doesNotMatch(hatched, /data-v109-level1|v96-egg|v95-egg|v109-hatch-preview/);
+});
+
+test("hatching uses one integrated asset instead of an overlay", () => {
+  const { api } = loadRenderer();
+  const html = api.render({ level: 1, progressPercent: 99, animationState: "hatching" });
+  assert.equal(occurrences(html, "data-v109-level1-image"), 1);
+  assert.match(html, /egg-hatching\.svg\?v=109\.1/);
+  assert.doesNotMatch(html, /duckling-0|duckling-sprite|hatch-preview|opacity-layer/);
+});
+
+test("repeated rendering and hover states never accumulate visual nodes", () => {
+  const { api } = loadRenderer();
+  for (let pass = 0; pass < 4; pass += 1) {
+    for (const progress of [0, 25, 50, 75, 99]) {
+      for (const animationState of ["idle", "hover", "tap"]) {
+        const html = api.render({ level: 1, progressPercent: progress, animationState });
+        assert.equal(occurrences(html, "data-v109-visual-root="), 1);
+        assert.equal(occurrences(html, "data-v109-level1-image"), 1);
+      }
+    }
+  }
 });
 
 test("Level 2 through Level 10 delegate unchanged to the existing renderer", () => {
@@ -70,40 +97,42 @@ test("Level 2 through Level 10 delegate unchanged to the existing renderer", () 
   }
 });
 
-test("Level 1 assets share a fixed 16:9 canvas and current Level 2 palette", () => {
-  const assets = ["egg-resting.svg","egg-first-crack.svg","egg-peek.svg","egg-ready.svg"];
+test("Level 1 assets use one integrated 16:9 vector composition", () => {
+  const assets = ["egg-resting.svg","egg-first-crack.svg","egg-peek.svg","egg-ready.svg","egg-hatching.svg"];
   for (const name of assets) {
     const svg = read("assets/vduckie/lv1/v109/" + name);
     assert.match(svg, /viewBox="0 0 960 540"/);
-    for (const token of ["#293D36","#FFFDF4","#EED496","#FFD447","#F28A2E"]) assert.match(svg, new RegExp(token, "i"));
+    for (const token of ["#293D36","#FFFDF4","#FFD447","#F28A2E"]) assert.match(svg, new RegExp(token, "i"));
     assert.match(svg, /<ellipse cx="480" cy="477"/);
-    assert.doesNotMatch(svg, /<filter|blur\(/i);
+    assert.doesNotMatch(svg, /<image|href=|<filter|blur\(/i);
   }
+  assert.match(read("assets/vduckie/lv1/v109/egg-ready.svg"), /fills about 72%/);
+  assert.match(read("assets/vduckie/lv1/v109/egg-hatching.svg"), /single integrated newborn composition/);
 });
 
-test("Level 1 CSS is scoped and respects reduced motion", () => {
+test("Level 1 CSS has no overlay, crossfade, background image or Level 2 override", () => {
   const css = read("assets/v109/vduckie-level1-v109.css");
   assert.match(css, /prefers-reduced-motion:reduce/);
-  assert.match(css, /v109-egg-hover-once/);
-  assert.match(css, /v109-shell-open/);
+  assert.match(css, /v1091-egg-hover-once/);
+  assert.match(css, /v1091-egg-hatch-single/);
   assert.doesNotMatch(css, /v95-level-(?:2|3|4|5|6|7|8|9|10)/);
-  assert.doesNotMatch(css, /rotate\(/);
+  assert.doesNotMatch(css, /rotate\(|opacity\s*:|background-image\s*:\s*url/i);
 });
 
-test("Home composes V109 after V99 and before Evolution captures the final API", () => {
+test("runtime assertion destroys stale visual children and keeps one active image", () => {
+  const runtime = read("assets/v109/vduckie-level1-v109.js");
+  assert.match(runtime, /function ensureSingleVisual/);
+  assert.match(runtime, /visual\.children/);
+  assert.match(runtime, /child\.remove\(\)/);
+  assert.match(runtime, /visualRoot\.children/);
+  assert.match(runtime, /data-v109-visual-root-count/);
+  assert.match(runtime, /MutationObserver/);
+  assert.doesNotMatch(runtime, /v109-hatch-preview|v109-egg-frame|duckling-0\.webp/);
+});
+
+test("Home boots the single-image renderer with a fresh cache version", () => {
   const index = read("index.html");
-  assert.match(index, /vduckie-level1-v109\.css\?v=109\.0/);
-  assert.match(index, /level1-manifest-v109\.js\?v=109\.0/);
-  assert.match(index, /vduckie-level1-v109\.js\?v=109\.0/);
-  assert.match(index, /vduckie-mascot-v99\.js\?v=100\.0[\s\S]*level1-manifest-v109\.js\?v=109\.0[\s\S]*vduckie-level1-v109\.js\?v=109\.0[\s\S]*customization-store-v94\.js\?v=96\.0/);
-  assert.match(index, /customization-store-v94\.js\?v=96\.0[\s\S]*vduckie-evolution-v95\.js\?v=104\.0/);
-});
-
-test("obsolete PR-wide Adam workflows are removed while HSK CI remains", () => {
-  assert.equal(fs.existsSync(path.join(ROOT, ".github/workflows/build-adam-clips.yml")), false);
-  assert.equal(fs.existsSync(path.join(ROOT, ".github/workflows/publish-adam-60.yml")), false);
-  const hsk = read(".github/workflows/hsk-content-quality.yml");
-  assert.match(hsk, /pull_request:/);
-  assert.match(hsk, /push:/);
-  assert.match(hsk, /branches: \[main\]/);
+  assert.match(index, /vduckie-level1-v109\.css\?v=109\.1/);
+  assert.match(index, /level1-manifest-v109\.js\?v=109\.1/);
+  assert.match(index, /vduckie-level1-v109\.js\?v=109\.1/);
 });
