@@ -6,6 +6,7 @@
   var base = root.VDuckieMascot || root.VDuckieAvatar;
   var config = root.VDuckieLevel1Manifest;
   var observer = null;
+  var STAGES = ["resting", "first-crack", "peek", "ready"];
   if (!base || !config || typeof base.render !== "function") return;
 
   function esc(value) {
@@ -20,15 +21,16 @@
   }
 
   function singleVisualMarkup(asset) {
-    return '<span class="v109-level1-visual" data-v109-visual-root="single" aria-hidden="true">' +
+    return '<span class="v109-level1-visual" data-v109-visual-root="single" data-v109-layout="safe-zone-v109.3" aria-hidden="true">' +
+      '<span class="v109-level1-motion" data-v109-motion-root="single">' +
       '<img class="v109-level1-image" src="' + esc(asset) + '" alt="" loading="eager" decoding="async" draggable="false" data-v95-asset data-v109-level1-image>' +
-      '</span>';
+      '</span></span>';
   }
 
   function annotateLevel1(markup, progress, state, asset) {
     markup = addClass(markup, "v109-level1 stage-" + state);
     markup = markup.replace('data-v95-level="1"', 'data-v95-level="1" data-v109-level1="true" data-v109-egg-progress="' + progress + '" data-v109-egg-stage="' + state + '" data-v109-visual-root-count="1"');
-    markup = markup.replace(/data-v95-render-mode="[^"]*"/, 'data-v95-render-mode="single-image-v109.2"');
+    markup = markup.replace(/data-v95-render-mode="[^"]*"/, 'data-v95-render-mode="single-image-v109.3"');
     markup = markup.replace(/data-v95-resolved-asset="[^"]*"/, 'data-v95-resolved-asset="' + esc(asset) + '"');
     return markup;
   }
@@ -70,10 +72,29 @@
     return roots.concat(Array.prototype.slice.call(scope.querySelectorAll('[data-v109-level1="true"]')));
   }
 
+  function animationStateFor(rootNode) {
+    if (rootNode.classList.contains("is-level-up")) return "level-up";
+    if (rootNode.classList.contains("is-hatching")) return "hatching";
+    return "idle";
+  }
+
+  function reconcileStage(rootNode) {
+    var progress = config.clampProgress(rootNode.getAttribute("data-v109-egg-progress"));
+    var state = config.stateFor(progress);
+    var expectedClass = "stage-" + state;
+    var stageIsCurrent = rootNode.getAttribute("data-v109-egg-stage") === state && rootNode.classList.contains(expectedClass);
+    if (!stageIsCurrent) {
+      STAGES.forEach(function (name) { rootNode.classList.remove("stage-" + name); });
+      if (state !== "hatched") rootNode.classList.add(expectedClass);
+      rootNode.setAttribute("data-v109-egg-stage", state);
+    }
+    rootNode.setAttribute("data-v109-egg-progress", String(progress));
+    return { progress: progress, state: state };
+  }
+
   function activeAsset(rootNode) {
-    var stage = rootNode.getAttribute("data-v109-egg-stage") || "resting";
-    var hatching = rootNode.classList.contains("is-hatching") || rootNode.classList.contains("is-level-up");
-    return hatching ? config.assets.hatching : (config.assets[stage] || config.assets.resting);
+    var resolved = reconcileStage(rootNode);
+    return config.assetFor(resolved.progress, animationStateFor(rootNode));
   }
 
   function ensureSingleVisual(rootNode) {
@@ -86,6 +107,7 @@
       visualRoot = document.createElement("span");
       visualRoot.className = "v109-level1-visual";
       visualRoot.setAttribute("data-v109-visual-root", "single");
+      visualRoot.setAttribute("data-v109-layout", "safe-zone-v109.3");
       visualRoot.setAttribute("aria-hidden", "true");
       visual.appendChild(visualRoot);
     }
@@ -94,7 +116,19 @@
       if (child !== visualRoot) child.remove();
     });
 
-    var image = visualRoot.querySelector("[data-v109-level1-image]");
+    var motionRoot = visualRoot.querySelector("[data-v109-motion-root]");
+    if (!motionRoot) {
+      motionRoot = document.createElement("span");
+      motionRoot.className = "v109-level1-motion";
+      motionRoot.setAttribute("data-v109-motion-root", "single");
+      visualRoot.appendChild(motionRoot);
+    }
+
+    Array.prototype.slice.call(visualRoot.children).forEach(function (child) {
+      if (child !== motionRoot) child.remove();
+    });
+
+    var image = motionRoot.querySelector("[data-v109-level1-image]");
     if (!image) {
       image = document.createElement("img");
       image.className = "v109-level1-image";
@@ -104,10 +138,10 @@
       image.draggable = false;
       image.setAttribute("data-v95-asset", "");
       image.setAttribute("data-v109-level1-image", "");
-      visualRoot.appendChild(image);
+      motionRoot.appendChild(image);
     }
 
-    Array.prototype.slice.call(visualRoot.children).forEach(function (child) {
+    Array.prototype.slice.call(motionRoot.children).forEach(function (child) {
       if (child !== image) child.remove();
     });
 
@@ -164,7 +198,7 @@
   }
 
   var api = Object.freeze(Object.assign({}, base, {
-    version: "109.2",
+    version: "109.3",
     render: render,
     hydrate: hydrate,
     getLevel1State: config.stateFor,
