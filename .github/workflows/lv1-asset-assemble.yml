@@ -6,12 +6,23 @@ on:
       - fix/implement-level1-vduckie-asset
     paths:
       - .github/workflows/lv1-asset-assemble.yml
+  pull_request:
+    branches:
+      - main
+    types: [opened, synchronize, reopened]
+    paths:
+      - .github/workflows/lv1-asset-assemble.yml
+      - .tmp/lv1-asset/**
+      - assets/v109/level1-manifest-v109.js
+      - assets/v109/vduckie-level1-v109.js
+      - tests/v109-level1-evolution.test.js
 
 permissions:
   contents: write
 
 jobs:
   assemble:
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
