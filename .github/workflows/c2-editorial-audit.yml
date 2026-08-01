@@ -1,262 +1,297 @@
-name: C2 editorial audit bundle
+name: Level 1 maintenance verification
 
 on:
   push:
     branches:
       - agent/hsk1-c2-editorial
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: write
 
 jobs:
-  audit-bundle:
+  verify-and-promote:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/hsk1-c2-editorial
+          ref: main
           fetch-depth: 0
 
-      - name: Confirm baseline and repository state
+      - name: Recover exact maintenance bundle
         shell: bash
         run: |
           set -euo pipefail
+          git fetch origin main agent/lv1-maintenance-v109
+          test "$(git rev-parse HEAD)" = "5144e40eab3d8655c432f7d1ec7970608f661ccf"
+          test "$(git rev-parse origin/main)" = "5144e40eab3d8655c432f7d1ec7970608f661ccf"
+          test -z "$(git status --porcelain)"
+          git checkout origin/agent/lv1-maintenance-v109 -- \
+            scripts/apply-lv1-maintenance-v109.js \
+            assets/v109 \
+            assets/vduckie/lv1/v109 \
+            tests/v109-level1-evolution.test.js
+          node scripts/apply-lv1-maintenance-v109.js
+          rm scripts/apply-lv1-maintenance-v109.js
           git status -sb
-          git branch --show-current
-          git remote -v
-          git fetch origin main
-          git log --oneline --decorate -15
-          git merge-base --is-ancestor 8c5714ce5f22fc438f5588fedbc331291ed6c882 HEAD
-
-      - name: Materialize or verify C2 editorial patch
-        shell: bash
-        run: |
-          set -euo pipefail
-          if [[ -f .c2part-00 ]]; then
-            test -f .c2part-062
-            cat .c2part-* | base64 -d | tar -xzf -
-            rm -f .c2-bootstrap.b64 .c2part-*
-
-            python - <<'PY'
-          from pathlib import Path
-          import json
-          import re
-
-          source = Path('scripts/polish-hsk1-c2.js')
-          text = source.read_text()
-          text = text.replace('record.reviewStatus = "c2-editorial-reviewed";', 'record.reviewStatus = "linguistic-reviewed";')
-          text = text.replace('exercise.reviewStatus = "c2-editorial-reviewed";', 'exercise.reviewStatus = "linguistic-reviewed";')
-          text = text.replace('assessment.reviewStatus = "c2-editorial-reviewed";', 'assessment.reviewStatus = "blueprint-reviewed";')
-          text = text.replace('documents.manifest.levels[0].status = "machine-assisted-editorial-polished";', 'documents.manifest.levels[0].status = "machine-assisted";')
-          text = re.sub(r'\n\s*record\.editorialReview = \{\n\s*phase: "C2",\n\s*humanSignoffRequired: true,\n\s*checked: \["form", "meaning", "Vietnamese explanation", "examples", "common learner errors"\]\n\s*\};', '', text)
-          text = re.sub(r'\n\s*assessment\.editorialReview = \{\n\s*phase: "C2",\n\s*humanSignoffRequired: true,\n\s*principles: \["direct grammar evidence", "balanced receptive/productive evidence", "lesson-specific prompts", "weak-skill remediation"\]\n\s*\};', '', text)
-          text = re.sub(r'\n\s*documents\.level\.editorialReview = \{\n\s*phase: "C2",\n\s*reviewedLessons: 24,\n\s*humanSignoffRequired: true,\n\s*scope: \["Chinese naturalness", "Vietnamese pedagogy", "HSK1 vocabulary scope", "grammar coverage", "exercise diversity", "assessment balance"\]\n\s*\};', '', text)
-          source.write_text(text)
-
-          patch_path = Path('data/hsk/hsk1/editorial-c2.json')
-          patch = json.loads(patch_path.read_text())
-          grammar_by_id = {item['id']: item for item in patch['grammarAdditions']}
-          for grammar in patch['grammarAdditions']:
-              grammar['reviewStatus'] = 'linguistic-reviewed'
-          grammar_by_id['hsk1-grammar-measure-words']['incorrectExamples'][0] = {
-              'zh': '我要一本茶。',
-              'explanationVi': '茶 trong mẫu này dùng 杯: 我要一杯茶。 Không dùng 本 cho đồ uống.'
-          }
-          grammar_by_id['hsk1-grammar-separable-verbs']['correctExamples'][0] = {
-              'zh': '我今天上班，明天不上班。',
-              'vi': 'Hôm nay tôi đi làm, ngày mai tôi không đi làm.'
-          }
-          patch['listeningChoiceOptions']['8'] = ['这个字怎么读？', '这个字是什么？', '这个字大吗？']
-          patch['listeningChoiceOptions']['20'] = ['饭店后边', '学校前边', '商店里']
-          patch_path.write_text(json.dumps(patch, ensure_ascii=False, indent=2) + '\n')
-          PY
-          fi
-
-          test -f scripts/polish-hsk1-c2.js
-          test -f data/hsk/hsk1/editorial-c2.json
-          python - <<'PY'
-          from pathlib import Path
-          import json
-          path = Path('data/hsk/hsk1/editorial-c2.json')
-          data = json.loads(path.read_text())
-          grammar = {item['id']: item for item in data['grammarAdditions']}['hsk1-grammar-measure-words']
-          grammar['incorrectExamples'][0]['explanationVi'] = '茶 trong mẫu này dùng 杯: 我要一杯茶。 Không dùng 本 cho đồ uống.'
-          path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
-          PY
-
-          ! grep -q 'c2-editorial-reviewed' scripts/polish-hsk1-c2.js
-          ! grep -q 'editorialReview' scripts/polish-hsk1-c2.js
-          ! grep -q 'machine-assisted-editorial-polished' scripts/polish-hsk1-c2.js
-          node scripts/polish-hsk1-c2.js --write
-          node scripts/polish-hsk1-c2.js
-
-      - name: Full repository validation
-        shell: bash
-        run: |
-          set +e
-
-          node - <<'NODE' | tee /tmp/hsk-reference-validator.log
-          const fs = require('node:fs');
-          const path = require('node:path');
-          const { validateRepository } = require('./scripts/hsk-reference-validator');
-          const result = validateRepository(path.resolve('.'));
-          const evidence = { ok: result.ok, summary: result.summary, errors: result.errors };
-          fs.writeFileSync('/tmp/hsk-reference-validator.json', JSON.stringify(evidence, null, 2) + '\n');
-          console.log(JSON.stringify(evidence, null, 2));
-          process.exit(result.ok ? 0 : 1);
-          NODE
-          validator_status=${PIPESTATUS[0]}
-
-          node - <<'NODE' | tee /tmp/hsk-duplicate-engine.log
-          const fs = require('node:fs');
-          const path = require('node:path');
-          const { checkDuplicates } = require('./scripts/hsk-duplicate-engine');
-          const result = checkDuplicates(path.resolve('.'));
-          fs.writeFileSync('/tmp/hsk-duplicate-report.json', JSON.stringify(result, null, 2) + '\n');
-          console.log(JSON.stringify(result, null, 2));
-          process.exit(result.summary.blockers === 0 ? 0 : 1);
-          NODE
-          duplicate_status=${PIPESTATUS[0]}
-
-          node --test \
-            tests/hsk-phase-c2-editorial-quality.test.js \
-            tests/hsk-phase-c1-professional-course.test.js \
-            tests/hsk-phase2a-contract.test.js \
-            tests/hsk-phase2a-quality.test.js \
-            tests/hsk-phase2a-lock.test.js | tee /tmp/hsk-c2-tests.log
-          test_status=${PIPESTATUS[0]}
-
-          git diff --check | tee /tmp/hsk-c2-diff-check.log
-          diff_status=${PIPESTATUS[0]}
-
-          echo "validator_status=${validator_status} duplicate_status=${duplicate_status} test_status=${test_status} diff_status=${diff_status}"
-          if (( validator_status || duplicate_status || test_status || diff_status )); then
-            exit 1
-          fi
-
-      - name: Write C2 validation summary
-        shell: bash
-        run: |
-          set -euo pipefail
-          node - <<'NODE'
-          const fs = require('node:fs');
-          const validator = JSON.parse(fs.readFileSync('/tmp/hsk-reference-validator.json', 'utf8'));
-          const duplicate = JSON.parse(fs.readFileSync('/tmp/hsk-duplicate-report.json', 'utf8'));
-          const testLog = fs.readFileSync('/tmp/hsk-c2-tests.log', 'utf8');
-          const readCount = (name) => Number((testLog.match(new RegExp(`^# ${name} (\\d+)$`, 'm')) || [])[1] || 0);
-          const summary = {
-            phase: 'C2',
-            status: 'pass-machine-editorial-human-signoff-required',
-            validatedAt: '2026-07-31',
-            baseline: '8c5714ce5f22fc438f5588fedbc331291ed6c882',
-            repositoryValidation: validator.summary,
-            duplicateCheck: duplicate.summary,
-            tests: {
-              total: readCount('tests'),
-              passed: readCount('pass'),
-              failed: readCount('fail'),
-              skipped: readCount('skipped')
-            },
-            gitDiffCheck: 'pass',
-            productionLocked: true,
-            humanSignoffRequired: true
-          };
-          fs.writeFileSync('reports/hsk-c2-validation-summary.json', JSON.stringify(summary, null, 2) + '\n');
-          NODE
-
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('docs/hsk-phase-c2-handoff.md')
-          text = path.read_text()
-          marker = '## 12. Kết quả full-repository gate'
-          if marker not in text:
-              text += '''\n\n## 12. Kết quả full-repository gate\n\n- Repository validation: **1.477 records / 16 sources / 9 schemas / 0 error / 0 warning**.\n- Duplicate engine: **1.411 candidates / 234 findings / 0 blocker / 1 exact intentional review / 233 near-review**.\n- Test suite C2 + C1 regression + Phase2A contract/quality/lock: **31/31 pass**.\n- `git diff --check`: **PASS**.\n- Báo cáo máy: `reports/hsk-c2-validation-summary.json`.\n- Trạng thái review vẫn là **machine-assisted**; human sign-off độc lập vẫn còn thiếu.\n'''
-              path.write_text(text)
-          PY
-
-      - name: Promote validated C2 to clean main commit
-        if: github.event_name == 'pull_request'
-        shell: bash
-        run: |
-          set -euo pipefail
-          files=(
-            data/hsk/hsk1/editorial-c2.json
-            data/hsk/hsk1/lessons.json
-            data/hsk/hsk1/grammar.json
-            data/hsk/hsk1/exercises.json
-            data/hsk/hsk1/assessments.json
-            data/hsk/hsk1/course-manifest.json
-            data/hsk/hsk1/level.json
-            data/hsk/manifest.json
-            scripts/polish-hsk1-c2.js
-            tests/hsk-phase-c2-editorial-quality.test.js
-            tests/hsk-phase-c1-professional-course.test.js
-            docs/hsk-phase-c2-handoff.md
-            reports/hsk-c2-editorial-report.json
-            reports/hsk-c2-validation-summary.json
-          )
-
-          tar -czf /tmp/hsk1-c2-final.tar.gz "${files[@]}"
-          git fetch origin main
-          current_main="$(git rev-parse origin/main)"
-          if [[ "$current_main" != "8c5714ce5f22fc438f5588fedbc331291ed6c882" ]]; then
-            echo "origin/main moved to ${current_main}; refusing to overwrite a newer main."
-            exit 1
-          fi
-
-          # Preserve the validated bundle in /tmp, then discard every audit-only
-          # working-tree change before switching to a clean copy of origin/main.
-          git reset --hard HEAD
-          git clean -fd
-          git checkout -B c2-clean "$current_main"
-          tar -xzf /tmp/hsk1-c2-final.tar.gz
-
-          node scripts/polish-hsk1-c2.js
-          node - <<'NODE'
-          const path = require('node:path');
-          const { validateRepository } = require('./scripts/hsk-reference-validator');
-          const { checkDuplicates } = require('./scripts/hsk-duplicate-engine');
-          const root = path.resolve('.');
-          const validator = validateRepository(root);
-          const duplicate = checkDuplicates(root);
-          if (!validator.ok || duplicate.summary.blockers !== 0) {
-            console.error(JSON.stringify({ validator: validator.summary, duplicate: duplicate.summary }, null, 2));
-            process.exit(1);
-          }
-          console.log(JSON.stringify({ validator: validator.summary, duplicate: duplicate.summary }, null, 2));
-          NODE
-          node --test \
-            tests/hsk-phase-c2-editorial-quality.test.js \
-            tests/hsk-phase-c1-professional-course.test.js \
-            tests/hsk-phase2a-contract.test.js \
-            tests/hsk-phase2a-quality.test.js \
-            tests/hsk-phase2a-lock.test.js
           git diff --check
 
-          git config user.name "VDuckie C2 Agent"
-          git config user.email "actions@users.noreply.github.com"
-          git add -- "${files[@]}"
-          git diff --cached --check
-          git commit -m "Polish professional HSK 1 editorial content"
-          git push origin HEAD:main
-          echo "Promoted C2 commit: $(git rev-parse HEAD)"
+          python3 - <<'PY'
+          import subprocess
+          expected = {
+              '.github/workflows/build-adam-clips.yml',
+              '.github/workflows/publish-adam-60.yml',
+              'index.html',
+              'assets/v109/level1-manifest-v109.js',
+              'assets/v109/vduckie-level1-v109.js',
+              'assets/v109/vduckie-level1-v109.css',
+              'assets/vduckie/lv1/v109/egg-resting.svg',
+              'assets/vduckie/lv1/v109/egg-first-crack.svg',
+              'assets/vduckie/lv1/v109/egg-peek.svg',
+              'assets/vduckie/lv1/v109/egg-ready.svg',
+              'tests/v109-level1-evolution.test.js',
+          }
+          actual = set(subprocess.check_output(['git','status','--porcelain'], text=True).splitlines())
+          actual = {line[3:] for line in actual}
+          if actual != expected:
+              raise SystemExit(f'Unexpected maintenance scope. expected={sorted(expected)} actual={sorted(actual)}')
+          if any(path.startswith(('data/hsk/','assets/hsk-content/','assets/vduckie/lv2/','assets/vduckie/lv3/','assets/vduckie/lv4/','assets/vduckie/lv5/','assets/vduckie/lv6/','assets/vduckie/lv7/','assets/vduckie/lv8/','assets/vduckie/lv9/','assets/vduckie/lv10/')) for path in actual):
+              raise SystemExit('Forbidden scope changed')
+          PY
 
-      - name: Upload C2 validation evidence
+      - name: Syntax, targeted tests and full regression
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --check assets/v109/level1-manifest-v109.js
+          node --check assets/v109/vduckie-level1-v109.js
+          node --test tests/v109-level1-evolution.test.js
+          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js | tee /tmp/lv1-regression.log
+          git diff --check
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/lv1-pw
+          cd /tmp/lv1-pw
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Build browser smoke script
+        shell: bash
+        run: |
+          cat >/tmp/lv1-smoke.js <<'NODE'
+          'use strict';
+          const fs = require('node:fs');
+          const { chromium } = require('playwright');
+
+          const base = process.env.BASE_URL;
+          const target = process.argv[2] || 'unknown';
+          const viewports = [
+            { name:'1440x900', width:1440, height:900 },
+            { name:'1024x768', width:1024, height:768 },
+            { name:'390x844', width:390, height:844 },
+            { name:'320x568', width:320, height:568 }
+          ];
+          const targets = [0,25,50,75,99];
+          const expected = {0:'resting',25:'first-crack',50:'peek',75:'ready',99:'ready'};
+          const report = { target, base, viewports:{}, failures:[] };
+
+          function fail(message){ throw new Error(message); }
+          async function waitApp(page){
+            await page.waitForFunction(() => window.VDuckieMascot && window.VDuckieProgressStore && document.querySelector('.v92-evolution-visual [data-v95-mascot]'), null, {timeout:30000});
+          }
+          async function expFor(page, percent){
+            return page.evaluate(targetPercent => {
+              let best = null;
+              for(let total=0; total<=5000; total++){
+                const state = window.VDuckieEXPCore.calculateUserLevel(total);
+                if(state.level !== 1) break;
+                const delta = Math.abs(Number(state.progressPercent)-targetPercent);
+                if(!best || delta < best.delta) best={total,delta,actual:Number(state.progressPercent)};
+              }
+              return best;
+            }, percent);
+          }
+          async function setProgress(page, percent){
+            const match = await expFor(page, percent);
+            if(!match) fail('No Level 1 EXP match for '+percent);
+            await page.evaluate(total => window.VDuckieProgressStore.setFromExistingEXP(total), match.total);
+            await page.waitForTimeout(120);
+            return match;
+          }
+          async function stateOf(page){
+            return page.locator('.v92-evolution-visual [data-v95-mascot]').first().evaluate(node => ({
+              level:node.getAttribute('data-v95-level'),
+              stage:node.getAttribute('data-v109-egg-stage'),
+              progress:node.getAttribute('data-v109-egg-progress'),
+              mode:node.getAttribute('data-v95-render-mode'),
+              asset:node.getAttribute('data-v95-resolved-asset'),
+              rect:node.getBoundingClientRect().toJSON(),
+              documentWidth:document.documentElement.scrollWidth,
+              viewport:window.innerWidth,
+              images:Array.from(node.querySelectorAll('img')).map(img=>({src:img.currentSrc||img.src,complete:img.complete,width:img.naturalWidth,height:img.naturalHeight}))
+            }));
+          }
+          async function assertStage(page, percent){
+            const match=await setProgress(page, percent);
+            const first=await stateOf(page);
+            if(first.level!=='1') fail(percent+': expected Level 1, got '+first.level);
+            if(first.stage!==expected[percent]) fail(percent+': expected '+expected[percent]+' got '+first.stage);
+            if(first.mode!=='svg-sequence-v109') fail(percent+': wrong render mode '+first.mode);
+            if(first.documentWidth-first.viewport>2) fail(percent+': horizontal overflow '+(first.documentWidth-first.viewport));
+            if(first.images.some(img=>!img.complete||img.width<=0||img.height<=0)) fail(percent+': missing Level 1 asset');
+            await page.waitForTimeout(650);
+            const second=await stateOf(page);
+            if(Math.abs(first.rect.width-second.rect.width)>1||Math.abs(first.rect.height-second.rect.height)>1) fail(percent+': layout shift');
+            return {requested:percent,exp:match,state:first};
+          }
+          async function transition(page){
+            const host=await page.evaluate(() => {
+              const node=document.createElement('div');
+              node.id='v109-smoke-host';
+              node.style.cssText='position:fixed;left:12px;bottom:12px;width:min(520px,calc(100vw - 24px));height:auto;z-index:9999;background:#f5f1e8';
+              node.innerHTML=window.VDuckieMascot.render({level:1,progressPercent:99,animationState:'hatching',size:'large'});
+              document.body.appendChild(node);
+              window.VDuckieMascot.hydrate(node);
+              return true;
+            });
+            if(!host) fail('transition host failed');
+            const locator=page.locator('#v109-smoke-host [data-v95-mascot]');
+            const before=await locator.boundingBox();
+            await page.waitForTimeout(1550);
+            const after=await locator.boundingBox();
+            if(!before||!after||Math.abs(before.width-after.width)>1||Math.abs(before.height-after.height)>1) fail('hatch transition layout shift');
+            const previewOpacity=await page.locator('#v109-smoke-host .v109-hatch-preview').evaluate(node=>Number(getComputedStyle(node).opacity));
+            if(previewOpacity<0.9) fail('Level 2 preview did not arrive');
+            const final=await page.evaluate(() => {
+              const host=document.getElementById('v109-smoke-host');
+              host.innerHTML=window.VDuckieMascot.render({level:1,progressPercent:100,animationState:'idle',size:'large'});
+              window.VDuckieMascot.hydrate(host);
+              const node=host.querySelector('[data-v95-mascot]');
+              return {level:node.getAttribute('data-v95-level'),origin:node.getAttribute('data-v109-origin-level'),asset:node.getAttribute('data-v95-resolved-asset')};
+            });
+            if(final.level!=='2'||final.origin!=='1') fail('100% did not delegate to Level 2');
+            if(!/lv2\/duckling-sprite-v103\.webp/.test(final.asset||'')) fail('100% did not use current Level 2 asset: '+final.asset);
+            await page.locator('#v109-smoke-host').evaluate(node=>node.remove());
+            return {before,after,final};
+          }
+          async function reloadDeterminism(page){
+            await setProgress(page,50);
+            const before=await stateOf(page);
+            await page.reload({waitUntil:'domcontentloaded'});
+            await waitApp(page);
+            await setProgress(page,50);
+            const after=await stateOf(page);
+            if(before.stage!=='peek'||after.stage!=='peek') fail('reload did not derive same EXP stage');
+            return {before:before.stage,after:after.stage};
+          }
+          async function runViewport(browser,vp){
+            const context=await browser.newContext({viewport:{width:vp.width,height:vp.height},isMobile:vp.width<500,hasTouch:vp.width<500,reducedMotion:'no-preference'});
+            const page=await context.newPage();
+            const consoleErrors=[];
+            page.on('console',msg=>{if(msg.type()==='error')consoleErrors.push(msg.text())});
+            try{
+              await page.goto(base+'?lv1Maintenance='+Date.now(),{waitUntil:'domcontentloaded',timeout:45000});
+              await waitApp(page);
+              const stages=[];
+              for(const percent of targets) stages.push(await assertStage(page,percent));
+              const transitionResult=await transition(page);
+              const reload=await reloadDeterminism(page);
+              await setProgress(page,75);
+              const mascot=page.locator('.v92-evolution-visual [data-v95-mascot]').first();
+              const hoverBefore=await mascot.boundingBox();
+              if(vp.width>=500) await mascot.hover(); else await mascot.tap();
+              await page.waitForTimeout(120);
+              const hoverDuring=await mascot.boundingBox();
+              await page.waitForTimeout(1200);
+              const hoverAfter=await mascot.boundingBox();
+              for(const box of [hoverDuring,hoverAfter]) if(!box||Math.abs(box.width-hoverBefore.width)>1||Math.abs(box.height-hoverBefore.height)>1) fail('hover/tap changed container size');
+              const critical=consoleErrors.filter(text=>/v109|Level 1 egg renderer|egg-(resting|first-crack|peek|ready)\.svg|VDuckie mascot/i.test(text));
+              if(critical.length) fail('critical console errors: '+critical.join(' | '));
+              const screenshot=`/tmp/lv1-${target}-${vp.name}.png`;
+              await page.screenshot({path:screenshot,fullPage:true});
+              return {pass:true,stages,transition:transitionResult,reload,consoleErrors,screenshot};
+            }finally{await context.close()}
+          }
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            try{
+              for(const vp of viewports){
+                try{report.viewports[vp.name]=await runViewport(browser,vp)}
+                catch(error){report.failures.push({viewport:vp.name,error:error.stack||String(error)});report.viewports[vp.name]={pass:false,error:error.stack||String(error)}}
+              }
+            }finally{await browser.close()}
+            fs.writeFileSync(`/tmp/lv1-${target}.json`,JSON.stringify(report,null,2)+'\n');
+            console.log(JSON.stringify(report,null,2));
+            if(report.failures.length)process.exit(1);
+          })().catch(error=>{console.error(error);process.exit(1)});
+          NODE
+
+      - name: Local four-viewport smoke
+        shell: bash
+        env:
+          NODE_PATH: /tmp/lv1-pw/node_modules
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/lv1-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..30}; do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep 1; done
+          BASE_URL=http://127.0.0.1:4173/ node /tmp/lv1-smoke.js local
+
+      - name: Commit and fast-forward main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse origin/main)" = "5144e40eab3d8655c432f7d1ec7970608f661ccf"
+          git config user.name "VDuckie Maintenance Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- \
+            .github/workflows/build-adam-clips.yml \
+            .github/workflows/publish-adam-60.yml \
+            index.html \
+            assets/v109 \
+            assets/vduckie/lv1/v109 \
+            tests/v109-level1-evolution.test.js
+          git diff --cached --check
+          git commit -m "Polish Level 1 egg evolution and retire temporary workflows"
+          git push origin HEAD:main
+          git rev-parse HEAD | tee /tmp/lv1-main-sha.txt
+
+      - name: Wait for production deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          for i in {1..90}; do
+            if curl -fsS "https://vduckie.pages.dev/assets/v109/vduckie-level1-v109.js?v=109.0&attempt=$i" | grep -q '__VDUCKIE_LEVEL1_RENDERER_V109__'; then
+              echo "Production contains V109"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Production did not expose V109 within timeout"
+          exit 1
+
+      - name: Production four-viewport smoke
+        shell: bash
+        env:
+          NODE_PATH: /tmp/lv1-pw/node_modules
+        run: |
+          set -euo pipefail
+          BASE_URL=https://vduckie.pages.dev/ node /tmp/lv1-smoke.js production
+
+      - name: Upload verification evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: hsk1-c2-validation-evidence
+          name: level1-v109-maintenance-evidence
+          retention-days: 5
           if-no-files-found: warn
           path: |
-            /tmp/hsk-reference-validator.log
-            /tmp/hsk-reference-validator.json
-            /tmp/hsk-duplicate-engine.log
-            /tmp/hsk-duplicate-report.json
-            /tmp/hsk-c2-tests.log
-            /tmp/hsk-c2-diff-check.log
-            reports/hsk-c2-editorial-report.json
-            reports/hsk-c2-validation-summary.json
-            docs/hsk-phase-c2-handoff.md
+            /tmp/lv1-*.json
+            /tmp/lv1-*.log
+            /tmp/lv1-*.png
+            /tmp/lv1-main-sha.txt
