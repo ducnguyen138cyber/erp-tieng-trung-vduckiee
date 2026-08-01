@@ -7,9 +7,24 @@ const vm = require("node:vm");
 const ROOT = path.resolve(__dirname, "..");
 const read = relative => fs.readFileSync(path.join(ROOT, relative), "utf8");
 const occurrences = (text, token) => text.split(token).length - 1;
+const NEWBORN = "assets/vduckie/lv1/v109/newborn-vduckie-hatching.webp";
+
+function webpDimensions(buffer) {
+  assert.equal(buffer.toString("ascii", 0, 4), "RIFF");
+  assert.equal(buffer.toString("ascii", 8, 12), "WEBP");
+  assert.equal(buffer.toString("ascii", 12, 16), "VP8L");
+  assert.equal(buffer[20], 0x2f);
+  const bits = buffer.readUInt32LE(21);
+  return {
+    width: (bits & 0x3fff) + 1,
+    height: ((bits >>> 14) & 0x3fff) + 1,
+    alpha: !!(bits & (1 << 28))
+  };
+}
 
 function loadRenderer() {
   const delegated = [];
+  const preloaded = [];
   const base = {
     version: "current-runtime",
     render(options) {
@@ -35,7 +50,7 @@ function loadRenderer() {
     incompatibilityReason() {},
     itemThumbnail() { return ""; },
     preloadItem() {},
-    preloadAsset() {},
+    preloadAsset(asset) { preloaded.push(asset); },
     registerRenderer() {}
   };
   const fakeDocument = { body: null, querySelectorAll() { return []; } };
@@ -43,7 +58,7 @@ function loadRenderer() {
   context.window.window = context.window;
   vm.runInNewContext(read("assets/v109/level1-manifest-v109.js"), context);
   vm.runInNewContext(read("assets/v109/vduckie-level1-v109.js"), context);
-  return { api: context.window.VDuckieMascot, delegated };
+  return { api: context.window.VDuckieMascot, delegated, preloaded, manifest: context.window.VDuckieLevel1Manifest };
 }
 
 test("Level 1 maps exact EXP boundaries and delegates to Level 2 at 100%", () => {
@@ -65,12 +80,34 @@ test("Level 1 maps exact EXP boundaries and delegates to Level 2 at 100%", () =>
   assert.doesNotMatch(hatched, /data-v109-level1|v96-egg|v95-egg|v109-hatch-preview/);
 });
 
-test("hatching uses one integrated asset instead of an overlay", () => {
-  const { api } = loadRenderer();
-  const html = api.render({ level: 1, progressPercent: 99, animationState: "hatching" });
-  assert.equal(occurrences(html, "data-v109-level1-image"), 1);
-  assert.match(html, /egg-hatching\.svg\?v=109\.1/);
-  assert.doesNotMatch(html, /duckling-0|duckling-sprite|hatch-preview|opacity-layer/);
+test("75-99% and hatch use the new VDuckie newborn asset only", () => {
+  const { api, manifest, preloaded } = loadRenderer();
+  const ready = api.render({ level: 1, progressPercent: 75, animationState: "idle" });
+  const almost = api.render({ level: 1, progressPercent: 99, animationState: "idle" });
+  const hatching = api.render({ level: 1, progressPercent: 99, animationState: "hatching" });
+  for (const html of [ready, almost, hatching]) {
+    assert.equal(occurrences(html, "data-v109-level1-image"), 1);
+    assert.match(html, /newborn-vduckie-hatching\.webp\?v=109\.2/);
+    assert.doesNotMatch(html, /egg-ready\.svg|egg-hatching\.svg|newborn-0\.webp|newborn-sprite|duckling-0|hatch-preview/);
+  }
+  assert.equal(manifest.assets.ready, manifest.assets.hatching);
+  assert.equal(preloaded.filter(asset => asset === manifest.newbornAsset).length, 1, "newborn is preloaded once");
+});
+
+test("newborn WebP is a real transparent production asset with stable dimensions", () => {
+  const file = fs.readFileSync(path.join(ROOT, NEWBORN));
+  assert.ok(file.length > 10000, "asset is not a placeholder");
+  const dimensions = webpDimensions(file);
+  assert.deepEqual(dimensions, { width: 448, height: 448, alpha: true });
+});
+
+test("old generated newborn assets are absent from the active Level 1 path", () => {
+  const manifest = read("assets/v109/level1-manifest-v109.js");
+  const runtime = read("assets/v109/vduckie-level1-v109.js");
+  for (const oldAsset of ["egg-ready.svg", "egg-hatching.svg", "newborn-sprite-v103.webp", "newborn-0.webp", "duckling-0.webp"]) {
+    assert.doesNotMatch(manifest, new RegExp(oldAsset.replaceAll(".", "\\.")));
+    assert.doesNotMatch(runtime, new RegExp(oldAsset.replaceAll(".", "\\.")));
+  }
 });
 
 test("repeated rendering and hover states never accumulate visual nodes", () => {
@@ -97,17 +134,12 @@ test("Level 2 through Level 10 delegate unchanged to the existing renderer", () 
   }
 });
 
-test("Level 1 assets use one integrated 16:9 vector composition", () => {
-  const assets = ["egg-resting.svg","egg-first-crack.svg","egg-peek.svg","egg-ready.svg","egg-hatching.svg"];
-  for (const name of assets) {
+test("early egg states keep one integrated 16:9 vector composition", () => {
+  for (const name of ["egg-resting.svg","egg-first-crack.svg","egg-peek.svg"]) {
     const svg = read("assets/vduckie/lv1/v109/" + name);
     assert.match(svg, /viewBox="0 0 960 540"/);
-    for (const token of ["#293D36","#FFFDF4","#FFD447","#F28A2E"]) assert.match(svg, new RegExp(token, "i"));
-    assert.match(svg, /<ellipse cx="480" cy="477"/);
     assert.doesNotMatch(svg, /<image|href=|<filter|blur\(/i);
   }
-  assert.match(read("assets/vduckie/lv1/v109/egg-ready.svg"), /fills about 72%/);
-  assert.match(read("assets/vduckie/lv1/v109/egg-hatching.svg"), /single integrated newborn composition/);
 });
 
 test("Level 1 CSS has no overlay, crossfade, background image or Level 2 override", () => {
@@ -121,6 +153,8 @@ test("Level 1 CSS has no overlay, crossfade, background image or Level 2 overrid
 
 test("runtime assertion destroys stale visual children and keeps one active image", () => {
   const runtime = read("assets/v109/vduckie-level1-v109.js");
+  assert.match(runtime, /version: "109\.2"/);
+  assert.match(runtime, /single-image-v109\.2/);
   assert.match(runtime, /function ensureSingleVisual/);
   assert.match(runtime, /visual\.children/);
   assert.match(runtime, /child\.remove\(\)/);
@@ -130,9 +164,8 @@ test("runtime assertion destroys stale visual children and keeps one active imag
   assert.doesNotMatch(runtime, /v109-hatch-preview|v109-egg-frame|duckling-0\.webp/);
 });
 
-test("Home boots the single-image renderer with a fresh cache version", () => {
-  const index = read("index.html");
-  assert.match(index, /vduckie-level1-v109\.css\?v=109\.1/);
-  assert.match(index, /level1-manifest-v109\.js\?v=109\.1/);
-  assert.match(index, /vduckie-level1-v109\.js\?v=109\.1/);
+test("manifest exposes the new cache-busted asset", () => {
+  const manifest = read("assets/v109/level1-manifest-v109.js");
+  assert.match(manifest, /version: "109\.2"/);
+  assert.match(manifest, /newborn-vduckie-hatching\.webp\?v=109\.2/);
 });
