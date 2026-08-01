@@ -8,6 +8,7 @@ on:
       - 'assets/vduckie/lv1/v109/**'
       - 'tests/v109-level1-evolution.test.js'
       - 'scripts/apply-lv1-maintenance-v109.js'
+      - 'scripts/lv1-smoke-v109.js'
       - '.github/workflows/build-adam-clips.yml'
       - '.github/workflows/publish-adam-60.yml'
 
@@ -106,21 +107,11 @@ jobs:
 
       - name: Recover browser smoke script
         shell: bash
+        env:
+          HEAD_REF: ${{ github.head_ref }}
         run: |
           set -euo pipefail
-          python3 - <<'PY'
-          import subprocess
-          text = subprocess.check_output([
-              'git','show','c0700cb70991260e314246c68cc65f1a617d8945:.github/workflows/c2-editorial-audit.yml'
-          ], text=True)
-          marker = "          'use strict';"
-          start = text.index(marker)
-          end = text.index("          NODE", start)
-          lines = text[start:end].splitlines()
-          script = '\n'.join(line[10:] if line.startswith('          ') else line for line in lines) + '\n'
-          script = script.replace("height:auto;z-index:9999", "height:292px;z-index:9999")
-          open('/tmp/lv1-smoke.js','w',encoding='utf-8').write(script)
-          PY
+          git show "origin/$HEAD_REF:scripts/lv1-smoke-v109.js" > /tmp/lv1-smoke.js
           node --check /tmp/lv1-smoke.js
 
       - name: Local four-viewport smoke
