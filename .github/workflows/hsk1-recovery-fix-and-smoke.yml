@@ -1,0 +1,125 @@
+name: HSK1 recovery fix reports and smoke
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  recover-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: 5d1fa350319593266b3ae3837360f785a509ae60
+          fetch-depth: 0
+
+      - name: Confirm main and regenerate deterministic HSK reports
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin main
+          test "$(git rev-parse HEAD)" = "5d1fa350319593266b3ae3837360f785a509ae60"
+          test "$(git rev-parse origin/main)" = "5d1fa350319593266b3ae3837360f785a509ae60"
+          test -z "$(git status --porcelain)"
+          node scripts/validate-hsk-content.js
+          node scripts/check-hsk-duplicates.js
+          node scripts/check-hsk-coverage.js
+          node scripts/generate-hsk-report.js
+          git diff --check
+          git config user.name "VDuckie HSK Recovery Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git switch -c hsk1-recovery-fix
+          git add -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json
+          if ! git diff --cached --quiet; then
+            git diff --cached --check
+            git commit -m "Refresh HSK quality reports after C2 integration"
+          fi
+          git push origin HEAD:refs/heads/agent/hsk1-c2-recovery-fix
+          node scripts/generate-hsk-report.js
+          git diff --exit-code -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json
+
+      - name: HSK course and learner integration tests
+        run: |
+          set -euo pipefail
+          node --check assets/hsk-content/hsk-professional-runtime.js
+          node --check assets/hsk-content/hsk-content-feature-flags.js
+          node --test \
+            tests/hsk-learner-c2-integration.test.js \
+            tests/hsk-phase-c2-editorial-quality.test.js \
+            tests/hsk-phase-c1-professional-course.test.js \
+            tests/hsk-phase2a-contract.test.js \
+            tests/hsk-phase2a-quality.test.js \
+            tests/hsk-phase2a-lock.test.js
+          git diff --check
+
+      - name: Install Chromium
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/pw && cd /tmp/pw
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.55.0 >/dev/null
+          npx playwright install --with-deps chromium
+
+      - name: Browser smoke 1440x900, 1024x768, 390x844, 320x568
+        shell: bash
+        env:
+          NODE_PATH: /tmp/pw/node_modules
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/hsk-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in {1..30}; do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep 1; done
+
+          cp tests/hsk-learner-browser-smoke.js /tmp/smoke-a.js
+          sed -i 's/width: 1440, height: 1000/width: 1440, height: 900/' /tmp/smoke-a.js
+          cp tests/hsk-learner-browser-smoke.js /tmp/smoke-b.js
+          sed -i 's/width: 1440, height: 1000/width: 1024, height: 768/' /tmp/smoke-b.js
+          sed -i 's/width: 390, height: 844/width: 320, height: 568/' /tmp/smoke-b.js
+
+          run_smoke () {
+            label="$1"; base="$2"; script="$3"
+            rm -f /tmp/hsk1-c2-browser-smoke.json /tmp/hsk1-c2-desktop.png /tmp/hsk1-c2-mobile.png
+            HSK_SMOKE_BASE_URL="$base" node "$script" | tee "/tmp/${label}.log"
+            cp /tmp/hsk1-c2-browser-smoke.json "/tmp/${label}.json"
+            cp /tmp/hsk1-c2-desktop.png "/tmp/${label}-desktop.png"
+            cp /tmp/hsk1-c2-mobile.png "/tmp/${label}-mobile.png"
+            node - "$label" <<'NODE'
+          const fs=require('node:fs');
+          const label=process.argv[2];
+          const r=JSON.parse(fs.readFileSync('/tmp/'+label+'.json','utf8'));
+          if(!r.desktop||!r.desktop.state||r.desktop.state.readOnly!==true||r.desktop.state.progressWritesEnabled!==false) throw new Error(label+': desktop safety state failed');
+          if(!r.mobile||!r.mobile.state||r.mobile.state.readOnly!==true||r.mobile.state.progressWritesEnabled!==false) throw new Error(label+': mobile safety state failed');
+          if((r.desktop.overflow||0)>2) throw new Error(label+': desktop horizontal overflow '+r.desktop.overflow);
+          if((r.mobile.overflow||0)>2) throw new Error(label+': mobile horizontal overflow '+r.mobile.overflow);
+          NODE
+          }
+
+          run_smoke local-a http://127.0.0.1:4173/ /tmp/smoke-a.js
+          run_smoke local-b http://127.0.0.1:4173/ /tmp/smoke-b.js
+          run_smoke prod-a https://vduckie.pages.dev/ /tmp/smoke-a.js
+          run_smoke prod-b https://vduckie.pages.dev/ /tmp/smoke-b.js
+
+          cat >/tmp/home-flow.js <<'NODE'
+          const { chromium }=require('playwright');
+          (async()=>{const browser=await chromium.launch({headless:true});try{for(const base of ['http://127.0.0.1:4173/','https://vduckie.pages.dev/']){for(const vp of [{width:1440,height:900},{width:320,height:568}]){const p=await browser.newPage({viewport:vp,isMobile:vp.width<500,hasTouch:vp.width<500});await p.goto(base,{waitUntil:'domcontentloaded',timeout:45000});await p.waitForFunction(()=>document.body&&document.body.getAttribute('data-hsk-prof-ready')==='true',null,{timeout:30000});const b=p.locator('[data-home-area="hsk"]').first();if(!await b.count())throw new Error('Home HSK CTA missing '+base);await b.click();await p.waitForFunction(()=>document.body.getAttribute('data-current-area')==='hsk');await p.locator('[data-pro-level="1"]').click();await p.locator('#hskLesson').getByText('Nghe rõ bốn thanh',{exact:true}).waitFor();await p.close();}}}finally{await browser.close()}})().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+          node /tmp/home-flow.js
+
+      - name: Upload recovery evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsk1-recovery-fixed-reports-and-four-viewports
+          retention-days: 5
+          if-no-files-found: warn
+          path: |
+            /tmp/local-*.json
+            /tmp/prod-*.json
+            /tmp/local-*.log
+            /tmp/prod-*.log
+            /tmp/local-*.png
+            /tmp/prod-*.png
