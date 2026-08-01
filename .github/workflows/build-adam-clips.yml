@@ -1,22 +1,16 @@
-name: Level 1 maintenance verification
+name: Level 1 production verification
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [synchronize, reopened]
     paths:
-      - 'assets/v109/**'
-      - 'assets/vduckie/lv1/v109/**'
-      - 'tests/v109-level1-evolution.test.js'
-      - 'scripts/apply-lv1-maintenance-v109.js'
-      - 'scripts/lv1-smoke-v109.js'
       - '.github/workflows/build-adam-clips.yml'
-      - '.github/workflows/publish-adam-60.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  verify-and-promote:
+  production-smoke:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,78 +18,33 @@ jobs:
           ref: main
           fetch-depth: 0
 
-      - name: Recover exact maintenance bundle
+      - name: Confirm deployed main commit
         shell: bash
-        env:
-          HEAD_REF: ${{ github.head_ref }}
         run: |
           set -euo pipefail
-          git fetch origin main "$HEAD_REF" agent/hsk1-c2-editorial
-          test "$(git rev-parse HEAD)" = "5144e40eab3d8655c432f7d1ec7970608f661ccf"
-          test "$(git rev-parse origin/main)" = "5144e40eab3d8655c432f7d1ec7970608f661ccf"
+          git fetch origin main agent/lv1-maintenance-v109
+          test "$(git rev-parse HEAD)" = "158de762e785b73b38a57d92fdd45880739a3623"
+          test "$(git rev-parse origin/main)" = "158de762e785b73b38a57d92fdd45880739a3623"
           test -z "$(git status --porcelain)"
-          git checkout "origin/$HEAD_REF" -- \
-            scripts/apply-lv1-maintenance-v109.js \
-            assets/v109 \
-            assets/vduckie/lv1/v109 \
-            tests/v109-level1-evolution.test.js
-          node scripts/apply-lv1-maintenance-v109.js
-          rm scripts/apply-lv1-maintenance-v109.js
-          git status -sb
-          git diff --check
 
-          python3 - <<'PY'
-          import subprocess
-          expected = {
-              '.github/workflows/build-adam-clips.yml',
-              '.github/workflows/publish-adam-60.yml',
-              'index.html',
-              'assets/v109/level1-manifest-v109.js',
-              'assets/v109/vduckie-level1-v109.js',
-              'assets/v109/vduckie-level1-v109.css',
-              'assets/vduckie/lv1/v109/egg-resting.svg',
-              'assets/vduckie/lv1/v109/egg-first-crack.svg',
-              'assets/vduckie/lv1/v109/egg-peek.svg',
-              'assets/vduckie/lv1/v109/egg-ready.svg',
-              'tests/v109-level1-evolution.test.js',
-          }
-          actual = {line[3:] for line in subprocess.check_output(['git','status','--porcelain'], text=True).splitlines()}
-          if actual != expected:
-              raise SystemExit(f'Unexpected maintenance scope. expected={sorted(expected)} actual={sorted(actual)}')
-          forbidden = ('data/hsk/','assets/hsk-content/','assets/vduckie/lv2/','assets/vduckie/lv3/','assets/vduckie/lv4/','assets/vduckie/lv5/','assets/vduckie/lv6/','assets/vduckie/lv7/','assets/vduckie/lv8/','assets/vduckie/lv9/','assets/vduckie/lv10/')
-          if any(path.startswith(forbidden) for path in actual):
-              raise SystemExit('Forbidden scope changed')
-          PY
-
-      - name: Install regression dependencies
+      - name: Wait for production HTML bootstrap
         shell: bash
         run: |
           set -euo pipefail
-          sudo apt-get update
-          sudo apt-get install -y imagemagick
-          python -m pip install --disable-pip-version-check playwright
-          python -m playwright install --with-deps chromium
+          for i in {1..90}; do
+            html="$(curl -fsS -H 'Cache-Control: no-cache' "https://vduckie.pages.dev/?lv1V109=$i-$(date +%s)")"
+            if grep -q 'vduckie-level1-v109.js?v=109.0' <<<"$html" && \
+               grep -q 'level1-manifest-v109.js?v=109.0' <<<"$html" && \
+               grep -q 'vduckie-level1-v109.css?v=109.0' <<<"$html"; then
+              echo "Production HTML contains V109 bootstrap"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Production HTML did not expose V109 bootstrap within timeout"
+          exit 1
 
-      - name: Syntax, targeted tests and non-HSK regression
-        shell: bash
-        run: |
-          set -euo pipefail
-          node --check assets/v109/level1-manifest-v109.js
-          node --check assets/v109/vduckie-level1-v109.js
-          node --test tests/v109-level1-evolution.test.js
-          mapfile -t regression_tests < <(
-            find tests -maxdepth 1 -type f -name '*.test.js' \
-              ! -iname '*hsk*' \
-              ! -name 'v109-level1-evolution.test.js' \
-              | sort
-          )
-          printf 'Running %s non-HSK regression files\n' "${#regression_tests[@]}"
-          node --test --test-concurrency=1 --test-reporter=dot \
-            tests/v109-level1-evolution.test.js \
-            "${regression_tests[@]}" | tee /tmp/lv1-regression.log
-          git diff --check
-
-      - name: Install Node Playwright
+      - name: Install Chromium
         shell: bash
         run: |
           set -euo pipefail
@@ -103,80 +52,25 @@ jobs:
           cd /tmp/lv1-pw
           npm init -y >/dev/null 2>&1
           npm install playwright@1.55.0 >/dev/null
-          npx playwright install chromium
+          npx playwright install --with-deps chromium
 
-      - name: Recover browser smoke script
+      - name: Run production four-viewport smoke
         shell: bash
         env:
-          HEAD_REF: ${{ github.head_ref }}
+          NODE_PATH: /tmp/lv1-pw/node_modules
         run: |
           set -euo pipefail
-          git show "origin/$HEAD_REF:scripts/lv1-smoke-v109.js" > /tmp/lv1-smoke.js
+          git show origin/agent/lv1-maintenance-v109:scripts/lv1-smoke-v109.js > /tmp/lv1-smoke.js
           node --check /tmp/lv1-smoke.js
-
-      - name: Local four-viewport smoke
-        shell: bash
-        env:
-          NODE_PATH: /tmp/lv1-pw/node_modules
-        run: |
-          set -euo pipefail
-          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/lv1-http.log 2>&1 &
-          server_pid=$!
-          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
-          for i in {1..30}; do curl -fsS http://127.0.0.1:4173/ >/dev/null && break; sleep 1; done
-          BASE_URL=http://127.0.0.1:4173/ node /tmp/lv1-smoke.js local
-
-      - name: Commit and fast-forward main
-        shell: bash
-        run: |
-          set -euo pipefail
-          git fetch origin main
-          test "$(git rev-parse origin/main)" = "5144e40eab3d8655c432f7d1ec7970608f661ccf"
-          git config user.name "VDuckie Maintenance Agent"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A -- \
-            .github/workflows/build-adam-clips.yml \
-            .github/workflows/publish-adam-60.yml \
-            index.html \
-            assets/v109 \
-            assets/vduckie/lv1/v109 \
-            tests/v109-level1-evolution.test.js
-          git diff --cached --check
-          git commit -m "Polish Level 1 egg evolution and retire temporary workflows"
-          git push origin HEAD:main
-          git rev-parse HEAD | tee /tmp/lv1-main-sha.txt
-
-      - name: Wait for production deployment
-        shell: bash
-        run: |
-          set -euo pipefail
-          for i in {1..90}; do
-            if curl -fsS "https://vduckie.pages.dev/assets/v109/vduckie-level1-v109.js?v=109.0&attempt=$i" | grep -q '__VDUCKIE_LEVEL1_RENDERER_V109__'; then
-              echo "Production contains V109"
-              exit 0
-            fi
-            sleep 5
-          done
-          echo "Production did not expose V109 within timeout"
-          exit 1
-
-      - name: Production four-viewport smoke
-        shell: bash
-        env:
-          NODE_PATH: /tmp/lv1-pw/node_modules
-        run: |
-          set -euo pipefail
           BASE_URL=https://vduckie.pages.dev/ node /tmp/lv1-smoke.js production
 
-      - name: Upload verification evidence
+      - name: Upload production evidence
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: level1-v109-maintenance-evidence
+          name: level1-v109-production-evidence
           retention-days: 5
           if-no-files-found: warn
           path: |
-            /tmp/lv1-*.json
-            /tmp/lv1-*.log
-            /tmp/lv1-*.png
-            /tmp/lv1-main-sha.txt
+            /tmp/lv1-production.json
+            /tmp/lv1-production-*.png
