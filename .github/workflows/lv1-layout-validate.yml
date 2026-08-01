@@ -43,6 +43,14 @@ jobs:
           node --check tests/v109-level1-evolution.test.js
           node --test tests/v109-level1-evolution.test.js
 
+      - name: Install regression image dependency
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick
+          identify -version
+
       - name: Run mascot and evolution regression tests
         shell: bash
         run: |
