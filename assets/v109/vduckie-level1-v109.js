@@ -28,7 +28,7 @@
   function annotateLevel1(markup, progress, state, asset) {
     markup = addClass(markup, "v109-level1 stage-" + state);
     markup = markup.replace('data-v95-level="1"', 'data-v95-level="1" data-v109-level1="true" data-v109-egg-progress="' + progress + '" data-v109-egg-stage="' + state + '" data-v109-visual-root-count="1"');
-    markup = markup.replace(/data-v95-render-mode="[^"]*"/, 'data-v95-render-mode="single-image-v109.1"');
+    markup = markup.replace(/data-v95-render-mode="[^"]*"/, 'data-v95-render-mode="single-image-v109.2"');
     markup = markup.replace(/data-v95-resolved-asset="[^"]*"/, 'data-v95-resolved-asset="' + esc(asset) + '"');
     return markup;
   }
@@ -153,10 +153,18 @@
     ensureObserver();
   }
 
-  if (typeof base.preloadAsset === "function") Object.keys(config.assets).forEach(function (key) { base.preloadAsset(config.assets[key]); });
+  if (typeof base.preloadAsset === "function") {
+    var preloaded = Object.create(null);
+    Object.keys(config.assets).forEach(function (key) {
+      var asset = config.assets[key];
+      if (!asset || preloaded[asset]) return;
+      preloaded[asset] = true;
+      base.preloadAsset(asset);
+    });
+  }
 
   var api = Object.freeze(Object.assign({}, base, {
-    version: "109.1",
+    version: "109.2",
     render: render,
     hydrate: hydrate,
     getLevel1State: config.stateFor,
