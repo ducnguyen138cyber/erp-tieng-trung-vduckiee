@@ -4,23 +4,30 @@
   <linearGradient id="shellShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFDF4"/><stop offset="1" stop-color="#E6C476"/></linearGradient>
   <radialGradient id="warmth" cx="50%" cy="44%" r="58%"><stop offset="0" stop-color="#FFE98A" stop-opacity=".78"/><stop offset=".62" stop-color="#FFD447" stop-opacity=".24"/><stop offset="1" stop-color="#FFD447" stop-opacity="0"/></radialGradient>
 </defs>
-<ellipse cx="480" cy="477" rx="122" ry="18" fill="#293D36" opacity=".11"/>
-<ellipse cx="480" cy="272" rx="208" ry="224" fill="url(#warmth)" opacity=".72"/>
-<path d="M329 286l29-24 27 18 29-30 29 27 30-29 29 28 29-28 29 31 28-18 30 25c-2 123-62 189-158 189s-156-66-158-189Z" fill="url(#shellShade)" stroke="#293D36" stroke-width="11" stroke-linejoin="round"/>
-<path d="M329 286l29-24 27 18 29-30 29 27 30-29 29 28 29-28 29 31 28-18 30 25" fill="none" stroke="#8C642D" stroke-width="7" stroke-linejoin="round"/>
-<g>
-  <ellipse cx="480" cy="239" rx="92" ry="77" fill="#FFD447" stroke="#293D36" stroke-width="10"/>
-  <path d="M445 176q12-27 25 0q14-35 30 1q14-25 27 2" fill="#FFD447" stroke="#293D36" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-  <ellipse cx="450" cy="237" rx="27" ry="35" fill="#FFFDF5" stroke="#293D36" stroke-width="7"/>
-  <ellipse cx="510" cy="237" rx="27" ry="35" fill="#FFFDF5" stroke="#293D36" stroke-width="7"/>
-  <ellipse cx="455" cy="242" rx="10" ry="15" fill="#1E302B"/>
-  <ellipse cx="505" cy="242" rx="10" ry="15" fill="#1E302B"/>
-  <circle cx="452" cy="235" r="3.5" fill="#FFF"/>
-  <circle cx="502" cy="235" r="3.5" fill="#FFF"/>
-  <path d="M454 278q26-18 52 0q-26 31-52 0Z" fill="#F28A2E" stroke="#293D36" stroke-width="7" stroke-linejoin="round"/>
-  <ellipse cx="415" cy="273" rx="16" ry="8" fill="#F3A064" opacity=".42"/>
-  <ellipse cx="545" cy="273" rx="16" ry="8" fill="#F3A064" opacity=".42"/>
-</g>
-<path d="M356 101l31-27 27 18 29-28 30 26 29-27 29 29 28-18 32 27-19 83-42 36-56 7-55-8-42-35Z" fill="url(#shell)" stroke="#293D36" stroke-width="11" stroke-linejoin="round" transform="translate(4 -12) rotate(-3 480 145)"/>
-<path d="M403 113c17-31 41-43 62-40-19 22-29 48-34 75-4 24-14 42-29 43-15 1-19-40 1-78Z" fill="#FFFFFF" opacity=".31"/>
+<ellipse cx="480" cy="477" rx="128" ry="19" fill="#293D36" opacity=".11"/>
+<ellipse cx="480" cy="274" rx="218" ry="226" fill="url(#warmth)" opacity=".70"/>
+
+<!-- VDuckie grows from inside the shell; the visible body fills about 72% of the inner opening. -->
+<ellipse cx="480" cy="340" rx="116" ry="126" fill="#FFD447" stroke="#293D36" stroke-width="11"/>
+<ellipse cx="480" cy="218" rx="112" ry="94" fill="#FFD447" stroke="#293D36" stroke-width="11"/>
+<path d="M434 137q13-31 28 1q16-42 34 0q16-31 31 3" fill="#FFD447" stroke="#293D36" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+<ellipse cx="444" cy="218" rx="30" ry="39" fill="#FFFDF5" stroke="#293D36" stroke-width="8"/>
+<ellipse cx="516" cy="218" rx="30" ry="39" fill="#FFFDF5" stroke="#293D36" stroke-width="8"/>
+<ellipse cx="451" cy="225" rx="11" ry="17" fill="#1E302B"/>
+<ellipse cx="509" cy="225" rx="11" ry="17" fill="#1E302B"/>
+<circle cx="447" cy="217" r="4" fill="#FFF"/>
+<circle cx="505" cy="217" r="4" fill="#FFF"/>
+<path d="M449 267q31-21 62 0q-31 35-62 0Z" fill="#F28A2E" stroke="#293D36" stroke-width="8" stroke-linejoin="round"/>
+<ellipse cx="408" cy="259" rx="18" ry="9" fill="#F3A064" opacity=".42"/>
+<ellipse cx="552" cy="259" rx="18" ry="9" fill="#F3A064" opacity=".42"/>
+
+<!-- Lower shell stays in front, so the duck reads as emerging rather than pasted on top. -->
+<path d="M319 300l32-28 30 21 31-34 32 30 35-33 34 32 33-32 32 35 31-21 32 30c-4 118-67 177-171 177s-167-59-171-177Z" fill="url(#shellShade)" stroke="#293D36" stroke-width="11" stroke-linejoin="round"/>
+<path d="M319 300l32-28 30 21 31-34 32 30 35-33 34 32 33-32 32 35 31-21 32 30" fill="none" stroke="#8C642D" stroke-width="7" stroke-linejoin="round"/>
+<path d="M384 338q-35-12-48 20q24 32 65 13" fill="#FFD447" stroke="#293D36" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M576 338q35-12 48 20q-24 32-65 13" fill="#FFD447" stroke="#293D36" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+
+<!-- Lifted top shell, still aligned to the same 16:9 safe-zone. -->
+<path d="M347 112l34-30 31 21 32-32 35 30 34-31 34 33 32-21 35 30-20 82-47 39-62 7-62-8-47-37Z" fill="url(#shell)" stroke="#293D36" stroke-width="11" stroke-linejoin="round" transform="translate(6 -48) rotate(-4 480 145)"/>
+<path d="M397 121c18-35 45-49 69-45-21 25-32 54-38 85-5 27-16 47-34 48-17 1-21-45 3-88Z" fill="#FFFFFF" opacity=".32"/>
 </svg>
