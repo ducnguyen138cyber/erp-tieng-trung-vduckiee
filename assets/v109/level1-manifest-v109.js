@@ -3,12 +3,13 @@
   if (root.__VDUCKIE_LEVEL1_MANIFEST_V109__) return;
   root.__VDUCKIE_LEVEL1_MANIFEST_V109__ = true;
 
+  var NEWBORN_ASSET = "./assets/vduckie/lv1/v109/newborn-vduckie-hatching.webp?v=109.2";
   var ASSETS = Object.freeze({
     resting: "./assets/vduckie/lv1/v109/egg-resting.svg?v=109.1",
     "first-crack": "./assets/vduckie/lv1/v109/egg-first-crack.svg?v=109.1",
     peek: "./assets/vduckie/lv1/v109/egg-peek.svg?v=109.1",
-    ready: "./assets/vduckie/lv1/v109/egg-ready.svg?v=109.1",
-    hatching: "./assets/vduckie/lv1/v109/egg-hatching.svg?v=109.1"
+    ready: NEWBORN_ASSET,
+    hatching: NEWBORN_ASSET
   });
 
   function clamp(value) {
@@ -35,8 +36,9 @@
   }
 
   root.VDuckieLevel1Manifest = Object.freeze({
-    version: "109.1",
+    version: "109.2",
     assets: ASSETS,
+    newbornAsset: NEWBORN_ASSET,
     thresholds: Object.freeze([
       Object.freeze({ min: 0, max: 24, state: "resting" }),
       Object.freeze({ min: 25, max: 49, state: "first-crack" }),
