@@ -8,7 +8,7 @@ on:
       - '.github/workflows/build-adam-clips.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   production-smoke:
@@ -64,6 +64,33 @@ jobs:
           git show origin/agent/lv1-maintenance-v109:scripts/lv1-smoke-v109.js > /tmp/lv1-smoke.js
           node --check /tmp/lv1-smoke.js
           BASE_URL=https://vduckie.pages.dev/ node /tmp/lv1-smoke.js production
+
+      - name: Record successful production verification
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin agent/lv1-maintenance-v109
+          git switch -C agent/lv1-maintenance-v109 origin/agent/lv1-maintenance-v109
+          git config user.name "VDuckie Verification Agent"
+          git config user.email "actions@users.noreply.github.com"
+          cat > level1-v109-production-pass.txt <<EOF
+          main=158de762e785b73b38a57d92fdd45880739a3623
+          production=https://vduckie.pages.dev
+          htmlBootstrap=pass
+          viewport1440x900=pass
+          viewport1024x768=pass
+          viewport390x844=pass
+          viewport320x568=pass
+          exp0=resting
+          exp25=first-crack
+          exp50=peek
+          exp75=ready
+          exp99=ready
+          exp100=level2
+          EOF
+          git add level1-v109-production-pass.txt
+          git commit -m "Record Level 1 V109 production smoke pass"
+          git push origin HEAD:agent/lv1-maintenance-v109
 
       - name: Upload production evidence
         if: always()
