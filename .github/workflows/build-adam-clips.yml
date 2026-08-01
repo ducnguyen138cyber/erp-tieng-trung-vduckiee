@@ -1,8 +1,9 @@
 name: Level 1 production verification
 
 on:
-  pull_request:
-    types: [synchronize, reopened]
+  push:
+    branches:
+      - agent/lv1-maintenance-v109
     paths:
       - '.github/workflows/build-adam-clips.yml'
 
