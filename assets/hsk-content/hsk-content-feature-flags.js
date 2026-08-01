@@ -9,15 +9,15 @@
       if (!document.querySelector('link[data-hsk-professional-css]')) {
         var stylesheet = document.createElement('link');
         stylesheet.rel = 'stylesheet';
-        stylesheet.href = './assets/hsk-content/hsk-professional-runtime.css?v=c2web1';
-        stylesheet.setAttribute('data-hsk-professional-css', 'c2web1');
+        stylesheet.href = './assets/hsk-content/hsk-professional-runtime.css?v=c3web1';
+        stylesheet.setAttribute('data-hsk-professional-css', 'c3web1');
         document.head.appendChild(stylesheet);
       }
       if (!document.querySelector('script[data-hsk-professional-runtime]')) {
         var script = document.createElement('script');
-        script.src = './assets/hsk-content/hsk-professional-runtime.js?v=c2web1';
+        script.src = './assets/hsk-content/hsk-professional-runtime.js?v=c3web1';
         script.async = false;
-        script.setAttribute('data-hsk-professional-runtime', 'c2web1');
+        script.setAttribute('data-hsk-professional-runtime', 'c3web1');
         document.head.appendChild(script);
       }
     }

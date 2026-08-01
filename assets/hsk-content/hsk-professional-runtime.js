@@ -6,7 +6,10 @@
 })(typeof globalThis !== 'undefined' ? globalThis : this, function (root) {
   'use strict';
 
-  var BASE = './data/hsk/hsk1/';
+  var COURSE_CONFIG = Object.freeze({
+    1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài · C2' }),
+    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài · C3' })
+  });
   var SUPPORT_GLOSSES = Object.freeze({
     '不喜欢': 'không thích',
     '不能': 'không thể',
@@ -21,12 +24,15 @@
     status: 'idle',
     error: null,
     data: null,
+    courseCache: Object.create(null),
+    selectedLevel: 1,
     selectedLessonId: null,
     selectedAssessmentId: null,
     mounted: false,
     readOnly: true
   };
   var listenersBound = false;
+  var introObserver = null;
 
   function text(value) { return String(value == null ? '' : value).trim(); }
   function esc(value) {
@@ -95,9 +101,11 @@
     });
   }
 
-  function verifyCourse(manifest, units, lessons, grammar, characters, exercises, assessments, enrichment, vocabulary) {
-    if (!manifest || Number(manifest.level) !== 1 || manifest.phase !== 'C2') throw new Error('HSK1 course manifest C2 không hợp lệ.');
-    if (manifest.writesProgress !== false || manifest.readOnly !== true || manifest.productionEnabled !== false) throw new Error('HSK1 C2 phải giữ read-only và production lock.');
+  function verifyCourse(manifest, units, lessons, grammar, characters, exercises, assessments, enrichment, vocabulary, expectedLevel) {
+    expectedLevel = Number(expectedLevel || (manifest && manifest.level));
+    var config = COURSE_CONFIG[expectedLevel];
+    if (!config || !manifest || Number(manifest.level) !== Number(expectedLevel) || manifest.phase !== config.phase) throw new Error('HSK' + expectedLevel + ' course manifest ' + (config && config.phase || '') + ' không hợp lệ.');
+    if (manifest.writesProgress !== false || manifest.readOnly !== true || manifest.productionEnabled !== false) throw new Error('HSK' + expectedLevel + ' phải giữ read-only và production lock.');
     var collections = manifest.collections || {};
     var checks = [
       ['units', units], ['lessons', lessons], ['grammar', grammar], ['characters', characters], ['exercises', exercises], ['assessments', assessments]
@@ -107,23 +115,35 @@
       if (expected && item[1].length !== expected) throw new Error('Sai số lượng ' + item[0] + ': cần ' + expected + ', nhận ' + item[1].length + '.');
     });
     if (collections.vocabularyEnrichment && enrichment.length !== Number(collections.vocabularyEnrichment.count)) throw new Error('Sai số lượng vocabulary enrichment.');
-    if (vocabulary.length !== 300) throw new Error('Canonical HSK1 vocabulary phải có 300 record.');
+    var expectedVocabulary = collections.vocabulary && Number(collections.vocabulary.count);
+    if (!expectedVocabulary) expectedVocabulary = Number(expectedLevel) === 1 ? 300 : 200;
+    if (vocabulary.length !== expectedVocabulary) throw new Error('Canonical HSK' + expectedLevel + ' vocabulary phải có ' + expectedVocabulary + ' record.');
   }
 
-  function loadCourse() {
-    if (state.data) return Promise.resolve(state.data);
+  function loadCourse(level) {
+    level = Number(level || state.selectedLevel || 1);
+    var config = COURSE_CONFIG[level];
+    if (!config) return Promise.reject(new Error('HSK' + level + ' chưa có learner course.'));
+    if (state.courseCache[level]) {
+      state.data = state.courseCache[level];
+      state.selectedLevel = level;
+      state.status = 'ready';
+      state.error = null;
+      return Promise.resolve(state.data);
+    }
     state.status = 'loading';
     state.error = null;
+    var base = config.base;
     return Promise.all([
-      fetchJson(BASE + 'course-manifest.json'),
-      fetchJson(BASE + 'units.json'),
-      fetchJson(BASE + 'lessons.json'),
-      fetchJson(BASE + 'grammar.json'),
-      fetchJson(BASE + 'characters.json'),
-      fetchJson(BASE + 'exercises.json'),
-      fetchJson(BASE + 'assessments.json'),
-      fetchJson(BASE + 'vocabulary-enrichment.json'),
-      loadIndexedCollection(BASE + 'vocabulary/index.json', 'vocabulary')
+      fetchJson(base + 'course-manifest.json'),
+      fetchJson(base + 'units.json'),
+      fetchJson(base + 'lessons.json'),
+      fetchJson(base + 'grammar.json'),
+      fetchJson(base + 'characters.json'),
+      fetchJson(base + 'exercises.json'),
+      fetchJson(base + 'assessments.json'),
+      fetchJson(base + 'vocabulary-enrichment.json'),
+      loadIndexedCollection(base + 'vocabulary/index.json', 'vocabulary')
     ]).then(function (parts) {
       var manifest = parts[0];
       var units = array(parts[1].records);
@@ -134,7 +154,7 @@
       var assessments = array(parts[6].records);
       var enrichment = array(parts[7].entries);
       var vocabulary = parts[8];
-      verifyCourse(manifest, units, lessons, grammar, characters, exercises, assessments, enrichment, vocabulary);
+      verifyCourse(manifest, units, lessons, grammar, characters, exercises, assessments, enrichment, vocabulary, level);
       var data = {
         manifest: manifest,
         units: units.slice().sort(function (a, b) { return Number(a.order) - Number(b.order); }),
@@ -150,10 +170,14 @@
         characterById: mapBy(characters, 'id'),
         exerciseById: mapBy(exercises, 'id'),
         assessmentById: mapBy(assessments, 'id'),
+        vocabularyById: mapBy(vocabulary, 'id'),
         vocabularyBySimplified: mapBy(vocabulary, 'simplified'),
+        enrichmentById: mapBy(enrichment, 'canonicalId'),
         enrichmentBySimplified: mapBy(enrichment, 'simplified')
       };
+      state.courseCache[level] = data;
       state.data = data;
+      state.selectedLevel = level;
       state.status = 'ready';
       return data;
     }).catch(function (error) {
@@ -165,9 +189,13 @@
 
   function resolveFocusWord(data, focus) {
     focus = focus || {};
-    var simplified = text(focus.simplified || (focus.canonicalLookup && focus.canonicalLookup.value));
-    var canonical = data && data.vocabularyBySimplified && data.vocabularyBySimplified[simplified];
-    var enrichment = data && data.enrichmentBySimplified && data.enrichmentBySimplified[simplified];
+    var canonicalId = text(focus.canonicalId || (focus.canonicalLookup && focus.canonicalLookup.field === 'id' && focus.canonicalLookup.value));
+    var simplified = text(focus.simplified || (focus.canonicalLookup && focus.canonicalLookup.field !== 'id' && focus.canonicalLookup.value));
+    var canonical = canonicalId && data && data.vocabularyById ? data.vocabularyById[canonicalId] : null;
+    if (!canonical) canonical = data && data.vocabularyBySimplified && data.vocabularyBySimplified[simplified];
+    if (canonical && !simplified) simplified = canonical.simplified;
+    var enrichment = canonicalId && data && data.enrichmentById ? data.enrichmentById[canonicalId] : null;
+    if (!enrichment) enrichment = data && data.enrichmentBySimplified && data.enrichmentBySimplified[simplified];
     var collocations = array(focus.collocations).length ? focus.collocations : array(enrichment && enrichment.collocations);
     var commonErrors = array(focus.commonErrorsVi).length ? focus.commonErrorsVi : array(enrichment && enrichment.commonErrorsVi);
     return {
@@ -175,6 +203,9 @@
       pinyin: canonical ? canonical.pinyin : pinyinFor(simplified),
       meaningVi: canonical ? canonical.meaningVi : (SUPPORT_GLOSSES[simplified] || 'Cụm hỗ trợ — học theo ngữ cảnh trong bài'),
       partOfSpeech: canonical ? array(canonical.partOfSpeech) : [],
+      measureWord: text(canonical && canonical.measureWord || enrichment && enrichment.measureWord),
+      usageNoteVi: text(canonical && canonical.usageNoteVi || enrichment && enrichment.usageNoteVi),
+      confusables: array(canonical && canonical.confusables).length ? canonical.confusables : array(enrichment && enrichment.confusables),
       collocations: collocations,
       commonErrorsVi: commonErrors,
       lexicalStatus: focus.lexicalStatus || (canonical ? 'canonical' : 'support-only'),
@@ -199,12 +230,15 @@
     var words = array(section.content && section.content.focusWords).map(function (focus) { return resolveFocusWord(data, focus); });
     var html = '<p class="hsk-pro-help">' + esc(section.content && section.content.instructionVi || 'Học từ theo cụm và câu.') + '</p><div class="hsk-pro-vocab-grid">';
     html += words.map(function (word) {
-      var status = word.lexicalStatus === 'canonical' ? 'HSK1 canonical' : 'Từ/cụm hỗ trợ';
+      var status = word.lexicalStatus === 'canonical' ? 'HSK' + data.manifest.level + ' canonical' : 'Từ/cụm hỗ trợ';
       return '<article class="hsk-pro-vocab-card"><div class="hsk-pro-vocab-head"><div><strong class="hsk-pro-hanzi">' + esc(word.simplified) + '</strong><span class="hsk-pro-pinyin">' + esc(word.pinyin) + '</span></div>' + speakButton(word.simplified, 'Nghe') + '</div>' +
         '<p class="hsk-pro-meaning">' + esc(word.meaningVi) + '</p>' +
         (word.partOfSpeech.length ? '<small>' + esc(word.partOfSpeech.join(', ')) + '</small>' : '') +
         '<span class="hsk-pro-status">' + esc(status) + '</span>' +
-        (word.collocations.length ? '<div class="hsk-pro-mini"><b>Cụm dùng thật</b>' + word.collocations.map(function (c) { return '<p><span lang="zh-CN">' + esc(c.zh) + '</span> — ' + esc(c.vi) + '</p>'; }).join('') + '</div>' : '') +
+        (word.measureWord && word.measureWord !== '—' ? '<p class="hsk-pro-note"><b>Lượng từ khi đếm:</b> ' + esc(word.measureWord) + '</p>' : '') +
+        (word.usageNoteVi ? '<p class="hsk-pro-note"><b>Cách dùng:</b> ' + esc(word.usageNoteVi) + '</p>' : '') +
+        (word.confusables.length ? '<p class="hsk-pro-note"><b>Dễ nhầm:</b> ' + esc(word.confusables.join(' · ')) + '</p>' : '') +
+        (word.collocations.length ? '<div class="hsk-pro-mini"><b>Mẫu dùng tự nhiên</b>' + word.collocations.map(function (c) { return '<p><span lang="zh-CN">' + esc(c.zh) + '</span> — ' + esc(c.vi) + '</p>'; }).join('') + '</div>' : '') +
         (word.commonErrorsVi.length ? '<div class="hsk-pro-warning"><b>Lỗi dễ mắc</b>' + list(word.commonErrorsVi) + '</div>' : '') +
         (word.supportReason ? '<p class="hsk-pro-note">' + esc(word.supportReason) + '</p>' : '') +
       '</article>';
@@ -218,8 +252,10 @@
       var item = data.characterById[id];
       if (!item) return '';
       return '<article class="hsk-pro-character"><strong>' + esc(item.character) + '</strong><span>' + esc(array(item.readings).join(' / ')) + '</span><p>Bộ: <b>' + esc(item.radical || '—') + '</b></p>' +
+        (item.structure ? '<p>Cấu trúc: ' + esc(item.structure) + '</p>' : '') + (item.strokeCount ? '<p>Số nét: ' + esc(item.strokeCount) + '</p>' : '') +
         (array(item.components).length ? '<p>Thành phần: ' + esc(item.components.join(' · ')) + '</p>' : '') +
         (array(item.confusables).length ? '<p>Dễ nhầm: ' + esc(item.confusables.join(' · ')) + '</p>' : '') +
+        (item.mnemonic && item.mnemonic.noteVi ? '<p class="hsk-pro-note">' + esc(item.mnemonic.noteVi) + '</p>' : '') +
         '<small>Thứ tự nét: ' + esc(item.strokeOrderStatus || 'chưa xác minh') + '</small>' + speakButton(item.character, 'Nghe chữ') + '</article>';
     }).join('');
     var note = section.content && section.content.noteVi ? '<p class="hsk-pro-note">' + esc(section.content.noteVi) + '</p>' : '';
@@ -318,7 +354,7 @@
 
   function renderPractice(data, lesson) {
     var exercises = array(lesson.practiceRefs).map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
-    return sectionCard('Bài tập của lesson', '<p class="hsk-pro-help">Làm trực tiếp trên web. Kết quả chỉ tồn tại trong phiên hiện tại; VDuckie chưa ghi progress C2.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
+    return sectionCard('Bài tập của lesson', '<p class="hsk-pro-help">Làm trực tiếp trên web. Kết quả chỉ tồn tại trong phiên hiện tại; VDuckie chưa ghi progress HSK.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
   }
 
   function lessonIndex(data, id) {
@@ -333,7 +369,7 @@
   function renderLesson(data, lesson) {
     var index = lessonIndex(data, lesson.id);
     var unit = unitForLesson(data, lesson);
-    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div><span class="hsk-pro-readonly">🔒 READ-ONLY C2</span></div>' +
+    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div><span class="hsk-pro-readonly">🔒 READ-ONLY ' + esc(data.manifest.phase) + '</span></div>' +
       '<section class="hsk-pro-objectives"><b>Sau bài này bạn làm được gì?</b>' + list(lesson.objectives) + '</section>';
     array(lesson.sections).forEach(function (section) {
       if (section.type === 'vocabulary') body += renderVocabulary(data, section);
@@ -365,14 +401,19 @@
   function renderLevels(data) {
     var node = byId('hskLevels');
     if (!node) return;
-    var html = '<button type="button" class="hsk-level active hsk-pro-level" data-pro-level="1"><strong>HSK 1</strong><small>10 unit · 24 bài · C2</small></button>';
-    for (var level = 2; level <= 9; level++) html += '<button type="button" class="hsk-level hsk-pro-level locked" disabled aria-disabled="true"><strong>HSK ' + level + '</strong><small>Sắp mở</small></button>';
+    var html = '';
+    for (var level = 1; level <= 9; level++) {
+      var config = COURSE_CONFIG[level];
+      var active = level === state.selectedLevel ? ' active' : '';
+      if (config) html += '<button type="button" class="hsk-level hsk-pro-level' + active + '" data-pro-level="' + level + '"><strong>HSK ' + level + '</strong><small>' + esc(config.label) + '</small></button>';
+      else html += '<button type="button" class="hsk-level hsk-pro-level locked" disabled aria-disabled="true"><strong>HSK ' + level + '</strong><small>Sắp mở</small></button>';
+    }
     node.innerHTML = html;
   }
 
   function renderSidebar(data) {
     var progress = byId('hskProgress');
-    if (progress) progress.innerHTML = '<div class="hsk-pro-sidebar-status"><strong>HSK 1 Professional</strong><span>10 unit · 24 lesson · 120 bài tập</span><small>Read-only · chưa ghi progress</small></div>';
+    if (progress) progress.innerHTML = '<div class="hsk-pro-sidebar-status"><strong>HSK ' + esc(data.manifest.level) + ' Professional</strong><span>' + esc(data.units.length) + ' unit · ' + esc(data.lessons.length) + ' lesson · ' + esc(data.exercises.length) + ' bài tập</span><small>Read-only · chưa ghi progress</small></div>';
     var node = byId('hskLessonList');
     if (!node) return;
     var html = '';
@@ -387,9 +428,10 @@
       var checkpoint = unit.checkpointRef && data.assessmentById[unit.checkpointRef.id];
       if (checkpoint) html += '<button type="button" class="hsk-pro-assessment-link' + (state.selectedAssessmentId === checkpoint.id ? ' active' : '') + '" data-pro-assessment="' + attr(checkpoint.id) + '">✓ Checkpoint Unit ' + esc(unit.order) + '</button>';
       html += '</section>';
-      if (Number(unit.order) === 5 && data.assessmentById['hsk1-assessment-midpoint']) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === 'hsk1-assessment-midpoint' ? ' active' : '') + '" data-pro-assessment="hsk1-assessment-midpoint">◈ Midpoint Assessment</button>';
+      var midpointId = 'hsk' + state.selectedLevel + '-assessment-midpoint';
+      if (Number(unit.order) === 5 && data.assessmentById[midpointId]) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === midpointId ? ' active' : '') + '" data-pro-assessment="' + attr(midpointId) + '">◈ Midpoint Assessment</button>';
     });
-    ['hsk1-assessment-final','hsk1-assessment-mastery'].forEach(function (id) {
+    ['hsk' + state.selectedLevel + '-assessment-final','hsk' + state.selectedLevel + '-assessment-mastery'].forEach(function (id) {
       var assessment = data.assessmentById[id];
       if (assessment) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + (id.indexOf('final') >= 0 ? '★ Final Assessment' : '◆ Mastery Review') + '</button>';
     });
@@ -402,17 +444,28 @@
       var strong = intro.querySelector('strong');
       var paragraph = intro.querySelector('p');
       var badge = intro.querySelector('.hsk-standard');
-      if (strong) strong.textContent = 'HSK 1 Professional · C2 đã kết nối learner-facing';
-      if (paragraph) paragraph.textContent = '10 unit · 24 lesson · 21 điểm ngữ pháp · 50 chữ Hán · 120 bài tập · 13 assessment. Chế độ test read-only: không ghi progress, không migration.';
-      if (badge) badge.textContent = 'C2 · READ-ONLY TEST';
+      var title = 'HSK ' + data.manifest.level + ' Professional · ' + data.manifest.phase + ' learner-facing';
+      var summary = data.units.length + ' unit · ' + data.lessons.length + ' lesson · ' + data.grammar.length + ' điểm ngữ pháp · ' + data.characters.length + ' chữ Hán · ' + data.exercises.length + ' bài tập · ' + data.assessments.length + ' assessment. Read-only: không ghi progress, không migration.';
+      var status = data.manifest.phase + ' · READ-ONLY TEST';
+      if (strong && strong.textContent !== title) strong.textContent = title;
+      if (paragraph && paragraph.textContent !== summary) paragraph.textContent = summary;
+      if (badge && badge.textContent !== status) badge.textContent = status;
     }
     var home = root.document && root.document.querySelector ? root.document.querySelector('.home-resource-tile.resource-hsk') : null;
     if (home) {
       var count = home.querySelector('strong');
       var label = home.querySelector('span');
-      if (count) count.textContent = '24';
-      if (label) label.textContent = 'Bài HSK1 C2';
+      if (count && count.textContent !== '52') count.textContent = '52';
+      if (label && label.textContent !== 'Bài HSK1–2') label.textContent = 'Bài HSK1–2';
     }
+  }
+
+  function observeIntro() {
+    if (introObserver || !root.MutationObserver || !root.document || !root.document.querySelector) return;
+    var intro = root.document.querySelector('.hsk-intro');
+    if (!intro) return;
+    introObserver = new root.MutationObserver(function () { if (state.data) updateIntro(state.data); });
+    introObserver.observe(intro, { childList: true, subtree: true, characterData: true });
   }
 
   function writeUrl() {
@@ -420,6 +473,7 @@
     try {
       var url = new URL(root.location.href);
       url.searchParams.set('area', 'hsk');
+      url.searchParams.set('hskLevel', String(state.selectedLevel));
       if (state.selectedLessonId) {
         url.searchParams.set('hskLesson', state.selectedLessonId);
         url.searchParams.delete('hskAssessment');
@@ -448,6 +502,7 @@
     }
     if (root.document && root.document.body) {
       root.document.body.setAttribute('data-hsk-professional', 'c2-readonly');
+      root.document.body.setAttribute('data-hsk-course-level', String(state.selectedLevel));
       root.document.body.setAttribute('data-hsk-prof-ready', 'true');
     }
     writeUrl();
@@ -474,6 +529,28 @@
       if (node && node.scrollIntoView) node.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     return true;
+  }
+
+  function selectLevel(level, shouldScroll) {
+    level = Number(level);
+    if (!COURSE_CONFIG[level]) return Promise.resolve(false);
+    if (level === state.selectedLevel && state.data) {
+      if (state.data.lessons[0]) selectLesson(state.data.lessons[0].id, shouldScroll);
+      return Promise.resolve(true);
+    }
+    state.selectedLevel = level;
+    state.selectedLessonId = null;
+    state.selectedAssessmentId = null;
+    showLoading();
+    return loadCourse(level).then(function (data) {
+      state.selectedLessonId = data.lessons[0] && data.lessons[0].id;
+      renderCurrent();
+      if (shouldScroll !== false) {
+        var node = byId('hskLesson');
+        if (node && node.scrollIntoView) node.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      return true;
+    }).catch(function (error) { showError(error); throw error; });
   }
 
   function checkExercise(id, article) {
@@ -511,14 +588,16 @@
       var target = event.target && event.target.closest ? event.target.closest('button') : null;
       if (!target) return;
       if (target.hasAttribute('data-pro-retry')) {
+        delete state.courseCache[state.selectedLevel];
         state.data = null;
         state.status = 'idle';
         state.error = null;
-        mount(true).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK1 learner retry:', error); });
+        mount(true).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK learner retry:', error); });
         return;
       }
-      if (target.getAttribute('data-pro-level') === '1') {
-        if (state.data && state.data.lessons[0]) selectLesson(state.data.lessons[0].id, true);
+      var level = Number(target.getAttribute('data-pro-level'));
+      if (level && COURSE_CONFIG[level]) {
+        selectLevel(level, true).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK level switch:', error); });
         return;
       }
       var lessonId = target.getAttribute('data-pro-lesson');
@@ -567,13 +646,27 @@
     }
   }
 
+  function initialLevel() {
+    var level = 1;
+    try {
+      var params = new URLSearchParams(root.location && root.location.search || '');
+      var requested = Number(params.get('hskLevel'));
+      var contentId = params.get('hskLesson') || params.get('hskAssessment') || '';
+      if (COURSE_CONFIG[requested]) level = requested;
+      else if (/^hsk2-/.test(contentId)) level = 2;
+    } catch (error) {}
+    return level;
+  }
+
   function showLoading() {
     var node = byId('hskLesson');
-    if (node) node.innerHTML = '<div class="hsk-pro-loading"><b>Đang nạp HSK1 Professional C2…</b><span>10 unit · 24 lesson · read-only</span></div>';
+    var config = COURSE_CONFIG[state.selectedLevel] || COURSE_CONFIG[1];
+    if (node) node.innerHTML = '<div class="hsk-pro-loading"><b>Đang nạp HSK' + esc(state.selectedLevel) + ' Professional ' + esc(config.phase) + '…</b><span>' + esc(config.label) + ' · read-only</span></div>';
+    if (root.document && root.document.body) root.document.body.setAttribute('data-hsk-prof-ready', 'loading');
   }
   function showError(error) {
     var node = byId('hskLesson');
-    if (node) node.innerHTML = '<div class="hsk-pro-error"><b>Không nạp được HSK1 C2.</b><p>' + esc(error && error.message || error) + '</p><button class="accent" type="button" data-pro-retry>Thử lại</button></div>';
+    if (node) node.innerHTML = '<div class="hsk-pro-error"><b>Không nạp được HSK' + esc(state.selectedLevel) + '.</b><p>' + esc(error && error.message || error) + '</p><button class="accent" type="button" data-pro-retry>Thử lại</button></div>';
     if (root.document && root.document.body) root.document.body.setAttribute('data-hsk-prof-ready', 'error');
   }
 
@@ -582,8 +675,10 @@
     if (!force && (!flags || flags.HSK_CURRICULUM_V2_LEARNER_READONLY_ENABLED !== true)) return Promise.resolve({ mounted: false, reason: 'flag-disabled' });
     if (!byId('hskLesson') || !byId('hskLevels') || !byId('hskLessonList')) return Promise.resolve({ mounted: false, reason: 'dom-unavailable' });
     bindEvents();
+    observeIntro();
+    if (!state.data) state.selectedLevel = initialLevel();
     showLoading();
-    return loadCourse().then(function (data) {
+    return loadCourse(state.selectedLevel).then(function (data) {
       if (!state.selectedLessonId && !state.selectedAssessmentId) initialSelection(data);
       state.mounted = true;
       renderCurrent();
@@ -600,6 +695,7 @@
       mounted: state.mounted,
       readOnly: true,
       progressWritesEnabled: false,
+      selectedLevel: state.selectedLevel,
       selectedLessonId: state.selectedLessonId,
       selectedAssessmentId: state.selectedAssessmentId,
       counts: state.data ? {
@@ -618,7 +714,7 @@
   function boot() {
     if (!root.document) return;
     var start = function () {
-      mount(false).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK1 learner runtime:', error); });
+      mount(false).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK learner runtime:', error); });
       if (root.PinyinEngineReady && typeof root.PinyinEngineReady.then === 'function') {
         root.PinyinEngineReady.then(function () { if (state.data) renderCurrent(); }).catch(function () {});
       }
@@ -634,6 +730,7 @@
     getState: getState,
     selectLesson: selectLesson,
     selectAssessment: selectAssessment,
+    selectLevel: selectLevel,
     normalizeAnswer: normalizeAnswer,
     resolveFocusWord: resolveFocusWord,
     verifyCourse: verifyCourse,

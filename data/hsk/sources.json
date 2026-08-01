@@ -9,8 +9,30 @@
       "url": "https://www.moe.gov.cn/jyb_sjzl/ziliao/A19/202111/t20211118_580755.html",
       "accessDate": "2026-07-23",
       "syllabusVersion": "GF0025-2021",
-      "levels": [1,2,3,4,5,6,7,8,9],
-      "scope": ["proficiency-levels","communication","topics","hanzi","vocabulary","grammar","listening","speaking","reading","writing","translation"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "scope": [
+        "proficiency-levels",
+        "communication",
+        "topics",
+        "hanzi",
+        "vocabulary",
+        "grammar",
+        "listening",
+        "speaking",
+        "reading",
+        "writing",
+        "translation"
+      ],
       "confidence": "authoritative",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Used for alignment and short attribution only; do not republish the full standard or protected appendices without permission review.",
@@ -24,8 +46,23 @@
       "url": "https://www.moe.gov.cn/jyb_xwfb/s271/202104/t20210402_524194.html",
       "accessDate": "2026-07-23",
       "syllabusVersion": "GF0025-2021",
-      "levels": [1,2,3,4,5,6,7,8,9],
-      "scope": ["version-history","quantitative-totals","implementation-scope","skill-framework"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "scope": [
+        "version-history",
+        "quantitative-totals",
+        "implementation-scope",
+        "skill-framework"
+      ],
       "confidence": "authoritative",
       "licenseStatus": "reuse-limited",
       "licenseNote": "May be cited briefly; not a substitute for level-by-level source extraction.",
@@ -39,8 +76,24 @@
       "url": "https://www.chinesetest.cn/syllabus",
       "accessDate": "2026-07-23",
       "syllabusVersion": "CTI-HSK3.0-2026",
-      "levels": [1,2,3,4,5,6,"7-9"],
-      "scope": ["tasks","topics","vocabulary","hanzi","grammar","sample-blueprints","competency-profile"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        "7-9"
+      ],
+      "scope": [
+        "tasks",
+        "topics",
+        "vocabulary",
+        "hanzi",
+        "grammar",
+        "sample-blueprints",
+        "competency-profile"
+      ],
       "confidence": "authoritative-current",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Use public blueprint and competency requirements only; do not copy full sample tests, answer keys or audio.",
@@ -54,8 +107,13 @@
       "url": "https://admin.chinesetest.cn/gonewcontent.do?id=46783143",
       "accessDate": "2026-07-23",
       "syllabusVersion": "CTI-HSK7-9",
-      "levels": ["7-9"],
-      "scope": ["exam-status","combined-advanced-exam"],
+      "levels": [
+        "7-9"
+      ],
+      "scope": [
+        "exam-status",
+        "combined-advanced-exam"
+      ],
       "confidence": "authoritative",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Status verification only; not a content source.",
@@ -69,8 +127,19 @@
       "url": "https://admin.chinesetest.cn/gonewcontent.do?id=48998697",
       "accessDate": "2026-07-23",
       "syllabusVersion": "CTI-Calendar-2026",
-      "levels": [1,2,3,4,5,6,"7-9"],
-      "scope": ["current-exam-implementation","calendar"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        "7-9"
+      ],
+      "scope": [
+        "current-exam-implementation",
+        "calendar"
+      ],
       "confidence": "authoritative-current",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Current-status reference; re-check before major release.",
@@ -84,8 +153,14 @@
       "url": "https://cc-cedict.org/wiki/",
       "accessDate": "2026-07-23",
       "syllabusVersion": "cross-level",
-      "levels": ["cross-level"],
-      "scope": ["pinyin-cross-check","gloss-cross-check","part-of-speech-cross-check"],
+      "levels": [
+        "cross-level"
+      ],
+      "scope": [
+        "pinyin-cross-check",
+        "gloss-cross-check",
+        "part-of-speech-cross-check"
+      ],
       "confidence": "supplemental",
       "licenseStatus": "verified",
       "licenseNote": "CC BY-SA 3.0; derivative redistribution must preserve attribution and ShareAlike obligations.",
@@ -99,8 +174,14 @@
       "url": "https://www.unicode.org/reports/tr38/",
       "accessDate": "2026-07-23",
       "syllabusVersion": "Unicode-17",
-      "levels": ["cross-level"],
-      "scope": ["character-codepoint","radical-stroke-index","variant-cross-check"],
+      "levels": [
+        "cross-level"
+      ],
+      "scope": [
+        "character-codepoint",
+        "radical-stroke-index",
+        "variant-cross-check"
+      ],
       "confidence": "authoritative-technical",
       "licenseStatus": "verified",
       "licenseNote": "Use under Unicode Terms of Use.",
@@ -114,8 +195,21 @@
       "url": "https://github.com/ivankra/hsk30",
       "accessDate": "2026-07-23",
       "syllabusVersion": "derived-HSK3.0",
-      "levels": [1,2,3,4,5,6,"7-9"],
-      "scope": ["legacy-v79-vocabulary","pinyin","part-of-speech","variants"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        "7-9"
+      ],
+      "scope": [
+        "legacy-v79-vocabulary",
+        "pinyin",
+        "part-of-speech",
+        "variants"
+      ],
       "confidence": "supplemental-needs-verification",
       "licenseStatus": "review-required",
       "licenseNote": "Repository declares MIT, but underlying official and third-party data provenance and redistribution rights require legal review.",
@@ -129,8 +223,12 @@
       "url": "https://github.com/ph0ngp/CVDICT",
       "accessDate": "2026-07-23",
       "syllabusVersion": "cross-level",
-      "levels": ["cross-level"],
-      "scope": ["legacy-v79-vietnamese-gloss"],
+      "levels": [
+        "cross-level"
+      ],
+      "scope": [
+        "legacy-v79-vietnamese-gloss"
+      ],
       "confidence": "supplemental-needs-human-review",
       "licenseStatus": "review-required",
       "licenseNote": "CC BY-SA 4.0; project notes indicate many translations were machine-assisted and may contain errors.",
@@ -144,8 +242,22 @@
       "url": "https://hsk.cn-bj.ufileos.com/3.0/%E6%96%B0%E7%89%88HSK%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B21219.pdf",
       "accessDate": "2026-07-27",
       "syllabusVersion": "CTI-HSK3.0-2026",
-      "levels": [1,2,3,4,5,6,"7-9"],
-      "scope": ["official-level-membership","vocabulary-order","simplified","pinyin","part-of-speech"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        "7-9"
+      ],
+      "scope": [
+        "official-level-membership",
+        "vocabulary-order",
+        "simplified",
+        "pinyin",
+        "part-of-speech"
+      ],
       "confidence": "authoritative-current",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Only the factual Level 1 inventory, short field values and row locators are represented; no sample tests, answer keys or bulk prose are copied.",
@@ -159,8 +271,14 @@
       "url": "https://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113091717604.pdf",
       "accessDate": "2026-07-27",
       "syllabusVersion": "GB-T-16159-2012",
-      "levels": ["cross-level"],
-      "scope": ["pinyin-orthography","word-segmentation","capitalization"],
+      "levels": [
+        "cross-level"
+      ],
+      "scope": [
+        "pinyin-orthography",
+        "word-segmentation",
+        "capitalization"
+      ],
       "confidence": "authoritative",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Referenced as an orthographic standard; the standard text is not redistributed.",
@@ -174,8 +292,13 @@
       "url": "https://www.unicode.org/reports/tr15/",
       "accessDate": "2026-07-27",
       "syllabusVersion": "Unicode-current",
-      "levels": ["cross-level"],
-      "scope": ["unicode-normalization","nfc"],
+      "levels": [
+        "cross-level"
+      ],
+      "scope": [
+        "unicode-normalization",
+        "nfc"
+      ],
       "confidence": "authoritative-technical",
       "licenseStatus": "verified",
       "licenseNote": "Used under Unicode Terms of Use.",
@@ -189,8 +312,15 @@
       "url": "https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee",
       "accessDate": "2026-07-27",
       "syllabusVersion": "VDUCKIE-HSK1-PHASE2A-1.0.0",
-      "levels": [1],
-      "scope": ["vietnamese-glosses","original-example-sentences","vietnamese-translations","grammar-tags"],
+      "levels": [
+        1
+      ],
+      "scope": [
+        "vietnamese-glosses",
+        "original-example-sentences",
+        "vietnamese-translations",
+        "grammar-tags"
+      ],
       "confidence": "project-authored-machine-assisted",
       "licenseStatus": "verified",
       "licenseNote": "Original project-authored material; no sentence corpus or textbook examples were copied.",
@@ -204,8 +334,20 @@
       "url": "https://www.chinesetest.cn/notice",
       "accessDate": "2026-07-29",
       "syllabusVersion": "CTI-HSK3.0-2026",
-      "levels": [1,2,3,4,5,6],
-      "scope": ["pilot-date","exam-duration","oral-test-bundling","transition-status"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "scope": [
+        "pilot-date",
+        "exam-duration",
+        "oral-test-bundling",
+        "transition-status"
+      ],
       "confidence": "authoritative-current",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Used only to record current implementation status and short factual parameters; re-check before every release.",
@@ -219,8 +361,24 @@
       "url": "https://hsk.cn-bj.ufileos.com/3.0/HSK3.0%E8%80%83%E8%AF%95%E8%83%BD%E5%8A%9B%E6%8F%8F%E8%BF%B0.pdf",
       "accessDate": "2026-07-29",
       "syllabusVersion": "CTI-HSK3.0-2026",
-      "levels": [1,2,3,4,5,6,7,8,9],
-      "scope": ["level-output-descriptors","life-domain","study-domain","work-domain","academic-domain"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "scope": [
+        "level-output-descriptors",
+        "life-domain",
+        "study-domain",
+        "work-domain",
+        "academic-domain"
+      ],
       "confidence": "authoritative-current",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Level outcomes are paraphrased for curriculum alignment; the official profile is not republished.",
@@ -234,12 +392,55 @@
       "url": "https://news.blcu.edu.cn/info/1011/28947.htm",
       "accessDate": "2026-07-29",
       "syllabusVersion": "cross-level-2025",
-      "levels": [1,2,3,4,5,6,7,8,9],
-      "scope": ["integrated-skills","discourse-pragmatics-culture","reading-writing","academic-chinese","curriculum-development"],
+      "levels": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "scope": [
+        "integrated-skills",
+        "discourse-pragmatics-culture",
+        "reading-writing",
+        "academic-chinese",
+        "curriculum-development"
+      ],
       "confidence": "institutional-pedagogy",
       "licenseStatus": "reuse-limited",
       "licenseNote": "Used as institutional pedagogic evidence; no course materials, lesson text or teaching demonstrations are copied.",
       "derivedDataNote": "Supports integrated skill strands and advanced discourse design but does not determine official exam inventory."
+    },
+    {
+      "sourceId": "vduckie-hsk2-c3-original",
+      "title": "VDuckie HSK2 Phase C3 original learning content",
+      "publisher": "VDuckie",
+      "sourceType": "original-curriculum-content",
+      "url": null,
+      "accessDate": "2026-08-01",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "levels": [
+        2
+      ],
+      "scope": [
+        "Vietnamese explanations",
+        "examples",
+        "dialogues",
+        "reading",
+        "listening transcripts",
+        "speaking",
+        "writing",
+        "exercises",
+        "assessments"
+      ],
+      "confidence": "machine-assisted-human-signoff-required",
+      "licenseStatus": "verified",
+      "licenseNote": "All learning prose and tasks are newly authored for VDuckie; no commercial textbook text is copied.",
+      "derivedDataNote": "Official sources determine alignment and vocabulary membership only; VDuckie wording remains original."
     }
   ]
 }

@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-08-01",
+  "phase": "C3",
+  "level": 2,
+  "status": "pass",
+  "route": "?area=hsk&hskLevel=2&hskLesson=hsk2-lesson-01",
+  "runtime": {
+    "sharedWithHsk1": true,
+    "readOnly": true,
+    "progressWritesEnabled": false,
+    "counts": {
+      "units": 10,
+      "lessons": 28,
+      "vocabulary": 200,
+      "grammar": 29,
+      "characters": 60,
+      "exercises": 168,
+      "assessments": 13
+    }
+  },
+  "viewports": [
+    {
+      "width": 1440,
+      "height": 900,
+      "lessonId": "hsk2-lesson-01",
+      "horizontalOverflow": false,
+      "levelSelectorOverflow": false
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "lessonId": "hsk2-lesson-14",
+      "horizontalOverflow": false,
+      "levelSelectorOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "lessonId": "hsk2-lesson-14",
+      "horizontalOverflow": false,
+      "levelSelectorOverflow": false,
+      "minimumLessonButtonPx": 44,
+      "minimumChineseFontPx": 13
+    },
+    {
+      "width": 320,
+      "height": 568,
+      "lessonId": "hsk2-lesson-28",
+      "horizontalOverflow": false,
+      "levelSelectorOverflow": false,
+      "minimumLessonButtonPx": 44,
+      "minimumChineseFontPx": 13
+    }
+  ],
+  "flows": {
+    "firstMiddleLastLessons": "pass",
+    "allLessonSections": "pass",
+    "exerciseAnswerAndExplanation": "pass",
+    "previousNextNavigation": "pass",
+    "unitCheckpoint": "pass",
+    "midpoint": "pass",
+    "final": "pass",
+    "mastery": "pass",
+    "hsk1SwitchBackRegression": "pass"
+  },
+  "environmentNotes": [
+    "Headless Chromium was supplied a local CJK font for visual evidence because the test image did not bundle system CJK fonts.",
+    "Blocked Supabase CDN and unrelated community API requests were allowlisted as environment-only failures; no HSK request failed."
+  ],
+  "humanSignoffRequired": true
+}

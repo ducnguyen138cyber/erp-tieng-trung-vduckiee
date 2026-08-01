@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "C3",
+  "curriculumId": "vduckie-hsk2-professional-course",
+  "syllabusVersion": "GF0025-2021",
+  "examBlueprintVersion": "CTI-HSK3.0-2026",
+  "level": 2,
+  "status": "phase-c3-professional-machine-editorial-human-signoff-required",
+  "productionEnabled": false,
+  "publicOverrideAllowed": false,
+  "writesProgress": false,
+  "developerOnly": true,
+  "readOnly": true,
+  "qualityGate": "locked",
+  "collections": {
+    "units": {
+      "path": "units.json",
+      "count": 10
+    },
+    "lessons": {
+      "path": "lessons.json",
+      "count": 28
+    },
+    "grammar": {
+      "path": "grammar.json",
+      "count": 29
+    },
+    "characters": {
+      "path": "characters.json",
+      "count": 60
+    },
+    "exercises": {
+      "path": "exercises.json",
+      "count": 168
+    },
+    "assessments": {
+      "path": "assessments.json",
+      "count": 13
+    },
+    "vocabularyEnrichment": {
+      "path": "vocabulary-enrichment.json",
+      "count": 200,
+      "linkStrategy": "canonicalLookup.id"
+    },
+    "vocabulary": {
+      "path": "vocabulary/index.json",
+      "count": 200,
+      "newAtLevel": 200,
+      "cumulativeThroughLevel": 500
+    }
+  },
+  "learnerJourney": {
+    "lessonFlow": [
+      "context",
+      "new-vocabulary-in-use",
+      "characters",
+      "grammar-for-purpose",
+      "dialogue",
+      "reading",
+      "listening-transcript",
+      "pronunciation",
+      "guided-practice",
+      "speaking-writing",
+      "summary",
+      "spaced-review",
+      "real-world-task"
+    ],
+    "mastery": {
+      "knowledge": 80,
+      "receptive": 75,
+      "productive": 72,
+      "mandatory": [
+        "unit checkpoints",
+        "final assessment",
+        "nhiệm vụ nói có rubric"
+      ],
+      "spacingDays": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    }
+  },
+  "sourceIds": [
+    "moe-gf0025-2021-standard",
+    "cti-hsk3-current-syllabus-2026",
+    "cti-hsk3-competency-profile-2026",
+    "blcu-new-standard-pedagogy-2025",
+    "vduckie-hsk2-c3-original"
+  ],
+  "reviewGate": {
+    "vietnameseHumanReview": false,
+    "chinesePedagogyHumanReview": false,
+    "audioRecorded": false,
+    "strokeOrderVerified": false,
+    "productionReleaseAllowed": false
+  },
+  "editorialQualityGate": {
+    "status": "pass-machine-editorial-human-signoff-required",
+    "reviewedLessons": 28,
+    "readingSpecificQuestions": true,
+    "listeningTranscriptCoverage": "28/28",
+    "exerciseCount": 168,
+    "exerciseFormatCount": 32,
+    "officialNewVocabulary": "200/200",
+    "humanVietnameseSignoff": false,
+    "humanChinesePedagogySignoff": false
+  }
+}

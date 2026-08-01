@@ -142,6 +142,18 @@
       "type": "string",
       "minLength": 1
     },
+    "officialHeadword": {
+      "type": "string",
+      "minLength": 1
+    },
+    "officialRow": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "senseKey": {
+      "type": "string",
+      "minLength": 3
+    },
     "traditional": {
       "type": ["string", "null"]
     },
@@ -205,6 +217,10 @@
           "vi": {
             "type": "string",
             "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -243,6 +259,22 @@
       "items": {
         "type": "string"
       }
+    },
+    "measureWord": {
+      "type": ["string", "null"]
+    },
+    "usageNoteVi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "confusables": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "knowledgeStatus": {
+      "enum": ["new", "review", "reinforcement", "extension"]
     },
     "register": {
       "enum": ["colloquial", "neutral", "formal", "literary", "technical"]

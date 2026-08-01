@@ -1,0 +1,1646 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "grammar",
+  "level": 2,
+  "records": [
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-01",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "礼貌修复和语气助词啊",
+      "nameVi": "Sửa chữa giao tiếp lịch sự và trợ từ 啊",
+      "formula": "不好意思 + yêu cầu / Câu + 啊",
+      "communicativeFunctionVi": "Dùng lời xin lỗi, yêu cầu nhắc lại và trợ từ 啊 để phản hồi tự nhiên khi chưa nghe rõ.",
+      "meaningVi": "Dùng lời xin lỗi, yêu cầu nhắc lại và trợ từ 啊 để phản hồi tự nhiên khi chưa nghe rõ.",
+      "usageVi": [
+        "不好意思 mở đầu lời làm phiền hoặc xin lỗi nhẹ.",
+        "啊 có thể biểu thị nhận ra, ngạc nhiên hoặc làm mềm giọng; nghĩa phụ thuộc ngữ điệu."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "不好意思，请再说一次。",
+          "vi": "Xin lỗi, hãy nói lại một lần."
+        },
+        {
+          "zh": "啊，现在我明白了。",
+          "vi": "À, bây giờ tôi hiểu rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "再说一次啊不好意思。",
+          "explanationVi": "Sửa thành “不好意思，请再说一次。”. 啊 đứng đầu/cuối câu nhưng không thay được mọi trợ từ ngữ khí."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "吧",
+        "呢"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "extension",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-02",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "动词结果补语",
+      "nameVi": "Bổ ngữ kết quả cơ bản",
+      "formula": "Động từ + 懂/错/完/好",
+      "communicativeFunctionVi": "Nói kết quả đạt được sau hành động: nghe hiểu, làm sai, làm xong, chuẩn bị xong.",
+      "meaningVi": "Nói kết quả đạt được sau hành động: nghe hiểu, làm sai, làm xong, chuẩn bị xong.",
+      "usageVi": [
+        "Trọng tâm nằm ở kết quả, không chỉ ở hành động.",
+        "Phủ định việc chưa đạt kết quả thường dùng 没(有)."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我听懂了。",
+          "vi": "Tôi nghe hiểu rồi."
+        },
+        {
+          "zh": "这道题做错了。",
+          "vi": "Câu này làm sai rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我懂听了。",
+          "explanationVi": "Sửa thành “我听懂了。”. Không đảo thành 懂听 hoặc 错做."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "了"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-03",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "每……都……",
+      "nameVi": "Mỗi… đều…",
+      "formula": "每 + đơn vị/người + 都 + vị ngữ",
+      "communicativeFunctionVi": "Diễn tả thói quen hoặc quy luật lặp lại đối với mọi thành viên/thời điểm trong phạm vi.",
+      "meaningVi": "Diễn tả thói quen hoặc quy luật lặp lại đối với mọi thành viên/thời điểm trong phạm vi.",
+      "usageVi": [
+        "每 đứng trước danh từ/lượng từ.",
+        "都 đứng sau chủ ngữ/chủ đề và trước vị ngữ."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我每天都跑步。",
+          "vi": "Ngày nào tôi cũng chạy bộ."
+        },
+        {
+          "zh": "每个人都要写名字。",
+          "vi": "Mỗi người đều phải viết tên."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "都我每天学习。",
+          "explanationVi": "Sửa thành “我每天都学习。”. Không đặt 都 trước 每: 都每天."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "常常",
+        "有时"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-04",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "时间顺序和先后",
+      "nameVi": "Trình tự thời gian với 先…再…",
+      "formula": "先 + hành động 1，再 + hành động 2",
+      "communicativeFunctionVi": "Sắp xếp hai hành động theo thứ tự rõ ràng.",
+      "meaningVi": "Sắp xếp hai hành động theo thứ tự rõ ràng.",
+      "usageVi": [
+        "Có thể thêm thời gian cụ thể trước cả chuỗi.",
+        "再 nói hành động sau trong kế hoạch; 又 thường nói lặp lại đã xảy ra."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我先吃饭，再出门。",
+          "vi": "Tôi ăn trước rồi mới ra ngoài."
+        },
+        {
+          "zh": "先准备好，再给我打电话。",
+          "vi": "Chuẩn bị xong trước rồi gọi cho tôi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我再先吃饭出门。",
+          "explanationVi": "Sửa thành “我先吃饭，再出门。”. Không dùng 再 cho hành động lặp đã hoàn tất nếu muốn nhấn ‘lại’."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "又"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-05",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "快要／就要……了",
+      "nameVi": "Sắp… rồi",
+      "formula": "快要/就要 + động từ + 了",
+      "communicativeFunctionVi": "Báo một sự việc sắp xảy ra hoặc trạng thái sắp thay đổi.",
+      "meaningVi": "Báo một sự việc sắp xảy ra hoặc trạng thái sắp thay đổi.",
+      "usageVi": [
+        "快要 nhấn rất gần thời điểm xảy ra.",
+        "了 đứng cuối câu báo tình huống mới."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我们的火车快要到了。",
+          "vi": "Tàu của chúng tôi sắp đến rồi."
+        },
+        {
+          "zh": "就要考试了。",
+          "vi": "Sắp thi rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "火车已经快要到了了。",
+          "explanationVi": "Sửa thành “火车快要到了。”. Không thêm 已经 vào cùng một vị trí nếu sự việc mới chỉ sắp xảy ra."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "已经…了"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-06",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "方位词组",
+      "nameVi": "Cụm phương vị trong/ngoài/trên/dưới",
+      "formula": "Danh từ nơi chốn + 里/外/上/下/前/后",
+      "communicativeFunctionVi": "Xác định vị trí tương đối của người hoặc vật.",
+      "meaningVi": "Xác định vị trí tương đối của người hoặc vật.",
+      "usageVi": [
+        "Từ phương vị đứng sau danh từ mốc.",
+        "Có thể thêm 面 để thành 里面、外面、上面、下面."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "书在包里面。",
+          "vi": "Sách ở trong cặp."
+        },
+        {
+          "zh": "人在门外面。",
+          "vi": "Người ở bên ngoài cửa."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "里面书包有书。",
+          "explanationVi": "Sửa thành “书包里面有书。”. Không đảo thành 里面包 khi muốn nói ‘trong cặp’."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "有字句",
+        "在字句"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-07",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "离字句",
+      "nameVi": "Nói khoảng cách với 离",
+      "formula": "A + 离 + B + 近/远",
+      "communicativeFunctionVi": "Miêu tả A cách B gần hay xa.",
+      "meaningVi": "Miêu tả A cách B gần hay xa.",
+      "usageVi": [
+        "A là đối tượng đang được mô tả.",
+        "Có thể thêm con số khoảng cách khi đã biết cách nói đơn vị."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我家离学校很近。",
+          "vi": "Nhà tôi gần trường."
+        },
+        {
+          "zh": "机场离这里不远。",
+          "vi": "Sân bay không xa đây."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我家在公司很近。",
+          "explanationVi": "Sửa thành “我家离公司很近。”. Không dùng 在 thay 离 để nói khoảng cách."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "从…到…"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-08",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "趋向补语来和去",
+      "nameVi": "Bổ ngữ xu hướng 来/去",
+      "formula": "Động từ hướng + 来/去",
+      "communicativeFunctionVi": "来 biểu thị hướng về phía người nói/điểm nhìn; 去 biểu thị rời xa.",
+      "meaningVi": "来 biểu thị hướng về phía người nói/điểm nhìn; 去 biểu thị rời xa.",
+      "usageVi": [
+        "进来 là vào đây; 进去 là vào đó/bên trong xa điểm nhìn.",
+        "Lựa chọn phụ thuộc điểm nhìn của người nói."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "请进来。",
+          "vi": "Mời vào đây."
+        },
+        {
+          "zh": "他已经进去了。",
+          "vi": "Anh ấy đã đi vào rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我在房间里，请进去。",
+          "explanationVi": "Sửa thành “我在房间里，请进来。”. Không chọn 来/去 chỉ theo bản dịch tiếng Việt mà bỏ qua điểm nhìn."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "出来/出去",
+        "上来/上去"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-09",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "从……到……",
+      "nameVi": "Từ… đến…",
+      "formula": "从 + điểm đầu + 到 + điểm cuối",
+      "communicativeFunctionVi": "Nêu tuyến đường, phạm vi thời gian hoặc quá trình từ điểm bắt đầu đến điểm kết thúc.",
+      "meaningVi": "Nêu tuyến đường, phạm vi thời gian hoặc quá trình từ điểm bắt đầu đến điểm kết thúc.",
+      "usageVi": [
+        "Cụm 从…到… thường đứng trước động từ chính.",
+        "Có thể dùng với nơi chốn hoặc thời gian."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "从家到公司要三十分钟。",
+          "vi": "Từ nhà đến công ty mất ba mươi phút."
+        },
+        {
+          "zh": "我从九点工作到五点。",
+          "vi": "Tôi làm việc từ chín đến năm giờ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我到家从车站坐地铁。",
+          "explanationVi": "Sửa thành “我从家坐地铁到车站。”. Không đảo điểm đầu và điểm cuối."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "离"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-10",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "坐和乘车方式",
+      "nameVi": "Nói phương tiện và cách di chuyển",
+      "formula": "坐 + phương tiện / 打车 / 走路",
+      "communicativeFunctionVi": "Chọn động từ phù hợp để nói cách đi lại.",
+      "meaningVi": "Chọn động từ phù hợp để nói cách đi lại.",
+      "usageVi": [
+        "坐 dùng với xe, tàu, máy bay trong mẫu cơ bản.",
+        "打车 là gọi/đi taxi; 走路 là đi bộ."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我们坐地铁去机场。",
+          "vi": "Chúng tôi đi tàu điện ngầm đến sân bay."
+        },
+        {
+          "zh": "太晚了，打车吧。",
+          "vi": "Muộn quá rồi, gọi taxi nhé."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我在这里，请把票拿过去。",
+          "explanationVi": "Sửa thành “我在这里，请把票拿过来。”. 去 + nơi chốn không thêm 在 trước nơi chốn."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "开车",
+        "走路"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "reinforcement",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-11",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "动词过和趋向",
+      "nameVi": "过: đi qua và hướng di chuyển",
+      "formula": "过 + nơi/mốc / Động từ + 过来/过去",
+      "communicativeFunctionVi": "Phân biệt 过 đọc guò là đi qua với các động từ xu hướng 过来、过去.",
+      "meaningVi": "Phân biệt 过 đọc guò là đi qua với các động từ xu hướng 过来、过去.",
+      "usageVi": [
+        "过马路 = qua đường.",
+        "拿过来 = mang lại đây; 走过去 = đi qua đó."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "过马路要小心。",
+          "vi": "Qua đường phải cẩn thận."
+        },
+        {
+          "zh": "请把票拿过来。",
+          "vi": "Hãy mang vé lại đây."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "从酒店往公园到走。",
+          "explanationVi": "Sửa thành “从酒店往公园走。”. Không đọc nhẹ 过 trong nghĩa ‘đi qua’."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "过 (trợ từ trải nghiệm)"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-12",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "一点儿和数量要求",
+      "nameVi": "Một chút và yêu cầu số lượng",
+      "formula": "一点儿 + danh từ / tính từ + 一点儿",
+      "communicativeFunctionVi": "Nói lượng nhỏ hoặc điều chỉnh mức độ khi gọi món/yêu cầu dịch vụ.",
+      "meaningVi": "Nói lượng nhỏ hoặc điều chỉnh mức độ khi gọi món/yêu cầu dịch vụ.",
+      "usageVi": [
+        "一点儿 đứng trước danh từ.",
+        "Sau tính từ, 一点儿 biểu thị ‘… hơn một chút’."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我要一点儿肉。",
+          "vi": "Tôi muốn một chút thịt."
+        },
+        {
+          "zh": "请慢一点儿。",
+          "vi": "Hãy chậm một chút."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "请一点儿慢说。",
+          "explanationVi": "Sửa thành “请说慢一点儿。”. Không nhầm 一点儿 với 一会儿 ‘một lát’."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "有点儿",
+        "一会儿"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "extension",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-13",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "比字句",
+      "nameVi": "So sánh với 比",
+      "formula": "A + 比 + B + tính từ",
+      "communicativeFunctionVi": "So sánh một đặc điểm giữa hai người/vật.",
+      "meaningVi": "So sánh một đặc điểm giữa hai người/vật.",
+      "usageVi": [
+        "Không dùng 很 trực tiếp trước tính từ trong mẫu so sánh trung tính.",
+        "Có thể thêm 一点儿、多了 để nói mức chênh."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "这件比那件便宜。",
+          "vi": "Cái này rẻ hơn cái kia."
+        },
+        {
+          "zh": "地铁比公交车快。",
+          "vi": "Tàu điện ngầm nhanh hơn xe buýt."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "黑色的比白色的很贵。",
+          "explanationVi": "Sửa thành “黑色的比白色的贵。”. Sai: 这个比那个很贵。"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "没有…那么…",
+        "最"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-14",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "常用量词条间位面",
+      "nameVi": "Lượng từ 条、间、位、面",
+      "formula": "Số/từ chỉ định + lượng từ + danh từ",
+      "communicativeFunctionVi": "Dùng lượng từ phù hợp cho vật dài, phòng, người (lịch sự) và bề mặt.",
+      "meaningVi": "Dùng lượng từ phù hợp cho vật dài, phòng, người (lịch sự) và bề mặt.",
+      "usageVi": [
+        "条: đường/quần/cá; 间: phòng; 位: người lịch sự; 面: vật phẳng như tường/cờ.",
+        "Không dùng 个 thay toàn bộ lượng từ."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "一条鱼",
+          "vi": "một con cá"
+        },
+        {
+          "zh": "两间房",
+          "vi": "hai phòng"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我买了一个裤子。",
+          "explanationVi": "Sửa thành “我买了一条裤子。”. Sai: 一个裤子; dùng 一条裤子."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "个",
+        "件"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-15",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "怎么了和身体部位疼",
+      "nameVi": "Hỏi triệu chứng với 怎么了 và …疼",
+      "formula": "Chủ ngữ + 怎么了？ / Bộ phận + 疼",
+      "communicativeFunctionVi": "Hỏi có chuyện gì và nói vị trí đau.",
+      "meaningVi": "Hỏi có chuyện gì và nói vị trí đau.",
+      "usageVi": [
+        "怎么了 hỏi tình trạng/sự cố, không chỉ hỏi cách làm.",
+        "Bộ phận cơ thể thường đứng trước 疼."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "你怎么了？",
+          "vi": "Bạn sao vậy?"
+        },
+        {
+          "zh": "我眼睛疼。",
+          "vi": "Tôi đau mắt."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我的头是疼。",
+          "explanationVi": "Sửa thành “我头疼。”. Không thêm 是 trước 疼 trong câu miêu tả cơ bản."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "怎么样",
+        "为什么"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-16",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "状态变化和多了",
+      "nameVi": "Thay đổi trạng thái và …多了",
+      "formula": "Tính từ + 多了 / …了",
+      "communicativeFunctionVi": "Nói trạng thái thay đổi rõ hơn so với trước.",
+      "meaningVi": "Nói trạng thái thay đổi rõ hơn so với trước.",
+      "usageVi": [
+        "舒服多了 = khỏe/dễ chịu hơn nhiều.",
+        "了 báo trạng thái mới, không phải dấu quá khứ bắt buộc."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "吃药以后舒服多了。",
+          "vi": "Uống thuốc xong dễ chịu hơn nhiều."
+        },
+        {
+          "zh": "天气冷了。",
+          "vi": "Trời trở lạnh rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他得跑不快。",
+          "explanationVi": "Sửa thành “他跑得不快。”. Không dùng 是 trước cụm tính từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "比字句"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "extension",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-17",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "因为……所以……",
+      "nameVi": "Vì… nên…",
+      "formula": "因为 + nguyên nhân，所以 + kết quả",
+      "communicativeFunctionVi": "Nối nguyên nhân và kết quả rõ ràng.",
+      "meaningVi": "Nối nguyên nhân và kết quả rõ ràng.",
+      "usageVi": [
+        "Trong khẩu ngữ có thể lược một vế nối nếu quan hệ đã rõ.",
+        "所以 đứng trước kết quả."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "因为下雨，所以我没跑步。",
+          "vi": "Vì mưa nên tôi không chạy bộ."
+        },
+        {
+          "zh": "他累了，所以先回家。",
+          "vi": "Anh ấy mệt nên về nhà trước."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "今天是很晴。",
+          "explanationVi": "Sửa thành “今天是晴天。”. Không dùng 但是 thay 所以 khi muốn nói kết quả."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "虽然…但是…"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-18",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "得字程度补语",
+      "nameVi": "Bổ ngữ mức độ với 得",
+      "formula": "Động từ + 得 + tính từ/cụm miêu tả",
+      "communicativeFunctionVi": "Đánh giá cách một hành động được thực hiện.",
+      "meaningVi": "Đánh giá cách một hành động được thực hiện.",
+      "usageVi": [
+        "Nếu có tân ngữ, thường cần sắp xếp lại: 他说汉语说得很好.",
+        "Phủ định đặt trong bổ ngữ: 说得不快."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "老师教得很清楚。",
+          "vi": "Giáo viên dạy rất rõ."
+        },
+        {
+          "zh": "他跑得不快。",
+          "vi": "Anh ấy chạy không nhanh."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "老师得教很清楚。",
+          "explanationVi": "Sửa thành “老师教得很清楚。”. Sai: 他得跑很快。"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "地",
+        "的"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-19",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "地字状语",
+      "nameVi": "Trạng ngữ với 地",
+      "formula": "Tính từ/cụm miêu tả + 地 + động từ",
+      "communicativeFunctionVi": "Miêu tả cách thức hoặc trạng thái khi thực hiện hành động.",
+      "meaningVi": "Miêu tả cách thức hoặc trạng thái khi thực hiện hành động.",
+      "usageVi": [
+        "地 đứng trước động từ.",
+        "Nhiều trạng ngữ một âm tiết khẩu ngữ có thể không dùng 地; bài này luyện mẫu rõ ràng."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "听到这个好消息，她高兴地笑了。",
+          "vi": "Nghe tin vui này, cô ấy vui vẻ cười."
+        },
+        {
+          "zh": "请慢慢地说。",
+          "vi": "Hãy nói chậm rãi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他清楚地说得。",
+          "explanationVi": "Sửa thành “他说得很清楚。”. Sai: 她笑得高兴地。"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "得",
+        "的"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-20",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "让字兼语句",
+      "nameVi": "Cho phép/yêu cầu với 让",
+      "formula": "A + 让 + B + động từ",
+      "communicativeFunctionVi": "A cho phép, yêu cầu hoặc khiến B làm gì.",
+      "meaningVi": "A cho phép, yêu cầu hoặc khiến B làm gì.",
+      "usageVi": [
+        "Người thực hiện hành động đứng sau 让.",
+        "Phủ định có thể đặt trước 让 hoặc trước động từ tùy ý nghĩa."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "老师让我再说一次。",
+          "vi": "Giáo viên bảo tôi nói lại."
+        },
+        {
+          "zh": "妈妈今天不让我喝咖啡。",
+          "vi": "Hôm nay mẹ không cho tôi uống cà phê."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "经理让我交下午。",
+          "explanationVi": "Sửa thành “经理让我下午交。”. Không đảo người thực hiện ra sau động từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "请",
+        "叫"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-21",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "跟……一起……",
+      "nameVi": "Cùng… với 跟…一起…",
+      "formula": "Chủ ngữ + 跟 + người + 一起 + động từ",
+      "communicativeFunctionVi": "Nói hai hay nhiều người cùng thực hiện một hoạt động.",
+      "meaningVi": "Nói hai hay nhiều người cùng thực hiện một hoạt động.",
+      "usageVi": [
+        "跟 giới thiệu người đồng hành.",
+        "一起 đứng trước động từ chính."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我跟朋友一起踢足球。",
+          "vi": "Tôi đá bóng cùng bạn."
+        },
+        {
+          "zh": "你跟我们一起去吧。",
+          "vi": "Bạn đi cùng chúng tôi nhé."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我一起跟朋友足球踢。",
+          "explanationVi": "Sửa thành “我跟朋友一起踢足球。”. Không đặt 一起 ở cuối câu một cách máy móc."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "和"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-22",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "虽然……但是……",
+      "nameVi": "Tuy… nhưng…",
+      "formula": "虽然 + nhượng bộ，但是/但 + kết quả trái kỳ vọng",
+      "communicativeFunctionVi": "Nối hai vế có quan hệ nhượng bộ–đối lập.",
+      "meaningVi": "Nối hai vế có quan hệ nhượng bộ–đối lập.",
+      "usageVi": [
+        "但是 có thể rút gọn thành 但.",
+        "Trong khẩu ngữ có thể lược 但是 nếu quan hệ đã rõ."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "虽然很累，但是他很快乐。",
+          "vi": "Tuy rất mệt nhưng anh ấy vui."
+        },
+        {
+          "zh": "虽然下雨，他还是来我家了。",
+          "vi": "Tuy trời mưa, anh ấy vẫn đến nhà tôi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "那两个老师是我爷爷奶奶。",
+          "explanationVi": "Sửa thành “那两位是我的爷爷和奶奶。”. Không ghép 虽然 với 所以 cho cùng quan hệ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "因为…所以…"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-23",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "过年和时间经历",
+      "nameVi": "Kể ký ức theo mốc thời gian",
+      "formula": "Mốc thời gian + chủ ngữ + hành động",
+      "communicativeFunctionVi": "Dùng 小时候、从小、过年、生日 để kể các sự việc quen thuộc theo mốc.",
+      "meaningVi": "Dùng 小时候、从小、过年、生日 để kể các sự việc quen thuộc theo mốc.",
+      "usageVi": [
+        "Thời gian đứng đầu câu hoặc sau chủ ngữ trước động từ.",
+        "Dùng 了/过 theo ý nghĩa, không thêm máy móc."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我小时候住在河内。",
+          "vi": "Lúc nhỏ tôi sống ở Hà Nội."
+        },
+        {
+          "zh": "今年我们在爷爷家过年。",
+          "vi": "Năm nay chúng tôi ăn Tết ở nhà ông."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我住在河内小时候。",
+          "explanationVi": "Sửa thành “我小时候住在河内。”. Không đặt mốc thời gian cuối câu theo trật tự tiếng Việt."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "的时候"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "reinforcement",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-24",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "着表示状态持续",
+      "nameVi": "Trạng thái duy trì với 着",
+      "formula": "Động từ + 着 (+ tân ngữ)",
+      "communicativeFunctionVi": "Miêu tả trạng thái đang được duy trì, thường làm nền cho thông tin khác.",
+      "meaningVi": "Miêu tả trạng thái đang được duy trì, thường làm nền cho thông tin khác.",
+      "usageVi": [
+        "门开着 = cửa đang ở trạng thái mở.",
+        "着 không tương đương toàn bộ với 正在."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "门开着。",
+          "vi": "Cửa đang mở."
+        },
+        {
+          "zh": "今天他穿着一条黑色的裤子。",
+          "vi": "Hôm nay anh ấy mặc một chiếc quần màu đen."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "她正在笑着了。",
+          "explanationVi": "Sửa thành “她笑着看照片。”. Không dùng 着 sau mọi động từ chỉ vì tiếng Việt có ‘đang’."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "正在…呢"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-25",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "最高级最",
+      "nameVi": "Mức cao nhất với 最",
+      "formula": "Phạm vi + chủ ngữ + 最 + tính từ/động từ tâm lý",
+      "communicativeFunctionVi": "Nói đối tượng có mức độ cao nhất trong một phạm vi.",
+      "meaningVi": "Nói đối tượng có mức độ cao nhất trong một phạm vi.",
+      "usageVi": [
+        "Phạm vi có thể được nêu trực tiếp hoặc rõ từ ngữ cảnh.",
+        "最 đứng trước tính từ/động từ tâm lý."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "这家饭馆最好。",
+          "vi": "Quán này tốt nhất."
+        },
+        {
+          "zh": "我最喜欢游泳。",
+          "vi": "Tôi thích bơi nhất."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这个比那个很好。",
+          "explanationVi": "Sửa thành “这个比那个好。”. Với hai đối tượng đơn thuần, ưu tiên 比 thay vì 最."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "比字句"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-26",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "还是和选择问句",
+      "nameVi": "Câu hỏi lựa chọn với 还是",
+      "formula": "Lựa chọn A + 还是 + lựa chọn B？",
+      "communicativeFunctionVi": "Yêu cầu người nghe chọn giữa các phương án.",
+      "meaningVi": "Yêu cầu người nghe chọn giữa các phương án.",
+      "usageVi": [
+        "Không thêm 吗 vào cuối câu lựa chọn.",
+        "还是 còn có nghĩa ‘vẫn’ trong ngữ cảnh khác."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "明天你坐地铁还是公共汽车？",
+          "vi": "Ngày mai bạn đi tàu điện ngầm hay xe buýt?"
+        },
+        {
+          "zh": "你下午喝茶还是喝咖啡？",
+          "vi": "Buổi chiều bạn uống trà hay cà phê?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "你往左还是右吗？",
+          "explanationVi": "Sửa thành “你往左还是往右？”. Sai: 你喝茶还是咖啡吗？"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "或者"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-27",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "为什么和因果回答",
+      "nameVi": "Hỏi lý do với 为什么",
+      "formula": "为什么 + vị ngữ？ / 因为 + nguyên nhân",
+      "communicativeFunctionVi": "Hỏi và trả lời nguyên nhân.",
+      "meaningVi": "Hỏi và trả lời nguyên nhân.",
+      "usageVi": [
+        "为什么 đứng tại vị trí hỏi lý do, không thêm 吗.",
+        "Câu trả lời có thể dùng 因为 hoặc nêu trực tiếp nguyên nhân."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "你现在为什么学汉语？",
+          "vi": "Bây giờ vì sao bạn học tiếng Trung?"
+        },
+        {
+          "zh": "因为我想去中国工作。",
+          "vi": "Vì tôi muốn sang Trung Quốc làm việc."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "你为什么迟到了吗？",
+          "explanationVi": "Sửa thành “你今天为什么迟到？”. Không nói 为什么吗."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "怎么",
+        "怎么了"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-28",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "趋向补语上下出来",
+      "nameVi": "Chuỗi bổ ngữ xu hướng",
+      "formula": "上/下/出/进 + 来/去",
+      "communicativeFunctionVi": "Miêu tả hướng di chuyển tương đối với điểm nhìn người nói.",
+      "meaningVi": "Miêu tả hướng di chuyển tương đối với điểm nhìn người nói.",
+      "usageVi": [
+        "先 xác định hướng cơ bản, sau đó chọn 来/去.",
+        "Có thể kết hợp với tân ngữ nơi chốn theo mẫu đã học."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "请你从三楼下来。",
+          "vi": "Hãy từ tầng ba xuống đây."
+        },
+        {
+          "zh": "他跑出去了。",
+          "vi": "Anh ấy chạy ra ngoài rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我在楼下，你下去吧。",
+          "explanationVi": "Sửa thành “我在楼下，你下来吧。”. Không dùng 来/去 tùy ý nếu điểm nhìn đã rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "进来/进去",
+        "出来/出去"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "extension",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk2-grammar-29",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "nameZh": "过表示经历",
+      "nameVi": "Trải nghiệm với 过",
+      "formula": "Chủ ngữ + động từ + 过 + tân ngữ",
+      "communicativeFunctionVi": "Nói đã từng có trải nghiệm ít nhất một lần trước hiện tại.",
+      "meaningVi": "Nói đã từng có trải nghiệm ít nhất một lần trước hiện tại.",
+      "usageVi": [
+        "Phủ định: 没(有) + động từ + 过.",
+        "Không dùng mốc quá khứ quá cụ thể như trọng tâm hoàn tất; khi đó thường cần cấu trúc khác."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức và câu mẫu.",
+      "correctExamples": [
+        {
+          "zh": "我以前跟家人去过北京。",
+          "vi": "Trước đây tôi từng đến Bắc Kinh cùng gia đình."
+        },
+        {
+          "zh": "你吃过这个菜吗？",
+          "vi": "Bạn từng ăn món này chưa?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我不去过北京。",
+          "explanationVi": "Sửa thành “我没去过北京。”. Sai: 我不去过北京。"
+        }
+      ],
+      "commonErrorsVi": [
+        "Không sao chép trật tự từ tiếng Việt; đối chiếu công thức và ngữ cảnh."
+      ],
+      "confusables": [
+        "了",
+        "过 (guò, đi qua)"
+      ],
+      "negativeQuestionVi": "Phủ định/nghi vấn được luyện trong bài áp dụng; chỉ dùng khi phù hợp với chức năng này.",
+      "introducedLevel": 2,
+      "reviewLevels": [
+        3,
+        4
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    }
+  ]
+}

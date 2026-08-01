@@ -163,7 +163,8 @@ hsk_scripts = [
     "assets/v82/account-learning-sync-v82.js",
     "assets/v89/exp-learning-hooks-v89.js",
 ]
-inline_hsk = "".join("<script>" + source(relative) + "</script>" for relative in hsk_scripts)
+inline_hsk = '<script data-hsk-professional-runtime="fixture-isolation"></script>'
+inline_hsk += "".join("<script>" + source(relative) + "</script>" for relative in hsk_scripts)
 inline_hsk += "<script>window.supabase.createClient(window.VDUCKIE_SUPABASE_CONFIG.url,window.VDUCKIE_SUPABASE_CONFIG.publishableKey);</script>"
 fixture = fixture.replace(
     '<script src="./assets/developer-tabs/overview.js"></script>',

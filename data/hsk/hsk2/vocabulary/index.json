@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary-index",
+  "level": 2,
+  "expectedCount": 200,
+  "officialBand": "2",
+  "officialRows": "301-500",
+  "cumulativeThroughLevel": 500,
+  "shards": [
+    {
+      "file": "hsk2-v-0001-0050.json",
+      "firstId": "hsk2-v-0001",
+      "lastId": "hsk2-v-0050",
+      "count": 50
+    },
+    {
+      "file": "hsk2-v-0051-0100.json",
+      "firstId": "hsk2-v-0051",
+      "lastId": "hsk2-v-0100",
+      "count": 50
+    },
+    {
+      "file": "hsk2-v-0101-0150.json",
+      "firstId": "hsk2-v-0101",
+      "lastId": "hsk2-v-0150",
+      "count": 50
+    },
+    {
+      "file": "hsk2-v-0151-0200.json",
+      "firstId": "hsk2-v-0151",
+      "lastId": "hsk2-v-0200",
+      "count": 50
+    }
+  ]
+}

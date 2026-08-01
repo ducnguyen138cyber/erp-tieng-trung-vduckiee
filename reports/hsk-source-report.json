@@ -3,18 +3,18 @@
   "byLicenseStatus": {
     "reuse-limited": 10,
     "review-required": 2,
-    "verified": 4
+    "verified": 5
   },
   "reviewRequiredSources": [
     "legacy-cvdict",
     "legacy-ivankra-hsk30"
   ],
   "schemaVersion": "1.0.0",
-  "sourceCount": 16,
+  "sourceCount": 17,
   "usage": [
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 189,
+      "recordCount": 638,
       "sourceId": "blcu-new-standard-pedagogy-2025"
     },
     {
@@ -24,12 +24,12 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 189,
+      "recordCount": 638,
       "sourceId": "cti-hsk3-competency-profile-2026"
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 275,
+      "recordCount": 783,
       "sourceId": "cti-hsk3-current-syllabus-2026"
     },
     {
@@ -74,7 +74,7 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 277,
+      "recordCount": 785,
       "sourceId": "moe-gf0025-2021-standard"
     },
     {
@@ -84,13 +84,18 @@
     },
     {
       "licenseStatus": "verified",
-      "recordCount": 5,
+      "recordCount": 65,
       "sourceId": "unicode-unihan-17"
     },
     {
       "licenseStatus": "verified",
       "recordCount": 1368,
       "sourceId": "vduckie-hsk1-phase2a-original"
+    },
+    {
+      "licenseStatus": "verified",
+      "recordCount": 449,
+      "sourceId": "vduckie-hsk2-c3-original"
     }
   ],
   "usedReviewRequiredSources": []

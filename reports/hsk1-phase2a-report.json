@@ -1,11 +1,11 @@
 {
   "counts": {
     "phase2aRecords": 1200,
-    "repositoryRecords": 1239,
+    "repositoryRecords": 1985,
     "schemas": 9,
     "sentenceShards": 9,
     "sentences": 900,
-    "sources": 16,
+    "sources": 17,
     "vocabulary": 300,
     "vocabularyShards": 6
   },
@@ -48,7 +48,7 @@
   "duplicates": {
     "blockers": 0,
     "exact": 1,
-    "nearReview": 233,
+    "nearReview": 243,
     "normalized": 0
   },
   "generatedAt": "deterministic",

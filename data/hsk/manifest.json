@@ -33,9 +33,10 @@
     {
       "level": 2,
       "stage": "elementary",
-      "status": "planned",
+      "status": "machine-assisted",
       "path": "hsk2/level.json",
-      "productionReady": false
+      "productionReady": false,
+      "courseManifestPath": "hsk2/course-manifest.json"
     },
     {
       "level": 3,
@@ -94,5 +95,6 @@
       "developerOnly": true,
       "writesProgress": false
     }
-  ]
+  ],
+  "hsk2CourseManifestPath": "hsk2/course-manifest.json"
 }

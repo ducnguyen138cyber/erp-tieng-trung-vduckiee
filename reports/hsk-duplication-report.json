@@ -13,6 +13,47 @@
       "similarity": 1
     },
     {
+      "distractor": "本",
+      "exerciseIds": [
+        "hsk1-lesson-17-exercise-2",
+        "hsk1-lesson-18-exercise-2",
+        "hsk2-lesson-02-exercise-4",
+        "hsk2-lesson-06-exercise-4",
+        "hsk2-lesson-10-exercise-4",
+        "hsk2-lesson-18-exercise-4",
+        "hsk2-lesson-22-exercise-4"
+      ],
+      "intentionalReview": false,
+      "kind": "exercise-options",
+      "leftFile": null,
+      "leftId": "hsk1-lesson-17-exercise-2",
+      "reviewReason": null,
+      "rightFile": null,
+      "rightId": "hsk2-lesson-22-exercise-4",
+      "rule": "distractor-overuse",
+      "severity": "review",
+      "similarity": 7
+    },
+    {
+      "distractor": "张",
+      "exerciseIds": [
+        "hsk2-lesson-02-exercise-4",
+        "hsk2-lesson-10-exercise-4",
+        "hsk2-lesson-18-exercise-4",
+        "hsk2-lesson-22-exercise-4"
+      ],
+      "intentionalReview": false,
+      "kind": "exercise-options",
+      "leftFile": null,
+      "leftId": "hsk2-lesson-02-exercise-4",
+      "reviewReason": null,
+      "rightFile": null,
+      "rightId": "hsk2-lesson-22-exercise-4",
+      "rule": "distractor-overuse",
+      "severity": "review",
+      "similarity": 4
+    },
+    {
       "intentionalReview": false,
       "kind": "sentence",
       "leftFile": "data/hsk/hsk1/sentences/hsk1-s-0001-0100.json",
@@ -2807,17 +2848,137 @@
       "rule": "name-or-number-mutation",
       "severity": "review",
       "similarity": 0
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-02-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-06-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.9375
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-02-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-10-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.9091
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-02-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-18-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.9375
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-02-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-22-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8824
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-06-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-10-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.9091
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-06-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-18-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.9375
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-06-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-22-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8824
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-10-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-18-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.9091
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-10-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-22-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8571
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk2/exercises.json",
+      "leftId": "hsk2-lesson-18-exercise-4",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk2/exercises.json",
+      "rightId": "hsk2-lesson-22-exercise-4",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8824
     }
   ],
   "qualityGate": "pass-for-phase1-fixture",
   "schemaVersion": "1.0.0",
   "summary": {
     "blockers": 0,
-    "candidates": 1411,
+    "candidates": 1866,
     "exact": 1,
-    "findings": 234,
+    "findings": 246,
     "intentionalReviews": 1,
-    "nearReview": 233,
+    "nearReview": 243,
     "normalized": 0
   }
 }

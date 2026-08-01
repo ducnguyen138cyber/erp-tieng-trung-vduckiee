@@ -95,44 +95,52 @@
       "vocabularyIntroducedButNotPracticed": []
     },
     {
-      "assessments": 0,
-      "characters": 0,
-      "checkpoints": 0,
+      "assessments": 13,
+      "characters": 60,
+      "checkpoints": 10,
       "complete": false,
-      "completionReason": "planned-level-has-no-approved-content",
-      "difficultyDistribution": {},
-      "exercises": 0,
-      "exercisesBySkill": {
-        "grammar": 0,
-        "integrated": 0,
-        "listening": 0,
-        "reading": 0,
-        "speaking": 0,
-        "translation": 0,
-        "vocabulary": 0,
-        "writing": 0
+      "completionReason": "quality-gate-locked",
+      "difficultyDistribution": {
+        "1": 56,
+        "2": 56,
+        "3": 56
       },
-      "grammar": 0,
+      "exercises": 168,
+      "exercisesBySkill": {
+        "grammar": 28,
+        "integrated": 0,
+        "listening": 28,
+        "reading": 28,
+        "speaking": 35,
+        "translation": 7,
+        "vocabulary": 14,
+        "writing": 28
+      },
+      "grammar": 29,
       "grammarWithoutExercise": [],
-      "lessons": 0,
+      "lessons": 28,
       "level": 2,
-      "missingSkills": [
-        "vocabulary",
-        "grammar",
-        "listening",
-        "speaking",
-        "reading",
-        "writing"
-      ],
+      "missingSkills": [],
       "productionReady": false,
       "sourceCoverage": 1,
-      "sourcedRecords": 1,
+      "sourcedRecords": 509,
       "stage": "elementary",
-      "status": "planned",
-      "topicDistribution": {},
-      "units": 0,
-      "unreviewedRecords": 1,
-      "vocabulary": 0,
+      "status": "machine-assisted",
+      "topicDistribution": {
+        "Học tập và công việc thường ngày": 18,
+        "Lịch sinh hoạt và tần suất": 18,
+        "Nhà ở và khu phố": 18,
+        "So sánh, miêu tả và giao tiếp số": 18,
+        "Sở thích, gia đình và quan hệ": 18,
+        "Sức khỏe và chăm sóc bản thân": 18,
+        "Trải nghiệm và kế hoạch gần": 12,
+        "Ôn cầu nối HSK1": 12,
+        "Ăn uống, mua sắm và dịch vụ": 18,
+        "Đi lại và du lịch ngắn": 18
+      },
+      "units": 10,
+      "unreviewedRecords": 499,
+      "vocabulary": 200,
       "vocabularyIntroducedButNotPracticed": []
     },
     {
@@ -437,7 +445,7 @@
   "schemaVersion": "1.0.0",
   "totals": {
     "fixtureRecords": 30,
-    "plannedLevels": 8,
+    "plannedLevels": 7,
     "productionReadyLevels": 0,
     "validationErrors": 0
   }

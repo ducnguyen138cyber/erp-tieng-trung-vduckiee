@@ -8,7 +8,7 @@ const runtime = require(path.join(root, 'assets/hsk-content/hsk-professional-run
 const flags = require(path.join(root, 'assets/hsk-content/hsk-content-feature-flags.js'));
 const readJson = (p) => JSON.parse(fs.readFileSync(path.join(root, p), 'utf8'));
 
-test('learner-facing HSK1 flag is read-only while canonical production remains locked', () => {
+test('learner-facing HSK1–2 flag is read-only while canonical production remains locked', () => {
   assert.equal(flags.FLAGS.HSK_CURRICULUM_V2_LEARNER_READONLY_ENABLED, true);
   assert.equal(flags.FLAGS.HSK_CURRICULUM_V2_ENABLED, false);
   assert.equal(flags.FLAGS.HSK_CURRICULUM_V2_PUBLIC_OVERRIDE_ALLOWED, false);
@@ -19,6 +19,24 @@ test('learner-facing HSK1 flag is read-only while canonical production remains l
   assert.equal(access.readOnly, true);
   assert.equal(access.progressWritesEnabled, false);
   assert.equal(flags.shouldUseCanonicalCurriculum({}), false, 'legacy developer adapter must not auto-activate');
+});
+
+test('C3 HSK2 collections satisfy the multi-level learner runtime contract', () => {
+  const manifest = readJson('data/hsk/hsk2/course-manifest.json');
+  const units = readJson('data/hsk/hsk2/units.json').records;
+  const lessons = readJson('data/hsk/hsk2/lessons.json').records;
+  const grammar = readJson('data/hsk/hsk2/grammar.json').records;
+  const characters = readJson('data/hsk/hsk2/characters.json').records;
+  const exercises = readJson('data/hsk/hsk2/exercises.json').records;
+  const assessments = readJson('data/hsk/hsk2/assessments.json').records;
+  const enrichment = readJson('data/hsk/hsk2/vocabulary-enrichment.json').entries;
+  const vocabIndex = readJson('data/hsk/hsk2/vocabulary/index.json');
+  const vocabulary = vocabIndex.shards.flatMap((shard) => readJson('data/hsk/hsk2/vocabulary/' + shard.file).records);
+  runtime.verifyCourse(manifest, units, lessons, grammar, characters, exercises, assessments, enrichment, vocabulary, 2);
+  assert.deepEqual([units.length, lessons.length, grammar.length, characters.length, exercises.length, assessments.length, vocabulary.length], [10, 28, 29, 60, 168, 13, 200]);
+  assert.equal(manifest.collections.vocabulary.cumulativeThroughLevel, 500);
+  assert.ok(lessons.every((lesson) => lesson.sections.some((section) => section.type === 'listening' && section.content.audioStatus === 'script-ready-audio-pending')));
+  assert.ok(lessons.every((lesson) => lesson.sections.some((section) => section.type === 'independent-practice' && section.content.speakingVi && section.content.writingVi)));
 });
 
 test('C2 course collections are complete and internally resolvable for learner UI', () => {
@@ -84,6 +102,11 @@ test('learner runtime resolves canonical and support-only vocabulary without inv
   const support = runtime.resolveFocusWord(data, { simplified: '越南', lexicalStatus: 'support-only', canonicalLookup: null });
   assert.equal(support.meaningVi, 'Việt Nam');
   assert.equal(support.lexicalStatus, 'support-only');
+  const homograph = runtime.resolveFocusWord({
+    vocabularyById: { 'hsk2-v-0047': { id: 'hsk2-v-0047', simplified: '过', pinyin: 'guò', meaningVi: 'đi qua', partOfSpeech: ['verb'] } },
+    enrichmentById: { 'hsk2-v-0047': { canonicalId: 'hsk2-v-0047', collocations: [], commonErrorsVi: [] } }
+  }, { canonicalId: 'hsk2-v-0047', simplified: '过', lexicalStatus: 'canonical' });
+  assert.equal(homograph.meaningVi, 'đi qua');
 });
 
 test('answer normalization is tolerant only to display punctuation/spacing', () => {

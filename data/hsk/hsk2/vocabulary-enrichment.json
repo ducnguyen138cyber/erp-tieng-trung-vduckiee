@@ -1,0 +1,5275 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary-enrichment",
+  "level": 2,
+  "entries": [
+    {
+      "canonicalId": "hsk2-v-0001",
+      "simplified": "啊",
+      "officialRow": 301,
+      "senseKey": "啊:301",
+      "collocations": [
+        {
+          "zh": "啊，我明白了",
+          "vi": "À, tôi hiểu rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Vị trí và ngữ điệu quyết định chức năng của “啊”; nghe cả câu “啊，我明白了。” trước khi bắt chước.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch “啊” thành một từ Việt cố định; ngữ điệu và vị trí trong câu mới quyết định sắc thái."
+      ],
+      "example": {
+        "zh": "啊，我明白了。",
+        "vi": "À, tôi hiểu rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0002",
+      "simplified": "爱好",
+      "officialRow": 302,
+      "senseKey": "爱好:302",
+      "collocations": [
+        {
+          "zh": "我的爱好是游泳",
+          "vi": "Sở thích của tôi là bơi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "“爱好” có thể làm động từ hoặc danh từ; xác định vai trò qua vị trí của nó trong câu “我的爱好是游泳。”.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “爱好”; giữ cụm động từ theo mẫu “我的爱好是游泳。”."
+      ],
+      "example": {
+        "zh": "我的爱好是游泳。",
+        "vi": "Sở thích của tôi là bơi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0003",
+      "simplified": "白色",
+      "officialRow": 303,
+      "senseKey": "白色:303",
+      "collocations": [
+        {
+          "zh": "我想买白色的",
+          "vi": "Tôi muốn mua cái màu trắng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “白色” trong cụm hoàn chỉnh “我想买白色的。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “白色” như bản dịch rời; phải đặt vào một cụm cùng loại với “我想买白色的。”."
+      ],
+      "example": {
+        "zh": "我想买白色的。",
+        "vi": "Tôi muốn mua cái màu trắng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0004",
+      "simplified": "班",
+      "officialRow": 304,
+      "senseKey": "班:304",
+      "collocations": [
+        {
+          "zh": "这个班有二十名学生",
+          "vi": "Lớp này có hai mươi học sinh.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “班”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “班”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "这个班有二十名学生。",
+        "vi": "Lớp này có hai mươi học sinh.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0005",
+      "simplified": "帮",
+      "officialRow": 305,
+      "senseKey": "帮:305",
+      "collocations": [
+        {
+          "zh": "你能帮我吗",
+          "vi": "Bạn có thể giúp tôi không?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “帮” cùng tân ngữ hoặc bổ ngữ trong mẫu “你能帮我吗？”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [
+        "帮助"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “帮” với 帮助; kiểm tra nghĩa và vị trí trong mẫu “你能帮我吗？”."
+      ],
+      "example": {
+        "zh": "你能帮我吗？",
+        "vi": "Bạn có thể giúp tôi không?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0006",
+      "simplified": "帮忙",
+      "officialRow": 306,
+      "senseKey": "帮忙:306",
+      "collocations": [
+        {
+          "zh": "谢谢你来帮忙",
+          "vi": "Cảm ơn bạn đã đến giúp.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “帮忙” cùng tân ngữ hoặc bổ ngữ trong mẫu “谢谢你来帮忙。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “帮忙”; giữ cụm động từ theo mẫu “谢谢你来帮忙。”."
+      ],
+      "example": {
+        "zh": "谢谢你来帮忙。",
+        "vi": "Cảm ơn bạn đã đến giúp.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0007",
+      "simplified": "包",
+      "officialRow": 307,
+      "senseKey": "包:307",
+      "collocations": [
+        {
+          "zh": "我出门时常带一个小包",
+          "vi": "Khi ra ngoài tôi thường mang một chiếc túi nhỏ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "“包” có thể làm động từ hoặc danh từ; xác định vai trò qua vị trí của nó trong câu “我出门时常带一个小包。”.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “包”; giữ cụm động từ theo mẫu “我出门时常带一个小包。”."
+      ],
+      "example": {
+        "zh": "我出门时常带一个小包。",
+        "vi": "Khi ra ngoài tôi thường mang một chiếc túi nhỏ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0008",
+      "simplified": "本子",
+      "officialRow": 308,
+      "senseKey": "本子:308",
+      "collocations": [
+        {
+          "zh": "请把名字写在本子上",
+          "vi": "Hãy viết tên vào vở.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "本",
+      "usageNoteVi": "Khi đếm “本子”, chọn lượng từ theo ngữ cảnh (本); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “本子”; mẫu phù hợp dùng 本."
+      ],
+      "example": {
+        "zh": "请把名字写在本子上。",
+        "vi": "Hãy viết tên vào vở.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0009",
+      "simplified": "比",
+      "officialRow": 309,
+      "senseKey": "比:309",
+      "collocations": [
+        {
+          "zh": "今天比昨天冷",
+          "vi": "Hôm nay lạnh hơn hôm qua.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt đối tượng so sánh sau 比; tính từ thường không đi cùng 很 trong mẫu cơ bản.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Tránh nói 比…很… khi chỉ muốn so sánh chênh lệch đơn giản."
+      ],
+      "example": {
+        "zh": "今天比昨天冷。",
+        "vi": "Hôm nay lạnh hơn hôm qua.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0010",
+      "simplified": "笔",
+      "officialRow": 310,
+      "senseKey": "笔:310",
+      "collocations": [
+        {
+          "zh": "我买了两支笔",
+          "vi": "Tôi mua hai cây bút.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "支",
+      "usageNoteVi": "Khi đếm “笔”, chọn lượng từ theo ngữ cảnh (支); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “笔”; mẫu phù hợp dùng 支."
+      ],
+      "example": {
+        "zh": "我买了两支笔。",
+        "vi": "Tôi mua hai cây bút.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0011",
+      "simplified": "别",
+      "officialRow": 311,
+      "senseKey": "别:311",
+      "collocations": [
+        {
+          "zh": "别忘了带机票",
+          "vi": "Đừng quên mang vé máy bay.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Mệnh lệnh phủ định thân mật/lịch sự tùy ngữ điệu; không thay cho mọi trường hợp 不.",
+      "confusables": [
+        "不要"
+      ],
+      "commonErrorsVi": [
+        "别 đứng trước động từ, không đặt cuối câu như ‘đừng’."
+      ],
+      "example": {
+        "zh": "别忘了带机票。",
+        "vi": "Đừng quên mang vé máy bay.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0012",
+      "simplified": "不错",
+      "officialRow": 312,
+      "senseKey": "不错:312",
+      "collocations": [
+        {
+          "zh": "这家饭馆的菜不错",
+          "vi": "Món ăn của quán này khá ngon.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “不错” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “这家饭馆的菜不错。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “不错” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “这家饭馆的菜不错。”."
+      ],
+      "example": {
+        "zh": "这家饭馆的菜不错。",
+        "vi": "Món ăn của quán này khá ngon.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0013",
+      "simplified": "不好意思",
+      "officialRow": 313,
+      "senseKey": "不好意思:313",
+      "collocations": [
+        {
+          "zh": "不好意思，我来晚了",
+          "vi": "Xin lỗi, tôi đến muộn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Dùng “不好意思” như một cụm hoàn chỉnh trong tình huống tương tự “不好意思，我来晚了。”, không tách để dịch từng chữ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không tách hoặc đổi trật tự các tiếng trong cụm cố định “不好意思”; dùng cả cụm theo ngữ cảnh."
+      ],
+      "example": {
+        "zh": "不好意思，我来晚了。",
+        "vi": "Xin lỗi, tôi đến muộn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0014",
+      "simplified": "长",
+      "officialRow": 314,
+      "senseKey": "长:314",
+      "collocations": [
+        {
+          "zh": "这条路很长",
+          "vi": "Con đường này rất dài.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “长” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “这条路很长。”; không tự thêm 是.",
+      "confusables": [
+        "常"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “长” với 常; kiểm tra nghĩa và vị trí trong mẫu “这条路很长。”."
+      ],
+      "example": {
+        "zh": "这条路很长。",
+        "vi": "Con đường này rất dài.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0015",
+      "simplified": "车站",
+      "officialRow": 315,
+      "senseKey": "车站:315",
+      "collocations": [
+        {
+          "zh": "我在车站等你",
+          "vi": "Tôi đợi bạn ở bến xe.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “车站”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “车站”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "我在车站等你。",
+        "vi": "Tôi đợi bạn ở bến xe.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0016",
+      "simplified": "出",
+      "officialRow": 316,
+      "senseKey": "出:316",
+      "collocations": [
+        {
+          "zh": "他刚从教室出来",
+          "vi": "Anh ấy vừa ra khỏi phòng học.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “出” cùng tân ngữ hoặc bổ ngữ trong mẫu “他刚从教室出来。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [
+        "出来/出去"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “出” với 出来/出去; kiểm tra nghĩa và vị trí trong mẫu “他刚从教室出来。”."
+      ],
+      "example": {
+        "zh": "他刚从教室出来。",
+        "vi": "Anh ấy vừa ra khỏi phòng học.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0017",
+      "simplified": "出国",
+      "officialRow": 317,
+      "senseKey": "出国:317",
+      "collocations": [
+        {
+          "zh": "明年我想出国学习",
+          "vi": "Năm sau tôi muốn ra nước ngoài học.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “出国” cùng tân ngữ hoặc bổ ngữ trong mẫu “明年我想出国学习。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “出国”; giữ cụm động từ theo mẫu “明年我想出国学习。”."
+      ],
+      "example": {
+        "zh": "明年我想出国学习。",
+        "vi": "Năm sau tôi muốn ra nước ngoài học.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0018",
+      "simplified": "出来",
+      "officialRow": 318,
+      "senseKey": "出来:318",
+      "collocations": [
+        {
+          "zh": "请出来一下",
+          "vi": "Hãy ra đây một chút.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “出来” cùng tân ngữ hoặc bổ ngữ trong mẫu “请出来一下。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “出来”; giữ cụm động từ theo mẫu “请出来一下。”."
+      ],
+      "example": {
+        "zh": "请出来一下。",
+        "vi": "Hãy ra đây một chút.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0019",
+      "simplified": "出门",
+      "officialRow": 319,
+      "senseKey": "出门:319",
+      "collocations": [
+        {
+          "zh": "我七点出门",
+          "vi": "Tôi ra khỏi nhà lúc bảy giờ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “出门” cùng tân ngữ hoặc bổ ngữ trong mẫu “我七点出门。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “出门”; giữ cụm động từ theo mẫu “我七点出门。”."
+      ],
+      "example": {
+        "zh": "我七点出门。",
+        "vi": "Tôi ra khỏi nhà lúc bảy giờ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0020",
+      "simplified": "出去",
+      "officialRow": 320,
+      "senseKey": "出去:320",
+      "collocations": [
+        {
+          "zh": "外面下雨，别出去",
+          "vi": "Ngoài trời đang mưa, đừng ra ngoài.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “出去” cùng tân ngữ hoặc bổ ngữ trong mẫu “外面下雨，别出去。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “出去”; giữ cụm động từ theo mẫu “外面下雨，别出去。”."
+      ],
+      "example": {
+        "zh": "外面下雨，别出去。",
+        "vi": "Ngoài trời đang mưa, đừng ra ngoài.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0021",
+      "simplified": "床",
+      "officialRow": 321,
+      "senseKey": "床:321",
+      "collocations": [
+        {
+          "zh": "床旁边有一张桌子",
+          "vi": "Bên cạnh giường có một cái bàn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “床” trong cụm hoàn chỉnh “床旁边有一张桌子。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “床” như bản dịch rời; phải đặt vào một cụm cùng loại với “床旁边有一张桌子。”."
+      ],
+      "example": {
+        "zh": "床旁边有一张桌子。",
+        "vi": "Bên cạnh giường có một cái bàn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0022",
+      "simplified": "词",
+      "officialRow": 322,
+      "senseKey": "词:322",
+      "collocations": [
+        {
+          "zh": "这个词是什么意思",
+          "vi": "Từ này có nghĩa là gì?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “词”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “词”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "这个词是什么意思？",
+        "vi": "Từ này có nghĩa là gì?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0023",
+      "simplified": "次",
+      "officialRow": 323,
+      "senseKey": "次:323",
+      "collocations": [
+        {
+          "zh": "我去过两次上海",
+          "vi": "Tôi đã đến Thượng Hải hai lần.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "次",
+      "usageNoteVi": "Đếm số lần của sự kiện; 遍 nhấn mạnh làm trọn từ đầu đến cuối.",
+      "confusables": [
+        "遍"
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 次 (lần) với 遍 (lượt từ đầu đến cuối, học ở cấp sau)."
+      ],
+      "example": {
+        "zh": "我去过两次上海。",
+        "vi": "Tôi đã đến Thượng Hải hai lần.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0024",
+      "simplified": "从",
+      "officialRow": 324,
+      "senseKey": "从:324",
+      "collocations": [
+        {
+          "zh": "从这里一直往前走",
+          "vi": "Từ đây cứ đi thẳng về phía trước.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “从” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “从这里一直往前走。” làm mẫu.",
+      "confusables": [
+        "离"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “从” với 离; kiểm tra nghĩa và vị trí trong mẫu “从这里一直往前走。”."
+      ],
+      "example": {
+        "zh": "从这里一直往前走。",
+        "vi": "Từ đây cứ đi thẳng về phía trước.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0025",
+      "simplified": "从小",
+      "officialRow": 325,
+      "senseKey": "从小:325",
+      "collocations": [
+        {
+          "zh": "她从小喜欢画画",
+          "vi": "Từ nhỏ cô ấy đã thích vẽ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “从小” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “她从小喜欢画画。” làm mẫu.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “从小” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “她从小喜欢画画。”."
+      ],
+      "example": {
+        "zh": "她从小喜欢画画。",
+        "vi": "Từ nhỏ cô ấy đã thích vẽ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0026",
+      "simplified": "错",
+      "officialRow": 326,
+      "senseKey": "错:326",
+      "collocations": [
+        {
+          "zh": "这道题我做错了",
+          "vi": "Câu này tôi làm sai.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “错” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “这道题我做错了。”; không tự thêm 是.",
+      "confusables": [
+        "坏"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “错” với 坏; kiểm tra nghĩa và vị trí trong mẫu “这道题我做错了。”."
+      ],
+      "example": {
+        "zh": "这道题我做错了。",
+        "vi": "Câu này tôi làm sai.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0027",
+      "simplified": "打",
+      "officialRow": 327,
+      "senseKey": "打:327",
+      "collocations": [
+        {
+          "zh": "我先给妈妈打电话",
+          "vi": "Tôi gọi điện cho mẹ trước.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “打” cùng tân ngữ hoặc bổ ngữ trong mẫu “我先给妈妈打电话。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “打”; giữ cụm động từ theo mẫu “我先给妈妈打电话。”."
+      ],
+      "example": {
+        "zh": "我先给妈妈打电话。",
+        "vi": "Tôi gọi điện cho mẹ trước.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0028",
+      "simplified": "打车",
+      "officialRow": 328,
+      "senseKey": "打车:328",
+      "collocations": [
+        {
+          "zh": "下雨了，我们打车吧",
+          "vi": "Trời mưa rồi, chúng ta gọi taxi nhé.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “打车” cùng tân ngữ hoặc bổ ngữ trong mẫu “下雨了，我们打车吧。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “打车”; giữ cụm động từ theo mẫu “下雨了，我们打车吧。”."
+      ],
+      "example": {
+        "zh": "下雨了，我们打车吧。",
+        "vi": "Trời mưa rồi, chúng ta gọi taxi nhé.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0029",
+      "simplified": "打开",
+      "officialRow": 329,
+      "senseKey": "打开:329",
+      "collocations": [
+        {
+          "zh": "请把门打开",
+          "vi": "Hãy mở cửa ra.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “打开” cùng tân ngữ hoặc bổ ngữ trong mẫu “请把门打开。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “打开”; giữ cụm động từ theo mẫu “请把门打开。”."
+      ],
+      "example": {
+        "zh": "请把门打开。",
+        "vi": "Hãy mở cửa ra.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0030",
+      "simplified": "但",
+      "officialRow": 330,
+      "senseKey": "但:330",
+      "collocations": [
+        {
+          "zh": "我很累，但还想走一走",
+          "vi": "Tôi rất mệt nhưng vẫn muốn đi dạo.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “但” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “我很累，但还想走一走。” làm mẫu.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “但” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “我很累，但还想走一走。”."
+      ],
+      "example": {
+        "zh": "我很累，但还想走一走。",
+        "vi": "Tôi rất mệt nhưng vẫn muốn đi dạo.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0031",
+      "simplified": "但是",
+      "officialRow": 331,
+      "senseKey": "但是:331",
+      "collocations": [
+        {
+          "zh": "房间不大，但是很舒服",
+          "vi": "Phòng không lớn nhưng rất dễ chịu.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “但是” trong cụm hoàn chỉnh “房间不大，但是很舒服。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “但是” như bản dịch rời; phải đặt vào một cụm cùng loại với “房间不大，但是很舒服。”."
+      ],
+      "example": {
+        "zh": "房间不大，但是很舒服。",
+        "vi": "Phòng không lớn nhưng rất dễ chịu.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0032",
+      "simplified": "得",
+      "officialRow": 332,
+      "senseKey": "得:332",
+      "collocations": [
+        {
+          "zh": "他说得很清楚",
+          "vi": "Anh ấy nói rất rõ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đọc de khi nối động từ với bổ ngữ mức độ: 说得很快.",
+      "confusables": [
+        "地/的"
+      ],
+      "commonErrorsVi": [
+        "Không nhầm 得 với 的 hoặc 地 dù đều có thể đọc de."
+      ],
+      "example": {
+        "zh": "他说得很清楚。",
+        "vi": "Anh ấy nói rất rõ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0033",
+      "simplified": "地",
+      "officialRow": 333,
+      "senseKey": "地:333",
+      "collocations": [
+        {
+          "zh": "她高兴地笑了",
+          "vi": "Cô ấy vui vẻ cười.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đọc de khi nối trạng thái/cách thức với động từ: 慢慢地说.",
+      "confusables": [
+        "得/的"
+      ],
+      "commonErrorsVi": [
+        "Không nhầm 地 với 得 trong mẫu động từ + 得 + bổ ngữ."
+      ],
+      "example": {
+        "zh": "她高兴地笑了。",
+        "vi": "Cô ấy vui vẻ cười.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0034",
+      "simplified": "等",
+      "officialRow": 334,
+      "senseKey": "等:334",
+      "collocations": [
+        {
+          "zh": "你在这里等我一会儿",
+          "vi": "Bạn đợi tôi ở đây một lát.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “等” cùng tân ngữ hoặc bổ ngữ trong mẫu “你在这里等我一会儿。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “等”; giữ cụm động từ theo mẫu “你在这里等我一会儿。”."
+      ],
+      "example": {
+        "zh": "你在这里等我一会儿。",
+        "vi": "Bạn đợi tôi ở đây một lát.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0035",
+      "simplified": "地铁",
+      "officialRow": 335,
+      "senseKey": "地铁:335",
+      "collocations": [
+        {
+          "zh": "坐地铁比坐公交车快",
+          "vi": "Đi tàu điện ngầm nhanh hơn đi xe buýt.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “地铁” trong cụm hoàn chỉnh “坐地铁比坐公交车快。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “地铁” như bản dịch rời; phải đặt vào một cụm cùng loại với “坐地铁比坐公交车快。”."
+      ],
+      "example": {
+        "zh": "坐地铁比坐公交车快。",
+        "vi": "Đi tàu điện ngầm nhanh hơn đi xe buýt.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0036",
+      "simplified": "点",
+      "officialRow": 336,
+      "senseKey": "点:336",
+      "collocations": [
+        {
+          "zh": "我点了一杯奶茶",
+          "vi": "Tôi gọi một cốc trà sữa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Mục từ này chỉ giờ đúng hoặc ‘điểm’, không tự động đồng nghĩa với 点儿.",
+      "confusables": [
+        "点儿"
+      ],
+      "commonErrorsVi": [
+        "Không nhầm với 点 chỉ giờ đã học ở HSK1."
+      ],
+      "example": {
+        "zh": "我点了一杯奶茶。",
+        "vi": "Tôi gọi một cốc trà sữa.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0037",
+      "simplified": "懂",
+      "officialRow": 337,
+      "senseKey": "懂:337",
+      "collocations": [
+        {
+          "zh": "老师说的话我听懂了",
+          "vi": "Tôi đã hiểu lời giáo viên nói.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “懂” cùng tân ngữ hoặc bổ ngữ trong mẫu “老师说的话我听懂了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [
+        "知道"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “懂” với 知道; kiểm tra nghĩa và vị trí trong mẫu “老师说的话我听懂了。”."
+      ],
+      "example": {
+        "zh": "老师说的话我听懂了。",
+        "vi": "Tôi đã hiểu lời giáo viên nói.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0038",
+      "simplified": "动",
+      "officialRow": 338,
+      "senseKey": "动:338",
+      "collocations": [
+        {
+          "zh": "别动，我给你看看",
+          "vi": "Đừng cử động, để tôi xem cho.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “动” cùng tân ngữ hoặc bổ ngữ trong mẫu “别动，我给你看看。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “动”; giữ cụm động từ theo mẫu “别动，我给你看看。”."
+      ],
+      "example": {
+        "zh": "别动，我给你看看。",
+        "vi": "Đừng cử động, để tôi xem cho.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0039",
+      "simplified": "饭馆",
+      "officialRow": 339,
+      "senseKey": "饭馆:339",
+      "collocations": [
+        {
+          "zh": "学校旁边有一家小饭馆",
+          "vi": "Bên cạnh trường có một quán ăn nhỏ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “饭馆” trong cụm hoàn chỉnh “学校旁边有一家小饭馆。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “饭馆” như bản dịch rời; phải đặt vào một cụm cùng loại với “学校旁边有一家小饭馆。”."
+      ],
+      "example": {
+        "zh": "学校旁边有一家小饭馆。",
+        "vi": "Bên cạnh trường có một quán ăn nhỏ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0040",
+      "simplified": "飞",
+      "officialRow": 340,
+      "senseKey": "飞:340",
+      "collocations": [
+        {
+          "zh": "鸟从树上飞走了",
+          "vi": "Con chim bay khỏi cây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “飞” cùng tân ngữ hoặc bổ ngữ trong mẫu “鸟从树上飞走了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “飞”; giữ cụm động từ theo mẫu “鸟从树上飞走了。”."
+      ],
+      "example": {
+        "zh": "鸟从树上飞走了。",
+        "vi": "Con chim bay khỏi cây.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0041",
+      "simplified": "高",
+      "officialRow": 341,
+      "senseKey": "高:341",
+      "collocations": [
+        {
+          "zh": "这座楼很高",
+          "vi": "Tòa nhà này rất cao.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “高” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “这座楼很高。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “高” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “这座楼很高。”."
+      ],
+      "example": {
+        "zh": "这座楼很高。",
+        "vi": "Tòa nhà này rất cao.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0042",
+      "simplified": "高中",
+      "officialRow": 342,
+      "senseKey": "高中:342",
+      "collocations": [
+        {
+          "zh": "我妹妹今年上高中",
+          "vi": "Em gái tôi năm nay học cấp ba.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “高中” trong cụm hoàn chỉnh “我妹妹今年上高中。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “高中” như bản dịch rời; phải đặt vào một cụm cùng loại với “我妹妹今年上高中。”."
+      ],
+      "example": {
+        "zh": "我妹妹今年上高中。",
+        "vi": "Em gái tôi năm nay học cấp ba.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0043",
+      "simplified": "告诉",
+      "officialRow": 343,
+      "senseKey": "告诉:343",
+      "collocations": [
+        {
+          "zh": "请告诉我你的姓名",
+          "vi": "Hãy cho tôi biết họ tên của bạn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “告诉” cùng tân ngữ hoặc bổ ngữ trong mẫu “请告诉我你的姓名。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “告诉”; giữ cụm động từ theo mẫu “请告诉我你的姓名。”."
+      ],
+      "example": {
+        "zh": "请告诉我你的姓名。",
+        "vi": "Hãy cho tôi biết họ tên của bạn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0044",
+      "simplified": "个子",
+      "officialRow": 344,
+      "senseKey": "个子:344",
+      "collocations": [
+        {
+          "zh": "他个子很高",
+          "vi": "Anh ấy có vóc dáng cao.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “个子” trong cụm hoàn chỉnh “他个子很高。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “个子” như bản dịch rời; phải đặt vào một cụm cùng loại với “他个子很高。”."
+      ],
+      "example": {
+        "zh": "他个子很高。",
+        "vi": "Anh ấy có vóc dáng cao.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0045",
+      "simplified": "跟",
+      "officialRow": 345,
+      "senseKey": "跟:345",
+      "collocations": [
+        {
+          "zh": "我跟朋友一起去",
+          "vi": "Tôi đi cùng bạn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "“跟” có thể làm động từ hoặc danh từ; xác định vai trò qua vị trí của nó trong câu “我跟朋友一起去。”.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “跟”; giữ cụm động từ theo mẫu “我跟朋友一起去。”."
+      ],
+      "example": {
+        "zh": "我跟朋友一起去。",
+        "vi": "Tôi đi cùng bạn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0046",
+      "simplified": "公交车",
+      "officialRow": 346,
+      "senseKey": "公交车:346",
+      "collocations": [
+        {
+          "zh": "我每天坐公交车上班",
+          "vi": "Mỗi ngày tôi đi xe buýt đến chỗ làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “公交车” trong cụm hoàn chỉnh “我每天坐公交车上班。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “公交车” như bản dịch rời; phải đặt vào một cụm cùng loại với “我每天坐公交车上班。”."
+      ],
+      "example": {
+        "zh": "我每天坐公交车上班。",
+        "vi": "Mỗi ngày tôi đi xe buýt đến chỗ làm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0047",
+      "simplified": "过",
+      "officialRow": 347,
+      "senseKey": "过:347",
+      "collocations": [
+        {
+          "zh": "过马路时要小心",
+          "vi": "Khi qua đường phải cẩn thận.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Phân biệt động từ guò ‘đi qua’ với trợ từ guo chỉ trải nghiệm.",
+      "confusables": [
+        "过 (trợ từ)/过 (động từ)"
+      ],
+      "commonErrorsVi": [
+        "Không đọc nhẹ như trợ từ trải nghiệm 过."
+      ],
+      "example": {
+        "zh": "过马路时要小心。",
+        "vi": "Khi qua đường phải cẩn thận.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0048",
+      "simplified": "过来",
+      "officialRow": 348,
+      "senseKey": "过来:348",
+      "collocations": [
+        {
+          "zh": "你过来看看",
+          "vi": "Bạn lại đây xem.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “过来” cùng tân ngữ hoặc bổ ngữ trong mẫu “你过来看看。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “过来”; giữ cụm động từ theo mẫu “你过来看看。”."
+      ],
+      "example": {
+        "zh": "你过来看看。",
+        "vi": "Bạn lại đây xem.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0049",
+      "simplified": "过年",
+      "officialRow": 349,
+      "senseKey": "过年:349",
+      "collocations": [
+        {
+          "zh": "我们今年在奶奶家过年",
+          "vi": "Năm nay chúng tôi ăn Tết ở nhà bà.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “过年” cùng tân ngữ hoặc bổ ngữ trong mẫu “我们今年在奶奶家过年。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “过年”; giữ cụm động từ theo mẫu “我们今年在奶奶家过年。”."
+      ],
+      "example": {
+        "zh": "我们今年在奶奶家过年。",
+        "vi": "Năm nay chúng tôi ăn Tết ở nhà bà.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0050",
+      "simplified": "过去",
+      "officialRow": 350,
+      "senseKey": "过去:350",
+      "collocations": [
+        {
+          "zh": "过去的事情别再想了",
+          "vi": "Đừng nghĩ mãi về chuyện đã qua.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “过去” cùng tân ngữ hoặc bổ ngữ trong mẫu “过去的事情别再想了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “过去”; giữ cụm động từ theo mẫu “过去的事情别再想了。”."
+      ],
+      "example": {
+        "zh": "过去的事情别再想了。",
+        "vi": "Đừng nghĩ mãi về chuyện đã qua.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0051",
+      "simplified": "过",
+      "officialRow": 351,
+      "senseKey": "过:351",
+      "collocations": [
+        {
+          "zh": "我去过北京",
+          "vi": "Tôi từng đến Bắc Kinh.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Phân biệt động từ guò ‘đi qua’ với trợ từ guo chỉ trải nghiệm.",
+      "confusables": [
+        "过 (trợ từ)/过 (động từ)"
+      ],
+      "commonErrorsVi": [
+        "Phủ định dùng 没(有) + động từ + 过, không dùng 不."
+      ],
+      "example": {
+        "zh": "我去过北京。",
+        "vi": "Tôi từng đến Bắc Kinh.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0052",
+      "simplified": "还是",
+      "officialRow": 352,
+      "senseKey": "还是:352",
+      "collocations": [
+        {
+          "zh": "你喝茶还是咖啡",
+          "vi": "Bạn uống trà hay cà phê?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Dùng trong câu hỏi lựa chọn; câu trần thuật thường dùng 或者.",
+      "confusables": [
+        "或者"
+      ],
+      "commonErrorsVi": [
+        "Trong câu trần thuật lựa chọn thường dùng 或者, không thay máy móc bằng 还是."
+      ],
+      "example": {
+        "zh": "你喝茶还是咖啡？",
+        "vi": "Bạn uống trà hay cà phê?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0053",
+      "simplified": "黑色",
+      "officialRow": 353,
+      "senseKey": "黑色:353",
+      "collocations": [
+        {
+          "zh": "他穿着黑色的裤子",
+          "vi": "Anh ấy mặc quần màu đen.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “黑色” trong cụm hoàn chỉnh “他穿着黑色的裤子。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “黑色” như bản dịch rời; phải đặt vào một cụm cùng loại với “他穿着黑色的裤子。”."
+      ],
+      "example": {
+        "zh": "他穿着黑色的裤子。",
+        "vi": "Anh ấy mặc quần màu đen.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0054",
+      "simplified": "红茶",
+      "officialRow": 354,
+      "senseKey": "红茶:354",
+      "collocations": [
+        {
+          "zh": "我早上喜欢喝红茶",
+          "vi": "Buổi sáng tôi thích uống trà đen.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “红茶” trong cụm hoàn chỉnh “我早上喜欢喝红茶。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “红茶” như bản dịch rời; phải đặt vào một cụm cùng loại với “我早上喜欢喝红茶。”."
+      ],
+      "example": {
+        "zh": "我早上喜欢喝红茶。",
+        "vi": "Buổi sáng tôi thích uống trà đen.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0055",
+      "simplified": "红色",
+      "officialRow": 355,
+      "senseKey": "红色:355",
+      "collocations": [
+        {
+          "zh": "红色的包是我的",
+          "vi": "Chiếc túi màu đỏ là của tôi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “红色” trong cụm hoàn chỉnh “红色的包是我的。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “红色” như bản dịch rời; phải đặt vào một cụm cùng loại với “红色的包是我的。”."
+      ],
+      "example": {
+        "zh": "红色的包是我的。",
+        "vi": "Chiếc túi màu đỏ là của tôi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0056",
+      "simplified": "后面",
+      "officialRow": 356,
+      "senseKey": "后面:356",
+      "collocations": [
+        {
+          "zh": "车站在商场后面",
+          "vi": "Bến xe ở phía sau trung tâm thương mại.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “后面” trong cụm hoàn chỉnh “车站在商场后面。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “后面” như bản dịch rời; phải đặt vào một cụm cùng loại với “车站在商场后面。”."
+      ],
+      "example": {
+        "zh": "车站在商场后面。",
+        "vi": "Bến xe ở phía sau trung tâm thương mại.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0057",
+      "simplified": "花",
+      "officialRow": 357,
+      "senseKey": "花:357",
+      "collocations": [
+        {
+          "zh": "这件衣服花了三百块",
+          "vi": "Bộ quần áo này tốn ba trăm tệ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Có hai mục từ đồng hình: ‘hoa’ và ‘tiêu (thời gian/tiền)’; dựa vào từ loại và ngữ cảnh.",
+      "confusables": [
+        "花 (bông hoa)/花 (tiêu tiền)"
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 花 động từ ‘tiêu’ với 花 danh từ ‘hoa’."
+      ],
+      "example": {
+        "zh": "这件衣服花了三百块。",
+        "vi": "Bộ quần áo này tốn ba trăm tệ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0058",
+      "simplified": "花",
+      "officialRow": 358,
+      "senseKey": "花:358",
+      "collocations": [
+        {
+          "zh": "桌上有一朵花",
+          "vi": "Trên bàn có một bông hoa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "朵",
+      "usageNoteVi": "Có hai mục từ đồng hình: ‘hoa’ và ‘tiêu (thời gian/tiền)’; dựa vào từ loại và ngữ cảnh.",
+      "confusables": [
+        "花 (bông hoa)/花 (tiêu tiền)"
+      ],
+      "commonErrorsVi": [
+        "Phân biệt với 花 + tiền/thời gian."
+      ],
+      "example": {
+        "zh": "桌上有一朵花。",
+        "vi": "Trên bàn có một bông hoa.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0059",
+      "simplified": "画",
+      "officialRow": 359,
+      "senseKey": "画:359",
+      "collocations": [
+        {
+          "zh": "这个小孩儿喜欢画小鸟",
+          "vi": "Đứa trẻ này thích vẽ chim.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "“画” có thể làm động từ hoặc danh từ; xác định vai trò qua vị trí của nó trong câu “这个小孩儿喜欢画小鸟。”.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “画”; giữ cụm động từ theo mẫu “这个小孩儿喜欢画小鸟。”."
+      ],
+      "example": {
+        "zh": "这个小孩儿喜欢画小鸟。",
+        "vi": "Đứa trẻ này thích vẽ chim.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0060",
+      "simplified": "坏",
+      "officialRow": 360,
+      "senseKey": "坏:360",
+      "collocations": [
+        {
+          "zh": "我的手表坏了",
+          "vi": "Đồng hồ đeo tay của tôi hỏng rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “坏” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “我的手表坏了。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “坏” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “我的手表坏了。”."
+      ],
+      "example": {
+        "zh": "我的手表坏了。",
+        "vi": "Đồng hồ đeo tay của tôi hỏng rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0061",
+      "simplified": "回来",
+      "officialRow": 361,
+      "senseKey": "回来:361",
+      "collocations": [
+        {
+          "zh": "他晚上十点才回来",
+          "vi": "Mười giờ tối anh ấy mới về.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “回来” cùng tân ngữ hoặc bổ ngữ trong mẫu “他晚上十点才回来。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “回来”; giữ cụm động từ theo mẫu “他晚上十点才回来。”."
+      ],
+      "example": {
+        "zh": "他晚上十点才回来。",
+        "vi": "Mười giờ tối anh ấy mới về.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0062",
+      "simplified": "回去",
+      "officialRow": 362,
+      "senseKey": "回去:362",
+      "collocations": [
+        {
+          "zh": "太晚了，我先回去",
+          "vi": "Muộn quá rồi, tôi về trước.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “回去” cùng tân ngữ hoặc bổ ngữ trong mẫu “太晚了，我先回去。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “回去”; giữ cụm động từ theo mẫu “太晚了，我先回去。”."
+      ],
+      "example": {
+        "zh": "太晚了，我先回去。",
+        "vi": "Muộn quá rồi, tôi về trước.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0063",
+      "simplified": "机场",
+      "officialRow": 363,
+      "senseKey": "机场:363",
+      "collocations": [
+        {
+          "zh": "从这里到机场要多久",
+          "vi": "Từ đây đến sân bay mất bao lâu?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “机场”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “机场”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "从这里到机场要多久？",
+        "vi": "Từ đây đến sân bay mất bao lâu?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0064",
+      "simplified": "机票",
+      "officialRow": 364,
+      "senseKey": "机票:364",
+      "collocations": [
+        {
+          "zh": "我在网上买了机票",
+          "vi": "Tôi đã mua vé máy bay trên mạng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "张",
+      "usageNoteVi": "Khi đếm “机票”, chọn lượng từ theo ngữ cảnh (张); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “机票”; mẫu phù hợp dùng 张."
+      ],
+      "example": {
+        "zh": "我在网上买了机票。",
+        "vi": "Tôi đã mua vé máy bay trên mạng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0065",
+      "simplified": "记得",
+      "officialRow": 365,
+      "senseKey": "记得:365",
+      "collocations": [
+        {
+          "zh": "记得明天带书包",
+          "vi": "Nhớ mang cặp sách ngày mai.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Diễn tả còn nhớ hoặc nhớ phải làm; 记住 nhấn vào việc ghi nhớ được.",
+      "confusables": [
+        "记住"
+      ],
+      "commonErrorsVi": [
+        "记得 là ‘nhớ’; 想 là ‘muốn/nghĩ’, không thay thế nhau."
+      ],
+      "example": {
+        "zh": "记得明天带书包。",
+        "vi": "Nhớ mang cặp sách ngày mai.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0066",
+      "simplified": "间",
+      "officialRow": 366,
+      "senseKey": "间:366",
+      "collocations": [
+        {
+          "zh": "我想订一间安静的房间",
+          "vi": "Tôi muốn đặt một phòng yên tĩnh.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “间” trong cụm hoàn chỉnh “我想订一间安静的房间。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “间” như bản dịch rời; phải đặt vào một cụm cùng loại với “我想订一间安静的房间。”."
+      ],
+      "example": {
+        "zh": "我想订一间安静的房间。",
+        "vi": "Tôi muốn đặt một phòng yên tĩnh.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0067",
+      "simplified": "教",
+      "officialRow": 367,
+      "senseKey": "教:367",
+      "collocations": [
+        {
+          "zh": "王老师教我们汉语",
+          "vi": "Thầy Vương dạy chúng tôi tiếng Trung.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “教” cùng tân ngữ hoặc bổ ngữ trong mẫu “王老师教我们汉语。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “教”; giữ cụm động từ theo mẫu “王老师教我们汉语。”."
+      ],
+      "example": {
+        "zh": "王老师教我们汉语。",
+        "vi": "Thầy Vương dạy chúng tôi tiếng Trung.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0068",
+      "simplified": "教室",
+      "officialRow": 368,
+      "senseKey": "教室:368",
+      "collocations": [
+        {
+          "zh": "学生都在教室里",
+          "vi": "Học sinh đều ở trong phòng học.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "间",
+      "usageNoteVi": "Khi đếm “教室”, chọn lượng từ theo ngữ cảnh (间); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “教室”; mẫu phù hợp dùng 间."
+      ],
+      "example": {
+        "zh": "学生都在教室里。",
+        "vi": "Học sinh đều ở trong phòng học.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0069",
+      "simplified": "介绍",
+      "officialRow": 369,
+      "senseKey": "介绍:369",
+      "collocations": [
+        {
+          "zh": "我来介绍一下这位老师",
+          "vi": "Tôi xin giới thiệu vị giáo viên này.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “介绍” cùng tân ngữ hoặc bổ ngữ trong mẫu “我来介绍一下这位老师。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “介绍”; giữ cụm động từ theo mẫu “我来介绍一下这位老师。”."
+      ],
+      "example": {
+        "zh": "我来介绍一下这位老师。",
+        "vi": "Tôi xin giới thiệu vị giáo viên này.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0070",
+      "simplified": "进",
+      "officialRow": 370,
+      "senseKey": "进:370",
+      "collocations": [
+        {
+          "zh": "请进，别站在门口",
+          "vi": "Mời vào, đừng đứng ở cửa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "进 chỉ hướng vào; thêm 来/去 để nói hướng về hay rời người nói.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không bỏ 来/去 khi hướng di chuyển là trọng tâm."
+      ],
+      "example": {
+        "zh": "请进，别站在门口。",
+        "vi": "Mời vào, đừng đứng ở cửa.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0071",
+      "simplified": "近",
+      "officialRow": 371,
+      "senseKey": "近:371",
+      "collocations": [
+        {
+          "zh": "药店离这里很近",
+          "vi": "Hiệu thuốc rất gần đây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “近” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “药店离这里很近。”; không tự thêm 是.",
+      "confusables": [
+        "远"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “近” với 远; kiểm tra nghĩa và vị trí trong mẫu “药店离这里很近。”."
+      ],
+      "example": {
+        "zh": "药店离这里很近。",
+        "vi": "Hiệu thuốc rất gần đây.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0072",
+      "simplified": "进来",
+      "officialRow": 372,
+      "senseKey": "进来:372",
+      "collocations": [
+        {
+          "zh": "老师，请进来吧",
+          "vi": "Thầy/cô ơi, mời vào đây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “进来” cùng tân ngữ hoặc bổ ngữ trong mẫu “老师，请进来吧。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “进来”; giữ cụm động từ theo mẫu “老师，请进来吧。”."
+      ],
+      "example": {
+        "zh": "老师，请进来吧。",
+        "vi": "Thầy/cô ơi, mời vào đây.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0073",
+      "simplified": "进去",
+      "officialRow": 373,
+      "senseKey": "进去:373",
+      "collocations": [
+        {
+          "zh": "里面有人，你先别进去",
+          "vi": "Bên trong có người, bạn đừng vào vội.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “进去” cùng tân ngữ hoặc bổ ngữ trong mẫu “里面有人，你先别进去。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “进去”; giữ cụm động từ theo mẫu “里面有人，你先别进去。”."
+      ],
+      "example": {
+        "zh": "里面有人，你先别进去。",
+        "vi": "Bên trong có người, bạn đừng vào vội.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0074",
+      "simplified": "经常",
+      "officialRow": 374,
+      "senseKey": "经常:374",
+      "collocations": [
+        {
+          "zh": "我经常跑步",
+          "vi": "Tôi thường xuyên chạy bộ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “经常” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “我经常跑步。” làm mẫu.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “经常” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “我经常跑步。”."
+      ],
+      "example": {
+        "zh": "我经常跑步。",
+        "vi": "Tôi thường xuyên chạy bộ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0075",
+      "simplified": "酒店",
+      "officialRow": 375,
+      "senseKey": "酒店:375",
+      "collocations": [
+        {
+          "zh": "这家酒店离机场不远",
+          "vi": "Khách sạn này không xa sân bay.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "家",
+      "usageNoteVi": "Khi đếm “酒店”, chọn lượng từ theo ngữ cảnh (家); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “酒店”; mẫu phù hợp dùng 家."
+      ],
+      "example": {
+        "zh": "这家酒店离机场不远。",
+        "vi": "Khách sạn này không xa sân bay.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0076",
+      "simplified": "就",
+      "officialRow": 376,
+      "senseKey": "就:376",
+      "collocations": [
+        {
+          "zh": "下地铁以后就往左走",
+          "vi": "Sau khi xuống tàu điện ngầm thì đi sang trái.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Thường biểu thị sớm, nhanh, liền hoặc kết quả theo điều kiện; hiểu theo quan hệ trong câu.",
+      "confusables": [
+        "才"
+      ],
+      "commonErrorsVi": [
+        "就 đứng trước động từ/vị ngữ chính của vế sau."
+      ],
+      "example": {
+        "zh": "下地铁以后就往左走。",
+        "vi": "Sau khi xuống tàu điện ngầm thì đi sang trái.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0077",
+      "simplified": "咖啡",
+      "officialRow": 377,
+      "senseKey": "咖啡:377",
+      "collocations": [
+        {
+          "zh": "我下午不喝咖啡",
+          "vi": "Buổi chiều tôi không uống cà phê.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “咖啡” trong cụm hoàn chỉnh “我下午不喝咖啡。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “咖啡” như bản dịch rời; phải đặt vào một cụm cùng loại với “我下午不喝咖啡。”."
+      ],
+      "example": {
+        "zh": "我下午不喝咖啡。",
+        "vi": "Buổi chiều tôi không uống cà phê.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0078",
+      "simplified": "开始",
+      "officialRow": 378,
+      "senseKey": "开始:378",
+      "collocations": [
+        {
+          "zh": "电影七点开始",
+          "vi": "Bộ phim bắt đầu lúc bảy giờ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "“开始” có thể làm động từ hoặc danh từ; xác định vai trò qua vị trí của nó trong câu “电影七点开始。”.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “开始”; giữ cụm động từ theo mẫu “电影七点开始。”."
+      ],
+      "example": {
+        "zh": "电影七点开始。",
+        "vi": "Bộ phim bắt đầu lúc bảy giờ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0079",
+      "simplified": "开学",
+      "officialRow": 379,
+      "senseKey": "开学:379",
+      "collocations": [
+        {
+          "zh": "下周就开学了",
+          "vi": "Tuần sau là khai giảng rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “开学” cùng tân ngữ hoặc bổ ngữ trong mẫu “下周就开学了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “开学”; giữ cụm động từ theo mẫu “下周就开学了。”."
+      ],
+      "example": {
+        "zh": "下周就开学了。",
+        "vi": "Tuần sau là khai giảng rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0080",
+      "simplified": "考",
+      "officialRow": 380,
+      "senseKey": "考:380",
+      "collocations": [
+        {
+          "zh": "明天我们考听力",
+          "vi": "Ngày mai chúng tôi thi nghe.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “考” cùng tân ngữ hoặc bổ ngữ trong mẫu “明天我们考听力。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “考”; giữ cụm động từ theo mẫu “明天我们考听力。”."
+      ],
+      "example": {
+        "zh": "明天我们考听力。",
+        "vi": "Ngày mai chúng tôi thi nghe.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0081",
+      "simplified": "考试",
+      "officialRow": 381,
+      "senseKey": "考试:381",
+      "collocations": [
+        {
+          "zh": "这次考试不太难",
+          "vi": "Kỳ thi lần này không quá khó.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "场/次",
+      "usageNoteVi": "Khi đếm “考试”, chọn lượng từ theo ngữ cảnh (场/次); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “考试”; mẫu phù hợp dùng 场/次."
+      ],
+      "example": {
+        "zh": "这次考试不太难。",
+        "vi": "Kỳ thi lần này không quá khó.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0082",
+      "simplified": "可能",
+      "officialRow": 382,
+      "senseKey": "可能:382",
+      "collocations": [
+        {
+          "zh": "他今天可能不来",
+          "vi": "Hôm nay anh ấy có thể không đến.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "可能 có thể làm động từ năng nguyện hoặc danh từ ‘khả năng’.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dùng 可能 để xin phép; dùng 可以."
+      ],
+      "example": {
+        "zh": "他今天可能不来。",
+        "vi": "Hôm nay anh ấy có thể không đến.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0083",
+      "simplified": "裤子",
+      "officialRow": 383,
+      "senseKey": "裤子:383",
+      "collocations": [
+        {
+          "zh": "这条黑色裤子太长了",
+          "vi": "Chiếc quần đen này dài quá.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “裤子” trong cụm hoàn chỉnh “这条黑色裤子太长了。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “裤子” như bản dịch rời; phải đặt vào một cụm cùng loại với “这条黑色裤子太长了。”."
+      ],
+      "example": {
+        "zh": "这条黑色裤子太长了。",
+        "vi": "Chiếc quần đen này dài quá.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0084",
+      "simplified": "快",
+      "officialRow": 384,
+      "senseKey": "快:384",
+      "collocations": [
+        {
+          "zh": "你走得太快了",
+          "vi": "Bạn đi nhanh quá.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “快” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “你走得太快了。” làm mẫu.",
+      "confusables": [
+        "快要"
+      ],
+      "commonErrorsVi": [
+        "Dễ lẫn “快” với 快要; kiểm tra nghĩa và vị trí trong mẫu “你走得太快了。”."
+      ],
+      "example": {
+        "zh": "你走得太快了。",
+        "vi": "Bạn đi nhanh quá.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0085",
+      "simplified": "快乐",
+      "officialRow": 385,
+      "senseKey": "快乐:385",
+      "collocations": [
+        {
+          "zh": "祝你生日快乐",
+          "vi": "Chúc bạn sinh nhật vui vẻ!",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “快乐” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “祝你生日快乐！”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “快乐” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “祝你生日快乐！”."
+      ],
+      "example": {
+        "zh": "祝你生日快乐！",
+        "vi": "Chúc bạn sinh nhật vui vẻ!",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0086",
+      "simplified": "快要",
+      "officialRow": 386,
+      "senseKey": "快要:386",
+      "collocations": [
+        {
+          "zh": "火车快要到了",
+          "vi": "Tàu sắp đến rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Báo hiệu sự việc sắp xảy ra; thường đi với 了 ở cuối câu.",
+      "confusables": [
+        "快"
+      ],
+      "commonErrorsVi": [
+        "Không dùng 快要 với mốc thời gian cụ thể theo cách máy móc."
+      ],
+      "example": {
+        "zh": "火车快要到了。",
+        "vi": "Tàu sắp đến rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0087",
+      "simplified": "篮球",
+      "officialRow": 387,
+      "senseKey": "篮球:387",
+      "collocations": [
+        {
+          "zh": "弟弟每周打两次篮球",
+          "vi": "Em trai chơi bóng rổ hai lần mỗi tuần.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “篮球” trong cụm hoàn chỉnh “弟弟每周打两次篮球。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “篮球” như bản dịch rời; phải đặt vào một cụm cùng loại với “弟弟每周打两次篮球。”."
+      ],
+      "example": {
+        "zh": "弟弟每周打两次篮球。",
+        "vi": "Em trai chơi bóng rổ hai lần mỗi tuần.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0088",
+      "simplified": "累",
+      "officialRow": 388,
+      "senseKey": "累:388",
+      "collocations": [
+        {
+          "zh": "走了一天，我有点儿累",
+          "vi": "Đi cả ngày nên tôi hơi mệt.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “累” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “走了一天，我有点儿累。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “累” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “走了一天，我有点儿累。”."
+      ],
+      "example": {
+        "zh": "走了一天，我有点儿累。",
+        "vi": "Đi cả ngày nên tôi hơi mệt.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0089",
+      "simplified": "离",
+      "officialRow": 389,
+      "senseKey": "离:389",
+      "collocations": [
+        {
+          "zh": "我家离公司很近",
+          "vi": "Nhà tôi gần công ty.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Dùng để nói khoảng cách giữa hai địa điểm: A 离 B + 远/近.",
+      "confusables": [
+        "从"
+      ],
+      "commonErrorsVi": [
+        "Không đảo thành B 离 A nếu chủ đề cần nói là A."
+      ],
+      "example": {
+        "zh": "我家离公司很近。",
+        "vi": "Nhà tôi gần công ty.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0090",
+      "simplified": "里面",
+      "officialRow": 390,
+      "senseKey": "里面:390",
+      "collocations": [
+        {
+          "zh": "书包在房间里面",
+          "vi": "Cặp sách ở bên trong phòng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “里面” trong cụm hoàn chỉnh “书包在房间里面。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “里面” như bản dịch rời; phải đặt vào một cụm cùng loại với “书包在房间里面。”."
+      ],
+      "example": {
+        "zh": "书包在房间里面。",
+        "vi": "Cặp sách ở bên trong phòng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0091",
+      "simplified": "楼",
+      "officialRow": 391,
+      "senseKey": "楼:391",
+      "collocations": [
+        {
+          "zh": "我住在三楼",
+          "vi": "Tôi sống ở tầng ba.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “楼” trong cụm hoàn chỉnh “我住在三楼。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “楼” như bản dịch rời; phải đặt vào một cụm cùng loại với “我住在三楼。”."
+      ],
+      "example": {
+        "zh": "我住在三楼。",
+        "vi": "Tôi sống ở tầng ba.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0092",
+      "simplified": "路",
+      "officialRow": 392,
+      "senseKey": "路:392",
+      "collocations": [
+        {
+          "zh": "这条路怎么走",
+          "vi": "Con đường này đi thế nào?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "条",
+      "usageNoteVi": "Khi đếm “路”, chọn lượng từ theo ngữ cảnh (条); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “路”; mẫu phù hợp dùng 条."
+      ],
+      "example": {
+        "zh": "这条路怎么走？",
+        "vi": "Con đường này đi thế nào?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0093",
+      "simplified": "路上",
+      "officialRow": 393,
+      "senseKey": "路上:393",
+      "collocations": [
+        {
+          "zh": "我在路上看见了他",
+          "vi": "Tôi gặp anh ấy trên đường.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “路上” trong cụm hoàn chỉnh “我在路上看见了他。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “路上” như bản dịch rời; phải đặt vào một cụm cùng loại với “我在路上看见了他。”."
+      ],
+      "example": {
+        "zh": "我在路上看见了他。",
+        "vi": "Tôi gặp anh ấy trên đường.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0094",
+      "simplified": "旅游",
+      "officialRow": 394,
+      "senseKey": "旅游:394",
+      "collocations": [
+        {
+          "zh": "暑假我们去中国旅游",
+          "vi": "Nghỉ hè chúng tôi đi du lịch Trung Quốc.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "次",
+      "usageNoteVi": "Khi đếm “旅游”, chọn lượng từ theo ngữ cảnh (次); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “旅游”; mẫu phù hợp dùng 次."
+      ],
+      "example": {
+        "zh": "暑假我们去中国旅游。",
+        "vi": "Nghỉ hè chúng tôi đi du lịch Trung Quốc.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0095",
+      "simplified": "绿茶",
+      "officialRow": 395,
+      "senseKey": "绿茶:395",
+      "collocations": [
+        {
+          "zh": "她要一杯绿茶",
+          "vi": "Cô ấy gọi một cốc trà xanh.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “绿茶” trong cụm hoàn chỉnh “她要一杯绿茶。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “绿茶” như bản dịch rời; phải đặt vào một cụm cùng loại với “她要一杯绿茶。”."
+      ],
+      "example": {
+        "zh": "她要一杯绿茶。",
+        "vi": "Cô ấy gọi một cốc trà xanh.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0096",
+      "simplified": "绿色",
+      "officialRow": 396,
+      "senseKey": "绿色:396",
+      "collocations": [
+        {
+          "zh": "我喜欢绿色",
+          "vi": "Tôi thích màu xanh lá.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “绿色” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “我喜欢绿色。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “绿色” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “我喜欢绿色。”."
+      ],
+      "example": {
+        "zh": "我喜欢绿色。",
+        "vi": "Tôi thích màu xanh lá.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0097",
+      "simplified": "慢",
+      "officialRow": 397,
+      "senseKey": "慢:397",
+      "collocations": [
+        {
+          "zh": "请说慢一点儿",
+          "vi": "Hãy nói chậm một chút.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “慢” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “请说慢一点儿。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “慢” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “请说慢一点儿。”."
+      ],
+      "example": {
+        "zh": "请说慢一点儿。",
+        "vi": "Hãy nói chậm một chút.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0098",
+      "simplified": "没意思",
+      "officialRow": 398,
+      "senseKey": "没意思:398",
+      "collocations": [
+        {
+          "zh": "一个人看这个电影没意思",
+          "vi": "Xem bộ phim này một mình thì chán.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “没意思” trong cụm hoàn chỉnh “一个人看这个电影没意思。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “没意思” như bản dịch rời; phải đặt vào một cụm cùng loại với “一个人看这个电影没意思。”."
+      ],
+      "example": {
+        "zh": "一个人看这个电影没意思。",
+        "vi": "Xem bộ phim này một mình thì chán.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0099",
+      "simplified": "每",
+      "officialRow": 399,
+      "senseKey": "每:399",
+      "collocations": [
+        {
+          "zh": "我每天七点起来",
+          "vi": "Mỗi ngày tôi dậy lúc bảy giờ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Mỗi… thường phối hợp với 都 khi khái quát thói quen.",
+      "confusables": [
+        "常常"
+      ],
+      "commonErrorsVi": [
+        "Không bỏ lượng từ khi danh từ cần lượng từ: 每个人."
+      ],
+      "example": {
+        "zh": "我每天七点起来。",
+        "vi": "Mỗi ngày tôi dậy lúc bảy giờ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0100",
+      "simplified": "门",
+      "officialRow": 400,
+      "senseKey": "门:400",
+      "collocations": [
+        {
+          "zh": "请把门关上",
+          "vi": "Hãy đóng cửa lại.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "扇",
+      "usageNoteVi": "Khi đếm “门”, chọn lượng từ theo ngữ cảnh (扇); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “门”; mẫu phù hợp dùng 扇."
+      ],
+      "example": {
+        "zh": "请把门关上。",
+        "vi": "Hãy đóng cửa lại.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0101",
+      "simplified": "门口",
+      "officialRow": 401,
+      "senseKey": "门口:401",
+      "collocations": [
+        {
+          "zh": "我在门口等你",
+          "vi": "Tôi đợi bạn ở cửa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “门口” trong cụm hoàn chỉnh “我在门口等你。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “门口” như bản dịch rời; phải đặt vào một cụm cùng loại với “我在门口等你。”."
+      ],
+      "example": {
+        "zh": "我在门口等你。",
+        "vi": "Tôi đợi bạn ở cửa.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0102",
+      "simplified": "门票",
+      "officialRow": 402,
+      "senseKey": "门票:402",
+      "collocations": [
+        {
+          "zh": "学生门票多少钱",
+          "vi": "Vé học sinh giá bao nhiêu?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “门票” trong cụm hoàn chỉnh “学生门票多少钱？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “门票” như bản dịch rời; phải đặt vào một cụm cùng loại với “学生门票多少钱？”."
+      ],
+      "example": {
+        "zh": "学生门票多少钱？",
+        "vi": "Vé học sinh giá bao nhiêu?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0103",
+      "simplified": "面",
+      "officialRow": 403,
+      "senseKey": "面:403",
+      "collocations": [
+        {
+          "zh": "这面墙是白色的",
+          "vi": "Bức tường này màu trắng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "面 có thể chỉ mặt/phía hoặc làm lượng từ cho vật phẳng như tường, cờ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đồng nhất mọi 面 với 面条 ‘mì’."
+      ],
+      "example": {
+        "zh": "这面墙是白色的。",
+        "vi": "Bức tường này màu trắng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0104",
+      "simplified": "名",
+      "officialRow": 404,
+      "senseKey": "名:404",
+      "collocations": [
+        {
+          "zh": "名单上有十名学生",
+          "vi": "Trong danh sách có mười học sinh.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “名” trong cụm hoàn chỉnh “名单上有十名学生。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “名” như bản dịch rời; phải đặt vào một cụm cùng loại với “名单上有十名学生。”."
+      ],
+      "example": {
+        "zh": "名单上有十名学生。",
+        "vi": "Trong danh sách có mười học sinh.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0105",
+      "simplified": "拿",
+      "officialRow": 405,
+      "senseKey": "拿:405",
+      "collocations": [
+        {
+          "zh": "请拿好你的东西",
+          "vi": "Hãy cầm đồ của bạn cho chắc.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “拿” cùng tân ngữ hoặc bổ ngữ trong mẫu “请拿好你的东西。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “拿”; giữ cụm động từ theo mẫu “请拿好你的东西。”."
+      ],
+      "example": {
+        "zh": "请拿好你的东西。",
+        "vi": "Hãy cầm đồ của bạn cho chắc.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0106",
+      "simplified": "那么",
+      "officialRow": 406,
+      "senseKey": "那么:406",
+      "collocations": [
+        {
+          "zh": "那么，我们明天见",
+          "vi": "Vậy thì, ngày mai gặp nhé.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Chỉ mức độ/cách thức hoặc nối phản hồi; không phải lượng từ.",
+      "confusables": [
+        "这样/那样"
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 这么 (thế này) và 那么 (thế kia/vậy thì)."
+      ],
+      "example": {
+        "zh": "那么，我们明天见。",
+        "vi": "Vậy thì, ngày mai gặp nhé.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0107",
+      "simplified": "那样",
+      "officialRow": 407,
+      "senseKey": "那样:407",
+      "collocations": [
+        {
+          "zh": "别那样说",
+          "vi": "Đừng nói như thế.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “那样” trong cụm hoàn chỉnh “别那样说。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “那样” như bản dịch rời; phải đặt vào một cụm cùng loại với “别那样说。”."
+      ],
+      "example": {
+        "zh": "别那样说。",
+        "vi": "Đừng nói như thế.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0108",
+      "simplified": "奶茶",
+      "officialRow": 408,
+      "senseKey": "奶茶:408",
+      "collocations": [
+        {
+          "zh": "这家店的奶茶不错",
+          "vi": "Trà sữa của cửa hàng này khá ngon.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “奶茶” trong cụm hoàn chỉnh “这家店的奶茶不错。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “奶茶” như bản dịch rời; phải đặt vào một cụm cùng loại với “这家店的奶茶不错。”."
+      ],
+      "example": {
+        "zh": "这家店的奶茶不错。",
+        "vi": "Trà sữa của cửa hàng này khá ngon.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0109",
+      "simplified": "奶奶",
+      "officialRow": 409,
+      "senseKey": "奶奶:409",
+      "collocations": [
+        {
+          "zh": "奶奶正在做饭",
+          "vi": "Bà đang nấu cơm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “奶奶” trong cụm hoàn chỉnh “奶奶正在做饭。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “奶奶” như bản dịch rời; phải đặt vào một cụm cùng loại với “奶奶正在做饭。”."
+      ],
+      "example": {
+        "zh": "奶奶正在做饭。",
+        "vi": "Bà đang nấu cơm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0110",
+      "simplified": "男孩儿",
+      "officialRow": 410,
+      "senseKey": "男孩儿:410",
+      "collocations": [
+        {
+          "zh": "那个男孩儿在踢足球",
+          "vi": "Cậu bé kia đang đá bóng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “男孩儿”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “男孩儿”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "那个男孩儿在踢足球。",
+        "vi": "Cậu bé kia đang đá bóng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0111",
+      "simplified": "鸟",
+      "officialRow": 411,
+      "senseKey": "鸟:411",
+      "collocations": [
+        {
+          "zh": "树上有两只鸟",
+          "vi": "Trên cây có hai con chim.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "只",
+      "usageNoteVi": "Khi đếm “鸟”, chọn lượng từ theo ngữ cảnh (只); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “鸟”; mẫu phù hợp dùng 只."
+      ],
+      "example": {
+        "zh": "树上有两只鸟。",
+        "vi": "Trên cây có hai con chim.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0112",
+      "simplified": "女孩儿",
+      "officialRow": 412,
+      "senseKey": "女孩儿:412",
+      "collocations": [
+        {
+          "zh": "女孩儿高兴地笑了",
+          "vi": "Cô bé vui vẻ cười.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “女孩儿”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “女孩儿”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "女孩儿高兴地笑了。",
+        "vi": "Cô bé vui vẻ cười.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0113",
+      "simplified": "旁边",
+      "officialRow": 413,
+      "senseKey": "旁边:413",
+      "collocations": [
+        {
+          "zh": "银行就在超市旁边",
+          "vi": "Ngân hàng ngay cạnh siêu thị.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “旁边” trong cụm hoàn chỉnh “银行就在超市旁边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “旁边” như bản dịch rời; phải đặt vào một cụm cùng loại với “银行就在超市旁边。”."
+      ],
+      "example": {
+        "zh": "银行就在超市旁边。",
+        "vi": "Ngân hàng ngay cạnh siêu thị.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0114",
+      "simplified": "跑",
+      "officialRow": 414,
+      "senseKey": "跑:414",
+      "collocations": [
+        {
+          "zh": "别跑，路上车多",
+          "vi": "Đừng chạy, trên đường nhiều xe.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “跑” cùng tân ngữ hoặc bổ ngữ trong mẫu “别跑，路上车多。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “跑”; giữ cụm động từ theo mẫu “别跑，路上车多。”."
+      ],
+      "example": {
+        "zh": "别跑，路上车多。",
+        "vi": "Đừng chạy, trên đường nhiều xe.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0115",
+      "simplified": "跑步",
+      "officialRow": 415,
+      "senseKey": "跑步:415",
+      "collocations": [
+        {
+          "zh": "我早上去公园跑步",
+          "vi": "Buổi sáng tôi đi công viên chạy bộ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “跑步” cùng tân ngữ hoặc bổ ngữ trong mẫu “我早上去公园跑步。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “跑步”; giữ cụm động từ theo mẫu “我早上去公园跑步。”."
+      ],
+      "example": {
+        "zh": "我早上去公园跑步。",
+        "vi": "Buổi sáng tôi đi công viên chạy bộ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0116",
+      "simplified": "票",
+      "officialRow": 416,
+      "senseKey": "票:416",
+      "collocations": [
+        {
+          "zh": "请收好车票",
+          "vi": "Hãy giữ vé xe cẩn thận.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "张",
+      "usageNoteVi": "Khi đếm “票”, chọn lượng từ theo ngữ cảnh (张); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “票”; mẫu phù hợp dùng 张."
+      ],
+      "example": {
+        "zh": "请收好车票。",
+        "vi": "Hãy giữ vé xe cẩn thận.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0117",
+      "simplified": "妻子",
+      "officialRow": 417,
+      "senseKey": "妻子:417",
+      "collocations": [
+        {
+          "zh": "他的妻子是医生",
+          "vi": "Vợ anh ấy là bác sĩ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个/位",
+      "usageNoteVi": "Khi đếm “妻子”, chọn lượng từ theo ngữ cảnh (个/位); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “妻子”; mẫu phù hợp dùng 个/位."
+      ],
+      "example": {
+        "zh": "他的妻子是医生。",
+        "vi": "Vợ anh ấy là bác sĩ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0118",
+      "simplified": "起来",
+      "officialRow": 418,
+      "senseKey": "起来:418",
+      "collocations": [
+        {
+          "zh": "快起来，上课了",
+          "vi": "Mau dậy, vào học rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Bổ ngữ xu hướng ‘đứng/dậy lên’ hoặc bắt đầu trạng thái; bài này chỉ dùng nghĩa đã nêu trong ngữ cảnh.",
+      "confusables": [
+        "出来/上来"
+      ],
+      "commonErrorsVi": [
+        "Không dịch mọi 起来 thành ‘đứng dậy’."
+      ],
+      "example": {
+        "zh": "快起来，上课了。",
+        "vi": "Mau dậy, vào học rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0119",
+      "simplified": "前面",
+      "officialRow": 419,
+      "senseKey": "前面:419",
+      "collocations": [
+        {
+          "zh": "饭馆在酒店前面",
+          "vi": "Quán ăn ở phía trước khách sạn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “前面” trong cụm hoàn chỉnh “饭馆在酒店前面。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “前面” như bản dịch rời; phải đặt vào một cụm cùng loại với “饭馆在酒店前面。”."
+      ],
+      "example": {
+        "zh": "饭馆在酒店前面。",
+        "vi": "Quán ăn ở phía trước khách sạn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0120",
+      "simplified": "晴",
+      "officialRow": 420,
+      "senseKey": "晴:420",
+      "collocations": [
+        {
+          "zh": "今天是晴天",
+          "vi": "Hôm nay trời quang.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “晴” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “今天是晴天。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “晴” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “今天是晴天。”."
+      ],
+      "example": {
+        "zh": "今天是晴天。",
+        "vi": "Hôm nay trời quang.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0121",
+      "simplified": "球",
+      "officialRow": 421,
+      "senseKey": "球:421",
+      "collocations": [
+        {
+          "zh": "这个球是谁的",
+          "vi": "Quả bóng này của ai?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “球” trong cụm hoàn chỉnh “这个球是谁的？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “球” như bản dịch rời; phải đặt vào một cụm cùng loại với “这个球是谁的？”."
+      ],
+      "example": {
+        "zh": "这个球是谁的？",
+        "vi": "Quả bóng này của ai?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0122",
+      "simplified": "让",
+      "officialRow": 422,
+      "senseKey": "让:422",
+      "collocations": [
+        {
+          "zh": "妈妈不让我喝咖啡",
+          "vi": "Mẹ không cho tôi uống cà phê.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Có thể là ‘để/cho phép’ hoặc khiến/bảo ai làm gì; chủ thể hành động sau 让 phải rõ.",
+      "confusables": [
+        "请/叫"
+      ],
+      "commonErrorsVi": [
+        "Người thực hiện đứng sau 让."
+      ],
+      "example": {
+        "zh": "妈妈不让我喝咖啡。",
+        "vi": "Mẹ không cho tôi uống cà phê.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0123",
+      "simplified": "肉",
+      "officialRow": 423,
+      "senseKey": "肉:423",
+      "collocations": [
+        {
+          "zh": "我想吃一点儿肉",
+          "vi": "Tôi muốn ăn một chút thịt.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “肉” trong cụm hoàn chỉnh “我想吃一点儿肉。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “肉” như bản dịch rời; phải đặt vào một cụm cùng loại với “我想吃一点儿肉。”."
+      ],
+      "example": {
+        "zh": "我想吃一点儿肉。",
+        "vi": "Tôi muốn ăn một chút thịt.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0124",
+      "simplified": "商场",
+      "officialRow": 424,
+      "senseKey": "商场:424",
+      "collocations": [
+        {
+          "zh": "我们在商场门口见",
+          "vi": "Chúng ta gặp nhau ở cửa trung tâm thương mại.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “商场” trong cụm hoàn chỉnh “我们在商场门口见。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “商场” như bản dịch rời; phải đặt vào một cụm cùng loại với “我们在商场门口见。”."
+      ],
+      "example": {
+        "zh": "我们在商场门口见。",
+        "vi": "Chúng ta gặp nhau ở cửa trung tâm thương mại.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0125",
+      "simplified": "上来",
+      "officialRow": 425,
+      "senseKey": "上来:425",
+      "collocations": [
+        {
+          "zh": "你能走上来吗",
+          "vi": "Bạn có thể đi lên đây không?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “上来” cùng tân ngữ hoặc bổ ngữ trong mẫu “你能走上来吗？”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “上来”; giữ cụm động từ theo mẫu “你能走上来吗？”."
+      ],
+      "example": {
+        "zh": "你能走上来吗？",
+        "vi": "Bạn có thể đi lên đây không?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0126",
+      "simplified": "上面",
+      "officialRow": 426,
+      "senseKey": "上面:426",
+      "collocations": [
+        {
+          "zh": "钥匙在桌子上面",
+          "vi": "Chìa khóa ở phía trên bàn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “上面” trong cụm hoàn chỉnh “钥匙在桌子上面。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “上面” như bản dịch rời; phải đặt vào một cụm cùng loại với “钥匙在桌子上面。”."
+      ],
+      "example": {
+        "zh": "钥匙在桌子上面。",
+        "vi": "Chìa khóa ở phía trên bàn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0127",
+      "simplified": "上去",
+      "officialRow": 427,
+      "senseKey": "上去:427",
+      "collocations": [
+        {
+          "zh": "他已经上去了",
+          "vi": "Anh ấy đã đi lên rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “上去” cùng tân ngữ hoặc bổ ngữ trong mẫu “他已经上去了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “上去”; giữ cụm động từ theo mẫu “他已经上去了。”."
+      ],
+      "example": {
+        "zh": "他已经上去了。",
+        "vi": "Anh ấy đã đi lên rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0128",
+      "simplified": "上网",
+      "officialRow": 428,
+      "senseKey": "上网:428",
+      "collocations": [
+        {
+          "zh": "晚上我常用电脑上网",
+          "vi": "Buổi tối tôi thường dùng máy tính lên mạng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “上网” cùng tân ngữ hoặc bổ ngữ trong mẫu “晚上我常用电脑上网。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “上网”; giữ cụm động từ theo mẫu “晚上我常用电脑上网。”."
+      ],
+      "example": {
+        "zh": "晚上我常用电脑上网。",
+        "vi": "Buổi tối tôi thường dùng máy tính lên mạng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0129",
+      "simplified": "身体",
+      "officialRow": 429,
+      "senseKey": "身体:429",
+      "collocations": [
+        {
+          "zh": "多运动对身体好",
+          "vi": "Vận động nhiều tốt cho sức khỏe.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "—",
+      "usageNoteVi": "Học “身体” trong cụm hoàn chỉnh “多运动对身体好。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “身体” như bản dịch rời; phải đặt vào một cụm cùng loại với “多运动对身体好。”."
+      ],
+      "example": {
+        "zh": "多运动对身体好。",
+        "vi": "Vận động nhiều tốt cho sức khỏe.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0130",
+      "simplified": "生日",
+      "officialRow": 430,
+      "senseKey": "生日:430",
+      "collocations": [
+        {
+          "zh": "这个星期六是我的生日",
+          "vi": "Thứ Bảy tuần này là sinh nhật tôi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “生日” trong cụm hoàn chỉnh “这个星期六是我的生日。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “生日” như bản dịch rời; phải đặt vào một cụm cùng loại với “这个星期六是我的生日。”."
+      ],
+      "example": {
+        "zh": "这个星期六是我的生日。",
+        "vi": "Thứ Bảy tuần này là sinh nhật tôi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0131",
+      "simplified": "时",
+      "officialRow": 431,
+      "senseKey": "时:431",
+      "collocations": [
+        {
+          "zh": "吃饭时别看手机",
+          "vi": "Khi ăn đừng xem điện thoại.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “时” trong cụm hoàn chỉnh “吃饭时别看手机。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “时” như bản dịch rời; phải đặt vào một cụm cùng loại với “吃饭时别看手机。”."
+      ],
+      "example": {
+        "zh": "吃饭时别看手机。",
+        "vi": "Khi ăn đừng xem điện thoại.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0132",
+      "simplified": "事情",
+      "officialRow": 432,
+      "senseKey": "事情:432",
+      "collocations": [
+        {
+          "zh": "我有一件事情想告诉你",
+          "vi": "Tôi có một việc muốn nói với bạn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "件",
+      "usageNoteVi": "Khi đếm “事情”, chọn lượng từ theo ngữ cảnh (件); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “事情”; mẫu phù hợp dùng 件."
+      ],
+      "example": {
+        "zh": "我有一件事情想告诉你。",
+        "vi": "Tôi có một việc muốn nói với bạn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0133",
+      "simplified": "手",
+      "officialRow": 433,
+      "senseKey": "手:433",
+      "collocations": [
+        {
+          "zh": "请先洗手",
+          "vi": "Hãy rửa tay trước.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “手” trong cụm hoàn chỉnh “请先洗手。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “手” như bản dịch rời; phải đặt vào một cụm cùng loại với “请先洗手。”."
+      ],
+      "example": {
+        "zh": "请先洗手。",
+        "vi": "Hãy rửa tay trước.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0134",
+      "simplified": "手表",
+      "officialRow": 434,
+      "senseKey": "手表:434",
+      "collocations": [
+        {
+          "zh": "我的手表慢了五分钟",
+          "vi": "Đồng hồ của tôi chậm năm phút.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "块/只",
+      "usageNoteVi": "Khi đếm “手表”, chọn lượng từ theo ngữ cảnh (块/只); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “手表”; mẫu phù hợp dùng 块/只."
+      ],
+      "example": {
+        "zh": "我的手表慢了五分钟。",
+        "vi": "Đồng hồ của tôi chậm năm phút.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0135",
+      "simplified": "书包",
+      "officialRow": 435,
+      "senseKey": "书包:435",
+      "collocations": [
+        {
+          "zh": "书包里有三本书",
+          "vi": "Trong cặp có ba quyển sách.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “书包” trong cụm hoàn chỉnh “书包里有三本书。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “书包” như bản dịch rời; phải đặt vào một cụm cùng loại với “书包里有三本书。”."
+      ],
+      "example": {
+        "zh": "书包里有三本书。",
+        "vi": "Trong cặp có ba quyển sách.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0136",
+      "simplified": "舒服",
+      "officialRow": 436,
+      "senseKey": "舒服:436",
+      "collocations": [
+        {
+          "zh": "吃了药以后舒服多了",
+          "vi": "Uống thuốc xong thấy dễ chịu hơn nhiều.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “舒服” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “吃了药以后舒服多了。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “舒服” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “吃了药以后舒服多了。”."
+      ],
+      "example": {
+        "zh": "吃了药以后舒服多了。",
+        "vi": "Uống thuốc xong thấy dễ chịu hơn nhiều.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0137",
+      "simplified": "送",
+      "officialRow": 437,
+      "senseKey": "送:437",
+      "collocations": [
+        {
+          "zh": "我想送她一本书",
+          "vi": "Tôi muốn tặng cô ấy một quyển sách.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “送” cùng tân ngữ hoặc bổ ngữ trong mẫu “我想送她一本书。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “送”; giữ cụm động từ theo mẫu “我想送她一本书。”."
+      ],
+      "example": {
+        "zh": "我想送她一本书。",
+        "vi": "Tôi muốn tặng cô ấy một quyển sách.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0138",
+      "simplified": "虽然",
+      "officialRow": 438,
+      "senseKey": "虽然:438",
+      "collocations": [
+        {
+          "zh": "虽然下雨，他还是来了",
+          "vi": "Tuy trời mưa, anh ấy vẫn đến.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Mở mệnh đề nhượng bộ; vế sau thường có 但是/可是 nhưng không dịch từng chữ cứng nhắc.",
+      "confusables": [
+        "但是"
+      ],
+      "commonErrorsVi": [
+        "Không dùng 因为 ở vế sau của 虽然."
+      ],
+      "example": {
+        "zh": "虽然下雨，他还是来了。",
+        "vi": "Tuy trời mưa, anh ấy vẫn đến.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0139",
+      "simplified": "所以",
+      "officialRow": 439,
+      "senseKey": "所以:439",
+      "collocations": [
+        {
+          "zh": "因为下雨，所以我们没出去",
+          "vi": "Vì mưa nên chúng tôi không ra ngoài.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “所以” trong cụm hoàn chỉnh “因为下雨，所以我们没出去。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “所以” như bản dịch rời; phải đặt vào một cụm cùng loại với “因为下雨，所以我们没出去。”."
+      ],
+      "example": {
+        "zh": "因为下雨，所以我们没出去。",
+        "vi": "Vì mưa nên chúng tôi không ra ngoài.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0140",
+      "simplified": "疼",
+      "officialRow": 440,
+      "senseKey": "疼:440",
+      "collocations": [
+        {
+          "zh": "我头疼，想休息",
+          "vi": "Tôi đau đầu, muốn nghỉ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “疼” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “我头疼，想休息。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “疼” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “我头疼，想休息。”."
+      ],
+      "example": {
+        "zh": "我头疼，想休息。",
+        "vi": "Tôi đau đầu, muốn nghỉ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0141",
+      "simplified": "踢",
+      "officialRow": 441,
+      "senseKey": "踢:441",
+      "collocations": [
+        {
+          "zh": "他们在操场踢足球",
+          "vi": "Họ đá bóng ở sân trường.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “踢” cùng tân ngữ hoặc bổ ngữ trong mẫu “他们在操场踢足球。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “踢”; giữ cụm động từ theo mẫu “他们在操场踢足球。”."
+      ],
+      "example": {
+        "zh": "他们在操场踢足球。",
+        "vi": "Họ đá bóng ở sân trường.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0142",
+      "simplified": "题",
+      "officialRow": 442,
+      "senseKey": "题:442",
+      "collocations": [
+        {
+          "zh": "最后一题我不会做",
+          "vi": "Câu cuối tôi không biết làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "道",
+      "usageNoteVi": "Khi đếm “题”, chọn lượng từ theo ngữ cảnh (道); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “题”; mẫu phù hợp dùng 道."
+      ],
+      "example": {
+        "zh": "最后一题我不会做。",
+        "vi": "Câu cuối tôi không biết làm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0143",
+      "simplified": "条",
+      "officialRow": 443,
+      "senseKey": "条:443",
+      "collocations": [
+        {
+          "zh": "我买了两条鱼",
+          "vi": "Tôi mua hai con cá.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Lượng từ cho vật dài/mềm và một số danh từ như 路、河、鱼、新闻.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dùng 条 cho mọi đồ vật chỉ vì tiếng Việt có ‘cái’."
+      ],
+      "example": {
+        "zh": "我买了两条鱼。",
+        "vi": "Tôi mua hai con cá.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0144",
+      "simplified": "跳舞",
+      "officialRow": 444,
+      "senseKey": "跳舞:444",
+      "collocations": [
+        {
+          "zh": "她很喜欢跳舞",
+          "vi": "Cô ấy rất thích nhảy múa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “跳舞” cùng tân ngữ hoặc bổ ngữ trong mẫu “她很喜欢跳舞。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “跳舞”; giữ cụm động từ theo mẫu “她很喜欢跳舞。”."
+      ],
+      "example": {
+        "zh": "她很喜欢跳舞。",
+        "vi": "Cô ấy rất thích nhảy múa.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0145",
+      "simplified": "头",
+      "officialRow": 445,
+      "senseKey": "头:445",
+      "collocations": [
+        {
+          "zh": "我的头有点儿疼",
+          "vi": "Đầu tôi hơi đau.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “头” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “我的头有点儿疼。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “头” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “我的头有点儿疼。”."
+      ],
+      "example": {
+        "zh": "我的头有点儿疼。",
+        "vi": "Đầu tôi hơi đau.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0146",
+      "simplified": "外国",
+      "officialRow": 446,
+      "senseKey": "外国:446",
+      "collocations": [
+        {
+          "zh": "他在外国工作",
+          "vi": "Anh ấy làm việc ở nước ngoài.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “外国” trong cụm hoàn chỉnh “他在外国工作。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “外国” như bản dịch rời; phải đặt vào một cụm cùng loại với “他在外国工作。”."
+      ],
+      "example": {
+        "zh": "他在外国工作。",
+        "vi": "Anh ấy làm việc ở nước ngoài.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0147",
+      "simplified": "外面",
+      "officialRow": 447,
+      "senseKey": "外面:447",
+      "collocations": [
+        {
+          "zh": "外面很冷，多穿一点儿",
+          "vi": "Bên ngoài rất lạnh, mặc thêm một chút.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “外面” trong cụm hoàn chỉnh “外面很冷，多穿一点儿。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “外面” như bản dịch rời; phải đặt vào một cụm cùng loại với “外面很冷，多穿一点儿。”."
+      ],
+      "example": {
+        "zh": "外面很冷，多穿一点儿。",
+        "vi": "Bên ngoài rất lạnh, mặc thêm một chút.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0148",
+      "simplified": "完",
+      "officialRow": 448,
+      "senseKey": "完:448",
+      "collocations": [
+        {
+          "zh": "作业已经做完了",
+          "vi": "Bài tập đã làm xong.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “完” cùng tân ngữ hoặc bổ ngữ trong mẫu “作业已经做完了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “完”; giữ cụm động từ theo mẫu “作业已经做完了。”."
+      ],
+      "example": {
+        "zh": "作业已经做完了。",
+        "vi": "Bài tập đã làm xong.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0149",
+      "simplified": "万",
+      "officialRow": 449,
+      "senseKey": "万:449",
+      "collocations": [
+        {
+          "zh": "这个城市有一百万人",
+          "vi": "Thành phố này có một triệu người.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “万” trong cụm hoàn chỉnh “这个城市有一百万人。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “万” như bản dịch rời; phải đặt vào một cụm cùng loại với “这个城市有一百万人。”."
+      ],
+      "example": {
+        "zh": "这个城市有一百万人。",
+        "vi": "Thành phố này có một triệu người.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0150",
+      "simplified": "往",
+      "officialRow": 450,
+      "senseKey": "往:450",
+      "collocations": [
+        {
+          "zh": "一直往前走，就到了",
+          "vi": "Cứ đi thẳng về phía trước là đến.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Giới thiệu hướng di chuyển: 往 + phương hướng + động từ.",
+      "confusables": [
+        "向"
+      ],
+      "commonErrorsVi": [
+        "往 chỉ hướng; 到 nhấn điểm đến đạt tới."
+      ],
+      "example": {
+        "zh": "一直往前走，就到了。",
+        "vi": "Cứ đi thẳng về phía trước là đến.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0151",
+      "simplified": "网上",
+      "officialRow": 451,
+      "senseKey": "网上:451",
+      "collocations": [
+        {
+          "zh": "我在网上看到了这个消息",
+          "vi": "Tôi thấy tin này trên mạng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “网上” trong cụm hoàn chỉnh “我在网上看到了这个消息。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “网上” như bản dịch rời; phải đặt vào một cụm cùng loại với “我在网上看到了这个消息。”."
+      ],
+      "example": {
+        "zh": "我在网上看到了这个消息。",
+        "vi": "Tôi thấy tin này trên mạng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0152",
+      "simplified": "忘",
+      "officialRow": 452,
+      "senseKey": "忘:452",
+      "collocations": [
+        {
+          "zh": "别忘了给奶奶打电话",
+          "vi": "Đừng quên gọi điện cho bà.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “忘” cùng tân ngữ hoặc bổ ngữ trong mẫu “别忘了给奶奶打电话。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “忘”; giữ cụm động từ theo mẫu “别忘了给奶奶打电话。”."
+      ],
+      "example": {
+        "zh": "别忘了给奶奶打电话。",
+        "vi": "Đừng quên gọi điện cho bà.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0153",
+      "simplified": "位",
+      "officialRow": 453,
+      "senseKey": "位:453",
+      "collocations": [
+        {
+          "zh": "那位老师姓王",
+          "vi": "Vị giáo viên kia họ Vương.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “位” trong cụm hoàn chỉnh “那位老师姓王。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “位” như bản dịch rời; phải đặt vào một cụm cùng loại với “那位老师姓王。”."
+      ],
+      "example": {
+        "zh": "那位老师姓王。",
+        "vi": "Vị giáo viên kia họ Vương.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0154",
+      "simplified": "为什么",
+      "officialRow": 454,
+      "senseKey": "为什么:454",
+      "collocations": [
+        {
+          "zh": "你为什么学汉语",
+          "vi": "Tại sao bạn học tiếng Trung?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Hỏi nguyên nhân; câu trả lời tự nhiên thường dùng 因为, không dùng để hỏi cách làm.",
+      "confusables": [
+        "怎么"
+      ],
+      "commonErrorsVi": [
+        "Không thêm 吗 vào cuối câu đã có 为什么."
+      ],
+      "example": {
+        "zh": "你为什么学汉语？",
+        "vi": "Tại sao bạn học tiếng Trung?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0155",
+      "simplified": "希望",
+      "officialRow": 455,
+      "senseKey": "希望:455",
+      "collocations": [
+        {
+          "zh": "我希望明年去中国",
+          "vi": "Tôi hy vọng năm sau đi Trung Quốc.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “希望” cùng tân ngữ hoặc bổ ngữ trong mẫu “我希望明年去中国。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “希望”; giữ cụm động từ theo mẫu “我希望明年去中国。”."
+      ],
+      "example": {
+        "zh": "我希望明年去中国。",
+        "vi": "Tôi hy vọng năm sau đi Trung Quốc.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0156",
+      "simplified": "洗",
+      "officialRow": 456,
+      "senseKey": "洗:456",
+      "collocations": [
+        {
+          "zh": "饭前要洗手",
+          "vi": "Trước bữa ăn phải rửa tay.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “洗” cùng tân ngữ hoặc bổ ngữ trong mẫu “饭前要洗手。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “洗”; giữ cụm động từ theo mẫu “饭前要洗手。”."
+      ],
+      "example": {
+        "zh": "饭前要洗手。",
+        "vi": "Trước bữa ăn phải rửa tay.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0157",
+      "simplified": "洗手间",
+      "officialRow": 457,
+      "senseKey": "洗手间:457",
+      "collocations": [
+        {
+          "zh": "请问，洗手间在哪儿",
+          "vi": "Xin hỏi nhà vệ sinh ở đâu?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “洗手间” trong cụm hoàn chỉnh “请问，洗手间在哪儿？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “洗手间” như bản dịch rời; phải đặt vào một cụm cùng loại với “请问，洗手间在哪儿？”."
+      ],
+      "example": {
+        "zh": "请问，洗手间在哪儿？",
+        "vi": "Xin hỏi nhà vệ sinh ở đâu?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0158",
+      "simplified": "下来",
+      "officialRow": 458,
+      "senseKey": "下来:458",
+      "collocations": [
+        {
+          "zh": "请从楼上下来",
+          "vi": "Hãy đi từ trên lầu xuống đây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “下来” cùng tân ngữ hoặc bổ ngữ trong mẫu “请从楼上下来。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “下来”; giữ cụm động từ theo mẫu “请从楼上下来。”."
+      ],
+      "example": {
+        "zh": "请从楼上下来。",
+        "vi": "Hãy đi từ trên lầu xuống đây.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0159",
+      "simplified": "下面",
+      "officialRow": 459,
+      "senseKey": "下面:459",
+      "collocations": [
+        {
+          "zh": "猫在桌子下面",
+          "vi": "Con mèo ở dưới bàn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “下面” trong cụm hoàn chỉnh “猫在桌子下面。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “下面” như bản dịch rời; phải đặt vào một cụm cùng loại với “猫在桌子下面。”."
+      ],
+      "example": {
+        "zh": "猫在桌子下面。",
+        "vi": "Con mèo ở dưới bàn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0160",
+      "simplified": "下去",
+      "officialRow": 460,
+      "senseKey": "下去:460",
+      "collocations": [
+        {
+          "zh": "你先下去，我一会儿来",
+          "vi": "Bạn xuống trước, lát nữa tôi đến.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “下去” cùng tân ngữ hoặc bổ ngữ trong mẫu “你先下去，我一会儿来。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “下去”; giữ cụm động từ theo mẫu “你先下去，我一会儿来。”."
+      ],
+      "example": {
+        "zh": "你先下去，我一会儿来。",
+        "vi": "Bạn xuống trước, lát nữa tôi đến.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0161",
+      "simplified": "小孩儿",
+      "officialRow": 461,
+      "senseKey": "小孩儿:461",
+      "collocations": [
+        {
+          "zh": "这个小孩儿很爱笑",
+          "vi": "Đứa trẻ này rất hay cười.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “小孩儿”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “小孩儿”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "这个小孩儿很爱笑。",
+        "vi": "Đứa trẻ này rất hay cười.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0162",
+      "simplified": "小时候",
+      "officialRow": 462,
+      "senseKey": "小时候:462",
+      "collocations": [
+        {
+          "zh": "我小时候住在农村",
+          "vi": "Lúc nhỏ tôi sống ở nông thôn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “小时候” trong cụm hoàn chỉnh “我小时候住在农村。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “小时候” như bản dịch rời; phải đặt vào một cụm cùng loại với “我小时候住在农村。”."
+      ],
+      "example": {
+        "zh": "我小时候住在农村。",
+        "vi": "Lúc nhỏ tôi sống ở nông thôn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0163",
+      "simplified": "笑",
+      "officialRow": 463,
+      "senseKey": "笑:463",
+      "collocations": [
+        {
+          "zh": "她一看见我就笑了",
+          "vi": "Vừa nhìn thấy tôi cô ấy đã cười.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “笑” cùng tân ngữ hoặc bổ ngữ trong mẫu “她一看见我就笑了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “笑”; giữ cụm động từ theo mẫu “她一看见我就笑了。”."
+      ],
+      "example": {
+        "zh": "她一看见我就笑了。",
+        "vi": "Vừa nhìn thấy tôi cô ấy đã cười.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0164",
+      "simplified": "姓",
+      "officialRow": 464,
+      "senseKey": "姓:464",
+      "collocations": [
+        {
+          "zh": "请问您姓什么",
+          "vi": "Xin hỏi quý danh của ngài là gì?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个",
+      "usageNoteVi": "Khi đếm “姓”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “姓”; mẫu phù hợp dùng 个."
+      ],
+      "example": {
+        "zh": "请问您姓什么？",
+        "vi": "Xin hỏi quý danh của ngài là gì?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0165",
+      "simplified": "姓名",
+      "officialRow": 465,
+      "senseKey": "姓名:465",
+      "collocations": [
+        {
+          "zh": "请在这里写姓名",
+          "vi": "Hãy viết họ tên ở đây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “姓名” trong cụm hoàn chỉnh “请在这里写姓名。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “姓名” như bản dịch rời; phải đặt vào một cụm cùng loại với “请在这里写姓名。”."
+      ],
+      "example": {
+        "zh": "请在这里写姓名。",
+        "vi": "Hãy viết họ tên ở đây.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0166",
+      "simplified": "颜色",
+      "officialRow": 466,
+      "senseKey": "颜色:466",
+      "collocations": [
+        {
+          "zh": "你喜欢什么颜色",
+          "vi": "Bạn thích màu gì?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “颜色” trong cụm hoàn chỉnh “你喜欢什么颜色？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “颜色” như bản dịch rời; phải đặt vào một cụm cùng loại với “你喜欢什么颜色？”."
+      ],
+      "example": {
+        "zh": "你喜欢什么颜色？",
+        "vi": "Bạn thích màu gì?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0167",
+      "simplified": "眼睛",
+      "officialRow": 467,
+      "senseKey": "眼睛:467",
+      "collocations": [
+        {
+          "zh": "我的眼睛有点儿疼",
+          "vi": "Mắt tôi hơi đau.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "双/只",
+      "usageNoteVi": "Khi đếm “眼睛”, chọn lượng từ theo ngữ cảnh (双/只); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “眼睛”; mẫu phù hợp dùng 双/只."
+      ],
+      "example": {
+        "zh": "我的眼睛有点儿疼。",
+        "vi": "Mắt tôi hơi đau.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0168",
+      "simplified": "药",
+      "officialRow": 468,
+      "senseKey": "药:468",
+      "collocations": [
+        {
+          "zh": "这种药一天吃两次",
+          "vi": "Thuốc này uống hai lần một ngày.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "种/片",
+      "usageNoteVi": "Khi đếm “药”, chọn lượng từ theo ngữ cảnh (种/片); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “药”; mẫu phù hợp dùng 种/片."
+      ],
+      "example": {
+        "zh": "这种药一天吃两次。",
+        "vi": "Thuốc này uống hai lần một ngày.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0169",
+      "simplified": "药店",
+      "officialRow": 469,
+      "senseKey": "药店:469",
+      "collocations": [
+        {
+          "zh": "前面有一家药店",
+          "vi": "Phía trước có một hiệu thuốc.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “药店” trong cụm hoàn chỉnh “前面有一家药店。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “药店” như bản dịch rời; phải đặt vào một cụm cùng loại với “前面有一家药店。”."
+      ],
+      "example": {
+        "zh": "前面有一家药店。",
+        "vi": "Phía trước có một hiệu thuốc.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0170",
+      "simplified": "爷爷",
+      "officialRow": 470,
+      "senseKey": "爷爷:470",
+      "collocations": [
+        {
+          "zh": "爷爷每天走路去公园",
+          "vi": "Ông mỗi ngày đi bộ đến công viên.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “爷爷” trong cụm hoàn chỉnh “爷爷每天走路去公园。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “爷爷” như bản dịch rời; phải đặt vào một cụm cùng loại với “爷爷每天走路去公园。”."
+      ],
+      "example": {
+        "zh": "爷爷每天走路去公园。",
+        "vi": "Ông mỗi ngày đi bộ đến công viên.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0171",
+      "simplified": "一会儿",
+      "officialRow": 471,
+      "senseKey": "一会儿:471",
+      "collocations": [
+        {
+          "zh": "请等我一会儿",
+          "vi": "Hãy đợi tôi một lát.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Một khoảng thời gian ngắn; không đồng nghĩa với 一点儿 chỉ lượng/mức độ nhỏ.",
+      "confusables": [
+        "一点儿"
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 一会儿 với 一点儿 chỉ lượng nhỏ."
+      ],
+      "example": {
+        "zh": "请等我一会儿。",
+        "vi": "Hãy đợi tôi một lát.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0172",
+      "simplified": "已经",
+      "officialRow": 472,
+      "senseKey": "已经:472",
+      "collocations": [
+        {
+          "zh": "我已经买好票了",
+          "vi": "Tôi đã mua vé xong rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đánh dấu trạng thái đã đạt trước mốc nói; thường phối hợp với 了.",
+      "confusables": [
+        "正在"
+      ],
+      "commonErrorsVi": [
+        "Không bắt buộc dịch 已经 thành ‘đã’ ở mọi câu tiếng Việt."
+      ],
+      "example": {
+        "zh": "我已经买好票了。",
+        "vi": "Tôi đã mua vé xong rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0173",
+      "simplified": "一起",
+      "officialRow": 473,
+      "senseKey": "一起:473",
+      "collocations": [
+        {
+          "zh": "周末我们一起去游泳吧",
+          "vi": "Cuối tuần chúng ta cùng đi bơi nhé.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “一起” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “周末我们一起去游泳吧。” làm mẫu.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “一起” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “周末我们一起去游泳吧。”."
+      ],
+      "example": {
+        "zh": "周末我们一起去游泳吧。",
+        "vi": "Cuối tuần chúng ta cùng đi bơi nhé.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0174",
+      "simplified": "意思",
+      "officialRow": 474,
+      "senseKey": "意思:474",
+      "collocations": [
+        {
+          "zh": "我不懂这句话的意思",
+          "vi": "Tôi không hiểu ý của câu này.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “意思” trong cụm hoàn chỉnh “我不懂这句话的意思。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “意思” như bản dịch rời; phải đặt vào một cụm cùng loại với “我不懂这句话的意思。”."
+      ],
+      "example": {
+        "zh": "我不懂这句话的意思。",
+        "vi": "Tôi không hiểu ý của câu này.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0175",
+      "simplified": "阴",
+      "officialRow": 475,
+      "senseKey": "阴:475",
+      "collocations": [
+        {
+          "zh": "今天阴，可能会下雨",
+          "vi": "Hôm nay trời âm u, có thể sẽ mưa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “阴” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “今天阴，可能会下雨。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “阴” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “今天阴，可能会下雨。”."
+      ],
+      "example": {
+        "zh": "今天阴，可能会下雨。",
+        "vi": "Hôm nay trời âm u, có thể sẽ mưa.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0176",
+      "simplified": "因为",
+      "officialRow": 476,
+      "senseKey": "因为:476",
+      "collocations": [
+        {
+          "zh": "因为身体不舒服，他没上班",
+          "vi": "Vì không khỏe nên anh ấy không đi làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đưa nguyên nhân; có thể kết hợp 所以 ở vế kết quả.",
+      "confusables": [
+        "所以"
+      ],
+      "commonErrorsVi": [
+        "Không đảo 因为 và 所以 theo trật tự tiếng Việt tùy tiện."
+      ],
+      "example": {
+        "zh": "因为身体不舒服，他没上班。",
+        "vi": "Vì không khỏe nên anh ấy không đi làm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0177",
+      "simplified": "游",
+      "officialRow": 477,
+      "senseKey": "游:477",
+      "collocations": [
+        {
+          "zh": "小鱼在水里游",
+          "vi": "Cá nhỏ bơi trong nước.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “游” cùng tân ngữ hoặc bổ ngữ trong mẫu “小鱼在水里游。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “游”; giữ cụm động từ theo mẫu “小鱼在水里游。”."
+      ],
+      "example": {
+        "zh": "小鱼在水里游。",
+        "vi": "Cá nhỏ bơi trong nước.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0178",
+      "simplified": "游泳",
+      "officialRow": 478,
+      "senseKey": "游泳:478",
+      "collocations": [
+        {
+          "zh": "妹妹正在学游泳",
+          "vi": "Em gái đang học bơi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "次",
+      "usageNoteVi": "Khi đếm “游泳”, chọn lượng từ theo ngữ cảnh (次); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “游泳”; mẫu phù hợp dùng 次."
+      ],
+      "example": {
+        "zh": "妹妹正在学游泳。",
+        "vi": "Em gái đang học bơi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0179",
+      "simplified": "有意思",
+      "officialRow": 479,
+      "senseKey": "有意思:479",
+      "collocations": [
+        {
+          "zh": "这本书很有意思",
+          "vi": "Quyển sách này rất thú vị.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “有意思” trong cụm hoàn chỉnh “这本书很有意思。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “有意思” như bản dịch rời; phải đặt vào một cụm cùng loại với “这本书很有意思。”."
+      ],
+      "example": {
+        "zh": "这本书很有意思。",
+        "vi": "Quyển sách này rất thú vị.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0180",
+      "simplified": "有时",
+      "officialRow": 480,
+      "senseKey": "有时:480",
+      "collocations": [
+        {
+          "zh": "我有时坐地铁上班",
+          "vi": "Đôi khi tôi đi tàu điện ngầm đến chỗ làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “有时” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “我有时坐地铁上班。” làm mẫu.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “有时” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “我有时坐地铁上班。”."
+      ],
+      "example": {
+        "zh": "我有时坐地铁上班。",
+        "vi": "Đôi khi tôi đi tàu điện ngầm đến chỗ làm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0181",
+      "simplified": "右",
+      "officialRow": 481,
+      "senseKey": "右:481",
+      "collocations": [
+        {
+          "zh": "洗手间在右边",
+          "vi": "Nhà vệ sinh ở bên phải.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “右” trong cụm hoàn chỉnh “洗手间在右边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “右” như bản dịch rời; phải đặt vào một cụm cùng loại với “洗手间在右边。”."
+      ],
+      "example": {
+        "zh": "洗手间在右边。",
+        "vi": "Nhà vệ sinh ở bên phải.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0182",
+      "simplified": "右边",
+      "officialRow": 482,
+      "senseKey": "右边:482",
+      "collocations": [
+        {
+          "zh": "银行就在商场右边",
+          "vi": "Ngân hàng ngay bên phải trung tâm thương mại.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “右边” trong cụm hoàn chỉnh “银行就在商场右边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “右边” như bản dịch rời; phải đặt vào một cụm cùng loại với “银行就在商场右边。”."
+      ],
+      "example": {
+        "zh": "银行就在商场右边。",
+        "vi": "Ngân hàng ngay bên phải trung tâm thương mại.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0183",
+      "simplified": "鱼",
+      "officialRow": 483,
+      "senseKey": "鱼:483",
+      "collocations": [
+        {
+          "zh": "这条鱼很新鲜",
+          "vi": "Con cá này rất tươi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "条",
+      "usageNoteVi": "Khi đếm “鱼”, chọn lượng từ theo ngữ cảnh (条); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “鱼”; mẫu phù hợp dùng 条."
+      ],
+      "example": {
+        "zh": "这条鱼很新鲜。",
+        "vi": "Con cá này rất tươi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0184",
+      "simplified": "远",
+      "officialRow": 484,
+      "senseKey": "远:484",
+      "collocations": [
+        {
+          "zh": "机场离市中心很远",
+          "vi": "Sân bay rất xa trung tâm thành phố.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Quan sát “远” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “机场离市中心很远。”; không tự thêm 是.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “远” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “机场离市中心很远。”."
+      ],
+      "example": {
+        "zh": "机场离市中心很远。",
+        "vi": "Sân bay rất xa trung tâm thành phố.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0185",
+      "simplified": "运动",
+      "officialRow": 485,
+      "senseKey": "运动:485",
+      "collocations": [
+        {
+          "zh": "我每天运动半个小时",
+          "vi": "Mỗi ngày tôi vận động nửa giờ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "项",
+      "usageNoteVi": "Khi đếm “运动”, chọn lượng từ theo ngữ cảnh (项); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “运动”; mẫu phù hợp dùng 项."
+      ],
+      "example": {
+        "zh": "我每天运动半个小时。",
+        "vi": "Mỗi ngày tôi vận động nửa giờ.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0186",
+      "simplified": "站",
+      "officialRow": 486,
+      "senseKey": "站:486",
+      "collocations": [
+        {
+          "zh": "下一站是火车站",
+          "vi": "Trạm tiếp theo là ga tàu.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “站” trong cụm hoàn chỉnh “下一站是火车站。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “站” như bản dịch rời; phải đặt vào một cụm cùng loại với “下一站是火车站。”."
+      ],
+      "example": {
+        "zh": "下一站是火车站。",
+        "vi": "Trạm tiếp theo là ga tàu.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0187",
+      "simplified": "丈夫",
+      "officialRow": 487,
+      "senseKey": "丈夫:487",
+      "collocations": [
+        {
+          "zh": "她的丈夫在银行工作",
+          "vi": "Chồng cô ấy làm việc ở ngân hàng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": "个/位",
+      "usageNoteVi": "Khi đếm “丈夫”, chọn lượng từ theo ngữ cảnh (个/位); không ghép số trực tiếp với danh từ.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “丈夫”; mẫu phù hợp dùng 个/位."
+      ],
+      "example": {
+        "zh": "她的丈夫在银行工作。",
+        "vi": "Chồng cô ấy làm việc ở ngân hàng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0188",
+      "simplified": "这么",
+      "officialRow": 488,
+      "senseKey": "这么:488",
+      "collocations": [
+        {
+          "zh": "今天怎么这么冷",
+          "vi": "Sao hôm nay lạnh thế này?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “这么” trong cụm hoàn chỉnh “今天怎么这么冷？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “这么” như bản dịch rời; phải đặt vào một cụm cùng loại với “今天怎么这么冷？”."
+      ],
+      "example": {
+        "zh": "今天怎么这么冷？",
+        "vi": "Sao hôm nay lạnh thế này?",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0189",
+      "simplified": "这样",
+      "officialRow": 489,
+      "senseKey": "这样:489",
+      "collocations": [
+        {
+          "zh": "你这样说，我就懂了",
+          "vi": "Bạn nói như vậy thì tôi hiểu rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “这样” trong cụm hoàn chỉnh “你这样说，我就懂了。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “这样” như bản dịch rời; phải đặt vào một cụm cùng loại với “你这样说，我就懂了。”."
+      ],
+      "example": {
+        "zh": "你这样说，我就懂了。",
+        "vi": "Bạn nói như vậy thì tôi hiểu rồi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0190",
+      "simplified": "着",
+      "officialRow": 490,
+      "senseKey": "着:490",
+      "collocations": [
+        {
+          "zh": "门开着，请进",
+          "vi": "Cửa đang mở, mời vào.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đọc zhe, đánh dấu trạng thái đang duy trì; khác 正在 nhấn hành động đang diễn ra.",
+      "confusables": [
+        "正在"
+      ],
+      "commonErrorsVi": [
+        "着 không thay cho 正在 trong mọi hành động đang tiến hành."
+      ],
+      "example": {
+        "zh": "门开着，请进。",
+        "vi": "Cửa đang mở, mời vào.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0191",
+      "simplified": "正",
+      "officialRow": 491,
+      "senseKey": "正:491",
+      "collocations": [
+        {
+          "zh": "他正往这边走",
+          "vi": "Anh ấy đang đi về phía này.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Đặt “正” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “他正往这边走。” làm mẫu.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “正” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “他正往这边走。”."
+      ],
+      "example": {
+        "zh": "他正往这边走。",
+        "vi": "Anh ấy đang đi về phía này.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0192",
+      "simplified": "周",
+      "officialRow": 492,
+      "senseKey": "周:492",
+      "collocations": [
+        {
+          "zh": "我下周开始上班",
+          "vi": "Tuần sau tôi bắt đầu đi làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “周” trong cụm hoàn chỉnh “我下周开始上班。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “周” như bản dịch rời; phải đặt vào một cụm cùng loại với “我下周开始上班。”."
+      ],
+      "example": {
+        "zh": "我下周开始上班。",
+        "vi": "Tuần sau tôi bắt đầu đi làm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0193",
+      "simplified": "准备",
+      "officialRow": 493,
+      "senseKey": "准备:493",
+      "collocations": [
+        {
+          "zh": "我正在准备考试",
+          "vi": "Tôi đang chuẩn bị cho kỳ thi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “准备” cùng tân ngữ hoặc bổ ngữ trong mẫu “我正在准备考试。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “准备”; giữ cụm động từ theo mẫu “我正在准备考试。”."
+      ],
+      "example": {
+        "zh": "我正在准备考试。",
+        "vi": "Tôi đang chuẩn bị cho kỳ thi.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0194",
+      "simplified": "自己",
+      "officialRow": 494,
+      "senseKey": "自己:494",
+      "collocations": [
+        {
+          "zh": "自己的事情要自己做",
+          "vi": "Việc của mình phải tự làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “自己” trong cụm hoàn chỉnh “自己的事情要自己做。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “自己” như bản dịch rời; phải đặt vào một cụm cùng loại với “自己的事情要自己做。”."
+      ],
+      "example": {
+        "zh": "自己的事情要自己做。",
+        "vi": "Việc của mình phải tự làm.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0195",
+      "simplified": "走",
+      "officialRow": 495,
+      "senseKey": "走:495",
+      "collocations": [
+        {
+          "zh": "我们走吧，别迟到了",
+          "vi": "Chúng ta đi thôi, đừng đến muộn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “走” cùng tân ngữ hoặc bổ ngữ trong mẫu “我们走吧，别迟到了。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “走”; giữ cụm động từ theo mẫu “我们走吧，别迟到了。”."
+      ],
+      "example": {
+        "zh": "我们走吧，别迟到了。",
+        "vi": "Chúng ta đi thôi, đừng đến muộn.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0196",
+      "simplified": "走路",
+      "officialRow": 496,
+      "senseKey": "走路:496",
+      "collocations": [
+        {
+          "zh": "我每天走路去公司",
+          "vi": "Mỗi ngày tôi đi bộ đến công ty.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “走路” cùng tân ngữ hoặc bổ ngữ trong mẫu “我每天走路去公司。”; không bê nguyên trật tự tiếng Việt.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “走路”; giữ cụm động từ theo mẫu “我每天走路去公司。”."
+      ],
+      "example": {
+        "zh": "我每天走路去公司。",
+        "vi": "Mỗi ngày tôi đi bộ đến công ty.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0197",
+      "simplified": "足球",
+      "officialRow": 497,
+      "senseKey": "足球:497",
+      "collocations": [
+        {
+          "zh": "他们周末一起踢足球",
+          "vi": "Cuối tuần họ cùng đá bóng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “足球” trong cụm hoàn chỉnh “他们周末一起踢足球。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “足球” như bản dịch rời; phải đặt vào một cụm cùng loại với “他们周末一起踢足球。”."
+      ],
+      "example": {
+        "zh": "他们周末一起踢足球。",
+        "vi": "Cuối tuần họ cùng đá bóng.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0198",
+      "simplified": "最",
+      "officialRow": 498,
+      "senseKey": "最:498",
+      "collocations": [
+        {
+          "zh": "这家饭馆的鱼最好吃",
+          "vi": "Cá ở quán này ngon nhất.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "So sánh cao nhất trong một phạm vi ngầm hoặc được nêu; không dùng 比 cùng một vị trí.",
+      "confusables": [
+        "更/比较"
+      ],
+      "commonErrorsVi": [
+        "Phải có phạm vi so sánh rõ trong ngữ cảnh, không dùng 最 cho hai đối tượng đơn thuần."
+      ],
+      "example": {
+        "zh": "这家饭馆的鱼最好吃。",
+        "vi": "Cá ở quán này ngon nhất.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0199",
+      "simplified": "左",
+      "officialRow": 499,
+      "senseKey": "左:499",
+      "collocations": [
+        {
+          "zh": "地铁站在左边",
+          "vi": "Ga tàu điện ngầm ở bên trái.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “左” trong cụm hoàn chỉnh “地铁站在左边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “左” như bản dịch rời; phải đặt vào một cụm cùng loại với “地铁站在左边。”."
+      ],
+      "example": {
+        "zh": "地铁站在左边。",
+        "vi": "Ga tàu điện ngầm ở bên trái.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    },
+    {
+      "canonicalId": "hsk2-v-0200",
+      "simplified": "左边",
+      "officialRow": 500,
+      "senseKey": "左边:500",
+      "collocations": [
+        {
+          "zh": "药店在医院左边",
+          "vi": "Hiệu thuốc ở bên trái bệnh viện.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "measureWord": null,
+      "usageNoteVi": "Học “左边” trong cụm hoàn chỉnh “药店在医院左边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “左边” như bản dịch rời; phải đặt vào một cụm cùng loại với “药店在医院左边。”."
+      ],
+      "example": {
+        "zh": "药店在医院左边。",
+        "vi": "Hiệu thuốc ở bên trái bệnh viện.",
+        "sourceType": "original"
+      },
+      "contentStatus": "machine-assisted",
+      "humanSignoffRequired": true
+    }
+  ]
+}

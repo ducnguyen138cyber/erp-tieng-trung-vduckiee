@@ -5,17 +5,273 @@
   "examBlueprintVersion": "CTI-HSK3.0-2026",
   "stage": "elementary",
   "level": 2,
-  "titleZh": "HSK 2",
-  "titleVi": "HSK 2",
-  "objectives": [],
-  "topics": [],
-  "unitRefs": [],
-  "lessonIndex": [],
-  "assessmentRefs": [],
-  "sourceIds": ["moe-gf0025-2021-standard","cti-hsk3-current-syllabus-2026"],
-  "contentStatus": "planned",
-  "translationReviewStatus": "draft",
+  "titleZh": "HSK（二级）专业课程",
+  "titleVi": "HSK2 Professional Curriculum",
+  "objectives": [
+    "Duy trì hội thoại ngắn về lịch trình, dịch vụ, sở thích, trải nghiệm và nhu cầu.",
+    "Hiểu thông báo/tin nhắn ngắn và kể lại một chuỗi sự việc đơn giản.",
+    "Viết đoạn thực dụng 5–8 câu với thời gian, trình tự và quan hệ nguyên nhân cơ bản."
+  ],
+  "topics": [
+    "Ôn cầu nối HSK1",
+    "Lịch sinh hoạt và tần suất",
+    "Nhà ở và khu phố",
+    "Đi lại và du lịch ngắn",
+    "Ăn uống, mua sắm và dịch vụ",
+    "Sức khỏe và chăm sóc bản thân",
+    "Học tập và công việc thường ngày",
+    "Sở thích, gia đình và quan hệ",
+    "So sánh, miêu tả và giao tiếp số",
+    "Trải nghiệm và kế hoạch gần"
+  ],
+  "unitRefs": [
+    {
+      "id": "hsk2-unit-01",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-02",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-03",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-04",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-05",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-06",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-07",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-08",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-09",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk2-unit-10",
+      "path": "units.json"
+    }
+  ],
+  "lessonIndex": [
+    {
+      "id": "hsk2-lesson-01",
+      "unitId": "hsk2-unit-01",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-02",
+      "unitId": "hsk2-unit-01",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-03",
+      "unitId": "hsk2-unit-02",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-04",
+      "unitId": "hsk2-unit-02",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-05",
+      "unitId": "hsk2-unit-02",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-06",
+      "unitId": "hsk2-unit-03",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-07",
+      "unitId": "hsk2-unit-03",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-08",
+      "unitId": "hsk2-unit-03",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-09",
+      "unitId": "hsk2-unit-04",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-10",
+      "unitId": "hsk2-unit-04",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-11",
+      "unitId": "hsk2-unit-04",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-12",
+      "unitId": "hsk2-unit-05",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-13",
+      "unitId": "hsk2-unit-05",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-14",
+      "unitId": "hsk2-unit-05",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-15",
+      "unitId": "hsk2-unit-06",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-16",
+      "unitId": "hsk2-unit-06",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-17",
+      "unitId": "hsk2-unit-06",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-18",
+      "unitId": "hsk2-unit-07",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-19",
+      "unitId": "hsk2-unit-07",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-20",
+      "unitId": "hsk2-unit-07",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-21",
+      "unitId": "hsk2-unit-08",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-22",
+      "unitId": "hsk2-unit-08",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-23",
+      "unitId": "hsk2-unit-08",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-24",
+      "unitId": "hsk2-unit-09",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-25",
+      "unitId": "hsk2-unit-09",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-26",
+      "unitId": "hsk2-unit-09",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-27",
+      "unitId": "hsk2-unit-10",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk2-lesson-28",
+      "unitId": "hsk2-unit-10",
+      "path": "lessons.json"
+    }
+  ],
+  "assessmentRefs": [
+    {
+      "id": "hsk2-assessment-unit-01",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-02",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-03",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-04",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-05",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-06",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-07",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-08",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-09",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-unit-10",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-midpoint",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-final",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk2-assessment-mastery",
+      "path": "assessments.json"
+    }
+  ],
+  "finalAssessmentId": "hsk2-assessment-final",
+  "sourceIds": [
+    "moe-gf0025-2021-standard",
+    "cti-hsk3-current-syllabus-2026",
+    "cti-hsk3-competency-profile-2026",
+    "blcu-new-standard-pedagogy-2025",
+    "vduckie-hsk2-c3-original"
+  ],
+  "contentStatus": "machine-assisted",
+  "translationReviewStatus": "machine-assisted",
   "productionReady": false,
-  "contentVersion": 1,
-  "finalAssessmentId": null
+  "contentVersion": 1
 }

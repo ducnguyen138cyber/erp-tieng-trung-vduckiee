@@ -1,0 +1,2488 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "characters",
+  "level": 2,
+  "records": [
+    {
+      "recordType": "character",
+      "id": "hsk2-character-001",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "帮",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "巾",
+      "structure": "compound",
+      "components": [
+        "邦",
+        "巾"
+      ],
+      "readings": [
+        "bāng"
+      ],
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0005",
+        "hsk2-v-0006"
+      ],
+      "confusables": [
+        "邦"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 帮 theo các phần 邦+巾; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-002",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "班",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "王",
+      "structure": "compound",
+      "components": [
+        "王",
+        "刂",
+        "王"
+      ],
+      "readings": [
+        "bān"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0004"
+      ],
+      "confusables": [
+        "斑"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 班 theo các phần 王+刂+王; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-003",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "比",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "比",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "bǐ"
+      ],
+      "strokeCount": 4,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0009"
+      ],
+      "confusables": [
+        "北"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 比 rồi đối chiếu chữ 北; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-004",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "别",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "刂",
+      "structure": "compound",
+      "components": [
+        "另",
+        "刂"
+      ],
+      "readings": [
+        "bié"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0011"
+      ],
+      "confusables": [
+        "到"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 别 theo các phần 另+刂; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-005",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "长",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "长",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "cháng"
+      ],
+      "strokeCount": 4,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0014"
+      ],
+      "confusables": [
+        "常"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 长 rồi đối chiếu chữ 常; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-006",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "出",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "凵",
+      "structure": "compound",
+      "components": [
+        "屮",
+        "凵"
+      ],
+      "readings": [
+        "chū"
+      ],
+      "strokeCount": 5,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0016",
+        "hsk2-v-0017",
+        "hsk2-v-0018",
+        "hsk2-v-0019",
+        "hsk2-v-0020"
+      ],
+      "confusables": [
+        "山"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 出 theo các phần 屮+凵; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-007",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "床",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "广",
+      "structure": "compound",
+      "components": [
+        "广",
+        "木"
+      ],
+      "readings": [
+        "chuáng"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0021"
+      ],
+      "confusables": [
+        "庆"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 床 theo các phần 广+木; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-008",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "词",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "讠",
+      "structure": "compound",
+      "components": [
+        "讠",
+        "司"
+      ],
+      "readings": [
+        "cí"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0022"
+      ],
+      "confusables": [
+        "问"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 词 theo các phần 讠+司; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-009",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "次",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "欠",
+      "structure": "compound",
+      "components": [
+        "冫",
+        "欠"
+      ],
+      "readings": [
+        "cì"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0023"
+      ],
+      "confusables": [
+        "吹"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 次 theo các phần 冫+欠; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-010",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "从",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "人",
+      "structure": "compound",
+      "components": [
+        "人",
+        "人"
+      ],
+      "readings": [
+        "cóng"
+      ],
+      "strokeCount": 4,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0024",
+        "hsk2-v-0025"
+      ],
+      "confusables": [
+        "众"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 从 theo các phần 人+人; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-011",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "错",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "钅",
+      "structure": "compound",
+      "components": [
+        "钅",
+        "昔"
+      ],
+      "readings": [
+        "cuò"
+      ],
+      "strokeCount": 13,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0012",
+        "hsk2-v-0026"
+      ],
+      "confusables": [
+        "借"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 错 theo các phần 钅+昔; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-012",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "打",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "扌",
+      "structure": "compound",
+      "components": [
+        "扌",
+        "丁"
+      ],
+      "readings": [
+        "dǎ"
+      ],
+      "strokeCount": 5,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0027",
+        "hsk2-v-0028",
+        "hsk2-v-0029"
+      ],
+      "confusables": [
+        "订"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 打 theo các phần 扌+丁; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-013",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "地",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "土",
+      "structure": "compound",
+      "components": [
+        "土",
+        "也"
+      ],
+      "readings": [
+        "dì"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0033",
+        "hsk2-v-0035"
+      ],
+      "confusables": [
+        "他"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 地 theo các phần 土+也; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-014",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "等",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "竹",
+      "structure": "compound",
+      "components": [
+        "竹",
+        "寺"
+      ],
+      "readings": [
+        "děng"
+      ],
+      "strokeCount": 12,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0034"
+      ],
+      "confusables": [
+        "待"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 等 theo các phần 竹+寺; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-015",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "懂",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "忄",
+      "structure": "compound",
+      "components": [
+        "忄",
+        "董"
+      ],
+      "readings": [
+        "dǒng"
+      ],
+      "strokeCount": 15,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0037"
+      ],
+      "confusables": [
+        "重"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 懂 theo các phần 忄+董; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-016",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "饭",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "饣",
+      "structure": "compound",
+      "components": [
+        "饣",
+        "反"
+      ],
+      "readings": [
+        "fàn"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0039"
+      ],
+      "confusables": [
+        "板"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 饭 theo các phần 饣+反; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-017",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "高",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "高",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "gāo"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0041",
+        "hsk2-v-0042"
+      ],
+      "confusables": [
+        "亮"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 高 rồi đối chiếu chữ 亮; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-018",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "告",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "口",
+      "structure": "compound",
+      "components": [
+        "牛",
+        "口"
+      ],
+      "readings": [
+        "gào"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0043"
+      ],
+      "confusables": [
+        "靠"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 告 theo các phần 牛+口; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-019",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "跟",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "足",
+      "structure": "compound",
+      "components": [
+        "足",
+        "艮"
+      ],
+      "readings": [
+        "gēn"
+      ],
+      "strokeCount": 13,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0045"
+      ],
+      "confusables": [
+        "很"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 跟 theo các phần 足+艮; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-020",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "过",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "辶",
+      "structure": "compound",
+      "components": [
+        "寸",
+        "辶"
+      ],
+      "readings": [
+        "guò"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0047",
+        "hsk2-v-0048",
+        "hsk2-v-0049",
+        "hsk2-v-0050",
+        "hsk2-v-0051"
+      ],
+      "confusables": [
+        "这"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 过 theo các phần 寸+辶; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-021",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "红",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "纟",
+      "structure": "compound",
+      "components": [
+        "纟",
+        "工"
+      ],
+      "readings": [
+        "hóng"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0054",
+        "hsk2-v-0055"
+      ],
+      "confusables": [
+        "江"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 红 theo các phần 纟+工; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-022",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "花",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "艹",
+      "structure": "compound",
+      "components": [
+        "艹",
+        "化"
+      ],
+      "readings": [
+        "huā"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0057",
+        "hsk2-v-0058"
+      ],
+      "confusables": [
+        "华"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 花 theo các phần 艹+化; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-023",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "画",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "田",
+      "structure": "compound",
+      "components": [
+        "一",
+        "田",
+        "凵"
+      ],
+      "readings": [
+        "huà"
+      ],
+      "strokeCount": 8,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0059"
+      ],
+      "confusables": [
+        "由"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 画 theo các phần 一+田+凵; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-024",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "坏",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "土",
+      "structure": "compound",
+      "components": [
+        "土",
+        "不"
+      ],
+      "readings": [
+        "huài"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0060"
+      ],
+      "confusables": [
+        "杯"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 坏 theo các phần 土+不; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-025",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "回",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "囗",
+      "structure": "compound",
+      "components": [
+        "囗",
+        "口"
+      ],
+      "readings": [
+        "huí"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0061",
+        "hsk2-v-0062"
+      ],
+      "confusables": [
+        "国"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 回 theo các phần 囗+口; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-026",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "机",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "木",
+      "structure": "compound",
+      "components": [
+        "木",
+        "几"
+      ],
+      "readings": [
+        "jī"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0063",
+        "hsk2-v-0064"
+      ],
+      "confusables": [
+        "饥"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 机 theo các phần 木+几; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-027",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "记",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "讠",
+      "structure": "compound",
+      "components": [
+        "讠",
+        "己"
+      ],
+      "readings": [
+        "jì"
+      ],
+      "strokeCount": 5,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0065"
+      ],
+      "confusables": [
+        "纪"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 记 theo các phần 讠+己; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-028",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "间",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "门",
+      "structure": "compound",
+      "components": [
+        "门",
+        "日"
+      ],
+      "readings": [
+        "jiān"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0066",
+        "hsk2-v-0157"
+      ],
+      "confusables": [
+        "问"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 间 theo các phần 门+日; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-029",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "教",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "攵",
+      "structure": "compound",
+      "components": [
+        "孝",
+        "攵"
+      ],
+      "readings": [
+        "jiāo"
+      ],
+      "strokeCount": 11,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0067",
+        "hsk2-v-0068"
+      ],
+      "confusables": [
+        "数"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 教 theo các phần 孝+攵; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-030",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "进",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "辶",
+      "structure": "compound",
+      "components": [
+        "井",
+        "辶"
+      ],
+      "readings": [
+        "jìn"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0070",
+        "hsk2-v-0072",
+        "hsk2-v-0073"
+      ],
+      "confusables": [
+        "近"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 进 theo các phần 井+辶; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-031",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "近",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "辶",
+      "structure": "compound",
+      "components": [
+        "斤",
+        "辶"
+      ],
+      "readings": [
+        "jìn"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0071"
+      ],
+      "confusables": [
+        "进"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 近 theo các phần 斤+辶; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-032",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "考",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "耂",
+      "structure": "compound",
+      "components": [
+        "耂",
+        "丂"
+      ],
+      "readings": [
+        "kǎo"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0080",
+        "hsk2-v-0081"
+      ],
+      "confusables": [
+        "老"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 考 theo các phần 耂+丂; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-033",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "快",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "忄",
+      "structure": "compound",
+      "components": [
+        "忄",
+        "夬"
+      ],
+      "readings": [
+        "kuài"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0084",
+        "hsk2-v-0085",
+        "hsk2-v-0086"
+      ],
+      "confusables": [
+        "块"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 快 theo các phần 忄+夬; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-034",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "乐",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "丿",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "lè"
+      ],
+      "strokeCount": 5,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0085"
+      ],
+      "confusables": [
+        "东"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 乐 rồi đối chiếu chữ 东; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-035",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "离",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "亠",
+      "structure": "compound",
+      "components": [
+        "亠",
+        "凶",
+        "禸"
+      ],
+      "readings": [
+        "lí"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0089"
+      ],
+      "confusables": [
+        "璃"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 离 theo các phần 亠+凶+禸; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-036",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "楼",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "木",
+      "structure": "compound",
+      "components": [
+        "木",
+        "娄"
+      ],
+      "readings": [
+        "lóu"
+      ],
+      "strokeCount": 13,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0091"
+      ],
+      "confusables": [
+        "数"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 楼 theo các phần 木+娄; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-037",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "路",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "足",
+      "structure": "compound",
+      "components": [
+        "足",
+        "各"
+      ],
+      "readings": [
+        "lù"
+      ],
+      "strokeCount": 13,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0092",
+        "hsk2-v-0093",
+        "hsk2-v-0196"
+      ],
+      "confusables": [
+        "露"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 路 theo các phần 足+各; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-038",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "旅",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "方",
+      "structure": "compound",
+      "components": [
+        "方",
+        "𠂉",
+        "氏"
+      ],
+      "readings": [
+        "lǚ"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0094"
+      ],
+      "confusables": [
+        "族"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 旅 theo các phần 方+𠂉+氏; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-039",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "绿",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "纟",
+      "structure": "compound",
+      "components": [
+        "纟",
+        "录"
+      ],
+      "readings": [
+        "lǜ"
+      ],
+      "strokeCount": 11,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0095",
+        "hsk2-v-0096"
+      ],
+      "confusables": [
+        "录"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 绿 theo các phần 纟+录; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-040",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "门",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "门",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "mén"
+      ],
+      "strokeCount": 3,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0019",
+        "hsk2-v-0100",
+        "hsk2-v-0101",
+        "hsk2-v-0102"
+      ],
+      "confusables": [
+        "问"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 门 rồi đối chiếu chữ 问; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-041",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "拿",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "手",
+      "structure": "compound",
+      "components": [
+        "合",
+        "手"
+      ],
+      "readings": [
+        "ná"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0105"
+      ],
+      "confusables": [
+        "盒"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 拿 theo các phần 合+手; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-042",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "跑",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "足",
+      "structure": "compound",
+      "components": [
+        "足",
+        "包"
+      ],
+      "readings": [
+        "pǎo"
+      ],
+      "strokeCount": 12,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0114",
+        "hsk2-v-0115"
+      ],
+      "confusables": [
+        "抱"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 跑 theo các phần 足+包; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-043",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "晴",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "日",
+      "structure": "compound",
+      "components": [
+        "日",
+        "青"
+      ],
+      "readings": [
+        "qíng"
+      ],
+      "strokeCount": 12,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0120"
+      ],
+      "confusables": [
+        "情"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 晴 theo các phần 日+青; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-044",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "让",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "讠",
+      "structure": "compound",
+      "components": [
+        "讠",
+        "上"
+      ],
+      "readings": [
+        "ràng"
+      ],
+      "strokeCount": 5,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0122"
+      ],
+      "confusables": [
+        "认"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 让 theo các phần 讠+上; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-045",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "商",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "口",
+      "structure": "compound",
+      "components": [
+        "亠",
+        "丷",
+        "冏"
+      ],
+      "readings": [
+        "shāng"
+      ],
+      "strokeCount": 11,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0124"
+      ],
+      "confusables": [
+        "摘"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 商 theo các phần 亠+丷+冏; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-046",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "身",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "身",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "shēn"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0129"
+      ],
+      "confusables": [
+        "射"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 身 rồi đối chiếu chữ 射; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-047",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "事",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "亅",
+      "structure": "single-component",
+      "components": [],
+      "readings": [
+        "shì"
+      ],
+      "strokeCount": 8,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0132"
+      ],
+      "confusables": [
+        "亊"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: ghi nhớ hình khối tổng thể của 事 rồi đối chiếu chữ 亊; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-048",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "送",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "辶",
+      "structure": "compound",
+      "components": [
+        "关",
+        "辶"
+      ],
+      "readings": [
+        "sòng"
+      ],
+      "strokeCount": 9,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0137"
+      ],
+      "confusables": [
+        "运"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 送 theo các phần 关+辶; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-049",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "虽",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "虫",
+      "structure": "compound",
+      "components": [
+        "口",
+        "虫"
+      ],
+      "readings": [
+        "suī"
+      ],
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0138"
+      ],
+      "confusables": [
+        "强"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 虽 theo các phần 口+虫; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-050",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "疼",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "疒",
+      "structure": "compound",
+      "components": [
+        "疒",
+        "冬"
+      ],
+      "readings": [
+        "téng"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0140"
+      ],
+      "confusables": [
+        "痛"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 疼 theo các phần 疒+冬; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-051",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "踢",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "足",
+      "structure": "compound",
+      "components": [
+        "足",
+        "易"
+      ],
+      "readings": [
+        "tī"
+      ],
+      "strokeCount": 15,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0141"
+      ],
+      "confusables": [
+        "提"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 踢 theo các phần 足+易; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-052",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "跳",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "足",
+      "structure": "compound",
+      "components": [
+        "足",
+        "兆"
+      ],
+      "readings": [
+        "tiào"
+      ],
+      "strokeCount": 13,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0144"
+      ],
+      "confusables": [
+        "桃"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 跳 theo các phần 足+兆; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-053",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "外",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "夕",
+      "structure": "compound",
+      "components": [
+        "夕",
+        "卜"
+      ],
+      "readings": [
+        "wài"
+      ],
+      "strokeCount": 5,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0146",
+        "hsk2-v-0147"
+      ],
+      "confusables": [
+        "处"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 外 theo các phần 夕+卜; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-054",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "往",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "彳",
+      "structure": "compound",
+      "components": [
+        "彳",
+        "主"
+      ],
+      "readings": [
+        "wǎng"
+      ],
+      "strokeCount": 8,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0150"
+      ],
+      "confusables": [
+        "住"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 往 theo các phần 彳+主; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-055",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "洗",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "氵",
+      "structure": "compound",
+      "components": [
+        "氵",
+        "先"
+      ],
+      "readings": [
+        "xǐ"
+      ],
+      "strokeCount": 9,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0156",
+        "hsk2-v-0157"
+      ],
+      "confusables": [
+        "选"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 洗 theo các phần 氵+先; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-056",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "药",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "艹",
+      "structure": "compound",
+      "components": [
+        "艹",
+        "约"
+      ],
+      "readings": [
+        "yào"
+      ],
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0168",
+        "hsk2-v-0169"
+      ],
+      "confusables": [
+        "约"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 药 theo các phần 艹+约; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-057",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "阴",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "阝",
+      "structure": "compound",
+      "components": [
+        "阝",
+        "月"
+      ],
+      "readings": [
+        "yīn"
+      ],
+      "strokeCount": 6,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0175"
+      ],
+      "confusables": [
+        "阳"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 阴 theo các phần 阝+月; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-058",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "运",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "辶",
+      "structure": "compound",
+      "components": [
+        "云",
+        "辶"
+      ],
+      "readings": [
+        "yùn"
+      ],
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0185"
+      ],
+      "confusables": [
+        "远"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 运 theo các phần 云+辶; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-059",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "站",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "立",
+      "structure": "compound",
+      "components": [
+        "立",
+        "占"
+      ],
+      "readings": [
+        "zhàn"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "machine-cross-checked-static-count",
+      "wordRefs": [
+        "hsk2-v-0015",
+        "hsk2-v-0186"
+      ],
+      "confusables": [
+        "战"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 站 theo các phần 立+占; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "character",
+      "id": "hsk2-character-060",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "character": "准",
+      "recognitionRequired": true,
+      "writingRequired": true,
+      "radical": "冫",
+      "structure": "compound",
+      "components": [
+        "冫",
+        "隹"
+      ],
+      "readings": [
+        "zhǔn"
+      ],
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
+      "wordRefs": [
+        "hsk2-v-0193"
+      ],
+      "confusables": [
+        "谁"
+      ],
+      "mnemonic": {
+        "type": "memory-aid-not-etymology",
+        "noteVi": "Mẹo nhận dạng: nhìn 准 theo các phần 冫+隹; đây chỉ là mẹo nhớ, không phải giải thích từ nguyên."
+      },
+      "strokeOrderStatus": "static-fallback",
+      "strokeOrderAsset": null,
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "unicode-unihan-17"
+      ],
+      "contentStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    }
+  ]
+}

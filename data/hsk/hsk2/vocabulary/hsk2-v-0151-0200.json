@@ -1,0 +1,3627 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary",
+  "level": 2,
+  "records": [
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0151",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "网上",
+      "officialHeadword": "网上",
+      "officialRow": 451,
+      "senseKey": "网上:451",
+      "pinyin": "wǎngshang",
+      "pinyinTone": "wǎngshang",
+      "pinyinNumber": "wangshang3",
+      "pinyinNormalized": "wangshang",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "trên mạng",
+      "contextMeaningsVi": [
+        {
+          "context": "我在网上看到了这个消息。",
+          "meaningVi": "trên mạng"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我在网上看到了这个消息",
+          "vi": "Tôi thấy tin này trên mạng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “网上” trong cụm hoàn chỉnh “我在网上看到了这个消息。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "我在网上看到了这个消息。",
+          "vi": "Tôi thấy tin này trên mạng.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “网上” như bản dịch rời; phải đặt vào một cụm cùng loại với “我在网上看到了这个消息。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-451"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0152",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "忘",
+      "officialHeadword": "忘",
+      "officialRow": 452,
+      "senseKey": "忘:452",
+      "pinyin": "wàng",
+      "pinyinTone": "wàng",
+      "pinyinNumber": "wang4",
+      "pinyinNormalized": "wang",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "quên",
+      "contextMeaningsVi": [
+        {
+          "context": "别忘了给奶奶打电话。",
+          "meaningVi": "quên"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "别忘了给奶奶打电话",
+          "vi": "Đừng quên gọi điện cho bà.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “忘” cùng tân ngữ hoặc bổ ngữ trong mẫu “别忘了给奶奶打电话。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "别忘了给奶奶打电话。",
+          "vi": "Đừng quên gọi điện cho bà.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “忘”; giữ cụm động từ theo mẫu “别忘了给奶奶打电话。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-452"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0153",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "位",
+      "officialHeadword": "位",
+      "officialRow": 453,
+      "senseKey": "位:453",
+      "pinyin": "wèi",
+      "pinyinTone": "wèi",
+      "pinyinNumber": "wei4",
+      "pinyinNormalized": "wei",
+      "partOfSpeech": [
+        "measure-word"
+      ],
+      "meaningVi": "vị (lượng từ lịch sự cho người)",
+      "contextMeaningsVi": [
+        {
+          "context": "那位老师姓王。",
+          "meaningVi": "vị (lượng từ lịch sự cho người)"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "那位老师姓王",
+          "vi": "Vị giáo viên kia họ Vương.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “位” trong cụm hoàn chỉnh “那位老师姓王。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "那位老师姓王。",
+          "vi": "Vị giáo viên kia họ Vương.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “位” như bản dịch rời; phải đặt vào một cụm cùng loại với “那位老师姓王。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-453"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0154",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "为什么",
+      "officialHeadword": "为什么",
+      "officialRow": 454,
+      "senseKey": "为什么:454",
+      "pinyin": "wèishénme",
+      "pinyinTone": "wèishénme",
+      "pinyinNumber": "weishenme2",
+      "pinyinNormalized": "weishenme",
+      "partOfSpeech": [
+        "interrogative-pronoun"
+      ],
+      "meaningVi": "tại sao",
+      "contextMeaningsVi": [
+        {
+          "context": "你为什么学汉语？",
+          "meaningVi": "tại sao"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "你为什么学汉语",
+          "vi": "Tại sao bạn học tiếng Trung?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Hỏi nguyên nhân; câu trả lời tự nhiên thường dùng 因为, không dùng để hỏi cách làm.",
+      "examples": [
+        {
+          "zh": "你为什么学汉语？",
+          "vi": "Tại sao bạn học tiếng Trung?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [
+        "怎么"
+      ],
+      "commonErrorsVi": [
+        "Không thêm 吗 vào cuối câu đã có 为什么."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-454"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0155",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "希望",
+      "officialHeadword": "希望",
+      "officialRow": 455,
+      "senseKey": "希望:455",
+      "pinyin": "xīwàng",
+      "pinyinTone": "xīwàng",
+      "pinyinNumber": "xiwang4",
+      "pinyinNormalized": "xiwang",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "hy vọng; mong",
+      "contextMeaningsVi": [
+        {
+          "context": "我希望明年去中国。",
+          "meaningVi": "hy vọng; mong"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我希望明年去中国",
+          "vi": "Tôi hy vọng năm sau đi Trung Quốc.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “希望” cùng tân ngữ hoặc bổ ngữ trong mẫu “我希望明年去中国。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "我希望明年去中国。",
+          "vi": "Tôi hy vọng năm sau đi Trung Quốc.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “希望”; giữ cụm động từ theo mẫu “我希望明年去中国。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-455"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0156",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "洗",
+      "officialHeadword": "洗",
+      "officialRow": 456,
+      "senseKey": "洗:456",
+      "pinyin": "xǐ",
+      "pinyinTone": "xǐ",
+      "pinyinNumber": "xi3",
+      "pinyinNormalized": "xi",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "rửa; giặt",
+      "contextMeaningsVi": [
+        {
+          "context": "饭前要洗手。",
+          "meaningVi": "rửa; giặt"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "饭前要洗手",
+          "vi": "Trước bữa ăn phải rửa tay.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “洗” cùng tân ngữ hoặc bổ ngữ trong mẫu “饭前要洗手。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "饭前要洗手。",
+          "vi": "Trước bữa ăn phải rửa tay.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “洗”; giữ cụm động từ theo mẫu “饭前要洗手。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-456"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0157",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "洗手间",
+      "officialHeadword": "洗手间",
+      "officialRow": 457,
+      "senseKey": "洗手间:457",
+      "pinyin": "xǐshǒujiān",
+      "pinyinTone": "xǐshǒujiān",
+      "pinyinNumber": "xishoujian1",
+      "pinyinNormalized": "xishoujian",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "nhà vệ sinh",
+      "contextMeaningsVi": [
+        {
+          "context": "请问，洗手间在哪儿？",
+          "meaningVi": "nhà vệ sinh"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "请问，洗手间在哪儿",
+          "vi": "Xin hỏi nhà vệ sinh ở đâu?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “洗手间” trong cụm hoàn chỉnh “请问，洗手间在哪儿？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "请问，洗手间在哪儿？",
+          "vi": "Xin hỏi nhà vệ sinh ở đâu?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “洗手间” như bản dịch rời; phải đặt vào một cụm cùng loại với “请问，洗手间在哪儿？”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-457"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0158",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "下来",
+      "officialHeadword": "下来",
+      "officialRow": 458,
+      "senseKey": "下来:458",
+      "pinyin": "xiàlái",
+      "pinyinTone": "xiàlái",
+      "pinyinNumber": "xialai2",
+      "pinyinNormalized": "xialai",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "đi/xuống đây",
+      "contextMeaningsVi": [
+        {
+          "context": "请从楼上下来。",
+          "meaningVi": "đi/xuống đây"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "请从楼上下来",
+          "vi": "Hãy đi từ trên lầu xuống đây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “下来” cùng tân ngữ hoặc bổ ngữ trong mẫu “请从楼上下来。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "请从楼上下来。",
+          "vi": "Hãy đi từ trên lầu xuống đây.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “下来”; giữ cụm động từ theo mẫu “请从楼上下来。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-458"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0159",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "下面",
+      "officialHeadword": "下面",
+      "officialRow": 459,
+      "senseKey": "下面:459",
+      "pinyin": "xiàmiàn",
+      "pinyinTone": "xiàmiàn",
+      "pinyinNumber": "xiamian4",
+      "pinyinNormalized": "xiamian",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "phía dưới",
+      "contextMeaningsVi": [
+        {
+          "context": "猫在桌子下面。",
+          "meaningVi": "phía dưới"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "猫在桌子下面",
+          "vi": "Con mèo ở dưới bàn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “下面” trong cụm hoàn chỉnh “猫在桌子下面。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "猫在桌子下面。",
+          "vi": "Con mèo ở dưới bàn.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “下面” như bản dịch rời; phải đặt vào một cụm cùng loại với “猫在桌子下面。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-459"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0160",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "下去",
+      "officialHeadword": "下去",
+      "officialRow": 460,
+      "senseKey": "下去:460",
+      "pinyin": "xiàqù",
+      "pinyinTone": "xiàqù",
+      "pinyinNumber": "xiaqu4",
+      "pinyinNormalized": "xiaqu",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "đi/xuống đó",
+      "contextMeaningsVi": [
+        {
+          "context": "你先下去，我一会儿来。",
+          "meaningVi": "đi/xuống đó"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "你先下去，我一会儿来",
+          "vi": "Bạn xuống trước, lát nữa tôi đến.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “下去” cùng tân ngữ hoặc bổ ngữ trong mẫu “你先下去，我一会儿来。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "你先下去，我一会儿来。",
+          "vi": "Bạn xuống trước, lát nữa tôi đến.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “下去”; giữ cụm động từ theo mẫu “你先下去，我一会儿来。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-460"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0161",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "小孩儿",
+      "officialHeadword": "小孩儿",
+      "officialRow": 461,
+      "senseKey": "小孩儿:461",
+      "pinyin": "xiǎoháir",
+      "pinyinTone": "xiǎoháir",
+      "pinyinNumber": "xiaohair2",
+      "pinyinNormalized": "xiaohair",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "trẻ nhỏ",
+      "contextMeaningsVi": [
+        {
+          "context": "这个小孩儿很爱笑。",
+          "meaningVi": "trẻ nhỏ"
+        }
+      ],
+      "measureWord": "个",
+      "collocations": [
+        {
+          "zh": "这个小孩儿很爱笑",
+          "vi": "Đứa trẻ này rất hay cười.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “小孩儿”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "这个小孩儿很爱笑。",
+          "vi": "Đứa trẻ này rất hay cười.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “小孩儿”; mẫu phù hợp dùng 个."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-461"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0162",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "小时候",
+      "officialHeadword": "小时候",
+      "officialRow": 462,
+      "senseKey": "小时候:462",
+      "pinyin": "xiǎoshíhou",
+      "pinyinTone": "xiǎoshíhou",
+      "pinyinNumber": "xiaoshihou2",
+      "pinyinNormalized": "xiaoshihou",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "lúc nhỏ",
+      "contextMeaningsVi": [
+        {
+          "context": "我小时候住在农村。",
+          "meaningVi": "lúc nhỏ"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我小时候住在农村",
+          "vi": "Lúc nhỏ tôi sống ở nông thôn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “小时候” trong cụm hoàn chỉnh “我小时候住在农村。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "我小时候住在农村。",
+          "vi": "Lúc nhỏ tôi sống ở nông thôn.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “小时候” như bản dịch rời; phải đặt vào một cụm cùng loại với “我小时候住在农村。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-462"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0163",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "笑",
+      "officialHeadword": "笑",
+      "officialRow": 463,
+      "senseKey": "笑:463",
+      "pinyin": "xiào",
+      "pinyinTone": "xiào",
+      "pinyinNumber": "xiao4",
+      "pinyinNormalized": "xiao",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "cười",
+      "contextMeaningsVi": [
+        {
+          "context": "她一看见我就笑了。",
+          "meaningVi": "cười"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "她一看见我就笑了",
+          "vi": "Vừa nhìn thấy tôi cô ấy đã cười.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “笑” cùng tân ngữ hoặc bổ ngữ trong mẫu “她一看见我就笑了。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "她一看见我就笑了。",
+          "vi": "Vừa nhìn thấy tôi cô ấy đã cười.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “笑”; giữ cụm động từ theo mẫu “她一看见我就笑了。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-463"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0164",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "姓",
+      "officialHeadword": "姓",
+      "officialRow": 464,
+      "senseKey": "姓:464",
+      "pinyin": "xìng",
+      "pinyinTone": "xìng",
+      "pinyinNumber": "xing4",
+      "pinyinNormalized": "xing",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "họ; mang họ",
+      "contextMeaningsVi": [
+        {
+          "context": "请问您姓什么？",
+          "meaningVi": "họ; mang họ"
+        }
+      ],
+      "measureWord": "个",
+      "collocations": [
+        {
+          "zh": "请问您姓什么",
+          "vi": "Xin hỏi quý danh của ngài là gì?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “姓”, chọn lượng từ theo ngữ cảnh (个); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "请问您姓什么？",
+          "vi": "Xin hỏi quý danh của ngài là gì?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “姓”; mẫu phù hợp dùng 个."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-464"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0165",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "姓名",
+      "officialHeadword": "姓名",
+      "officialRow": 465,
+      "senseKey": "姓名:465",
+      "pinyin": "xìngmíng",
+      "pinyinTone": "xìngmíng",
+      "pinyinNumber": "xingming2",
+      "pinyinNormalized": "xingming",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "họ tên",
+      "contextMeaningsVi": [
+        {
+          "context": "请在这里写姓名。",
+          "meaningVi": "họ tên"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "请在这里写姓名",
+          "vi": "Hãy viết họ tên ở đây.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “姓名” trong cụm hoàn chỉnh “请在这里写姓名。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "请在这里写姓名。",
+          "vi": "Hãy viết họ tên ở đây.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “姓名” như bản dịch rời; phải đặt vào một cụm cùng loại với “请在这里写姓名。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-465"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0166",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "颜色",
+      "officialHeadword": "颜色",
+      "officialRow": 466,
+      "senseKey": "颜色:466",
+      "pinyin": "yánsè",
+      "pinyinTone": "yánsè",
+      "pinyinNumber": "yanse4",
+      "pinyinNormalized": "yanse",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "màu sắc",
+      "contextMeaningsVi": [
+        {
+          "context": "你喜欢什么颜色？",
+          "meaningVi": "màu sắc"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "你喜欢什么颜色",
+          "vi": "Bạn thích màu gì?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “颜色” trong cụm hoàn chỉnh “你喜欢什么颜色？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "你喜欢什么颜色？",
+          "vi": "Bạn thích màu gì?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “颜色” như bản dịch rời; phải đặt vào một cụm cùng loại với “你喜欢什么颜色？”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-466"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0167",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "眼睛",
+      "officialHeadword": "眼睛",
+      "officialRow": 467,
+      "senseKey": "眼睛:467",
+      "pinyin": "yǎnjing",
+      "pinyinTone": "yǎnjing",
+      "pinyinNumber": "yanjing3",
+      "pinyinNormalized": "yanjing",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "mắt",
+      "contextMeaningsVi": [
+        {
+          "context": "我的眼睛有点儿疼。",
+          "meaningVi": "mắt"
+        }
+      ],
+      "measureWord": "双/只",
+      "collocations": [
+        {
+          "zh": "我的眼睛有点儿疼",
+          "vi": "Mắt tôi hơi đau.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “眼睛”, chọn lượng từ theo ngữ cảnh (双/只); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "我的眼睛有点儿疼。",
+          "vi": "Mắt tôi hơi đau.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “眼睛”; mẫu phù hợp dùng 双/只."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-467"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0168",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "药",
+      "officialHeadword": "药",
+      "officialRow": 468,
+      "senseKey": "药:468",
+      "pinyin": "yào",
+      "pinyinTone": "yào",
+      "pinyinNumber": "yao4",
+      "pinyinNormalized": "yao",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "thuốc",
+      "contextMeaningsVi": [
+        {
+          "context": "这种药一天吃两次。",
+          "meaningVi": "thuốc"
+        }
+      ],
+      "measureWord": "种/片",
+      "collocations": [
+        {
+          "zh": "这种药一天吃两次",
+          "vi": "Thuốc này uống hai lần một ngày.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “药”, chọn lượng từ theo ngữ cảnh (种/片); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "这种药一天吃两次。",
+          "vi": "Thuốc này uống hai lần một ngày.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “药”; mẫu phù hợp dùng 种/片."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-468"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0169",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "药店",
+      "officialHeadword": "药店",
+      "officialRow": 469,
+      "senseKey": "药店:469",
+      "pinyin": "yàodiàn",
+      "pinyinTone": "yàodiàn",
+      "pinyinNumber": "yaodian4",
+      "pinyinNormalized": "yaodian",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "hiệu thuốc",
+      "contextMeaningsVi": [
+        {
+          "context": "前面有一家药店。",
+          "meaningVi": "hiệu thuốc"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "前面有一家药店",
+          "vi": "Phía trước có một hiệu thuốc.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “药店” trong cụm hoàn chỉnh “前面有一家药店。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "前面有一家药店。",
+          "vi": "Phía trước có một hiệu thuốc.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “药店” như bản dịch rời; phải đặt vào một cụm cùng loại với “前面有一家药店。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-469"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0170",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "爷爷",
+      "officialHeadword": "爷爷",
+      "officialRow": 470,
+      "senseKey": "爷爷:470",
+      "pinyin": "yéye",
+      "pinyinTone": "yéye",
+      "pinyinNumber": "yeye2",
+      "pinyinNormalized": "yeye",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "ông nội/ông",
+      "contextMeaningsVi": [
+        {
+          "context": "爷爷每天走路去公园。",
+          "meaningVi": "ông nội/ông"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "爷爷每天走路去公园",
+          "vi": "Ông mỗi ngày đi bộ đến công viên.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “爷爷” trong cụm hoàn chỉnh “爷爷每天走路去公园。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "爷爷每天走路去公园。",
+          "vi": "Ông mỗi ngày đi bộ đến công viên.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “爷爷” như bản dịch rời; phải đặt vào một cụm cùng loại với “爷爷每天走路去公园。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-470"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0171",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "一会儿",
+      "officialHeadword": "一会儿",
+      "officialRow": 471,
+      "senseKey": "一会儿:471",
+      "pinyin": "yíhuìr",
+      "pinyinTone": "yíhuìr",
+      "pinyinNumber": "yihuir4",
+      "pinyinNormalized": "yihuir",
+      "partOfSpeech": [
+        "adverb",
+        "measure-word",
+        "numeral",
+        "quantity-expression"
+      ],
+      "meaningVi": "một lát; một lúc",
+      "contextMeaningsVi": [
+        {
+          "context": "请等我一会儿。",
+          "meaningVi": "một lát; một lúc"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "请等我一会儿",
+          "vi": "Hãy đợi tôi một lát.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Một khoảng thời gian ngắn; không đồng nghĩa với 一点儿 chỉ lượng/mức độ nhỏ.",
+      "examples": [
+        {
+          "zh": "请等我一会儿。",
+          "vi": "Hãy đợi tôi một lát.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [
+        "一点儿"
+      ],
+      "commonErrorsVi": [
+        "Phân biệt 一会儿 với 一点儿 chỉ lượng nhỏ."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-471"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0172",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "已经",
+      "officialHeadword": "已经",
+      "officialRow": 472,
+      "senseKey": "已经:472",
+      "pinyin": "yǐjīng",
+      "pinyinTone": "yǐjīng",
+      "pinyinNumber": "yijing1",
+      "pinyinNormalized": "yijing",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "đã",
+      "contextMeaningsVi": [
+        {
+          "context": "我已经买好票了。",
+          "meaningVi": "đã"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我已经买好票了",
+          "vi": "Tôi đã mua vé xong rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Đánh dấu trạng thái đã đạt trước mốc nói; thường phối hợp với 了.",
+      "examples": [
+        {
+          "zh": "我已经买好票了。",
+          "vi": "Tôi đã mua vé xong rồi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [
+        "正在"
+      ],
+      "commonErrorsVi": [
+        "Không bắt buộc dịch 已经 thành ‘đã’ ở mọi câu tiếng Việt."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-472"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0173",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "一起",
+      "officialHeadword": "一起",
+      "officialRow": 473,
+      "senseKey": "一起:473",
+      "pinyin": "yìqǐ",
+      "pinyinTone": "yìqǐ",
+      "pinyinNumber": "yiqi3",
+      "pinyinNormalized": "yiqi",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "cùng nhau",
+      "contextMeaningsVi": [
+        {
+          "context": "周末我们一起去游泳吧。",
+          "meaningVi": "cùng nhau"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "周末我们一起去游泳吧",
+          "vi": "Cuối tuần chúng ta cùng đi bơi nhé.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Đặt “一起” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “周末我们一起去游泳吧。” làm mẫu.",
+      "examples": [
+        {
+          "zh": "周末我们一起去游泳吧。",
+          "vi": "Cuối tuần chúng ta cùng đi bơi nhé.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “一起” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “周末我们一起去游泳吧。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-473"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0174",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "意思",
+      "officialHeadword": "意思",
+      "officialRow": 474,
+      "senseKey": "意思:474",
+      "pinyin": "yìsi",
+      "pinyinTone": "yìsi",
+      "pinyinNumber": "yisi4",
+      "pinyinNormalized": "yisi",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "ý nghĩa; ý",
+      "contextMeaningsVi": [
+        {
+          "context": "我不懂这句话的意思。",
+          "meaningVi": "ý nghĩa; ý"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我不懂这句话的意思",
+          "vi": "Tôi không hiểu ý của câu này.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “意思” trong cụm hoàn chỉnh “我不懂这句话的意思。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "我不懂这句话的意思。",
+          "vi": "Tôi không hiểu ý của câu này.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “意思” như bản dịch rời; phải đặt vào một cụm cùng loại với “我不懂这句话的意思。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-474"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0175",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "阴",
+      "officialHeadword": "阴",
+      "officialRow": 475,
+      "senseKey": "阴:475",
+      "pinyin": "yīn",
+      "pinyinTone": "yīn",
+      "pinyinNumber": "yin1",
+      "pinyinNormalized": "yin",
+      "partOfSpeech": [
+        "adjective"
+      ],
+      "meaningVi": "âm u; nhiều mây",
+      "contextMeaningsVi": [
+        {
+          "context": "今天阴，可能会下雨。",
+          "meaningVi": "âm u; nhiều mây"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "今天阴，可能会下雨",
+          "vi": "Hôm nay trời âm u, có thể sẽ mưa.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Quan sát “阴” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “今天阴，可能会下雨。”; không tự thêm 是.",
+      "examples": [
+        {
+          "zh": "今天阴，可能会下雨。",
+          "vi": "Hôm nay trời âm u, có thể sẽ mưa.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “阴” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “今天阴，可能会下雨。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-475"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0176",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "因为",
+      "officialHeadword": "因为",
+      "officialRow": 476,
+      "senseKey": "因为:476",
+      "pinyin": "yīnwèi",
+      "pinyinTone": "yīnwèi",
+      "pinyinNumber": "yinwei4",
+      "pinyinNormalized": "yinwei",
+      "partOfSpeech": [
+        "preposition",
+        "conjunction"
+      ],
+      "meaningVi": "vì; bởi vì",
+      "contextMeaningsVi": [
+        {
+          "context": "因为身体不舒服，他没上班。",
+          "meaningVi": "vì; bởi vì"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "因为身体不舒服，他没上班",
+          "vi": "Vì không khỏe nên anh ấy không đi làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Đưa nguyên nhân; có thể kết hợp 所以 ở vế kết quả.",
+      "examples": [
+        {
+          "zh": "因为身体不舒服，他没上班。",
+          "vi": "Vì không khỏe nên anh ấy không đi làm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [
+        "所以"
+      ],
+      "commonErrorsVi": [
+        "Không đảo 因为 và 所以 theo trật tự tiếng Việt tùy tiện."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-476"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0177",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "游",
+      "officialHeadword": "游",
+      "officialRow": 477,
+      "senseKey": "游:477",
+      "pinyin": "yóu",
+      "pinyinTone": "yóu",
+      "pinyinNumber": "you2",
+      "pinyinNormalized": "you",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "bơi; đi chơi quanh",
+      "contextMeaningsVi": [
+        {
+          "context": "小鱼在水里游。",
+          "meaningVi": "bơi; đi chơi quanh"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "小鱼在水里游",
+          "vi": "Cá nhỏ bơi trong nước.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “游” cùng tân ngữ hoặc bổ ngữ trong mẫu “小鱼在水里游。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "小鱼在水里游。",
+          "vi": "Cá nhỏ bơi trong nước.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “游”; giữ cụm động từ theo mẫu “小鱼在水里游。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-477"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0178",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "游泳",
+      "officialHeadword": "游泳",
+      "officialRow": 478,
+      "senseKey": "游泳:478",
+      "pinyin": "yóuyǒng",
+      "pinyinTone": "yóuyǒng",
+      "pinyinNumber": "youyong3",
+      "pinyinNormalized": "youyong",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "bơi lội",
+      "contextMeaningsVi": [
+        {
+          "context": "妹妹正在学游泳。",
+          "meaningVi": "bơi lội"
+        }
+      ],
+      "measureWord": "次",
+      "collocations": [
+        {
+          "zh": "妹妹正在学游泳",
+          "vi": "Em gái đang học bơi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “游泳”, chọn lượng từ theo ngữ cảnh (次); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "妹妹正在学游泳。",
+          "vi": "Em gái đang học bơi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “游泳”; mẫu phù hợp dùng 次."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-478"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0179",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "有意思",
+      "officialHeadword": "有意思",
+      "officialRow": 479,
+      "senseKey": "有意思:479",
+      "pinyin": "yǒuyìsi",
+      "pinyinTone": "yǒuyìsi",
+      "pinyinNumber": "youyisi4",
+      "pinyinNormalized": "youyisi",
+      "partOfSpeech": [
+        "adjective-phrase"
+      ],
+      "meaningVi": "thú vị",
+      "contextMeaningsVi": [
+        {
+          "context": "这本书很有意思。",
+          "meaningVi": "thú vị"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "这本书很有意思",
+          "vi": "Quyển sách này rất thú vị.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “有意思” trong cụm hoàn chỉnh “这本书很有意思。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "这本书很有意思。",
+          "vi": "Quyển sách này rất thú vị.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “有意思” như bản dịch rời; phải đặt vào một cụm cùng loại với “这本书很有意思。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-479"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0180",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "有时",
+      "officialHeadword": "有时",
+      "officialRow": 480,
+      "senseKey": "有时:480",
+      "pinyin": "yǒushí",
+      "pinyinTone": "yǒushí",
+      "pinyinNumber": "youshi2",
+      "pinyinNormalized": "youshi",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "đôi khi",
+      "contextMeaningsVi": [
+        {
+          "context": "我有时坐地铁上班。",
+          "meaningVi": "đôi khi"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我有时坐地铁上班",
+          "vi": "Đôi khi tôi đi tàu điện ngầm đến chỗ làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Đặt “有时” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “我有时坐地铁上班。” làm mẫu.",
+      "examples": [
+        {
+          "zh": "我有时坐地铁上班。",
+          "vi": "Đôi khi tôi đi tàu điện ngầm đến chỗ làm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không đặt “有时” sau động từ theo trật tự tiếng Việt; đối chiếu vị trí trong “我有时坐地铁上班。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-480"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0181",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "右",
+      "officialHeadword": "右",
+      "officialRow": 481,
+      "senseKey": "右:481",
+      "pinyin": "yòu",
+      "pinyinTone": "yòu",
+      "pinyinNumber": "you4",
+      "pinyinNormalized": "you",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "bên phải",
+      "contextMeaningsVi": [
+        {
+          "context": "洗手间在右边。",
+          "meaningVi": "bên phải"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "洗手间在右边",
+          "vi": "Nhà vệ sinh ở bên phải.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “右” trong cụm hoàn chỉnh “洗手间在右边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "洗手间在右边。",
+          "vi": "Nhà vệ sinh ở bên phải.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “右” như bản dịch rời; phải đặt vào một cụm cùng loại với “洗手间在右边。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-481"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0182",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "右边",
+      "officialHeadword": "右边",
+      "officialRow": 482,
+      "senseKey": "右边:482",
+      "pinyin": "yòubian",
+      "pinyinTone": "yòubian",
+      "pinyinNumber": "youbian4",
+      "pinyinNormalized": "youbian",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "phía bên phải",
+      "contextMeaningsVi": [
+        {
+          "context": "银行就在商场右边。",
+          "meaningVi": "phía bên phải"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "银行就在商场右边",
+          "vi": "Ngân hàng ngay bên phải trung tâm thương mại.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “右边” trong cụm hoàn chỉnh “银行就在商场右边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "银行就在商场右边。",
+          "vi": "Ngân hàng ngay bên phải trung tâm thương mại.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “右边” như bản dịch rời; phải đặt vào một cụm cùng loại với “银行就在商场右边。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-482"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0183",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "鱼",
+      "officialHeadword": "鱼",
+      "officialRow": 483,
+      "senseKey": "鱼:483",
+      "pinyin": "yú",
+      "pinyinTone": "yú",
+      "pinyinNumber": "yu2",
+      "pinyinNormalized": "yu",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "cá",
+      "contextMeaningsVi": [
+        {
+          "context": "这条鱼很新鲜。",
+          "meaningVi": "cá"
+        }
+      ],
+      "measureWord": "条",
+      "collocations": [
+        {
+          "zh": "这条鱼很新鲜",
+          "vi": "Con cá này rất tươi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “鱼”, chọn lượng từ theo ngữ cảnh (条); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "这条鱼很新鲜。",
+          "vi": "Con cá này rất tươi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “鱼”; mẫu phù hợp dùng 条."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-483"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0184",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "远",
+      "officialHeadword": "远",
+      "officialRow": 484,
+      "senseKey": "远:484",
+      "pinyin": "yuǎn",
+      "pinyinTone": "yuǎn",
+      "pinyinNumber": "yuan3",
+      "pinyinNormalized": "yuan",
+      "partOfSpeech": [
+        "adjective"
+      ],
+      "meaningVi": "xa",
+      "contextMeaningsVi": [
+        {
+          "context": "机场离市中心很远。",
+          "meaningVi": "xa"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "机场离市中心很远",
+          "vi": "Sân bay rất xa trung tâm thành phố.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Quan sát “远” đang làm vị ngữ hay bổ nghĩa cho danh từ trong “机场离市中心很远。”; không tự thêm 是.",
+      "examples": [
+        {
+          "zh": "机场离市中心很远。",
+          "vi": "Sân bay rất xa trung tâm thành phố.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “远” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “机场离市中心很远。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-484"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0185",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "运动",
+      "officialHeadword": "运动",
+      "officialRow": 485,
+      "senseKey": "运动:485",
+      "pinyin": "yùndòng",
+      "pinyinTone": "yùndòng",
+      "pinyinNumber": "yundong4",
+      "pinyinNormalized": "yundong",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "vận động; thể thao",
+      "contextMeaningsVi": [
+        {
+          "context": "我每天运动半个小时。",
+          "meaningVi": "vận động; thể thao"
+        }
+      ],
+      "measureWord": "项",
+      "collocations": [
+        {
+          "zh": "我每天运动半个小时",
+          "vi": "Mỗi ngày tôi vận động nửa giờ.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “运动”, chọn lượng từ theo ngữ cảnh (项); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "我每天运动半个小时。",
+          "vi": "Mỗi ngày tôi vận động nửa giờ.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “运动”; mẫu phù hợp dùng 项."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-485"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0186",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "站",
+      "officialHeadword": "站1",
+      "officialRow": 486,
+      "senseKey": "站:486",
+      "pinyin": "zhàn",
+      "pinyinTone": "zhàn",
+      "pinyinNumber": "zhan4",
+      "pinyinNormalized": "zhan",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "trạm; bến",
+      "contextMeaningsVi": [
+        {
+          "context": "下一站是火车站。",
+          "meaningVi": "trạm; bến"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "下一站是火车站",
+          "vi": "Trạm tiếp theo là ga tàu.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “站” trong cụm hoàn chỉnh “下一站是火车站。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "下一站是火车站。",
+          "vi": "Trạm tiếp theo là ga tàu.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “站” như bản dịch rời; phải đặt vào một cụm cùng loại với “下一站是火车站。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-486"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0187",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "丈夫",
+      "officialHeadword": "丈夫",
+      "officialRow": 487,
+      "senseKey": "丈夫:487",
+      "pinyin": "zhàngfu",
+      "pinyinTone": "zhàngfu",
+      "pinyinNumber": "zhangfu4",
+      "pinyinNormalized": "zhangfu",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "chồng",
+      "contextMeaningsVi": [
+        {
+          "context": "她的丈夫在银行工作。",
+          "meaningVi": "chồng"
+        }
+      ],
+      "measureWord": "个/位",
+      "collocations": [
+        {
+          "zh": "她的丈夫在银行工作",
+          "vi": "Chồng cô ấy làm việc ở ngân hàng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Khi đếm “丈夫”, chọn lượng từ theo ngữ cảnh (个/位); không ghép số trực tiếp với danh từ.",
+      "examples": [
+        {
+          "zh": "她的丈夫在银行工作。",
+          "vi": "Chồng cô ấy làm việc ở ngân hàng.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Khi có số lượng, đừng bỏ lượng từ trước “丈夫”; mẫu phù hợp dùng 个/位."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-487"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0188",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "这么",
+      "officialHeadword": "这么",
+      "officialRow": 488,
+      "senseKey": "这么:488",
+      "pinyin": "zhème",
+      "pinyinTone": "zhème",
+      "pinyinNumber": "zheme4",
+      "pinyinNormalized": "zheme",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "meaningVi": "như thế này; đến mức này",
+      "contextMeaningsVi": [
+        {
+          "context": "今天怎么这么冷？",
+          "meaningVi": "như thế này; đến mức này"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "今天怎么这么冷",
+          "vi": "Sao hôm nay lạnh thế này?",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “这么” trong cụm hoàn chỉnh “今天怎么这么冷？”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "今天怎么这么冷？",
+          "vi": "Sao hôm nay lạnh thế này?",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “这么” như bản dịch rời; phải đặt vào một cụm cùng loại với “今天怎么这么冷？”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-488"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0189",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "这样",
+      "officialHeadword": "这样",
+      "officialRow": 489,
+      "senseKey": "这样:489",
+      "pinyin": "zhèyàng",
+      "pinyinTone": "zhèyàng",
+      "pinyinNumber": "zheyang4",
+      "pinyinNormalized": "zheyang",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "meaningVi": "như thế này",
+      "contextMeaningsVi": [
+        {
+          "context": "你这样说，我就懂了。",
+          "meaningVi": "như thế này"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "你这样说，我就懂了",
+          "vi": "Bạn nói như vậy thì tôi hiểu rồi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “这样” trong cụm hoàn chỉnh “你这样说，我就懂了。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "你这样说，我就懂了。",
+          "vi": "Bạn nói như vậy thì tôi hiểu rồi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “这样” như bản dịch rời; phải đặt vào một cụm cùng loại với “你这样说，我就懂了。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-489"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0190",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "着",
+      "officialHeadword": "着",
+      "officialRow": 490,
+      "senseKey": "着:490",
+      "pinyin": "zhe",
+      "pinyinTone": "zhe",
+      "pinyinNumber": "zhe5",
+      "pinyinNormalized": "zhe",
+      "partOfSpeech": [
+        "particle"
+      ],
+      "meaningVi": "trợ từ chỉ trạng thái tiếp diễn",
+      "contextMeaningsVi": [
+        {
+          "context": "门开着，请进。",
+          "meaningVi": "trợ từ chỉ trạng thái tiếp diễn"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "门开着，请进",
+          "vi": "Cửa đang mở, mời vào.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Đọc zhe, đánh dấu trạng thái đang duy trì; khác 正在 nhấn hành động đang diễn ra.",
+      "examples": [
+        {
+          "zh": "门开着，请进。",
+          "vi": "Cửa đang mở, mời vào.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [
+        "正在"
+      ],
+      "commonErrorsVi": [
+        "着 không thay cho 正在 trong mọi hành động đang tiến hành."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-490"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0191",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "正",
+      "officialHeadword": "正",
+      "officialRow": 491,
+      "senseKey": "正:491",
+      "pinyin": "zhèng",
+      "pinyinTone": "zhèng",
+      "pinyinNumber": "zheng4",
+      "pinyinNormalized": "zheng",
+      "partOfSpeech": [
+        "adjective",
+        "adverb"
+      ],
+      "meaningVi": "đang; đúng; chính",
+      "contextMeaningsVi": [
+        {
+          "context": "他正往这边走。",
+          "meaningVi": "đang; đúng; chính"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "他正往这边走",
+          "vi": "Anh ấy đang đi về phía này.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Đặt “正” trước thành phần mà nó bổ nghĩa; lấy trật tự trong “他正往这边走。” làm mẫu.",
+      "examples": [
+        {
+          "zh": "他正往这边走。",
+          "vi": "Anh ấy đang đi về phía này.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chèn 是 trước “正” chỉ vì tiếng Việt dùng “là”; kiểm tra mẫu “他正往这边走。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-491"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0192",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "周",
+      "officialHeadword": "周",
+      "officialRow": 492,
+      "senseKey": "周:492",
+      "pinyin": "zhōu",
+      "pinyinTone": "zhōu",
+      "pinyinNumber": "zhou1",
+      "pinyinNormalized": "zhou",
+      "partOfSpeech": [
+        "noun",
+        "measure-word"
+      ],
+      "meaningVi": "tuần",
+      "contextMeaningsVi": [
+        {
+          "context": "我下周开始上班。",
+          "meaningVi": "tuần"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我下周开始上班",
+          "vi": "Tuần sau tôi bắt đầu đi làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “周” trong cụm hoàn chỉnh “我下周开始上班。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "我下周开始上班。",
+          "vi": "Tuần sau tôi bắt đầu đi làm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “周” như bản dịch rời; phải đặt vào một cụm cùng loại với “我下周开始上班。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-492"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0193",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "准备",
+      "officialHeadword": "准备",
+      "officialRow": 493,
+      "senseKey": "准备:493",
+      "pinyin": "zhǔnbèi",
+      "pinyinTone": "zhǔnbèi",
+      "pinyinNumber": "zhunbei4",
+      "pinyinNormalized": "zhunbei",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "chuẩn bị",
+      "contextMeaningsVi": [
+        {
+          "context": "我正在准备考试。",
+          "meaningVi": "chuẩn bị"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我正在准备考试",
+          "vi": "Tôi đang chuẩn bị cho kỳ thi.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “准备” cùng tân ngữ hoặc bổ ngữ trong mẫu “我正在准备考试。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "我正在准备考试。",
+          "vi": "Tôi đang chuẩn bị cho kỳ thi.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “准备”; giữ cụm động từ theo mẫu “我正在准备考试。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-493"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0194",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "自己",
+      "officialHeadword": "自己",
+      "officialRow": 494,
+      "senseKey": "自己:494",
+      "pinyin": "zìjǐ",
+      "pinyinTone": "zìjǐ",
+      "pinyinNumber": "ziji3",
+      "pinyinNormalized": "ziji",
+      "partOfSpeech": [
+        "pronoun"
+      ],
+      "meaningVi": "bản thân; tự mình",
+      "contextMeaningsVi": [
+        {
+          "context": "自己的事情要自己做。",
+          "meaningVi": "bản thân; tự mình"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "自己的事情要自己做",
+          "vi": "Việc của mình phải tự làm.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “自己” trong cụm hoàn chỉnh “自己的事情要自己做。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "自己的事情要自己做。",
+          "vi": "Việc của mình phải tự làm.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “自己” như bản dịch rời; phải đặt vào một cụm cùng loại với “自己的事情要自己做。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-494"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0195",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "走",
+      "officialHeadword": "走",
+      "officialRow": 495,
+      "senseKey": "走:495",
+      "pinyin": "zǒu",
+      "pinyinTone": "zǒu",
+      "pinyinNumber": "zou3",
+      "pinyinNormalized": "zou",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "đi; rời đi",
+      "contextMeaningsVi": [
+        {
+          "context": "我们走吧，别迟到了。",
+          "meaningVi": "đi; rời đi"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我们走吧，别迟到了",
+          "vi": "Chúng ta đi thôi, đừng đến muộn.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “走” cùng tân ngữ hoặc bổ ngữ trong mẫu “我们走吧，别迟到了。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "我们走吧，别迟到了。",
+          "vi": "Chúng ta đi thôi, đừng đến muộn.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “走”; giữ cụm động từ theo mẫu “我们走吧，别迟到了。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-495"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0196",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "走路",
+      "officialHeadword": "走路",
+      "officialRow": 496,
+      "senseKey": "走路:496",
+      "pinyin": "zǒulù",
+      "pinyinTone": "zǒulù",
+      "pinyinNumber": "zoulu4",
+      "pinyinNormalized": "zoulu",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "đi bộ",
+      "contextMeaningsVi": [
+        {
+          "context": "我每天走路去公司。",
+          "meaningVi": "đi bộ"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "我每天走路去公司",
+          "vi": "Mỗi ngày tôi đi bộ đến công ty.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “走路” cùng tân ngữ hoặc bổ ngữ trong mẫu “我每天走路去公司。”; không bê nguyên trật tự tiếng Việt.",
+      "examples": [
+        {
+          "zh": "我每天走路去公司。",
+          "vi": "Mỗi ngày tôi đi bộ đến công ty.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không thêm 是 trước động từ “走路”; giữ cụm động từ theo mẫu “我每天走路去公司。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-496"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0197",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "足球",
+      "officialHeadword": "足球",
+      "officialRow": 497,
+      "senseKey": "足球:497",
+      "pinyin": "zúqiú",
+      "pinyinTone": "zúqiú",
+      "pinyinNumber": "zuqiu2",
+      "pinyinNormalized": "zuqiu",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "bóng đá",
+      "contextMeaningsVi": [
+        {
+          "context": "他们周末一起踢足球。",
+          "meaningVi": "bóng đá"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "他们周末一起踢足球",
+          "vi": "Cuối tuần họ cùng đá bóng.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “足球” trong cụm hoàn chỉnh “他们周末一起踢足球。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "他们周末一起踢足球。",
+          "vi": "Cuối tuần họ cùng đá bóng.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “足球” như bản dịch rời; phải đặt vào một cụm cùng loại với “他们周末一起踢足球。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-497"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0198",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "最",
+      "officialHeadword": "最",
+      "officialRow": 498,
+      "senseKey": "最:498",
+      "pinyin": "zuì",
+      "pinyinTone": "zuì",
+      "pinyinNumber": "zui4",
+      "pinyinNormalized": "zui",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "nhất",
+      "contextMeaningsVi": [
+        {
+          "context": "这家饭馆的鱼最好吃。",
+          "meaningVi": "nhất"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "这家饭馆的鱼最好吃",
+          "vi": "Cá ở quán này ngon nhất.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "So sánh cao nhất trong một phạm vi ngầm hoặc được nêu; không dùng 比 cùng một vị trí.",
+      "examples": [
+        {
+          "zh": "这家饭馆的鱼最好吃。",
+          "vi": "Cá ở quán này ngon nhất.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [
+        "更/比较"
+      ],
+      "commonErrorsVi": [
+        "Phải có phạm vi so sánh rõ trong ngữ cảnh, không dùng 最 cho hai đối tượng đơn thuần."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-498"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0199",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "左",
+      "officialHeadword": "左",
+      "officialRow": 499,
+      "senseKey": "左:499",
+      "pinyin": "zuǒ",
+      "pinyinTone": "zuǒ",
+      "pinyinNumber": "zuo3",
+      "pinyinNormalized": "zuo",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "bên trái",
+      "contextMeaningsVi": [
+        {
+          "context": "地铁站在左边。",
+          "meaningVi": "bên trái"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "地铁站在左边",
+          "vi": "Ga tàu điện ngầm ở bên trái.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “左” trong cụm hoàn chỉnh “地铁站在左边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "地铁站在左边。",
+          "vi": "Ga tàu điện ngầm ở bên trái.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “左” như bản dịch rời; phải đặt vào một cụm cùng loại với “地铁站在左边。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-499"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk2-v-0200",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 2,
+      "level": 2,
+      "pedagogicTargetLevel": 2,
+      "simplified": "左边",
+      "officialHeadword": "左边",
+      "officialRow": 500,
+      "senseKey": "左边:500",
+      "pinyin": "zuǒbian",
+      "pinyinTone": "zuǒbian",
+      "pinyinNumber": "zuobian3",
+      "pinyinNormalized": "zuobian",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "phía bên trái",
+      "contextMeaningsVi": [
+        {
+          "context": "药店在医院左边。",
+          "meaningVi": "phía bên trái"
+        }
+      ],
+      "measureWord": null,
+      "collocations": [
+        {
+          "zh": "药店在医院左边",
+          "vi": "Hiệu thuốc ở bên trái bệnh viện.",
+          "kind": "sentence-pattern"
+        }
+      ],
+      "usageNoteVi": "Học “左边” trong cụm hoàn chỉnh “药店在医院左边。”, rồi thay thông tin cùng loại để tạo câu mới.",
+      "examples": [
+        {
+          "zh": "药店在医院左边。",
+          "vi": "Hiệu thuốc ở bên trái bệnh viện.",
+          "sourceType": "original"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không học “左边” như bản dịch rời; phải đặt vào một cụm cùng loại với “药店在医院左边。”."
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "cti-hsk3-competency-profile-2026",
+        "blcu-new-standard-pedagogy-2025",
+        "vduckie-hsk2-c3-original"
+      ],
+      "sourceRefs": [
+        {
+          "sourceId": "cti-hsk3-current-syllabus-2026",
+          "fields": [
+            "officialHeadword",
+            "pinyinTone",
+            "hskLevel"
+          ],
+          "locator": "official-vocabulary-row-500"
+        }
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "knowledgeStatus": "new",
+      "contentVersion": 1
+    }
+  ]
+}
