@@ -6,6 +6,9 @@ on:
       - fix/level1-layout-exp-v109-3
     paths:
       - .github/workflows/lv1-layout-validate.yml
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -61,6 +64,7 @@ jobs:
           test -z "$forbidden"
 
       - name: Commit cache update and remove temporary workflow
+        if: github.event_name == 'push'
         shell: bash
         run: |
           set -euo pipefail
