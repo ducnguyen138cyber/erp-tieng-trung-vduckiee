@@ -68,6 +68,40 @@ jobs:
         run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate HSK content
         run: node scripts/validate-hsk-content.js
+      - name: Diagnose exact duplicate groups
+        run: |
+          node <<'NODE'
+          const { validateRepository, collectDuplicateCandidates } = require('./scripts/hsk-duplicate-engine');
+          const repository = validateRepository(process.cwd()).repository;
+          const candidates = collectDuplicateCandidates(repository);
+          const groups = new Map();
+          for (const item of candidates) {
+            const scope = item.record.contentStatus === 'fixture' ? 'fixture' : 'canonical';
+            const key = `${scope}|${item.kind}|${String(item.text).trim()}`;
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(item);
+          }
+          const duplicates = [...groups.entries()]
+            .filter(([, items]) => items.length > 1)
+            .map(([key, items]) => ({
+              kind: items[0].kind,
+              text: String(items[0].text),
+              count: items.length,
+              pairBlockers: items.length * (items.length - 1) / 2,
+              ids: items.map(item => item.id),
+              levels: [...new Set(items.map(item => item.level))]
+            }))
+            .sort((a, b) => b.pairBlockers - a.pairBlockers || b.count - a.count);
+          console.log(JSON.stringify({
+            groupCount: duplicates.length,
+            pairBlockers: duplicates.reduce((sum, item) => sum + item.pairBlockers, 0),
+            byKind: duplicates.reduce((result, item) => {
+              result[item.kind] = (result[item.kind] || 0) + item.pairBlockers;
+              return result;
+            }, {}),
+            groups: duplicates.slice(0, 120)
+          }, null, 2));
+          NODE
       - name: Check HSK duplicates
         run: node scripts/check-hsk-duplicates.js
       - name: Check HSK coverage
