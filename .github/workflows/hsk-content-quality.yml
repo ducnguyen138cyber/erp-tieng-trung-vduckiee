@@ -48,6 +48,17 @@ jobs:
         run: node scripts/check-hsk-coverage.js
       - name: Generate deterministic HSK reports
         run: node scripts/generate-hsk-report.js
+      - name: Upload generated HSK reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-hsk-c4-reports
+          path: |
+            reports/hsk-quality-report.json
+            reports/hsk-coverage-report.json
+            reports/hsk-duplication-report.json
+            reports/hsk-source-report.json
+          if-no-files-found: error
+          retention-days: 1
       - name: Run all website regression tests
         shell: bash
         run: |
