@@ -1,0 +1,3046 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary",
+  "level": 4,
+  "records": [
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0001",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1001,
+      "officialHeadword": "啊",
+      "simplified": "啊",
+      "traditional": "啊",
+      "pinyin": "ā",
+      "pinyinNormalized": "a",
+      "pinyinTone": "ā",
+      "pinyinNumber": "a1",
+      "partOfSpeech": [
+        "interjection"
+      ],
+      "meaningVi": "thán từ biểu thị sự ngạc nhiên",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: a. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thán từ biểu thị sự ngạc nhiên"
+        }
+      ],
+      "senseKey": "啊-0001",
+      "register": "colloquial",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "啊的具体用法",
+          "vi": "Cụm luyện dùng 啊 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "啊 (ā) nghĩa là “thán từ biểu thị sự ngạc nhiên”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 啊 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“啊”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 啊 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0002",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1002,
+      "officialHeadword": "爱情",
+      "simplified": "爱情",
+      "traditional": "爱情",
+      "pinyin": "àiqíng",
+      "pinyinNormalized": "aiqing",
+      "pinyinTone": "àiqíng",
+      "pinyinNumber": "aiqing2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tình yêu",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: ái tình. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tình yêu"
+        }
+      ],
+      "senseKey": "爱情-0002",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "爱情的具体用法",
+          "vi": "Cụm luyện dùng 爱情 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "爱情 (àiqíng) nghĩa là “tình yêu”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 爱情 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“爱情”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 爱情 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0003",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1003,
+      "officialHeadword": "爱心",
+      "simplified": "爱心",
+      "traditional": "爱心",
+      "pinyin": "àixīn",
+      "pinyinNormalized": "aixin",
+      "pinyinTone": "àixīn",
+      "pinyinNumber": "aixin1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "yêu thương",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: ái tâm. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "yêu thương"
+        }
+      ],
+      "senseKey": "爱心-0003",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "爱心的具体用法",
+          "vi": "Cụm luyện dùng 爱心 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "爱心 (àixīn) nghĩa là “yêu thương”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 爱心 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“爱心”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 爱心 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0004",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1004,
+      "officialHeadword": "安检",
+      "simplified": "安检",
+      "traditional": "安检",
+      "pinyin": "ānjiǎn",
+      "pinyinNormalized": "anjian",
+      "pinyinTone": "ānjiǎn",
+      "pinyinNumber": "anjian3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "kiểm tra an ninh",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: an kiểm. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "kiểm tra an ninh"
+        }
+      ],
+      "senseKey": "安检-0004",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "安检的具体用法",
+          "vi": "Cụm luyện dùng 安检 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "安检 (ānjiǎn) nghĩa là “kiểm tra an ninh”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 安检 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“安检”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 安检 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0005",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1005,
+      "officialHeadword": "安排",
+      "simplified": "安排",
+      "traditional": "安排",
+      "pinyin": "ānpái",
+      "pinyinNormalized": "anpai",
+      "pinyinTone": "ānpái",
+      "pinyinNumber": "anpai2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "sắp xếp",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: an bài. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "sắp xếp"
+        }
+      ],
+      "senseKey": "安排-0005",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "安排的具体用法",
+          "vi": "Cụm luyện dùng 安排 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "安排 (ānpái) nghĩa là “sắp xếp”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 安排 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“安排”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 安排 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0006",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1006,
+      "officialHeadword": "按",
+      "simplified": "按",
+      "traditional": "按",
+      "pinyin": "àn",
+      "pinyinNormalized": "an",
+      "pinyinTone": "àn",
+      "pinyinNumber": "an4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "nhấn",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: án. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "nhấn"
+        }
+      ],
+      "senseKey": "按-0006",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "按的具体用法",
+          "vi": "Cụm luyện dùng 按 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "按 (àn) nghĩa là “nhấn”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 按 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“按”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 按 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0007",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1007,
+      "officialHeadword": "按时",
+      "simplified": "按时",
+      "traditional": "按时",
+      "pinyin": "ànshí",
+      "pinyinNormalized": "anshi",
+      "pinyinTone": "ànshí",
+      "pinyinNumber": "anshi2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đúng giờ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: án thời. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đúng giờ"
+        }
+      ],
+      "senseKey": "按时-0007",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "按时的具体用法",
+          "vi": "Cụm luyện dùng 按时 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "按时 (ànshí) nghĩa là “đúng giờ”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 按时 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“按时”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 按时 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0008",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1008,
+      "officialHeadword": "按照",
+      "simplified": "按照",
+      "traditional": "按照",
+      "pinyin": "ànzhào",
+      "pinyinNormalized": "anzhao",
+      "pinyinTone": "ànzhào",
+      "pinyinNumber": "anzhao4",
+      "partOfSpeech": [
+        "preposition"
+      ],
+      "meaningVi": "theo",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: án chiếu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "theo"
+        }
+      ],
+      "senseKey": "按照-0008",
+      "register": "formal",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "按照的具体用法",
+          "vi": "Cụm luyện dùng 按照 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "按照 (ànzhào) nghĩa là “theo”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 按照 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“按照”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 按照 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0009",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1009,
+      "officialHeadword": "白酒",
+      "simplified": "白酒",
+      "traditional": "白酒",
+      "pinyin": "báijiǔ",
+      "pinyinNormalized": "baijiu",
+      "pinyinTone": "báijiǔ",
+      "pinyinNumber": "baijiu3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "rượu trắng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bạch tửu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "rượu trắng"
+        }
+      ],
+      "senseKey": "白酒-0009",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "白酒的具体用法",
+          "vi": "Cụm luyện dùng 白酒 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "白酒 (báijiǔ) nghĩa là “rượu trắng”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 白酒 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“白酒”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 白酒 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0010",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1010,
+      "officialHeadword": "办公",
+      "simplified": "办公",
+      "traditional": "办公",
+      "pinyin": "bàngōng",
+      "pinyinNormalized": "bangong",
+      "pinyinTone": "bàngōng",
+      "pinyinNumber": "bangong1",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "làm việc",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biện công. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "làm việc"
+        }
+      ],
+      "senseKey": "办公-0010",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "办公的具体用法",
+          "vi": "Cụm luyện dùng 办公 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "办公 (bàngōng) nghĩa là “làm việc”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 办公 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“办公”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 办公 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0011",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1011,
+      "officialHeadword": "办理",
+      "simplified": "办理",
+      "traditional": "办理",
+      "pinyin": "bànlǐ",
+      "pinyinNormalized": "banli",
+      "pinyinTone": "bànlǐ",
+      "pinyinNumber": "banli3",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "xử lý",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biện lí. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "xử lý"
+        }
+      ],
+      "senseKey": "办理-0011",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "办理的具体用法",
+          "vi": "Cụm luyện dùng 办理 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "办理 (bànlǐ) nghĩa là “xử lý”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 办理 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“办理”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 办理 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0012",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1012,
+      "officialHeadword": "办事",
+      "simplified": "办事",
+      "traditional": "办事",
+      "pinyin": "bànshì",
+      "pinyinNormalized": "banshi",
+      "pinyinTone": "bànshì",
+      "pinyinNumber": "banshi4",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "giải quyết công việc",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biện sự. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "giải quyết công việc"
+        }
+      ],
+      "senseKey": "办事-0012",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "办事的具体用法",
+          "vi": "Cụm luyện dùng 办事 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "办事 (bànshì) nghĩa là “giải quyết công việc”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 办事 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“办事”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 办事 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0013",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1013,
+      "officialHeadword": "棒",
+      "simplified": "棒",
+      "traditional": "棒",
+      "pinyin": "bàng",
+      "pinyinNormalized": "bang",
+      "pinyinTone": "bàng",
+      "pinyinNumber": "bang4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "gậy",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bổng. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "gậy"
+        }
+      ],
+      "senseKey": "棒-0013",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "棒的具体用法",
+          "vi": "Cụm luyện dùng 棒 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "棒 (bàng) nghĩa là “gậy”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 棒 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“棒”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 棒 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0014",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1014,
+      "officialHeadword": "保护",
+      "simplified": "保护",
+      "traditional": "保护",
+      "pinyin": "bǎohù",
+      "pinyinNormalized": "baohu",
+      "pinyinTone": "bǎohù",
+      "pinyinNumber": "baohu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bảo vệ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bảo hộ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bảo vệ"
+        }
+      ],
+      "senseKey": "保护-0014",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "保护的具体用法",
+          "vi": "Cụm luyện dùng 保护 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "保护 (bǎohù) nghĩa là “bảo vệ”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 保护 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“保护”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 保护 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0015",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1015,
+      "officialHeadword": "保证",
+      "simplified": "保证",
+      "traditional": "保证",
+      "pinyin": "bǎozhèng",
+      "pinyinNormalized": "baozheng",
+      "pinyinTone": "bǎozhèng",
+      "pinyinNumber": "baozheng4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đảm bảo",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bảo chứng. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đảm bảo"
+        }
+      ],
+      "senseKey": "保证-0015",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "保证的具体用法",
+          "vi": "Cụm luyện dùng 保证 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "保证 (bǎozhèng) nghĩa là “đảm bảo”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 保证 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“保证”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 保证 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0016",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1016,
+      "officialHeadword": "抱",
+      "simplified": "抱",
+      "traditional": "抱",
+      "pinyin": "bào",
+      "pinyinNormalized": "bao",
+      "pinyinTone": "bào",
+      "pinyinNumber": "bao4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "ôm",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bão. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "ôm"
+        }
+      ],
+      "senseKey": "抱-0016",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "抱的具体用法",
+          "vi": "Cụm luyện dùng 抱 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "抱 (bào) nghĩa là “ôm”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 抱 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“抱”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 抱 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0017",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1017,
+      "officialHeadword": "报考",
+      "simplified": "报考",
+      "traditional": "报考",
+      "pinyin": "bàokǎo",
+      "pinyinNormalized": "baokao",
+      "pinyinTone": "bàokǎo",
+      "pinyinNumber": "baokao3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đăng ký thi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: báo khảo. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đăng ký thi"
+        }
+      ],
+      "senseKey": "报考-0017",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "报考的具体用法",
+          "vi": "Cụm luyện dùng 报考 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "报考 (bàokǎo) nghĩa là “đăng ký thi”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 报考 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“报考”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 报考 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0018",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1018,
+      "officialHeadword": "报名",
+      "simplified": "报名",
+      "traditional": "报名",
+      "pinyin": "bàomíng",
+      "pinyinNormalized": "baoming",
+      "pinyinTone": "bàomíng",
+      "pinyinNumber": "baoming2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đăng ký",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: báo danh. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đăng ký"
+        }
+      ],
+      "senseKey": "报名-0018",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "报名的具体用法",
+          "vi": "Cụm luyện dùng 报名 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "报名 (bàomíng) nghĩa là “đăng ký”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 报名 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“报名”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 报名 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0019",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1019,
+      "officialHeadword": "抱歉",
+      "simplified": "抱歉",
+      "traditional": "抱歉",
+      "pinyin": "bàoqiàn",
+      "pinyinNormalized": "baoqian",
+      "pinyinTone": "bàoqiàn",
+      "pinyinNumber": "baoqian4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "xin lỗi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bão khiểm. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "xin lỗi"
+        }
+      ],
+      "senseKey": "抱歉-0019",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "抱歉的具体用法",
+          "vi": "Cụm luyện dùng 抱歉 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "抱歉 (bàoqiàn) nghĩa là “xin lỗi”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 抱歉 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“抱歉”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 抱歉 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0020",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1020,
+      "officialHeadword": "背",
+      "simplified": "背",
+      "traditional": "背",
+      "pinyin": "bēi",
+      "pinyinNormalized": "bei",
+      "pinyinTone": "bēi",
+      "pinyinNumber": "bei1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "lưng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bối. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "lưng"
+        }
+      ],
+      "senseKey": "背-0020",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "背的具体用法",
+          "vi": "Cụm luyện dùng 背 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "背 (bēi) nghĩa là “lưng”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 背 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“背”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 背 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0021",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1021,
+      "officialHeadword": "背包",
+      "simplified": "背包",
+      "traditional": "背包",
+      "pinyin": "bēibāo",
+      "pinyinNormalized": "beibao",
+      "pinyinTone": "bēibāo",
+      "pinyinNumber": "beibao1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "ba lô",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bối bao. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "ba lô"
+        }
+      ],
+      "senseKey": "背包-0021",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "背包的具体用法",
+          "vi": "Cụm luyện dùng 背包 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "背包 (bēibāo) nghĩa là “ba lô”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 背包 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“背包”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 背包 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0022",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1022,
+      "officialHeadword": "北部",
+      "simplified": "北部",
+      "traditional": "北部",
+      "pinyin": "běibù",
+      "pinyinNormalized": "beibu",
+      "pinyinTone": "běibù",
+      "pinyinNumber": "beibu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "phía bắc",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bắc bộ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "phía bắc"
+        }
+      ],
+      "senseKey": "北部-0022",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "北部的具体用法",
+          "vi": "Cụm luyện dùng 北部 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "北部 (běibù) nghĩa là “phía bắc”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 北部 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“北部”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 北部 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0023",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1023,
+      "officialHeadword": "倍",
+      "simplified": "倍",
+      "traditional": "倍",
+      "pinyin": "bèi",
+      "pinyinNormalized": "bei",
+      "pinyinTone": "bèi",
+      "pinyinNumber": "bei4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "lần",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bội. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "lần"
+        }
+      ],
+      "senseKey": "倍-0023",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "倍的具体用法",
+          "vi": "Cụm luyện dùng 倍 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "倍 (bèi) nghĩa là “lần”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 倍 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“倍”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 倍 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0024",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1024,
+      "officialHeadword": "本科",
+      "simplified": "本科",
+      "traditional": "本科",
+      "pinyin": "běnkē",
+      "pinyinNormalized": "benke",
+      "pinyinTone": "běnkē",
+      "pinyinNumber": "benke1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "cử nhân",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bản khoa. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "cử nhân"
+        }
+      ],
+      "senseKey": "本科-0024",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "本科的具体用法",
+          "vi": "Cụm luyện dùng 本科 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "本科 (běnkē) nghĩa là “cử nhân”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 本科 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“本科”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 本科 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0025",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1025,
+      "officialHeadword": "本来",
+      "simplified": "本来",
+      "traditional": "本来",
+      "pinyin": "běnlái",
+      "pinyinNormalized": "benlai",
+      "pinyinTone": "běnlái",
+      "pinyinNumber": "benlai2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "vốn dĩ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bản lai. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "vốn dĩ"
+        }
+      ],
+      "senseKey": "本来-0025",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "本来的具体用法",
+          "vi": "Cụm luyện dùng 本来 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "本来 (běnlái) nghĩa là “vốn dĩ”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 本来 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“本来”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 本来 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0026",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1026,
+      "officialHeadword": "笨",
+      "simplified": "笨",
+      "traditional": "笨",
+      "pinyin": "bèn",
+      "pinyinNormalized": "ben",
+      "pinyinTone": "bèn",
+      "pinyinNumber": "ben4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "ngu",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bổn. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "ngu"
+        }
+      ],
+      "senseKey": "笨-0026",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "笨的具体用法",
+          "vi": "Cụm luyện dùng 笨 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "笨 (bèn) nghĩa là “ngu”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 笨 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“笨”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 笨 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0027",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1027,
+      "officialHeadword": "鼻子",
+      "simplified": "鼻子",
+      "traditional": "鼻子",
+      "pinyin": "bízi",
+      "pinyinNormalized": "bizi",
+      "pinyinTone": "bízi",
+      "pinyinNumber": "bizi2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "mũi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tị tử. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "mũi"
+        }
+      ],
+      "senseKey": "鼻子-0027",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "鼻子的具体用法",
+          "vi": "Cụm luyện dùng 鼻子 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "鼻子 (bízi) nghĩa là “mũi”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 鼻子 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“鼻子”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 鼻子 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0028",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1028,
+      "officialHeadword": "笔试",
+      "simplified": "笔试",
+      "traditional": "笔试",
+      "pinyin": "bǐshì",
+      "pinyinNormalized": "bishi",
+      "pinyinTone": "bǐshì",
+      "pinyinNumber": "bishi4",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "thi viết",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bút thí. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thi viết"
+        }
+      ],
+      "senseKey": "笔试-0028",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "笔试的具体用法",
+          "vi": "Cụm luyện dùng 笔试 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "笔试 (bǐshì) nghĩa là “thi viết”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 笔试 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“笔试”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 笔试 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0029",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1029,
+      "officialHeadword": "毕业",
+      "simplified": "毕业",
+      "traditional": "毕业",
+      "pinyin": "bìyè",
+      "pinyinNormalized": "biye",
+      "pinyinTone": "bìyè",
+      "pinyinNumber": "biye4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tốt nghiệp",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tất nghiệp. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tốt nghiệp"
+        }
+      ],
+      "senseKey": "毕业-0029",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "毕业的具体用法",
+          "vi": "Cụm luyện dùng 毕业 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "毕业 (bìyè) nghĩa là “tốt nghiệp”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 毕业 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“毕业”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 毕业 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0030",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1030,
+      "officialHeadword": "毕业生",
+      "simplified": "毕业生",
+      "traditional": "毕业生",
+      "pinyin": "bìyèshēng",
+      "pinyinNormalized": "biyesheng",
+      "pinyinTone": "bìyèshēng",
+      "pinyinNumber": "biyesheng1",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "sinh viên tốt nghiệp",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tất nghiệp sinh. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "sinh viên tốt nghiệp"
+        }
+      ],
+      "senseKey": "毕业生-0030",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "毕业生的具体用法",
+          "vi": "Cụm luyện dùng 毕业生 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "毕业生 (bìyèshēng) nghĩa là “sinh viên tốt nghiệp”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 毕业生 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“毕业生”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 毕业生 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0031",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1031,
+      "officialHeadword": "便于",
+      "simplified": "便于",
+      "traditional": "便于",
+      "pinyin": "biànyú",
+      "pinyinNormalized": "bianyu",
+      "pinyinTone": "biànyú",
+      "pinyinNumber": "bianyu2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "dễ dàng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tiện vu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "dễ dàng"
+        }
+      ],
+      "senseKey": "便于-0031",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "便于的具体用法",
+          "vi": "Cụm luyện dùng 便于 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "便于 (biànyú) nghĩa là “dễ dàng”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 便于 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“便于”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 便于 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0032",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1032,
+      "officialHeadword": "标准",
+      "simplified": "标准",
+      "traditional": "标准",
+      "pinyin": "biāozhǔn",
+      "pinyinNormalized": "biaozhun",
+      "pinyinTone": "biāozhǔn",
+      "pinyinNumber": "biaozhun3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tiêu chuẩn",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tiêu chuẩn. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tiêu chuẩn"
+        }
+      ],
+      "senseKey": "标准-0032",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "标准的具体用法",
+          "vi": "Cụm luyện dùng 标准 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "标准 (biāozhǔn) nghĩa là “tiêu chuẩn”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 标准 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“标准”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 标准 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0033",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1033,
+      "officialHeadword": "表",
+      "simplified": "表",
+      "traditional": "表",
+      "pinyin": "biǎo",
+      "pinyinNormalized": "biao",
+      "pinyinTone": "biǎo",
+      "pinyinNumber": "biao3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bảng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biểu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bảng"
+        }
+      ],
+      "senseKey": "表-0033",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "表的具体用法",
+          "vi": "Cụm luyện dùng 表 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "表 (biǎo) nghĩa là “bảng”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 表 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“表”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 表 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0034",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1034,
+      "officialHeadword": "表格",
+      "simplified": "表格",
+      "traditional": "表格",
+      "pinyin": "biǎogé",
+      "pinyinNormalized": "biaoge",
+      "pinyinTone": "biǎogé",
+      "pinyinNumber": "biaoge2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "biểu mẫu",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biểu cách. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "biểu mẫu"
+        }
+      ],
+      "senseKey": "表格-0034",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "表格的具体用法",
+          "vi": "Cụm luyện dùng 表格 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "表格 (biǎogé) nghĩa là “biểu mẫu”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 表格 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“表格”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 表格 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0035",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1035,
+      "officialHeadword": "表示",
+      "simplified": "表示",
+      "traditional": "表示",
+      "pinyin": "biǎoshì",
+      "pinyinNormalized": "biaoshi",
+      "pinyinTone": "biǎoshì",
+      "pinyinNumber": "biaoshi4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "thể hiện",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biểu thị. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thể hiện"
+        }
+      ],
+      "senseKey": "表示-0035",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "表示的具体用法",
+          "vi": "Cụm luyện dùng 表示 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "表示 (biǎoshì) nghĩa là “thể hiện”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 表示 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“表示”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 表示 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0036",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1036,
+      "officialHeadword": "表现",
+      "simplified": "表现",
+      "traditional": "表现",
+      "pinyin": "biǎoxiàn",
+      "pinyinNormalized": "biaoxian",
+      "pinyinTone": "biǎoxiàn",
+      "pinyinNumber": "biaoxian4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "thể hiện",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biểu hiện. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thể hiện"
+        }
+      ],
+      "senseKey": "表现-0036",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "表现的具体用法",
+          "vi": "Cụm luyện dùng 表现 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "表现 (biǎoxiàn) nghĩa là “thể hiện”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 表现 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“表现”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 表现 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0037",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1037,
+      "officialHeadword": "表扬",
+      "simplified": "表扬",
+      "traditional": "表扬",
+      "pinyin": "biǎoyáng",
+      "pinyinNormalized": "biaoyang",
+      "pinyinTone": "biǎoyáng",
+      "pinyinNumber": "biaoyang2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "khen ngợi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: biểu dương. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "khen ngợi"
+        }
+      ],
+      "senseKey": "表扬-0037",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "表扬的具体用法",
+          "vi": "Cụm luyện dùng 表扬 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "表扬 (biǎoyáng) nghĩa là “khen ngợi”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 表扬 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“表扬”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 表扬 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0038",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1038,
+      "officialHeadword": "饼干",
+      "simplified": "饼干",
+      "traditional": "饼干",
+      "pinyin": "bǐnggān",
+      "pinyinNormalized": "binggan",
+      "pinyinTone": "bǐnggān",
+      "pinyinNumber": "binggan1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bánh quy",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bính can. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bánh quy"
+        }
+      ],
+      "senseKey": "饼干-0038",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "饼干的具体用法",
+          "vi": "Cụm luyện dùng 饼干 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "饼干 (bǐnggān) nghĩa là “bánh quy”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 饼干 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“饼干”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 饼干 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0039",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1039,
+      "officialHeadword": "并",
+      "simplified": "并",
+      "traditional": "并",
+      "pinyin": "bìng",
+      "pinyinNormalized": "bing",
+      "pinyinTone": "bìng",
+      "pinyinNumber": "bing4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "kết hợp",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tịnh. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "kết hợp"
+        }
+      ],
+      "senseKey": "并-0039",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "并的具体用法",
+          "vi": "Cụm luyện dùng 并 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "并 (bìng) nghĩa là “kết hợp”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 并 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“并”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 并 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0040",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1040,
+      "officialHeadword": "并且",
+      "simplified": "并且",
+      "traditional": "并且",
+      "pinyin": "bìngqiě",
+      "pinyinNormalized": "bingqie",
+      "pinyinTone": "bìngqiě",
+      "pinyinNumber": "bingqie3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "và; bên cạnh đó; hơn nữa; ngoài ra; thêm vào đó",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tịnh thả. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "và; bên cạnh đó; hơn nữa; ngoài ra; thêm vào đó"
+        }
+      ],
+      "senseKey": "并且-0040",
+      "register": "formal",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "并且的具体用法",
+          "vi": "Cụm luyện dùng 并且 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "并且 (bìngqiě) nghĩa là “và; bên cạnh đó; hơn nữa; ngoài ra; thêm vào đó”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 并且 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“并且”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 并且 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0041",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1041,
+      "officialHeadword": "播放",
+      "simplified": "播放",
+      "traditional": "播放",
+      "pinyin": "bōfàng",
+      "pinyinNormalized": "bofang",
+      "pinyinTone": "bōfàng",
+      "pinyinNumber": "bofang4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "phát",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bá phóng. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "phát"
+        }
+      ],
+      "senseKey": "播放-0041",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "播放的具体用法",
+          "vi": "Cụm luyện dùng 播放 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "播放 (bōfàng) nghĩa là “phát”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 播放 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“播放”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 播放 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0042",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1042,
+      "officialHeadword": "博士",
+      "simplified": "博士",
+      "traditional": "博士",
+      "pinyin": "bóshì",
+      "pinyinNormalized": "boshi",
+      "pinyinTone": "bóshì",
+      "pinyinNumber": "boshi4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tiến sĩ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bác sĩ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tiến sĩ"
+        }
+      ],
+      "senseKey": "博士-0042",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "博士的具体用法",
+          "vi": "Cụm luyện dùng 博士 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "博士 (bóshì) nghĩa là “tiến sĩ”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 博士 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“博士”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 博士 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0043",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1043,
+      "officialHeadword": "不必",
+      "simplified": "不必",
+      "traditional": "不必",
+      "pinyin": "búbì",
+      "pinyinNormalized": "bubi",
+      "pinyinTone": "búbì",
+      "pinyinNumber": "bubi4",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "không cần",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bất tất. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "không cần"
+        }
+      ],
+      "senseKey": "不必-0043",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "不必的具体用法",
+          "vi": "Cụm luyện dùng 不必 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "不必 (búbì) nghĩa là “không cần”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 不必 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“不必”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 不必 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0044",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1044,
+      "officialHeadword": "不便",
+      "simplified": "不便",
+      "traditional": "不便",
+      "pinyin": "búbiàn",
+      "pinyinNormalized": "bubian",
+      "pinyinTone": "búbiàn",
+      "pinyinNumber": "bubian4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bất tiện",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bất tiện. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bất tiện"
+        }
+      ],
+      "senseKey": "不便-0044",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "不便的具体用法",
+          "vi": "Cụm luyện dùng 不便 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "不便 (búbiàn) nghĩa là “bất tiện”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 不便 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“不便”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 不便 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0045",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1045,
+      "officialHeadword": "不断",
+      "simplified": "不断",
+      "traditional": "不断",
+      "pinyin": "búduàn",
+      "pinyinNormalized": "buduan",
+      "pinyinTone": "búduàn",
+      "pinyinNumber": "buduan4",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "liên tục",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bất đoạn. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "liên tục"
+        }
+      ],
+      "senseKey": "不断-0045",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "不断的具体用法",
+          "vi": "Cụm luyện dùng 不断 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "不断 (búduàn) nghĩa là “liên tục”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 不断 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“不断”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 不断 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0046",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1046,
+      "officialHeadword": "不够",
+      "simplified": "不够",
+      "traditional": "不够",
+      "pinyin": "búgòu",
+      "pinyinNormalized": "bugou",
+      "pinyinTone": "búgòu",
+      "pinyinNumber": "bugou4",
+      "partOfSpeech": [
+        "adverb"
+      ],
+      "meaningVi": "không đủ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bất cấu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "không đủ"
+        }
+      ],
+      "senseKey": "不够-0046",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "不够的具体用法",
+          "vi": "Cụm luyện dùng 不够 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "不够 (búgòu) nghĩa là “không đủ”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 不够 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“不够”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 不够 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0047",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1047,
+      "officialHeadword": "不过",
+      "simplified": "不过",
+      "traditional": "不过",
+      "pinyin": "búguò",
+      "pinyinNormalized": "buguo",
+      "pinyinTone": "búguò",
+      "pinyinNumber": "buguo4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tuy nhiên",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bất quá. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tuy nhiên"
+        }
+      ],
+      "senseKey": "不过-0047",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "不过的具体用法",
+          "vi": "Cụm luyện dùng 不过 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "不过 (búguò) nghĩa là “tuy nhiên”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 不过 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“不过”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 不过 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0048",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1048,
+      "officialHeadword": "不论",
+      "simplified": "不论",
+      "traditional": "不论",
+      "pinyin": "búlùn",
+      "pinyinNormalized": "bulun",
+      "pinyinTone": "búlùn",
+      "pinyinNumber": "bulun4",
+      "partOfSpeech": [
+        "conjunction"
+      ],
+      "meaningVi": "bất kể",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bất luận. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bất kể"
+        }
+      ],
+      "senseKey": "不论-0048",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "不论的具体用法",
+          "vi": "Cụm luyện dùng 不论 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "不论 (búlùn) nghĩa là “bất kể”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 不论 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“不论”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 不论 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0049",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1049,
+      "officialHeadword": "步",
+      "simplified": "步",
+      "traditional": "步",
+      "pinyin": "bù",
+      "pinyinNormalized": "bu",
+      "pinyinTone": "bù",
+      "pinyinNumber": "bu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bước",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bộ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bước"
+        }
+      ],
+      "senseKey": "步-0049",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "步的具体用法",
+          "vi": "Cụm luyện dùng 步 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "步 (bù) nghĩa là “bước”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 步 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“步”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 步 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0050",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1050,
+      "officialHeadword": "部",
+      "simplified": "部",
+      "traditional": "部",
+      "pinyin": "bù",
+      "pinyinNormalized": "bu",
+      "pinyinTone": "bù",
+      "pinyinNumber": "bu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bộ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: bộ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bộ"
+        }
+      ],
+      "senseKey": "部-0050",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "部的具体用法",
+          "vi": "Cụm luyện dùng 部 trong ngữ cảnh cụ thể.",
+          "kind": "usage-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "部 (bù) nghĩa là “bộ”. Khi dùng cần kiểm tra từ loại, ngữ vực và quan hệ với từ xung quanh.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không dịch từng chữ hoặc dùng 部 chỉ vì nghĩa tiếng Việt gần đúng; hãy kiểm tra collocation và sắc thái."
+      ],
+      "examples": [
+        {
+          "zh": "请结合上下文理解“部”，不要只记一个孤立的越南语意思。",
+          "vi": "Hãy hiểu 部 theo ngữ cảnh, không học như một nhãn rời.",
+          "sourceType": "original"
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    }
+  ]
+}

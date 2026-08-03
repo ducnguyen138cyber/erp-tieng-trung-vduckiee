@@ -1,0 +1,3503 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "grammar",
+  "level": 4,
+  "records": [
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-01",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "并不/并没有",
+      "nameVi": "Phủ định có nhấn mạnh",
+      "formula": "主语 + 并不/并没有 + 谓语",
+      "communicativeFunctionVi": "phủ định một giả định hoặc kết luận",
+      "meaningVi": "phủ định một giả định hoặc kết luận",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần phủ định một giả định hoặc kết luận.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "方便并不等于适合所有人。",
+          "vi": "Tiện không có nghĩa là phù hợp với tất cả."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "方便并不等于适合所有人。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-02",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "不仅……而且……",
+      "nameVi": "Không chỉ… mà còn…",
+      "formula": "不仅 A，而且 B",
+      "communicativeFunctionVi": "bổ sung vế sau mạnh hơn",
+      "meaningVi": "bổ sung vế sau mạnh hơn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần bổ sung vế sau mạnh hơn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这个方案不仅省时间，而且更容易检查。",
+          "vi": "Phương án này không chỉ tiết kiệm thời gian mà còn dễ kiểm tra hơn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这个方案不仅省时间，但是而且更容易检查。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-03",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "不光……还……",
+      "nameVi": "Không chỉ… còn… (khẩu ngữ)",
+      "formula": "不光 A，还 B",
+      "communicativeFunctionVi": "mở rộng thông tin trong khẩu ngữ",
+      "meaningVi": "mở rộng thông tin trong khẩu ngữ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần mở rộng thông tin trong khẩu ngữ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "他不光指出问题，还提出了办法。",
+          "vi": "Anh ấy không chỉ chỉ ra vấn đề mà còn đề xuất cách xử lý."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他不光指出问题，但是还提出了办法。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-04",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "无论……都……",
+      "nameVi": "Bất kể… đều…",
+      "formula": "无论 A，都 B",
+      "communicativeFunctionVi": "nêu điều không ảnh hưởng kết quả",
+      "meaningVi": "nêu điều không ảnh hưởng kết quả",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu điều không ảnh hưởng kết quả.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "无论选择哪条路线，都要先确认末班车。",
+          "vi": "Bất kể chọn tuyến nào cũng phải xác nhận chuyến cuối."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "无论选择哪条路线，但是都要先确认末班车。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-05",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "不管……也/都……",
+      "nameVi": "Dù… vẫn/đều…",
+      "formula": "不管 A，也/都 B",
+      "communicativeFunctionVi": "diễn đạt nhượng bộ thường dùng",
+      "meaningVi": "diễn đạt nhượng bộ thường dùng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần diễn đạt nhượng bộ thường dùng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "不管多忙，也要及时说明风险。",
+          "vi": "Dù bận thế nào cũng phải báo rủi ro kịp thời."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "不管多忙，但是也要及时说明风险。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-06",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "尽管……但是……",
+      "nameVi": "Mặc dù… nhưng…",
+      "formula": "尽管 A，但是 B",
+      "communicativeFunctionVi": "thừa nhận sự thật rồi nêu đối lập",
+      "meaningVi": "thừa nhận sự thật rồi nêu đối lập",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần thừa nhận sự thật rồi nêu đối lập.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "尽管价格低，但是服务条件不同。",
+          "vi": "Dù giá thấp nhưng điều kiện dịch vụ khác nhau."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "尽管价格低，但是服务条件不同。但是。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-07",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "即使……也……",
+      "nameVi": "Dù cho… cũng…",
+      "formula": "即使 A，也 B",
+      "communicativeFunctionVi": "giả định nhượng bộ",
+      "meaningVi": "giả định nhượng bộ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần giả định nhượng bộ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "即使消息来自朋友，也要核实来源。",
+          "vi": "Dù tin đến từ bạn bè cũng phải xác minh nguồn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "即使消息来自朋友，但是也要核实来源。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-08",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "既然……就……",
+      "nameVi": "Đã… thì…",
+      "formula": "既然 A，就 B",
+      "communicativeFunctionVi": "lấy tiền đề đã biết để suy ra hành động",
+      "meaningVi": "lấy tiền đề đã biết để suy ra hành động",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần lấy tiền đề đã biết để suy ra hành động.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "既然发现理解不同，就马上确认。",
+          "vi": "Đã phát hiện hiểu khác nhau thì xác nhận ngay."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "既然发现理解不同，但是就马上确认。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-09",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "既……又……",
+      "nameVi": "Vừa… vừa…",
+      "formula": "既 A，又 B",
+      "communicativeFunctionVi": "nêu hai thuộc tính song song",
+      "meaningVi": "nêu hai thuộc tính song song",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu hai thuộc tính song song.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这份说明既简短又具体。",
+          "vi": "Hướng dẫn này vừa ngắn vừa cụ thể."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这份说明既简短又具体。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-10",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "一边……一边……",
+      "nameVi": "Vừa… vừa…",
+      "formula": "一边 A，一边 B",
+      "communicativeFunctionVi": "hai hành động đồng thời",
+      "meaningVi": "hai hành động đồng thời",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần hai hành động đồng thời.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "他一边听录音，一边记关键词。",
+          "vi": "Anh ấy vừa nghe ghi âm vừa ghi từ khóa."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他一边听录音，但是一边记关键词。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-11",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "先……再……最后……",
+      "nameVi": "Trình tự nhiều bước",
+      "formula": "先 A，再 B，最后 C",
+      "communicativeFunctionVi": "tổ chức quy trình",
+      "meaningVi": "tổ chức quy trình",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần tổ chức quy trình.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "先核实来源，再比较信息，最后决定是否转发。",
+          "vi": "Xác minh nguồn trước, so sánh thông tin rồi mới quyết định chuyển tiếp."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "先核实来源，但是再比较信息，最后决定是否转发。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-12",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "除了……以外，还……",
+      "nameVi": "Ngoài… còn…",
+      "formula": "除了 A 以外，还 B",
+      "communicativeFunctionVi": "bổ sung ngoài phạm vi đã nêu",
+      "meaningVi": "bổ sung ngoài phạm vi đã nêu",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần bổ sung ngoài phạm vi đã nêu.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "除了价格以外，还要看保修条件。",
+          "vi": "Ngoài giá còn phải xem điều kiện bảo hành."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "除了价格以外，但是还要看保修条件。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-13",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "除了……以外，都……",
+      "nameVi": "Trừ… ra đều…",
+      "formula": "除了 A 以外，都 B",
+      "communicativeFunctionVi": "loại trừ một thành phần",
+      "meaningVi": "loại trừ một thành phần",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần loại trừ một thành phần.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "除了最后一项以外，其他任务都完成了。",
+          "vi": "Trừ mục cuối, các nhiệm vụ khác đều hoàn thành."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "除了最后一项以外，但是其他任务都完成了。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-14",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "越来越……",
+      "nameVi": "Ngày càng…",
+      "formula": "越来越 + 形容词/心理动词",
+      "communicativeFunctionVi": "mô tả thay đổi theo thời gian",
+      "meaningVi": "mô tả thay đổi theo thời gian",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần mô tả thay đổi theo thời gian.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "她表达意见越来越有条理。",
+          "vi": "Cô ấy trình bày ý kiến ngày càng mạch lạc."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "她表达意见越来越有条理。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-15",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "越……越……",
+      "nameVi": "Càng… càng…",
+      "formula": "越 A，越 B",
+      "communicativeFunctionVi": "quan hệ đồng biến",
+      "meaningVi": "quan hệ đồng biến",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần quan hệ đồng biến.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "信息越具体，处理起来越容易。",
+          "vi": "Thông tin càng cụ thể càng dễ xử lý."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "信息越具体，但是处理起来越容易。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-16",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "越……越不……",
+      "nameVi": "Càng… càng không…",
+      "formula": "越 A，越不 B",
+      "communicativeFunctionVi": "quan hệ thay đổi nghịch trong ngữ cảnh",
+      "meaningVi": "quan hệ thay đổi nghịch trong ngữ cảnh",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần quan hệ thay đổi nghịch trong ngữ cảnh.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "越着急，越不能随便下结论。",
+          "vi": "Càng vội càng không được kết luận tùy tiện."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "越着急，但是越不能随便下结论。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-17",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "比……更/还……",
+      "nameVi": "So sánh mức cao hơn",
+      "formula": "A 比 B 更/还 + 形容词",
+      "communicativeFunctionVi": "so sánh có mức độ",
+      "meaningVi": "so sánh có mức độ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần so sánh có mức độ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "长期成本比价格更重要。",
+          "vi": "Chi phí dài hạn quan trọng hơn giá."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "长期成本比价格更重要。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-18",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "没有……那么……",
+      "nameVi": "Không… bằng…",
+      "formula": "A 没有 B 那么 + 形容词",
+      "communicativeFunctionVi": "so sánh mức thấp hơn",
+      "meaningVi": "so sánh mức thấp hơn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần so sánh mức thấp hơn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "线上说明没有现场解释那么直接。",
+          "vi": "Hướng dẫn online không trực tiếp bằng giải thích tại chỗ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "线上说明没有现场解释那么直接。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-19",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "跟……一样/不一样",
+      "nameVi": "Giống/khác với…",
+      "formula": "A 跟 B 一样/不一样",
+      "communicativeFunctionVi": "so sánh tương đồng/khác biệt",
+      "meaningVi": "so sánh tương đồng/khác biệt",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần so sánh tương đồng/khác biệt.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "不同城市的分类规则不完全一样。",
+          "vi": "Quy tắc phân loại ở các thành phố không hoàn toàn giống nhau."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "不同城市的分类规则不完全一样。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-20",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "是……的",
+      "nameVi": "Nhấn mạnh hoàn cảnh đã xảy ra",
+      "formula": "主语 + 是 + 时间/地点/方式 + 动词 + 的",
+      "communicativeFunctionVi": "làm rõ thời gian, nơi, cách",
+      "meaningVi": "làm rõ thời gian, nơi, cách",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần làm rõ thời gian, nơi, cách.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这份通知是昨天晚上发布的。",
+          "vi": "Thông báo này được phát tối qua."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这份通知是昨天晚上发布的。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-21",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "把 + 宾语 + 结果补语",
+      "nameVi": "Câu 把 với kết quả",
+      "formula": "把 O + V + 结果",
+      "communicativeFunctionVi": "nhấn mạnh xử lý và kết quả",
+      "meaningVi": "nhấn mạnh xử lý và kết quả",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nhấn mạnh xử lý và kết quả.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "请把需要确认的问题写清楚。",
+          "vi": "Hãy viết rõ những vấn đề cần xác nhận."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "请把需要确认的问题写清楚。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-22",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "把 + 宾语 + 到/在/给",
+      "nameVi": "Câu 把 với đích",
+      "formula": "把 O + V + 到/在/给 + 目标",
+      "communicativeFunctionVi": "nêu nơi/người nhận",
+      "meaningVi": "nêu nơi/người nhận",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu nơi/người nhận.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "把最新安排发给所有参加者。",
+          "vi": "Gửi lịch mới nhất cho toàn bộ người tham gia."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "把最新安排发给所有参加者。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-23",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "被 + 施事 + 动词",
+      "nameVi": "Bị động với 被",
+      "formula": "受事 + 被 + 施事 + V",
+      "communicativeFunctionVi": "nêu tác nhân trong bị động",
+      "meaningVi": "nêu tác nhân trong bị động",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu tác nhân trong bị động.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "旧消息被很多人当成了新通知。",
+          "vi": "Tin cũ bị nhiều người coi là thông báo mới."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "旧消息被很多人当成了新通知。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-24",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "叫/让 + 施事 + 动词",
+      "nameVi": "Bị động khẩu ngữ",
+      "formula": "受事 + 叫/让 + 施事 + V",
+      "communicativeFunctionVi": "bị động thường có sắc thái không mong muốn",
+      "meaningVi": "bị động thường có sắc thái không mong muốn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần bị động thường có sắc thái không mong muốn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "我的行程让突然的天气变化打乱了。",
+          "vi": "Lịch trình của tôi bị thay đổi thời tiết đột ngột làm đảo lộn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我的行程让突然的天气变化打乱了。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-25",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "让 + 人 + 形容词",
+      "nameVi": "Khiến ai cảm thấy…",
+      "formula": "事情 + 让 + 人 + 形容词",
+      "communicativeFunctionVi": "nêu tác động cảm xúc",
+      "meaningVi": "nêu tác động cảm xúc",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu tác động cảm xúc.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "不清楚的责任分工让大家很紧张。",
+          "vi": "Phân công trách nhiệm không rõ khiến mọi người căng thẳng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "不清楚的责任分工让大家很紧张。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-26",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "使 + 宾语 + 谓语",
+      "nameVi": "Khiến (văn viết)",
+      "formula": "A 使 B + 谓语",
+      "communicativeFunctionVi": "nêu quan hệ tác động trang trọng",
+      "meaningVi": "nêu quan hệ tác động trang trọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu quan hệ tác động trang trọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "明确的步骤使操作更加安全。",
+          "vi": "Các bước rõ ràng khiến thao tác an toàn hơn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "明确的步骤使操作更加安全。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-27",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "有的……有的……",
+      "nameVi": "Có người/cái… có…",
+      "formula": "有的 A，有的 B",
+      "communicativeFunctionVi": "phân loại trong một tập hợp",
+      "meaningVi": "phân loại trong một tập hợp",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần phân loại trong một tập hợp.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "有的任务适合线上，有的需要现场处理。",
+          "vi": "Có nhiệm vụ hợp làm online, có nhiệm vụ cần xử lý tại chỗ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "有的任务适合线上，但是有的需要现场处理。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-28",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "一方面……另一方面……",
+      "nameVi": "Một mặt… mặt khác…",
+      "formula": "一方面 A，另一方面 B",
+      "communicativeFunctionVi": "trình bày hai phương diện",
+      "meaningVi": "trình bày hai phương diện",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần trình bày hai phương diện.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "线上服务一方面省时间，另一方面可能缺少解释。",
+          "vi": "Dịch vụ online một mặt tiết kiệm thời gian, mặt khác có thể thiếu giải thích."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "线上服务一方面省时间，但是另一方面可能缺少解释。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-29",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "一是……二是……",
+      "nameVi": "Thứ nhất… thứ hai…",
+      "formula": "一是 A，二是 B",
+      "communicativeFunctionVi": "liệt kê lý do trong diễn ngôn",
+      "meaningVi": "liệt kê lý do trong diễn ngôn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần liệt kê lý do trong diễn ngôn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "原因一是信息过期，二是适用范围不同。",
+          "vi": "Nguyên nhân thứ nhất là tin hết hạn, thứ hai là phạm vi khác."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "原因一是信息过期，但是二是适用范围不同。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-30",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "首先……其次……",
+      "nameVi": "Trước hết… tiếp theo…",
+      "formula": "首先 A，其次 B",
+      "communicativeFunctionVi": "tổ chức lập luận trang trọng",
+      "meaningVi": "tổ chức lập luận trang trọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần tổ chức lập luận trang trọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "首先确认目标，其次比较方案。",
+          "vi": "Trước hết xác nhận mục tiêu, tiếp theo so sánh phương án."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "首先确认目标，但是其次比较方案。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-31",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "因此/所以",
+      "nameVi": "Do đó/vì vậy",
+      "formula": "原因。因此/所以 + 结果",
+      "communicativeFunctionVi": "nêu kết quả từ nguyên nhân",
+      "meaningVi": "nêu kết quả từ nguyên nhân",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu kết quả từ nguyên nhân.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "样本很小，因此结论需要限制范围。",
+          "vi": "Mẫu nhỏ, do đó kết luận cần giới hạn phạm vi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "样本很小，但是因此结论需要限制范围。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-32",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "由于……因此……",
+      "nameVi": "Do… nên… (văn viết)",
+      "formula": "由于 A，因此 B",
+      "communicativeFunctionVi": "quan hệ nguyên nhân trang trọng",
+      "meaningVi": "quan hệ nguyên nhân trang trọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần quan hệ nguyên nhân trang trọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "由于航班晚点，因此会议时间需要调整。",
+          "vi": "Do chuyến bay trễ nên giờ họp cần điều chỉnh."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "由于航班晚点，但是因此会议时间需要调整。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-33",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "之所以……是因为……",
+      "nameVi": "Sở dĩ… là vì…",
+      "formula": "之所以 A，是因为 B",
+      "communicativeFunctionVi": "nhấn mạnh giải thích nguyên nhân",
+      "meaningVi": "nhấn mạnh giải thích nguyên nhân",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nhấn mạnh giải thích nguyên nhân.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "我之所以选择方案二，是因为它风险更低。",
+          "vi": "Sở dĩ tôi chọn phương án hai vì rủi ro thấp hơn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我之所以选择方案二，但是是因为它风险更低。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-34",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "既……所以……",
+      "nameVi": "Đã có căn cứ nên…",
+      "formula": "既有事实 A，所以 B",
+      "communicativeFunctionVi": "suy luận từ dữ kiện đã nêu",
+      "meaningVi": "suy luận từ dữ kiện đã nêu",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần suy luận từ dữ kiện đã nêu.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "既有正式通知，所以我们按新时间执行。",
+          "vi": "Đã có thông báo chính thức nên chúng ta thực hiện theo giờ mới."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "既有正式通知，但是所以我们按新时间执行。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-35",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "否则/不然",
+      "nameVi": "Nếu không",
+      "formula": "建议/条件，否则/不然 + 后果",
+      "communicativeFunctionVi": "cảnh báo hậu quả",
+      "meaningVi": "cảnh báo hậu quả",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần cảnh báo hậu quả.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "请保存订单号，否则很难查询。",
+          "vi": "Hãy lưu mã đơn, nếu không sẽ khó tra cứu."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "请保存订单号，但是否则很难查询。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-36",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "只要……就……",
+      "nameVi": "Chỉ cần… thì…",
+      "formula": "只要 A，就 B",
+      "communicativeFunctionVi": "điều kiện đủ",
+      "meaningVi": "điều kiện đủ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần điều kiện đủ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "只要说明具体影响，对方就更容易处理。",
+          "vi": "Chỉ cần nói rõ ảnh hưởng, đối phương sẽ dễ xử lý hơn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "只要说明具体影响，但是对方就更容易处理。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-37",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "只有……才……",
+      "nameVi": "Chỉ khi… mới…",
+      "formula": "只有 A，才 B",
+      "communicativeFunctionVi": "điều kiện cần",
+      "meaningVi": "điều kiện cần",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần điều kiện cần.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "只有找到原始来源，才能确认消息。",
+          "vi": "Chỉ khi tìm được nguồn gốc mới xác nhận được tin."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "只有找到原始来源，但是才能确认消息。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-38",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "除非……否则……",
+      "nameVi": "Trừ khi… nếu không…",
+      "formula": "除非 A，否则 B",
+      "communicativeFunctionVi": "điều kiện ngoại lệ",
+      "meaningVi": "điều kiện ngoại lệ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần điều kiện ngoại lệ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "除非收到正式确认，否则不要公开。",
+          "vi": "Trừ khi nhận xác nhận chính thức, nếu không đừng công khai."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "除非收到正式确认，但是否则不要公开。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-39",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "要是/如果……就……",
+      "nameVi": "Nếu… thì…",
+      "formula": "要是/如果 A，就 B",
+      "communicativeFunctionVi": "điều kiện thực/giả định",
+      "meaningVi": "điều kiện thực/giả định",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần điều kiện thực/giả định.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "如果没有蓝灯，就停止操作。",
+          "vi": "Nếu không có đèn xanh thì dừng thao tác."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "如果没有蓝灯，但是就停止操作。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-40",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "万一……就……",
+      "nameVi": "Lỡ như… thì…",
+      "formula": "万一 A，就 B",
+      "communicativeFunctionVi": "dự phòng rủi ro ít mong muốn",
+      "meaningVi": "dự phòng rủi ro ít mong muốn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần dự phòng rủi ro ít mong muốn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "万一线路停运，就改走备用路线。",
+          "vi": "Lỡ tuyến ngừng hoạt động thì đi tuyến dự phòng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "万一线路停运，但是就改走备用路线。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-41",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "差一点儿……",
+      "nameVi": "Suýt…",
+      "formula": "差一点儿 + 动词",
+      "communicativeFunctionVi": "sự việc gần xảy ra",
+      "meaningVi": "sự việc gần xảy ra",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần sự việc gần xảy ra.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "我差一点儿把旧通知转发出去。",
+          "vi": "Tôi suýt chuyển tiếp thông báo cũ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我差一点儿把旧通知转发出去。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-42",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "几乎/差不多",
+      "nameVi": "Hầu như/gần như",
+      "formula": "几乎/差不多 + 谓语",
+      "communicativeFunctionVi": "ước lượng gần mức",
+      "meaningVi": "ước lượng gần mức",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần ước lượng gần mức.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "材料几乎准备好了，只差签名。",
+          "vi": "Tài liệu gần như xong, chỉ thiếu chữ ký."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "材料几乎准备好了，但是只差签名。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-43",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "原来……",
+      "nameVi": "Hóa ra/ban đầu",
+      "formula": "原来 + 新发现/旧状态",
+      "communicativeFunctionVi": "đánh dấu nhận thức mới hoặc trạng thái trước",
+      "meaningVi": "đánh dấu nhận thức mới hoặc trạng thái trước",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần đánh dấu nhận thức mới hoặc trạng thái trước.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "原来问题不是网络，而是密码过期了。",
+          "vi": "Hóa ra vấn đề không phải mạng mà là mật khẩu hết hạn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "原来问题不是网络，但是而是密码过期了。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-44",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "本来……可是……",
+      "nameVi": "Vốn định… nhưng…",
+      "formula": "本来 A，可是 B",
+      "communicativeFunctionVi": "đối lập kế hoạch và thực tế",
+      "meaningVi": "đối lập kế hoạch và thực tế",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần đối lập kế hoạch và thực tế.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "我本来要坐地铁，可是线路临时停运。",
+          "vi": "Tôi vốn định đi metro nhưng tuyến tạm ngừng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我本来要坐地铁，但是可是线路临时停运。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-45",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "没想到/想不到",
+      "nameVi": "Không ngờ",
+      "formula": "没想到 + 意外结果",
+      "communicativeFunctionVi": "đánh dấu trái kỳ vọng",
+      "meaningVi": "đánh dấu trái kỳ vọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần đánh dấu trái kỳ vọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "没想到简单的标点会造成误会。",
+          "vi": "Không ngờ dấu câu đơn giản lại gây hiểu lầm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "没想到简单的标点会造成误会。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-46",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "竟然",
+      "nameVi": "Lại/không ngờ",
+      "formula": "主语 + 竟然 + 谓语",
+      "communicativeFunctionVi": "thể hiện bất ngờ mạnh",
+      "meaningVi": "thể hiện bất ngờ mạnh",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần thể hiện bất ngờ mạnh.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这条旧消息竟然又传开了。",
+          "vi": "Tin cũ này không ngờ lại lan ra."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这条旧消息竟然又传开了。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-47",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "究竟/到底",
+      "nameVi": "Rốt cuộc",
+      "formula": "究竟/到底 + 疑问",
+      "communicativeFunctionVi": "truy hỏi bản chất/kết quả",
+      "meaningVi": "truy hỏi bản chất/kết quả",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần truy hỏi bản chất/kết quả.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这项规定到底解决什么问题？",
+          "vi": "Quy định này rốt cuộc giải quyết vấn đề gì?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这项规定到底解决什么问题？",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-48",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "难道……吗",
+      "nameVi": "Chẳng lẽ… sao",
+      "formula": "难道 + 命题 + 吗",
+      "communicativeFunctionVi": "câu hỏi tu từ phản kỳ vọng",
+      "meaningVi": "câu hỏi tu từ phản kỳ vọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần câu hỏi tu từ phản kỳ vọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "难道价格低就一定更划算吗？",
+          "vi": "Chẳng lẽ giá thấp thì chắc chắn đáng tiền hơn sao?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "难道价格低就一定更划算吗？",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-49",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "千万",
+      "nameVi": "Nhất định đừng/phải",
+      "formula": "千万 + 要/别/不要",
+      "communicativeFunctionVi": "nhắc nhở mạnh",
+      "meaningVi": "nhắc nhở mạnh",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nhắc nhở mạnh.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "涉及个人信息，千万不要随便转发。",
+          "vi": "Liên quan thông tin cá nhân thì tuyệt đối đừng chuyển tiếp tùy tiện."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "涉及个人信息，但是千万不要随便转发。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-50",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "只好",
+      "nameVi": "Đành phải",
+      "formula": "主语 + 只好 + 动词",
+      "communicativeFunctionVi": "lựa chọn duy nhất còn lại",
+      "meaningVi": "lựa chọn duy nhất còn lại",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần lựa chọn duy nhất còn lại.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "末班车停了，我们只好打车。",
+          "vi": "Chuyến cuối ngừng nên chúng tôi đành đi taxi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "末班车停了，但是我们只好打车。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-51",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "正好",
+      "nameVi": "Vừa đúng",
+      "formula": "正好 + 动词/数量/时间",
+      "communicativeFunctionVi": "sự trùng hợp phù hợp",
+      "meaningVi": "sự trùng hợp phù hợp",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần sự trùng hợp phù hợp.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这份数据正好能支持第二个观点。",
+          "vi": "Dữ liệu này vừa đúng có thể hỗ trợ luận điểm thứ hai."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这份数据正好能支持第二个观点。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-52",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "仍然/还是",
+      "nameVi": "Vẫn",
+      "formula": "仍然/还是 + 谓语",
+      "communicativeFunctionVi": "trạng thái tiếp diễn sau thay đổi",
+      "meaningVi": "trạng thái tiếp diễn sau thay đổi",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần trạng thái tiếp diễn sau thay đổi.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "解释以后，他仍然有一个问题。",
+          "vi": "Sau khi giải thích, anh ấy vẫn còn một câu hỏi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "解释以后，但是他仍然有一个问题。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-53",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "不断",
+      "nameVi": "Liên tục",
+      "formula": "不断 + 动词/变化",
+      "communicativeFunctionVi": "quá trình lặp hoặc phát triển",
+      "meaningVi": "quá trình lặp hoặc phát triển",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần quá trình lặp hoặc phát triển.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "团队不断根据反馈修改说明。",
+          "vi": "Nhóm liên tục sửa hướng dẫn theo phản hồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "团队不断根据反馈修改说明。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-54",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "逐渐/渐渐",
+      "nameVi": "Dần dần",
+      "formula": "逐渐/渐渐 + 变化",
+      "communicativeFunctionVi": "thay đổi từ từ",
+      "meaningVi": "thay đổi từ từ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần thay đổi từ từ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "她逐渐学会用证据表达意见。",
+          "vi": "Cô ấy dần học cách dùng bằng chứng nêu ý kiến."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "她逐渐学会用证据表达意见。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-55",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "曾经……过",
+      "nameVi": "Đã từng",
+      "formula": "曾经 + 动词 + 过",
+      "communicativeFunctionVi": "kinh nghiệm trong quá khứ",
+      "meaningVi": "kinh nghiệm trong quá khứ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần kinh nghiệm trong quá khứ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "我曾经因为没确认地点而迟到过。",
+          "vi": "Tôi từng đến muộn vì không xác nhận địa điểm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我曾经因为没确认地点而迟到过。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-56",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "从来没/不",
+      "nameVi": "Chưa bao giờ/không bao giờ",
+      "formula": "从来 + 没/不 + 谓语",
+      "communicativeFunctionVi": "phủ định xuyên suốt thời gian",
+      "meaningVi": "phủ định xuyên suốt thời gian",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần phủ định xuyên suốt thời gian.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "我从来没在没有来源时转发通知。",
+          "vi": "Tôi chưa bao giờ chuyển thông báo khi chưa có nguồn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我从来没在没有来源时转发通知。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-57",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "自从……以来",
+      "nameVi": "Từ khi… đến nay",
+      "formula": "自从 A 以来，B",
+      "communicativeFunctionVi": "mốc bắt đầu của trạng thái",
+      "meaningVi": "mốc bắt đầu của trạng thái",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần mốc bắt đầu của trạng thái.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "自从改用清单以来，遗漏少多了。",
+          "vi": "Từ khi dùng checklist, bỏ sót ít hơn nhiều."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "自从改用清单以来，但是遗漏少多了。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-58",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "到……为止",
+      "nameVi": "Cho đến…",
+      "formula": "到 + 时间/范围 + 为止",
+      "communicativeFunctionVi": "đặt điểm kết thúc",
+      "meaningVi": "đặt điểm kết thúc",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần đặt điểm kết thúc.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "到周五为止，我们收到四十份回答。",
+          "vi": "Đến thứ Sáu, chúng tôi nhận 40 câu trả lời."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "到周五为止，但是我们收到四十份回答。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-59",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "在……之内/以内",
+      "nameVi": "Trong phạm vi…",
+      "formula": "在 + 时间/数量 + 之内",
+      "communicativeFunctionVi": "giới hạn thời gian/số lượng",
+      "meaningVi": "giới hạn thời gian/số lượng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần giới hạn thời gian/số lượng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "请在七天以内提交申请。",
+          "vi": "Hãy nộp đơn trong vòng bảy ngày."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "请在七天以内提交申请。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-60",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "对……来说",
+      "nameVi": "Đối với…",
+      "formula": "对 + 人/群体 + 来说",
+      "communicativeFunctionVi": "đặt góc nhìn",
+      "meaningVi": "đặt góc nhìn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần đặt góc nhìn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "对带孩子的家庭来说，距离很重要。",
+          "vi": "Đối với gia đình có trẻ, khoảng cách rất quan trọng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "对带孩子的家庭来说，但是距离很重要。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-61",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "对于……",
+      "nameVi": "Đối với/về…",
+      "formula": "对于 + 话题，主语 + 谓语",
+      "communicativeFunctionVi": "nêu chủ đề trong văn nói/viết",
+      "meaningVi": "nêu chủ đề trong văn nói/viết",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu chủ đề trong văn nói/viết.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "对于这个结果，我们还需要更多证据。",
+          "vi": "Đối với kết quả này, chúng ta cần thêm bằng chứng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "对于这个结果，但是我们还需要更多证据。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-62",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "关于……",
+      "nameVi": "Về…",
+      "formula": "关于 + 话题",
+      "communicativeFunctionVi": "giới thiệu chủ đề",
+      "meaningVi": "giới thiệu chủ đề",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần giới thiệu chủ đề.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "关于退换货条件，说明书写得很清楚。",
+          "vi": "Về điều kiện đổi trả, tài liệu viết rất rõ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "关于退换货条件，但是说明书写得很清楚。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-63",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "由……负责",
+      "nameVi": "Do… phụ trách",
+      "formula": "任务 + 由 + 人 + 负责",
+      "communicativeFunctionVi": "phân công trách nhiệm trang trọng",
+      "meaningVi": "phân công trách nhiệm trang trọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần phân công trách nhiệm trang trọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "最终报告由项目负责人确认。",
+          "vi": "Báo cáo cuối do người phụ trách dự án xác nhận."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "最终报告由项目负责人确认。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-64",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "由……组成",
+      "nameVi": "Gồm…",
+      "formula": "整体 + 由 + 部分 + 组成",
+      "communicativeFunctionVi": "mô tả cấu thành",
+      "meaningVi": "mô tả cấu thành",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần mô tả cấu thành.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "调查由五个中性问题组成。",
+          "vi": "Khảo sát gồm năm câu hỏi trung lập."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "调查由五个中性问题组成。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-65",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "用于/用来",
+      "nameVi": "Dùng để",
+      "formula": "A 用于/用来 + 用途",
+      "communicativeFunctionVi": "nêu công dụng",
+      "meaningVi": "nêu công dụng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu công dụng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这个编号用来查询处理进度。",
+          "vi": "Mã này dùng để tra tiến độ xử lý."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这个编号用来查询处理进度。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-66",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "通过……",
+      "nameVi": "Thông qua/bằng cách",
+      "formula": "通过 + 方法，达到结果",
+      "communicativeFunctionVi": "nêu phương thức",
+      "meaningVi": "nêu phương thức",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu phương thức.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "通过比较前后录音，我发现了变化。",
+          "vi": "Thông qua so sánh ghi âm trước sau, tôi phát hiện thay đổi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "通过比较前后录音，但是我发现了变化。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-67",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "按照/按……",
+      "nameVi": "Theo…",
+      "formula": "按照/按 + 标准/计划 + 动词",
+      "communicativeFunctionVi": "thực hiện theo căn cứ",
+      "meaningVi": "thực hiện theo căn cứ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần thực hiện theo căn cứ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "请按照最新通知安排时间。",
+          "vi": "Hãy sắp xếp thời gian theo thông báo mới nhất."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "请按照最新通知安排时间。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-68",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "根据……",
+      "nameVi": "Căn cứ theo…",
+      "formula": "根据 + 证据/规定 + 结论",
+      "communicativeFunctionVi": "nêu căn cứ kết luận",
+      "meaningVi": "nêu căn cứ kết luận",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu căn cứ kết luận.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "根据现有数据，只能得出初步结论。",
+          "vi": "Theo dữ liệu hiện có chỉ có thể kết luận sơ bộ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "根据现有数据，但是只能得出初步结论。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-69",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "据……",
+      "nameVi": "Theo nguồn…",
+      "formula": "据 + 来源 + 报道/说明",
+      "communicativeFunctionVi": "dẫn nguồn ngắn gọn",
+      "meaningVi": "dẫn nguồn ngắn gọn",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần dẫn nguồn ngắn gọn.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "据官方通知，活动推迟到周日。",
+          "vi": "Theo thông báo chính thức, hoạt động lùi đến Chủ nhật."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "据官方通知，但是活动推迟到周日。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-70",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "所谓……",
+      "nameVi": "Cái gọi là…",
+      "formula": "所谓 A，是指 B",
+      "communicativeFunctionVi": "định nghĩa/giải thích khái niệm",
+      "meaningVi": "định nghĩa/giải thích khái niệm",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần định nghĩa/giải thích khái niệm.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "所谓有效反馈，是指能帮助对方改进的信息。",
+          "vi": "Phản hồi hiệu quả là thông tin giúp đối phương cải thiện."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "所谓有效反馈，但是是指能帮助对方改进的信息。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-71",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "换句话说",
+      "nameVi": "Nói cách khác",
+      "formula": "陈述。换句话说，重述",
+      "communicativeFunctionVi": "diễn đạt lại để làm rõ",
+      "meaningVi": "diễn đạt lại để làm rõ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần diễn đạt lại để làm rõ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "样本只来自一个班。换句话说，范围很有限。",
+          "vi": "Mẫu chỉ từ một lớp; nói cách khác phạm vi rất hạn chế."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "样本只来自一个班。换句话说，但是范围很有限。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-72",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "例如/比如",
+      "nameVi": "Ví dụ",
+      "formula": "观点，例如/比如 + 例子",
+      "communicativeFunctionVi": "đưa ví dụ hỗ trợ",
+      "meaningVi": "đưa ví dụ hỗ trợ",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần đưa ví dụ hỗ trợ.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "可以准备备用方案，比如改乘地铁。",
+          "vi": "Có thể chuẩn bị phương án dự phòng, ví dụ chuyển sang metro."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "可以准备备用方案，但是比如改乘地铁。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-73",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "尤其",
+      "nameVi": "Đặc biệt là",
+      "formula": "范围 + 尤其 + 突出项",
+      "communicativeFunctionVi": "nhấn mạnh phần nổi bật",
+      "meaningVi": "nhấn mạnh phần nổi bật",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nhấn mạnh phần nổi bật.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "出行前要确认信息，尤其是时间和地点。",
+          "vi": "Trước khi đi phải xác nhận thông tin, đặc biệt là giờ và nơi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "出行前要确认信息，但是尤其是时间和地点。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-74",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "至少",
+      "nameVi": "Ít nhất",
+      "formula": "至少 + 数量/要求",
+      "communicativeFunctionVi": "nêu ngưỡng tối thiểu",
+      "meaningVi": "nêu ngưỡng tối thiểu",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu ngưỡng tối thiểu.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "结论至少需要两条证据支持。",
+          "vi": "Kết luận cần ít nhất hai bằng chứng hỗ trợ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "结论至少需要两条证据支持。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-75",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "仅/仅仅",
+      "nameVi": "Chỉ",
+      "formula": "仅/仅仅 + 限定范围",
+      "communicativeFunctionVi": "giới hạn phạm vi trang trọng",
+      "meaningVi": "giới hạn phạm vi trang trọng",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần giới hạn phạm vi trang trọng.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "这次调查仅代表参加者的意见。",
+          "vi": "Khảo sát này chỉ đại diện ý kiến người tham gia."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这次调查仅代表参加者的意见。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk4-grammar-76",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "nameZh": "共/一共",
+      "nameVi": "Tổng cộng",
+      "formula": "共/一共 + 数量",
+      "communicativeFunctionVi": "nêu tổng số",
+      "meaningVi": "nêu tổng số",
+      "usageVi": [
+        "Dùng cấu trúc này khi cần nêu tổng số.",
+        "Kiểm tra quan hệ logic giữa hai vế; không ghép từ nối chỉ để câu dài hơn."
+      ],
+      "positionVi": "Vị trí được thể hiện trong công thức; thành phần có thể lược khi ngữ cảnh đã rõ nhưng quan hệ logic phải giữ.",
+      "correctExamples": [
+        {
+          "zh": "项目共收到四十份有效回答。",
+          "vi": "Dự án nhận tổng cộng 40 câu trả lời hợp lệ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "项目共收到四十份有效回答。",
+          "explanationVi": "Không chồng từ nối hoặc thêm thành phần khi quan hệ đã được đánh dấu rõ."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người Việt dễ chọn từ nối theo bản dịch bề mặt; hãy xác định đây là nguyên nhân, nhượng bộ, điều kiện hay bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Phủ định/nghi vấn phụ thuộc chức năng; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 4,
+      "reviewLevels": [
+        5
+      ],
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    }
+  ]
+}

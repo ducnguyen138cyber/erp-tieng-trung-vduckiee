@@ -49,9 +49,10 @@
     {
       "level": 4,
       "stage": "intermediate",
-      "status": "planned",
+      "status": "machine-assisted",
       "path": "hsk4/level.json",
-      "productionReady": false
+      "productionReady": false,
+      "courseManifestPath": "hsk4/course-manifest.json"
     },
     {
       "level": 5,
@@ -98,5 +99,6 @@
     }
   ],
   "hsk2CourseManifestPath": "hsk2/course-manifest.json",
-  "hsk3CourseManifestPath": "hsk3/course-manifest.json"
+  "hsk3CourseManifestPath": "hsk3/course-manifest.json",
+  "hsk4CourseManifestPath": "hsk4/course-manifest.json"
 }

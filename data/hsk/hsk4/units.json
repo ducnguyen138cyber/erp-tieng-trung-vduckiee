@@ -1,0 +1,773 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "units",
+  "level": 4,
+  "records": [
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-01",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 1,
+      "topic": "Con người và quan hệ",
+      "titleZh": "人物与关系",
+      "titleVi": "Con người và quan hệ",
+      "objectives": [
+        "Miêu tả con người, quan hệ và cảm xúc bằng bằng chứng thay vì nhãn chung.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [],
+      "prerequisiteLevelId": "hsk3",
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-01",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-02",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-03",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-01",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-02",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 2,
+      "topic": "Học tập và trưởng thành",
+      "titleZh": "学习与成长",
+      "titleVi": "Học tập và trưởng thành",
+      "objectives": [
+        "Đặt mục tiêu, phản tư phương pháp và trao đổi kết quả học tập.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-01"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-04",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-05",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-06",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-02",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-03",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 3,
+      "topic": "Tìm việc và môi trường làm việc",
+      "titleZh": "求职与职场",
+      "titleVi": "Tìm việc và môi trường làm việc",
+      "objectives": [
+        "Xử lý tuyển dụng, nhiệm vụ, phản hồi và trách nhiệm nghề nghiệp.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-02"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-07",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-08",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-09",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-03",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-04",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 4,
+      "topic": "Đi lại và dịch vụ",
+      "titleZh": "出行与服务",
+      "titleVi": "Đi lại và dịch vụ",
+      "objectives": [
+        "Hoàn thành quy trình đi lại, lưu trú và dịch vụ có nhiều bước.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-03"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-10",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-11",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-12",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-04",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-05",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 5,
+      "topic": "Tiêu dùng và lựa chọn",
+      "titleZh": "消费与选择",
+      "titleVi": "Tiêu dùng và lựa chọn",
+      "objectives": [
+        "So sánh, thương lượng, khiếu nại và đưa ra lựa chọn có lý do.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-04"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-13",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-14",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-15",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-05",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-06",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 6,
+      "topic": "Sức khỏe và thói quen",
+      "titleZh": "健康与习惯",
+      "titleVi": "Sức khỏe và thói quen",
+      "objectives": [
+        "Mô tả triệu chứng, thói quen, lời khuyên và thay đổi hành vi.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-05"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-16",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-17",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-18",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-06",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-07",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 7,
+      "topic": "Thành phố và nơi ở",
+      "titleZh": "城市与居住",
+      "titleVi": "Thành phố và nơi ở",
+      "objectives": [
+        "Bàn về nhà ở, tiện ích, giao thông và chất lượng sống.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-06"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-19",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-20",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-21",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-07",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-08",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 8,
+      "topic": "Mạng và thông tin",
+      "titleZh": "网络与信息",
+      "titleVi": "Mạng và thông tin",
+      "objectives": [
+        "Đọc, xác minh, chuyển tiếp và phản hồi thông tin số có trách nhiệm.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-07"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-22",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-23",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-24",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-08",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-09",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 9,
+      "topic": "Văn hóa và phép lịch sự",
+      "titleZh": "文化与礼貌",
+      "titleVi": "Văn hóa và phép lịch sự",
+      "objectives": [
+        "Ứng xử phù hợp trong lời mời, quà tặng, bàn ăn và giao tiếp liên văn hóa.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-08"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-25",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-26",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-27",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-09",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-10",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 10,
+      "topic": "Tự nhiên và môi trường",
+      "titleZh": "自然与环境",
+      "titleVi": "Tự nhiên và môi trường",
+      "objectives": [
+        "Giải thích hiện tượng, tác động và giải pháp môi trường ở mức cá nhân/cộng đồng.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-09"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-28",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-29",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-30",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-10",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-11",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 11,
+      "topic": "Truyền thông và nghệ thuật",
+      "titleZh": "媒体与艺术",
+      "titleVi": "Truyền thông và nghệ thuật",
+      "objectives": [
+        "Tóm tắt, đánh giá và giới thiệu tác phẩm, chương trình, sự kiện.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-10"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-31",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-32",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-33",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-11",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-12",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 12,
+      "topic": "Xã hội và quy tắc",
+      "titleZh": "社会与规则",
+      "titleVi": "Xã hội và quy tắc",
+      "objectives": [
+        "Thảo luận quy định, trách nhiệm, công bằng và hiện tượng xã hội.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-11"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-34",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-35",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-36",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-12",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-13",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 13,
+      "topic": "Công nghệ và đời sống",
+      "titleZh": "科技与生活",
+      "titleVi": "Công nghệ và đời sống",
+      "objectives": [
+        "Giải thích thao tác, lợi ích, rủi ro và lựa chọn công nghệ.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-12"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-37",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-38",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-39",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-13",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-14",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 14,
+      "topic": "Trải nghiệm và kể chuyện",
+      "titleZh": "经历与叙事",
+      "titleVi": "Trải nghiệm và kể chuyện",
+      "objectives": [
+        "Kể chuyện có bối cảnh, bước ngoặt, kết quả và đánh giá.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-13"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-40",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-41",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-42",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-14",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-15",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 15,
+      "topic": "Quan điểm và thảo luận",
+      "titleZh": "观点与讨论",
+      "titleVi": "Quan điểm và thảo luận",
+      "objectives": [
+        "Nêu lập trường, nhượng bộ, phản biện và kết luận mạch lạc.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-14"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-43",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-44",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-45",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-15",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk4-unit-16",
+      "syllabusVersion": "GF0025-2021",
+      "level": 4,
+      "order": 16,
+      "topic": "Dự án tổng hợp",
+      "titleZh": "综合项目",
+      "titleVi": "Dự án tổng hợp",
+      "objectives": [
+        "Tích hợp nghe–nói–đọc–viết trong nhiệm vụ thực tế nhiều nguồn.",
+        "Tích hợp nghe–nói–đọc–viết và self-review.",
+        "Hoàn thành checkpoint với nhiệm vụ sản sinh."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk4-unit-15"
+      ],
+      "prerequisiteLevelId": null,
+      "lessonRefs": [
+        {
+          "id": "hsk4-lesson-46",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk4-lesson-47",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk4-lesson-48",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk4-assessment-unit-16",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    }
+  ]
+}
