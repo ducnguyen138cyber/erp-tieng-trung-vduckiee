@@ -34,8 +34,34 @@
     return document;
   }
 
+  function hskRouteRequested() {
+    try {
+      var params = new URLSearchParams(root.location && root.location.search || '');
+      return params.get('area') === 'hsk' || (root.location && root.location.hash === '#hsk');
+    } catch (error) {
+      return false;
+    }
+  }
+
+  function ensureHskRouteVisible() {
+    if (!hskRouteRequested() || !root.document || !root.document.getElementById) return;
+    var panel = root.document.getElementById('hsk');
+    var journey = root.document.getElementById('hskJourney');
+    if (panel) {
+      panel.classList.remove('hidden');
+      panel.removeAttribute('hidden');
+      panel.setAttribute('aria-hidden', 'false');
+    }
+    if (journey) {
+      journey.classList.remove('hidden');
+      journey.removeAttribute('hidden');
+      journey.setAttribute('aria-hidden', 'false');
+    }
+  }
+
   function ensureProjectAssessmentLink() {
     if (!root.document || !root.document.getElementById) return;
+    ensureHskRouteVisible();
     var list = root.document.getElementById('hskLessonList');
     if (!list || list.querySelector('[data-pro-assessment="' + projectAssessmentId + '"]')) return;
     if (!list.querySelector('[data-pro-assessment^="hsk4-assessment-"]')) return;
@@ -50,6 +76,7 @@
   function observeAssessmentNavigation() {
     if (!root.document || !root.MutationObserver) return;
     var start = function () {
+      ensureHskRouteVisible();
       var list = root.document.getElementById('hskLessonList');
       if (!list || list.__vduckieHsk4ProjectObserver) return;
       var observer = new root.MutationObserver(ensureProjectAssessmentLink);
@@ -88,6 +115,7 @@
   root.__VDUCKIE_HSK4_EDITORIAL_FETCH__ = true;
   root.VDuckieHsk4EditorialRuntime = Object.freeze({
     applyCorrections: applyCorrections,
-    ensureProjectAssessmentLink: ensureProjectAssessmentLink
+    ensureProjectAssessmentLink: ensureProjectAssessmentLink,
+    ensureHskRouteVisible: ensureHskRouteVisible
   });
 })(typeof globalThis !== 'undefined' ? globalThis : this);
