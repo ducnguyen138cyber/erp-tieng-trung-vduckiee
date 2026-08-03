@@ -44,6 +44,7 @@ jobs:
           echo '62407e74f4d10609c518c9c69d6331b47115459d68e36362ae57a9fe7d948cbc  scripts/build-hsk4-c5.py' | sha256sum --check
           chmod +x scripts/build-hsk4-c5.py
           python scripts/build-hsk4-c5.py
+          python scripts/finalize-hsk4-c5.py
       - name: Commit generated HSK4 corpus
         if: github.event_name == 'pull_request'
         run: |
@@ -51,7 +52,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add scripts/build-hsk4-c5.py data/hsk/manifest.json data/hsk/sources.json data/hsk/hsk4
-          git commit -m 'Generate professional HSK4 corpus'
+          git commit -m 'Finalize professional HSK4 corpus'
           git push origin HEAD:${{ github.head_ref }}
       - name: Install full regression dependencies
         run: |
