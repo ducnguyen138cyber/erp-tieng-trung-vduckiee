@@ -3,14 +3,14 @@
   "byLicenseStatus": {
     "reuse-limited": 10,
     "review-required": 2,
-    "verified": 5
+    "verified": 6
   },
   "reviewRequiredSources": [
     "legacy-cvdict",
     "legacy-ivankra-hsk30"
   ],
   "schemaVersion": "1.0.0",
-  "sourceCount": 17,
+  "sourceCount": 18,
   "usage": [
     {
       "licenseStatus": "reuse-limited",
@@ -19,17 +19,17 @@
     },
     {
       "licenseStatus": "verified",
-      "recordCount": 0,
+      "recordCount": 549,
       "sourceId": "cc-cedict-current"
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 638,
+      "recordCount": 1187,
       "sourceId": "cti-hsk3-competency-profile-2026"
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 783,
+      "recordCount": 1740,
       "sourceId": "cti-hsk3-current-syllabus-2026"
     },
     {
@@ -39,7 +39,7 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 300,
+      "recordCount": 849,
       "sourceId": "cti-hsk3-syllabus-pdf-2026"
     },
     {
@@ -74,7 +74,7 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 785,
+      "recordCount": 1475,
       "sourceId": "moe-gf0025-2021-standard"
     },
     {
@@ -84,7 +84,7 @@
     },
     {
       "licenseStatus": "verified",
-      "recordCount": 65,
+      "recordCount": 714,
       "sourceId": "unicode-unihan-17"
     },
     {
@@ -96,6 +96,11 @@
       "licenseStatus": "verified",
       "recordCount": 449,
       "sourceId": "vduckie-hsk2-c3-original"
+    },
+    {
+      "licenseStatus": "verified",
+      "recordCount": 858,
+      "sourceId": "vduckie-hsk3-c4-original"
     }
   ],
   "usedReviewRequiredSources": []
