@@ -3,21 +3,29 @@
 from __future__ import annotations
 
 import io
+import itertools
 import json
 import re
 import subprocess
+import unicodedata
 import urllib.request
 import zipfile
 from collections import Counter
 from pathlib import Path
 
-from pypinyin import Style, lazy_pinyin
+from pypinyin import Style, lazy_pinyin, pinyin as character_pinyin
 
 ROOT = Path(__file__).resolve().parents[1]
 HSK4 = ROOT / "data" / "hsk" / "hsk4"
 BUILDER = ROOT / "scripts" / "build-hsk4-c5.py"
 HAN_RE = re.compile(r"[\u3400-\u9fff]")
 UNIHAN_URL = "https://www.unicode.org/Public/17.0.0/ucd/Unihan.zip"
+TONE_MARKS = {
+    "\u0304": "1",
+    "\u0301": "2",
+    "\u030c": "3",
+    "\u0300": "4",
+}
 
 RADICAL_GROUPS = [
     ("氵", "海河清洗澡没法活酒满流深温游泳消池湖洋汁汗洁泪湿洪波浪滴湾源"),
@@ -60,24 +68,94 @@ def write_json(path: Path, value) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def pronunciation(text: str) -> dict[str, str]:
-    tone = " ".join(lazy_pinyin(text, style=Style.TONE, strict=False, errors="default")).lower()
-    number = " ".join(
-        lazy_pinyin(
-            text,
-            style=Style.TONE3,
-            neutral_tone_with_five=True,
-            strict=False,
-            errors="default",
-        )
-    ).lower()
-    number = number.replace("u:", "v").replace("ü", "v")
-    normal = " ".join(lazy_pinyin(text, style=Style.NORMAL, strict=False, errors="default")).lower()
-    normal = normal.replace("u:", "v").replace("ü", "v")
+def ascii_base(value: str) -> str:
+    decomposed = unicodedata.normalize("NFD", value.lower().replace("ü", "v"))
+    return re.sub(r"[^a-zv]", "", decomposed)
+
+
+def split_accented(value: str, lengths: list[int]) -> list[str]:
+    chars = list(value)
+    output: list[str] = []
+    start = 0
+    base_count = 0
+    target_index = 0
+    for index, character in enumerate(chars):
+        if ascii_base(character):
+            base_count += 1
+        if target_index < len(lengths) and base_count == sum(lengths[: target_index + 1]):
+            end = index + 1
+            while end < len(chars) and unicodedata.combining(chars[end]):
+                end += 1
+            output.append("".join(chars[start:end]))
+            start = end
+            target_index += 1
+    if target_index != len(lengths) or start != len(chars):
+        return []
+    return output
+
+
+def pronunciation_options(word: str) -> list[list[str]]:
+    rows = character_pinyin(word, style=Style.NORMAL, heteronym=True, strict=False, errors="default")
+    options: list[list[str]] = []
+    for row in rows:
+        cleaned = sorted({ascii_base(item) for item in row if ascii_base(item)})
+        options.append(cleaned or [""])
+    return options
+
+
+def official_syllables(word: str, raw: str) -> list[str]:
+    cleaned = re.sub(r"[’']", " ", str(raw or "").split("/", 1)[0]).strip().lower()
+    compact = re.sub(r"\s+", "", cleaned)
+    target = ascii_base(compact)
+    options = pronunciation_options(word)
+    chosen: tuple[str, ...] | None = None
+    # HSK4 headwords are short; bound the search while preserving official polyphonic readings.
+    if len(options) <= 8:
+        for candidate in itertools.product(*options):
+            if "".join(candidate) == target:
+                chosen = candidate
+                break
+    if chosen:
+        segmented = split_accented(compact, [len(item) for item in chosen])
+        if segmented:
+            return segmented
+    existing = [item for item in re.split(r"\s+", cleaned) if item]
+    if len(existing) > 1 and all(ascii_base(item) for item in existing):
+        # Repair accidental spaces inside one syllable, e.g. gā n cuì -> gān cuì.
+        merged: list[str] = []
+        index = 0
+        while index < len(existing):
+            if index + 1 < len(existing) and len(ascii_base(existing[index + 1])) == 1:
+                merged.append(existing[index] + existing[index + 1])
+                index += 2
+            else:
+                merged.append(existing[index])
+                index += 1
+        return merged
+    return existing or [cleaned or "a"]
+
+
+def numbered_syllable(value: str) -> str:
+    tone = "5"
+    bases: list[str] = []
+    decomposed = unicodedata.normalize("NFD", value.lower().replace("ü", "v"))
+    for character in decomposed:
+        if character in TONE_MARKS:
+            tone = TONE_MARKS[character]
+        elif character in "abcdefghijklmnopqrstuvwxyzv":
+            bases.append(character)
+    base = "".join(bases)
+    return f"{base}{tone}" if base else "a5"
+
+
+def official_pronunciation(word: str, raw: str) -> dict[str, str]:
+    syllables = official_syllables(word, raw)
+    tone = " ".join(syllables)
+    number = " ".join(numbered_syllable(item) for item in syllables)
     return {
-        "tone": re.sub(r"\s+", " ", tone).strip(),
-        "number": re.sub(r"\s+", " ", number).strip(),
-        "normalized": re.sub(r"[^a-zv]", "", normal),
+        "tone": tone,
+        "number": number,
+        "normalized": re.sub(r"[^a-zv]", "", number),
     }
 
 
@@ -90,8 +168,17 @@ def load_vocabulary() -> list[dict]:
     return records
 
 
-def build_pronunciations(records: list[dict]) -> dict[str, dict[str, str]]:
-    return {record["id"]: pronunciation(record["simplified"]) for record in records}
+def source_pronunciations() -> dict[str, dict[str, str]]:
+    document = read_json(HSK4 / "provenance" / "official-vocabulary.json")
+    facts = document.get("facts", [])
+    if len(facts) != 1000:
+        raise RuntimeError(f"HSK4 provenance must contain 1000 rows, received {len(facts)}")
+    result: dict[str, dict[str, str]] = {}
+    for fact in facts:
+        row = int(fact["officialRow"])
+        ref = f"hsk4-v-{row - 1000:04d}"
+        result[ref] = official_pronunciation(fact["simplified"], fact["pinyin"])
+    return result
 
 
 def vocabulary_ref(value: dict) -> str | None:
@@ -236,7 +323,7 @@ def rebuild_characters(vocabulary: list[dict]) -> None:
                 "radical": radical,
                 "components": [radical, "phần còn lại cần human signoff"] if radical else [],
                 "structure": "compound-visual-analysis" if radical else "visual-form-focus",
-                "readings": [pronunciation(character)["tone"]],
+                "readings": [" ".join(lazy_pinyin(character, style=Style.TONE, strict=False))],
                 "wordRefs": word_refs,
                 "confusables": [],
                 "strokeCount": counts[character],
@@ -263,25 +350,25 @@ def rebuild_characters(vocabulary: list[dict]) -> None:
 
 def patch_builder_note() -> None:
     text = BUILDER.read_text(encoding="utf-8")
-    marker = "# Finalize with scripts/finalize-hsk4-c5.py to normalize phrase pinyin and verified stroke metadata.\n"
+    marker = "# Finalize with scripts/finalize-hsk4-c5.py to preserve official pinyin and verified stroke metadata.\n"
     if marker not in text:
         text = text.replace("from __future__ import annotations\n", "from __future__ import annotations\n\n" + marker, 1)
     BUILDER.write_text(text, encoding="utf-8")
 
 
-def verify(vocabulary: list[dict]) -> None:
+def verify(vocabulary: list[dict], pronunciations: dict[str, dict[str, str]]) -> None:
     invalid: list[str] = []
     tones: Counter[str] = Counter()
     for record in vocabulary:
         ref = record["id"]
-        number = record["pinyinNumber"]
-        if not re.fullmatch(r"[a-zv1-5 ]+", number):
+        expected = pronunciations[ref]
+        if record["pinyinTone"] != expected["tone"] or record["pinyinNumber"] != expected["number"]:
             invalid.append(ref)
-        if HAN_RE.search(record["simplified"]) and not number.split():
+        if not re.fullmatch(r"[a-zv1-5 ]+", record["pinyinNumber"]):
             invalid.append(ref)
-        tones.update(char for char in number if char in "12345")
+        tones.update(character for character in record["pinyinNumber"] if character in "12345")
     if invalid:
-        raise RuntimeError(f"Invalid normalized pinyin records: {invalid[:20]}")
+        raise RuntimeError(f"Invalid official pinyin normalization: {sorted(set(invalid))[:20]}")
     characters = read_json(HSK4 / "characters.json")["records"]
     if len(characters) != 150:
         raise RuntimeError(f"HSK4 character count must be 150, received {len(characters)}")
@@ -295,17 +382,16 @@ def verify(vocabulary: list[dict]) -> None:
 
 def main() -> None:
     patch_builder_note()
-    vocabulary = load_vocabulary()
-    pronunciations = build_pronunciations(vocabulary)
+    pronunciations = source_pronunciations()
     patch_json_pronunciations(pronunciations)
     vocabulary = load_vocabulary()
     rebuild_characters(vocabulary)
-    verify(vocabulary)
+    verify(vocabulary, pronunciations)
     print(
         json.dumps(
             {
                 "ok": True,
-                "pinyinNormalized": len(vocabulary),
+                "officialPinyinPreserved": len(vocabulary),
                 "charactersWithVerifiedStrokeCount": 150,
             },
             ensure_ascii=False,
