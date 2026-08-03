@@ -43,7 +43,7 @@ jobs:
           echo '98622bf4182eacb1636e5d7286130cae04b6f8a3568b9e06ff1ba57af09cafd1  /tmp/c5-builder.b64' | sha256sum --check
           base64 --decode /tmp/c5-builder.b64 | gzip --decompress > scripts/build-hsk4-c5.py
           echo '62407e74f4d10609c518c9c69d6331b47115459d68e36362ae57a9fe7d948cbc  scripts/build-hsk4-c5.py' | sha256sum --check
-          chmod +x scripts/build-hsk4-c5.py scripts/finalize-hsk4-c5.py scripts/finalize-hsk4-integration.py
+          chmod +x scripts/build-hsk4-c5.py
           python scripts/build-hsk4-c5.py
           python scripts/finalize-hsk4-c5.py
           python scripts/finalize-hsk4-integration.py
@@ -81,9 +81,9 @@ jobs:
             if (!groups.has(key)) groups.set(key, []);
             groups.get(key).push(item);
           }
-          const duplicates = [...groups.entries()]
-            .filter(([, items]) => items.length > 1)
-            .map(([key, items]) => ({
+          const duplicates = [...groups.values()]
+            .filter(items => items.length > 1)
+            .map(items => ({
               kind: items[0].kind,
               text: String(items[0].text),
               count: items.length,
