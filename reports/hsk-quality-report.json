@@ -8,7 +8,7 @@
   "phase": "2A",
   "phase2Allowed": true,
   "phase2aDataGate": "pass-structural",
-  "plannedLevels": 6,
+  "plannedLevels": 5,
   "productionCurriculumAllowed": false,
   "productionEnabled": false,
   "productionReadyLevels": 0,
@@ -20,9 +20,9 @@
   "structuralCoverage": 100,
   "validation": {
     "errors": 0,
-    "records": 2942,
+    "records": 4636,
     "schemas": 9,
-    "sources": 18,
+    "sources": 21,
     "warnings": 0
   }
 }
