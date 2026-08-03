@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-03",
+  "phase": "C4",
+  "level": 3,
+  "status": "pass-machine-editorial-human-signoff-required",
+  "baseline": {
+    "wipCommit": "3bc214f55fc8ae553a542ff59fc9b7f1d8a86ac1",
+    "regenerated": false,
+    "continuedFromExistingCorpus": true
+  },
+  "learnerRoute": {
+    "productionBase": "https://vduckie.pages.dev/",
+    "directExample": "https://vduckie.pages.dev/?area=hsk&hskLevel=3&hskLesson=hsk3-lesson-01",
+    "navigation": [
+      "Giáo trình HSK",
+      "HSK3",
+      "Unit",
+      "Lesson"
+    ],
+    "readOnly": true,
+    "progressWritesEnabled": false
+  },
+  "counts": {
+    "units": 12,
+    "lessons": 36,
+    "vocabulary": 500,
+    "grammar": 42,
+    "characters": 100,
+    "dialogues": 36,
+    "listeningTranscripts": 36,
+    "readings": 36,
+    "speakingTasks": 36,
+    "writingTasks": 36,
+    "exercises": 252,
+    "assessments": 15,
+    "unitCheckpoints": 12
+  },
+  "browserSmoke": {
+    "engine": "Python Playwright with Chromium",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 900,
+        "lesson": "hsk3-lesson-01",
+        "status": "pass"
+      },
+      {
+        "width": 1024,
+        "height": 768,
+        "lesson": "hsk3-lesson-18",
+        "status": "pass"
+      },
+      {
+        "width": 390,
+        "height": 844,
+        "lesson": "hsk3-lesson-19",
+        "status": "pass"
+      },
+      {
+        "width": 320,
+        "height": 568,
+        "lesson": "hsk3-lesson-36",
+        "status": "pass"
+      }
+    ],
+    "flows": {
+      "firstMiddleLastLessons": "pass",
+      "lessonSections": "pass",
+      "exerciseFeedback": "pass",
+      "unitCheckpoint": "pass",
+      "midpoint": "pass",
+      "finalAssessment": "pass",
+      "masteryReview": "pass",
+      "previousNext": "pass",
+      "hsk3ToHsk2ToHsk1": "pass",
+      "reload": "pass",
+      "directUrl": "pass",
+      "mobileTouchControls": "pass",
+      "horizontalOverflow": "pass",
+      "hskAssetAndDataHttpErrors": "none"
+    }
+  },
+  "quality": {
+    "validator": "pass",
+    "repositoryValidationErrors": 0,
+    "repositoryValidationWarnings": 0,
+    "duplicateBlockers": 0,
+    "hsk3ExactDuplicates": 0,
+    "hsk3NormalizedDuplicates": 0,
+    "hsk3SemanticDuplicates": 0,
+    "missingSkills": [],
+    "vocabularyIntroducedButNotPracticed": [],
+    "grammarWithoutExercise": [],
+    "officialVocabularyRows": "501-1000 exact",
+    "officialVocabularyAssignment": "500/500 exactly once",
+    "spacedReviewVocabularyCoverage": "500/500",
+    "sourceCoverage": 1,
+    "humanSignoffRequired": true
+  },
+  "testRepairs": {
+    "oldContract": {
+      "test": "tests/hsk-phase1-quality.test.js",
+      "reason": "The contract still treated HSK2 as the last machine-assisted read-only course.",
+      "resolution": "Updated the contract to recognize HSK1-HSK3 while keeping HSK4-HSK9 planned and every production/write gate locked."
+    },
+    "pythonPlaywright": [
+      {
+        "test": "tests/hsk-phase2b4-browser-smoke.test.js",
+        "runner": "tests/hsk-phase2b4-browser-smoke.py",
+        "resolution": "Installed Python Playwright and Chromium in CI; removed a harness-only favicon 404 without skipping browser assertions."
+      },
+      {
+        "test": "tests/v108-developer-runtime-dom.test.js",
+        "runner": "tests/v108-developer-runtime-dom.py",
+        "resolution": "Installed Python Playwright and Chromium in CI and ran the existing DOM smoke unchanged."
+      }
+    ]
+  },
+  "productionSafety": {
+    "HSK_CURRICULUM_V2_PROGRESS_WRITES_ENABLED": false,
+    "writesProgress": false,
+    "productionCurriculumEnabled": false,
+    "publicOverrideAllowed": false,
+    "supabaseMigration": false,
+    "userDataMigration": false
+  },
+  "remainingReview": [
+    "Independent Vietnamese editorial signoff",
+    "Independent Chinese-pedagogy signoff",
+    "Verified recorded audio",
+    "Verified stroke-order assets"
+  ],
+  "nextMilestone": "C5 — HSK4 Professional Curriculum"
+}
