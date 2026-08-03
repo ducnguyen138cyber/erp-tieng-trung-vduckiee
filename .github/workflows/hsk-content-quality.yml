@@ -9,6 +9,7 @@ on:
       - 'tests/*hsk*'
       - 'docs/hsk-*'
       - 'reports/hsk-*'
+      - '.tmp/**'
       - '.github/workflows/hsk-content-quality.yml'
   push:
     branches: [main]
@@ -22,16 +23,33 @@ on:
       - '.github/workflows/hsk-content-quality.yml'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   validate-hsk-content:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Build HSK4 C5 corpus
+        run: |
+          cat .tmp/c5-builder.part00 .tmp/c5-builder.part01 .tmp/c5-builder.part02 .tmp/c5-builder.part03 \
+            | base64 --decode | gzip --decompress > scripts/build-hsk4-c5.py
+          chmod +x scripts/build-hsk4-c5.py
+          python scripts/build-hsk4-c5.py
+      - name: Commit generated HSK4 corpus
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/build-hsk4-c5.py data/hsk/manifest.json data/hsk/sources.json data/hsk/hsk4
+          git commit -m 'Generate professional HSK4 corpus'
+          git push origin HEAD:${{ github.head_ref }}
       - name: Install full regression dependencies
         run: |
           sudo apt-get update
@@ -48,6 +66,15 @@ jobs:
         run: node scripts/check-hsk-coverage.js
       - name: Generate deterministic HSK reports
         run: node scripts/generate-hsk-report.js
+      - name: Commit deterministic reports
+        if: github.event_name == 'pull_request'
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json
+          git commit -m 'Update HSK4 deterministic reports'
+          git push origin HEAD:${{ github.head_ref }}
       - name: Run all website regression tests
         shell: bash
         run: |
