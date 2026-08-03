@@ -1,0 +1,1981 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "grammar",
+  "level": 3,
+  "records": [
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-01",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "把字句：放到/放在",
+      "nameVi": "Câu 把 với nơi chốn",
+      "formula": "主语 + 把 + 宾语 + 动词 + 到/在 + 处所",
+      "communicativeFunctionVi": "Đưa đối tượng đã xác định đến hoặc đặt tại một nơi.",
+      "meaningVi": "Đưa đối tượng đã xác định đến hoặc đặt tại một nơi.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần đưa đối tượng đã xác định đến hoặc đặt tại một nơi.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我把文件放到桌上了。",
+          "vi": "Tôi đã đặt tài liệu lên bàn."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我把文件放了桌上。",
+          "explanationVi": "Sau động từ cần 到/在 để nối với nơi chốn: 放到桌上 hoặc 放在桌上."
+        }
+      ],
+      "commonErrorsVi": [
+        "Sau động từ cần 到/在 để nối với nơi chốn: 放到桌上 hoặc 放在桌上."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-02",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "把字句：给别人",
+      "nameVi": "Câu 把 với người nhận",
+      "formula": "主语 + 把 + 宾语1 + 动词 + 给 + 宾语2",
+      "communicativeFunctionVi": "Nêu rõ vật được chuyển cho người nhận.",
+      "meaningVi": "Nêu rõ vật được chuyển cho người nhận.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu rõ vật được chuyển cho người nhận.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "请把名单发给经理。",
+          "vi": "Hãy gửi danh sách cho quản lý."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "请把给经理名单发。",
+          "explanationVi": "Trong câu 把, tân ngữ 名单 phải đứng ngay sau 把; 给经理 theo sau động từ 发."
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong câu 把, tân ngữ 名单 phải đứng ngay sau 把; 给经理 theo sau động từ 发."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-03",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "把字句：结果和趋向",
+      "nameVi": "Câu 把 với kết quả/hướng",
+      "formula": "主语 + 把 + 宾语 + 动词 + 结果/趋向补语",
+      "communicativeFunctionVi": "Nhấn mạnh kết quả xử lý đối tượng.",
+      "meaningVi": "Nhấn mạnh kết quả xử lý đối tượng.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn mạnh kết quả xử lý đối tượng.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "他把门关上了。",
+          "vi": "Anh ấy đã đóng cửa lại."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他把关上门了。",
+          "explanationVi": "Không đặt động từ ngay sau 把; trật tự đúng là 把门关上了."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không đặt động từ ngay sau 把; trật tự đúng là 把门关上了."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-04",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "被字句：有施事",
+      "nameVi": "Câu bị động 被 có tác nhân",
+      "formula": "主语 + 被 + 施事 + 动词 + 其他成分",
+      "communicativeFunctionVi": "Nêu việc chủ thể chịu tác động và có người/vật gây ra.",
+      "meaningVi": "Nêu việc chủ thể chịu tác động và có người/vật gây ra.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu việc chủ thể chịu tác động và có người/vật gây ra.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "帽子被风吹进河里了。",
+          "vi": "Chiếc mũ bị gió thổi xuống sông."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "帽子被吹进河里风了。",
+          "explanationVi": "Nếu nêu tác nhân, 风 phải đứng ngay sau 被: 帽子被风吹进河里了."
+        }
+      ],
+      "commonErrorsVi": [
+        "Nếu nêu tác nhân, 风 phải đứng ngay sau 被: 帽子被风吹进河里了."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-05",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "被字句：省略施事",
+      "nameVi": "Câu 被 không nêu tác nhân",
+      "formula": "主语 + 被 + 动词 + 其他成分",
+      "communicativeFunctionVi": "Dùng khi tác nhân không biết hoặc không quan trọng.",
+      "meaningVi": "Dùng khi tác nhân không biết hoặc không quan trọng.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần dùng khi tác nhân không biết hoặc không quan trọng.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我的包被拿走了。",
+          "vi": "Túi của tôi bị lấy đi rồi."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我的包被拿。",
+          "explanationVi": "Sau 被 không dừng ở động từ trơ; cần kết quả hoặc thành phần hoàn chỉnh như 被拿走了."
+        }
+      ],
+      "commonErrorsVi": [
+        "Sau 被 không dừng ở động từ trơ; cần kết quả hoặc thành phần hoàn chỉnh như 被拿走了."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-06",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "可能补语",
+      "nameVi": "Bổ ngữ khả năng",
+      "formula": "动词 + 得/不 + 结果/趋向补语",
+      "communicativeFunctionVi": "Nói một hành động có thể đạt kết quả hay không.",
+      "meaningVi": "Nói một hành động có thể đạt kết quả hay không.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nói một hành động có thể đạt kết quả hay không.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "这个箱子我搬不动。",
+          "vi": "Tôi không chuyển nổi chiếc va-li này."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这个箱子我不搬动。",
+          "explanationVi": "Bổ ngữ khả năng đặt 得/不 giữa động từ và kết quả: 搬不动, không phải 不搬动."
+        }
+      ],
+      "commonErrorsVi": [
+        "Bổ ngữ khả năng đặt 得/不 giữa động từ và kết quả: 搬不动, không phải 不搬动."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-07",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "结果补语：到/住/走/上",
+      "nameVi": "Bổ ngữ kết quả mở rộng",
+      "formula": "动词 + 到/住/走/上",
+      "communicativeFunctionVi": "Cho biết tìm/giữ/lấy đi/đóng đạt kết quả.",
+      "meaningVi": "Cho biết tìm/giữ/lấy đi/đóng đạt kết quả.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần cho biết tìm/giữ/lấy đi/đóng đạt kết quả.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我终于找到了护照。",
+          "vi": "Cuối cùng tôi tìm thấy hộ chiếu."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我终于找护照到了。",
+          "explanationVi": "Bổ ngữ 到 gắn ngay sau 找; tân ngữ 护照 đứng sau 找到."
+        }
+      ],
+      "commonErrorsVi": [
+        "Bổ ngữ 到 gắn ngay sau 找; tân ngữ 护照 đứng sau 找到."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-08",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "趋向补语的结果用法",
+      "nameVi": "Bổ ngữ xu hướng mang nghĩa kết quả",
+      "formula": "动词 + 出/起/下",
+      "communicativeFunctionVi": "出/起/下 có thể biểu thị nhận ra, nhớ ra hoặc ghi lại.",
+      "meaningVi": "出/起/下 có thể biểu thị nhận ra, nhớ ra hoặc ghi lại.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần 出/起/下 có thể biểu thị nhận ra, nhớ ra hoặc ghi lại.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我突然想起他的名字了。",
+          "vi": "Tôi bỗng nhớ ra tên anh ấy."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我突然起想他的名字了。",
+          "explanationVi": "Bổ ngữ xu hướng đứng sau động từ: 想起, không đảo thành 起想."
+        }
+      ],
+      "commonErrorsVi": [
+        "Bổ ngữ xu hướng đứng sau động từ: 想起, không đảo thành 起想."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-09",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "动词 + 上/起来",
+      "nameVi": "Bắt đầu hành động/trạng thái",
+      "formula": "动词 + 上/起来",
+      "communicativeFunctionVi": "Biểu thị hành động hoặc trạng thái bắt đầu.",
+      "meaningVi": "Biểu thị hành động hoặc trạng thái bắt đầu.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần biểu thị hành động hoặc trạng thái bắt đầu.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "大家聊起来了。",
+          "vi": "Mọi người bắt đầu trò chuyện."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "大家起来聊了。",
+          "explanationVi": "Khi nói bắt đầu trò chuyện, 起来 theo sau 聊: 聊起来了."
+        }
+      ],
+      "commonErrorsVi": [
+        "Khi nói bắt đầu trò chuyện, 起来 theo sau 聊: 聊起来了."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-10",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "动词 + 下去/下来",
+      "nameVi": "Tiếp tục hoặc giữ lại",
+      "formula": "动词 + 下去/下来",
+      "communicativeFunctionVi": "Biểu thị tiếp tục diễn biến hoặc lưu giữ kết quả.",
+      "meaningVi": "Biểu thị tiếp tục diễn biến hoặc lưu giữ kết quả.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần biểu thị tiếp tục diễn biến hoặc lưu giữ kết quả.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "这个好习惯要坚持下去。",
+          "vi": "Cần duy trì thói quen tốt này."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这个好习惯要下去坚持。",
+          "explanationVi": "下去 theo sau động từ để chỉ tiếp tục: 坚持下去."
+        }
+      ],
+      "commonErrorsVi": [
+        "下去 theo sau động từ để chỉ tiếp tục: 坚持下去."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-11",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "形容词 + 得很",
+      "nameVi": "Mức độ cao với 得很",
+      "formula": "形容词 + 得很",
+      "communicativeFunctionVi": "Nhấn mức độ khá cao trong khẩu ngữ.",
+      "meaningVi": "Nhấn mức độ khá cao trong khẩu ngữ.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn mức độ khá cao trong khẩu ngữ.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "这间屋子安静得很。",
+          "vi": "Căn phòng này rất yên tĩnh."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这间屋子很安静得很。",
+          "explanationVi": "Không dùng đồng thời 很 trước tính từ và 得很 sau tính từ trong cùng mẫu."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không dùng đồng thời 很 trước tính từ và 得很 sau tính từ trong cùng mẫu."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-12",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "极了/坏了",
+      "nameVi": "Bổ ngữ mức độ 极了/坏了",
+      "formula": "形容词/心理动词 + 极了/坏了",
+      "communicativeFunctionVi": "Nhấn mạnh cảm xúc hoặc mức độ mạnh.",
+      "meaningVi": "Nhấn mạnh cảm xúc hoặc mức độ mạnh.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn mạnh cảm xúc hoặc mức độ mạnh.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "听到这个消息，我高兴极了。",
+          "vi": "Nghe tin này tôi vui vô cùng."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "听到这个消息，我很高兴极了。",
+          "explanationVi": "极了 đã biểu thị mức độ cao; bỏ 很 trong mẫu này."
+        }
+      ],
+      "commonErrorsVi": [
+        "极了 đã biểu thị mức độ cao; bỏ 很 trong mẫu này."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-13",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "A比B更/还……",
+      "nameVi": "So sánh tăng cường",
+      "formula": "A + 比 + B + 更/还 + 形容词",
+      "communicativeFunctionVi": "Nêu mức chênh cao hơn dự kiến hoặc so sánh trước đó.",
+      "meaningVi": "Nêu mức chênh cao hơn dự kiến hoặc so sánh trước đó.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu mức chênh cao hơn dự kiến hoặc so sánh trước đó.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "第二套房比第一套还安静。",
+          "vi": "Căn thứ hai còn yên tĩnh hơn căn đầu."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "第二套房比第一套很安静。",
+          "explanationVi": "Trong mẫu 比 cơ bản, không đặt 很 trực tiếp trước tính từ; dùng 更/还 khi cần tăng cường."
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong mẫu 比 cơ bản, không đặt 很 trực tiếp trước tính từ; dùng 更/还 khi cần tăng cường."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-14",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "A跟B一样",
+      "nameVi": "So sánh ngang bằng",
+      "formula": "A + 跟 + B + 一样 (+ 形容词)",
+      "communicativeFunctionVi": "Nói hai đối tượng giống nhau hoặc cùng mức độ.",
+      "meaningVi": "Nói hai đối tượng giống nhau hoặc cùng mức độ.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nói hai đối tượng giống nhau hoặc cùng mức độ.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "两次付款的价钱一样。",
+          "vi": "Giá của hai lần thanh toán giống nhau."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "两次付款一样价钱。",
+          "explanationVi": "一样 đứng sau hai đối tượng hoặc sau danh từ so sánh; nói 两次付款的价钱一样."
+        }
+      ],
+      "commonErrorsVi": [
+        "一样 đứng sau hai đối tượng hoặc sau danh từ so sánh; nói 两次付款的价钱一样."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-15",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "A不比B……",
+      "nameVi": "Phủ định chênh lệch",
+      "formula": "A + 不比 + B + 形容词",
+      "communicativeFunctionVi": "Nói A không hơn B về đặc điểm, không nhất thiết A kém.",
+      "meaningVi": "Nói A không hơn B về đặc điểm, không nhất thiết A kém.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nói A không hơn B về đặc điểm, không nhất thiết A kém.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "坐地铁不比开车慢。",
+          "vi": "Đi tàu điện không chậm hơn lái xe."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "坐地铁不比开车不慢。",
+          "explanationVi": "不比 đã phủ định chênh lệch; không thêm một 不 nữa trước tính từ."
+        }
+      ],
+      "commonErrorsVi": [
+        "不比 đã phủ định chênh lệch; không thêm một 不 nữa trước tính từ."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-16",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "比较数量差",
+      "nameVi": "So sánh chênh lệch số lượng",
+      "formula": "A + 比 + B + 多/少/早/晚 + 动词 + 数量短语",
+      "communicativeFunctionVi": "Nêu chênh lệch cụ thể về thời gian hoặc số lượng.",
+      "meaningVi": "Nêu chênh lệch cụ thể về thời gian hoặc số lượng.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu chênh lệch cụ thể về thời gian hoặc số lượng.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我比他早到十分钟。",
+          "vi": "Tôi đến sớm hơn anh ấy mười phút."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我比他十分钟早到。",
+          "explanationVi": "Cụm chênh lệch đứng sau 早到/晚到 trong mẫu mục tiêu: 比他早到十分钟."
+        }
+      ],
+      "commonErrorsVi": [
+        "Cụm chênh lệch đứng sau 早到/晚到 trong mẫu mục tiêu: 比他早到十分钟."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-17",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "越……越……",
+      "nameVi": "Càng… càng…",
+      "formula": "越 + 条件/动作，越 + 结果/状态",
+      "communicativeFunctionVi": "Diễn tả hai mức độ cùng thay đổi.",
+      "meaningVi": "Diễn tả hai mức độ cùng thay đổi.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần diễn tả hai mức độ cùng thay đổi.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "越练越自然。",
+          "vi": "Càng luyện càng tự nhiên."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我练越自然越。",
+          "explanationVi": "Hai 越 phải đứng trước điều kiện và kết quả: 越练越自然."
+        }
+      ],
+      "commonErrorsVi": [
+        "Hai 越 phải đứng trước điều kiện và kết quả: 越练越自然."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-18",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "除了……以外，还……",
+      "nameVi": "Ngoài… còn…",
+      "formula": "除了 + X + 以外，主语 + 还/也/都 + Y",
+      "communicativeFunctionVi": "Bổ sung hoặc loại trừ một phạm vi.",
+      "meaningVi": "Bổ sung hoặc loại trừ một phạm vi.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần bổ sung hoặc loại trừ một phạm vi.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "除了听力以外，我还想提高写作。",
+          "vi": "Ngoài nghe, tôi còn muốn nâng viết."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "除了听力以外，还我想提高写作。",
+          "explanationVi": "还 đứng sau chủ ngữ trong mệnh đề sau: 我还想…, không đứng trước 我."
+        }
+      ],
+      "commonErrorsVi": [
+        "还 đứng sau chủ ngữ trong mệnh đề sau: 我还想…, không đứng trước 我."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-19",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "一边……一边……",
+      "nameVi": "Vừa… vừa…",
+      "formula": "主语 + 一边 + V1，一边 + V2",
+      "communicativeFunctionVi": "Hai hành động diễn ra đồng thời và tương thích.",
+      "meaningVi": "Hai hành động diễn ra đồng thời và tương thích.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần hai hành động diễn ra đồng thời và tương thích.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "她一边听一边记笔记。",
+          "vi": "Cô ấy vừa nghe vừa ghi chép."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "她一边听，也一边记笔记。",
+          "explanationVi": "Giữ cặp 一边…一边… cân xứng; không chen 也 vào giữa cặp khi chưa có mục đích tương phản."
+        }
+      ],
+      "commonErrorsVi": [
+        "Giữ cặp 一边…一边… cân xứng; không chen 也 vào giữa cặp khi chưa có mục đích tương phản."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-20",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "不但……而且……",
+      "nameVi": "Không những… mà còn…",
+      "formula": "不但 + 分句1，而且 + 分句2",
+      "communicativeFunctionVi": "Bổ sung thông tin tăng tiến.",
+      "meaningVi": "Bổ sung thông tin tăng tiến.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần bổ sung thông tin tăng tiến.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "他不但按时完成，而且检查了两遍。",
+          "vi": "Anh ấy không chỉ xong đúng giờ mà còn kiểm tra hai lượt."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他而且按时完成，不但检查了两遍。",
+          "explanationVi": "Không đảo thứ tự tăng tiến: 不但 nêu ý đầu, 而且 nêu ý bổ sung."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không đảo thứ tự tăng tiến: 不但 nêu ý đầu, 而且 nêu ý bổ sung."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-21",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "如果……就……",
+      "nameVi": "Nếu… thì…",
+      "formula": "如果 + 条件，就 + 结果",
+      "communicativeFunctionVi": "Nêu điều kiện giả định và kết quả.",
+      "meaningVi": "Nêu điều kiện giả định và kết quả.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu điều kiện giả định và kết quả.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "如果下雨，我们就去图书馆。",
+          "vi": "Nếu mưa, chúng tôi sẽ đi thư viện."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "如果下雨，所以我们去图书馆。",
+          "explanationVi": "Cặp điều kiện dùng 如果…就…; 所以 đánh dấu quan hệ nguyên nhân–kết quả khác."
+        }
+      ],
+      "commonErrorsVi": [
+        "Cặp điều kiện dùng 如果…就…; 所以 đánh dấu quan hệ nguyên nhân–kết quả khác."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-22",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "只要……就……",
+      "nameVi": "Chỉ cần… thì…",
+      "formula": "只要 + 充分条件，就 + 结果",
+      "communicativeFunctionVi": "Nhấn điều kiện đủ để có kết quả.",
+      "meaningVi": "Nhấn điều kiện đủ để có kết quả.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn điều kiện đủ để có kết quả.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "只要每天练，就会进步。",
+          "vi": "Chỉ cần luyện hằng ngày sẽ tiến bộ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "只要每天练，才会进步。",
+          "explanationVi": "Với điều kiện đủ, dùng 只要…就…; 才 thường đi với điều kiện cần 只有."
+        }
+      ],
+      "commonErrorsVi": [
+        "Với điều kiện đủ, dùng 只要…就…; 才 thường đi với điều kiện cần 只有."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-23",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "只有……才……",
+      "nameVi": "Chỉ khi… mới…",
+      "formula": "只有 + 必要条件，才 + 结果",
+      "communicativeFunctionVi": "Nhấn điều kiện cần.",
+      "meaningVi": "Nhấn điều kiện cần.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn điều kiện cần.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "只有说明问题，客服才能帮助你。",
+          "vi": "Chỉ khi nói rõ vấn đề, hỗ trợ mới giúp được."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "只有每天练，就会进步。",
+          "explanationVi": "Với điều kiện cần, dùng 只有…才…; không đổi 才 thành 就."
+        }
+      ],
+      "commonErrorsVi": [
+        "Với điều kiện cần, dùng 只有…才…; không đổi 才 thành 就."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-24",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "虽然……可是……",
+      "nameVi": "Tuy… nhưng…",
+      "formula": "虽然 + 让步，可是 + 转折结果",
+      "communicativeFunctionVi": "Nêu kết quả trái với kỳ vọng.",
+      "meaningVi": "Nêu kết quả trái với kỳ vọng.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu kết quả trái với kỳ vọng.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "虽然晚点了，可是我们没有错过火车。",
+          "vi": "Tuy bị chậm nhưng chúng tôi không lỡ tàu."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "虽然晚点了，所以我们没有错过火车。",
+          "explanationVi": "虽然 đi với 可是/但是 để nêu nhượng bộ, không ghép máy móc với 所以."
+        }
+      ],
+      "commonErrorsVi": [
+        "虽然 đi với 可是/但是 để nêu nhượng bộ, không ghép máy móc với 所以."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-25",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "先……再/然后……",
+      "nameVi": "Trình tự trước–sau",
+      "formula": "先 + V1，再/然后 + V2",
+      "communicativeFunctionVi": "Sắp xếp hai hay nhiều bước.",
+      "meaningVi": "Sắp xếp hai hay nhiều bước.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần sắp xếp hai hay nhiều bước.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "先确认号码，然后再付款。",
+          "vi": "Trước hết xác nhận số, sau đó mới thanh toán."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "然后确认号码，先付款。",
+          "explanationVi": "先 phải giới thiệu bước đầu, 然后/再 mới nối bước sau."
+        }
+      ],
+      "commonErrorsVi": [
+        "先 phải giới thiệu bước đầu, 然后/再 mới nối bước sau."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-26",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "或者……或者……",
+      "nameVi": "Hoặc… hoặc…",
+      "formula": "或者 + 选择1，或者 + 选择2",
+      "communicativeFunctionVi": "Liệt kê lựa chọn trong câu trần thuật.",
+      "meaningVi": "Liệt kê lựa chọn trong câu trần thuật.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần liệt kê lựa chọn trong câu trần thuật.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我们或者坐地铁，或者骑自行车。",
+          "vi": "Chúng tôi hoặc đi tàu điện, hoặc đi xe đạp."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我们或者坐地铁，还是骑自行车。",
+          "explanationVi": "Trong câu trần thuật liệt kê lựa chọn dùng 或者…或者…; 还是 thường dùng trong câu hỏi lựa chọn."
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong câu trần thuật liệt kê lựa chọn dùng 或者…或者…; 还是 thường dùng trong câu hỏi lựa chọn."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-27",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "又……又……",
+      "nameVi": "Vừa… vừa… về đặc điểm",
+      "formula": "又 + 形容词1 + 又 + 形容词2",
+      "communicativeFunctionVi": "Nêu hai đặc điểm song song.",
+      "meaningVi": "Nêu hai đặc điểm song song.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu hai đặc điểm song song.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "这间房又安静又干净。",
+          "vi": "Phòng này vừa yên tĩnh vừa sạch."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "又这间房安静又干净。",
+          "explanationVi": "Chủ ngữ đứng trước cặp 又…又…: 这间房又安静又干净."
+        }
+      ],
+      "commonErrorsVi": [
+        "Chủ ngữ đứng trước cặp 又…又…: 这间房又安静又干净."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-28",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "一会儿……一会儿……",
+      "nameVi": "Lúc thì… lúc thì…",
+      "formula": "一会儿 + V1，一会儿 + V2",
+      "communicativeFunctionVi": "Nêu hành động/trạng thái luân phiên trong thời gian ngắn.",
+      "meaningVi": "Nêu hành động/trạng thái luân phiên trong thời gian ngắn.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu hành động/trạng thái luân phiên trong thời gian ngắn.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "天气一会儿晴，一会儿下雨。",
+          "vi": "Thời tiết lúc nắng lúc mưa."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "天气一会儿晴，又一会儿下雨。",
+          "explanationVi": "Giữ cặp 一会儿…一会儿… cân xứng khi mô tả trạng thái luân phiên."
+        }
+      ],
+      "commonErrorsVi": [
+        "Giữ cặp 一会儿…一会儿… cân xứng khi mô tả trạng thái luân phiên."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-29",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "为了……",
+      "nameVi": "Để…",
+      "formula": "为了 + 目的，主语 + 行动",
+      "communicativeFunctionVi": "Đưa mục đích lên trước hành động.",
+      "meaningVi": "Đưa mục đích lên trước hành động.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần đưa mục đích lên trước hành động.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "为了按时到，我提前出发。",
+          "vi": "Để đến đúng giờ, tôi xuất phát sớm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "为了按时到，所以我提前出发。",
+          "explanationVi": "为了 đã nêu mục đích; không cần thêm 所以 như một quan hệ nguyên nhân–kết quả thứ hai."
+        }
+      ],
+      "commonErrorsVi": [
+        "为了 đã nêu mục đích; không cần thêm 所以 như một quan hệ nguyên nhân–kết quả thứ hai."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-30",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "在……看来",
+      "nameVi": "Theo cách nhìn của…",
+      "formula": "在 + 人 + 看来，观点",
+      "communicativeFunctionVi": "Đánh dấu nguồn của quan điểm.",
+      "meaningVi": "Đánh dấu nguồn của quan điểm.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần đánh dấu nguồn của quan điểm.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "在老师看来，进步不只看分数。",
+          "vi": "Theo giáo viên, tiến bộ không chỉ nhìn điểm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "在看来老师，进步不只看分数。",
+          "explanationVi": "Người đưa quan điểm nằm giữa 在 và 看来: 在老师看来."
+        }
+      ],
+      "commonErrorsVi": [
+        "Người đưa quan điểm nằm giữa 在 và 看来: 在老师看来."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-31",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "对……来说",
+      "nameVi": "Đối với…",
+      "formula": "对 + 人/事 + 来说，评价",
+      "communicativeFunctionVi": "Giới hạn đối tượng mà nhận xét áp dụng.",
+      "meaningVi": "Giới hạn đối tượng mà nhận xét áp dụng.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần giới hạn đối tượng mà nhận xét áp dụng.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "对初学者来说，坚持最重要。",
+          "vi": "Với người mới học, kiên trì quan trọng nhất."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "来说对初学者，坚持最重要。",
+          "explanationVi": "Đối tượng đứng giữa 对 và 来说: 对初学者来说."
+        }
+      ],
+      "commonErrorsVi": [
+        "Đối tượng đứng giữa 对 và 来说: 对初学者来说."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-32",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "从……起",
+      "nameVi": "Bắt đầu từ…",
+      "formula": "从 + 时间/地点 + 起",
+      "communicativeFunctionVi": "Đánh dấu mốc bắt đầu.",
+      "meaningVi": "Đánh dấu mốc bắt đầu.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần đánh dấu mốc bắt đầu.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "从下周起，校园里不能开车。",
+          "vi": "Từ tuần sau, trong trường không được lái xe."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "下周从起，校园里不能开车。",
+          "explanationVi": "Mốc bắt đầu đứng sau 从, rồi mới đến 起: 从下周起."
+        }
+      ],
+      "commonErrorsVi": [
+        "Mốc bắt đầu đứng sau 从, rồi mới đến 起: 从下周起."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-33",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "在……上/下/中",
+      "nameVi": "Trong phương diện/phạm vi",
+      "formula": "在 + 名词 + 上/下/中",
+      "communicativeFunctionVi": "Khoanh phương diện hoặc phạm vi trừu tượng.",
+      "meaningVi": "Khoanh phương diện hoặc phạm vi trừu tượng.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần khoanh phương diện hoặc phạm vi trừu tượng.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "他在发音上进步很大。",
+          "vi": "Anh ấy tiến bộ nhiều về phát âm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "他在上发音进步很大。",
+          "explanationVi": "Danh từ phương diện đứng giữa 在 và 上: 在发音上."
+        }
+      ],
+      "commonErrorsVi": [
+        "Danh từ phương diện đứng giữa 在 và 上: 在发音上."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-34",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "一……也/都不……",
+      "nameVi": "Không… chút/lần nào",
+      "formula": "一 + 量词 + 名词 + 也/都 + 不/没 + 动词",
+      "communicativeFunctionVi": "Phủ định hoàn toàn một lượng nhỏ nhất.",
+      "meaningVi": "Phủ định hoàn toàn một lượng nhỏ nhất.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần phủ định hoàn toàn một lượng nhỏ nhất.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我一张票也没找到。",
+          "vi": "Tôi không tìm thấy dù một tấm vé."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我一张票没也找到。",
+          "explanationVi": "也/都 đứng trước phủ định: 一张票也没找到."
+        }
+      ],
+      "commonErrorsVi": [
+        "也/都 đứng trước phủ định: 一张票也没找到."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-35",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "一点儿也不……",
+      "nameVi": "Hoàn toàn không…",
+      "formula": "一点儿也不 + 形容词/心理动词",
+      "communicativeFunctionVi": "Nhấn phủ định mức độ.",
+      "meaningVi": "Nhấn phủ định mức độ.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn phủ định mức độ.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "这条路一点儿也不远。",
+          "vi": "Con đường này hoàn toàn không xa."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "这条路不一点儿也远。",
+          "explanationVi": "一点儿也 đứng trước 不: 一点儿也不远."
+        }
+      ],
+      "commonErrorsVi": [
+        "一点儿也 đứng trước 不: 一点儿也不远."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-36",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "疑问代词任指",
+      "nameVi": "Đại từ nghi vấn mang nghĩa bất kỳ",
+      "formula": "疑问代词 + 都/也……",
+      "communicativeFunctionVi": "谁/哪儿/怎么 không dùng để hỏi mà chỉ phạm vi bất kỳ.",
+      "meaningVi": "谁/哪儿/怎么 không dùng để hỏi mà chỉ phạm vi bất kỳ.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần 谁/哪儿/怎么 không dùng để hỏi mà chỉ phạm vi bất kỳ.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "谁都可以参加。",
+          "vi": "Ai cũng có thể tham gia."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "谁可以都参加。",
+          "explanationVi": "都/也 đứng sau đại từ nghi vấn mang nghĩa bất kỳ: 谁都可以参加."
+        }
+      ],
+      "commonErrorsVi": [
+        "都/也 đứng sau đại từ nghi vấn mang nghĩa bất kỳ: 谁都可以参加."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-37",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "疑问代词不定指",
+      "nameVi": "Đại từ nghi vấn phiếm chỉ",
+      "formula": "动词 + 疑问代词",
+      "communicativeFunctionVi": "Chỉ một người/vật/việc chưa xác định.",
+      "meaningVi": "Chỉ một người/vật/việc chưa xác định.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần chỉ một người/vật/việc chưa xác định.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "你想喝点儿什么？",
+          "vi": "Bạn muốn uống gì đó?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "你想什么喝点儿？",
+          "explanationVi": "Trong cụm động–tân, 喝 đứng trước 什么: 想喝点儿什么."
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong cụm động–tân, 喝 đứng trước 什么: 想喝点儿什么."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-38",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "不是……吗？",
+      "nameVi": "Câu hỏi tu từ nhấn mạnh",
+      "formula": "不是 + 已知信息 + 吗？",
+      "communicativeFunctionVi": "Nhắc điều người nói cho là đã biết; cần chú ý sắc thái.",
+      "meaningVi": "Nhắc điều người nói cho là đã biết; cần chú ý sắc thái.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhắc điều người nói cho là đã biết; cần chú ý sắc thái.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我们不是说好七点见吗？",
+          "vi": "Chẳng phải đã hẹn gặp lúc bảy giờ sao?"
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我们不是吗说好七点见？",
+          "explanationVi": "吗 đứng cuối toàn câu hỏi tu từ, không chen giữa 不是 và nội dung đã biết."
+        }
+      ],
+      "commonErrorsVi": [
+        "吗 đứng cuối toàn câu hỏi tu từ, không chen giữa 不是 và nội dung đã biết."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-39",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "存现句：出现",
+      "nameVi": "Câu tồn hiện: xuất hiện",
+      "formula": "处所 + 动词 + 了 + 数量 + 人/物",
+      "communicativeFunctionVi": "Đưa nơi chốn làm nền rồi giới thiệu đối tượng mới xuất hiện.",
+      "meaningVi": "Đưa nơi chốn làm nền rồi giới thiệu đối tượng mới xuất hiện.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần đưa nơi chốn làm nền rồi giới thiệu đối tượng mới xuất hiện.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "门口来了一位客人。",
+          "vi": "Ở cửa có một vị khách đến."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "来了一位客人门口。",
+          "explanationVi": "Câu tồn hiện mở đầu bằng nơi chốn: 门口来了一位客人."
+        }
+      ],
+      "commonErrorsVi": [
+        "Câu tồn hiện mở đầu bằng nơi chốn: 门口来了一位客人."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-40",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "存现句：消失",
+      "nameVi": "Câu tồn hiện: biến mất",
+      "formula": "处所 + 动词结果 + 了 + 数量 + 人/物",
+      "communicativeFunctionVi": "Nêu đối tượng biến mất khỏi một nơi.",
+      "meaningVi": "Nêu đối tượng biến mất khỏi một nơi.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nêu đối tượng biến mất khỏi một nơi.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "桌上少了一张卡。",
+          "vi": "Trên bàn thiếu mất một tấm thẻ."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "桌上一张卡少了。",
+          "explanationVi": "Trong mẫu tồn hiện biến mất, kết quả 少了 đứng trước cụm số lượng: 桌上少了一张卡."
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong mẫu tồn hiện biến mất, kết quả 少了 đứng trước cụm số lượng: 桌上少了一张卡."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-41",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "是……的：看法态度",
+      "nameVi": "是…的 nhấn quan điểm",
+      "formula": "主语 + 是 + 评价/态度 + 的",
+      "communicativeFunctionVi": "Nhấn cách đánh giá hoặc xác nhận thái độ.",
+      "meaningVi": "Nhấn cách đánh giá hoặc xác nhận thái độ.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần nhấn cách đánh giá hoặc xác nhận thái độ.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "你的担心是有道理的。",
+          "vi": "Sự lo lắng của bạn là có lý."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "你的担心有是道理的。",
+          "explanationVi": "Trong 是…的, phần đánh giá nằm giữa 是 và 的: 是有道理的."
+        }
+      ],
+      "commonErrorsVi": [
+        "Trong 是…的, phần đánh giá nằm giữa 是 và 的: 是有道理的."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "grammar",
+      "id": "hsk3-grammar-42",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 3,
+      "nameZh": "重动句",
+      "nameVi": "Lặp động từ khi có tân ngữ và bổ ngữ",
+      "formula": "主语 + 动词 + 宾语 + 动词 + 补语",
+      "communicativeFunctionVi": "Khi vừa có tân ngữ vừa có bổ ngữ thời lượng/mức độ, động từ thường lặp lại.",
+      "meaningVi": "Khi vừa có tân ngữ vừa có bổ ngữ thời lượng/mức độ, động từ thường lặp lại.",
+      "usageVi": [
+        "Dùng mẫu này khi nhiệm vụ giao tiếp cần khi vừa có tân ngữ vừa có bổ ngữ thời lượng/mức độ, động từ thường lặp lại.",
+        "Đối chiếu chủ ngữ, tân ngữ và từ nối trước khi thêm chi tiết."
+      ],
+      "positionVi": "Vị trí các thành phần được thể hiện trong công thức; không bê nguyên trật tự tiếng Việt.",
+      "correctExamples": [
+        {
+          "zh": "我学汉语学了两年。",
+          "vi": "Tôi học tiếng Trung được hai năm."
+        }
+      ],
+      "incorrectExamples": [
+        {
+          "zh": "我学了汉语了两年。",
+          "explanationVi": "Không đặt hai 了 quanh tân ngữ; với tân ngữ và bổ ngữ thời lượng, lặp động từ: 学汉语学了两年."
+        }
+      ],
+      "commonErrorsVi": [
+        "Không đặt hai 了 quanh tân ngữ; với tân ngữ và bổ ngữ thời lượng, lặp động từ: 学汉语学了两年."
+      ],
+      "confusables": [],
+      "negativeQuestionVi": "Cách phủ định/nghi vấn phụ thuộc mẫu; lesson yêu cầu biến đổi trong ngữ cảnh thay vì thêm 不/吗 máy móc.",
+      "knowledgeStatus": "new",
+      "introducedLevel": 3,
+      "reviewLevels": [
+        4
+      ],
+      "sourceIds": [
+        "moe-gf0025-2021-standard",
+        "cti-hsk3-current-syllabus-2026",
+        "vduckie-hsk3-c4-original"
+      ],
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    }
+  ]
+}

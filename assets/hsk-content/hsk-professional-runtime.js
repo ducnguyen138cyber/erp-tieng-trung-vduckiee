@@ -8,7 +8,8 @@
 
   var COURSE_CONFIG = Object.freeze({
     1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài · C2' }),
-    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài · C3' })
+    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài · C3' }),
+    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài · C4' })
   });
   var SUPPORT_GLOSSES = Object.freeze({
     '不喜欢': 'không thích',
@@ -311,7 +312,7 @@
   function renderGenericSection(section) {
     var content = section.content || {};
     var chunks = [];
-    ['promptVi','successCriterionVi','coachingVi','speakingVi','writingVi','canDoVi','realWorldTaskVi','reviewPolicyVi'].forEach(function (key) {
+    ['promptVi','successCriterionVi','coachingVi','speakingVi','writingVi','canDoVi','realWorldTaskVi','reviewPolicyVi','noteVi','cautionVi'].forEach(function (key) {
       if (content[key]) chunks.push('<p>' + esc(content[key]) + '</p>');
     });
     ['workflow','teachingFlow','passes','selfCheck','steps','checklist','retrievalMix','tasks'].forEach(function (key) {
@@ -429,7 +430,7 @@
       if (checkpoint) html += '<button type="button" class="hsk-pro-assessment-link' + (state.selectedAssessmentId === checkpoint.id ? ' active' : '') + '" data-pro-assessment="' + attr(checkpoint.id) + '">✓ Checkpoint Unit ' + esc(unit.order) + '</button>';
       html += '</section>';
       var midpointId = 'hsk' + state.selectedLevel + '-assessment-midpoint';
-      if (Number(unit.order) === 5 && data.assessmentById[midpointId]) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === midpointId ? ' active' : '') + '" data-pro-assessment="' + attr(midpointId) + '">◈ Midpoint Assessment</button>';
+      if (Number(unit.order) === Math.ceil(data.units.length / 2) && data.assessmentById[midpointId]) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === midpointId ? ' active' : '') + '" data-pro-assessment="' + attr(midpointId) + '">◈ Midpoint Assessment</button>';
     });
     ['hsk' + state.selectedLevel + '-assessment-final','hsk' + state.selectedLevel + '-assessment-mastery'].forEach(function (id) {
       var assessment = data.assessmentById[id];
@@ -455,8 +456,8 @@
     if (home) {
       var count = home.querySelector('strong');
       var label = home.querySelector('span');
-      if (count && count.textContent !== '52') count.textContent = '52';
-      if (label && label.textContent !== 'Bài HSK1–2') label.textContent = 'Bài HSK1–2';
+      if (count && count.textContent !== '88') count.textContent = '88';
+      if (label && label.textContent !== 'Bài HSK1–3') label.textContent = 'Bài HSK1–3';
     }
   }
 
@@ -653,7 +654,10 @@
       var requested = Number(params.get('hskLevel'));
       var contentId = params.get('hskLesson') || params.get('hskAssessment') || '';
       if (COURSE_CONFIG[requested]) level = requested;
-      else if (/^hsk2-/.test(contentId)) level = 2;
+      else {
+        var match = contentId.match(/^hsk([123])-/);
+        if (match && COURSE_CONFIG[Number(match[1])]) level = Number(match[1]);
+      }
     } catch (error) {}
     return level;
   }

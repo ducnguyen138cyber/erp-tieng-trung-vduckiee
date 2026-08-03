@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "C4",
+  "curriculumId": "vduckie-hsk3-professional-course",
+  "syllabusVersion": "GF0025-2021",
+  "examBlueprintVersion": "CTI-HSK3.0-2026",
+  "level": 3,
+  "status": "phase-c4-professional-machine-editorial-human-signoff-required",
+  "productionEnabled": false,
+  "publicOverrideAllowed": false,
+  "writesProgress": false,
+  "developerOnly": true,
+  "readOnly": true,
+  "qualityGate": "locked",
+  "collections": {
+    "units": {
+      "path": "units.json",
+      "count": 12
+    },
+    "lessons": {
+      "path": "lessons.json",
+      "count": 36
+    },
+    "grammar": {
+      "path": "grammar.json",
+      "count": 42
+    },
+    "characters": {
+      "path": "characters.json",
+      "count": 100
+    },
+    "exercises": {
+      "path": "exercises.json",
+      "count": 252
+    },
+    "assessments": {
+      "path": "assessments.json",
+      "count": 15
+    },
+    "vocabularyEnrichment": {
+      "path": "vocabulary-enrichment.json",
+      "count": 500,
+      "linkStrategy": "canonicalLookup.id"
+    },
+    "vocabulary": {
+      "path": "vocabulary/index.json",
+      "count": 500,
+      "newAtLevel": 500,
+      "cumulativeThroughLevel": 1000
+    }
+  },
+  "learnerJourney": {
+    "lessonFlow": [
+      "context",
+      "new-vocabulary-in-use",
+      "characters",
+      "grammar-for-purpose",
+      "dialogue",
+      "reading",
+      "listening-transcript",
+      "pronunciation",
+      "guided-practice",
+      "speaking-writing",
+      "summary",
+      "spaced-review",
+      "real-world-task"
+    ],
+    "mastery": {
+      "knowledge": 82,
+      "receptive": 78,
+      "productive": 75,
+      "mandatory": [
+        "unit checkpoints",
+        "midpoint",
+        "final assessment",
+        "speaking-writing project"
+      ],
+      "spacingDays": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    }
+  },
+  "sourceIds": [
+    "moe-gf0025-2021-standard",
+    "cti-hsk3-current-syllabus-2026",
+    "cti-hsk3-syllabus-pdf-2026",
+    "cti-hsk3-competency-profile-2026",
+    "cc-cedict-current",
+    "unicode-unihan-17",
+    "vduckie-hsk3-c4-original"
+  ],
+  "reviewGate": {
+    "vietnameseHumanReview": false,
+    "chinesePedagogyHumanReview": false,
+    "audioRecorded": false,
+    "strokeOrderVerified": false,
+    "productionReleaseAllowed": false
+  },
+  "editorialQualityGate": {
+    "status": "pass-machine-editorial-human-signoff-required",
+    "reviewedLessons": 36,
+    "readingSpecificQuestions": true,
+    "listeningTranscriptCoverage": "36/36",
+    "exerciseCount": 252,
+    "exerciseFormatCount": 42,
+    "officialNewVocabulary": "500/500",
+    "humanVietnameseSignoff": false,
+    "humanChinesePedagogySignoff": false
+  }
+}

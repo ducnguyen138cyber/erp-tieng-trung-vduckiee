@@ -1,0 +1,65 @@
+{
+  "ok": true,
+  "generatedAt": "2026-08-03",
+  "phase": "C4",
+  "level": 3,
+  "errors": [],
+  "warnings": [
+    {
+      "rule": "human-signoff",
+      "message": "Independent Vietnamese human signoff remains required",
+      "details": null
+    },
+    {
+      "rule": "human-signoff",
+      "message": "Independent Chinese pedagogy signoff remains required",
+      "details": null
+    },
+    {
+      "rule": "audio-pending",
+      "message": "Verified human-recorded audio remains pending",
+      "details": null
+    },
+    {
+      "rule": "stroke-pending",
+      "message": "Verified stroke-order assets remain pending",
+      "details": null
+    }
+  ],
+  "summary": {
+    "units": 12,
+    "lessons": 36,
+    "vocabulary": 500,
+    "grammar": 42,
+    "characters": 100,
+    "exercises": 252,
+    "assessments": 15,
+    "dialogues": 36,
+    "listeningTranscripts": 36,
+    "readings": 36,
+    "speakingTasks": 36,
+    "writingTasks": 36,
+    "cultureNotes": 36,
+    "exerciseFormats": 42,
+    "skills": [
+      "grammar",
+      "integrated",
+      "listening",
+      "reading",
+      "speaking",
+      "vocabulary",
+      "writing"
+    ],
+    "officialRows": "501-1000",
+    "cumulativeVocabulary": 1000,
+    "lexicalRelationCoverage": 120,
+    "repeatedExampleSkeletons": 0,
+    "vocabularyExactDuplicates": 0,
+    "vocabularyNearDuplicates": 0,
+    "exactDuplicates": 0,
+    "nearDuplicates": 0,
+    "semanticFingerprintDuplicates": 0,
+    "repositoryErrors": 0,
+    "humanSignoffRequired": true
+  }
+}
