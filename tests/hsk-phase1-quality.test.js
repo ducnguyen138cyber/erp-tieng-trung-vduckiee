@@ -88,7 +88,7 @@ test('coverage counts skills and learning-target use correctly', () => {
 test('professional read-only and planned levels remain outside the production gate', () => {
   const report = checkCoverage(root);
   assert.equal(report.levels.length, 9);
-  assert.deepEqual(report.levels.slice(0, 2).map((level) => ({
+  assert.deepEqual(report.levels.slice(0, 3).map((level) => ({
     level: level.level,
     status: level.status,
     lessons: level.lessons,
@@ -96,9 +96,10 @@ test('professional read-only and planned levels remain outside the production ga
     productionReady: level.productionReady
   })), [
     { level: 1, status: 'machine-assisted', lessons: 24, complete: false, productionReady: false },
-    { level: 2, status: 'machine-assisted', lessons: 28, complete: false, productionReady: false }
+    { level: 2, status: 'machine-assisted', lessons: 28, complete: false, productionReady: false },
+    { level: 3, status: 'machine-assisted', lessons: 36, complete: false, productionReady: false }
   ]);
-  assert.ok(report.levels.slice(2).every((level) => level.status === 'planned' && level.complete === false && level.productionReady === false));
+  assert.ok(report.levels.slice(3).every((level) => level.status === 'planned' && level.complete === false && level.productionReady === false));
   assert.ok(report.levels.every((level) => level.complete === false && level.productionReady === false));
 });
 

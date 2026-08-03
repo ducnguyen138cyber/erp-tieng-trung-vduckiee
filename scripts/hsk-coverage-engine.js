@@ -14,7 +14,11 @@ function summarizeRecords(records) {
     topicDistribution[exercise.topic] = (topicDistribution[exercise.topic] || 0) + 1;
     difficultyDistribution[String(exercise.difficulty)] = (difficultyDistribution[String(exercise.difficulty)] || 0) + 1;
   }
-  const practicedVocabulary = new Set(exerciseRecords.flatMap((record) => record.vocabularyFocus || []));
+  const exerciseVocabulary = exerciseRecords.flatMap((record) => record.vocabularyFocus || []);
+  const spacedReviewVocabulary = byType.lesson.flatMap((entry) => (entry.record.sections || [])
+    .filter((section) => section.type === 'review')
+    .flatMap((section) => (section.content && section.content.vocabularyRefs) || []));
+  const practicedVocabulary = new Set([...exerciseVocabulary, ...spacedReviewVocabulary]);
   const practicedGrammar = new Set(exerciseRecords.flatMap((record) => record.grammarFocus || []));
   const introducedVocabulary = new Set(byType.lesson.flatMap((entry) => entry.record.vocabularyRefs || []));
   const introducedGrammar = new Set(byType.lesson.flatMap((entry) => entry.record.grammarRefs || []));

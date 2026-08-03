@@ -43,7 +43,7 @@
     "humanChinesePedagogySignoff": false
   },
   "validation": {
-    "schema": "pending-quality-engine",
+    "schema": "pass",
     "officialRows": "501-1000 exact",
     "targetExamples": "500/500",
     "lessonAssignment": "500/500 exactly once",
@@ -92,6 +92,7 @@
       "revision-draft",
       "culture-reflection"
     ],
-    "productionWrites": false
+    "productionWrites": false,
+    "spacedReviewVocabularyCoverage": "500/500"
   }
 }
