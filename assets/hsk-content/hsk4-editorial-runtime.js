@@ -43,20 +43,31 @@
     }
   }
 
+  function reveal(node) {
+    if (!node) return;
+    if (node.classList.contains('hidden')) node.classList.remove('hidden');
+    if (node.hasAttribute('hidden')) node.removeAttribute('hidden');
+    if (node.getAttribute('aria-hidden') !== 'false') node.setAttribute('aria-hidden', 'false');
+    if (node.style && node.style.display === 'none') node.style.removeProperty('display');
+  }
+
   function ensureHskRouteVisible() {
     if (!hskRouteRequested() || !root.document || !root.document.getElementById) return;
+    reveal(root.document.getElementById('hsk'));
+    reveal(root.document.getElementById('hskJourney'));
+  }
+
+  function watchHskRouteVisibility() {
+    if (!hskRouteRequested() || !root.document || !root.MutationObserver) return;
     var panel = root.document.getElementById('hsk');
     var journey = root.document.getElementById('hskJourney');
-    if (panel) {
-      panel.classList.remove('hidden');
-      panel.removeAttribute('hidden');
-      panel.setAttribute('aria-hidden', 'false');
-    }
-    if (journey) {
-      journey.classList.remove('hidden');
-      journey.removeAttribute('hidden');
-      journey.setAttribute('aria-hidden', 'false');
-    }
+    [panel, journey].forEach(function (node) {
+      if (!node || node.__vduckieHsk4VisibilityObserver) return;
+      var observer = new root.MutationObserver(ensureHskRouteVisible);
+      observer.observe(node, { attributes: true, attributeFilter: ['class', 'hidden', 'aria-hidden', 'style'] });
+      node.__vduckieHsk4VisibilityObserver = observer;
+    });
+    ensureHskRouteVisible();
   }
 
   function ensureProjectAssessmentLink() {
@@ -76,13 +87,22 @@
   function observeAssessmentNavigation() {
     if (!root.document || !root.MutationObserver) return;
     var start = function () {
-      ensureHskRouteVisible();
+      watchHskRouteVisibility();
       var list = root.document.getElementById('hskLessonList');
       if (!list || list.__vduckieHsk4ProjectObserver) return;
-      var observer = new root.MutationObserver(ensureProjectAssessmentLink);
+      var observer = new root.MutationObserver(function () {
+        ensureProjectAssessmentLink();
+        watchHskRouteVisibility();
+      });
       observer.observe(list, { childList: true, subtree: false });
       list.__vduckieHsk4ProjectObserver = observer;
       ensureProjectAssessmentLink();
+      [0, 100, 500, 1500].forEach(function (delay) {
+        root.setTimeout(function () {
+          ensureHskRouteVisible();
+          watchHskRouteVisibility();
+        }, delay);
+      });
     };
     if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', start, { once: true });
     else start();
