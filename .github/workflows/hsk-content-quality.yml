@@ -46,6 +46,7 @@ jobs:
           chmod +x scripts/build-hsk4-c5.py
           python scripts/build-hsk4-c5.py
           python scripts/finalize-hsk4-c5.py
+          python scripts/finalize-hsk4-editorial.py
           python scripts/finalize-hsk4-integration.py
       - name: Commit generated HSK4 corpus and learner integration
         if: github.event_name == 'pull_request'
@@ -99,7 +100,7 @@ jobs:
               result[item.kind] = (result[item.kind] || 0) + item.pairBlockers;
               return result;
             }, {}),
-            groups: duplicates.slice(0, 120)
+            groups: duplicates.slice(0, 40)
           }, null, 2));
           NODE
       - name: Check HSK duplicates
