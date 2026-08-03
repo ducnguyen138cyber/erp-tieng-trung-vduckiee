@@ -6,7 +6,7 @@ The fetch is only used to capture a lexical membership/gloss snapshot; generated
 """
 from __future__ import annotations
 
-# Finalize with scripts/finalize-hsk4-c5.py to normalize phrase pinyin and verified stroke metadata.
+# Finalize with scripts/finalize-hsk4-c5.py to preserve official pinyin and verified stroke metadata.
 import hashlib, html, json, os, re, sys, urllib.request
 from collections import Counter
 from html.parser import HTMLParser
