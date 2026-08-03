@@ -4,6 +4,7 @@
 
   var nativeFetch = root.fetch.bind(root);
   var grammarPattern = /data\/hsk\/hsk4\/grammar\.json(?:[?#]|$)/;
+  var projectAssessmentId = 'hsk4-assessment-project';
 
   function requestUrl(input) {
     if (typeof input === 'string') return input;
@@ -33,6 +34,33 @@
     return document;
   }
 
+  function ensureProjectAssessmentLink() {
+    if (!root.document || !root.document.getElementById) return;
+    var list = root.document.getElementById('hskLessonList');
+    if (!list || list.querySelector('[data-pro-assessment="' + projectAssessmentId + '"]')) return;
+    if (!list.querySelector('[data-pro-assessment^="hsk4-assessment-"]')) return;
+    var button = root.document.createElement('button');
+    button.type = 'button';
+    button.className = 'hsk-pro-assessment-link major';
+    button.setAttribute('data-pro-assessment', projectAssessmentId);
+    button.textContent = '▣ Integrated Project';
+    list.appendChild(button);
+  }
+
+  function observeAssessmentNavigation() {
+    if (!root.document || !root.MutationObserver) return;
+    var start = function () {
+      var list = root.document.getElementById('hskLessonList');
+      if (!list || list.__vduckieHsk4ProjectObserver) return;
+      var observer = new root.MutationObserver(ensureProjectAssessmentLink);
+      observer.observe(list, { childList: true, subtree: false });
+      list.__vduckieHsk4ProjectObserver = observer;
+      ensureProjectAssessmentLink();
+    };
+    if (root.document.readyState === 'loading') root.document.addEventListener('DOMContentLoaded', start, { once: true });
+    else start();
+  }
+
   root.fetch = function (input, init) {
     var url = requestUrl(input);
     if (!grammarPattern.test(url)) return nativeFetch(input, init);
@@ -56,6 +84,10 @@
     });
   };
 
+  observeAssessmentNavigation();
   root.__VDUCKIE_HSK4_EDITORIAL_FETCH__ = true;
-  root.VDuckieHsk4EditorialRuntime = Object.freeze({ applyCorrections: applyCorrections });
+  root.VDuckieHsk4EditorialRuntime = Object.freeze({
+    applyCorrections: applyCorrections,
+    ensureProjectAssessmentLink: ensureProjectAssessmentLink
+  });
 })(typeof globalThis !== 'undefined' ? globalThis : this);
