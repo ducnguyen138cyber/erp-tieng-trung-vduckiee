@@ -231,7 +231,10 @@ try:
                     assert state_regression["counts"]["vocabulary"] == vocabulary, state_regression
                     result["flows"][flow] = "pass"
 
-                page.goto(f"{BASE}?area=hsk&hskLesson=hsk4-lesson-48", wait_until="domcontentloaded")
+                page.goto(
+                    f"{BASE}?area=hsk&hskLevel=4&hskLesson=hsk4-lesson-48",
+                    wait_until="domcontentloaded",
+                )
                 assert wait_ready(page, 4)["selectedLessonId"] == "hsk4-lesson-48"
                 result["flows"]["directUrl"] = "pass"
                 page.reload(wait_until="domcontentloaded")
