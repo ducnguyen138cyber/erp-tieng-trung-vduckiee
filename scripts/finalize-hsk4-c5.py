@@ -2,9 +2,12 @@
 """Finalize deterministic HSK4 C5 pronunciation and character metadata."""
 from __future__ import annotations
 
+import io
 import json
 import re
 import subprocess
+import urllib.request
+import zipfile
 from collections import Counter
 from pathlib import Path
 
@@ -14,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HSK4 = ROOT / "data" / "hsk" / "hsk4"
 BUILDER = ROOT / "scripts" / "build-hsk4-c5.py"
 HAN_RE = re.compile(r"[\u3400-\u9fff]")
+UNIHAN_URL = "https://www.unicode.org/Public/17.0.0/ucd/Unihan.zip"
 
 RADICAL_GROUPS = [
     ("氵", "海河清洗澡没法活酒满流深温游泳消池湖洋汁汗洁泪湿洪波浪滴湾源"),
@@ -157,6 +161,30 @@ process.stdout.write(JSON.stringify(result));
     return {key: int(value) for key, value in json.loads(result.stdout).items()}
 
 
+def unihan_stroke_counts(characters: list[str]) -> dict[str, int]:
+    wanted = {ord(character) for character in characters}
+    request = urllib.request.Request(UNIHAN_URL, headers={"User-Agent": "VDuckie-HSK4-C5/1.0"})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        archive = zipfile.ZipFile(io.BytesIO(response.read()))
+    result: dict[str, int] = {}
+    for name in archive.namelist():
+        if not name.endswith(".txt"):
+            continue
+        for raw in archive.read(name).decode("utf-8").splitlines():
+            if "\tkTotalStrokes\t" not in raw:
+                continue
+            codepoint, _, values = raw.split("\t", 2)
+            number = int(codepoint[2:], 16)
+            if number not in wanted:
+                continue
+            match = re.search(r"\d+", values)
+            if match:
+                result[chr(number)] = int(match.group())
+        if len(result) == len(wanted):
+            break
+    return result
+
+
 def radical_for(character: str) -> str | None:
     for radical, members in RADICAL_GROUPS:
         if character in members:
@@ -176,15 +204,19 @@ def rebuild_characters(vocabulary: list[dict]) -> None:
         for character in HAN_RE.findall(word["simplified"]):
             if character not in old and character not in ordered:
                 ordered.append(character)
-    counts = bundled_stroke_counts(ordered)
+
+    bundled = bundled_stroke_counts(ordered)
+    unihan = unihan_stroke_counts(ordered)
+    counts = {**unihan, **bundled}
     selected = [character for character in ordered if character in counts][:150]
     if len(selected) != 150:
-        raise RuntimeError(f"HSK4 character focus needs 150 bundled-vector characters, received {len(selected)}")
+        raise RuntimeError(f"HSK4 character focus needs 150 verified stroke counts, received {len(selected)}")
 
     records: list[dict] = []
     for index, character in enumerate(selected, start=1):
         radical = radical_for(character)
         word_refs = [word["id"] for word in vocabulary if character in word["simplified"]]
+        has_vector = character in bundled
         note = (
             f"Mẹo nhớ: tìm phần {radical} trong {character}, rồi đối chiếu chữ trong các từ đã học; "
             "đây là mẹo thị giác, không phải giải thích từ nguyên."
@@ -208,10 +240,10 @@ def rebuild_characters(vocabulary: list[dict]) -> None:
                 "wordRefs": word_refs,
                 "confusables": [],
                 "strokeCount": counts[character],
-                "strokeCountSource": "bundled-static-vector-count",
+                "strokeCountSource": "bundled-static-vector-count" if has_vector else "unicode-unihan-17-kTotalStrokes",
                 "mnemonic": {"type": "memory-aid-not-etymology", "noteVi": note},
                 "knowledgeStatus": "new",
-                "strokeOrderStatus": "static-fallback",
+                "strokeOrderStatus": "static-fallback" if has_vector else "unavailable",
                 "strokeOrderAsset": None,
                 "sourceIds": [
                     "moe-gf0025-2021-standard",
@@ -231,7 +263,7 @@ def rebuild_characters(vocabulary: list[dict]) -> None:
 
 def patch_builder_note() -> None:
     text = BUILDER.read_text(encoding="utf-8")
-    marker = "# Finalize with scripts/finalize-hsk4-c5.py to normalize phrase pinyin and bundled stroke metadata.\n"
+    marker = "# Finalize with scripts/finalize-hsk4-c5.py to normalize phrase pinyin and verified stroke metadata.\n"
     if marker not in text:
         text = text.replace("from __future__ import annotations\n", "from __future__ import annotations\n\n" + marker, 1)
     BUILDER.write_text(text, encoding="utf-8")
@@ -245,16 +277,18 @@ def verify(vocabulary: list[dict]) -> None:
         number = record["pinyinNumber"]
         if not re.fullmatch(r"[a-zv1-5 ]+", number):
             invalid.append(ref)
-        syllables = number.split()
-        han_count = len(HAN_RE.findall(record["simplified"]))
-        if han_count and not syllables:
+        if HAN_RE.search(record["simplified"]) and not number.split():
             invalid.append(ref)
         tones.update(char for char in number if char in "12345")
     if invalid:
         raise RuntimeError(f"Invalid normalized pinyin records: {invalid[:20]}")
     characters = read_json(HSK4 / "characters.json")["records"]
-    if len(characters) != 150 or any(record.get("strokeCount", 0) <= 1 for record in characters):
-        raise RuntimeError("HSK4 character metadata still contains placeholder stroke counts")
+    if len(characters) != 150:
+        raise RuntimeError(f"HSK4 character count must be 150, received {len(characters)}")
+    if any(not (1 <= record.get("strokeCount", 0) <= 64) for record in characters):
+        raise RuntimeError("HSK4 character metadata contains an invalid stroke count")
+    if any(record.get("strokeCountSource") == "builder-placeholder" for record in characters):
+        raise RuntimeError("HSK4 character metadata still contains builder placeholders")
     if not all(tones[str(number)] for number in range(1, 6)):
         raise RuntimeError(f"Unexpected HSK4 tone distribution: {dict(tones)}")
 
@@ -269,7 +303,11 @@ def main() -> None:
     verify(vocabulary)
     print(
         json.dumps(
-            {"ok": True, "pinyinNormalized": len(vocabulary), "charactersWithBundledStrokeCount": 150},
+            {
+                "ok": True,
+                "pinyinNormalized": len(vocabulary),
+                "charactersWithVerifiedStrokeCount": 150,
+            },
             ensure_ascii=False,
         )
     )
