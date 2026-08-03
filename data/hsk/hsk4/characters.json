@@ -13,26 +13,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "ā"
+        "a"
       ],
       "wordRefs": [
         "hsk4-v-0001"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 啊 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 啊 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -48,27 +49,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "àiqíng"
+        "ài"
       ],
       "wordRefs": [
         "hsk4-v-0002",
         "hsk4-v-0003"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 爱 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 爱 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -84,8 +86,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "ānpái"
+        "pái"
       ],
       "wordRefs": [
         "hsk4-v-0005",
@@ -94,19 +97,19 @@
         "hsk4-v-0546"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 排 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 排 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -120,8 +123,12 @@
       "character": "按",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "扌",
+      "components": [
+        "扌",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
         "àn"
       ],
@@ -131,19 +138,19 @@
         "hsk4-v-0008"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 按 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 扌 trong 按, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -157,29 +164,33 @@
       "character": "酒",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "氵",
+      "components": [
+        "氵",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "báijiǔ"
+        "jiǔ"
       ],
       "wordRefs": [
         "hsk4-v-0009",
         "hsk4-v-0560"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 酒 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 氵 trong 酒, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -195,8 +206,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bàngōng"
+        "bàn"
       ],
       "wordRefs": [
         "hsk4-v-0010",
@@ -205,19 +217,19 @@
         "hsk4-v-0410"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 办 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 办 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -233,6 +245,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "bàng"
       ],
@@ -240,19 +253,19 @@
         "hsk4-v-0013"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 棒 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 棒 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -266,10 +279,14 @@
       "character": "保",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "亻",
+      "components": [
+        "亻",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "bǎohù"
+        "bǎo"
       ],
       "wordRefs": [
         "hsk4-v-0014",
@@ -277,19 +294,19 @@
         "hsk4-v-0305"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 保 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 亻 trong 保, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -303,10 +320,14 @@
       "character": "证",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "讠",
+      "components": [
+        "讠",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "bǎozhèng"
+        "zhèng"
       ],
       "wordRefs": [
         "hsk4-v-0015",
@@ -317,19 +338,19 @@
         "hsk4-v-0935"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 证 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 讠 trong 证, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -345,6 +366,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "bào"
       ],
@@ -353,19 +375,19 @@
         "hsk4-v-0019"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 抱 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 抱 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -381,27 +403,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bàoqiàn"
+        "qiàn"
       ],
       "wordRefs": [
         "hsk4-v-0019",
         "hsk4-v-0144"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 14,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 歉 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 歉 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -417,27 +440,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bēi"
+        "bèi"
       ],
       "wordRefs": [
         "hsk4-v-0020",
         "hsk4-v-0021"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 背 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 背 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -453,27 +477,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bēibāo"
+        "bāo"
       ],
       "wordRefs": [
         "hsk4-v-0021",
         "hsk4-v-0295"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 包 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 包 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -489,26 +514,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "běibù"
+        "běi"
       ],
       "wordRefs": [
         "hsk4-v-0022"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 北 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 北 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -524,8 +550,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "běibù"
+        "bù"
       ],
       "wordRefs": [
         "hsk4-v-0022",
@@ -538,19 +565,19 @@
         "hsk4-v-0788"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 部 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 部 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -566,6 +593,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "bèi"
       ],
@@ -573,19 +601,19 @@
         "hsk4-v-0023"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 倍 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 倍 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -599,10 +627,14 @@
       "character": "本",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "木",
+      "components": [
+        "木",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "běnkē"
+        "běn"
       ],
       "wordRefs": [
         "hsk4-v-0024",
@@ -611,19 +643,19 @@
         "hsk4-v-0320"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 本 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 木 trong 本, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -639,8 +671,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "běnkē"
+        "kē"
       ],
       "wordRefs": [
         "hsk4-v-0024",
@@ -648,19 +681,19 @@
         "hsk4-v-0426"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 科 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 科 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -676,8 +709,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "běnlái"
+        "lái"
       ],
       "wordRefs": [
         "hsk4-v-0025",
@@ -690,19 +724,19 @@
         "hsk4-v-0900"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 来 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 来 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -718,6 +752,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "bèn"
       ],
@@ -725,19 +760,19 @@
         "hsk4-v-0026"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 笨 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 笨 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -753,26 +788,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bízi"
+        "bí"
       ],
       "wordRefs": [
         "hsk4-v-0027"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 14,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 鼻 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 鼻 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -786,28 +822,32 @@
       "character": "笔",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "竹",
+      "components": [
+        "竹",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "bǐshì"
+        "bǐ"
       ],
       "wordRefs": [
         "hsk4-v-0028"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 笔 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 竹 trong 笔, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -823,8 +863,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bǐshì"
+        "shì"
       ],
       "wordRefs": [
         "hsk4-v-0028",
@@ -832,19 +873,19 @@
         "hsk4-v-0675"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 试 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 试 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -860,27 +901,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bìyè"
+        "bì"
       ],
       "wordRefs": [
         "hsk4-v-0029",
         "hsk4-v-0030"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 毕 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 毕 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -896,8 +938,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bìyè"
+        "yè"
       ],
       "wordRefs": [
         "hsk4-v-0029",
@@ -906,19 +949,19 @@
         "hsk4-v-0969"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 业 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 业 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -934,8 +977,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "biànyú"
+        "biàn"
       ],
       "wordRefs": [
         "hsk4-v-0031",
@@ -944,19 +988,19 @@
         "hsk4-v-0709"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 便 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 便 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -972,27 +1016,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "biāozhǔn"
+        "biāo"
       ],
       "wordRefs": [
         "hsk4-v-0032",
         "hsk4-v-0517"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 标 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 标 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1008,6 +1053,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "biǎo"
       ],
@@ -1020,19 +1066,19 @@
         "hsk4-v-0659"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 表 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 表 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1048,8 +1094,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "biǎogé"
+        "gé"
       ],
       "wordRefs": [
         "hsk4-v-0034",
@@ -1059,19 +1106,19 @@
         "hsk4-v-0845"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 格 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 格 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1087,26 +1134,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "biǎoshì"
+        "shì"
       ],
       "wordRefs": [
         "hsk4-v-0035"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 示 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 示 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1122,26 +1170,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "biǎoyáng"
+        "yáng"
       ],
       "wordRefs": [
         "hsk4-v-0037"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 扬 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 扬 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1155,29 +1204,33 @@
       "character": "饼",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "饣",
+      "components": [
+        "饣",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "bǐnggān"
+        "bǐng"
       ],
       "wordRefs": [
         "hsk4-v-0038",
         "hsk4-v-0908"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 饼 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 饣 trong 饼, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1193,8 +1246,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bǐnggān"
+        "gàn"
       ],
       "wordRefs": [
         "hsk4-v-0038",
@@ -1203,19 +1257,19 @@
         "hsk4-v-0234"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 3,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 干 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 干 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1231,6 +1285,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "bìng"
       ],
@@ -1239,19 +1294,19 @@
         "hsk4-v-0040"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 并 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 并 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1267,27 +1322,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bōfàng"
+        "bō"
       ],
       "wordRefs": [
         "hsk4-v-0041",
         "hsk4-v-0275"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 15,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 播 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 播 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1303,8 +1359,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bōfàng"
+        "fàng"
       ],
       "wordRefs": [
         "hsk4-v-0041",
@@ -1312,19 +1369,19 @@
         "hsk4-v-0198"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 放 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 放 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1340,26 +1397,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bóshì"
+        "bó"
       ],
       "wordRefs": [
         "hsk4-v-0042"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 博 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 博 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1375,8 +1433,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bóshì"
+        "shì"
       ],
       "wordRefs": [
         "hsk4-v-0042",
@@ -1385,19 +1444,19 @@
         "hsk4-v-0702"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 3,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 士 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 士 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1413,26 +1472,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "búbì"
+        "bì"
       ],
       "wordRefs": [
         "hsk4-v-0043"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 必 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 必 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1448,27 +1508,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "búduàn"
+        "duàn"
       ],
       "wordRefs": [
         "hsk4-v-0045",
         "hsk4-v-0548"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 断 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 断 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1484,8 +1545,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "búgòu"
+        "gòu"
       ],
       "wordRefs": [
         "hsk4-v-0046",
@@ -1493,19 +1555,19 @@
         "hsk4-v-0532"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 够 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 够 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1519,10 +1581,14 @@
       "character": "论",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "讠",
+      "components": [
+        "讠",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "búlùn"
+        "lùn"
       ],
       "wordRefs": [
         "hsk4-v-0048",
@@ -1530,19 +1596,19 @@
         "hsk4-v-0784"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 论 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 讠 trong 论, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1558,6 +1624,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "bù"
       ],
@@ -1566,19 +1633,19 @@
         "hsk4-v-0626"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 步 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 步 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1592,10 +1659,14 @@
       "character": "管",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "竹",
+      "components": [
+        "竹",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "bùguǎn"
+        "guǎn"
       ],
       "wordRefs": [
         "hsk4-v-0053",
@@ -1604,19 +1675,19 @@
         "hsk4-v-0389"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 14,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 管 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 竹 trong 管, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1632,8 +1703,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bùguāng"
+        "guāng"
       ],
       "wordRefs": [
         "hsk4-v-0054",
@@ -1641,19 +1713,19 @@
         "hsk4-v-0855"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 光 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 光 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1669,8 +1741,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "bùjǐn"
+        "jǐn"
       ],
       "wordRefs": [
         "hsk4-v-0055",
@@ -1678,19 +1751,19 @@
         "hsk4-v-0390"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 仅 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 仅 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1704,29 +1777,33 @@
       "character": "满",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "氵",
+      "components": [
+        "氵",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "bùmǎn"
+        "mǎn"
       ],
       "wordRefs": [
         "hsk4-v-0056",
         "hsk4-v-0496"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 13,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 满 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 氵 trong 满, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1742,6 +1819,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "cā"
       ],
@@ -1749,19 +1827,19 @@
         "hsk4-v-0059"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 17,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 擦 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 擦 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1777,6 +1855,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "cāi"
       ],
@@ -1784,19 +1863,19 @@
         "hsk4-v-0060"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 猜 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 猜 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1810,28 +1889,32 @@
       "character": "材",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "木",
+      "components": [
+        "木",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "cáiliào"
+        "cái"
       ],
       "wordRefs": [
         "hsk4-v-0061"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 材 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 木 trong 材, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1847,8 +1930,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cáiliào"
+        "liào"
       ],
       "wordRefs": [
         "hsk4-v-0061",
@@ -1856,19 +1940,19 @@
         "hsk4-v-0978"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 料 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 料 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1884,27 +1968,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cānguān"
+        "cān"
       ],
       "wordRefs": [
         "hsk4-v-0062",
         "hsk4-v-0063"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 参 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 参 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1920,8 +2005,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cānguān"
+        "guān"
       ],
       "wordRefs": [
         "hsk4-v-0062",
@@ -1929,19 +2015,19 @@
         "hsk4-v-0271"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 观 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 观 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1957,27 +2043,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cānsài"
+        "sài"
       ],
       "wordRefs": [
         "hsk4-v-0063",
         "hsk4-v-0127"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 14,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 赛 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 赛 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -1991,10 +2078,14 @@
       "character": "餐",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "饣",
+      "components": [
+        "饣",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "cāntīng"
+        "cān"
       ],
       "wordRefs": [
         "hsk4-v-0064",
@@ -2006,19 +2097,19 @@
         "hsk4-v-0957"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 16,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 餐 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 饣 trong 餐, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2034,8 +2125,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cāntīng"
+        "tīng"
       ],
       "wordRefs": [
         "hsk4-v-0064",
@@ -2043,19 +2135,19 @@
         "hsk4-v-0434"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 厅 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 厅 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2071,26 +2163,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cāochǎng"
+        "cāo"
       ],
       "wordRefs": [
         "hsk4-v-0065"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 16,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 操 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 操 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2104,10 +2197,14 @@
       "character": "场",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "土",
+      "components": [
+        "土",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "cāochǎng"
+        "chǎng"
       ],
       "wordRefs": [
         "hsk4-v-0065",
@@ -2116,19 +2213,19 @@
         "hsk4-v-0741"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 场 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 土 trong 场, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2144,26 +2241,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cèsuǒ"
+        "cè"
       ],
       "wordRefs": [
         "hsk4-v-0066"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 厕 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 厕 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2179,27 +2277,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cèsuǒ"
+        "suǒ"
       ],
       "wordRefs": [
         "hsk4-v-0066",
         "hsk4-v-0713"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 所 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 所 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2213,28 +2312,32 @@
       "character": "茶",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "艹",
+      "components": [
+        "艹",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "cháyè"
+        "chá"
       ],
       "wordRefs": [
         "hsk4-v-0068"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 茶 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 艹 trong 茶, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2250,27 +2353,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "cháyè"
+        "yè"
       ],
       "wordRefs": [
         "hsk4-v-0068",
         "hsk4-v-0864"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 叶 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 叶 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2284,28 +2388,32 @@
       "character": "找",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "扌",
+      "components": [
+        "扌",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "cházhǎo"
+        "zhǎo"
       ],
       "wordRefs": [
         "hsk4-v-0069"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 找 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 扌 trong 找, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2321,27 +2429,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chàdiǎnr"
+        "chà"
       ],
       "wordRefs": [
         "hsk4-v-0070",
         "hsk4-v-0088"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 差 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 差 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2357,26 +2466,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chǎnshēng"
+        "chǎn"
       ],
       "wordRefs": [
         "hsk4-v-0071"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 产 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 产 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2392,6 +2502,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "chǎng"
       ],
@@ -2400,19 +2511,19 @@
         "hsk4-v-0250"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 2,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 厂 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 厂 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2428,26 +2539,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chāoguò"
+        "chāo"
       ],
       "wordRefs": [
         "hsk4-v-0074"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 超 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 超 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2461,10 +2573,14 @@
       "character": "速",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "辶",
+      "components": [
+        "辶",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "chēsù"
+        "sù"
       ],
       "wordRefs": [
         "hsk4-v-0075",
@@ -2473,19 +2589,19 @@
         "hsk4-v-0704"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 速 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 辶 trong 速, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2499,10 +2615,14 @@
       "character": "位",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "亻",
+      "components": [
+        "亻",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "chēwèi"
+        "wèi"
       ],
       "wordRefs": [
         "hsk4-v-0076",
@@ -2511,19 +2631,19 @@
         "hsk4-v-0997"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 位 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 亻 trong 位, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2537,8 +2657,12 @@
       "character": "城",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "土",
+      "components": [
+        "土",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
         "chéng"
       ],
@@ -2546,19 +2670,19 @@
         "hsk4-v-0077"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 城 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 土 trong 城, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2574,6 +2698,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "chéng"
       ],
@@ -2584,19 +2709,19 @@
         "hsk4-v-0306"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 乘 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 乘 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2612,8 +2737,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chénggōng"
+        "gōng"
       ],
       "wordRefs": [
         "hsk4-v-0079",
@@ -2621,19 +2747,19 @@
         "hsk4-v-0253"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 功 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 功 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2647,10 +2773,14 @@
       "character": "客",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "宀",
+      "components": [
+        "宀",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "chéngkè"
+        "kè"
       ],
       "wordRefs": [
         "hsk4-v-0080",
@@ -2660,19 +2790,19 @@
         "hsk4-v-0489"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 客 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 宀 trong 客, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2686,28 +2816,32 @@
       "character": "诚",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "讠",
+      "components": [
+        "讠",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "chéngshí"
+        "chéng"
       ],
       "wordRefs": [
         "hsk4-v-0081"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 诚 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 讠 trong 诚, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2721,10 +2855,14 @@
       "character": "实",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "宀",
+      "components": [
+        "宀",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "chéngshí"
+        "shí"
       ],
       "wordRefs": [
         "hsk4-v-0081",
@@ -2734,19 +2872,19 @@
         "hsk4-v-0664"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 实 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 宀 trong 实, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2762,26 +2900,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chéngzuò"
+        "zuò"
       ],
       "wordRefs": [
         "hsk4-v-0083"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 坐 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 坐 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2795,28 +2934,32 @@
       "character": "惊",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "忄",
+      "components": [
+        "忄",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "chījīng"
+        "jīng"
       ],
       "wordRefs": [
         "hsk4-v-0084"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 惊 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 忄 trong 惊, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2832,8 +2975,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chóng"
+        "zhòng"
       ],
       "wordRefs": [
         "hsk4-v-0086",
@@ -2846,19 +2990,19 @@
         "hsk4-v-0989"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 重 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 重 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2874,26 +3018,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chóngxīn"
+        "xīn"
       ],
       "wordRefs": [
         "hsk4-v-0087"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 13,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 新 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 新 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2909,8 +3054,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chūzū"
+        "zū"
       ],
       "wordRefs": [
         "hsk4-v-0092",
@@ -2918,19 +3064,19 @@
         "hsk4-v-0986"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 租 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 租 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2946,27 +3092,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chúfáng"
+        "chú"
       ],
       "wordRefs": [
         "hsk4-v-0093",
         "hsk4-v-0094"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 厨 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 厨 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -2982,8 +3129,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chúfáng"
+        "fáng"
       ],
       "wordRefs": [
         "hsk4-v-0093",
@@ -2992,19 +3140,19 @@
         "hsk4-v-0353"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 房 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 房 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3020,8 +3168,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chúshī"
+        "shī"
       ],
       "wordRefs": [
         "hsk4-v-0094",
@@ -3031,19 +3180,19 @@
         "hsk4-v-0655"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 师 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 师 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3059,6 +3208,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "chuāng"
       ],
@@ -3067,19 +3217,19 @@
         "hsk4-v-0096"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 窗 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 窗 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3095,26 +3245,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "chuānghu"
+        "hù"
       ],
       "wordRefs": [
         "hsk4-v-0096"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 户 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 户 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3130,6 +3281,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "chuī"
       ],
@@ -3137,19 +3289,19 @@
         "hsk4-v-0097"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 吹 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 吹 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3165,6 +3317,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "cǐ"
       ],
@@ -3176,19 +3329,19 @@
         "hsk4-v-0871"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 此 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 此 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3204,6 +3357,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "cū"
       ],
@@ -3212,19 +3366,19 @@
         "hsk4-v-0106"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 粗 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 粗 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3240,6 +3394,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "cūn"
       ],
@@ -3248,19 +3403,19 @@
         "hsk4-v-0537"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 村 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 村 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3276,6 +3431,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "cún"
       ],
@@ -3283,19 +3439,19 @@
         "hsk4-v-0108"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 存 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 存 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3309,29 +3465,33 @@
       "character": "误",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "讠",
+      "components": [
+        "讠",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "cuòwù"
+        "wù"
       ],
       "wordRefs": [
         "hsk4-v-0110",
         "hsk4-v-0786"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 误 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 讠 trong 误, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3345,10 +3505,14 @@
       "character": "答",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "竹",
+      "components": [
+        "竹",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "dāying"
+        "dá"
       ],
       "wordRefs": [
         "hsk4-v-0111",
@@ -3356,19 +3520,19 @@
         "hsk4-v-0113"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 答 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 竹 trong 答, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3384,8 +3548,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dāying"
+        "yīng"
       ],
       "wordRefs": [
         "hsk4-v-0111",
@@ -3393,19 +3558,19 @@
         "hsk4-v-0876"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 应 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 应 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3421,26 +3586,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dá’àn"
+        "àn"
       ],
       "wordRefs": [
         "hsk4-v-0113"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 案 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 案 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3456,26 +3622,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dádào"
+        "dá"
       ],
       "wordRefs": [
         "hsk4-v-0114"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 达 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 达 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3491,27 +3658,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎ zhāohu"
+        "zhāo"
       ],
       "wordRefs": [
         "hsk4-v-0115",
         "hsk4-v-0923"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 招 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 招 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3527,26 +3695,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎ zhāohu"
+        "hū"
       ],
       "wordRefs": [
         "hsk4-v-0115"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 呼 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 呼 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3562,27 +3731,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎbài"
+        "bài"
       ],
       "wordRefs": [
         "hsk4-v-0116",
         "hsk4-v-0652"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 败 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 败 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3598,8 +3768,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎgōng"
+        "gōng"
       ],
       "wordRefs": [
         "hsk4-v-0117",
@@ -3608,19 +3779,19 @@
         "hsk4-v-0257"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 3,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 工 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 工 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3636,26 +3807,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎrǎo"
+        "rǎo"
       ],
       "wordRefs": [
         "hsk4-v-0118"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 扰 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 扰 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3671,8 +3843,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎyìn"
+        "yìn"
       ],
       "wordRefs": [
         "hsk4-v-0119",
@@ -3681,19 +3854,19 @@
         "hsk4-v-0873"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 印 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 印 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3709,26 +3882,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎzhé"
+        "zhé"
       ],
       "wordRefs": [
         "hsk4-v-0121"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 折 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 折 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3742,28 +3916,32 @@
       "character": "针",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "钅",
+      "components": [
+        "钅",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "dǎzhēn"
+        "zhēn"
       ],
       "wordRefs": [
         "hsk4-v-0122"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 针 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 钅 trong 针, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3779,26 +3957,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dàbā"
+        "bā"
       ],
       "wordRefs": [
         "hsk4-v-0123"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 巴 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 巴 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3814,27 +3993,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dàifu"
+        "fū"
       ],
       "wordRefs": [
         "hsk4-v-0125",
         "hsk4-v-0251"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 夫 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 夫 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3850,8 +4030,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dàliàng"
+        "liàng"
       ],
       "wordRefs": [
         "hsk4-v-0126",
@@ -3862,19 +4043,19 @@
         "hsk4-v-0955"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 量 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 量 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3888,10 +4069,14 @@
       "character": "约",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "纟",
+      "components": [
+        "纟",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "dàyuē"
+        "yuē"
       ],
       "wordRefs": [
         "hsk4-v-0129",
@@ -3900,19 +4085,19 @@
         "hsk4-v-0907"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 约 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 纟 trong 约, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3928,8 +4113,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dàzìrán"
+        "zì"
       ],
       "wordRefs": [
         "hsk4-v-0130",
@@ -3940,19 +4126,19 @@
         "hsk4-v-0984"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 自 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 自 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -3968,26 +4154,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dāi"
+        "dài"
       ],
       "wordRefs": [
         "hsk4-v-0131"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 待 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 待 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4003,6 +4190,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dài"
       ],
@@ -4010,19 +4198,19 @@
         "hsk4-v-0132"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 17,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 戴 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 戴 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4038,26 +4226,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dàizi"
+        "dài"
       ],
       "wordRefs": [
         "hsk4-v-0133"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 袋 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 袋 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4073,26 +4262,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dānwèi"
+        "dān"
       ],
       "wordRefs": [
         "hsk4-v-0134"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 单 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 单 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4108,6 +4298,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dāng"
       ],
@@ -4116,19 +4307,19 @@
         "hsk4-v-0136"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 当 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 当 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4144,6 +4335,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dāo"
       ],
@@ -4151,19 +4343,19 @@
         "hsk4-v-0137"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 2,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 刀 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 刀 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4179,26 +4371,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǎoyóu"
+        "dǎo"
       ],
       "wordRefs": [
         "hsk4-v-0138"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 导 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 导 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4212,29 +4405,33 @@
       "character": "游",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "氵",
+      "components": [
+        "氵",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "dǎoyóu"
+        "yóu"
       ],
       "wordRefs": [
         "hsk4-v-0138",
         "hsk4-v-0887"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 游 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 氵 trong 游, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4250,6 +4447,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dào"
       ],
@@ -4257,19 +4455,19 @@
         "hsk4-v-0139"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 倒 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 倒 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4283,8 +4481,12 @@
       "character": "道",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "辶",
+      "components": [
+        "辶",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
         "dào"
       ],
@@ -4297,19 +4499,19 @@
         "hsk4-v-0773"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 道 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 辶 trong 道, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4325,8 +4527,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dàodǐ"
+        "dǐ"
       ],
       "wordRefs": [
         "hsk4-v-0141",
@@ -4335,19 +4538,19 @@
         "hsk4-v-0535"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 底 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 底 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4363,26 +4566,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dēngjī"
+        "dēng"
       ],
       "wordRefs": [
         "hsk4-v-0146"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 登 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 登 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4398,6 +4602,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dī"
       ],
@@ -4409,19 +4614,19 @@
         "hsk4-v-0363"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 低 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 低 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4437,8 +4642,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dījià"
+        "jià"
       ],
       "wordRefs": [
         "hsk4-v-0150",
@@ -4448,19 +4654,19 @@
         "hsk4-v-0364"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 6,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 价 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 价 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4474,10 +4680,14 @@
       "character": "温",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "氵",
+      "components": [
+        "氵",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "dīwēn"
+        "wēn"
       ],
       "wordRefs": [
         "hsk4-v-0151",
@@ -4488,19 +4698,19 @@
         "hsk4-v-0775"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 温 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 氵 trong 温, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4516,8 +4726,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dìqiú"
+        "qiú"
       ],
       "wordRefs": [
         "hsk4-v-0155",
@@ -4528,19 +4739,19 @@
         "hsk4-v-0601"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 球 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 球 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4556,27 +4767,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dìzhǐ"
+        "zhǐ"
       ],
       "wordRefs": [
         "hsk4-v-0156",
         "hsk4-v-0769"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 址 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 址 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4592,8 +4804,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "diǎntóu"
+        "tóu"
       ],
       "wordRefs": [
         "hsk4-v-0158",
@@ -4602,19 +4815,19 @@
         "hsk4-v-0751"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 头 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 头 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4630,8 +4843,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "diànshìjù"
+        "shì"
       ],
       "wordRefs": [
         "hsk4-v-0160",
@@ -4639,19 +4853,19 @@
         "hsk4-v-0962"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 视 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 视 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4667,8 +4881,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "diànshìjù"
+        "jù"
       ],
       "wordRefs": [
         "hsk4-v-0160",
@@ -4677,19 +4892,19 @@
         "hsk4-v-0418"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 剧 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 剧 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4703,8 +4918,12 @@
       "character": "掉",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "扌",
+      "components": [
+        "扌",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
         "diào"
       ],
@@ -4712,19 +4931,19 @@
         "hsk4-v-0161"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 掉 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 扌 trong 掉, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4740,6 +4959,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dìng"
       ],
@@ -4747,19 +4967,19 @@
         "hsk4-v-0163"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 订 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 订 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4775,27 +4995,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dōngbù"
+        "dōng"
       ],
       "wordRefs": [
         "hsk4-v-0165",
         "hsk4-v-0195"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 东 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 东 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4809,10 +5030,14 @@
       "character": "作",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "亻",
+      "components": [
+        "亻",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "dòngzuò"
+        "zuò"
       ],
       "wordRefs": [
         "hsk4-v-0167",
@@ -4825,19 +5050,19 @@
         "hsk4-v-1000"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 作 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 亻 trong 作, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4853,27 +5078,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dúzhě"
+        "dú"
       ],
       "wordRefs": [
         "hsk4-v-0168",
         "hsk4-v-0909"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 读 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 读 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4889,8 +5115,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dúzhě"
+        "zhě"
       ],
       "wordRefs": [
         "hsk4-v-0168",
@@ -4899,19 +5126,19 @@
         "hsk4-v-1000"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 8,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 者 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 者 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4927,26 +5154,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dǔchē"
+        "dǔ"
       ],
       "wordRefs": [
         "hsk4-v-0169"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 堵 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 堵 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -4962,8 +5190,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dùjià"
+        "dù"
       ],
       "wordRefs": [
         "hsk4-v-0170",
@@ -4973,19 +5202,19 @@
         "hsk4-v-0775"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 度 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 度 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5001,8 +5230,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dùjià"
+        "jiǎ"
       ],
       "wordRefs": [
         "hsk4-v-0170",
@@ -5013,19 +5243,19 @@
         "hsk4-v-0690"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 11,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 假 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 假 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5041,26 +5271,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "dùzi"
+        "dù"
       ],
       "wordRefs": [
         "hsk4-v-0171"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 肚 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 肚 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5076,26 +5307,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "duǎnxìn"
+        "duǎn"
       ],
       "wordRefs": [
         "hsk4-v-0172"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 短 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 短 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5109,10 +5341,14 @@
       "character": "信",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "亻",
+      "components": [
+        "亻",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
-        "duǎnxìn"
+        "xìn"
       ],
       "wordRefs": [
         "hsk4-v-0172",
@@ -5123,19 +5359,19 @@
         "hsk4-v-0983"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 信 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 亻 trong 信, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5149,8 +5385,12 @@
       "character": "队",
       "recognitionRequired": true,
       "writingRequired": true,
-      "radical": null,
-      "components": [],
+      "radical": "阝",
+      "components": [
+        "阝",
+        "phần còn lại cần human signoff"
+      ],
+      "structure": "compound-visual-analysis",
       "readings": [
         "duì"
       ],
@@ -5162,19 +5402,19 @@
         "hsk4-v-0591"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 4,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 队 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: tìm phần 阝 trong 队, rồi đối chiếu chữ trong các từ đã học; đây là mẹo thị giác, không phải giải thích từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5190,8 +5430,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "duìfāng"
+        "duì"
       ],
       "wordRefs": [
         "hsk4-v-0174",
@@ -5201,19 +5442,19 @@
         "hsk4-v-0509"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 5,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 对 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 对 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5229,8 +5470,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "duìmiàn"
+        "miàn"
       ],
       "wordRefs": [
         "hsk4-v-0175",
@@ -5239,19 +5481,19 @@
         "hsk4-v-0510"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 面 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 面 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5267,8 +5509,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "duìyuán"
+        "yuán"
       ],
       "wordRefs": [
         "hsk4-v-0177",
@@ -5278,19 +5521,19 @@
         "hsk4-v-0854"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 7,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 员 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 员 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5306,6 +5549,7 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
         "dùn"
       ],
@@ -5313,19 +5557,19 @@
         "hsk4-v-0179"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 顿 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 顿 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5341,26 +5585,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "duōme"
+        "me"
       ],
       "wordRefs": [
         "hsk4-v-0180"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 3,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 么 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 么 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5376,8 +5621,9 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "duōyàng"
+        "yàng"
       ],
       "wordRefs": [
         "hsk4-v-0182",
@@ -5385,19 +5631,19 @@
         "hsk4-v-0857"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 10,
+      "strokeCountSource": "bundled-static-vector-count",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 样 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 样 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
-      "strokeOrderStatus": "unavailable",
+      "strokeOrderStatus": "static-fallback",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5413,27 +5659,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "értóng"
+        "tóng"
       ],
       "wordRefs": [
         "hsk4-v-0184",
         "hsk4-v-0746"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 12,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 童 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 童 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5449,27 +5696,28 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "fǎlǜ"
+        "lǜ"
       ],
       "wordRefs": [
         "hsk4-v-0188",
         "hsk4-v-0491"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 9,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 律 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 律 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
@@ -5485,26 +5733,27 @@
       "writingRequired": true,
       "radical": null,
       "components": [],
+      "structure": "visual-form-focus",
       "readings": [
-        "fānyì"
+        "fān"
       ],
       "wordRefs": [
         "hsk4-v-0189"
       ],
       "confusables": [],
-      "structure": "pending-verified-visual-analysis",
-      "strokeCount": 1,
-      "strokeCountSource": "placeholder-count-human-verification-required",
+      "strokeCount": 18,
+      "strokeCountSource": "unicode-unihan-17-kTotalStrokes",
       "mnemonic": {
         "type": "memory-aid-not-etymology",
-        "noteVi": "Nhận diện 翻 trong các từ đã học; đây là mẹo nhớ, không phải giải thích từ nguyên."
+        "noteVi": "Mẹo nhớ: nhận diện hình tổng thể của 翻 trong từ đã học và tự đối chiếu số nét; chưa tuyên bố cấu tạo từ nguyên."
       },
       "knowledgeStatus": "new",
       "strokeOrderStatus": "unavailable",
       "strokeOrderAsset": null,
       "sourceIds": [
+        "moe-gf0025-2021-standard",
         "cti-hsk4-current-syllabus-2026",
-        "vduckie-hsk4-c5-original"
+        "unicode-unihan-17"
       ],
       "contentStatus": "machine-assisted",
       "reviewStatus": "unreviewed",

@@ -5,6 +5,8 @@ Official membership is rows 1001-2000. Learner-facing prose is newly authored fo
 The fetch is only used to capture a lexical membership/gloss snapshot; generated JSON is committed.
 """
 from __future__ import annotations
+
+# Finalize with scripts/finalize-hsk4-c5.py to normalize phrase pinyin and verified stroke metadata.
 import hashlib, html, json, os, re, sys, urllib.request
 from collections import Counter
 from html.parser import HTMLParser
@@ -729,7 +731,7 @@ def fetch_vocab():
         if len(row) < 5 or not row[0].isdigit(): continue
         idx=int(row[0])
         if not 1 <= idx <= 1000: continue
-        word=row[1].strip(); pinyin=re.sub(r"[’']", " ", row[2].strip()).split('/',1)[0].strip(); hanviet=row[3].strip(); meaning=row[4].strip()
+        word=row[1].strip(); pinyin=row[2].strip(); hanviet=row[3].strip(); meaning=row[4].strip()
         records.append((idx,word,pinyin,hanviet,meaning))
     if len(records) != 1000:
         # Fallback against table markup changes: parse visible text lines.
@@ -752,8 +754,7 @@ TONE_MAP = {
     'ī':('i','1'),'í':('i','2'),'ǐ':('i','3'),'ì':('i','4'),
     'ō':('o','1'),'ó':('o','2'),'ǒ':('o','3'),'ò':('o','4'),
     'ū':('u','1'),'ú':('u','2'),'ǔ':('u','3'),'ù':('u','4'),
-    'ǖ':('v','1'),'ǘ':('v','2'),'ǚ':('v','3'),'ǜ':('v','4'),'ü':('v','5'),
-    'ḿ':('m','2'),'ń':('n','2'),'ň':('n','3'),'ǹ':('n','4')
+    'ǖ':('v','1'),'ǘ':('v','2'),'ǚ':('v','3'),'ǜ':('v','4'),'ü':('v','5')
 }
 def pinyin_number(pinyin):
     syllables=[]
