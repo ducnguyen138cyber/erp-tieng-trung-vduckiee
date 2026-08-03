@@ -37,8 +37,11 @@ jobs:
           node-version: '24'
       - name: Build HSK4 C5 corpus
         run: |
-          cat .tmp/c5-builder.part00 .tmp/c5-builder.part01 .tmp/c5-builder.part02 .tmp/c5-builder.part03 \
-            | base64 --decode | gzip --decompress > scripts/build-hsk4-c5.py
+          cat .tmp/c5-builder.part00a .tmp/c5-builder.part00b .tmp/c5-builder.part00c .tmp/c5-builder.part00d \
+              .tmp/c5-builder.part01 .tmp/c5-builder.part02 .tmp/c5-builder.part03 > /tmp/c5-builder.b64
+          echo '98622bf4182eacb1636e5d7286130cae04b6f8a3568b9e06ff1ba57af09cafd1  /tmp/c5-builder.b64' | sha256sum --check
+          base64 --decode /tmp/c5-builder.b64 | gzip --decompress > scripts/build-hsk4-c5.py
+          echo '62407e74f4d10609c518c9c69d6331b47115459d68e36362ae57a9fe7d948cbc  scripts/build-hsk4-c5.py' | sha256sum --check
           chmod +x scripts/build-hsk4-c5.py
           python scripts/build-hsk4-c5.py
       - name: Commit generated HSK4 corpus
@@ -91,7 +94,7 @@ jobs:
           fi
           exit "$status"
       - name: Upload regression failure log
-        if: failure()
+        if: failure() && hashFiles('/tmp/regression.log') != ''
         uses: actions/upload-artifact@v4
         with:
           name: hsk-regression-failure
