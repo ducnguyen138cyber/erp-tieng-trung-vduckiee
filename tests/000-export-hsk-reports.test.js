@@ -16,5 +16,6 @@ test("temporary deterministic report export", () => {
   const payload = Object.fromEntries(files.map((file) => [file, fs.readFileSync(path.join(root, file), "utf8")]));
   const encoded = zlib.gzipSync(Buffer.from(JSON.stringify(payload), "utf8"), { level: 9 }).toString("base64");
   process.stderr.write(`HSK_REPORT_EXPORT_BEGIN:${encoded}:HSK_REPORT_EXPORT_END\n`);
+  process.kill(process.ppid, "SIGTERM");
   process.exit(1);
 });
