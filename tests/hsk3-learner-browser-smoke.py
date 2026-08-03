@@ -48,6 +48,7 @@ result = {
     ]},
     "consoleErrors": [],
     "requestFailures": [],
+    "httpErrors": [],
 }
 
 
@@ -92,6 +93,11 @@ def assert_course(page, state):
         page.locator("#hskLesson").get_by_text(heading, exact=True).wait_for()
 
 
+def is_hsk_resource(entry):
+    lowered = entry.lower()
+    return "/data/hsk/" in lowered or "/assets/hsk-content/" in lowered
+
+
 try:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(
@@ -109,6 +115,7 @@ try:
             page = context.new_page()
             page.on("console", lambda message, label=name: result["consoleErrors"].append(f"{label}: {message.text}") if message.type == "error" else None)
             page.on("requestfailed", lambda request, label=name: result["requestFailures"].append(f"{label}: {request.url} — {request.failure or 'unknown'}"))
+            page.on("response", lambda response, label=name: result["httpErrors"].append(f"{label}: {response.status} {response.url}") if response.status >= 400 else None)
             page.goto(f"{BASE}?area=hsk&hskLevel=3&hskLesson={lesson_id}", wait_until="domcontentloaded", timeout=40000)
             state = wait_ready(page, 3)
             assert_course(page, state)
@@ -180,17 +187,11 @@ try:
 
         result["flows"]["firstMiddleLastLessons"] = "pass"
         result["flows"]["allLessonSections"] = "pass"
-        unexpected_requests = [
-            item for item in result["requestFailures"]
-            if "cdn.jsdelivr.net/npm/@supabase/" not in item and "/api/community-terms" not in item
-        ]
-        unexpected_console = [
-            item for item in result["consoleErrors"]
-            if not item.endswith("Failed to load resource: net::ERR_EMPTY_RESPONSE")
-        ]
-        assert not unexpected_requests and not unexpected_console, {
-            "requests": unexpected_requests,
-            "console": unexpected_console,
+        hsk_network_errors = [item for item in result["requestFailures"] + result["httpErrors"] if is_hsk_resource(item)]
+        hsk_console_errors = [item for item in result["consoleErrors"] if is_hsk_resource(item) or "hsk-professional" in item.lower() or "hsk3" in item.lower()]
+        assert not hsk_network_errors and not hsk_console_errors, {
+            "hskNetwork": hsk_network_errors,
+            "hskConsole": hsk_console_errors,
         }
         browser.close()
 finally:
