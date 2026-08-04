@@ -3196,17 +3196,101 @@
       "rule": "near-duplicate",
       "severity": "review",
       "similarity": 0.84
+    },
+    {
+      "intentionalReview": false,
+      "kind": "example",
+      "leftFile": "data/hsk/hsk4/grammar.json",
+      "leftId": "hsk4-grammar-06#correct1",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/grammar.json",
+      "rightId": "hsk4-grammar-06#incorrect1",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8462
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk4/exercises.json",
+      "leftId": "hsk4-lesson-08-exercise-2",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/exercises.json",
+      "rightId": "hsk4-lesson-09-exercise-2",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8293
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk4/exercises.json",
+      "leftId": "hsk4-lesson-09-exercise-2",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/exercises.json",
+      "rightId": "hsk4-lesson-34-exercise-2",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8293
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk4/exercises.json",
+      "leftId": "hsk4-lesson-12-exercise-2",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/exercises.json",
+      "rightId": "hsk4-lesson-13-exercise-2",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8605
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk4/exercises.json",
+      "leftId": "hsk4-lesson-14-exercise-2",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/exercises.json",
+      "rightId": "hsk4-lesson-15-exercise-2",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.875
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk4/exercises.json",
+      "leftId": "hsk4-lesson-15-exercise-2",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/exercises.json",
+      "rightId": "hsk4-lesson-16-exercise-2",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.875
+    },
+    {
+      "intentionalReview": false,
+      "kind": "exercise-prompt",
+      "leftFile": "data/hsk/hsk4/exercises.json",
+      "leftId": "hsk4-lesson-23-exercise-2",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk4/exercises.json",
+      "rightId": "hsk4-lesson-24-exercise-2",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8298
     }
   ],
   "qualityGate": "pass-for-phase1-fixture",
   "schemaVersion": "1.0.0",
   "summary": {
     "blockers": 0,
-    "candidates": 2702,
+    "candidates": 4238,
     "exact": 1,
-    "findings": 265,
+    "findings": 272,
     "intentionalReviews": 1,
-    "nearReview": 262,
+    "nearReview": 269,
     "normalized": 0
   }
 }

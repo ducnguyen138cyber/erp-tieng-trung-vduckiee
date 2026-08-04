@@ -22,16 +22,13 @@ on:
       - '.github/workflows/hsk-content-quality.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   validate-hsk-content:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          fetch-depth: 3
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
@@ -51,17 +48,6 @@ jobs:
         run: node scripts/check-hsk-coverage.js
       - name: Generate deterministic HSK reports
         run: node scripts/generate-hsk-report.js
-      - name: Finalize deterministic HSK4 reports
-        if: github.event_name == 'pull_request' && github.head_ref == 'agent/build-hsk4-c5'
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git checkout HEAD^^ -- .github/workflows/hsk-content-quality.yml
-          git add reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json .github/workflows/hsk-content-quality.yml
-          git diff --cached --check
-          git commit -m "Finalize deterministic HSK4 reports"
-          git push origin HEAD:${GITHUB_HEAD_REF}
       - name: Run all website regression tests
         shell: bash
         run: |
