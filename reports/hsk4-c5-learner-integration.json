@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-08-03",
+  "phase": "C5",
+  "level": 4,
+  "status": "pass-machine-editorial-human-signoff-required",
+  "baseline": {
+    "commit": "2480a1762b63502633f524a0e0869587d537f4ab",
+    "regeneratedPriorLevels": false,
+    "preservedLevels": [1, 2, 3]
+  },
+  "counts": {
+    "units": 16,
+    "lessons": 48,
+    "newVocabulary": 1000,
+    "cumulativeVocabulary": 2000,
+    "grammar": 76,
+    "characters": 150,
+    "exercises": 384,
+    "assessments": 20,
+    "unitCheckpoints": 16
+  },
+  "learnerRoute": {
+    "productionBase": "https://vduckie.pages.dev/",
+    "directExample": "https://vduckie.pages.dev/?area=hsk&hskLevel=4&hskLesson=hsk4-lesson-01",
+    "navigation": ["Giáo trình HSK", "HSK4", "Unit", "Lesson"],
+    "readOnly": true,
+    "progressWritesEnabled": false
+  },
+  "editorial": {
+    "officialBand": "rows 1001-2000",
+    "officialPinyinPreserved": "1000/1000",
+    "uniqueVocabularyExamples": "1000/1000",
+    "uniqueExercisePrompts": "384/384",
+    "lessonSpecificDialogues": "48/48",
+    "lessonSpecificReadings": "48/48",
+    "lessonSpecificListeningScripts": "48/48",
+    "spacedReviewVocabularyCoverage": "1000/1000",
+    "features": [
+      "collocation",
+      "register",
+      "spoken-vs-written",
+      "discourse markers",
+      "near-synonyms and confusables",
+      "Vietnamese learner errors",
+      "reading strategy",
+      "listening note",
+      "grammar note",
+      "authentic speaking and writing rubrics",
+      "real-life tasks"
+    ]
+  },
+  "characterMetadata": {
+    "verifiedStrokeCounts": "150/150",
+    "sources": ["bundled-static-vector-count", "unicode-unihan-17-kTotalStrokes"],
+    "unverifiedStrokeOrderClaimed": false
+  },
+  "browserSmoke": {
+    "engine": "Python Playwright with Chromium",
+    "viewports": [
+      {"width": 1440, "height": 900, "lesson": "hsk4-lesson-01", "status": "pass"},
+      {"width": 1024, "height": 768, "lesson": "hsk4-lesson-24", "status": "pass"},
+      {"width": 390, "height": 844, "lesson": "hsk4-lesson-25", "status": "pass"},
+      {"width": 320, "height": 568, "lesson": "hsk4-lesson-48", "status": "pass"}
+    ],
+    "flows": {
+      "firstMiddleLastLessons": "pass",
+      "allLessonSections": "pass",
+      "exerciseFeedback": "pass",
+      "checkpoint": "pass",
+      "midpoint": "pass",
+      "final": "pass",
+      "mastery": "pass",
+      "integratedProject": "pass",
+      "hsk4ToHsk3ToHsk2ToHsk1": "pass",
+      "directUrlAndReload": "pass",
+      "mobileTouchAndOverflow": "pass",
+      "hskAssetOrDataHttpErrors": "none"
+    }
+  },
+  "quality": {
+    "repositoryRecords": 5144,
+    "sources": 20,
+    "schemas": 9,
+    "validationErrors": 0,
+    "validationWarnings": 0,
+    "duplicateBlockers": 0,
+    "intentionalFixtureExactDuplicates": 1,
+    "missingSkills": [],
+    "vocabularyIntroducedButNotPracticed": [],
+    "grammarWithoutExercise": [],
+    "fullRegression": "397/397 pass",
+    "gitDiffCheck": "pass"
+  },
+  "productionSafety": {
+    "HSK_CURRICULUM_V2_PROGRESS_WRITES_ENABLED": false,
+    "writesProgress": false,
+    "productionEnabled": false,
+    "qualityGate": "locked",
+    "supabaseWrite": false,
+    "userWrite": false
+  },
+  "remainingReview": [
+    "independent Vietnamese editorial signoff",
+    "independent Chinese-pedagogy signoff",
+    "verified recorded audio",
+    "verified stroke-order assets where unavailable"
+  ],
+  "nextMilestone": "C6 — HSK5 Professional Curriculum (not started)"
+}

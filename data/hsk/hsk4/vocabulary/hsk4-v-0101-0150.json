@@ -1,0 +1,3001 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "vocabulary",
+  "level": 4,
+  "records": [
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0101",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1101,
+      "officialHeadword": "此外",
+      "simplified": "此外",
+      "traditional": "此外",
+      "pinyin": "cǐ wài",
+      "pinyinNormalized": "ciwai",
+      "pinyinTone": "cǐ wài",
+      "pinyinNumber": "ci3 wai4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "ngoài ra",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: thử ngoại. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "ngoài ra"
+        }
+      ],
+      "senseKey": "此外-0101",
+      "register": "formal",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用此外",
+          "vi": "Khung kết hợp thực hành với 此外.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Mang sắc thái trang trọng; chỉ dùng khi quan hệ và tình huống phù hợp. Khi dùng 此外, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 此外 thành “ngoài ra”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的此外与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 此外 vào tình huống “Phương pháp nào hợp với ai”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0102",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1102,
+      "officialHeadword": "从此",
+      "simplified": "从此",
+      "traditional": "从此",
+      "pinyin": "cóng cǐ",
+      "pinyinNormalized": "congci",
+      "pinyinTone": "cóng cǐ",
+      "pinyinNumber": "cong2 ci3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "từ đó",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tòng thử. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "từ đó"
+        }
+      ],
+      "senseKey": "从此-0102",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用从此",
+          "vi": "Khung kết hợp thực hành với 从此.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 从此, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 从此 thành “từ đó”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“成绩之外的进步”时，安娜保留了从此，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 从此 vào tình huống “Tiến bộ ngoài điểm số”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0103",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1103,
+      "officialHeadword": "从来",
+      "simplified": "从来",
+      "traditional": "从来",
+      "pinyin": "cóng lái",
+      "pinyinNormalized": "conglai",
+      "pinyinTone": "cóng lái",
+      "pinyinNumber": "cong2 lai2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "từ trước đến nay",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tòng lai. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "từ trước đến nay"
+        }
+      ],
+      "senseKey": "从来-0103",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用从来",
+          "vi": "Khung kết hợp thực hành với 从来.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 从来, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 从来 thành “từ trước đến nay”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用从来表达时间。",
+          "vi": "Ví dụ đặt 从来 vào tình huống “Đọc thông tin tuyển dụng”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0104",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1104,
+      "officialHeadword": "从中",
+      "simplified": "从中",
+      "traditional": "从中",
+      "pinyin": "cóng zhōng",
+      "pinyinNormalized": "congzhong",
+      "pinyinTone": "cóng zhōng",
+      "pinyinNumber": "cong2 zhong1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "từ đó",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tòng trung. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "từ đó"
+        }
+      ],
+      "senseKey": "从中-0104",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用从中",
+          "vi": "Khung kết hợp thực hành với 从中.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 从中, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 从中 thành “từ đó”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周一早上，小雨在图书馆里学习“面试要举例”时，用从中补充了时间。",
+          "vi": "Ví dụ đặt 从中 vào tình huống “Phỏng vấn phải có ví dụ”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0105",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1105,
+      "officialHeadword": "粗",
+      "simplified": "粗",
+      "traditional": "粗",
+      "pinyin": "cū",
+      "pinyinNormalized": "cu",
+      "pinyinTone": "cū",
+      "pinyinNumber": "cu1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "thô",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: thô. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thô"
+        }
+      ],
+      "senseKey": "粗-0105",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用粗",
+          "vi": "Khung kết hợp thực hành với 粗.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 粗, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 粗 thành “thô”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的粗与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 粗 vào tình huống “Phản hồi không phải phê bình con người”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0106",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1106,
+      "officialHeadword": "粗心",
+      "simplified": "粗心",
+      "traditional": "粗心",
+      "pinyin": "cū xīn",
+      "pinyinNormalized": "cuxin",
+      "pinyinTone": "cū xīn",
+      "pinyinNumber": "cu1 xin1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "cẩu thả",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: thô tâm. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "cẩu thả"
+        }
+      ],
+      "senseKey": "粗心-0106",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用粗心",
+          "vi": "Khung kết hợp thực hành với 粗心.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 粗心, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 粗心 thành “cẩu thả”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“安检和登机之间”时，美玲保留了粗心，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 粗心 vào tình huống “Từ an ninh đến lên máy bay”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0107",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1107,
+      "officialHeadword": "村",
+      "simplified": "村",
+      "traditional": "村",
+      "pinyin": "cūn",
+      "pinyinNormalized": "cun",
+      "pinyinTone": "cūn",
+      "pinyinNumber": "cun1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "làng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: thôn. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "làng"
+        }
+      ],
+      "senseKey": "村-0107",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用村",
+          "vi": "Khung kết hợp thực hành với 村.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 村, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 村 thành “làng”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用村表达时间。",
+          "vi": "Ví dụ đặt 村 vào tình huống “Chuyển tuyến đừng chỉ nhìn bản đồ”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0108",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1108,
+      "officialHeadword": "存",
+      "simplified": "存",
+      "traditional": "存",
+      "pinyin": "cún",
+      "pinyinNormalized": "cun",
+      "pinyinTone": "cún",
+      "pinyinNumber": "cun2",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "gửi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: tồn. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "gửi"
+        }
+      ],
+      "senseKey": "存-0108",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用存",
+          "vi": "Khung kết hợp thực hành với 存.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 存, cần kiểm tra vai trò ['verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 存 thành “gửi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周一早上，兰兰在图书馆里学习“酒店问题怎么解决”时，用存补充了时间。",
+          "vi": "Ví dụ đặt 存 vào tình huống “Giải quyết vấn đề khách sạn”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0109",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1109,
+      "officialHeadword": "错过",
+      "simplified": "错过",
+      "traditional": "错过",
+      "pinyin": "cuò guò",
+      "pinyinNormalized": "cuoguo",
+      "pinyinTone": "cuò guò",
+      "pinyinNumber": "cuo4 guo4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bỏ lỡ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: thác quá. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bỏ lỡ"
+        }
+      ],
+      "senseKey": "错过-0109",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用错过",
+          "vi": "Khung kết hợp thực hành với 错过.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 错过, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 错过 thành “bỏ lỡ”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的错过与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 错过 vào tình huống “So giá và cả điều kiện”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0110",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1110,
+      "officialHeadword": "错误",
+      "simplified": "错误",
+      "traditional": "错误",
+      "pinyin": "cuò wù",
+      "pinyinNormalized": "cuowu",
+      "pinyinTone": "cuò wù",
+      "pinyinNumber": "cuo4 wu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "lỗi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: thác ngộ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "lỗi"
+        }
+      ],
+      "senseKey": "错误-0110",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用错误",
+          "vi": "Khung kết hợp thực hành với 错误.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 错误, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 错误 thành “lỗi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“退换货要看规则”时，小雪保留了错误，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 错误 vào tình huống “Đổi trả phải xem quy định”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0111",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1111,
+      "officialHeadword": "答应",
+      "simplified": "答应",
+      "traditional": "答应",
+      "pinyin": "dā ying",
+      "pinyinNormalized": "daying",
+      "pinyinTone": "dā ying",
+      "pinyinNumber": "da1 ying5",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đồng ý",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đáp ứng. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đồng ý"
+        }
+      ],
+      "senseKey": "答应-0111",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用答应",
+          "vi": "Khung kết hợp thực hành với 答应.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 答应, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 答应 thành “đồng ý”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用答应表达时间。",
+          "vi": "Ví dụ đặt 答应 vào tình huống “Quảng cáo có nói quá?”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0112",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1112,
+      "officialHeadword": "答",
+      "simplified": "答",
+      "traditional": "答",
+      "pinyin": "dá",
+      "pinyinNormalized": "da",
+      "pinyinTone": "dá",
+      "pinyinNumber": "da2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "trả lời",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đáp. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "trả lời"
+        }
+      ],
+      "senseKey": "答-0112",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用答",
+          "vi": "Khung kết hợp thực hành với 答.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 答, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 答 thành “trả lời”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周二下午，安娜在图书馆里学习“体检报告怎么看”时，用答补充了时间。",
+          "vi": "Ví dụ đặt 答 vào tình huống “Đọc báo cáo khám sức khỏe”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0113",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1113,
+      "officialHeadword": "答案",
+      "simplified": "答案",
+      "traditional": "答案",
+      "pinyin": "dá àn",
+      "pinyinNormalized": "daan",
+      "pinyinTone": "dá àn",
+      "pinyinNumber": "da2 an4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đáp án",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đáp án. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đáp án"
+        }
+      ],
+      "senseKey": "答案-0113",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用答案",
+          "vi": "Khung kết hợp thực hành với 答案.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 答案, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 答案 thành “đáp án”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的答案与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 答案 vào tình huống “Lời khuyên phải làm được”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0114",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1114,
+      "officialHeadword": "达到",
+      "simplified": "达到",
+      "traditional": "达到",
+      "pinyin": "dá dào",
+      "pinyinNormalized": "dadao",
+      "pinyinTone": "dá dào",
+      "pinyinNumber": "da2 dao4",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "đạt được",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đạt đáo. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đạt được"
+        }
+      ],
+      "senseKey": "达到-0114",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用达到",
+          "vi": "Khung kết hợp thực hành với 达到.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 达到, cần kiểm tra vai trò ['verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 达到 thành “đạt được”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“习惯为什么难改变”时，小雨保留了达到，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 达到 vào tình huống “Vì sao thói quen khó đổi”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0115",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1115,
+      "officialHeadword": "打招呼",
+      "simplified": "打招呼",
+      "traditional": "打招呼",
+      "pinyin": "dǎ zhāo hu",
+      "pinyinNormalized": "dazhaohu",
+      "pinyinTone": "dǎ zhāo hu",
+      "pinyinNumber": "da3 zhao1 hu5",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "chào hỏi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả chiêu hô. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "chào hỏi"
+        }
+      ],
+      "senseKey": "打招呼-0115",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打招呼",
+          "vi": "Khung kết hợp thực hành với 打招呼.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打招呼, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打招呼 thành “chào hỏi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用打招呼表达时间。",
+          "vi": "Ví dụ đặt 打招呼 vào tình huống “Chuyển nhà không chỉ chuyển đồ”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0116",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1116,
+      "officialHeadword": "打败",
+      "simplified": "打败",
+      "traditional": "打败",
+      "pinyin": "dǎ bài",
+      "pinyinNormalized": "dabai",
+      "pinyinTone": "dǎ bài",
+      "pinyinNumber": "da3 bai4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đánh bại",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả bại. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đánh bại"
+        }
+      ],
+      "senseKey": "打败-0116",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打败",
+          "vi": "Khung kết hợp thực hành với 打败.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打败, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打败 thành “đánh bại”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周二下午，美玲在图书馆里学习“噪音问题怎么谈”时，用打败补充了时间。",
+          "vi": "Ví dụ đặt 打败 vào tình huống “Nói chuyện về tiếng ồn”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0117",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1117,
+      "officialHeadword": "打工",
+      "simplified": "打工",
+      "traditional": "打工",
+      "pinyin": "dǎ gōng",
+      "pinyinNormalized": "dagong",
+      "pinyinTone": "dǎ gōng",
+      "pinyinNumber": "da3 gong1",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "đi làm",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả công. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đi làm"
+        }
+      ],
+      "senseKey": "打工-0117",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打工",
+          "vi": "Khung kết hợp thực hành với 打工.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打工, cần kiểm tra vai trò ['verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打工 thành “đi làm”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的打工与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 打工 vào tình huống “Tiện lợi có đồng nghĩa đáng sống?”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0118",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1118,
+      "officialHeadword": "打扰",
+      "simplified": "打扰",
+      "traditional": "打扰",
+      "pinyin": "dǎ rǎo",
+      "pinyinNormalized": "darao",
+      "pinyinTone": "dǎ rǎo",
+      "pinyinNumber": "da3 rao3",
+      "partOfSpeech": [
+        "verb"
+      ],
+      "meaningVi": "làm phiền",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả nhiễu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "làm phiền"
+        }
+      ],
+      "senseKey": "打扰-0118",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打扰",
+          "vi": "Khung kết hợp thực hành với 打扰.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打扰, cần kiểm tra vai trò ['verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打扰 thành “làm phiền”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“消息先核实再转发”时，兰兰保留了打扰，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 打扰 vào tình huống “Xác minh trước khi chuyển tiếp”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0119",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1119,
+      "officialHeadword": "打印",
+      "simplified": "打印",
+      "traditional": "打印",
+      "pinyin": "dǎ yìn",
+      "pinyinNormalized": "dayin",
+      "pinyinTone": "dǎ yìn",
+      "pinyinNumber": "da3 yin4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đóng dấu",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả ấn. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đóng dấu"
+        }
+      ],
+      "senseKey": "打印-0119",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打印",
+          "vi": "Khung kết hợp thực hành với 打印.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打印, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打印 thành “đóng dấu”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用打印表达时间。",
+          "vi": "Ví dụ đặt 打印 vào tình huống “Quyền riêng tư không phải chuyện nhỏ”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0120",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1120,
+      "officialHeadword": "打印机",
+      "simplified": "打印机",
+      "traditional": "打印机",
+      "pinyin": "dǎ yìn jī",
+      "pinyinNormalized": "dayinji",
+      "pinyinTone": "dǎ yìn jī",
+      "pinyinNumber": "da3 yin4 ji1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "máy in",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả ấn cơ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "máy in"
+        }
+      ],
+      "senseKey": "打印机-0120",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打印机",
+          "vi": "Khung kết hợp thực hành với 打印机.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打印机, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打印机 thành “máy in”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周二下午，小雪在图书馆里学习“线上语气容易误读”时，用打印机补充了时间。",
+          "vi": "Ví dụ đặt 打印机 vào tình huống “Giọng điệu online dễ bị hiểu sai”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0121",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1121,
+      "officialHeadword": "打折",
+      "simplified": "打折",
+      "traditional": "打折",
+      "pinyin": "dǎ zhé",
+      "pinyinNormalized": "dazhe",
+      "pinyinTone": "dǎ zhé",
+      "pinyinNumber": "da3 zhe2",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "giảm giá",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả chiết. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "giảm giá"
+        }
+      ],
+      "senseKey": "打折-0121",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打折",
+          "vi": "Khung kết hợp thực hành với 打折.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打折, cần kiểm tra vai trò ['noun'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打折 thành “giảm giá”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的打折与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 打折 vào tình huống “Lịch sự tùy hoàn cảnh”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0122",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1122,
+      "officialHeadword": "打针",
+      "simplified": "打针",
+      "traditional": "打针",
+      "pinyin": "dǎ zhēn",
+      "pinyinNormalized": "dazhen",
+      "pinyinTone": "dǎ zhēn",
+      "pinyinNumber": "da3 zhen1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tiêm",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đả châm. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tiêm"
+        }
+      ],
+      "senseKey": "打针-0122",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用打针",
+          "vi": "Khung kết hợp thực hành với 打针.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 打针, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 打针 thành “tiêm”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“请客和分账”时，安娜保留了打针，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 打针 vào tình huống “Mời khách và chia tiền”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0123",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1123,
+      "officialHeadword": "大巴",
+      "simplified": "大巴",
+      "traditional": "大巴",
+      "pinyin": "dà bā",
+      "pinyinNormalized": "daba",
+      "pinyinTone": "dà bā",
+      "pinyinNumber": "da4 ba1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "xe buýt lớn",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại ba. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "xe buýt lớn"
+        }
+      ],
+      "senseKey": "大巴-0123",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大巴",
+          "vi": "Khung kết hợp thực hành với 大巴.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大巴, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大巴 thành “xe buýt lớn”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用大巴表达时间。",
+          "vi": "Ví dụ đặt 大巴 vào tình huống “Quà quan trọng ở phù hợp”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0124",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1124,
+      "officialHeadword": "大大",
+      "simplified": "大大",
+      "traditional": "大大",
+      "pinyin": "dà dà",
+      "pinyinNormalized": "dada",
+      "pinyinTone": "dà dà",
+      "pinyinNumber": "da4 da4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "rất nhiều",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại đại. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "rất nhiều"
+        }
+      ],
+      "senseKey": "大大-0124",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大大",
+          "vi": "Khung kết hợp thực hành với 大大.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大大, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大大 thành “rất nhiều”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周三中午，小雨在图书馆里学习“极端天气怎么准备”时，用大大补充了时间。",
+          "vi": "Ví dụ đặt 大大 vào tình huống “Chuẩn bị thời tiết cực đoan”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0125",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1125,
+      "officialHeadword": "大夫",
+      "simplified": "大夫",
+      "traditional": "大夫",
+      "pinyin": "dàifu",
+      "pinyinNormalized": "daifu",
+      "pinyinTone": "dàifu",
+      "pinyinNumber": "daifu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "bác sĩ",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại phu. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "bác sĩ"
+        }
+      ],
+      "senseKey": "大夫-0125",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大夫",
+          "vi": "Khung kết hợp thực hành với 大夫.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大夫, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大夫 thành “bác sĩ”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的大夫与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 大夫 vào tình huống “Phân loại rác dựa vào đâu”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0126",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1126,
+      "officialHeadword": "大量",
+      "simplified": "大量",
+      "traditional": "大量",
+      "pinyin": "dà liàng",
+      "pinyinNormalized": "daliang",
+      "pinyinTone": "dà liàng",
+      "pinyinNumber": "da4 liang4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "lượng lớn",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại lượng. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "lượng lớn"
+        }
+      ],
+      "senseKey": "大量-0126",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大量",
+          "vi": "Khung kết hợp thực hành với 大量.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大量, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大量 thành “lượng lớn”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“个人行动够不够”时，美玲保留了大量，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 大量 vào tình huống “Hành động cá nhân có đủ?”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0127",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1127,
+      "officialHeadword": "大赛",
+      "simplified": "大赛",
+      "traditional": "大赛",
+      "pinyin": "dà sài",
+      "pinyinNormalized": "dasai",
+      "pinyinTone": "dà sài",
+      "pinyinNumber": "da4 sai4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "cuộc thi lớn",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại tái. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "cuộc thi lớn"
+        }
+      ],
+      "senseKey": "大赛-0127",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大赛",
+          "vi": "Khung kết hợp thực hành với 大赛.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大赛, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大赛 thành “cuộc thi lớn”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用大赛表达时间。",
+          "vi": "Ví dụ đặt 大赛 vào tình huống “Trục chính của một tin”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0128",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1128,
+      "officialHeadword": "大厅",
+      "simplified": "大厅",
+      "traditional": "大厅",
+      "pinyin": "dà tīng",
+      "pinyinNormalized": "dating",
+      "pinyinTone": "dà tīng",
+      "pinyinNumber": "da4 ting1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đại sảnh",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại sảnh. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đại sảnh"
+        }
+      ],
+      "senseKey": "大厅-0128",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大厅",
+          "vi": "Khung kết hợp thực hành với 大厅.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大厅, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大厅 thành “đại sảnh”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周三中午，兰兰在图书馆里学习“影评不是复述剧情”时，用大厅补充了时间。",
+          "vi": "Ví dụ đặt 大厅 vào tình huống “Review phim không phải kể lại”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0129",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1129,
+      "officialHeadword": "大约",
+      "simplified": "大约",
+      "traditional": "大约",
+      "pinyin": "dà yuē",
+      "pinyinNormalized": "dayue",
+      "pinyinTone": "dà yuē",
+      "pinyinNumber": "da4 yue1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "khoảng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại ước. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "khoảng"
+        }
+      ],
+      "senseKey": "大约-0129",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大约",
+          "vi": "Khung kết hợp thực hành với 大约.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大约, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大约 thành “khoảng”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的大约与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 大约 vào tình huống “Phỏng vấn phải biết hỏi tiếp”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0130",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1130,
+      "officialHeadword": "大自然",
+      "simplified": "大自然",
+      "traditional": "大自然",
+      "pinyin": "dà zì rán",
+      "pinyinNormalized": "daziran",
+      "pinyinTone": "dà zì rán",
+      "pinyinNumber": "da4 zi4 ran2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "thiên nhiên",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại tự nhiên. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thiên nhiên"
+        }
+      ],
+      "senseKey": "大自然-0130",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用大自然",
+          "vi": "Khung kết hợp thực hành với 大自然.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 大自然, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 大自然 thành “thiên nhiên”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“规则为什么存在”时，小雪保留了大自然，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 大自然 vào tình huống “Vì sao có quy định”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0131",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1131,
+      "officialHeadword": "待",
+      "simplified": "待",
+      "traditional": "待",
+      "pinyin": "dāi",
+      "pinyinNormalized": "dai",
+      "pinyinTone": "dāi",
+      "pinyinNumber": "dai1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "ở lại",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đãi. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "ở lại"
+        }
+      ],
+      "senseKey": "待-0131",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用待",
+          "vi": "Khung kết hợp thực hành với 待.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 待, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 待 thành “ở lại”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用待表达时间。",
+          "vi": "Ví dụ đặt 待 vào tình huống “Công bằng không luôn là giống nhau”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0132",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1132,
+      "officialHeadword": "戴",
+      "simplified": "戴",
+      "traditional": "戴",
+      "pinyin": "dài",
+      "pinyinNormalized": "dai",
+      "pinyinTone": "dài",
+      "pinyinNumber": "dai4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đeo",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đái. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đeo"
+        }
+      ],
+      "senseKey": "戴-0132",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用戴",
+          "vi": "Khung kết hợp thực hành với 戴.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 戴, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 戴 thành “đeo”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周四下班前，安娜在图书馆里学习“公共空间共同维护”时，用戴补充了时间。",
+          "vi": "Ví dụ đặt 戴 vào tình huống “Cùng giữ không gian công cộng”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0133",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1133,
+      "officialHeadword": "袋子",
+      "simplified": "袋子",
+      "traditional": "袋子",
+      "pinyin": "dài zi",
+      "pinyinNormalized": "daizi",
+      "pinyinTone": "dài zi",
+      "pinyinNumber": "dai4 zi5",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "túi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đại tí. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "túi"
+        }
+      ],
+      "senseKey": "袋子-0133",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用袋子",
+          "vi": "Khung kết hợp thực hành với 袋子.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 袋子, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 袋子 thành “túi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的袋子与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 袋子 vào tình huống “Quét mã tiện nhưng có rủi ro”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0134",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1134,
+      "officialHeadword": "单位",
+      "simplified": "单位",
+      "traditional": "单位",
+      "pinyin": "dān wèi",
+      "pinyinNormalized": "danwei",
+      "pinyinTone": "dān wèi",
+      "pinyinNumber": "dan1 wei4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đơn vị",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đơn vị. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đơn vị"
+        }
+      ],
+      "senseKey": "单位-0134",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用单位",
+          "vi": "Khung kết hợp thực hành với 单位.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 单位, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 单位 thành “đơn vị”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“说明书要让人做得到”时，小雨保留了单位，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 单位 vào tình huống “Hướng dẫn phải làm được”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0135",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1135,
+      "officialHeadword": "当",
+      "simplified": "当",
+      "traditional": "当",
+      "pinyin": "dāng",
+      "pinyinNormalized": "dang",
+      "pinyinTone": "dāng",
+      "pinyinNumber": "dang1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "khi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đương. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "khi"
+        }
+      ],
+      "senseKey": "当-0135",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用当",
+          "vi": "Khung kết hợp thực hành với 当.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 当, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 当 thành “khi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用当表达时间。",
+          "vi": "Ví dụ đặt 当 vào tình huống “Chọn online hay offline”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0136",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1136,
+      "officialHeadword": "当时",
+      "simplified": "当时",
+      "traditional": "当时",
+      "pinyin": "dāng shí",
+      "pinyinNormalized": "dangshi",
+      "pinyinTone": "dāng shí",
+      "pinyinNumber": "dang1 shi2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "lúc đó",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đương thời. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "lúc đó"
+        }
+      ],
+      "senseKey": "当时-0136",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用当时",
+          "vi": "Khung kết hợp thực hành với 当时.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 当时, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 当时 thành “lúc đó”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周四下班前，美玲在图书馆里学习“故事从哪里开始”时，用当时补充了时间。",
+          "vi": "Ví dụ đặt 当时 vào tình huống “Câu chuyện bắt đầu từ đâu”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0137",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1137,
+      "officialHeadword": "刀",
+      "simplified": "刀",
+      "traditional": "刀",
+      "pinyin": "dāo",
+      "pinyinNormalized": "dao",
+      "pinyinTone": "dāo",
+      "pinyinNumber": "dao1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "dao",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đao. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "dao"
+        }
+      ],
+      "senseKey": "刀-0137",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用刀",
+          "vi": "Khung kết hợp thực hành với 刀.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 刀, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 刀 thành “dao”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的刀与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 刀 vào tình huống “Bước ngoặt cần chuẩn bị”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0138",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1138,
+      "officialHeadword": "导游",
+      "simplified": "导游",
+      "traditional": "导游",
+      "pinyin": "dǎo yóu",
+      "pinyinNormalized": "daoyou",
+      "pinyinTone": "dǎo yóu",
+      "pinyinNumber": "dao3 you2",
+      "partOfSpeech": [
+        "noun"
+      ],
+      "meaningVi": "hướng dẫn viên",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đạo du. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "hướng dẫn viên"
+        }
+      ],
+      "senseKey": "导游-0138",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用导游",
+          "vi": "Khung kết hợp thực hành với 导游.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 导游, cần kiểm tra vai trò ['noun'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 导游 thành “hướng dẫn viên”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“结尾不只说感想”时，兰兰保留了导游，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 导游 vào tình huống “Kết không chỉ nói cảm nghĩ”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0139",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1139,
+      "officialHeadword": "倒",
+      "simplified": "倒",
+      "traditional": "倒",
+      "pinyin": "dào",
+      "pinyinNormalized": "dao",
+      "pinyinTone": "dào",
+      "pinyinNumber": "dao4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "ngã; sụp đổ; nằm ngang",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đảo. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "ngã; sụp đổ; nằm ngang"
+        }
+      ],
+      "senseKey": "倒-0139",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用倒",
+          "vi": "Khung kết hợp thực hành với 倒.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 倒, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 倒 thành “ngã; sụp đổ; nằm ngang”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用倒表达时间。",
+          "vi": "Ví dụ đặt 倒 vào tình huống “Đồng ý một phần rồi phản biện”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0140",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1140,
+      "officialHeadword": "道",
+      "simplified": "道",
+      "traditional": "道",
+      "pinyin": "dào",
+      "pinyinNormalized": "dao",
+      "pinyinTone": "dào",
+      "pinyinNumber": "dao4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đường",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đạo. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đường"
+        }
+      ],
+      "senseKey": "道-0140",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用道",
+          "vi": "Khung kết hợp thực hành với 道.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 道, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 道 thành “đường”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周四下班前，小雪在图书馆里学习“证据支持到哪一步”时，用道补充了时间。",
+          "vi": "Ví dụ đặt 道 vào tình huống “Bằng chứng hỗ trợ đến đâu”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0141",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1141,
+      "officialHeadword": "到底",
+      "simplified": "到底",
+      "traditional": "到底",
+      "pinyin": "dào dǐ",
+      "pinyinNormalized": "daodi",
+      "pinyinTone": "dào dǐ",
+      "pinyinNumber": "dao4 di3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "cuối cùng",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đáo để. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "cuối cùng"
+        }
+      ],
+      "senseKey": "到底-0141",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用到底",
+          "vi": "Khung kết hợp thực hành với 到底.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 到底, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 到底 thành “cuối cùng”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的到底与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 到底 vào tình huống “Thảo luận phải có kết luận”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0142",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1142,
+      "officialHeadword": "到来",
+      "simplified": "到来",
+      "traditional": "到来",
+      "pinyin": "dào lái",
+      "pinyinNormalized": "daolai",
+      "pinyinTone": "dào lái",
+      "pinyinNumber": "dao4 lai2",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đến",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đáo lai. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đến"
+        }
+      ],
+      "senseKey": "到来-0142",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用到来",
+          "vi": "Khung kết hợp thực hành với 到来.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 到来, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 到来 thành “đến”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“社区调查项目”时，安娜保留了到来，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 到来 vào tình huống “Dự án khảo sát cộng đồng”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0143",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1143,
+      "officialHeadword": "道路",
+      "simplified": "道路",
+      "traditional": "道路",
+      "pinyin": "dào lù",
+      "pinyinNormalized": "daolu",
+      "pinyinTone": "dào lù",
+      "pinyinNumber": "dao4 lu4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đường",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đạo lộ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đường"
+        }
+      ],
+      "senseKey": "道路-0143",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用道路",
+          "vi": "Khung kết hợp thực hành với 道路.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 道路, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 道路 thành “đường”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用道路表达时间。",
+          "vi": "Ví dụ đặt 道路 vào tình huống “Thiết kế cuối tuần trong thành phố”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0144",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1144,
+      "officialHeadword": "道歉",
+      "simplified": "道歉",
+      "traditional": "道歉",
+      "pinyin": "dào qiàn",
+      "pinyinNormalized": "daoqian",
+      "pinyinTone": "dào qiàn",
+      "pinyinNumber": "dao4 qian4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "xin lỗi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đạo khiểm. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "xin lỗi"
+        }
+      ],
+      "senseKey": "道歉-0144",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用道歉",
+          "vi": "Khung kết hợp thực hành với 道歉.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 道歉, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 道歉 thành “xin lỗi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周五晚上，小雨在图书馆里学习“我的HSK4作品集”时，用道歉补充了时间。",
+          "vi": "Ví dụ đặt 道歉 vào tình huống “Portfolio HSK4 của tôi”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0145",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1145,
+      "officialHeadword": "得意",
+      "simplified": "得意",
+      "traditional": "得意",
+      "pinyin": "dé yì",
+      "pinyinNormalized": "deyi",
+      "pinyinTone": "dé yì",
+      "pinyinNumber": "de2 yi4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "tự hào",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đắc ý. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "tự hào"
+        }
+      ],
+      "senseKey": "得意-0145",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用得意",
+          "vi": "Khung kết hợp thực hành với 得意.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 得意, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 得意 thành “tự hào”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的得意与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 得意 vào tình huống “Ấn tượng đầu tiên có đáng tin?”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0146",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1146,
+      "officialHeadword": "登机",
+      "simplified": "登机",
+      "traditional": "登机",
+      "pinyin": "dēng jī",
+      "pinyinNormalized": "dengji",
+      "pinyinTone": "dēng jī",
+      "pinyinNumber": "deng1 ji1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "lên máy bay",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đăng cơ. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "lên máy bay"
+        }
+      ],
+      "senseKey": "登机-0146",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用登机",
+          "vi": "Khung kết hợp thực hành với 登机.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 登机, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 登机 thành “lên máy bay”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“把感谢说具体”时，美玲保留了登机，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 登机 vào tình huống “Cảm ơn sao cho cụ thể”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0147",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1147,
+      "officialHeadword": "等2",
+      "simplified": "等2",
+      "traditional": "等2",
+      "pinyin": "děng",
+      "pinyinNormalized": "deng",
+      "pinyinTone": "děng",
+      "pinyinNumber": "deng3",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "đợi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đẳng. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "đợi"
+        }
+      ],
+      "senseKey": "等2-0147",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用等2",
+          "vi": "Khung kết hợp thực hành với 等2.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 等2, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 等2 thành “đợi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "小组比较两个说法后，决定用等2表达时间。",
+          "vi": "Ví dụ đặt 等2 vào tình huống “Nói chuyện sau hiểu lầm”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0148",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1148,
+      "officialHeadword": "等到",
+      "simplified": "等到",
+      "traditional": "等到",
+      "pinyin": "děng dào",
+      "pinyinNormalized": "dengdao",
+      "pinyinTone": "děng dào",
+      "pinyinNumber": "deng3 dao4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "cho đến khi",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đẳng đáo. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "cho đến khi"
+        }
+      ],
+      "senseKey": "等到-0148",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用等到",
+          "vi": "Khung kết hợp thực hành với 等到.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 等到, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 等到 thành “cho đến khi”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "周五晚上，兰兰在图书馆里学习“目标要能检查”时，用等到补充了时间。",
+          "vi": "Ví dụ đặt 等到 vào tình huống “Mục tiêu phải kiểm tra được”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0149",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1149,
+      "officialHeadword": "低",
+      "simplified": "低",
+      "traditional": "低",
+      "pinyin": "dī",
+      "pinyinNormalized": "di",
+      "pinyinTone": "dī",
+      "pinyinNumber": "di1",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "thấp",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đê. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "thấp"
+        }
+      ],
+      "senseKey": "低-0149",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用低",
+          "vi": "Khung kết hợp thực hành với 低.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 低, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 低 thành “thấp”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "材料里的低与时间有关，不能脱离上下文单独解释。",
+          "vi": "Ví dụ đặt 低 vào tình huống “Phương pháp nào hợp với ai”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "vocabulary",
+      "id": "hsk4-v-0150",
+      "syllabusVersion": "GF0025-2021",
+      "hskLevel": 4,
+      "officialRow": 1150,
+      "officialHeadword": "低价",
+      "simplified": "低价",
+      "traditional": "低价",
+      "pinyin": "dī jià",
+      "pinyinNormalized": "dijia",
+      "pinyinTone": "dī jià",
+      "pinyinNumber": "di1 jia4",
+      "partOfSpeech": [
+        "noun",
+        "verb"
+      ],
+      "meaningVi": "giá thấp",
+      "contextMeaningsVi": [
+        {
+          "context": "Hán-Việt tham khảo: đê giá. Dùng trong ngữ cảnh HSK4.",
+          "meaningVi": "giá thấp"
+        }
+      ],
+      "senseKey": "低价-0150",
+      "register": "neutral",
+      "sentiment": "context-dependent",
+      "collocations": [
+        {
+          "zh": "在语境中使用低价",
+          "vi": "Khung kết hợp thực hành với 低价.",
+          "kind": "context-frame"
+        }
+      ],
+      "synonyms": [],
+      "antonyms": [],
+      "measureWord": null,
+      "usageNoteVi": "Sắc thái nhìn chung trung tính; ý nghĩa cụ thể vẫn phụ thuộc đối tượng, cấu trúc và ngữ cảnh. Khi dùng 低价, cần kiểm tra vai trò ['noun', 'verb'], phạm vi tác động và quan hệ với 时间.",
+      "confusables": [],
+      "commonErrorsVi": [
+        "Không chỉ dịch 低价 thành “giá thấp”; hãy kiểm tra từ loại, register và cấu trúc đi kèm."
+      ],
+      "examples": [
+        {
+          "zh": "复述“成绩之外的进步”时，小雪保留了低价，因为它影响语气和时间。",
+          "vi": "Ví dụ đặt 低价 vào tình huống “Tiến bộ ngoài điểm số”."
+        }
+      ],
+      "knowledgeStatus": "new",
+      "sourceIds": [
+        "cti-hsk4-current-syllabus-2026",
+        "hsk-beijing-hsk4-vietnamese-gloss-2026",
+        "vduckie-hsk4-c5-original"
+      ],
+      "audioRef": null,
+      "contentStatus": "machine-assisted",
+      "translationReviewStatus": "machine-assisted",
+      "reviewStatus": "unreviewed",
+      "contentVersion": 1
+    }
+  ]
+}

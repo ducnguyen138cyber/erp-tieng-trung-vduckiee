@@ -1,0 +1,35 @@
+{
+  "generatedAt": "2026-08-03",
+  "phase": "C5",
+  "level": 4,
+  "status": "pass-machine-editorial-human-signoff-required",
+  "counts": {
+    "units": 16,
+    "lessons": 48,
+    "newVocabulary": 1000,
+    "cumulativeVocabulary": 2000,
+    "characters": 150,
+    "grammar": 76,
+    "dialogues": 48,
+    "listeningTranscripts": 48,
+    "readings": 48,
+    "speakingTasks": 48,
+    "writingTasks": 48,
+    "exercises": 384,
+    "assessments": 20
+  },
+  "qualityHighlights": [
+    "Collocation and register are explicit for every lesson.",
+    "Spoken/written distinctions and discourse markers are taught through authentic tasks.",
+    "Reading strategy, listening note, grammar note, Vietnamese learner errors and cultural caution are integrated.",
+    "Writing outputs include email, report, proposal, review, survey and self-assessment.",
+    "Speaking rubrics require evidence, interaction, register and discourse."
+  ],
+  "validation": {
+    "schema": "pass",
+    "officialRows": "1001-2000 exact",
+    "lessonAssignment": "1000/1000 exactly once",
+    "spacedReviewVocabularyCoverage": "1000/1000",
+    "productionWrites": false
+  }
+}

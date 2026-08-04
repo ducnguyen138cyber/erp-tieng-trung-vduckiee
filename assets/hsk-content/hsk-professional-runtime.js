@@ -9,7 +9,8 @@
   var COURSE_CONFIG = Object.freeze({
     1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài · C2' }),
     2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài · C3' }),
-    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài · C4' })
+    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài · C4' }),
+    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 unit · 48 bài · C5' })
   });
   var SUPPORT_GLOSSES = Object.freeze({
     '不喜欢': 'không thích',

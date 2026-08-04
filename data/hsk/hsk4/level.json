@@ -2,20 +2,433 @@
   "recordType": "level",
   "id": "hsk4",
   "syllabusVersion": "GF0025-2021",
-  "examBlueprintVersion": "CTI-HSK3.0-2026",
+  "examBlueprintVersion": "CTI-HSK4.0-2026",
   "stage": "intermediate",
   "level": 4,
-  "titleZh": "HSK 4",
-  "titleVi": "HSK 4",
-  "objectives": [],
-  "topics": [],
-  "unitRefs": [],
-  "lessonIndex": [],
-  "assessmentRefs": [],
-  "sourceIds": ["moe-gf0025-2021-standard","cti-hsk3-current-syllabus-2026"],
-  "contentStatus": "planned",
-  "translationReviewStatus": "draft",
+  "titleZh": "HSK（四级）专业课程",
+  "titleVi": "HSK4 Professional Curriculum",
+  "objectives": [
+    "Trong đời sống, học tập và công việc, giao tiếp đầy đủ, mạch lạc về chủ đề có độ phức tạp nhất định.",
+    "Hiểu claim, evidence, attitude và discourse structure trong nghe/đọc trung cấp.",
+    "Nói và viết đoạn có register, collocation, lập luận, tự sửa và chuyển giao."
+  ],
+  "topics": [
+    "Con người và quan hệ",
+    "Học tập và trưởng thành",
+    "Tìm việc và môi trường làm việc",
+    "Đi lại và dịch vụ",
+    "Tiêu dùng và lựa chọn",
+    "Sức khỏe và thói quen",
+    "Thành phố và nơi ở",
+    "Mạng và thông tin",
+    "Văn hóa và phép lịch sự",
+    "Tự nhiên và môi trường",
+    "Truyền thông và nghệ thuật",
+    "Xã hội và quy tắc",
+    "Công nghệ và đời sống",
+    "Trải nghiệm và kể chuyện",
+    "Quan điểm và thảo luận",
+    "Dự án tổng hợp"
+  ],
+  "unitRefs": [
+    {
+      "id": "hsk4-unit-01",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-02",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-03",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-04",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-05",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-06",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-07",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-08",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-09",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-10",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-11",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-12",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-13",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-14",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-15",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk4-unit-16",
+      "path": "units.json"
+    }
+  ],
+  "lessonIndex": [
+    {
+      "id": "hsk4-lesson-01",
+      "unitId": "hsk4-unit-01",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-02",
+      "unitId": "hsk4-unit-01",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-03",
+      "unitId": "hsk4-unit-01",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-04",
+      "unitId": "hsk4-unit-02",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-05",
+      "unitId": "hsk4-unit-02",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-06",
+      "unitId": "hsk4-unit-02",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-07",
+      "unitId": "hsk4-unit-03",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-08",
+      "unitId": "hsk4-unit-03",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-09",
+      "unitId": "hsk4-unit-03",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-10",
+      "unitId": "hsk4-unit-04",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-11",
+      "unitId": "hsk4-unit-04",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-12",
+      "unitId": "hsk4-unit-04",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-13",
+      "unitId": "hsk4-unit-05",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-14",
+      "unitId": "hsk4-unit-05",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-15",
+      "unitId": "hsk4-unit-05",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-16",
+      "unitId": "hsk4-unit-06",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-17",
+      "unitId": "hsk4-unit-06",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-18",
+      "unitId": "hsk4-unit-06",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-19",
+      "unitId": "hsk4-unit-07",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-20",
+      "unitId": "hsk4-unit-07",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-21",
+      "unitId": "hsk4-unit-07",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-22",
+      "unitId": "hsk4-unit-08",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-23",
+      "unitId": "hsk4-unit-08",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-24",
+      "unitId": "hsk4-unit-08",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-25",
+      "unitId": "hsk4-unit-09",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-26",
+      "unitId": "hsk4-unit-09",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-27",
+      "unitId": "hsk4-unit-09",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-28",
+      "unitId": "hsk4-unit-10",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-29",
+      "unitId": "hsk4-unit-10",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-30",
+      "unitId": "hsk4-unit-10",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-31",
+      "unitId": "hsk4-unit-11",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-32",
+      "unitId": "hsk4-unit-11",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-33",
+      "unitId": "hsk4-unit-11",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-34",
+      "unitId": "hsk4-unit-12",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-35",
+      "unitId": "hsk4-unit-12",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-36",
+      "unitId": "hsk4-unit-12",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-37",
+      "unitId": "hsk4-unit-13",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-38",
+      "unitId": "hsk4-unit-13",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-39",
+      "unitId": "hsk4-unit-13",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-40",
+      "unitId": "hsk4-unit-14",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-41",
+      "unitId": "hsk4-unit-14",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-42",
+      "unitId": "hsk4-unit-14",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-43",
+      "unitId": "hsk4-unit-15",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-44",
+      "unitId": "hsk4-unit-15",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-45",
+      "unitId": "hsk4-unit-15",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-46",
+      "unitId": "hsk4-unit-16",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-47",
+      "unitId": "hsk4-unit-16",
+      "path": "lessons.json"
+    },
+    {
+      "id": "hsk4-lesson-48",
+      "unitId": "hsk4-unit-16",
+      "path": "lessons.json"
+    }
+  ],
+  "assessmentRefs": [
+    {
+      "id": "hsk4-assessment-unit-01",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-02",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-03",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-04",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-05",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-06",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-07",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-08",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-09",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-10",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-11",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-12",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-13",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-14",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-15",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-unit-16",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-midpoint",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-final",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-mastery",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk4-assessment-project",
+      "path": "assessments.json"
+    }
+  ],
+  "finalAssessmentId": "hsk4-assessment-final",
+  "sourceIds": [
+    "moe-gf0025-2021-standard",
+    "cti-hsk4-current-syllabus-2026",
+    "hsk-beijing-hsk4-vietnamese-gloss-2026",
+    "vduckie-hsk4-c5-original"
+  ],
+  "contentStatus": "machine-assisted",
+  "translationReviewStatus": "machine-assisted",
   "productionReady": false,
-  "contentVersion": 1,
-  "finalAssessmentId": null
+  "contentVersion": 1
 }

@@ -468,6 +468,74 @@
       "licenseStatus": "verified",
       "licenseNote": "Learning prose and tasks are newly authored for VDuckie; no commercial textbook text is copied.",
       "derivedDataNote": "Official sources determine membership and alignment only; VDuckie learner-facing prose remains original."
+    },
+    {
+      "sourceId": "cti-hsk4-current-syllabus-2026",
+      "title": "Revised HSK Level 4 syllabus and vocabulary membership (2026)",
+      "publisher": "Chinese Testing International / Center for Language Education and Cooperation",
+      "sourceType": "official-syllabus",
+      "url": "https://hsk.cn-bj.ufileos.com/3.0/%E6%96%B0%E7%89%88HSK%E8%80%83%E8%AF%95%E5%A4%A7%E7%BA%B21219.pdf",
+      "accessDate": "2026-08-03",
+      "syllabusVersion": "CTI-HSK4.0-2026",
+      "levels": [
+        4
+      ],
+      "scope": [
+        "vocabulary rows 1001-2000",
+        "competency profile",
+        "topic/task/grammar alignment"
+      ],
+      "confidence": "official",
+      "licenseStatus": "verified",
+      "licenseNote": "Used for membership and alignment; no sample tests or commercial textbook prose copied.",
+      "derivedDataNote": "Learner-facing content is newly authored."
+    },
+    {
+      "sourceId": "hsk-beijing-hsk4-vietnamese-gloss-2026",
+      "title": "HSK Beijing revised HSK4 Vietnamese lexical gloss list",
+      "publisher": "Trung tâm Hán Ngữ Bắc Kinh (Vinh)",
+      "sourceType": "lexical-gloss-reference",
+      "url": "https://hanngubackinh.vn/tu-vung-hsk-3-0/cap-4/",
+      "accessDate": "2026-08-03",
+      "syllabusVersion": "CTI-HSK4.0-2026",
+      "levels": [
+        4
+      ],
+      "scope": [
+        "pinyin",
+        "Hán-Việt",
+        "short Vietnamese gloss reference"
+      ],
+      "confidence": "cross-checked-membership-human-signoff-required",
+      "licenseStatus": "review-required",
+      "licenseNote": "Short lexical facts only; release remains locked pending review.",
+      "derivedDataNote": "No examples, exercises or prose copied."
+    },
+    {
+      "sourceId": "vduckie-hsk4-c5-original",
+      "title": "VDuckie HSK4 Phase C5 original learning content",
+      "publisher": "VDuckie",
+      "sourceType": "original-curriculum-content",
+      "url": null,
+      "accessDate": "2026-08-03",
+      "syllabusVersion": "CTI-HSK4.0-2026",
+      "levels": [
+        4
+      ],
+      "scope": [
+        "Vietnamese explanations",
+        "dialogues",
+        "reading",
+        "listening transcripts",
+        "speaking",
+        "writing",
+        "exercises",
+        "assessments"
+      ],
+      "confidence": "machine-assisted-human-signoff-required",
+      "licenseStatus": "verified",
+      "licenseNote": "Learner-facing prose and tasks are newly authored for VDuckie.",
+      "derivedDataNote": "Official sources determine membership and alignment only."
     }
   ]
 }

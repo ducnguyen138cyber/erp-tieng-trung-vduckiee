@@ -5,6 +5,30 @@ const path = require('node:path');
 const core = require('./hsk-schema-engine');
 const { CONTENT_STATUSES, TRANSLATION_REVIEW_STATUSES, SOURCE_LICENSE_STATUSES, RECORD_TYPES, SKILLS, relativePath, makeIssue, readJson, walkJsonFiles, validateSchema } = core;
 
+function applyHsk4GrammarCorrections(document, file, dataRoot, issues) {
+  if (!document || !Array.isArray(document.records) || relativePath(dataRoot, file) !== 'hsk4/grammar.json') return document;
+  const correctionsFile = path.join(dataRoot, 'hsk4', 'editorial-corrections.json');
+  const correctionDocument = readJson(correctionsFile, issues);
+  if (!correctionDocument || correctionDocument.collectionType !== 'grammar-editorial-corrections' || !Array.isArray(correctionDocument.corrections)) {
+    issues.push(makeIssue(relativePath(dataRoot, correctionsFile), null, 'editorial-corrections', 'Invalid HSK4 grammar editorial corrections'));
+    return document;
+  }
+  const recordsById = new Map(document.records.map((record) => [record && record.id, record]));
+  for (const correction of correctionDocument.corrections) {
+    const target = correction && recordsById.get(correction.id);
+    if (!target || target.recordType !== 'grammar') {
+      issues.push(makeIssue(relativePath(dataRoot, correctionsFile), correction && correction.id, 'editorial-correction-reference', `Missing grammar target ${correction && correction.id}`));
+      continue;
+    }
+    if (!Array.isArray(correction.incorrectExamples) || !correction.incorrectExamples.length) {
+      issues.push(makeIssue(relativePath(dataRoot, correctionsFile), correction.id, 'editorial-correction-shape', 'incorrectExamples must be a non-empty array'));
+      continue;
+    }
+    target.incorrectExamples = correction.incorrectExamples.map((example) => ({ ...example }));
+  }
+  return document;
+}
+
 function loadRepository(rootDirectory, options = {}) {
   const root = path.resolve(rootDirectory || process.cwd());
   const dataRoot = path.join(root, 'data', 'hsk');
@@ -29,7 +53,7 @@ function loadRepository(rootDirectory, options = {}) {
     return !['manifest.json', 'sources.json', 'legacy-mapping.json', 'fixtures/manifest.json'].includes(rel);
   });
   for (const file of contentFiles) {
-    const document = readJson(file, issues);
+    const document = applyHsk4GrammarCorrections(readJson(file, issues), file, dataRoot, issues);
     if (!document) continue;
     if (document.recordType) records.push({ record: document, file });
     if (Array.isArray(document.records)) document.records.forEach((record, index) => records.push({ record, file, collectionIndex: index }));

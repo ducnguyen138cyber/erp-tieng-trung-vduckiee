@@ -147,6 +147,14 @@
       "type": "string",
       "minLength": 1
     },
+    "registerNoteVi": {
+      "type": "string",
+      "minLength": 1
+    },
+    "spokenWrittenNoteVi": {
+      "type": "string",
+      "minLength": 1
+    },
     "usageVi": {
       "type": "array",
       "items": {
