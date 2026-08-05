@@ -31,6 +31,7 @@ jobs:
         run: |
           python - <<'PY'
           import base64
+          import json
           import zlib
           from pathlib import Path
           parts = [Path(f'.tmp/hsk5-builder.part{i:02d}') for i in range(7)]
@@ -44,6 +45,28 @@ jobs:
           print(f'Materialized {target} ({len(payload)} chars)')
           PY
           python scripts/build-hsk5-c6.py
+      - name: Normalize imported HSK5 packaging without changing content IDs
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          lessons_path = Path('data/hsk/hsk5/lessons.json')
+          lessons_doc = json.loads(lessons_path.read_text(encoding='utf-8'))
+          counters = {}
+          for lesson in lessons_doc['records']:
+              unit_id = lesson['unitId']
+              counters[unit_id] = counters.get(unit_id, 0) + 1
+              lesson['order'] = counters[unit_id]
+          lessons_path.write_text(json.dumps(lessons_doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          provenance_path = Path('data/hsk/hsk5/provenance/official-vocabulary.json')
+          provenance_doc = json.loads(provenance_path.read_text(encoding='utf-8'))
+          if 'records' in provenance_doc:
+              provenance_doc['entries'] = provenance_doc.pop('records')
+          provenance_path.write_text(json.dumps(provenance_doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+          print({'lessonUnits': len(counters), 'provenanceEntries': len(provenance_doc.get('entries', []))})
+          PY
       - name: Check JavaScript syntax
         run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate HSK content
