@@ -124,36 +124,16 @@ jobs:
 
           phase1 = Path('tests/hsk-phase1-quality.test.js')
           text = phase1.read_text(encoding='utf-8')
-          old = """  assert.deepEqual(report.levels.slice(0, 4).map((level) => ({
-    level: level.level,
-    status: level.status,
-    lessons: level.lessons,
-    complete: level.complete,
-    productionReady: level.productionReady
-  })), [
-    { level: 1, status: 'machine-assisted', lessons: 24, complete: false, productionReady: false },
-    { level: 2, status: 'machine-assisted', lessons: 28, complete: false, productionReady: false },
-    { level: 3, status: 'machine-assisted', lessons: 36, complete: false, productionReady: false },
-    { level: 4, status: 'machine-assisted', lessons: 48, complete: false, productionReady: false }
-  ]);
-  assert.ok(report.levels.slice(4).every((level) => level.status === 'planned' && level.complete === false && level.productionReady === false));"""
-          new = """  assert.deepEqual(report.levels.slice(0, 5).map((level) => ({
-    level: level.level,
-    status: level.status,
-    lessons: level.lessons,
-    complete: level.complete,
-    productionReady: level.productionReady
-  })), [
-    { level: 1, status: 'machine-assisted', lessons: 24, complete: false, productionReady: false },
-    { level: 2, status: 'machine-assisted', lessons: 28, complete: false, productionReady: false },
-    { level: 3, status: 'machine-assisted', lessons: 36, complete: false, productionReady: false },
-    { level: 4, status: 'machine-assisted', lessons: 48, complete: false, productionReady: false },
-    { level: 5, status: 'machine-assisted', lessons: 60, complete: false, productionReady: false }
-  ]);
-  assert.ok(report.levels.slice(5).every((level) => level.status === 'planned' && level.complete === false && level.productionReady === false));"""
-          if old not in text:
-              raise SystemExit('HSK phase1 active-level assertion baseline not found')
-          phase1.write_text(text.replace(old, new), encoding='utf-8')
+          replacements = [
+              ("report.levels.slice(0, 4)", "report.levels.slice(0, 5)"),
+              ("    { level: 4, status: 'machine-assisted', lessons: 48, complete: false, productionReady: false }\n  ]);", "    { level: 4, status: 'machine-assisted', lessons: 48, complete: false, productionReady: false },\n    { level: 5, status: 'machine-assisted', lessons: 60, complete: false, productionReady: false }\n  ]);"),
+              ("report.levels.slice(4).every", "report.levels.slice(5).every")
+          ]
+          for old_value, new_value in replacements:
+              if old_value not in text:
+                  raise SystemExit(f'HSK phase1 assertion baseline not found: {old_value}')
+              text = text.replace(old_value, new_value, 1)
+          phase1.write_text(text, encoding='utf-8')
           print('Updated regression contract: HSK1-HSK5 active read-only; HSK6-HSK9 planned')
           PY
 
