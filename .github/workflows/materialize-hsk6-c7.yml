@@ -24,15 +24,15 @@ jobs:
           cat scripts/.hsk6-c7-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk6-c7.py
           python -m py_compile scripts/build-hsk6-c7.py
           test "$(wc -c < scripts/build-hsk6-c7.py)" -eq 115848
-      - name: Inspect record construction
+      - name: Inspect normalization helpers
         run: |
           python - <<'PY'
           from pathlib import Path
           lines = Path('scripts/build-hsk6-c7.py').read_text(encoding='utf-8').splitlines()
           for start, end, title in [
-              (360, 430, 'vocabulary parsing'),
-              (610, 760, 'lesson construction'),
-              (1, 180, 'helpers and constants'),
+              (179, 360, 'normalization helpers'),
+              (430, 610, 'vocabulary grammar character setup'),
+              (757, 830, 'lesson final record'),
           ]:
               print(f'===== {title} {start}-{end} =====')
               for n in range(start - 1, min(end, len(lines))):
