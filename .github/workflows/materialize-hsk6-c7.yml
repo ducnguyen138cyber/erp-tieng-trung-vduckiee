@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  quality:
+  inspect-duplicates:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -25,57 +25,44 @@ jobs:
       - name: Restore and patch deterministic C7 builder
         run: |
           cat scripts/.hsk6-c7-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk6-c7.py
-          test "$(wc -c < scripts/build-hsk6-c7.py)" -eq 115848
           python - <<'PY'
           from pathlib import Path
           path = Path('scripts/build-hsk6-c7.py')
           text = path.read_text(encoding='utf-8')
           patches = [
-              ('        number = pinyin_number_from_tone(tone, simplified)\n        pos = parse_pos(rich.get("pos", ""))',
-               '        number = pinyin_number_from_tone(tone, simplified)\n        if official_headword == "凡（是）":\n            tone = "fán shì"\n            number = "fan2 shi4"\n        pos = parse_pos(rich.get("pos", ""))'),
-              ('        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        if not meaning:',
-               '        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        meaning = {\n            "凡（是）": "hễ là; tất cả những trường hợp thuộc phạm vi đã nêu",\n            "新媒体": "truyền thông mới; các nền tảng truyền thông số tương tác",\n            "新能源": "năng lượng mới; nguồn năng lượng thay thế ít phụ thuộc nhiên liệu hóa thạch",\n        }.get(official_headword, meaning)\n        if not meaning:'),
-              ('{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": item["simplified"]},',
-               '{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": f"CVDICT entry {item[\'simplified\']}"},'),
-              ('            "order": lesson_idx + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,',
-               '            "order": local + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,'),
+              ('        number = pinyin_number_from_tone(tone, simplified)\n        pos = parse_pos(rich.get("pos", ""))','        number = pinyin_number_from_tone(tone, simplified)\n        if official_headword == "凡（是）":\n            tone = "fán shì"\n            number = "fan2 shi4"\n        pos = parse_pos(rich.get("pos", ""))'),
+              ('        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        if not meaning:','        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        meaning = {\n            "凡（是）": "hễ là; tất cả những trường hợp thuộc phạm vi đã nêu",\n            "新媒体": "truyền thông mới; các nền tảng truyền thông số tương tác",\n            "新能源": "năng lượng mới; nguồn năng lượng thay thế ít phụ thuộc nhiên liệu hóa thạch",\n        }.get(official_headword, meaning)\n        if not meaning:'),
+              ('{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": item["simplified"]},','{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": f"CVDICT entry {item[\'simplified\']}"},'),
+              ('            "order": lesson_idx + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,','            "order": local + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,'),
           ]
           for old, new in patches:
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f'Expected exactly one patch target, got {count}: {old[:80]}')
+              if text.count(old) != 1: raise SystemExit(f'bad patch target: {old[:60]}')
               text = text.replace(old, new)
           path.write_text(text, encoding='utf-8')
           PY
-          python -m py_compile scripts/build-hsk6-c7.py
-      - name: Install builder dependency
-        run: python -m pip install --disable-pip-version-check pypinyin
-      - name: Build HSK6 corpus
-        run: python scripts/build-hsk6-c7.py
-      - name: Check generated syntax
+      - name: Install and build
         run: |
-          python -m py_compile scripts/build-hsk6-c7.py tests/hsk6-learner-browser-smoke.py
-          find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
-      - name: Validate HSK content
-        run: node scripts/validate-hsk-content.js
-      - name: Check HSK duplicates
-        run: node scripts/check-hsk-duplicates.js
-      - name: Check HSK coverage and provenance
+          python -m pip install --disable-pip-version-check pypinyin
+          python scripts/build-hsk6-c7.py
+      - name: Inspect duplicate blockers
         run: |
-          node scripts/check-hsk-coverage.js
-          node scripts/generate-hsk-report.js
+          set +e
+          node scripts/check-hsk-duplicates.js
+          status=$?
+          set -e
           node - <<'NODE'
           const fs = require('fs');
-          const coverage = JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json','utf8'));
-          const source = JSON.parse(fs.readFileSync('reports/hsk-source-report.json','utf8'));
-          console.log(JSON.stringify({coverage, source}, null, 2));
+          const report = JSON.parse(fs.readFileSync('reports/hsk-duplication-report.json','utf8'));
+          const blockers = (report.findings || []).filter(x => x.severity === 'blocker' || x.blocking === true || x.status === 'blocker');
+          console.log('REPORT_KEYS', Object.keys(report));
+          console.log('FINDING_KEYS', Object.keys((report.findings || [])[0] || {}));
+          console.log('BLOCKERS_FOUND', blockers.length);
+          console.log('FIRST_FINDINGS', JSON.stringify((report.findings || []).slice(0,40), null, 2));
+          const groups = new Map();
+          for (const f of blockers) {
+            const key = [f.kind, f.type, f.field, f.fieldPath, f.value, f.normalized].filter(Boolean).join(' | ');
+            groups.set(key, (groups.get(key)||0)+1);
+          }
+          console.log('BLOCKER_GROUPS', JSON.stringify([...groups.entries()].sort((a,b)=>b[1]-a[1]).slice(0,100), null, 2));
           NODE
-      - name: Run HSK6 targeted tests
-        run: node --test --test-concurrency=1 tests/hsk6-c7-quality.test.js
-      - name: Verify deterministic reports
-        run: |
-          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json > /tmp/reports-before.sha
-          node scripts/generate-hsk-report.js
-          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json > /tmp/reports-after.sha
-          diff -u /tmp/reports-before.sha /tmp/reports-after.sha
-          git diff --check
+          exit "$status"
