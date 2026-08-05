@@ -1,0 +1,119 @@
+name: HSK5 Materialize and Validate
+
+on:
+  push:
+    branches:
+      - agent/build-hsk5-c6
+    paths:
+      - .github/workflows/hsk5-materialize.yml
+
+permissions:
+  contents: write
+
+jobs:
+  materialize-hsk5:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/build-hsk5-c6
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Materialize locked HSK5 payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import base64
+          import zlib
+
+          parts = [Path(f'.tmp/hsk5-builder.part{i:02d}') for i in range(7)]
+          missing = [str(path) for path in parts if not path.is_file()]
+          if missing:
+              raise SystemExit(f'Missing payload parts: {missing}')
+          payload = ''.join(path.read_text(encoding='utf-8').strip() for path in parts)
+          source = zlib.decompress(base64.b64decode(payload))
+          target = Path('scripts/build-hsk5-c6.py')
+          target.write_bytes(source)
+          compile(source, str(target), 'exec')
+          print(f'Materialized {target} ({len(source)} bytes) from 7 locked payload parts')
+          PY
+          python scripts/build-hsk5-c6.py
+
+      - name: Install browser dependencies outside repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          python -m pip install --disable-pip-version-check playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Check JavaScript syntax
+        run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+
+      - name: Validate HSK content
+        run: node scripts/validate-hsk-content.js
+
+      - name: Check duplicates
+        run: node scripts/check-hsk-duplicates.js
+
+      - name: Check coverage and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          node scripts/check-hsk-coverage.js
+          node scripts/generate-hsk-report.js
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const source = JSON.parse(fs.readFileSync('reports/hsk-source-report.json', 'utf8'));
+          const coverage = JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json', 'utf8'));
+          const level = coverage.levels.find((entry) => Number(entry.level) === 5);
+          if (!level || level.units !== 20 || level.lessons !== 60 || level.vocabulary !== 1600 || level.grammar !== 70 || level.characters !== 431 || level.exercises !== 600 || level.assessments !== 24) {
+            throw new Error(`HSK5 coverage mismatch: ${JSON.stringify(level)}`);
+          }
+          if (source.automaticProductionGate !== 'no-fixture-record-uses-review-required-source') {
+            throw new Error(`Provenance gate blocked: ${source.automaticProductionGate}`);
+          }
+          NODE
+          git add reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json
+          node scripts/generate-hsk-report.js
+          git diff --exit-code -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json
+
+      - name: Run full regression and browser smoke
+        shell: bash
+        run: |
+          set -euo pipefail
+          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js | tee /tmp/hsk5-regression.log
+
+      - name: Verify final scope and whitespace
+        shell: bash
+        run: |
+          set -euo pipefail
+          git diff --check
+          test -f data/hsk/hsk5/course-manifest.json
+          test -f data/hsk/hsk5/level.json
+          test ! -d data/hsk/hsk6/vocabulary
+          grep -q "5: Object.freeze" assets/hsk-content/hsk-professional-runtime.js
+          grep -q '"level": 5' data/hsk/hsk5/course-manifest.json
+          grep -q '"count": 20' data/hsk/hsk5/course-manifest.json
+          grep -q '"count": 60' data/hsk/hsk5/course-manifest.json
+
+      - name: Commit validated HSK5 course and remove transport files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .tmp
+          rm -f .github/workflows/hsk5-materialize.yml
+          git add -A
+          git diff --cached --check
+          git config user.name 'OpenAI'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Build professional HSK 5 course'
+          git push origin HEAD:agent/build-hsk5-c6
