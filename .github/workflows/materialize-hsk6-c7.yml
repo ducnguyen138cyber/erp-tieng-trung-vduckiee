@@ -12,7 +12,7 @@ permissions:
   contents: write
 
 jobs:
-  validate:
+  quality:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,34 +22,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Restore deterministic C7 builder
+      - name: Restore and patch deterministic C7 builder
         run: |
           cat scripts/.hsk6-c7-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk6-c7.py
-          python -m py_compile scripts/build-hsk6-c7.py
           test "$(wc -c < scripts/build-hsk6-c7.py)" -eq 115848
-      - name: Patch validator root causes
-        run: |
           python - <<'PY'
           from pathlib import Path
           path = Path('scripts/build-hsk6-c7.py')
           text = path.read_text(encoding='utf-8')
           patches = [
-              (
-                  '        number = pinyin_number_from_tone(tone, simplified)\n        pos = parse_pos(rich.get("pos", ""))',
-                  '        number = pinyin_number_from_tone(tone, simplified)\n        if official_headword == "凡（是）":\n            tone = "fán shì"\n            number = "fan2 shi4"\n        pos = parse_pos(rich.get("pos", ""))'
-              ),
-              (
-                  '        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        if not meaning:',
-                  '        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        meaning = {\n            "凡（是）": "hễ là; tất cả những trường hợp thuộc phạm vi đã nêu",\n            "新媒体": "truyền thông mới; các nền tảng truyền thông số tương tác",\n            "新能源": "năng lượng mới; nguồn năng lượng thay thế ít phụ thuộc nhiên liệu hóa thạch",\n        }.get(official_headword, meaning)\n        if not meaning:'
-              ),
-              (
-                  '{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": item["simplified"]},',
-                  '{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": f"CVDICT entry {item[\'simplified\']}"},'
-              ),
-              (
-                  '            "order": lesson_idx + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,',
-                  '            "order": local + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,'
-              ),
+              ('        number = pinyin_number_from_tone(tone, simplified)\n        pos = parse_pos(rich.get("pos", ""))',
+               '        number = pinyin_number_from_tone(tone, simplified)\n        if official_headword == "凡（是）":\n            tone = "fán shì"\n            number = "fan2 shi4"\n        pos = parse_pos(rich.get("pos", ""))'),
+              ('        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        if not meaning:',
+               '        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        meaning = {\n            "凡（是）": "hễ là; tất cả những trường hợp thuộc phạm vi đã nêu",\n            "新媒体": "truyền thông mới; các nền tảng truyền thông số tương tác",\n            "新能源": "năng lượng mới; nguồn năng lượng thay thế ít phụ thuộc nhiên liệu hóa thạch",\n        }.get(official_headword, meaning)\n        if not meaning:'),
+              ('{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": item["simplified"]},',
+               '{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": f"CVDICT entry {item[\'simplified\']}"},'),
+              ('            "order": lesson_idx + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,',
+               '            "order": local + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,'),
           ]
           for old, new in patches:
               count = text.count(old)
@@ -69,3 +58,24 @@ jobs:
           find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate HSK content
         run: node scripts/validate-hsk-content.js
+      - name: Check HSK duplicates
+        run: node scripts/check-hsk-duplicates.js
+      - name: Check HSK coverage and provenance
+        run: |
+          node scripts/check-hsk-coverage.js
+          node scripts/generate-hsk-report.js
+          node - <<'NODE'
+          const fs = require('fs');
+          const coverage = JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json','utf8'));
+          const source = JSON.parse(fs.readFileSync('reports/hsk-source-report.json','utf8'));
+          console.log(JSON.stringify({coverage, source}, null, 2));
+          NODE
+      - name: Run HSK6 targeted tests
+        run: node --test --test-concurrency=1 tests/hsk6-c7-quality.test.js
+      - name: Verify deterministic reports
+        run: |
+          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json > /tmp/reports-before.sha
+          node scripts/generate-hsk-report.js
+          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json > /tmp/reports-after.sha
+          diff -u /tmp/reports-before.sha /tmp/reports-after.sha
+          git diff --check
