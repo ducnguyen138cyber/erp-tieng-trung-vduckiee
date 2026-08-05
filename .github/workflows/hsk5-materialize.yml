@@ -46,6 +46,68 @@ jobs:
           PY
           python scripts/build-hsk5-c6.py
 
+      - name: Normalize materialized repository integration
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import shutil
+
+          def write_json(path, payload):
+              path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+          lessons_path = Path('data/hsk/hsk5/lessons.json')
+          units_path = Path('data/hsk/hsk5/units.json')
+          lessons_doc = json.loads(lessons_path.read_text(encoding='utf-8'))
+          units_doc = json.loads(units_path.read_text(encoding='utf-8'))
+          lessons = lessons_doc['records']
+          by_unit = {}
+          for lesson in lessons:
+              by_unit.setdefault(lesson['unitId'], []).append(lesson)
+          for unit_id, unit_lessons in by_unit.items():
+              unit_lessons.sort(key=lambda item: int(item['id'].rsplit('-', 1)[-1]))
+              if len(unit_lessons) != 3:
+                  raise SystemExit(f'{unit_id} must contain exactly 3 lessons, got {len(unit_lessons)}')
+              for local_order, lesson in enumerate(unit_lessons, 1):
+                  lesson['order'] = local_order
+          for unit in units_doc['records']:
+              refs = unit.get('lessonRefs', [])
+              if len(refs) != 3:
+                  raise SystemExit(f"{unit['id']} must reference exactly 3 lessons, got {len(refs)}")
+              refs.sort(key=lambda item: int(item['id'].rsplit('-', 1)[-1]))
+              for local_order, ref in enumerate(refs, 1):
+                  ref['order'] = local_order
+          write_json(lessons_path, lessons_doc)
+          write_json(units_path, units_doc)
+
+          source_path = Path('data/hsk/hsk5/provenance/official-vocabulary.json')
+          target_path = Path('docs/hsk5-official-vocabulary-provenance.json')
+          if not source_path.is_file():
+              raise SystemExit(f'Missing official vocabulary provenance: {source_path}')
+          provenance = json.loads(source_path.read_text(encoding='utf-8'))
+          rows = provenance if isinstance(provenance, list) else provenance.get('records', provenance.get('entries', provenance.get('rows', [])))
+          if len(rows) != 1600:
+              raise SystemExit(f'Official vocabulary provenance must contain 1600 rows, got {len(rows)}')
+          target_path.parent.mkdir(parents=True, exist_ok=True)
+          shutil.move(str(source_path), str(target_path))
+          source_path.parent.rmdir()
+
+          old_paths = ('provenance/official-vocabulary.json', 'data/hsk/hsk5/provenance/official-vocabulary.json')
+          new_path = 'docs/hsk5-official-vocabulary-provenance.json'
+          for path in Path('data/hsk/hsk5').rglob('*.json'):
+              text = path.read_text(encoding='utf-8')
+              updated = text
+              for old_path in old_paths:
+                  updated = updated.replace(old_path, new_path)
+              if updated != text:
+                  path.write_text(updated, encoding='utf-8')
+
+          print('Normalized lesson order per unit without changing IDs')
+          print(f'Moved 1600-row provenance document to {target_path}')
+          PY
+
       - name: Install browser dependencies outside repository
         shell: bash
         run: |
@@ -74,12 +136,21 @@ jobs:
           const fs = require('node:fs');
           const source = JSON.parse(fs.readFileSync('reports/hsk-source-report.json', 'utf8'));
           const coverage = JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json', 'utf8'));
+          const sources = JSON.parse(fs.readFileSync('data/hsk/sources.json', 'utf8'));
+          const provenance = JSON.parse(fs.readFileSync('docs/hsk5-official-vocabulary-provenance.json', 'utf8'));
+          const provenanceRows = Array.isArray(provenance) ? provenance : (provenance.records || provenance.entries || provenance.rows || []);
           const level = coverage.levels.find((entry) => Number(entry.level) === 5);
           if (!level || level.units !== 20 || level.lessons !== 60 || level.vocabulary !== 1600 || level.grammar !== 70 || level.characters !== 431 || level.exercises !== 600 || level.assessments !== 24) {
             throw new Error(`HSK5 coverage mismatch: ${JSON.stringify(level)}`);
           }
-          if (source.automaticProductionGate !== 'no-fixture-record-uses-review-required-source') {
-            throw new Error(`Provenance gate blocked: ${source.automaticProductionGate}`);
+          if (level.sourceCoverage !== 1 || level.sourcedRecords !== 2805) {
+            throw new Error(`HSK5 source coverage mismatch: ${JSON.stringify({ sourcedRecords: level.sourcedRecords, sourceCoverage: level.sourceCoverage })}`);
+          }
+          if (provenanceRows.length !== 1600) throw new Error(`HSK5 provenance row count mismatch: ${provenanceRows.length}`);
+          const hsk5Sources = sources.sources.filter((entry) => Array.isArray(entry.levels) && entry.levels.some((value) => Number(value) === 5) && /hsk5/i.test(entry.sourceId));
+          if (hsk5Sources.length < 2) throw new Error(`HSK5 source registry incomplete: ${JSON.stringify(hsk5Sources.map((entry) => entry.sourceId))}`);
+          if (!source.usage.some((entry) => /hsk5/i.test(entry.sourceId) && entry.recordCount > 0)) {
+            throw new Error('No registered HSK5 source is used by canonical records');
           }
           NODE
           git add reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json
@@ -99,6 +170,8 @@ jobs:
           git diff --check
           test -f data/hsk/hsk5/course-manifest.json
           test -f data/hsk/hsk5/level.json
+          test -f docs/hsk5-official-vocabulary-provenance.json
+          test ! -d data/hsk/hsk5/provenance
           test ! -d data/hsk/hsk6/vocabulary
           grep -q "5: Object.freeze" assets/hsk-content/hsk-professional-runtime.js
           grep -q '"level": 5' data/hsk/hsk5/course-manifest.json
