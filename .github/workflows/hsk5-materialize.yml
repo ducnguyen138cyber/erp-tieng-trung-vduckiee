@@ -142,7 +142,7 @@ jobs:
           if (!level || level.units !== 20 || level.lessons !== 60 || level.vocabulary !== 1600 || level.grammar !== 70 || level.characters !== 431 || level.exercises !== 600 || level.assessments !== 24) {
             throw new Error(`HSK5 coverage mismatch: ${JSON.stringify(level)}`);
           }
-          if (level.sourceCoverage !== 1 || level.sourcedRecords !== 2805) {
+          if (level.sourceCoverage !== 1 || level.sourcedRecords !== 2806) {
             throw new Error(`HSK5 source coverage mismatch: ${JSON.stringify({ sourcedRecords: level.sourcedRecords, sourceCoverage: level.sourceCoverage })}`);
           }
           if (provenanceRows.length !== 1600) throw new Error(`HSK5 provenance row count mismatch: ${provenanceRows.length}`);
