@@ -10,7 +10,8 @@
     1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài · C2' }),
     2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài · C3' }),
     3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài · C4' }),
-    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 unit · 48 bài · C5' })
+    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 unit · 48 bài · C5' }),
+    5: Object.freeze({ base: './data/hsk/hsk5/', phase: 'C6', label: '20 unit · 60 bài · C6' })
   });
   var SUPPORT_GLOSSES = Object.freeze({
     '不喜欢': 'không thích',
@@ -433,9 +434,9 @@
       var midpointId = 'hsk' + state.selectedLevel + '-assessment-midpoint';
       if (Number(unit.order) === Math.ceil(data.units.length / 2) && data.assessmentById[midpointId]) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === midpointId ? ' active' : '') + '" data-pro-assessment="' + attr(midpointId) + '">◈ Midpoint Assessment</button>';
     });
-    ['hsk' + state.selectedLevel + '-assessment-final','hsk' + state.selectedLevel + '-assessment-mastery'].forEach(function (id) {
+    ['hsk' + state.selectedLevel + '-assessment-final','hsk' + state.selectedLevel + '-assessment-project','hsk' + state.selectedLevel + '-assessment-mastery'].forEach(function (id) {
       var assessment = data.assessmentById[id];
-      if (assessment) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + (id.indexOf('final') >= 0 ? '★ Final Assessment' : '◆ Mastery Review') + '</button>';
+      if (assessment) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + (id.indexOf('final') >= 0 ? '★ Final Assessment' : (id.indexOf('project') >= 0 ? '▣ Integrated Project' : '◆ Mastery Review')) + '</button>';
     });
     node.innerHTML = html;
   }
@@ -457,8 +458,8 @@
     if (home) {
       var count = home.querySelector('strong');
       var label = home.querySelector('span');
-      if (count && count.textContent !== '88') count.textContent = '88';
-      if (label && label.textContent !== 'Bài HSK1–3') label.textContent = 'Bài HSK1–3';
+      if (count && count.textContent !== '148') count.textContent = '148';
+      if (label && label.textContent !== 'Bài HSK1–5') label.textContent = 'Bài HSK1–5';
     }
   }
 
@@ -656,7 +657,7 @@
       var contentId = params.get('hskLesson') || params.get('hskAssessment') || '';
       if (COURSE_CONFIG[requested]) level = requested;
       else {
-        var match = contentId.match(/^hsk([123])-/);
+        var match = contentId.match(/^hsk([1-5])-/);
         if (match && COURSE_CONFIG[Number(match[1])]) level = Number(match[1]);
       }
     } catch (error) {}

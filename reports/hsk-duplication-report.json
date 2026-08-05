@@ -3280,17 +3280,29 @@
       "rule": "near-duplicate",
       "severity": "review",
       "similarity": 0.8298
+    },
+    {
+      "intentionalReview": false,
+      "kind": "example",
+      "leftFile": "data/hsk/hsk5/vocabulary/hsk5-v-0751-0800.json",
+      "leftId": "hsk5-v-0787#example1",
+      "reviewReason": null,
+      "rightFile": "data/hsk/hsk5/vocabulary/hsk5-v-1101-1150.json",
+      "rightId": "hsk5-v-1147#example1",
+      "rule": "near-duplicate",
+      "severity": "review",
+      "similarity": 0.8333
     }
   ],
   "qualityGate": "pass-for-phase1-fixture",
   "schemaVersion": "1.0.0",
   "summary": {
     "blockers": 0,
-    "candidates": 4238,
+    "candidates": 6578,
     "exact": 1,
-    "findings": 272,
+    "findings": 273,
     "intentionalReviews": 1,
-    "nearReview": 269,
+    "nearReview": 270,
     "normalized": 0
   }
 }
