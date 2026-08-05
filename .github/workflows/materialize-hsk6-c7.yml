@@ -112,7 +112,8 @@ jobs:
           if(level.missingSkills.length) throw new Error(`missingSkills: ${level.missingSkills}`);
           if(level.vocabularyIntroducedButNotPracticed.length) throw new Error(`unpracticed vocabulary: ${level.vocabularyIntroducedButNotPracticed.length}`);
           if(level.grammarWithoutExercise.length) throw new Error(`grammar without exercise: ${level.grammarWithoutExercise.length}`);
-          if(source.automaticProductionGate==='blocked') throw new Error(`review-required source used: ${source.usedReviewRequiredSources}`);
+          if(source.automaticProductionGate!=='blocked') throw new Error(`source review gate must remain blocked until human signoff: ${source.automaticProductionGate}`);
+          if(!Array.isArray(source.usedReviewRequiredSources)||!source.usedReviewRequiredSources.length) throw new Error('review-required provenance list missing');
           console.log(JSON.stringify({hsk6:level,sourceGate:source.automaticProductionGate,usedReviewRequiredSources:source.usedReviewRequiredSources},null,2));
           NODE
       - name: HSK6 targeted and learner integration gates
