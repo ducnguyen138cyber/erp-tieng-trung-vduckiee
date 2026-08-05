@@ -32,7 +32,7 @@ jobs:
           git diff --stat d3c7bcef5a1625d21bcd8cba74bb65357c8dad48...HEAD
           git diff --check d3c7bcef5a1625d21bcd8cba74bb65357c8dad48...HEAD
           test "$(git branch --show-current)" = "agent/build-hsk6-c7"
-          git merge-base --is-ancestor a8ec9ba5ed2546dbb34ebcaa57b7016a7bacd788 HEAD
+          git merge-base --is-ancestor bb3cd6b44f2493d6295ff3654852350b8de4f8be HEAD
           test ! -f .git/MERGE_HEAD
           test ! -d .git/rebase-merge
           test ! -d .git/rebase-apply
