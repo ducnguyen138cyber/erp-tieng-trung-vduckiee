@@ -1,0 +1,28 @@
+{
+  "phase": "C6",
+  "level": 5,
+  "baseline": "66b62998a0de85dfbd0495ed6500630d11a367a6",
+  "websiteRoute": "?area=hsk&hskLevel=5&hskLesson=hsk5-lesson-01",
+  "inventory": {
+    "units": 20,
+    "lessons": 60,
+    "vocabulary": 1600,
+    "grammar": 70,
+    "characters": 431,
+    "exercises": 600,
+    "assessments": 24
+  },
+  "integration": {
+    "runtimeCourseConfig": "C6",
+    "levelSelectorEnabled": true,
+    "directUrl": true,
+    "readOnly": true
+  },
+  "quality": {
+    "validator": "pending-ci",
+    "duplicateBlockers": 0,
+    "coverage": "pending-ci",
+    "browserSmoke": "pending-ci",
+    "regression": "pending-ci"
+  }
+}

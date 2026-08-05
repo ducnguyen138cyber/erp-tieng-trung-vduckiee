@@ -1,0 +1,925 @@
+{
+  "schemaVersion": "1.0.0",
+  "collectionType": "units",
+  "level": 5,
+  "records": [
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-01",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 1,
+      "topic": "Thông tin và năng lực truyền thông",
+      "titleZh": "信息与媒体素养",
+      "titleVi": "Thông tin và năng lực truyền thông",
+      "objectives": [
+        "核实信息来源。",
+        "区分事实与观点。",
+        "压缩复杂信息。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-01",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-02",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-03",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-01",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-02",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 2,
+      "topic": "Email và phối hợp công việc",
+      "titleZh": "职场邮件与协作",
+      "titleVi": "Email và phối hợp công việc",
+      "objectives": [
+        "建立专业关系。",
+        "确认任务要求。",
+        "礼貌推动进度。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-01"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-04",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-05",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-06",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-02",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-03",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 3,
+      "topic": "Họp và ra quyết định chung",
+      "titleZh": "会议与共同决策",
+      "titleVi": "Họp và ra quyết định chung",
+      "objectives": [
+        "会前对齐。",
+        "处理分歧。",
+        "形成行动结论。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-02"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-07",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-08",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-09",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-03",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-04",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 4,
+      "topic": "Dự án, quy trình và rủi ro",
+      "titleZh": "项目、流程与风险",
+      "titleVi": "Dự án, quy trình và rủi ro",
+      "objectives": [
+        "拆解目标。",
+        "报告风险。",
+        "复盘改进。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-03"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-10",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-11",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-12",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-04",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-05",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 5,
+      "topic": "Dịch vụ khách hàng và đàm phán",
+      "titleZh": "客户服务与谈判",
+      "titleVi": "Dịch vụ khách hàng và đàm phán",
+      "objectives": [
+        "主动倾听。",
+        "解释限制。",
+        "交换价值。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-04"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-13",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-14",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-15",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-05",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-06",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 6,
+      "topic": "Tuyển dụng và phát triển nghề nghiệp",
+      "titleZh": "招聘与职业发展",
+      "titleVi": "Tuyển dụng và phát triển nghề nghiệp",
+      "objectives": [
+        "用证据讲能力。",
+        "提供有效反馈。",
+        "比较职业选择。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-05"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-16",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-17",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-18",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-06",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-07",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 7,
+      "topic": "Kinh doanh, dữ liệu và thị trường",
+      "titleZh": "商业、数据与市场",
+      "titleVi": "Kinh doanh, dữ liệu và thị trường",
+      "objectives": [
+        "解读数据。",
+        "解释市场变化。",
+        "提出可验证建议。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-06"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-19",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-20",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-21",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-07",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-08",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 8,
+      "topic": "Công nghệ, nền tảng và đạo đức số",
+      "titleZh": "技术、平台与数字伦理",
+      "titleVi": "Công nghệ, nền tảng và đạo đức số",
+      "objectives": [
+        "评估工具。",
+        "讨论隐私边界。",
+        "解释技术问题。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-07"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-22",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-23",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-24",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-08",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-09",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 9,
+      "topic": "Đô thị, cộng đồng và dịch vụ công",
+      "titleZh": "城市、社区与公共服务",
+      "titleVi": "Đô thị, cộng đồng và dịch vụ công",
+      "objectives": [
+        "比较群体影响。",
+        "协商公共规则。",
+        "说明行政诉求。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-08"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-25",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-26",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-27",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-09",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-10",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 10,
+      "topic": "Sức khỏe và khoa học phổ thông",
+      "titleZh": "健康与大众科学",
+      "titleVi": "Sức khỏe và khoa học phổ thông",
+      "objectives": [
+        "判断健康信息。",
+        "描述症状。",
+        "解释科学不确定性。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-09"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-28",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-29",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-30",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-10",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-11",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 11,
+      "topic": "Môi trường và hành động bền vững",
+      "titleZh": "环境与可持续行动",
+      "titleVi": "Môi trường và hành động bền vững",
+      "objectives": [
+        "把目标变成行动。",
+        "讨论绿色成本。",
+        "发布环境说明。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-10"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-31",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-32",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-33",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-11",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-12",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 12,
+      "topic": "Du lịch, giao thông và truyền thông khủng hoảng",
+      "titleZh": "旅行、交通与危机沟通",
+      "titleVi": "Du lịch, giao thông và truyền thông khủng hoảng",
+      "objectives": [
+        "处理行程变化。",
+        "解释文化礼仪。",
+        "报告现场情况。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-11"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-34",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-35",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-36",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-12",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-13",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 13,
+      "topic": "Truyền thống, bản sắc và liên văn hóa",
+      "titleZh": "传统、身份与跨文化",
+      "titleVi": "Truyền thống, bản sắc và liên văn hóa",
+      "objectives": [
+        "比较传统变化。",
+        "讨论文化借鉴。",
+        "解释含蓄表达。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-12"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-37",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-38",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-39",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-13",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-14",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 14,
+      "topic": "Truyền thông, văn học và phê bình điện ảnh",
+      "titleZh": "媒体、文学与影视评论",
+      "titleVi": "Truyền thông, văn học và phê bình điện ảnh",
+      "objectives": [
+        "分析叙事。",
+        "识别标题框架。",
+        "写推荐评论。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-13"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-40",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-41",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-42",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-14",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-15",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 15,
+      "topic": "Quan hệ, thế hệ và hàn gắn xung đột",
+      "titleZh": "关系、代际与冲突修复",
+      "titleVi": "Quan hệ, thế hệ và hàn gắn xung đột",
+      "objectives": [
+        "总结代际差异。",
+        "表达边界。",
+        "承担修复责任。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-14"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-43",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-44",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-45",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-15",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-16",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 16,
+      "topic": "Giáo dục, nghiên cứu và khảo sát",
+      "titleZh": "教育、研究与调查",
+      "titleVi": "Giáo dục, nghiên cứu và khảo sát",
+      "objectives": [
+        "提出研究问题。",
+        "综合文献。",
+        "报告调查结果。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-15"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-46",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-47",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-48",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-16",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-17",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 17,
+      "topic": "Tự sự, ký ức và nhân vật",
+      "titleZh": "叙事、记忆与人物",
+      "titleVi": "Tự sự, ký ức và nhân vật",
+      "objectives": [
+        "呈现多重记忆。",
+        "组织故事转折。",
+        "连接个人与时代。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-16"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-49",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-50",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-51",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-17",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-18",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 18,
+      "topic": "Quan điểm, bằng chứng và phản biện lịch sự",
+      "titleZh": "观点、证据与礼貌反驳",
+      "titleVi": "Quan điểm, bằng chứng và phản biện lịch sự",
+      "objectives": [
+        "澄清定义。",
+        "回应证据。",
+        "在不确定中判断。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-17"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-52",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-53",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-54",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-18",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-19",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 19,
+      "topic": "Vấn đề công và trách nhiệm toàn cầu",
+      "titleZh": "公共议题与全球责任",
+      "titleVi": "Vấn đề công và trách nhiệm toàn cầu",
+      "objectives": [
+        "评估城市发展。",
+        "连接个人与制度。",
+        "证明公益效果。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-18"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-55",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-56",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-57",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-19",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    },
+    {
+      "recordType": "unit",
+      "id": "hsk5-unit-20",
+      "syllabusVersion": "CTI-HSK3.0-2026",
+      "level": 5,
+      "order": 20,
+      "topic": "Dự án tích hợp và trình bày công khai",
+      "titleZh": "综合项目与公开表达",
+      "titleVi": "Dự án tích hợp và trình bày công khai",
+      "objectives": [
+        "发现真实问题。",
+        "比较解决方案。",
+        "公开表达并反思。",
+        "Kết hợp nghe–đọc–nói–viết trong nhiệm vụ thực tế."
+      ],
+      "prerequisiteUnitIds": [
+        "hsk5-unit-19"
+      ],
+      "prerequisiteLevelId": "hsk4",
+      "lessonRefs": [
+        {
+          "id": "hsk5-lesson-58",
+          "path": "lessons.json",
+          "order": 1
+        },
+        {
+          "id": "hsk5-lesson-59",
+          "path": "lessons.json",
+          "order": 2
+        },
+        {
+          "id": "hsk5-lesson-60",
+          "path": "lessons.json",
+          "order": 3
+        }
+      ],
+      "checkpointRef": {
+        "id": "hsk5-assessment-unit-20",
+        "path": "assessments.json"
+      },
+      "sourceIds": [
+        "moe-gf0025-2021-standard"
+      ],
+      "contentStatus": "machine-assisted",
+      "contentVersion": 1
+    }
+  ]
+}
