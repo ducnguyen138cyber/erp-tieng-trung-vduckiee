@@ -1,93 +1,77 @@
-name: HSK5 C6 Materialize
+name: HSK Content Quality
 
 on:
-  push:
-    branches:
-      - agent/build-hsk5-c6
+  pull_request:
     paths:
+      - 'data/hsk/**'
+      - 'assets/hsk-content/**'
+      - 'scripts/*hsk*'
+      - 'tests/*hsk*'
+      - 'docs/hsk-*'
+      - 'reports/hsk-*'
+      - '.github/workflows/hsk-content-quality.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'data/hsk/**'
+      - 'assets/hsk-content/**'
+      - 'scripts/*hsk*'
+      - 'tests/*hsk*'
+      - 'docs/hsk-*'
+      - 'reports/hsk-*'
       - '.github/workflows/hsk-content-quality.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  materialize-and-verify:
+  validate-hsk-content:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          ref: agent/build-hsk5-c6
-          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Install browser dependencies outside repository
+      - name: Install full regression dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y imagemagick
           python -m pip install --disable-pip-version-check playwright
           python -m playwright install --with-deps chromium
-      - name: Materialize existing HSK5 payload
-        run: |
-          python - <<'PY'
-          import base64
-          import json
-          import zlib
-          from pathlib import Path
-          parts = [Path(f'.tmp/hsk5-builder.part{i:02d}') for i in range(7)]
-          missing = [str(path) for path in parts if not path.exists()]
-          if missing:
-              raise SystemExit(f'Missing payload parts: {missing}')
-          encoded = ''.join(path.read_text(encoding='utf-8').strip() for path in parts)
-          payload = zlib.decompress(base64.b64decode(encoded)).decode('utf-8')
-          target = Path('scripts/build-hsk5-c6.py')
-          target.write_text(payload, encoding='utf-8', newline='\n')
-          print(f'Materialized {target} ({len(payload)} chars)')
-          PY
-          python scripts/build-hsk5-c6.py
-      - name: Normalize imported HSK5 packaging without changing content IDs
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          lessons_path = Path('data/hsk/hsk5/lessons.json')
-          lessons_doc = json.loads(lessons_path.read_text(encoding='utf-8'))
-          counters = {}
-          for lesson in lessons_doc['records']:
-              unit_id = lesson['unitId']
-              counters[unit_id] = counters.get(unit_id, 0) + 1
-              lesson['order'] = counters[unit_id]
-          lessons_path.write_text(json.dumps(lessons_doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-
-          provenance_path = Path('data/hsk/hsk5/provenance/official-vocabulary.json')
-          provenance_doc = json.loads(provenance_path.read_text(encoding='utf-8'))
-          if 'records' in provenance_doc:
-              provenance_doc['entries'] = provenance_doc.pop('records')
-          provenance_path.write_text(json.dumps(provenance_doc, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-          print({'lessonUnits': len(counters), 'provenanceEntries': len(provenance_doc.get('entries', []))})
-          PY
-      - name: Check JavaScript syntax
+      - name: Check HSK and test JavaScript syntax
         run: find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
       - name: Validate HSK content
         run: node scripts/validate-hsk-content.js
       - name: Check HSK duplicates
         run: node scripts/check-hsk-duplicates.js
-      - name: Check HSK coverage and provenance reports
+      - name: Check HSK coverage
+        run: node scripts/check-hsk-coverage.js
+      - name: Generate deterministic HSK reports
+        run: node scripts/generate-hsk-report.js
+      - name: Run all website regression tests
+        shell: bash
         run: |
-          node scripts/check-hsk-coverage.js
-          node scripts/generate-hsk-report.js
-      - name: Run full regression including browser smoke
-        run: node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js
-      - name: Verify whitespace
-        run: git diff --check
-      - name: Restore workflow, remove payload and commit
+          set +e
+          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js > /tmp/regression.log 2>&1
+          status=$?
+          if [ "$status" -ne 0 ]; then
+            echo '=== FAILED TEST NAMES ==='
+            grep -E '^✖ ' /tmp/regression.log || true
+            echo '=== REGRESSION LOG TAIL ==='
+            tail -n 300 /tmp/regression.log
+          else
+            cat /tmp/regression.log
+          fi
+          exit "$status"
+      - name: Upload regression failure log
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hsk-regression-failure
+          path: /tmp/regression.log
+          if-no-files-found: error
+          retention-days: 3
+      - name: Verify whitespace and deterministic reports
         run: |
-          git checkout origin/main -- .github/workflows/hsk-content-quality.yml
-          rm -rf .tmp
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          git diff --cached --check
-          git commit -m 'Build professional HSK 5 course'
-          git push origin HEAD:agent/build-hsk5-c6
+          git diff --check
+          git diff --exit-code -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json
