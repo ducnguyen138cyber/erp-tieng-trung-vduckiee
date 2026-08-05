@@ -24,34 +24,18 @@ jobs:
           cat scripts/.hsk6-c7-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk6-c7.py
           python -m py_compile scripts/build-hsk6-c7.py
           test "$(wc -c < scripts/build-hsk6-c7.py)" -eq 115848
-      - name: Inspect validation targets
+      - name: Inspect record construction
         run: |
           python - <<'PY'
           from pathlib import Path
-          text = Path('scripts/build-hsk6-c7.py').read_text(encoding='utf-8')
-          needles = [
-              '"order": lesson_no',
-              "'order': lesson_no",
-              'sourceRefs',
-              'pinyinTone',
-              'missingMeanings',
-              'meaningVi',
-              '凡（是）',
-          ]
-          lines = text.splitlines()
-          seen = set()
-          for needle in needles:
-              print(f'===== NEEDLE: {needle} =====')
-              for i, line in enumerate(lines):
-                  if needle in line:
-                      start = max(0, i - 8)
-                      end = min(len(lines), i + 12)
-                      key = (start, end)
-                      if key in seen:
-                          continue
-                      seen.add(key)
-                      for n in range(start, end):
-                          print(f'{n+1:05d}: {lines[n]}')
-                      print()
+          lines = Path('scripts/build-hsk6-c7.py').read_text(encoding='utf-8').splitlines()
+          for start, end, title in [
+              (360, 430, 'vocabulary parsing'),
+              (610, 760, 'lesson construction'),
+              (1, 180, 'helpers and constants'),
+          ]:
+              print(f'===== {title} {start}-{end} =====')
+              for n in range(start - 1, min(end, len(lines))):
+                  print(f'{n+1:05d}: {lines[n]}')
           PY
           exit 1
