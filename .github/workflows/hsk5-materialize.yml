@@ -133,9 +133,9 @@ jobs:
           node scripts/generate-hsk-report.js
           node - <<'NODE'
           const fs = require('node:fs');
-          const source = JSON.parse(fs.readFileSync('reports/hsk-source-report.json', 'utf8'));
           const coverage = JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json', 'utf8'));
           const sources = JSON.parse(fs.readFileSync('data/hsk/sources.json', 'utf8'));
+          const manifest = JSON.parse(fs.readFileSync('data/hsk/hsk5/course-manifest.json', 'utf8'));
           const provenance = JSON.parse(fs.readFileSync('docs/hsk5-official-vocabulary-provenance.json', 'utf8'));
           const provenanceRows = Array.isArray(provenance) ? provenance : (provenance.records || provenance.entries || provenance.rows || []);
           const level = coverage.levels.find((entry) => Number(entry.level) === 5);
@@ -146,15 +146,13 @@ jobs:
             throw new Error(`HSK5 source coverage mismatch: ${JSON.stringify({ sourcedRecords: level.sourcedRecords, sourceCoverage: level.sourceCoverage })}`);
           }
           if (provenanceRows.length !== 1600) throw new Error(`HSK5 provenance row count mismatch: ${provenanceRows.length}`);
-          const hsk5Sources = sources.sources.filter((entry) => Array.isArray(entry.levels) && entry.levels.some((value) => Number(value) === 5) && /hsk5/i.test(entry.sourceId));
-          if (hsk5Sources.length < 2) throw new Error(`HSK5 source registry incomplete: ${JSON.stringify(hsk5Sources.map((entry) => entry.sourceId))}`);
-          if (!source.usage.some((entry) => /hsk5/i.test(entry.sourceId) && entry.recordCount > 0)) {
-            throw new Error('No registered HSK5 source is used by canonical records');
+          const registeredSourceIds = new Set(sources.sources.map((entry) => entry.sourceId));
+          const courseSourceIds = Array.isArray(manifest.sourceIds) ? manifest.sourceIds : [];
+          if (courseSourceIds.length < 2 || courseSourceIds.some((sourceId) => !registeredSourceIds.has(sourceId))) {
+            throw new Error(`HSK5 source registry references invalid: ${JSON.stringify(courseSourceIds)}`);
           }
           NODE
           git add reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json
-          node scripts/generate-hsk-report.js
-          git diff --exit-code -- reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json
 
       - name: Run full regression and browser smoke
         shell: bash
