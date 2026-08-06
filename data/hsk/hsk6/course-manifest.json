@@ -1,0 +1,117 @@
+{
+  "collections": {
+    "assessments": {
+      "count": 31,
+      "path": "assessments.json"
+    },
+    "characters": {
+      "count": 413,
+      "path": "characters.json"
+    },
+    "exercises": {
+      "count": 864,
+      "path": "exercises.json"
+    },
+    "grammar": {
+      "count": 50,
+      "path": "grammar.json"
+    },
+    "lessons": {
+      "count": 72,
+      "path": "lessons.json"
+    },
+    "units": {
+      "count": 24,
+      "path": "units.json"
+    },
+    "vocabulary": {
+      "count": 1800,
+      "cumulativeThroughLevel": 5400,
+      "newAtLevel": 1800,
+      "path": "vocabulary/index.json"
+    },
+    "vocabularyEnrichment": {
+      "count": 1800,
+      "linkStrategy": "canonicalLookup.id",
+      "path": "vocabulary-enrichment.json"
+    }
+  },
+  "curriculumId": "vduckie-hsk6-professional-course",
+  "developerOnly": true,
+  "editorialQualityGate": {
+    "exerciseCount": 864,
+    "humanChinesePedagogySignoff": false,
+    "humanVietnameseSignoff": false,
+    "integratedSkills": "72/72",
+    "nearSynonymComparisons": "72/72",
+    "officialCharacters": "413/413",
+    "officialGrammar": "50/50",
+    "officialNewVocabulary": "1800/1800",
+    "registerNotes": "72/72",
+    "reviewedLessons": 72,
+    "spacedReviewVocabularyCoverage": "1800/1800",
+    "status": "pass-machine-editorial-human-signoff-required"
+  },
+  "examBlueprintVersion": "CTI-HSK6.0-2026",
+  "learnerJourney": {
+    "lessonFlow": [
+      "objective",
+      "vocabulary-collocation-near-synonym",
+      "character",
+      "grammar-discourse",
+      "dialogue",
+      "long-listening",
+      "structured-reading",
+      "speaking",
+      "multi-paragraph-writing",
+      "integrated-task",
+      "reflection",
+      "spaced-review",
+      "self-review"
+    ],
+    "mastery": {
+      "integrated": 80,
+      "knowledge": 84,
+      "mandatory": [
+        "unit checkpoints",
+        "midpoint",
+        "receptive",
+        "productive",
+        "integrated",
+        "mock",
+        "final",
+        "mastery"
+      ],
+      "productive": 80,
+      "receptive": 82,
+      "spacingDays": [
+        1,
+        3,
+        7,
+        14,
+        30
+      ]
+    }
+  },
+  "level": 6,
+  "phase": "C7",
+  "productionEnabled": false,
+  "publicOverrideAllowed": false,
+  "qualityGate": "locked",
+  "readOnly": true,
+  "reviewGate": {
+    "audioRecorded": false,
+    "chinesePedagogyHumanReview": false,
+    "productionReleaseAllowed": false,
+    "strokeOrderVerified": false,
+    "vietnameseHumanReview": false
+  },
+  "schemaVersion": "1.0.0",
+  "sourceIds": [
+    "cti-hsk3-syllabus-pdf-2026",
+    "moe-gf0025-2021-standard"
+  ],
+  "status": "phase-c7-professional-machine-editorial-human-signoff-required",
+  "syllabusVersion": "CTI-HSK3.0-2026",
+  "writesProgress": false
+}

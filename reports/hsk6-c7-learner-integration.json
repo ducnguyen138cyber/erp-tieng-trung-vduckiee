@@ -1,0 +1,29 @@
+{
+  "baseline": "d3c7bcef5a1625d21bcd8cba74bb65357c8dad48",
+  "humanSignoffRequired": true,
+  "integration": {
+    "directUrl": true,
+    "levelSelectorEnabled": true,
+    "readOnly": true,
+    "runtimeCourseConfig": "C7"
+  },
+  "inventory": {
+    "assessments": 31,
+    "characters": 413,
+    "exercises": 864,
+    "grammar": 50,
+    "lessons": 72,
+    "units": 24,
+    "vocabulary": 1800
+  },
+  "level": 6,
+  "phase": "C7",
+  "quality": {
+    "browserSmoke": "checked-by-ci",
+    "coverage": "checked-by-ci",
+    "duplicateBlockers": 0,
+    "regression": "checked-by-ci",
+    "validator": "checked-by-ci"
+  },
+  "websiteRoute": "?area=hsk&hskLevel=6&hskLesson=hsk6-lesson-01"
+}

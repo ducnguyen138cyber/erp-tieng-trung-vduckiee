@@ -30,7 +30,7 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 1738,
+      "recordCount": 1737,
       "sourceId": "cti-hsk3-current-syllabus-2026"
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 3011,
+      "recordCount": 6266,
       "sourceId": "cti-hsk3-syllabus-pdf-2026"
     },
     {
@@ -65,7 +65,7 @@
     },
     {
       "licenseStatus": "review-required",
-      "recordCount": 0,
+      "recordCount": 1800,
       "sourceId": "legacy-cvdict"
     },
     {
@@ -85,7 +85,7 @@
     },
     {
       "licenseStatus": "reuse-limited",
-      "recordCount": 4063,
+      "recordCount": 5104,
       "sourceId": "moe-gf0025-2021-standard"
     },
     {
@@ -95,7 +95,7 @@
     },
     {
       "licenseStatus": "verified",
-      "recordCount": 1295,
+      "recordCount": 1708,
       "sourceId": "unicode-unihan-17"
     },
     {
@@ -120,6 +120,7 @@
     }
   ],
   "usedReviewRequiredSources": [
-    "hsk-beijing-hsk4-vietnamese-gloss-2026"
+    "hsk-beijing-hsk4-vietnamese-gloss-2026",
+    "legacy-cvdict"
   ]
 }
