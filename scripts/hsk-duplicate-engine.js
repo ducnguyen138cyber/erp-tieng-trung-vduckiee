@@ -75,22 +75,72 @@ function checkDuplicates(rootDirectory, options = {}) {
   }
   for (const [, items] of byKind) {
     const kind = items[0].kind;
-    for (let leftIndex = 0; leftIndex < items.length; leftIndex += 1) {
-      for (let rightIndex = leftIndex + 1; rightIndex < items.length; rightIndex += 1) {
-        const left = items[leftIndex], right = items[rightIndex];
-        if (left.id === right.id) continue;
-        const intentional = left.record.recordType === 'exercise' && right.record.recordType === 'exercise' && isIntentionalReview(left, right);
-        const exact = String(left.text).trim() === String(right.text).trim();
-        const normalizedEqual = normalizeText(left.text) === normalizeText(right.text);
-        const skeletonEqual = skeletonText(left.text) === skeletonText(right.text);
-        const similarity = jaccard(ngrams(left.text), ngrams(right.text));
-        let rule = null, severity = null;
-        if (exact) { rule = 'exact-duplicate'; severity = intentional ? 'info' : 'critical'; }
-        else if (normalizedEqual) { rule = 'normalized-duplicate'; severity = intentional ? 'info' : 'serious'; }
-        else if (skeletonEqual && normalizeText(left.text) !== normalizeText(right.text)) { rule = 'name-or-number-mutation'; severity = intentional ? 'info' : 'review'; }
-        else if (similarity >= (kind === 'sentence' ? (options.sentenceNearThreshold || 0.92) : (options.nearThreshold || 0.82))) { rule = 'near-duplicate'; severity = intentional ? 'info' : 'review'; }
-        if (rule) findings.push({ rule, severity, kind, leftId: left.id, rightId: right.id, leftFile: left.file, rightFile: right.file, similarity: Number(similarity.toFixed(4)), intentionalReview: intentional, reviewReason: intentional ? ((left.record.reviewMetadata || right.record.reviewMetadata).reviewReason) : null });
+    const threshold = kind === 'sentence' ? (options.sentenceNearThreshold || 0.92) : (options.nearThreshold || 0.82);
+    const metadata = items.map((item) => {
+      const normalized = normalizeText(item.text);
+      return { raw: String(item.text).trim(), normalized, skeleton: skeletonText(item.text), grams: ngrams(item.text) };
+    });
+    const pairKeys = new Set();
+    const addPair = (leftIndex, rightIndex) => {
+      if (leftIndex === rightIndex) return;
+      const a = Math.min(leftIndex, rightIndex), b = Math.max(leftIndex, rightIndex);
+      pairKeys.add(`${a}|${b}`);
+    };
+    const addEqualGroups = (selector) => {
+      const groups = new Map();
+      metadata.forEach((meta, index) => {
+        const key = selector(meta);
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(index);
+      });
+      for (const indexes of groups.values()) {
+        for (let left = 0; left < indexes.length; left += 1) {
+          for (let right = left + 1; right < indexes.length; right += 1) addPair(indexes[left], indexes[right]);
+        }
       }
+    };
+    addEqualGroups((meta) => meta.raw);
+    addEqualGroups((meta) => meta.normalized);
+    addEqualGroups((meta) => meta.skeleton);
+
+    // Exact Jaccard prefix filtering: any pair at or above the threshold must
+    // share at least one globally ordered token in these prefixes. This keeps
+    // the duplicate contract identical while avoiding an all-pairs scan.
+    const frequency = new Map();
+    metadata.forEach((meta) => meta.grams.forEach((gram) => frequency.set(gram, (frequency.get(gram) || 0) + 1)));
+    const posting = new Map();
+    metadata.forEach((meta, index) => {
+      const ordered = [...meta.grams].sort((left, right) => (frequency.get(left) - frequency.get(right)) || left.localeCompare(right));
+      const prefixLength = Math.max(0, ordered.length - Math.ceil(threshold * ordered.length) + 1);
+      const prefix = ordered.slice(0, prefixLength);
+      const candidates = new Set();
+      prefix.forEach((gram) => (posting.get(gram) || []).forEach((prior) => candidates.add(prior)));
+      candidates.forEach((prior) => addPair(prior, index));
+      prefix.forEach((gram) => {
+        if (!posting.has(gram)) posting.set(gram, []);
+        posting.get(gram).push(index);
+      });
+    });
+
+    for (const key of pairKeys) {
+      const [leftIndex, rightIndex] = key.split('|').map(Number);
+      const left = items[leftIndex], right = items[rightIndex];
+      if (left.id === right.id) continue;
+      const leftMeta = metadata[leftIndex], rightMeta = metadata[rightIndex];
+      const intentional = left.record.recordType === 'exercise' && right.record.recordType === 'exercise' && isIntentionalReview(left, right);
+      const exact = leftMeta.raw === rightMeta.raw;
+      const normalizedEqual = leftMeta.normalized === rightMeta.normalized;
+      const skeletonEqual = leftMeta.skeleton === rightMeta.skeleton;
+      const maxSize = Math.max(leftMeta.grams.size, rightMeta.grams.size);
+      const minSize = Math.min(leftMeta.grams.size, rightMeta.grams.size);
+      const canMeetThreshold = maxSize === 0 || (minSize / maxSize) >= threshold;
+      const similarity = (exact || normalizedEqual || skeletonEqual || canMeetThreshold) ? jaccard(leftMeta.grams, rightMeta.grams) : 0;
+      let rule = null, severity = null;
+      if (exact) { rule = 'exact-duplicate'; severity = intentional ? 'info' : 'critical'; }
+      else if (normalizedEqual) { rule = 'normalized-duplicate'; severity = intentional ? 'info' : 'serious'; }
+      else if (skeletonEqual) { rule = 'name-or-number-mutation'; severity = intentional ? 'info' : 'review'; }
+      else if (canMeetThreshold && similarity >= threshold) { rule = 'near-duplicate'; severity = intentional ? 'info' : 'review'; }
+      if (rule) findings.push({ rule, severity, kind, leftId: left.id, rightId: right.id, leftFile: left.file, rightFile: right.file, similarity: Number(similarity.toFixed(4)), intentionalReview: intentional, reviewReason: intentional ? ((left.record.reviewMetadata || right.record.reviewMetadata).reviewReason) : null });
     }
   }
   const vocabularyByKey = new Map();
