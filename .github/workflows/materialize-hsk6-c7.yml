@@ -34,8 +34,10 @@ jobs:
           test "$(wc -c < scripts/build-hsk6-c7.py)" -eq 115848
           python scripts/.hsk6-c7-apply-fixes.py
           python -m py_compile scripts/build-hsk6-c7.py
-      - name: Install materialization and browser dependencies
+      - name: Install full regression dependencies
         run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
           python -m pip install --disable-pip-version-check pypinyin playwright
           python -m playwright install --with-deps chromium
           echo "CHROMIUM_PATH=$(python - <<'PY'
@@ -44,6 +46,7 @@ jobs:
               print(p.chromium.executable_path)
           PY
           )" >> "$GITHUB_ENV"
+          identify -version
       - name: Materialize exact reviewed HSK6 output
         run: python scripts/build-hsk6-c7.py
       - name: Syntax gate
