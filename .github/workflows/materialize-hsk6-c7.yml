@@ -142,7 +142,7 @@ jobs:
           test ! -e scripts/.hsk6-c7-bootstrap
           test ! -e scripts/.hsk6-c7-apply-fixes.py
           test ! -e .github/workflows/materialize-hsk6-c7.yml
-          if git status --porcelain | grep -E '(\.tmp/|bootstrap|apply-fixes|diagnostic|test-results|playwright-report|__pycache__|\.pyc$|\.log$)'; then
+          if git status --porcelain | grep -E '(\.tmp/|bootstrap|apply-fixes|diagnostic|test-results|playwright-report|__pycache__|\.pyc$|\.log$)' | grep -vE '^( D|D )'; then
             echo 'Temporary recovery artifact remains in final diff' >&2
             exit 1
           fi
