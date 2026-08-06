@@ -1,0 +1,49 @@
+name: HSK7 C8 Final Trigger
+
+on:
+  push:
+    branches:
+      - agent/build-hsk7-c8
+    paths:
+      - '.github/workflows/hsk7-c8-final-trigger.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  trigger-final:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/build-hsk7-c8
+          fetch-depth: 0
+      - name: Patch and trigger final C8 workflow
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('.github/workflows/materialize-hsk7-c8.yml')
+          s = p.read_text(encoding='utf-8')
+          old = 'name: Finalize HSK7 C8 Sharded # diagnostic-3'
+          new = 'name: Finalize HSK7 C8 Sharded # validator-fixed-final-1'
+          if old not in s:
+              raise SystemExit('expected materialize workflow marker missing')
+          s = s.replace(old, new, 1)
+          cleanup = '          rm -f .github/workflows/materialize-hsk7-c8.yml\n'
+          replacement = cleanup + '          rm -f .github/workflows/hsk7-c8-recovery-diagnostic.yml\n          rm -f .github/workflows/hsk7-c8-final-trigger.yml\n'
+          if cleanup not in s:
+              raise SystemExit('cleanup insertion point missing')
+          s = s.replace(cleanup, replacement, 1)
+          check = '          test ! -e .github/workflows/materialize-hsk7-c8.yml\n'
+          check_replacement = check + '          test ! -e .github/workflows/hsk7-c8-recovery-diagnostic.yml\n          test ! -e .github/workflows/hsk7-c8-final-trigger.yml\n'
+          if check not in s:
+              raise SystemExit('cleanup verification insertion point missing')
+          s = s.replace(check, check_replacement, 1)
+          p.write_text(s, encoding='utf-8')
+          PY
+          git config user.name "VDuckie Curriculum Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add .github/workflows/materialize-hsk7-c8.yml
+          git diff --cached --check
+          git commit -m "Trigger final HSK7 C8 validation"
+          git push origin HEAD:agent/build-hsk7-c8

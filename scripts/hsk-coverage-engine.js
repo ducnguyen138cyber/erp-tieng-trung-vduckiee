@@ -36,12 +36,18 @@ function summarizeRecords(records) {
     topicDistribution: stableSort(topicDistribution), difficultyDistribution: stableSort(difficultyDistribution)
   };
 }
+function pedagogicLevel(record) {
+  if (Number.isInteger(record.level)) return record.level;
+  if (Number.isInteger(record.hskLevel)) return record.hskLevel;
+  const match = String(record.id || '').match(/^hsk([1-9])-/);
+  return match ? Number(match[1]) : null;
+}
 function checkCoverage(rootDirectory, options = {}) {
   const validation = validateRepository(rootDirectory, options);
   const repository = validation.repository;
   const levels = [];
   for (const manifestLevel of (repository.manifest && repository.manifest.levels) || []) {
-    const records = repository.records.filter((entry) => entry.record.contentStatus !== 'fixture' && (entry.record.level === manifestLevel.level || entry.record.hskLevel === manifestLevel.level));
+    const records = repository.records.filter((entry) => entry.record.contentStatus !== 'fixture' && pedagogicLevel(entry.record) === manifestLevel.level);
     const summary = summarizeRecords(records);
     const requiredSkills = manifestLevel.stage === 'advanced' ? SKILLS : manifestLevel.level >= 5 ? SKILLS : ['vocabulary', 'grammar', 'listening', 'speaking', 'reading', 'writing'];
     levels.push({ level: manifestLevel.level, stage: manifestLevel.stage, status: manifestLevel.status, productionReady: false, complete: false, completionReason: manifestLevel.status === 'planned' ? 'planned-level-has-no-approved-content' : 'quality-gate-locked', ...summary, missingSkills: requiredSkills.filter((skill) => summary.exercisesBySkill[skill] === 0) });
@@ -73,4 +79,4 @@ function generateReports(rootDirectory) {
   return { validation, duplication, coverage, source, quality, phase2a, reports };
 }
 
-module.exports = { ...duplicate, summarizeRecords, checkCoverage, generateSourceReport, generateReports };
+module.exports = { ...duplicate, pedagogicLevel, summarizeRecords, checkCoverage, generateSourceReport, generateReports };
