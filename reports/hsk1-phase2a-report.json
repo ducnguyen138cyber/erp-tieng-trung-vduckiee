@@ -1,7 +1,7 @@
 {
   "counts": {
     "phase2aRecords": 1200,
-    "repositoryRecords": 7441,
+    "repositoryRecords": 10695,
     "schemas": 9,
     "sentenceShards": 9,
     "sentences": 900,
@@ -48,7 +48,7 @@
   "duplicates": {
     "blockers": 0,
     "exact": 1,
-    "nearReview": 270,
+    "nearReview": 797,
     "normalized": 0
   },
   "generatedAt": "deterministic",

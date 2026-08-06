@@ -1,106 +1,108 @@
 {
-  "schemaVersion": "1.0.0",
-  "curriculumId": "vduckie-hsk-canonical",
-  "syllabusVersion": "GF0025-2021",
-  "examBlueprintVersion": "CTI-HSK3.0-2026",
-  "qualityGate": "locked",
-  "productionEnabled": false,
-  "publicOverrideAllowed": false,
-  "sourceRegistryPath": "sources.json",
   "curriculumArchitecturePath": "curriculum/architecture.json",
-  "legacyMappingPath": "legacy-mapping.json",
+  "curriculumId": "vduckie-hsk-canonical",
+  "examBlueprintVersion": "CTI-HSK3.0-2026",
   "hsk1CourseManifestPath": "hsk1/course-manifest.json",
-  "schemas": {
-    "level": "schemas/level.schema.json",
-    "unit": "schemas/unit.schema.json",
-    "lesson": "schemas/lesson.schema.json",
-    "vocabulary": "schemas/vocabulary.schema.json",
-    "sentence": "schemas/sentence.schema.json",
-    "grammar": "schemas/grammar.schema.json",
-    "character": "schemas/character.schema.json",
-    "exercise": "schemas/exercise.schema.json",
-    "assessment": "schemas/assessment.schema.json"
-  },
+  "hsk2CourseManifestPath": "hsk2/course-manifest.json",
+  "hsk3CourseManifestPath": "hsk3/course-manifest.json",
+  "hsk4CourseManifestPath": "hsk4/course-manifest.json",
+  "hsk5CourseManifestPath": "hsk5/course-manifest.json",
+  "hsk6CourseManifestPath": "hsk6/course-manifest.json",
+  "legacyMappingPath": "legacy-mapping.json",
   "levels": [
     {
-      "level": 1,
-      "stage": "elementary",
-      "status": "machine-assisted",
-      "path": "hsk1/level.json",
       "courseManifestPath": "hsk1/course-manifest.json",
-      "productionReady": false
+      "level": 1,
+      "path": "hsk1/level.json",
+      "productionReady": false,
+      "stage": "elementary",
+      "status": "machine-assisted"
     },
     {
+      "courseManifestPath": "hsk2/course-manifest.json",
       "level": 2,
-      "stage": "elementary",
-      "status": "machine-assisted",
       "path": "hsk2/level.json",
       "productionReady": false,
-      "courseManifestPath": "hsk2/course-manifest.json"
+      "stage": "elementary",
+      "status": "machine-assisted"
     },
     {
+      "courseManifestPath": "hsk3/course-manifest.json",
       "level": 3,
-      "stage": "elementary",
-      "status": "machine-assisted",
       "path": "hsk3/level.json",
       "productionReady": false,
-      "courseManifestPath": "hsk3/course-manifest.json"
+      "stage": "elementary",
+      "status": "machine-assisted"
     },
     {
+      "courseManifestPath": "hsk4/course-manifest.json",
       "level": 4,
-      "stage": "intermediate",
-      "status": "machine-assisted",
       "path": "hsk4/level.json",
       "productionReady": false,
-      "courseManifestPath": "hsk4/course-manifest.json"
+      "stage": "intermediate",
+      "status": "machine-assisted"
     },
     {
+      "courseManifestPath": "hsk5/course-manifest.json",
       "level": 5,
-      "stage": "intermediate",
-      "status": "machine-assisted",
       "path": "hsk5/level.json",
       "productionReady": false,
-      "courseManifestPath": "hsk5/course-manifest.json"
+      "stage": "intermediate",
+      "status": "machine-assisted"
     },
     {
+      "courseManifestPath": "hsk6/course-manifest.json",
       "level": 6,
-      "stage": "intermediate",
-      "status": "planned",
       "path": "hsk6/level.json",
-      "productionReady": false
+      "productionReady": false,
+      "stage": "intermediate",
+      "status": "machine-assisted"
     },
     {
       "level": 7,
-      "stage": "advanced",
-      "status": "planned",
       "path": "hsk7/level.json",
-      "productionReady": false
+      "productionReady": false,
+      "stage": "advanced",
+      "status": "planned"
     },
     {
       "level": 8,
-      "stage": "advanced",
-      "status": "planned",
       "path": "hsk8/level.json",
-      "productionReady": false
+      "productionReady": false,
+      "stage": "advanced",
+      "status": "planned"
     },
     {
       "level": 9,
-      "stage": "advanced",
-      "status": "planned",
       "path": "hsk9/level.json",
-      "productionReady": false
+      "productionReady": false,
+      "stage": "advanced",
+      "status": "planned"
     }
   ],
   "previewFixtures": [
     {
+      "developerOnly": true,
       "id": "phase1-hsk1-foundation",
       "manifestPath": "fixtures/manifest.json",
-      "developerOnly": true,
       "writesProgress": false
     }
   ],
-  "hsk2CourseManifestPath": "hsk2/course-manifest.json",
-  "hsk3CourseManifestPath": "hsk3/course-manifest.json",
-  "hsk4CourseManifestPath": "hsk4/course-manifest.json",
-  "hsk5CourseManifestPath": "hsk5/course-manifest.json"
+  "productionEnabled": false,
+  "publicOverrideAllowed": false,
+  "qualityGate": "locked",
+  "schemaVersion": "1.0.0",
+  "schemas": {
+    "assessment": "schemas/assessment.schema.json",
+    "character": "schemas/character.schema.json",
+    "exercise": "schemas/exercise.schema.json",
+    "grammar": "schemas/grammar.schema.json",
+    "lesson": "schemas/lesson.schema.json",
+    "level": "schemas/level.schema.json",
+    "sentence": "schemas/sentence.schema.json",
+    "unit": "schemas/unit.schema.json",
+    "vocabulary": "schemas/vocabulary.schema.json"
+  },
+  "sourceRegistryPath": "sources.json",
+  "syllabusVersion": "GF0025-2021"
 }

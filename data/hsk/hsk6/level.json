@@ -1,21 +1,639 @@
 {
-  "recordType": "level",
-  "id": "hsk6",
-  "syllabusVersion": "GF0025-2021",
-  "examBlueprintVersion": "CTI-HSK3.0-2026",
-  "stage": "intermediate",
-  "level": 6,
-  "titleZh": "HSK 6",
-  "titleVi": "HSK 6",
-  "objectives": [],
-  "topics": [],
-  "unitRefs": [],
-  "lessonIndex": [],
-  "assessmentRefs": [],
-  "sourceIds": ["moe-gf0025-2021-standard","cti-hsk3-current-syllabus-2026"],
-  "contentStatus": "planned",
-  "translationReviewStatus": "draft",
-  "productionReady": false,
+  "assessmentRefs": [
+    {
+      "id": "hsk6-assessment-unit-01",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-02",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-03",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-04",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-05",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-06",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-07",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-08",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-09",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-10",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-11",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-12",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-13",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-14",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-15",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-16",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-17",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-18",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-19",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-20",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-21",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-22",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-23",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-unit-24",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-midpoint",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-receptive",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-productive",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-integrated",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-mock",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-final",
+      "path": "assessments.json"
+    },
+    {
+      "id": "hsk6-assessment-mastery",
+      "path": "assessments.json"
+    }
+  ],
+  "contentStatus": "machine-assisted",
   "contentVersion": 1,
-  "finalAssessmentId": null
+  "examBlueprintVersion": "CTI-HSK6.0-2026",
+  "finalAssessmentId": "hsk6-assessment-final",
+  "id": "hsk6",
+  "lessonIndex": [
+    {
+      "id": "hsk6-lesson-01",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-01"
+    },
+    {
+      "id": "hsk6-lesson-02",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-01"
+    },
+    {
+      "id": "hsk6-lesson-03",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-01"
+    },
+    {
+      "id": "hsk6-lesson-04",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-02"
+    },
+    {
+      "id": "hsk6-lesson-05",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-02"
+    },
+    {
+      "id": "hsk6-lesson-06",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-02"
+    },
+    {
+      "id": "hsk6-lesson-07",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-03"
+    },
+    {
+      "id": "hsk6-lesson-08",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-03"
+    },
+    {
+      "id": "hsk6-lesson-09",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-03"
+    },
+    {
+      "id": "hsk6-lesson-10",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-04"
+    },
+    {
+      "id": "hsk6-lesson-11",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-04"
+    },
+    {
+      "id": "hsk6-lesson-12",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-04"
+    },
+    {
+      "id": "hsk6-lesson-13",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-05"
+    },
+    {
+      "id": "hsk6-lesson-14",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-05"
+    },
+    {
+      "id": "hsk6-lesson-15",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-05"
+    },
+    {
+      "id": "hsk6-lesson-16",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-06"
+    },
+    {
+      "id": "hsk6-lesson-17",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-06"
+    },
+    {
+      "id": "hsk6-lesson-18",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-06"
+    },
+    {
+      "id": "hsk6-lesson-19",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-07"
+    },
+    {
+      "id": "hsk6-lesson-20",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-07"
+    },
+    {
+      "id": "hsk6-lesson-21",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-07"
+    },
+    {
+      "id": "hsk6-lesson-22",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-08"
+    },
+    {
+      "id": "hsk6-lesson-23",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-08"
+    },
+    {
+      "id": "hsk6-lesson-24",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-08"
+    },
+    {
+      "id": "hsk6-lesson-25",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-09"
+    },
+    {
+      "id": "hsk6-lesson-26",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-09"
+    },
+    {
+      "id": "hsk6-lesson-27",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-09"
+    },
+    {
+      "id": "hsk6-lesson-28",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-10"
+    },
+    {
+      "id": "hsk6-lesson-29",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-10"
+    },
+    {
+      "id": "hsk6-lesson-30",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-10"
+    },
+    {
+      "id": "hsk6-lesson-31",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-11"
+    },
+    {
+      "id": "hsk6-lesson-32",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-11"
+    },
+    {
+      "id": "hsk6-lesson-33",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-11"
+    },
+    {
+      "id": "hsk6-lesson-34",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-12"
+    },
+    {
+      "id": "hsk6-lesson-35",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-12"
+    },
+    {
+      "id": "hsk6-lesson-36",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-12"
+    },
+    {
+      "id": "hsk6-lesson-37",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-13"
+    },
+    {
+      "id": "hsk6-lesson-38",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-13"
+    },
+    {
+      "id": "hsk6-lesson-39",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-13"
+    },
+    {
+      "id": "hsk6-lesson-40",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-14"
+    },
+    {
+      "id": "hsk6-lesson-41",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-14"
+    },
+    {
+      "id": "hsk6-lesson-42",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-14"
+    },
+    {
+      "id": "hsk6-lesson-43",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-15"
+    },
+    {
+      "id": "hsk6-lesson-44",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-15"
+    },
+    {
+      "id": "hsk6-lesson-45",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-15"
+    },
+    {
+      "id": "hsk6-lesson-46",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-16"
+    },
+    {
+      "id": "hsk6-lesson-47",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-16"
+    },
+    {
+      "id": "hsk6-lesson-48",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-16"
+    },
+    {
+      "id": "hsk6-lesson-49",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-17"
+    },
+    {
+      "id": "hsk6-lesson-50",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-17"
+    },
+    {
+      "id": "hsk6-lesson-51",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-17"
+    },
+    {
+      "id": "hsk6-lesson-52",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-18"
+    },
+    {
+      "id": "hsk6-lesson-53",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-18"
+    },
+    {
+      "id": "hsk6-lesson-54",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-18"
+    },
+    {
+      "id": "hsk6-lesson-55",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-19"
+    },
+    {
+      "id": "hsk6-lesson-56",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-19"
+    },
+    {
+      "id": "hsk6-lesson-57",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-19"
+    },
+    {
+      "id": "hsk6-lesson-58",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-20"
+    },
+    {
+      "id": "hsk6-lesson-59",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-20"
+    },
+    {
+      "id": "hsk6-lesson-60",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-20"
+    },
+    {
+      "id": "hsk6-lesson-61",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-21"
+    },
+    {
+      "id": "hsk6-lesson-62",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-21"
+    },
+    {
+      "id": "hsk6-lesson-63",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-21"
+    },
+    {
+      "id": "hsk6-lesson-64",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-22"
+    },
+    {
+      "id": "hsk6-lesson-65",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-22"
+    },
+    {
+      "id": "hsk6-lesson-66",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-22"
+    },
+    {
+      "id": "hsk6-lesson-67",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-23"
+    },
+    {
+      "id": "hsk6-lesson-68",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-23"
+    },
+    {
+      "id": "hsk6-lesson-69",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-23"
+    },
+    {
+      "id": "hsk6-lesson-70",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-24"
+    },
+    {
+      "id": "hsk6-lesson-71",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-24"
+    },
+    {
+      "id": "hsk6-lesson-72",
+      "path": "lessons.json",
+      "unitId": "hsk6-unit-24"
+    }
+  ],
+  "level": 6,
+  "objectives": [
+    "Hiểu nội dung dài có cấu trúc, thái độ, hàm ý và lập luận.",
+    "Đọc báo, bình luận, báo cáo và văn bản phổ biến kiến thức.",
+    "Tóm tắt, diễn đạt lại, so sánh quan điểm và giải thích nguyên nhân–hệ quả.",
+    "Trình bày quan điểm có dẫn chứng; phản hồi và phản biện lịch sự.",
+    "Viết email, báo cáo, tóm tắt và bài nhiều đoạn với register tương đối trang trọng.",
+    "Làm cầu nối từ trung-cao cấp sang HSK7–9 mà không giả định đã đạt advanced."
+  ],
+  "productionReady": false,
+  "recordType": "level",
+  "sourceIds": [
+    "cti-hsk3-syllabus-pdf-2026",
+    "moe-gf0025-2021-standard"
+  ],
+  "stage": "intermediate",
+  "syllabusVersion": "CTI-HSK3.0-2026",
+  "titleVi": "Giáo trình HSK6 chuyên nghiệp",
+  "titleZh": "HSK六级专业课程",
+  "topics": [
+    "Giáo dục và học tập tự chủ",
+    "Lựa chọn nghề nghiệp và phát triển",
+    "Kinh tế đời sống và quyết định tiêu dùng",
+    "Truyền thông, sự thật và lập trường",
+    "Công nghệ số và trách nhiệm nền tảng",
+    "Giải thích khoa học và bằng chứng",
+    "Sức khỏe, rủi ro và lối sống",
+    "Môi trường và hành động bền vững",
+    "Đô thị, cộng đồng và dịch vụ công",
+    "Ý thức pháp luật và quy tắc xã hội",
+    "Ký ức văn hóa và bản sắc",
+    "Du lịch, địa phương và trải nghiệm",
+    "Quan hệ, giao tiếp và ranh giới",
+    "Thời gian, áp lực và ưu tiên",
+    "Chẩn đoán và giải quyết vấn đề",
+    "Đổi mới, thử nghiệm và bất định",
+    "Quan điểm, lập luận và phản biện",
+    "Sự kiện thời sự và thảo luận công",
+    "Dữ liệu, biểu đồ và báo cáo",
+    "Họp, phối hợp và ra quyết định",
+    "Dự án, quy trình và rủi ro",
+    "Email trang trọng và diễn đạt chuyên nghiệp",
+    "Đàm phán, dịch vụ và xử lý xung đột",
+    "Dự án tổng hợp và cầu nối nâng cao"
+  ],
+  "translationReviewStatus": "machine-assisted",
+  "unitRefs": [
+    {
+      "id": "hsk6-unit-01",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-02",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-03",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-04",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-05",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-06",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-07",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-08",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-09",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-10",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-11",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-12",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-13",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-14",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-15",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-16",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-17",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-18",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-19",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-20",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-21",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-22",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-23",
+      "path": "units.json"
+    },
+    {
+      "id": "hsk6-unit-24",
+      "path": "units.json"
+    }
+  ]
 }
