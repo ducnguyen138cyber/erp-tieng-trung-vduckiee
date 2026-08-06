@@ -1,4 +1,4 @@
-name: Finalize HSK7 C8 Sharded # diagnostic-3
+name: Finalize HSK7 C8 Sharded # validator-fixed-final-1
 
 on:
   workflow_dispatch:
@@ -161,12 +161,16 @@ jobs:
         run: |
           rm -rf scripts/.hsk7-c8-bootstrap
           rm -f .github/workflows/materialize-hsk7-c8.yml
+          rm -f .github/workflows/hsk7-c8-recovery-diagnostic.yml
+          rm -f .github/workflows/hsk7-c8-final-trigger.yml
           rm -f tests/hsk7-c8-validator-diagnostic.test.js
           rm -rf .tmp .pytest_cache .mypy_cache test-results playwright-report
           find . -type d -name '__pycache__' -prune -exec rm -rf {} +
           find . -type f -name '*.pyc' -delete
           test ! -e scripts/.hsk7-c8-bootstrap
           test ! -e .github/workflows/materialize-hsk7-c8.yml
+          test ! -e .github/workflows/hsk7-c8-recovery-diagnostic.yml
+          test ! -e .github/workflows/hsk7-c8-final-trigger.yml
           test ! -e tests/hsk7-c8-validator-diagnostic.test.js
           if git status --porcelain | grep -E '(\.tmp/|bootstrap|diagnostic|test-results|playwright-report|__pycache__|\.pyc$|\.log$)' | grep -vE '^( D|D )'; then
             echo 'Temporary C8 artifact remains in final diff' >&2
