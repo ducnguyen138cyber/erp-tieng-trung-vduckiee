@@ -1,4 +1,4 @@
-name: Diagnose HSK6 C7 Browser
+name: Inspect HSK6 Runtime Generator
 
 on:
   workflow_dispatch:
@@ -12,101 +12,32 @@ permissions:
   contents: read
 
 jobs:
-  diagnose:
+  inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
           ref: agent/build-hsk6-c7
           fetch-depth: 0
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-      - name: Restore and patch deterministic C7 builder
+      - name: Restore deterministic C7 builder
         run: |
           cat scripts/.hsk6-c7-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk6-c7.py
           test "$(wc -c < scripts/build-hsk6-c7.py)" -eq 115848
-          python - <<'PY'
-          from pathlib import Path
-          path = Path('scripts/build-hsk6-c7.py')
-          text = path.read_text(encoding='utf-8')
-          exact = [
-            ('        number = pinyin_number_from_tone(tone, simplified)\n        pos = parse_pos(rich.get("pos", ""))','        number = pinyin_number_from_tone(tone, simplified)\n        if official_headword == "凡（是）":\n            tone = "fán shì"\n            number = "fan2 shi4"\n        pos = parse_pos(rich.get("pos", ""))'),
-            ('        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        if not meaning:','        meaning = clean_meaning(dictionary["senses"]) if dictionary else ""\n        meaning = {\n            "凡（是）": "hễ là; tất cả những trường hợp thuộc phạm vi đã nêu",\n            "新媒体": "truyền thông mới; các nền tảng truyền thông số tương tác",\n            "新能源": "năng lượng mới; nguồn năng lượng thay thế ít phụ thuộc nhiên liệu hóa thạch",\n        }.get(official_headword, meaning)\n        if not meaning:'),
-            ('{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": item["simplified"]},','{"sourceId": CVDICT, "fields": ["traditional", "meaningVi"], "locator": f"CVDICT entry {item[\'simplified\']}"},'),
-            ('            "order": lesson_idx + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,','            "order": local + 1, "topic": unit[1], "titleZh": title_zh, "titleVi": title_vi,'),
-            ('item["simplified"], unit[2][local], item["officialRow"] - 3600)','item["simplified"], unit[3][local], item["officialRow"] - 3600)'),
-            ('        context_zh = unit[6]\n        evidence_zh = unit[7]\n        title_zh, title_vi = unit[2][local], unit[3][local]','        title_zh, title_vi = unit[3][local], unit[4][local]\n        context_zh = "相关受众和决策者"\n        evidence_zh = f"围绕“{title_zh}”整理的材料、数据和访谈"'),
-            ('f"Tạo một bản brief một trang cho {unit[6]}, có bảng nguồn, kết luận tạm thời và mốc复核。"','f"Tạo một bản brief một trang về “{title_vi}” cho {unit[6]}, có bảng nguồn, kết luận tạm thời và mốc复核。"'),
-          ]
-          for old, new in exact:
-              if text.count(old) != 1:
-                  raise SystemExit(f'Patch target mismatch: {old[:100]}')
-              text = text.replace(old, new)
-          for old, new in [('điểm cần复核。','điểm cần kiểm tra lại.'),('mốc复核。','mốc kiểm tra lại.'),('–复核。','– kiểm tra lại.')]:
-              if old not in text: raise SystemExit(f'Missing editorial target: {old}')
-              text = text.replace(old, new)
-          for old in ['"reviewStatus": "linguistic-reviewed"','"reviewStatus": "pedagogy-reviewed"','"reviewStatus": "blueprint-reviewed"']:
-              if old not in text: raise SystemExit(f'Missing review target: {old}')
-              text = text.replace(old, '"reviewStatus": "unreviewed"')
-          path.write_text(text, encoding='utf-8')
-          PY
           python -m py_compile scripts/build-hsk6-c7.py
-      - name: Install dependencies
-        run: |
-          python -m pip install --disable-pip-version-check pypinyin playwright
-          python -m playwright install --with-deps chromium
-      - name: Materialize current HSK6 output
-        run: python scripts/build-hsk6-c7.py
-      - name: Inspect generated learner integration
+      - name: Inspect midpoint generator context
         run: |
           python - <<'PY'
           from pathlib import Path
-          targets = [
-              Path('assets/hsk-content/hsk-content-feature-flags.js'),
-              Path('assets/hsk-content/hsk-professional-runtime.js'),
-              Path('data/hsk/manifest.json'),
-              Path('data/hsk/hsk6/course-manifest.json'),
-              Path('tests/hsk6-learner-browser-smoke.py'),
-          ]
-          for path in targets:
-              print(f'===== {path} =====')
-              text = path.read_text(encoding='utf-8')
-              for number, line in enumerate(text.splitlines(), 1):
-                  if path.name.endswith('.py') or any(token in line for token in ['COURSE_CONFIG','hsk6','HSK6','c7web','selectedLevel','phase','status','writesProgress','productionEnabled']):
-                      print(f'{number:04d}: {line}')
+          lines=Path('scripts/build-hsk6-c7.py').read_text(encoding='utf-8').splitlines()
+          hits=[i for i,line in enumerate(lines) if 'midpointId' in line or 'renderSidebar' in line]
+          print('hits', [x+1 for x in hits])
+          emitted=set()
+          for i in hits:
+              start=max(0,i-18); end=min(len(lines),i+24)
+              if (start,end) in emitted: continue
+              emitted.add((start,end))
+              print(f'===== {start+1}-{end} =====')
+              for n in range(start,end): print(f'{n+1:05d}: {lines[n]}')
+          if not hits: raise SystemExit('midpointId not found in builder')
           PY
-      - name: Probe browser runtime state
-        run: |
-          python -m http.server 4176 --bind 127.0.0.1 >/tmp/hsk6-http.log 2>&1 &
-          SERVER_PID=$!
-          trap 'kill $SERVER_PID || true' EXIT
-          python - <<'PY'
-          import json
-          from playwright.sync_api import sync_playwright
-          url='http://127.0.0.1:4176/?area=hsk&hskLevel=6&hskLesson=hsk6-lesson-01'
-          with sync_playwright() as p:
-              browser=p.chromium.launch(headless=True)
-              page=browser.new_page(viewport={'width':1440,'height':900})
-              events=[]
-              page.on('console',lambda msg: events.append({'type':'console','level':msg.type,'text':msg.text}))
-              page.on('pageerror',lambda exc: events.append({'type':'pageerror','text':str(exc)}))
-              page.on('requestfailed',lambda req: events.append({'type':'requestfailed','url':req.url,'failure':str(req.failure)}))
-              page.on('response',lambda res: events.append({'type':'http','status':res.status,'url':res.url}) if res.status>=400 else None)
-              page.goto(url,wait_until='domcontentloaded',timeout=60000)
-              page.wait_for_timeout(12000)
-              snapshot=page.evaluate("""()=>({
-                ready:document.body&&document.body.dataset.hskProfReady,
-                flags:window.VDuckieHskContentFlags&&window.VDuckieHskContentFlags.FLAGS,
-                runtimePresent:!!window.VDuckieHskProfessionalRuntime,
-                state:window.VDuckieHskProfessionalRuntime&&window.VDuckieHskProfessionalRuntime.getState&&window.VDuckieHskProfessionalRuntime.getState(),
-                scripts:[...document.scripts].map(s=>s.src).filter(Boolean),
-                bodyText:(document.body&&document.body.innerText||'').slice(0,1500)
-              })""")
-              print('SNAPSHOT='+json.dumps(snapshot,ensure_ascii=False,default=str,indent=2))
-              print('EVENTS='+json.dumps(events,ensure_ascii=False,default=str,indent=2))
-              browser.close()
-              if not snapshot.get('runtimePresent') or snapshot.get('ready')!='true' or (snapshot.get('state') or {}).get('selectedLevel')!=6:
-                  raise SystemExit(1)
-          PY
+          exit 1
