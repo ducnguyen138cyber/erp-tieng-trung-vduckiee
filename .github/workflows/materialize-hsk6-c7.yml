@@ -1,4 +1,4 @@
-name: Finalize HSK6 C7
+name: Diagnose HSK6 C7 Browser
 
 on:
   workflow_dispatch:
@@ -9,12 +9,12 @@ on:
       - '.github/workflows/materialize-hsk6-c7.yml'
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  finalize:
+  diagnose:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,19 +23,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - name: Confirm recovery state
-        run: |
-          set -o pipefail
-          git status -sb
-          git status --porcelain
-          git log --oneline --decorate -20
-          git diff --stat d3c7bcef5a1625d21bcd8cba74bb65357c8dad48...HEAD
-          git diff --check d3c7bcef5a1625d21bcd8cba74bb65357c8dad48...HEAD
-          test "$(git branch --show-current)" = "agent/build-hsk6-c7"
-          git merge-base --is-ancestor bb3cd6b44f2493d6295ff3654852350b8de4f8be HEAD
-          test ! -f .git/MERGE_HEAD
-          test ! -d .git/rebase-merge
-          test ! -d .git/rebase-apply
       - name: Restore and patch deterministic C7 builder
         run: |
           cat scripts/.hsk6-c7-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk6-c7.py
@@ -54,113 +41,72 @@ jobs:
             ('f"Tạo một bản brief một trang cho {unit[6]}, có bảng nguồn, kết luận tạm thời và mốc复核。"','f"Tạo một bản brief một trang về “{title_vi}” cho {unit[6]}, có bảng nguồn, kết luận tạm thời và mốc复核。"'),
           ]
           for old, new in exact:
-              count = text.count(old)
-              if count != 1:
-                  raise SystemExit(f'Expected exactly one patch target, got {count}: {old[:100]}')
+              if text.count(old) != 1:
+                  raise SystemExit(f'Patch target mismatch: {old[:100]}')
               text = text.replace(old, new)
-          for old, new in [
-              ('điểm cần复核。', 'điểm cần kiểm tra lại.'),
-              ('mốc复核。', 'mốc kiểm tra lại.'),
-              ('–复核。', '– kiểm tra lại.'),
-          ]:
-              if old not in text:
-                  raise SystemExit(f'Missing editorial target: {old}')
+          for old, new in [('điểm cần复核。','điểm cần kiểm tra lại.'),('mốc复核。','mốc kiểm tra lại.'),('–复核。','– kiểm tra lại.')]:
+              if old not in text: raise SystemExit(f'Missing editorial target: {old}')
               text = text.replace(old, new)
-          for old in [
-              '"reviewStatus": "linguistic-reviewed"',
-              '"reviewStatus": "pedagogy-reviewed"',
-              '"reviewStatus": "blueprint-reviewed"',
-          ]:
-              if old not in text:
-                  raise SystemExit(f'Missing review-status target: {old}')
+          for old in ['"reviewStatus": "linguistic-reviewed"','"reviewStatus": "pedagogy-reviewed"','"reviewStatus": "blueprint-reviewed"']:
+              if old not in text: raise SystemExit(f'Missing review target: {old}')
               text = text.replace(old, '"reviewStatus": "unreviewed"')
           path.write_text(text, encoding='utf-8')
           PY
           python -m py_compile scripts/build-hsk6-c7.py
-      - name: Install build and browser dependencies
+      - name: Install dependencies
         run: |
           python -m pip install --disable-pip-version-check pypinyin playwright
           python -m playwright install --with-deps chromium
-          echo "CHROMIUM_PATH=$(python - <<'PY'
-          from playwright.sync_api import sync_playwright
-          with sync_playwright() as p:
-              print(p.chromium.executable_path)
-          PY
-          )" >> "$GITHUB_ENV"
-      - name: Materialize HSK6 corpus
+      - name: Materialize current HSK6 output
         run: python scripts/build-hsk6-c7.py
-      - name: Syntax gate
+      - name: Inspect generated learner integration
         run: |
-          python -m py_compile scripts/build-hsk6-c7.py tests/hsk6-learner-browser-smoke.py
-          find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
-      - name: Validator gate
-        run: node scripts/validate-hsk-content.js | tee /tmp/hsk6-validator.log
-      - name: Duplicate gate
-        run: node scripts/check-hsk-duplicates.js | tee /tmp/hsk6-duplicates.log
-      - name: Coverage and provenance gate
+          python - <<'PY'
+          from pathlib import Path
+          targets = [
+              Path('assets/hsk-content/hsk-content-feature-flags.js'),
+              Path('assets/hsk-content/hsk-professional-runtime.js'),
+              Path('data/hsk/manifest.json'),
+              Path('data/hsk/hsk6/course-manifest.json'),
+              Path('tests/hsk6-learner-browser-smoke.py'),
+          ]
+          for path in targets:
+              print(f'===== {path} =====')
+              text = path.read_text(encoding='utf-8')
+              for number, line in enumerate(text.splitlines(), 1):
+                  if path.name.endswith('.py') or any(token in line for token in ['COURSE_CONFIG','hsk6','HSK6','c7web','selectedLevel','phase','status','writesProgress','productionEnabled']):
+                      print(f'{number:04d}: {line}')
+          PY
+      - name: Probe browser runtime state
         run: |
-          node scripts/check-hsk-coverage.js | tee /tmp/hsk6-coverage.log
-          node scripts/generate-hsk-report.js | tee /tmp/hsk6-reports.log
-          node - <<'NODE'
-          const fs=require('fs');
-          const coverage=JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json','utf8'));
-          const source=JSON.parse(fs.readFileSync('reports/hsk-source-report.json','utf8'));
-          const level=coverage.levels.find(x=>x.level===6);
-          if(!level) throw new Error('HSK6 coverage missing');
-          const expected={units:24,lessons:72,vocabulary:1800,grammar:50,characters:413,exercises:864,assessments:31};
-          for(const [key,value] of Object.entries(expected)) if(level[key]!==value) throw new Error(`${key}: ${level[key]} !== ${value}`);
-          if(level.missingSkills.length) throw new Error(`missingSkills: ${level.missingSkills}`);
-          if(level.vocabularyIntroducedButNotPracticed.length) throw new Error(`unpracticed vocabulary: ${level.vocabularyIntroducedButNotPracticed.length}`);
-          if(level.grammarWithoutExercise.length) throw new Error(`grammar without exercise: ${level.grammarWithoutExercise.length}`);
-          if(source.automaticProductionGate!=='blocked') throw new Error(`source review gate must remain blocked until human signoff: ${source.automaticProductionGate}`);
-          if(!Array.isArray(source.usedReviewRequiredSources)||!source.usedReviewRequiredSources.length) throw new Error('review-required provenance list missing');
-          console.log(JSON.stringify({hsk6:level,sourceGate:source.automaticProductionGate,usedReviewRequiredSources:source.usedReviewRequiredSources},null,2));
-          NODE
-      - name: HSK6 targeted and learner integration gates
-        run: |
-          set -o pipefail
-          node --test --test-concurrency=1 tests/hsk6-c7-quality.test.js | tee /tmp/hsk6-targeted.log
-          find tests -maxdepth 1 -type f \( -name '*learner*integration*.test.js' -o -name 'hsk6-c7-quality.test.js' \) -print0 | sort -z | xargs -0 node --test --test-concurrency=1 | tee /tmp/hsk6-integration.log
-      - name: HSK6 browser smoke gate
-        run: |
-          set -o pipefail
-          node --test --test-concurrency=1 tests/hsk6-learner-browser-smoke.test.js | tee /tmp/hsk6-browser.log
-      - name: Full regression gate
-        run: |
-          set -o pipefail
-          node --test --test-concurrency=1 tests/*.test.js | tee /tmp/full-regression.log
-      - name: Deterministic report and whitespace gates
-        run: |
-          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json > /tmp/reports-before.sha
-          node scripts/generate-hsk-report.js > /tmp/hsk6-reports-second.log
-          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json > /tmp/reports-after.sha
-          diff -u /tmp/reports-before.sha /tmp/reports-after.sha
-          git diff --check
-      - name: Cleanup recovery artifacts
-        run: |
-          rm -rf scripts/.hsk6-c7-bootstrap
-          rm -f .github/workflows/materialize-hsk6-c7.yml
-          rm -rf .tmp .pytest_cache .mypy_cache test-results playwright-report
-          find . -type d -name '__pycache__' -prune -exec rm -rf {} +
-          find . -type f -name '*.pyc' -delete
-          test ! -e scripts/.hsk6-c7-bootstrap
-          test ! -e .github/workflows/materialize-hsk6-c7.yml
-          if git status --porcelain | grep -E '(\.tmp/|bootstrap|diagnostic|test-results|playwright-report|__pycache__|\.pyc$|\.log$)'; then
-            echo 'Temporary recovery artifact remains in final diff' >&2
-            exit 1
-          fi
-          git diff --check
-      - name: Commit and push final branch
-        run: |
-          git config user.name "VDuckie Curriculum Agent"
-          git config user.email "actions@users.noreply.github.com"
-          git add -A
-          git diff --cached --check
-          git commit -m "Build professional HSK 6 course"
-          git push origin HEAD:agent/build-hsk6-c7
-          git fetch origin agent/build-hsk6-c7
-          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/agent/build-hsk6-c7)"
-          test -z "$(git status --porcelain)"
-          echo "FINAL_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
-          echo "FINAL_TREE=$(git rev-parse HEAD^{tree})" >> "$GITHUB_ENV"
-          git show --stat --oneline --decorate --summary HEAD
+          python -m http.server 4176 --bind 127.0.0.1 >/tmp/hsk6-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          python - <<'PY'
+          import json
+          from playwright.sync_api import sync_playwright
+          url='http://127.0.0.1:4176/?area=hsk&hskLevel=6&hskLesson=hsk6-lesson-01'
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              page=browser.new_page(viewport={'width':1440,'height':900})
+              events=[]
+              page.on('console',lambda msg: events.append({'type':'console','level':msg.type,'text':msg.text}))
+              page.on('pageerror',lambda exc: events.append({'type':'pageerror','text':str(exc)}))
+              page.on('requestfailed',lambda req: events.append({'type':'requestfailed','url':req.url,'failure':str(req.failure)}))
+              page.on('response',lambda res: events.append({'type':'http','status':res.status,'url':res.url}) if res.status>=400 else None)
+              page.goto(url,wait_until='domcontentloaded',timeout=60000)
+              page.wait_for_timeout(12000)
+              snapshot=page.evaluate("""()=>({
+                ready:document.body&&document.body.dataset.hskProfReady,
+                flags:window.VDuckieHskContentFlags&&window.VDuckieHskContentFlags.FLAGS,
+                runtimePresent:!!window.VDuckieHskProfessionalRuntime,
+                state:window.VDuckieHskProfessionalRuntime&&window.VDuckieHskProfessionalRuntime.getState&&window.VDuckieHskProfessionalRuntime.getState(),
+                scripts:[...document.scripts].map(s=>s.src).filter(Boolean),
+                bodyText:(document.body&&document.body.innerText||'').slice(0,1500)
+              })""")
+              print('SNAPSHOT='+json.dumps(snapshot,ensure_ascii=False,default=str,indent=2))
+              print('EVENTS='+json.dumps(events,ensure_ascii=False,default=str,indent=2))
+              browser.close()
+              if not snapshot.get('runtimePresent') or snapshot.get('ready')!='true' or (snapshot.get('state') or {}).get('selectedLevel')!=6:
+                  raise SystemExit(1)
+          PY
