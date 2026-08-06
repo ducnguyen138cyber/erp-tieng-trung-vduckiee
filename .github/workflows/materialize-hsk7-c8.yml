@@ -1,4 +1,4 @@
-name: Finalize HSK7 C8 Sharded
+name: Finalize HSK7 C8 Sharded # diagnostic-2
 
 on:
   workflow_dispatch:
@@ -64,7 +64,19 @@ jobs:
           printf '%s\n' "${SHARD_TESTS[@]}"
           test "${#ALL_TESTS[@]}" -gt 0
           test "${#SHARD_TESTS[@]}" -gt 0
-          node --test --test-concurrency=1 "${SHARD_TESTS[@]}" | tee "/tmp/full-regression-shard-${SHARD}.log"
+          failed=0
+          for test_file in "${SHARD_TESTS[@]}"; do
+            log_file="/tmp/$(basename "$test_file").log"
+            echo "::group::${test_file}"
+            if node --test --test-concurrency=1 "$test_file" 2>&1 | tee "$log_file"; then
+              echo "PASS ${test_file}"
+            else
+              echo "::error file=${test_file},title=Regression test failed::${test_file} failed in shard ${SHARD}"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "$failed"
 
   finalize:
     needs: regression
