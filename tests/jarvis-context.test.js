@@ -29,7 +29,7 @@ test('updates a preference instead of duplicating it and retrieves only relevant
   api.upsertMemory({ type: 'preference', key: 'response language', content: 'Vietnamese, concise', entities: ['language'] });
   api.upsertMemory({ type: 'project', key: 'HSK', content: 'Study HSK vocabulary' });
   const found = api.retrieve('language preference', 5);
-  assert.equal(api.getState().memories.length, 2);
+  assert.equal(api.getState().memories.length, 3);
   assert.equal(found.length, 1);
   assert.equal(found[0].content, 'Vietnamese, concise');
 });

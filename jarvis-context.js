@@ -4,6 +4,7 @@
   var storageKey = "vduckie-jarvis-context-v1";
   var maxTurns = 12;
   var maxMemories = 80;
+  var temporaryMemoryAge = 7 * 24 * 60 * 60 * 1000;
   var continuation = /^(tiếp|tiếp tục|làm luôn|làm tiếp|continue|go on|thế cái kia|cái này|nó|phần đó|như lúc nãy)$/i;
   var correction = /^(không|không phải|ý (tôi|tao|mình) là|sửa cái trước|no\b|that's not what i meant|i meant)/i;
   var reference = /^(cái|đó|này|nó|that|it)\b|\b(second|first|previous one|other one|this file|that feature|previous step|continue this|fix that|same thing|thứ (nhất|hai)|cái (đầu|thứ hai))\b/i;
@@ -115,12 +116,18 @@
     memory = memory || {};
     var content = compact(memory.content);
     if (!content) return null;
+    var type = /^(fact|preference|project|task|procedure|temporary)$/.test(memory.type) ? memory.type : "fact";
     return {
       id: memory.id || (compact(memory.type || "fact") + ":" + compact(memory.key || content).toLocaleLowerCase()),
-      type: /^(fact|preference|project|task)$/.test(memory.type) ? memory.type : "fact",
+      type: type,
       key: compact(memory.key),
       content: content,
       entities: unique(memory.entities).slice(0, 12),
+      durability: memory.durability || (type === "temporary" ? "temporary" : "long_term"),
+      confidence: Math.max(0, Math.min(1, Number(memory.confidence) || 0.8)),
+      importance: Math.max(1, Math.min(3, Number(memory.importance) || 1)),
+      status: memory.status || "current",
+      seenCount: Number(memory.seenCount) || 1,
       updatedAt: Date.now()
     };
   }
@@ -131,13 +138,27 @@
     var index = -1;
     for (var i = 0; i < state.memories.length; i++) {
       var current = state.memories[i];
-      if (current.id === next.id || (next.key && current.type === next.type && current.key.toLocaleLowerCase() === next.key.toLocaleLowerCase())) {
+      if (current.id === next.id || (next.key && current.status !== "historical" && current.type === next.type && current.key.toLocaleLowerCase() === next.key.toLocaleLowerCase())) {
         index = i;
         break;
       }
     }
-    if (index >= 0) state.memories[index] = Object.assign({}, state.memories[index], next);
-    else state.memories.push(next);
+    if (index >= 0) {
+      var existing = state.memories[index];
+      if (existing.content.toLocaleLowerCase() === next.content.toLocaleLowerCase()) {
+        next.seenCount = (existing.seenCount || 1) + 1;
+        if (existing.durability === "temporary" && next.seenCount >= 2) {
+          next.type = "project";
+          next.durability = "long_term";
+          next.importance = Math.max(next.importance, 2);
+        }
+        state.memories[index] = Object.assign({}, existing, next);
+      } else if (next.type === "preference" || next.type === "procedure") {
+        existing.status = "historical";
+        next.id = next.id + ":" + Date.now();
+        state.memories.push(next);
+      } else state.memories[index] = Object.assign({}, existing, next);
+    } else state.memories.push(next);
     state.memories = state.memories.slice(-maxMemories);
     save();
     return next;
@@ -151,12 +172,31 @@
       var score = 0;
       queryTokens.forEach(function (token) { if (haystack.indexOf(token) !== -1) score += 4; });
       activeTokens.forEach(function (token) { if (haystack.indexOf(token) !== -1) score += 2; });
-      if (memory.type === "preference" && score) score += 2;
-      if ((memory.type === "task" || memory.type === "project") && score) score += 1;
+      if (score) {
+        if (memory.type === "preference") score += 2;
+        if (memory.type === "task" || memory.type === "project") score += 1;
+        if (memory.status === "historical") score -= 3;
+        if (memory.durability === "temporary" && Date.now() - memory.updatedAt > temporaryMemoryAge) score -= 4;
+        score += memory.importance || 0;
+      }
       return { memory: memory, score: score };
-    }).filter(function (item) { return item.score > 0; }).sort(function (a, b) {
+    }).filter(function (item) { return item.score > 0 && item.memory.status !== "historical"; }).sort(function (a, b) {
       return b.score - a.score || b.memory.updatedAt - a.memory.updatedAt;
     }).slice(0, limit || 5).map(function (item) { return item.memory; });
+  }
+
+  function userContext(query) {
+    var selected = retrieve(query, 4);
+    var profile = { facts: [], preferences: [], projects: [], procedures: [], temporary: [] };
+    selected.forEach(function (memory) {
+      if (memory.status === "historical") return;
+      if (memory.type === "preference") profile.preferences.push(memory.content);
+      else if (memory.type === "procedure") profile.procedures.push(memory.content);
+      else if (memory.type === "project" || memory.type === "task") profile.projects.push(memory.content);
+      else if (memory.type === "temporary") profile.temporary.push(memory.content);
+      else profile.facts.push(memory.content);
+    });
+    return profile;
   }
 
   function resolve(message) {
@@ -205,6 +245,7 @@
     recordTurn: recordTurn,
     upsertMemory: upsertMemory,
     retrieve: retrieve,
+    userContext: userContext,
     resolve: resolve,
     applyMeaning: applyMeaning,
     getState: function () { return state; },

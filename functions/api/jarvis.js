@@ -4,7 +4,10 @@ function json(body, status) {
 
 function promptFrom(request) {
   var active = request.conversationContext || {};
-  var memories = (request.relevantMemories || []).map(function (memory) { return "- " + memory.type + ": " + memory.content; }).join("\n");
+  var userContext = request.userContext || {};
+  var personalization = ["facts", "preferences", "projects", "procedures", "temporary"].map(function (kind) {
+    return userContext[kind] && userContext[kind].length ? kind + ": " + userContext[kind].join("; ") : "";
+  }).filter(Boolean).join("\n");
   var turns = (request.recentTurns || []).map(function (turn) { return turn.role + ": " + turn.content; }).join("\n");
   return [
     "You are VDuckie JARVIS, a concise Vietnamese assistant for Chinese and ERP learning.",
@@ -13,7 +16,7 @@ function promptFrom(request) {
     "Active topic: " + (active.topic || "none"),
     "Intent: " + (request.resolvedIntent || "new"),
     request.resolvedReferences ? "Reference anchor: " + request.resolvedReferences.content : "",
-    memories ? "Relevant memories:\n" + memories : "",
+    personalization ? "Relevant user context:\n" + personalization : "",
     turns ? "Recent turns:\n" + turns : "",
     "User: " + request.userMessage
   ].filter(Boolean).join("\n\n");

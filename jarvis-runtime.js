@@ -30,15 +30,18 @@
       resolvedReferences: resolved.reference,
       correction: resolved.correctedMeaning || "",
       relevantMemories: resolved.memories.map(function (memory) { return { type: memory.type, key: memory.key, content: memory.content }; }),
+      userContext: context.userContext(userMessage),
       recentTurns: importantTurns(state.turns, resolved.anchor)
     };
   }
 
   function classifyUsefulMemory(message) {
     var text = compact(message);
-    if (/\b(prefer|always|never|please answer|thích|luôn|đừng|hãy trả lời)\b/i.test(text)) return { type: "preference", key: text.slice(0, 80), content: text };
+    if (/\b(for this task|this session|today|hôm nay|phiên này)\b/i.test(text)) return { type: "temporary", key: text.slice(0, 80), content: text, confidence: 0.9 };
+    if (/\b(always|never|from now on|luôn luôn|từ giờ)\b/i.test(text)) return { type: "procedure", key: "working procedure", content: text, importance: 2 };
+    if (/\b(prefer|please answer|thích|đừng|hãy trả lời)\b/i.test(text)) return { type: "preference", key: /\b(groq|openrouter|provider)\b/i.test(text) ? "provider" : "response preference", content: text, importance: 2 };
     if (/\b(i am working on|project|task|đang làm|dự án|công việc)\b/i.test(text)) return { type: "task", key: text.slice(0, 80), content: text };
-    if (/\b(i have|using|use |có |dùng )\b/i.test(text)) return { type: "fact", key: text.slice(0, 80), content: text };
+    if (/\b(i am|i have|using|use |tôi là|tôi có|có |dùng )\b/i.test(text)) return { type: "fact", key: text.slice(0, 80), content: text, confidence: 0.9 };
     return null;
   }
 
