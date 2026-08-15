@@ -14,8 +14,11 @@ function promptFrom(request) {
     "Use supplied context to resolve follow-ups. Do not claim memories that are not supplied.",
     "Active task: " + (active.task || "none"),
     "Active topic: " + (active.topic || "none"),
-    "Intent: " + (request.resolvedIntent || "new"),
-    request.resolvedReferences ? "Reference anchor: " + request.resolvedReferences.content : "",
+    "Intent: " + (request.intent && request.intent.primaryIntent || request.resolvedIntent || "new"),
+    request.intent && request.intent.goal ? "Goal: " + request.intent.goal : "",
+    request.intent && request.intent.secondaryIntents && request.intent.secondaryIntents.length ? "Secondary intents: " + request.intent.secondaryIntents.join(", ") : "",
+    request.intent && request.intent.constraints && request.intent.constraints.length ? "Constraints: " + request.intent.constraints.join(", ") : "",
+    request.resolvedReferences ? "Reference anchor: " + request.resolvedReferences.value : "",
     personalization ? "Relevant user context:\n" + personalization : "",
     turns ? "Recent turns:\n" + turns : "",
     "User: " + request.userMessage

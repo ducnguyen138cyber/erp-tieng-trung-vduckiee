@@ -10,7 +10,7 @@
 
   function compactActive(active) {
     active = active || {};
-    return { topic: active.topic || "", task: active.task || "", project: active.project || "", step: active.step || "", entities: (active.entities || []).slice(-4), lastCorrection: active.lastCorrection || "" };
+    return { topic: active.topic || "", task: active.task || "", project: active.project || "", goal: active.goal || "", entities: (active.entities || []).slice(-4), lastCorrection: active.lastCorrection || "" };
   }
 
   function importantTurns(turns, anchor) {
@@ -23,14 +23,21 @@
     if (!context) throw new Error("JARVIS context is unavailable");
     var resolved = context.resolve(userMessage);
     var state = context.getState();
+    var userContext = context.userContext(userMessage);
+    var intelligence = root.VDuckieJarvisIntent ? root.VDuckieJarvisIntent.analyze(userMessage, resolved, userContext) : null;
+    if (intelligence && (intelligence.primaryIntent === "recommendation" || intelligence.primaryIntent === "comparison")) {
+      userContext = context.userContext(userMessage + " cost price budget money cheaper");
+      intelligence = root.VDuckieJarvisIntent.analyze(userMessage, resolved, userContext);
+    }
     return {
       userMessage: compact(userMessage),
       conversationContext: compactActive(resolved.active),
       resolvedIntent: resolved.kind,
+      intent: intelligence,
       resolvedReferences: resolved.reference,
       correction: resolved.correctedMeaning || "",
       relevantMemories: resolved.memories.map(function (memory) { return { type: memory.type, key: memory.key, content: memory.content }; }),
-      userContext: context.userContext(userMessage),
+      userContext: userContext,
       recentTurns: importantTurns(state.turns, resolved.anchor)
     };
   }
@@ -86,7 +93,7 @@
       if (!result.success) return errorResult(new Error(result.error || "JARVIS không trả về nội dung."), response.status);
       var context = root.VDuckieJarvisContext;
       context.recordTurn("user", request.userMessage, { intent: request.resolvedIntent });
-      context.applyMeaning(context.resolve(request.userMessage));
+      context.applyMeaning(context.resolve(request.userMessage), request.intent);
       context.recordTurn("assistant", result.text, { provider: result.provider, model: result.model });
       var memory = classifyUsefulMemory(request.userMessage);
       if (memory) context.upsertMemory(memory);

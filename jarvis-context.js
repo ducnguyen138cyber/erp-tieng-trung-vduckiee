@@ -5,8 +5,8 @@
   var maxTurns = 12;
   var maxMemories = 80;
   var temporaryMemoryAge = 7 * 24 * 60 * 60 * 1000;
-  var continuation = /^(tiếp|tiếp tục|làm luôn|làm tiếp|continue|go on|thế cái kia|cái này|nó|phần đó|như lúc nãy)$/i;
-  var correction = /^(không|không phải|ý (tôi|tao|mình) là|sửa cái trước|no\b|that's not what i meant|i meant)/i;
+  var continuation = /^(tiếp|tiếp tục|làm luôn|làm tiếp|continue|go on|do it|thế cái kia|cái này|nó|phần đó|như lúc nãy)$/i;
+  var correction = /^(không|không phải|ý (tôi|tao|mình) là|sửa cái trước|no\b|that's not what i meant|i meant|i mean)/i;
   var reference = /^(cái|đó|này|nó|that|it)\b|\b(second|first|previous one|other one|this file|that feature|previous step|continue this|fix that|same thing|thứ (nhất|hai)|cái (đầu|thứ hai))\b/i;
   var state = emptyState();
 
@@ -42,6 +42,7 @@
       topic: active.topic || "",
       task: active.task || "",
       project: active.project || "",
+      goal: active.goal || "",
       step: active.step || "",
       mode: active.mode || "",
       entities: (active.entities || []).slice(),
@@ -51,8 +52,8 @@
 
   function correctionMeaning(message) {
     return compact(message)
-      .replace(/^no,?\s*(i meant\s*)?/i, "")
-      .replace(/^(that's not what i meant|i meant|không,?\s*(không phải|ý (tôi|tao|mình) là|sửa cái trước)?|không phải|ý (tôi|tao|mình) là|sửa cái trước)[:,\-\s]*/i, "")
+      .replace(/^no,?\s*(i meant?\s*)?/i, "")
+      .replace(/^(that's not what i meant|i meant?|không,?\s*(không phải|ý (tôi|tao|mình) là|sửa cái trước)?|không phải|ý (tôi|tao|mình) là|sửa cái trước)[:,\-\s]*/i, "")
       .replace(/^[:,\-\s]+/, "");
   }
 
@@ -91,7 +92,7 @@
   function setActive(next) {
     next = next || {};
     var active = state.active;
-    ["topic", "task", "project", "step", "mode"].forEach(function (key) {
+    ["topic", "task", "project", "step", "mode", "goal", "intent", "goalConfidence"].forEach(function (key) {
       if (next[key] !== undefined) active[key] = compact(next[key]);
     });
     if (next.entities) active.entities = unique(next.entities).slice(0, 12);
@@ -220,9 +221,13 @@
     };
   }
 
-  function applyMeaning(resolved) {
+  function applyMeaning(resolved, intelligence) {
     if (!resolved) return state.active;
-    state.active.intent = resolved.kind;
+    state.active.intent = intelligence && intelligence.primaryIntent || resolved.kind;
+    if (intelligence && intelligence.goal) {
+      state.active.goal = intelligence.goal;
+      state.active.goalConfidence = intelligence.confidence;
+    }
     if (resolved.reference) state.active.reference = resolved.reference.value;
     if (resolved.kind === "correction") {
       state.active.lastCorrection = resolved.message;

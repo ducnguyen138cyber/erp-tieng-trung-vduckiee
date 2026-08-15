@@ -9,7 +9,7 @@ function api() {
   const context = { globalThis: null, localStorage: { getItem: key => store.get(key) || null, setItem: (key, value) => store.set(key, value) }, setTimeout, clearTimeout };
   context.globalThis = context;
   vm.createContext(context);
-  for (const file of ['jarvis-context.js', 'jarvis-runtime.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, '..', file), 'utf8'), context);
+  for (const file of ['jarvis-context.js', 'jarvis-intent.js', 'jarvis-runtime.js']) vm.runInContext(fs.readFileSync(path.join(__dirname, '..', file), 'utf8'), context);
   return context;
 }
 
