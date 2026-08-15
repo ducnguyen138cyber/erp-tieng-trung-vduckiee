@@ -10,7 +10,12 @@
 
   function compactActive(active) {
     active = active || {};
-    return { topic: active.topic || "", task: active.task || "", project: active.project || "", step: active.step || "", mode: active.mode || "", entities: active.entities || [] };
+    return { topic: active.topic || "", task: active.task || "", project: active.project || "", step: active.step || "", entities: (active.entities || []).slice(-4), lastCorrection: active.lastCorrection || "" };
+  }
+
+  function importantTurns(turns, anchor) {
+    var anchorText = anchor && anchor.content;
+    return turns.slice(-4).filter(function (turn) { return turn.content && turn.content !== anchorText; }).map(function (turn) { return { role: turn.role, content: turn.content.slice(0, 280) }; });
   }
 
   function buildRequest(userMessage) {
@@ -22,9 +27,10 @@
       userMessage: compact(userMessage),
       conversationContext: compactActive(resolved.active),
       resolvedIntent: resolved.kind,
-      resolvedReferences: resolved.anchor ? { role: resolved.anchor.role, content: resolved.anchor.content, metadata: resolved.anchor.metadata || {} } : null,
+      resolvedReferences: resolved.reference,
+      correction: resolved.correctedMeaning || "",
       relevantMemories: resolved.memories.map(function (memory) { return { type: memory.type, key: memory.key, content: memory.content }; }),
-      recentTurns: state.turns.slice(-6).map(function (turn) { return { role: turn.role, content: turn.content }; })
+      recentTurns: importantTurns(state.turns, resolved.anchor)
     };
   }
 
@@ -77,6 +83,7 @@
       if (!result.success) return errorResult(new Error(result.error || "JARVIS không trả về nội dung."), response.status);
       var context = root.VDuckieJarvisContext;
       context.recordTurn("user", request.userMessage, { intent: request.resolvedIntent });
+      context.applyMeaning(context.resolve(request.userMessage));
       context.recordTurn("assistant", result.text, { provider: result.provider, model: result.model });
       var memory = classifyUsefulMemory(request.userMessage);
       if (memory) context.upsertMemory(memory);
