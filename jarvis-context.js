@@ -5,7 +5,8 @@
   var maxTurns = 12;
   var maxMemories = 80;
   var continuation = /^(tiếp|tiếp tục|làm luôn|làm tiếp|continue|go on|thế cái kia|cái này|nó|phần đó|như lúc nãy)$/i;
-  var correction = /^(không|không phải|ý (tôi|tao|mình) là|sửa cái trước)/i;
+  var correction = /^(không|không phải|ý (tôi|tao|mình) là|sửa cái trước|no\b|that's not what i meant|i meant)/i;
+  var reference = /^(cái|đó|này|nó|that|it)\b|\b(second|first|thứ (nhất|hai)|cái (đầu|thứ hai))\b/i;
   var state = emptyState();
 
   function emptyState() {
@@ -128,7 +129,8 @@
   function resolve(message) {
     message = compact(message);
     var lower = message.toLocaleLowerCase();
-    var kind = correction.test(lower) ? "correction" : continuation.test(lower) ? "continuation" : /^(cái|đó|này|nó|that|it)\b/i.test(lower) ? "reference" : "new";
+    var shortForm = lower.replace(/[.!?…]+$/g, "").trim();
+    var kind = correction.test(lower) ? "correction" : continuation.test(shortForm) ? "continuation" : reference.test(lower) ? "reference" : "new";
     var latestUser = null;
     for (var i = state.turns.length - 1; i >= 0; i--) if (state.turns[i].role === "user") { latestUser = state.turns[i]; break; }
     return {

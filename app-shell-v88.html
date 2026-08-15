@@ -289,6 +289,7 @@
 
       <section id="dialogue" class="panel hidden">
         <div class="section-head"><div><span class="step">LUYỆN PHẢN XẠ & TỰ NGHE LẠI</span><h2>Hội thoại ERP</h2></div><div class="roast-controls"><span class="roast-badge">ROAST MODE: BẬT</span><button class="roast-voice" id="roastVoice">🔊 Chửi giọng Việt: BẬT</button></div></div>
+        <div class="dialogue-hint" id="jarvisAssistant"><span class="bubble-label">JARVIS · TRỢ LÝ NGỮ CẢNH</span><label for="jarvisInput">Hỏi về phần bạn đang học hoặc việc bạn vừa nói</label><textarea id="jarvisInput" class="dialogue-textarea" placeholder="Ví dụ: tiếp tục phần đó, hoặc giải thích câu này"></textarea><div class="dialogue-actions"><button class="accent" id="jarvisSend" type="button">Hỏi JARVIS</button><small id="jarvisStatus">Ctrl/Cmd + Enter để gửi</small></div><div id="jarvisResponse" class="dialogue-feedback hidden" aria-live="polite"></div></div>
         <div class="dialogue-toolbar"><label>Kiểu bài<select id="dialogueMode"><option value="conversation">Hội thoại theo tình huống</option><option value="translate">Dịch nhanh Việt → Trung</option><option value="shadow">Nghe và nhại</option><option value="reaction">Phản xạ trong 8 giây</option></select></label><label>Tình huống<select id="dialogueScenario"></select></label><strong id="dialogueProgress"></strong></div>
         <p id="dialogueRole"></p><p id="dialogueModeNote"></p>
         <article class="dialogue-bubble">
@@ -536,6 +537,8 @@
   <script src="./vendor/hsk-char-data.js?v=1"></script>
   <script src="./hsk-lessons.js?v=2b4.0"></script>
   <script src="./jarvis-context.js?v=1.0"></script>
+  <script src="./jarvis-runtime.js?v=1.0"></script>
+  <script src="./jarvis-ui.js?v=1.0"></script>
   <script src="./dialogue.js?v=74.1"></script>
   <script src="./erp-lessons-v74.js?v=74.0"></script>
   <script src="./community.js?v=2b4.0"></script>
