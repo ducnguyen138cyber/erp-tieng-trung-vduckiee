@@ -40,3 +40,7 @@ node tests/v73-home-hub.test.js
 node tests/supabase-sync.test.js
 node --check hsk-lessons.js
 ```
+
+## JARVIS AI runtime
+
+JARVIS calls the Cloudflare Pages Function at `functions/api/jarvis.js`; browser code never receives an API key. Configure `JARVIS_OPENAI_COMPATIBLE_URL`, `JARVIS_OPENAI_API_KEY`, and `JARVIS_MODEL` as Cloudflare environment secrets (optional `JARVIS_PROVIDER` labels the provider). The endpoint supports OpenAI-compatible providers such as Groq or OpenRouter.

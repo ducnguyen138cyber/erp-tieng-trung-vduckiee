@@ -251,6 +251,21 @@
     return scenarios[scenarioIndex].steps[stepIndex];
   }
 
+  function rememberDialogueState() {
+    var context = root.VDuckieJarvisContext;
+    if (!context) return;
+    var scenario = scenarios[scenarioIndex];
+    context.setActive({
+      topic: scenario.title,
+      task: scenario.role,
+      project: "VDuckie ERP dialogue",
+      step: "Lượt " + (stepIndex + 1) + " / " + scenario.steps.length,
+      mode: exerciseMode,
+      entities: [scenario.title],
+      runtime: { scenarioIndex: scenarioIndex, stepIndex: stepIndex, mode: exerciseMode }
+    });
+  }
+
   function setReading(text, pinyinId, nearId) {
     var pinyinElement = byId(pinyinId);
     var nearElement = byId(nearId);
@@ -282,6 +297,7 @@
     cancelSpeechAssessment();
     var scenario = scenarios[scenarioIndex];
     var step = currentStep();
+    rememberDialogueState();
     if (reactionTimer) root.clearInterval(reactionTimer);
     reactionTimer = null;
     reactionLeft = 8;
@@ -368,6 +384,10 @@
     } else {
       feedback.className = "dialogue-feedback bad";
       feedback.textContent = "Khá tệ: chỉ có " + result.matched + "/" + result.total + " ý quan trọng. Câu này chưa xử lý đúng nghiệp vụ; mở gợi ý và làm lại.";
+    }
+    if (root.VDuckieJarvisContext) {
+      root.VDuckieJarvisContext.recordTurn("user", answer, { topic: scenarios[scenarioIndex].title, step: stepIndex });
+      root.VDuckieJarvisContext.recordTurn("assistant", feedback.textContent, { topic: scenarios[scenarioIndex].title, step: stepIndex });
     }
   }
 
@@ -794,6 +814,15 @@
       option.value = String(i);
       option.textContent = scenarios[i].title;
       selector.appendChild(option);
+    }
+    var context = root.VDuckieJarvisContext;
+    var savedRuntime = context && context.getState().active.runtime;
+    if (savedRuntime && scenarios[savedRuntime.scenarioIndex]) {
+      scenarioIndex = Number(savedRuntime.scenarioIndex);
+      stepIndex = Math.max(0, Math.min(Number(savedRuntime.stepIndex) || 0, scenarios[scenarioIndex].steps.length - 1));
+      exerciseMode = ["conversation", "translate", "shadow", "reaction"].indexOf(savedRuntime.mode) !== -1 ? savedRuntime.mode : exerciseMode;
+      selector.value = String(scenarioIndex);
+      byId("dialogueMode").value = exerciseMode;
     }
     selector.onchange = function () {
       scenarioIndex = Number(this.value);
