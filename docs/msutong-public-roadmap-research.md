@@ -18,3 +18,23 @@ This implementation maps MSUTONG's public curriculum structure without copying t
 - Objectives and future exercises are original VDuckie companion content, not copied textbook material.
 - Book/lesson metadata is labeled `partial` or `mapped`; unavailable detail is not presented as complete.
 - Existing HSK content remains available as a supplementary library rather than being deleted.
+
+## V2 lesson implementation
+
+The second implementation narrows the production claim to Beginner Book 1. It
+uses the ten-topic public order above, then supplies original VDuckie companion
+content for each lesson: six vocabulary items, two Vietnamese grammar
+explanations, an original dialogue, audio actions and three checks. Higher books
+remain visibly labeled as roadmap only.
+
+The learning design was also cross-checked against the openly licensed
+*Elementary Chinese I* course from Michigan State University, which covers
+beginner pronunciation, characters, greetings, identity, family, food and other
+first-semester communication skills with audio and practice activities:
+
+- https://openbooks.lib.msu.edu/chs101/
+- https://open.umn.edu/opentextbooks/textbooks/elementary-chinese-i
+
+No lesson dialogue, exercise or textbook page in the production bundle is copied
+from a scan or unofficial PDF. Public sources establish the topic order; VDuckie
+provides its own teaching text and practice flow.

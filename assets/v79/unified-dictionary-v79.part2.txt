@@ -118,6 +118,9 @@
 
     var areaSwitch = document.querySelector(".area-switch");
     if (!areaSwitch) return;
+    if (areaSwitch.querySelector('[data-daily-nav="dictionary"]')) return;
+    var existingButton = areaSwitch.querySelector('[data-open-dictionary="all"]');
+    if (existingButton) { menuButton = existingButton; return; }
     menuButton = document.createElement("button");
     menuButton.type = "button";
     menuButton.setAttribute("data-dictionary-menu", "1");

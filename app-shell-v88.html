@@ -70,7 +70,7 @@
   <link rel="stylesheet" href="./erp-lessons-v74.css?v=74.0">
   <link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=86.5">
   <link rel="stylesheet" href="./assets/home/vduckie-mascot-v87.css?v=87.8">
-  <link rel="stylesheet" href="./assets/daily-learning-v1.css?v=1.0">
+  <link rel="stylesheet" href="./assets/daily-learning-v2.css?v=2.5">
   <meta name="theme-color" content="#f5b928">
   <link rel="manifest" href="./manifest.webmanifest">
   <script defer src="./pwa-register.js?v=1"></script>
@@ -80,7 +80,7 @@
     <header class="top">
       <button class="brand brand-home" id="brandHome" type="button" aria-label="Về màn hình Khám phá"><img class="brand-logo" src="./assets/vduckie-logo.png?v=1" alt="Logo VDuckie"><span><strong id="brandTitle">Tự học tiếng Trung</strong><small id="brandSubtitle">Developed by VDuckie</small></span></button>
       <div class="top-actions">
-        <button class="mobile-menu-button" id="mobileMenu" type="button" aria-controls="studySidebar" aria-expanded="false">☰ Học tập</button>
+        <button class="mobile-menu-button learning-menu-button" id="mobileMenu" type="button" aria-controls="studySidebar" aria-expanded="false" aria-label="Mở menu">☰</button>
         <div class="cloud-auth" aria-live="polite">
           <span class="cloud-auth-copy"><strong id="cloudIdentity">Dữ liệu đang lưu trên thiết bị</strong><small class="cloud-sync-status" id="cloudSyncStatus">Đang kiểm tra đồng bộ…</small></span>
           <button id="cloudLogin" type="button">Đăng nhập Google</button>
@@ -90,23 +90,32 @@
     </header>
     <div class="study-layout">
       <aside class="study-sidebar" id="studySidebar">
-        <div class="sidebar-heading"><span>HỌC TẬP</span><button class="sidebar-close" id="sidebarClose" type="button" aria-label="Đóng menu">×</button></div>
-        <nav class="home-switch" aria-label="Màn hình bắt đầu">
-          <button class="active" data-home type="button"><span class="menu-icon">鸭</span><span>Khám phá bài học</span></button>
+        <div class="sidebar-heading"><span>VDUCKIE</span><button class="sidebar-close" id="sidebarClose" type="button" aria-label="Đóng menu">×</button></div>
+        <span class="learning-menu-group">HỌC HÔM NAY</span>
+        <nav class="home-switch" aria-label="Học hôm nay">
+          <button class="active" data-home type="button"><span class="menu-icon">⌂</span><span>Hôm nay</span></button>
+          <button data-daily-nav="msutong"><span class="menu-icon">路</span><span>MSUTONG</span></button>
+          <button data-daily-nav="daily"><span class="menu-icon">+5</span><span>Daily ERP +5</span></button>
+          <button data-daily-nav="review"><span class="menu-icon">↻</span><span>Ôn tập</span></button>
         </nav>
-        <nav class="area-switch" aria-label="Chuyển khu vực học">
-          <button data-daily-nav="msutong"><span class="menu-icon">路</span><span>Giáo trình MSUTONG</span></button>
-          <button data-area="erp"><span class="menu-icon">工</span><span>ERP công việc</span></button>
+        <span class="learning-menu-group">TRA CỨU</span>
+        <nav class="area-switch" aria-label="Tra cứu và lộ trình bổ trợ">
+          <button data-daily-nav="dictionary"><span class="menu-icon">词</span><span>Từ điển</span></button>
           <button data-area="hsk"><span class="menu-icon">汉</span><span>Kho HSK bổ trợ</span></button>
         </nav>
+        <span class="learning-menu-group">ERP CÔNG VIỆC</span>
         <nav class="nav erp-nav" id="erpNav" aria-label="Các phần học ERP">
           <button data-view="lessons"><span class="menu-icon">程</span><span>Bài học ERP</span></button>
           <button data-view="cards"><span class="menu-icon">卡</span><span>Thẻ từ ERP</span></button>
           <button data-view="dialogue"><span class="menu-icon">说</span><span>Hội thoại ERP</span></button>
           <button data-view="quiz"><span class="menu-icon">✓</span><span>Kiểm tra ERP</span></button>
-          <button data-view="glossary"><span class="menu-icon">词</span><span>Từ điển ERP</span></button>
+          <button data-view="glossary"><span class="menu-icon">专</span><span>Từ điển ERP</span></button>
           <button data-view="personal"><span class="menu-icon">收</span><span>Sổ từ cá nhân</span></button>
           <button data-view="community"><span class="menu-icon">众</span><span>Từ cộng đồng</span></button>
+        </nav>
+        <span class="learning-menu-group">KHÁC</span>
+        <nav class="home-switch" aria-label="Tài khoản và thống kê">
+          <button data-daily-nav="profile"><img class="menu-signature" src="./assets/vduckie-logo.png?v=1" alt=""><span>VDuckie &amp; thống kê</span></button>
         </nav>
         <p class="sidebar-note">Roast Mode và nhận xét Adam vẫn hoạt động trong các bài luyện.</p>
       </aside>
@@ -545,7 +554,10 @@
   <script src="./community.js?v=2b4.0"></script>
   <script src="./assets/v86/experience-suite-loader-v86.js?v=87.5"></script>
   <script src="./assets/home/home-layout-stability-v87.3.js?v=87.3"></script>
-  <script src="./assets/daily-learning-v1.js?v=1.0"></script>
+  <script src="./assets/v79/hsk-dictionary-v79.js?v=79.0"></script>
+  <script src="./assets/v79/unified-dictionary-v79.js?v=79.0"></script>
+  <script src="./assets/msutong-hsk1-v2.js?v=2.1"></script>
+  <script src="./assets/daily-learning-v2.js?v=2.5"></script>
 </body>
 </html>
 <!-- GitHub Pages deployment trigger: v74.0 · 2026-07-17 -->
