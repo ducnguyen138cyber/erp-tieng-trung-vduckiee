@@ -29,8 +29,11 @@ test("manifest is installable and subpath-safe", () => {
 
 test("index registers relative PWA resources", () => {
   const index = read("index.html");
+  const shell = read("app-shell-v88.html");
   assert.match(index, /rel="manifest" href="\.\/manifest\.webmanifest"/);
   assert.match(index, /src="\.\/pwa-register\.js\?v=1"/);
+  assert.match(shell, /rel="manifest" href="\.\/manifest\.webmanifest"/);
+  assert.match(shell, /src="\.\/pwa-register\.js\?v=1"/);
   const registration = read("pwa-register.js");
   assert.match(registration, /new URL\("\.\/service-worker\.js", window\.location\.href\)/);
   assert.match(registration, /new URL\("\.\/", window\.location\.href\)/);
