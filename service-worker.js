@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v2";
+const CACHE_VERSION = "vduckie-pwa-v3";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -20,12 +20,24 @@ const APP_SHELL = [
   "./erp-lessons-v74.js",
   "./hsk-lessons.js",
   "./dialogue.js",
-  "./assets/daily-learning-v1.css",
-  "./assets/daily-learning-v1.js",
+  "./assets/daily-learning-v2.css",
+  "./assets/daily-learning-v2.js",
+  "./assets/msutong-hsk1-v2.js",
+  "./assets/v79/hsk-dictionary-v79.js",
+  "./assets/v79/unified-dictionary-v79.js",
+  "./assets/v79/unified-dictionary-v79.css",
+  "./assets/v79/unified-dictionary-v79.part1.txt",
+  "./assets/v79/unified-dictionary-v79.part2.txt",
+  "./assets/v79/unified-dictionary-v79.part3.txt",
+  "./assets/v79/unified-dictionary-v79.part4.txt",
+  "./assets/v79/unified-dictionary-v79.part5.txt",
+  "./vendor/hanzi-writer.min.js",
+  "./vendor/hsk-char-data.js",
   "./pronunciation.js",
   "./supabase-config.js",
   "./supabase-sync.js",
   "./assets/home/vduckie-welcome.webp",
+  "./assets/vduckie-logo.png",
   "./assets/pwa/vduckie-192.png",
   "./assets/pwa/vduckie-512.png"
 ].map(scoped);
