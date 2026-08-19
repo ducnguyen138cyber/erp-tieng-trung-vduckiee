@@ -36,6 +36,22 @@ Supabase Auth/đồng bộ dữ liệu theo tài khoản.
 - Đăng nhập Google nằm ở góc trên bên phải.
 - Roast Mode và audio/giọng đọc hiện có được giữ nguyên.
 
+## Học hằng ngày: MSUTONG + ERP Daily 5
+
+- Trang đầu trả lời trực tiếp “Hôm nay học gì?” với ba việc: tiếp tục MSUTONG,
+  học 5 từ ERP mới và ôn các từ đến hạn.
+- MSUTONG là lộ trình tiếng Trung chính gồm 12 quyển (4 sơ cấp, 4 trung cấp,
+  4 cao cấp). Nội dung một phần và nội dung mới chỉ ánh xạ được ghi rõ; HSK cũ
+  vẫn còn như kho bổ trợ.
+- Daily 5 lấy từ kho `ERP_TERMS`, giữ nguyên năm từ trong cùng ngày và ưu tiên
+  từ chưa học. Mỗi từ lặp qua nghĩa Việt, pinyin và gõ chữ Hán.
+- Một câu đúng không thể làm từ “đã thuộc”. Review dùng các mốc xác định, lưu
+  đúng/sai theo dạng bài và đưa câu sai trở lại sớm hơn.
+- Trạng thái Daily Learning dùng cùng bảng Supabase `user_words` qua một system
+  row; không có tiến độ riêng cho mobile. Khi offline, giao diện nói rõ chưa
+  đồng bộ cloud.
+- Mobile/PWA có dock cố định: Hôm nay, MSUTONG, +5, Ôn tập và VDuckie.
+
 ## Kiểm tra
 
 ```bash
@@ -45,4 +61,5 @@ node tests/v73-home-hub.test.js
 node tests/supabase-sync.test.js
 node --check hsk-lessons.js
 node --test tests/pwa.test.js
+node --test tests/daily-learning.test.js
 ```

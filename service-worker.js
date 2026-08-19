@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v1";
+const CACHE_VERSION = "vduckie-pwa-v2";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -20,6 +20,8 @@ const APP_SHELL = [
   "./erp-lessons-v74.js",
   "./hsk-lessons.js",
   "./dialogue.js",
+  "./assets/daily-learning-v1.css",
+  "./assets/daily-learning-v1.js",
   "./pronunciation.js",
   "./supabase-config.js",
   "./supabase-sync.js",

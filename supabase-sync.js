@@ -10,6 +10,8 @@
 
   var progressWordKey = "__vduckie_hsk_progress_v1__";
   var progressCategory = "__system_hsk_progress__";
+  var dailyLearningWordKey = "__vduckie_daily_learning_v1__";
+  var dailyLearningCategory = "__system_daily_learning__";
   var hskProgressKey = "erp-hsk-progress-v2";
   var hskStateKey = "erp-hsk-state-v2";
   var hskMetaKey = "vduckie-hsk-progress-meta-v1";
@@ -327,6 +329,66 @@
     };
   }
 
+  function dailyLearningRow(snapshot, userId) {
+    snapshot = snapshot && typeof snapshot === "object" ? snapshot : {};
+    var updatedAt = Number(snapshot.updatedAt) || Date.now();
+    var iso = new Date(updatedAt).toISOString();
+    return {
+      user_id: userId,
+      word_key: dailyLearningWordKey,
+      hanzi: "DAILY_LEARNING",
+      pinyin: "",
+      near_vi: "",
+      meaning_vi: "MSUTONG và ERP Daily 5",
+      category: dailyLearningCategory,
+      note: JSON.stringify(snapshot),
+      example_zh: "",
+      example_vi: "",
+      is_known: false,
+      is_saved: false,
+      known_updated_at: iso,
+      saved_updated_at: iso
+    };
+  }
+
+  function parseDailyLearningRow(row) {
+    if (!row || row.word_key !== dailyLearningWordKey) return null;
+    try { return JSON.parse(row.note || "{}"); } catch (error) { return null; }
+  }
+
+  function publishDailyLearning(snapshot) {
+    if (!snapshot) return;
+    try { document.dispatchEvent(new CustomEvent("vduckie:daily-learning-synced", { detail: snapshot })); } catch (error) {}
+  }
+
+  function saveDailyLearning(snapshot) {
+    if (!client || !session || !session.user) {
+      setStatus(navigator.onLine ? "Đăng nhập để đồng bộ Daily 5" : "Chờ có mạng", "waiting");
+      return Promise.resolve();
+    }
+    if (!navigator.onLine) { setStatus("Chờ có mạng", "waiting"); return Promise.resolve(); }
+    return client.from("user_words").upsert([dailyLearningRow(snapshot, session.user.id)], { onConflict: "user_id,word_key" }).then(function (result) {
+      if (result.error) throw result.error;
+      setStatus("Đã đồng bộ bài học hôm nay", "good");
+    }).catch(function (error) {
+      console.error("VDuckie daily learning upload failed", error);
+      setStatus("Lỗi đồng bộ bài học hôm nay", "bad");
+    });
+  }
+
+  function loadDailyLearning() {
+    if (!client || !session || !session.user) return Promise.resolve(null);
+    return client.from("user_words").select("word_key,note,known_updated_at").eq("word_key", dailyLearningWordKey).maybeSingle().then(function (result) {
+      if (result.error) throw result.error;
+      var snapshot = parseDailyLearningRow(result.data);
+      publishDailyLearning(snapshot);
+      return snapshot;
+    }).catch(function (error) {
+      console.error("VDuckie daily learning download failed", error);
+      return null;
+    });
+  }
+
   function accountCacheKey(profileId) {
     return accountCachePrefix + (profileId || anonymousProfile);
   }
@@ -518,8 +580,10 @@
         var rows = remote.data || [];
         var wordRows = [];
         var remoteProgress = null;
+        var remoteDailyLearning = null;
         for (var i = 0; i < rows.length; i++) {
           if (rows[i].word_key === progressWordKey) remoteProgress = rows[i];
+          else if (rows[i].word_key === dailyLearningWordKey) remoteDailyLearning = rows[i];
           else if (/^__vduckie_/.test(String(rows[i].word_key || "")) || /^__system_/.test(String(rows[i].category || ""))) {}
           else wordRows.push(rows[i]);
         }
@@ -533,7 +597,9 @@
           : flushQueue();
 
         return wordSync.then(function () {
-          return synchronizeProgress(remoteProgress);
+          return synchronizeProgress(remoteProgress).then(function () {
+            publishDailyLearning(parseDailyLearningRow(remoteDailyLearning));
+          });
         });
       })
       .then(function () {
@@ -692,6 +758,8 @@
     sync: synchronize,
     signIn: signIn,
     signOut: signOut,
+    loadDailyLearning: loadDailyLearning,
+    saveDailyLearning: saveDailyLearning,
     syncProgress: function () {
       trackLocalProgress();
       return session ? upsertProgress(captureLocalProgress()) : Promise.resolve();
