@@ -10,6 +10,7 @@
   var state = load();
   var active = null;
   var writer = null;
+  var navBound = false;
 
   function emptyState() {
     return { version: 2, assignments: {}, words: {}, msutong: { currentBook: "beginner-1", currentLesson: "b1-u1", completed: {} }, updatedAt: 0 };
@@ -397,7 +398,17 @@
     panel().querySelector("[data-session-exit]").onclick = closePanel;
   }
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
-  function bindNav(scope) { (scope || document).querySelectorAll("[data-daily-nav]").forEach(function (button) { button.onclick = function () { showPanel(button.dataset.dailyNav); }; }); }
+  function bindNav() {
+    if (navBound) return;
+    navBound = true;
+    document.addEventListener("click", function (event) {
+      var button = event.target && event.target.closest && event.target.closest("[data-daily-nav]");
+      if (!button) return;
+      event.preventDefault();
+      event.stopPropagation();
+      showPanel(button.getAttribute("data-daily-nav"));
+    }, true);
+  }
   function closeMenu() { document.body.classList.remove("sidebar-open"); var button = document.getElementById("mobileMenu"); if (button) button.setAttribute("aria-expanded", "false"); }
   function bindLegacyClose() {
     document.querySelectorAll("[data-area],[data-home],[data-view],[data-open-dictionary],#brandHome").forEach(function (button) {
