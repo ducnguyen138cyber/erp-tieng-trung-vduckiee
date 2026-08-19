@@ -405,7 +405,7 @@
       var button = event.target && event.target.closest && event.target.closest("[data-daily-nav]");
       if (!button) return;
       event.preventDefault();
-      event.stopPropagation();
+      event.stopImmediatePropagation();
       showPanel(button.getAttribute("data-daily-nav"));
     }, true);
   }

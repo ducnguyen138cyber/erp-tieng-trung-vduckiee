@@ -22,6 +22,7 @@ test("Home is compact and every primary function opens a dedicated screen", () =
   assert.match(source, /renderProfile\(\)/);
   assert.match(source, /renderDictionary\(\)/);
   assert.match(source, /event\.target\.closest/);
+  assert.match(source, /event\.stopImmediatePropagation\(\)/);
 });
 
 test("hamburger drawer groups daily, lookup, ERP and profile navigation", () => {
@@ -87,6 +88,6 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   for (const label of ["Hôm nay", "MSUTONG", "+5", "Ôn tập", "VDuckie"]) assert.ok(source.includes(label), label);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.3/);
-  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.3/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.4/);
+  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.4/);
 });
