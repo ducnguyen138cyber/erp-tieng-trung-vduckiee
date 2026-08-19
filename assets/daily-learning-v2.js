@@ -114,6 +114,7 @@
     document.body.setAttribute("data-current-area", kind);
     if (kind === "msutong") renderRoadmap();
     else if (kind === "profile") renderProfile();
+    else if (kind === "dictionary") renderDictionary();
     else startDaily(kind === "review");
   }
   function closePanel() {
@@ -318,6 +319,79 @@
     panel().querySelector("[data-msu-roadmap]").onclick = function () { if (passed && state.msutong.currentLesson !== lesson.id) startMsutong(state.msutong.currentLesson); else renderRoadmap(); };
   }
 
+  function normalizeDictionarySearch(value) {
+    var normalized = String(value == null ? "" : value).toLowerCase();
+    if (normalized.normalize) normalized = normalized.normalize("NFD");
+    return normalized.replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/ü/g, "u").replace(/\s+/g, " ").trim();
+  }
+  function dictionaryRecords() {
+    var map = Object.create(null), records = [];
+    function add(term, source) {
+      if (!term || !term[0]) return;
+      var key = String(term[0]), record = map[key];
+      if (!record) {
+        record = { term: [key, term[1] || "", term[2] || "", term[3] || "", term[4] || "", term[5] || "", term[6] || "", term[7] || ""], sources: [] };
+        map[key] = record; records.push(record);
+      } else {
+        for (var index = 1; index < 8; index++) if (!record.term[index] && term[index]) record.term[index] = term[index];
+      }
+      if (source && record.sources.indexOf(source) < 0) record.sources.push(source);
+    }
+    terms().forEach(function (term) { add(term, "ERP"); });
+    lessons().forEach(function (lesson) { lesson.words.forEach(function (word) { add([word[0], word[1], "", word[2], "HSK1", "MSUTONG Sơ cấp 1", "", ""], "HSK1"); }); });
+    var unified = root.VDuckieDictionary && root.VDuckieDictionary.records;
+    if (Array.isArray(unified)) unified.forEach(function (item) {
+      var meanings = [].concat(item.meanings && item.meanings.erp || [], item.meanings && item.meanings.hsk || []);
+      var examples = [].concat(item.examples && item.examples.erp || [], item.examples && item.examples.hsk || []);
+      var example = examples[0] || {};
+      add([item.hanzi, item.pinyin, item.nearVi, meanings[0] || "", (item.erpCategories || [])[0] || (item.hskLevel ? "HSK " + item.hskLevel : "Từ điển"), (item.notes || [])[0] || "", example.zh || "", example.vi || ""], (item.sources || []).join(" + "));
+    });
+    records.forEach(function (record) { record.search = normalizeDictionarySearch(record.term.join(" ") + " " + record.sources.join(" ")); });
+    return records;
+  }
+  function personalWords() {
+    try {
+      var values = JSON.parse(localStorage.getItem("erp-lite-personal") || "[]"), output = Object.create(null);
+      if (Array.isArray(values)) values.forEach(function (term) { if (term && term[0]) output[term[0]] = true; });
+      return output;
+    } catch (error) { return Object.create(null); }
+  }
+  function saveDictionaryWord(record) {
+    var term = record.term, saved = personalWords();
+    if (saved[term[0]]) return;
+    var timestamp = new Date().toISOString();
+    var row = { word_key: term[0], hanzi: term[0], pinyin: term[1], near_vi: term[2], meaning_vi: term[3], category: term[4], note: term[5], example_zh: term[6], example_vi: term[7], is_known: false, is_saved: true, known_updated_at: null, saved_updated_at: timestamp };
+    if (root.VDuckieLocalLearning && typeof root.VDuckieLocalLearning.mergeRemote === "function") root.VDuckieLocalLearning.mergeRemote([row]);
+    else {
+      var list = [];
+      try { list = JSON.parse(localStorage.getItem("erp-lite-personal") || "[]"); if (!Array.isArray(list)) list = []; } catch (error) { list = []; }
+      list.push(term.slice(0));
+      try { localStorage.setItem("erp-lite-personal", JSON.stringify(list)); } catch (error) {}
+    }
+    try { document.dispatchEvent(new CustomEvent("vduckie:learning-change", { detail: row })); } catch (error) {}
+  }
+  function renderDictionaryResults(query) {
+    var results = document.getElementById("dailyDictionaryResults"), status = document.getElementById("dailyDictionaryStatus");
+    if (!results) return;
+    var all = dictionaryRecords(), needle = normalizeDictionarySearch(query), matches = all.filter(function (record) { return !needle || record.search.indexOf(needle) >= 0; });
+    var shown = matches.slice(0, 50), saved = personalWords();
+    if (status) status.textContent = matches.length + " kết quả" + (matches.length > shown.length ? " · đang hiện 50 kết quả đầu" : "");
+    results.innerHTML = shown.length ? shown.map(function (record) {
+      var term = record.term, isSaved = !!saved[term[0]];
+      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + (term[6] ? '<div class="dictionary-example"><strong>' + esc(term[6]) + '</strong>' + (term[7] ? '<span>' + esc(term[7]) + '</span>' : "") + '</div>' : "") + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
+    }).join("") : '<div class="dictionary-empty"><strong>Không tìm thấy từ phù hợp.</strong><span>Thử chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt khác.</span></div>';
+    bindSpeak();
+    results.querySelectorAll("[data-dictionary-save]").forEach(function (button) { button.onclick = function () { var record = all.find(function (item) { return item.term[0] === button.dataset.dictionarySave; }); if (record) { saveDictionaryWord(record); renderDictionaryResults(document.getElementById("dailyDictionarySearch").value); } }; });
+  }
+  function renderDictionary() {
+    panel().innerHTML = '<div class="dictionary-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">TRA CỨU RIÊNG</span><h1>Từ điển Trung – Việt</h1><p>Tra chữ Hán, pinyin hoặc nghĩa Việt; nghe và lưu thẳng vào Sổ từ.</p></div><button type="button" data-session-exit>×</button></header><div class="dictionary-search"><label for="dailyDictionarySearch">Tìm từ</label><div><input id="dailyDictionarySearch" type="search" autocomplete="off" placeholder="Ví dụ: 领料, lingliao, lĩnh liệu"><button type="button" id="dailyDictionaryClear" aria-label="Xóa tìm kiếm">×</button></div><span id="dailyDictionaryStatus" aria-live="polite"></span></div><div class="dictionary-results" id="dailyDictionaryResults"></div></div>';
+    panel().querySelector("[data-session-exit]").onclick = closePanel;
+    var input = document.getElementById("dailyDictionarySearch"), timer = 0;
+    input.oninput = function () { root.clearTimeout(timer); timer = root.setTimeout(function () { renderDictionaryResults(input.value); }, 80); };
+    document.getElementById("dailyDictionaryClear").onclick = function () { input.value = ""; renderDictionaryResults(""); input.focus(); };
+    renderDictionaryResults("");
+  }
+
   function renderProfile() {
     panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><div><strong>' + totalMastered() + ' từ ERP đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/10 bài MSUTONG Sơ cấp 1 hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Roast Mode vẫn hoạt động</span><span class="daily-pill">Supabase sync khi đăng nhập</span><span class="daily-pill">PWA dùng chung tiến độ</span></div></div>';
     panel().querySelector("[data-session-exit]").onclick = closePanel;
@@ -325,22 +399,12 @@
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
   function bindNav(scope) { (scope || document).querySelectorAll("[data-daily-nav]").forEach(function (button) { button.onclick = function () { showPanel(button.dataset.dailyNav); }; }); }
   function closeMenu() { document.body.classList.remove("sidebar-open"); var button = document.getElementById("mobileMenu"); if (button) button.setAttribute("aria-expanded", "false"); }
-  function openUnifiedDictionary() {
-    var attempts = 0;
-    function open() {
-      attempts++;
-      if (root.VDuckieDictionary && typeof root.VDuckieDictionary.open === "function") root.VDuckieDictionary.open("all");
-      else if (attempts < 20) root.setTimeout(open, 100);
-    }
-    open();
-  }
   function bindLegacyClose() {
     document.querySelectorAll("[data-area],[data-home],[data-view],[data-open-dictionary],#brandHome").forEach(function (button) {
       button.addEventListener("click", function () {
         active = null;
         var node = document.getElementById("dailyLearningPanel"); if (node) node.className = "panel daily-panel hidden";
         closeMenu();
-        if (button.hasAttribute("data-open-dictionary")) openUnifiedDictionary();
       });
     });
   }

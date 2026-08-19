@@ -20,6 +20,7 @@ test("Home is compact and every primary function opens a dedicated screen", () =
   assert.match(source, /renderRoadmap\(\)/);
   assert.match(source, /startDaily\(kind === "review"\)/);
   assert.match(source, /renderProfile\(\)/);
+  assert.match(source, /renderDictionary\(\)/);
 });
 
 test("hamburger drawer groups daily, lookup, ERP and profile navigation", () => {
@@ -64,10 +65,12 @@ test("MSUTONG Beginner 1 has ten learnable original companion lessons", () => {
 
 test("dictionary is a separate unified page and VDuckie uses the signature asset", () => {
   assert.match(shell, /assets\/v79\/unified-dictionary-v79\.js/);
-  assert.match(shell, /data-open-dictionary="all"/);
+  assert.match(shell, /data-daily-nav="dictionary"/);
   assert.match(source, /signature-dock/);
   assert.match(source, /assets\/vduckie-logo\.png/);
-  assert.match(source, /openUnifiedDictionary/);
+  assert.match(source, /function renderDictionary/);
+  assert.match(source, /erp-lite-personal/);
+  assert.match(source, /vduckie:learning-change/);
   assert.doesNotMatch(source, /🦆/);
 });
 
@@ -83,6 +86,6 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   for (const label of ["Hôm nay", "MSUTONG", "+5", "Ôn tập", "VDuckie"]) assert.ok(source.includes(label), label);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.1/);
-  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.1/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.2/);
+  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.2/);
 });
