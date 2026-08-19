@@ -325,7 +325,25 @@
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
   function bindNav(scope) { (scope || document).querySelectorAll("[data-daily-nav]").forEach(function (button) { button.onclick = function () { showPanel(button.dataset.dailyNav); }; }); }
   function closeMenu() { document.body.classList.remove("sidebar-open"); var button = document.getElementById("mobileMenu"); if (button) button.setAttribute("aria-expanded", "false"); }
-  function bindLegacyClose() { document.querySelectorAll("[data-area],[data-home],[data-view],[data-open-dictionary],#brandHome").forEach(function (button) { button.addEventListener("click", function () { active = null; var node = document.getElementById("dailyLearningPanel"); if (node) node.className = "panel daily-panel hidden"; closeMenu(); }); }); }
+  function openUnifiedDictionary() {
+    var attempts = 0;
+    function open() {
+      attempts++;
+      if (root.VDuckieDictionary && typeof root.VDuckieDictionary.open === "function") root.VDuckieDictionary.open("all");
+      else if (attempts < 20) root.setTimeout(open, 100);
+    }
+    open();
+  }
+  function bindLegacyClose() {
+    document.querySelectorAll("[data-area],[data-home],[data-view],[data-open-dictionary],#brandHome").forEach(function (button) {
+      button.addEventListener("click", function () {
+        active = null;
+        var node = document.getElementById("dailyLearningPanel"); if (node) node.className = "panel daily-panel hidden";
+        closeMenu();
+        if (button.hasAttribute("data-open-dictionary")) openUnifiedDictionary();
+      });
+    });
+  }
   function installDock() {
     if (document.getElementById("mobileLearningDock")) return;
     var dock = document.createElement("nav"); dock.id = "mobileLearningDock"; dock.className = "mobile-learning-dock"; dock.setAttribute("aria-label", "Điều hướng học hằng ngày");

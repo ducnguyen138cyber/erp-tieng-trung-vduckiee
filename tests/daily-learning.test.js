@@ -67,6 +67,7 @@ test("dictionary is a separate unified page and VDuckie uses the signature asset
   assert.match(shell, /data-open-dictionary="all"/);
   assert.match(source, /signature-dock/);
   assert.match(source, /assets\/vduckie-logo\.png/);
+  assert.match(source, /openUnifiedDictionary/);
   assert.doesNotMatch(source, /🦆/);
 });
 
