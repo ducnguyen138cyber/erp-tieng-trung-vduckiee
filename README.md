@@ -13,8 +13,13 @@ Supabase Auth/đồng bộ dữ liệu theo tài khoản.
   hard-code hostname production hoặc prefix `/erp-tieng-trung-vduckiee/`.
 - Supabase project URL và publishable/anon key là credential công khai phía
   trình duyệt; tuyệt đối không đưa `service_role` key vào repository.
-- Ứng dụng hiện không đăng ký service worker hoặc manifest, vì vậy không có
-  scope/cache PWA cũ cần chuyển domain.
+- Ứng dụng là PWA cài đặt được. Manifest, service worker và toàn bộ URL cache
+  dùng đường dẫn tương đối theo scope hiện tại, nên chạy được ở domain gốc và
+  GitHub Pages subpath.
+- Service worker ưu tiên mạng cho navigation, dùng stale-while-revalidate cho
+  tài nguyên tĩnh, xóa cache PWA phiên bản cũ khi activate và có trang fallback
+  ngoại tuyến. Supabase Auth/sync, OAuth callback, Functions/API và request
+  không phải GET luôn đi thẳng qua mạng, không được cache.
 
 ## Giao diện v73+
 
@@ -39,4 +44,5 @@ node tests/v72-layout.test.js
 node tests/v73-home-hub.test.js
 node tests/supabase-sync.test.js
 node --check hsk-lessons.js
+node --test tests/pwa.test.js
 ```

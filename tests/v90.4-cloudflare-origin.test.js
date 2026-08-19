@@ -58,7 +58,14 @@ test('audio and authentication runtime do not depend on a deployment hostname', 
   assert.doesNotMatch(sync, /github\.io|pages\.dev/i);
 });
 
-test('there is no service worker or manifest scope retaining the old deployment path', () => {
-  assert.doesNotMatch(index + shell, /navigator\.serviceWorker\.register/);
-  assert.doesNotMatch(index + shell, /rel=["']manifest["']/i);
+test('PWA resources remain deployment-relative without retaining an old path', () => {
+  const manifest = read('manifest.webmanifest');
+  const registration = read('pwa-register.js');
+  const worker = read('service-worker.js');
+  assert.match(index, /rel=["']manifest["'][^>]+href=["']\.\/manifest\.webmanifest["']/i);
+  assert.match(registration, /new URL\("\.\/service-worker\.js", window\.location\.href\)/);
+  [manifest, registration, worker].forEach((source) => {
+    assert.doesNotMatch(source, oldProduction);
+    assert.doesNotMatch(source, hardCodedRepoPrefix);
+  });
 });
