@@ -71,6 +71,8 @@ test("dictionary is a separate unified page and VDuckie uses the signature asset
   assert.match(source, /signature-dock/);
   assert.match(source, /assets\/vduckie-logo\.png/);
   assert.match(source, /function renderDictionary/);
+  assert.match(source, /searchCompact/);
+  assert.match(source, /compactNeedle/);
   assert.match(source, /erp-lite-personal/);
   assert.match(source, /vduckie:learning-change/);
   assert.doesNotMatch(source, /🦆/);
@@ -89,6 +91,6 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.4/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.5/);
   assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.5/);
 });

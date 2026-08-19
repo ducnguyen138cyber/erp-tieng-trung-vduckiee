@@ -347,7 +347,7 @@
       var example = examples[0] || {};
       add([item.hanzi, item.pinyin, item.nearVi, meanings[0] || "", (item.erpCategories || [])[0] || (item.hskLevel ? "HSK " + item.hskLevel : "Từ điển"), (item.notes || [])[0] || "", example.zh || "", example.vi || ""], (item.sources || []).join(" + "));
     });
-    records.forEach(function (record) { record.search = normalizeDictionarySearch(record.term.join(" ") + " " + record.sources.join(" ")); });
+    records.forEach(function (record) { record.search = normalizeDictionarySearch(record.term.join(" ") + " " + record.sources.join(" ")); record.searchCompact = record.search.replace(/\s+/g, ""); });
     return records;
   }
   function personalWords() {
@@ -374,7 +374,7 @@
   function renderDictionaryResults(query) {
     var results = document.getElementById("dailyDictionaryResults"), status = document.getElementById("dailyDictionaryStatus");
     if (!results) return;
-    var all = dictionaryRecords(), needle = normalizeDictionarySearch(query), matches = all.filter(function (record) { return !needle || record.search.indexOf(needle) >= 0; });
+    var all = dictionaryRecords(), needle = normalizeDictionarySearch(query), compactNeedle = needle.replace(/\s+/g, ""), matches = all.filter(function (record) { return !needle || record.search.indexOf(needle) >= 0 || record.searchCompact.indexOf(compactNeedle) >= 0; });
     var shown = matches.slice(0, 50), saved = personalWords();
     if (status) status.textContent = matches.length + " kết quả" + (matches.length > shown.length ? " · đang hiện 50 kết quả đầu" : "");
     results.innerHTML = shown.length ? shown.map(function (record) {
