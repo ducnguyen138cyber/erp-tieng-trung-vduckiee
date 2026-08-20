@@ -22,7 +22,7 @@ body[data-current-area="home"] .study-rail,body[data-current-area="msutong"] .st
   body.sidebar-open .sidebar-backdrop,.sidebar-close{display:none!important}
   body[data-current-area="home"] .study-center{width:auto!important;max-width:none!important;margin:0!important}
   body[data-current-area="msutong"] .study-layout,body[data-current-area="daily"] .study-layout,body[data-current-area="review"] .study-layout,body[data-current-area="profile"] .study-layout,body[data-current-area="dictionary"] .study-layout{grid-template-columns:230px minmax(0,1fr) 300px!important}
-  body[data-current-area="msutong"] .study-center,body[data-current-area="daily"] .study-center,body[data-current-area="review"] .study-center,body[data-current-area="profile"] .study-center,body[data-current-area="dictionary"] .study-center{grid-column:2/4!important;width:auto!important;max-width:none!important;margin:0!important}
+  body[data-current-area="msutong"] .study-layout>.study-center,body[data-current-area="daily"] .study-layout>.study-center,body[data-current-area="review"] .study-layout>.study-center,body[data-current-area="profile"] .study-layout>.study-center,body[data-current-area="dictionary"] .study-layout>.study-center{grid-column:2/4!important;width:auto!important;max-width:none!important;margin:0!important}
   body[data-current-area="msutong"] .roadmap-screen{grid-template-columns:minmax(240px,.72fr) minmax(0,1.45fr);grid-template-rows:auto minmax(0,1fr) auto;column-gap:22px}
   body[data-current-area="msutong"] .roadmap-screen>.screen-title{grid-column:1;grid-row:1}
   body[data-current-area="msutong"] .roadmap-progress{grid-column:1;grid-row:2;align-self:start}

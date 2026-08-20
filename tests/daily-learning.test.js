@@ -97,7 +97,7 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.7/);
-  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.7/);
+  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.8/);
 });
 
 test("desktop browser restores the wide legacy shell while MSUTONG uses the available width", () => {
@@ -105,7 +105,7 @@ test("desktop browser restores the wide legacy shell while MSUTONG uses the avai
   assert.match(css, /\.learning-menu-button\{display:none!important\}/);
   assert.match(css, /grid-template-columns:230px minmax\(0,1fr\) 300px!important/);
   assert.match(css, /body \.study-sidebar\{position:sticky!important/);
-  assert.match(css, /body\[data-current-area="msutong"\] \.study-center[^}]*grid-column:2\/4!important/);
+  assert.match(css, /body\[data-current-area="msutong"\] \.study-layout>\.study-center[^}]*grid-column:2\/4!important/);
   assert.match(css, /body\[data-current-area="msutong"\] \.roadmap-screen\{grid-template-columns:/);
   assert.match(css, /@media\(max-width:980px\),\(display-mode:standalone\)\{body\[data-current-area="home"\] #homeHub>:not\(\.daily-today\)/);
 });
