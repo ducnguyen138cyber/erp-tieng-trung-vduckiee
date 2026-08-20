@@ -106,7 +106,7 @@
   }
   function panel() {
     var node = document.getElementById("dailyLearningPanel");
-    if (!node) { node = document.createElement("section"); node.id = "dailyLearningPanel"; node.className = "panel daily-panel hidden"; var main = document.querySelector(".study-center main"); if (main) main.insertBefore(node, main.firstChild); }
+    if (!node) { node = document.createElement("section"); node.id = "dailyLearningPanel"; node.className = "panel daily-panel hidden"; var main = document.querySelector(".study-center > main"); if (main) main.insertBefore(node, main.firstChild); }
     return node;
   }
   function hideLegacy() {

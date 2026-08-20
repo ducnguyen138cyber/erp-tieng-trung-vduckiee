@@ -41,7 +41,7 @@ test("index registers relative PWA resources", () => {
 
 test("service worker versions caches and cleans prior VDuckie caches", () => {
   const worker = read("service-worker.js");
-  assert.match(worker, /CACHE_VERSION = "vduckie-pwa-v10"/);
+  assert.match(worker, /CACHE_VERSION = "vduckie-pwa-v11"/);
   assert.match(worker, /key\.startsWith\("vduckie-pwa-"\)/);
   assert.match(worker, /caches\.delete\(key\)/);
   assert.match(worker, /self\.skipWaiting\(\)/);
