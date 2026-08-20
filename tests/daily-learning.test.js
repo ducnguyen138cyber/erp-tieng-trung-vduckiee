@@ -15,6 +15,10 @@ const sync = read("supabase-sync.js");
 
 test("Home is compact and every primary function opens a dedicated screen", () => {
   assert.match(source, /Chỉ ba việc cần tập trung hôm nay/);
+  assert.match(source, /function isAppLayout\(\)/);
+  assert.match(source, /max-width: 980px/);
+  assert.match(source, /display-mode: standalone/);
+  assert.match(source, /if \(!isAppLayout\(\)\) return/);
   assert.match(css, /\.app-screen\{height:calc\(100svh/);
   assert.match(source, /showPanel\(kind\)/);
   assert.match(source, /renderRoadmap\(\)/);
@@ -91,6 +95,16 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.5/);
-  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.5/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.6/);
+  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.6/);
+});
+
+test("desktop browser restores the wide legacy shell while MSUTONG uses the available width", () => {
+  assert.match(css, /@media\(min-width:981px\) and \(display-mode:browser\)/);
+  assert.match(css, /\.learning-menu-button\{display:none!important\}/);
+  assert.match(css, /grid-template-columns:230px minmax\(0,1fr\) 300px!important/);
+  assert.match(css, /body \.study-sidebar\{position:sticky!important/);
+  assert.match(css, /body\[data-current-area="msutong"\] \.study-center[^}]*grid-column:2\/4!important/);
+  assert.match(css, /body\[data-current-area="msutong"\] \.roadmap-screen\{grid-template-columns:/);
+  assert.match(css, /@media\(max-width:980px\),\(display-mode:standalone\)\{body\[data-current-area="home"\] #homeHub>:not\(\.daily-today\)/);
 });
