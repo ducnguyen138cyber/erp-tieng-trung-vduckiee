@@ -85,9 +85,14 @@
     try { var generated = root.Pronunciation && root.Pronunciation.generate && root.Pronunciation.generate(value); if (generated && generated.pinyin) return generated.pinyin; } catch (error) {}
     return fallback || "";
   }
+  function isAppLayout() {
+    if (!root.matchMedia) return Number(root.innerWidth || 0) <= 980;
+    return root.matchMedia("(max-width: 980px)").matches || root.matchMedia("(display-mode: standalone)").matches;
+  }
 
   function renderToday() {
     var hub = document.getElementById("homeHub"); if (!hub) return;
+    if (!isAppLayout()) return;
     var lesson = currentLesson(), due = dueTerms().length, done = completedToday(), lessonDone = Object.keys(state.msutong.completed).length;
     hub.innerHTML = '<section class="daily-today app-screen"><header class="daily-heading"><div><span class="daily-task-kicker">HÔM NAY</span><h1>Mở, học, hoàn thành.</h1><p>Chỉ ba việc cần tập trung hôm nay.</p></div><span class="daily-date">' + new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit" }) + '</span></header><div class="daily-grid">' +
       task("primary", "MSUTONG · SƠ CẤP 1", lesson ? lesson.title : "Bài đầu tiên", lesson ? lesson.goal : "Bắt đầu lộ trình", lessonDone + "/10 bài", lessonDone * 10, "Tiếp tục", "msutong") +
@@ -101,7 +106,7 @@
   }
   function panel() {
     var node = document.getElementById("dailyLearningPanel");
-    if (!node) { node = document.createElement("section"); node.id = "dailyLearningPanel"; node.className = "panel daily-panel hidden"; var main = document.querySelector(".study-center main"); if (main) main.insertBefore(node, main.firstChild); }
+    if (!node) { node = document.createElement("section"); node.id = "dailyLearningPanel"; node.className = "panel daily-panel hidden"; var main = document.querySelector(".study-center > main"); if (main) main.insertBefore(node, main.firstChild); }
     return node;
   }
   function hideLegacy() {

@@ -51,7 +51,7 @@ Supabase Auth/đồng bộ dữ liệu theo tài khoản.
   row; không có tiến độ riêng cho mobile. Khi offline, giao diện nói rõ chưa
   đồng bộ cloud.
 - Mobile/PWA có dock cố định: Hôm nay, MSUTONG, +5, Ôn tập và VDuckie.
-- Desktop và mobile đều có menu 3 gạch; Từ điển là một màn tra cứu riêng.
+- Desktop giữ sidebar và bố cục web rộng; mobile/PWA dùng menu 3 gạch, drawer và dock hằng ngày. Từ điển là một màn tra cứu riêng.
 
 ## Kiểm tra
 
