@@ -55,7 +55,7 @@
     html = html.replace(/\.\/supabase-config\.js\?v=[^"']+/g,'./supabase-config.js?v=96.0');
     html = html.replace(/\.\/supabase-sync\.js\?v=[^"']+/g,'./supabase-sync.js?v=96.0');
     const headAssets = cssAssets.map(href=>'<link rel="stylesheet" href="'+href+'">').join('');
-    const bodyAssets = jsAssets.map(src=>'<script src="'+src+'"><\\/script>').join('');
+    const bodyAssets = jsAssets.map(src=>'<script src="'+src+'"></'+'script>').join('');
     html = html.replace('</head>',headAssets+'</head>').replace('</body>',bodyAssets+'</body>');
     // Compatibility stage: preserve synchronous script execution order of the legacy shell.
     // Replace with a modern module bootstrap only after regression tests pass.
