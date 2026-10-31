@@ -212,6 +212,31 @@
     if (root.ERPAreaNavigation && typeof root.ERPAreaNavigation.select === "function")
       root.ERPAreaNavigation.select(code === "complete_quiz" ? "erp" : "hsk");
   }
+  // Capture sidebar controls before legacy document-level handlers can rerender them.
+  // This runs only for recognized sidebar actions and leaves the UI unchanged.
+  function bindSidebarActions() {
+    if (root.__VDUCKIE_RIGHT_SIDEBAR_ACTIONS__) return;
+    root.__VDUCKIE_RIGHT_SIDEBAR_ACTIONS__ = true;
+    document.addEventListener("click", function(event) {
+      var action = event.target && event.target.closest &&
+        event.target.closest('#v865HomeSidebar [data-v865-action="start-streak"], #v865HomeSidebar [data-exp-open-all], #v865HomeSidebar [data-exp-mission]');
+      if (!action) return;
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      if (action.matches('[data-exp-open-all]')) {
+        if (root.VDuckieEXPUI && typeof root.VDuckieEXPUI.openLeaderboard === "function") {
+          root.VDuckieEXPUI.openLeaderboard("week");
+        } else {
+          var rankingNav = document.querySelector('[data-exp-nav="ranking"]');
+          if (rankingNav) rankingNav.click();
+        }
+      } else if (action.matches('[data-exp-mission]')) {
+        openMission(action.getAttribute("data-exp-mission"));
+      } else {
+        openMission("study_5_days");
+      }
+    }, true);
+  }
   function bind() {
     document.addEventListener("click", function (event) {
       var mission = event.target.closest && event.target.closest("[data-exp-mission]");
@@ -239,6 +264,7 @@
     document.addEventListener("vduckie:exp-updated", function () { refreshAccount(); refreshMini(); });
   }
   function init() {
+    bindSidebarActions();
     bind();
     scheduleLayout();
     core.onSession(function (session) {
