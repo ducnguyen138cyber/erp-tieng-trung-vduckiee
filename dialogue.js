@@ -225,7 +225,6 @@
   var scenarioIndex = 0;
   var stepIndex = 0;
   var exerciseMode = "conversation";
-  var roastVoice = false;
   var vietnameseVoice = null;
   var activeUtterance = null;
   var reactionTimer = null;
@@ -424,12 +423,6 @@
       }
     }
     vietnameseVoice = best;
-    var button = byId("roastVoice");
-    if (button) {
-      button.title = best
-        ? "Đang dùng giọng Việt: " + best.name
-        : "Windows chưa cài giọng đọc tiếng Việt Microsoft An";
-    }
     return vietnameseVoice;
   }
 
@@ -506,7 +499,7 @@
   }
 
   function speakVietnamese(message) {
-    if (!roastVoice) return;
+    return;
     var voice = refreshVietnameseVoice() || chooseDeviceVoice("vi-VN");
     var mobile = isMobileDevice();
     if (!voice && !mobile) {
