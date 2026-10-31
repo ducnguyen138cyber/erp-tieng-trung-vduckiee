@@ -67,7 +67,7 @@ function questionMarkup(q,n){
 }
 function renderPractice(){
  const qs=D.exercises(lesson),p=progress(lesson.id),answered=qs.filter(q=>p.answers[q.id]).length;
- host.querySelector('#cuLessonBody').innerHTML='<div class="cu-section-intro"><span class="cu-eyebrow">NHỚ → HIỂU → VẬN DỤNG</span><h2>Luyện tập có giải thích</h2><p>Gồm từ vựng, phát âm, trật tự câu, đọc và nghe. Mỗi câu chỉ được tính một lần trong lượt làm; quay lại bài không cộng thêm điểm.</p></div><div id="cuQuizSummary" class="cu-quiz-summary" aria-live="polite">'+answered+'/8 câu đã làm · '+P.score(p,qs)+'/8 câu đúng</div>'+qs.map(questionMarkup).join('')+(answered===8?button('Làm lại các câu sai','retry','','cu-quiet'):'');
+ host.querySelector('#cuLessonBody').innerHTML='<div class="cu-section-intro"><span class="cu-eyebrow">NHỚ → HIỂU → VẬN DỤNG</span><h2>Luyện tập có giải thích</h2><p>Gồm từ vựng, phát âm, trật tự câu, đọc và nghe. Mỗi câu chỉ được tính một lần trong lượt làm; quay lại bài không cộng thêm điểm.</p></div><div id="cuQuizSummary" class="cu-quiz-summary" aria-live="polite">'+answered+'/8 câu đã làm · '+P.score(p,qs)+'/8 câu đúng</div>'+qs.map(questionMarkup).join('')+(answered===8?button('Làm lại lượt luyện tập','retry','','cu-quiet'):'');
  host.querySelectorAll('form[data-question]').forEach(form=>form.onsubmit=e=>{e.preventDefault();submitAnswer(form.dataset.question,form.querySelector('input').value);});
 }
 function submitAnswer(id,value){

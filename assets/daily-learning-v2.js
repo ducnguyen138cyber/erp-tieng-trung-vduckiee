@@ -47,7 +47,14 @@
     if (state.updatedAt > remote.updatedAt && root.VDuckieCloud && root.VDuckieCloud.saveDailyLearning) root.VDuckieCloud.saveDailyLearning(state);
   }
   function updateCurriculum(change) {
-    change(state.msutong); state.msutong.updatedAt = Date.now(); save();
+    var before = {};
+    Object.keys(state.msutong.lessons || {}).forEach(function (id) { before[id] = JSON.stringify(state.msutong.lessons[id]); });
+    change(state.msutong);
+    var now = Date.now();
+    Object.keys(state.msutong.lessons || {}).forEach(function (id) {
+      if (before[id] !== JSON.stringify(state.msutong.lessons[id])) state.msutong.lessons[id].updatedAt = now;
+    });
+    state.msutong.updatedAt = now; save();
   }
   function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function dateKey(date) { var d = date || new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
