@@ -13,7 +13,7 @@
   var navBound = false;
 
   function emptyState() {
-    return { version: 2, assignments: {}, words: {}, msutong: { currentBook: "beginner-1", currentLesson: "b1-u1", completed: {} }, updatedAt: 0 };
+    return { version: 2, assignments: {}, words: {}, msutong: { currentBook: "beginner-1", currentLesson: "b1-u1", completed: {}, lessons: {}, review: {} }, updatedAt: 0 };
   }
   function normalize(value) {
     var base = emptyState();
@@ -22,6 +22,8 @@
     base.words = value.words && typeof value.words === "object" ? value.words : {};
     base.msutong = Object.assign(base.msutong, value.msutong || {});
     base.msutong.completed = base.msutong.completed && typeof base.msutong.completed === "object" ? base.msutong.completed : {};
+    base.msutong.lessons = base.msutong.lessons && typeof base.msutong.lessons === "object" ? base.msutong.lessons : {};
+    base.msutong.review = base.msutong.review && typeof base.msutong.review === "object" ? base.msutong.review : {};
     base.updatedAt = Number(value.updatedAt) || 0;
     return base;
   }
@@ -36,8 +38,23 @@
   }
   function mergeRemote(remote) {
     remote = normalize(remote);
-    if (remote.updatedAt > state.updatedAt) { state = remote; try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {} renderToday(); updateDock(); }
-    else if (state.updatedAt > remote.updatedAt && root.VDuckieCloud && root.VDuckieCloud.saveDailyLearning) root.VDuckieCloud.saveDailyLearning(state);
+    var merged = root.VDuckieCurriculumProgress ? root.VDuckieCurriculumProgress.merge(Object.assign({ updatedAt: state.updatedAt }, state.msutong), Object.assign({ updatedAt: remote.updatedAt }, remote.msutong)) : null;
+    if (remote.updatedAt > state.updatedAt) state = remote;
+    if (merged) state.msutong = merged;
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {}
+    renderToday(); updateDock();
+    if (merged && root.VDuckieCurriculumProgress.stable(merged) !== root.VDuckieCurriculumProgress.stable(remote.msutong)) state.updatedAt = Date.now();
+    if (state.updatedAt > remote.updatedAt && root.VDuckieCloud && root.VDuckieCloud.saveDailyLearning) root.VDuckieCloud.saveDailyLearning(state);
+  }
+  function updateCurriculum(change) {
+    var before = {};
+    Object.keys(state.msutong.lessons || {}).forEach(function (id) { before[id] = JSON.stringify(state.msutong.lessons[id]); });
+    change(state.msutong);
+    var now = Date.now();
+    Object.keys(state.msutong.lessons || {}).forEach(function (id) {
+      if (before[id] !== JSON.stringify(state.msutong.lessons[id])) state.msutong.lessons[id].updatedAt = now;
+    });
+    state.msutong.updatedAt = now; save();
   }
   function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function dateKey(date) { var d = date || new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
@@ -70,7 +87,7 @@
   function completedToday() {
     return todayTerms().filter(function (term) { var item = meta(wordId(term)); return item.lastReviewed && dateKey(new Date(item.lastReviewed)) === dateKey() && item.correct >= 3; }).length;
   }
-  function lessons() { return root.VDuckieMSUTONG && root.VDuckieMSUTONG.lessons || []; }
+  function lessons() { return root.VDuckieCurriculumContent && root.VDuckieCurriculumContent.lessons || root.VDuckieMSUTONG && root.VDuckieMSUTONG.lessons || []; }
   function currentLesson() { var list = lessons(); return list.find(function (lesson) { return lesson.id === state.msutong.currentLesson; }) || list[0]; }
   function totalMastered() { return Object.keys(state.words).filter(function (id) { return Number(state.words[id].stage || 0) >= 4; }).length; }
   function speak(value) {
@@ -95,10 +112,10 @@
     if (!isAppLayout()) return;
     var lesson = currentLesson(), due = dueTerms().length, done = completedToday(), lessonDone = Object.keys(state.msutong.completed).length;
     hub.innerHTML = '<section class="daily-today app-screen"><header class="daily-heading"><div><span class="daily-task-kicker">HÔM NAY</span><h1>Mở, học, hoàn thành.</h1><p>Chỉ ba việc cần tập trung hôm nay.</p></div><span class="daily-date">' + new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit" }) + '</span></header><div class="daily-grid">' +
-      task("primary", "MSUTONG · SƠ CẤP 1", lesson ? lesson.title : "Bài đầu tiên", lesson ? lesson.goal : "Bắt đầu lộ trình", lessonDone + "/10 bài", lessonDone * 10, "Tiếp tục", "msutong") +
+      task("primary", "GIÁO TRÌNH · " + (lesson && lesson.book === "beginner-2" ? "SƠ CẤP 2" : "SƠ CẤP 1"), lesson ? lesson.title : "Bài đầu tiên", lesson ? lesson.goal : "Bắt đầu lộ trình", lessonDone + "/" + lessons().length + " bài", lessons().length ? lessonDone / lessons().length * 100 : 0, "Tiếp tục", "msutong") +
       task("", "ERP · 5 TỪ MỚI", done + " / 5 hôm nay", "Dạy trước, luyện chữ, ghép cụm rồi mới kiểm tra.", done + "/5 từ", done * 20, "Học ngay", "daily") +
       task("", "ÔN TẬP", due + " từ đến hạn", due ? "VDuckie ưu tiên đúng loại lỗi bạn từng mắc." : "Hiện chưa có từ nào đến hạn.", due ? due + " từ" : "Đã xong", due ? 18 : 100, due ? "Ôn ngay" : "Xem", "review") +
-      '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ ERP đã thuộc</span><span class="daily-pill">' + lessonDone + '/10 bài MSUTONG</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
+      '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ ERP đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
     bindNav(hub);
   }
   function task(classes, kicker, title, copy, progress, width, action, kind) {
@@ -118,10 +135,12 @@
   function showPanel(kind) {
     hideLegacy();
     document.body.setAttribute("data-current-area", kind);
+    if (kind === "msutong" && root.VDuckieCurriculum) { root.VDuckieCurriculum.open(); return; }
+    if (kind === "review" && root.VDuckieCurriculum && root.VDuckieCurriculum.hasDue()) { root.VDuckieCurriculum.openReview(); return; }
     if (kind === "msutong") renderRoadmap();
     else if (kind === "profile") renderProfile();
     else if (kind === "dictionary") renderDictionary();
-    else startDaily(kind === "review");
+    else startDaily(kind === "review" || kind === "review-erp");
   }
   function closePanel() {
     active = null; writer = null;
@@ -399,7 +418,7 @@
   }
 
   function renderProfile() {
-    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><div><strong>' + totalMastered() + ' từ ERP đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/10 bài MSUTONG Sơ cấp 1 hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Roast Mode vẫn hoạt động</span><span class="daily-pill">Supabase sync khi đăng nhập</span><span class="daily-pill">PWA dùng chung tiến độ</span></div></div>';
+    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><div><strong>' + totalMastered() + ' từ ERP đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Roast Mode vẫn hoạt động</span><span class="daily-pill">Supabase sync khi đăng nhập</span><span class="daily-pill">PWA dùng chung tiến độ</span></div></div>';
     panel().querySelector("[data-session-exit]").onclick = closePanel;
   }
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
@@ -439,6 +458,6 @@
     document.addEventListener("vduckie:daily-learning-synced", function (event) { mergeRemote(event.detail); });
     if (root.VDuckieCloud && root.VDuckieCloud.loadDailyLearning) root.VDuckieCloud.loadDailyLearning().then(mergeRemote);
   }
-  root.VDuckieDailyLearning = Object.freeze({ getState: function () { return normalize(state); }, mergeRemote: mergeRemote, todayTerms: todayTerms, dueTerms: dueTerms, show: showPanel, msutongLessons: lessons });
+  root.VDuckieDailyLearning = Object.freeze({ getState: function () { return JSON.parse(JSON.stringify(normalize(state))); }, updateCurriculum: updateCurriculum, mergeRemote: mergeRemote, todayTerms: todayTerms, dueTerms: dueTerms, show: showPanel, msutongLessons: lessons });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, { once: true }); else init();
 })(window, document);
