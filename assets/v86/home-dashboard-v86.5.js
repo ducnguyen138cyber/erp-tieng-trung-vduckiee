@@ -131,6 +131,16 @@ function applyHomeMode(){
   html.classList.toggle("v865-home-mode",active);
   var rail=document.getElementById("studyRail");if(rail)rail.setAttribute("aria-hidden",active?"true":"false");
 }
+function updateSidebarCard(sidebar,selector,markup){
+  var current=sidebar.querySelector(selector);
+  // EXP owns the live weekly card after mounting. Keep its controls, focus and
+  // async state when a scheduled home refresh occurs between pointer events.
+  if(current&&current.id==="expWeeklyMissions")return;
+  var wrap=document.createElement("div");wrap.innerHTML=markup;
+  var next=wrap.firstElementChild;
+  if(current&&current.outerHTML===next.outerHTML)return;
+  if(current)current.replaceWith(next);else sidebar.appendChild(next);
+}
 function render(){
   if(rendering)return false;
   rendering=true;
@@ -153,7 +163,9 @@ function render(){
       if(recommended.nextSibling)main.insertBefore(roadNode,recommended.nextSibling);else main.appendChild(roadNode);
     }
     moveAdvancedSections(main);
-    sidebar.innerHTML=streakMarkup(streak)+weeklyMarkup(weeklyData(streak))+continueMarkup(continueData());
+    updateSidebarCard(sidebar,".v865-streak-card",streakMarkup(streak));
+    updateSidebarCard(sidebar,".v865-weekly-card",weeklyMarkup(weeklyData(streak)));
+    updateSidebarCard(sidebar,".v865-continue-card",continueMarkup(continueData()));
     shell.setAttribute("data-layout-version",VERSION);
     return true;
   }finally{rendering=false}
