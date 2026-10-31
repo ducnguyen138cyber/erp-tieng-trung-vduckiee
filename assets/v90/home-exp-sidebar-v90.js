@@ -126,7 +126,7 @@
       var target = Number(mission.target_value || 1);
       var percent = Math.min(100, Math.round(current / target * 100));
       var reward = mission.claimed ? "✓ Đã nhận +" + mission.reward_exp + " EXP" : "⚡ +" + mission.reward_exp + " EXP";
-      return '<div class="v90-mission' + (mission.completed ? " is-complete" : "") + (mission.claimed ? " is-claimed" : "") + '"><span class="v90-mission-icon">' + missionIcon(mission.mission_code) + '</span><div class="v90-mission-body"><div class="v90-mission-title"><strong>' + core.escapeHtml(mission.title) + '</strong><span class="v90-mission-reward">' + core.escapeHtml(reward) + '</span></div><div class="v90-mission-progress-line"><div class="v90-mission-track"><i style="width:' + percent + '%"></i></div><b>' + current + '/' + target + '</b></div></div></div>';
+      return '<div class="v90-mission' + (mission.completed ? " is-complete" : "") + (mission.claimed ? " is-claimed" : "") + '" role="button" tabindex="0" data-exp-mission="' + core.escapeHtml(mission.mission_code) + '" title="Mở hoạt động để hoàn thành nhiệm vụ"><span class="v90-mission-icon">' + missionIcon(mission.mission_code) + '</span><div class="v90-mission-body"><div class="v90-mission-title"><strong>' + core.escapeHtml(mission.title) + '</strong><span class="v90-mission-reward">' + core.escapeHtml(reward) + '</span></div><div class="v90-mission-progress-line"><div class="v90-mission-track"><i style="width:' + percent + '%"></i></div><b>' + current + '/' + target + '</b></div></div></div>';
     }).join("");
     host.innerHTML = '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-mission-list">' + html + '</div><p class="v90-weekly-note">' + (session && session.user ? "Hoàn thành nhiệm vụ để nhận EXP và tăng Level." : "Đăng nhập để lưu tiến độ và nhận EXP nhiệm vụ.") + '</p>';
   }
@@ -204,12 +204,28 @@
       return currentMissions;
     });
   }
+  function openMission(code) {
+    var selector = code === "review_10_words" ? '[data-daily-nav="review"]' :
+      code === "complete_quiz" ? '[data-view="quiz"]' : '[data-daily-nav="msutong"]';
+    var target = document.querySelector(selector);
+    if (target) { target.click(); return; }
+    if (root.ERPAreaNavigation && typeof root.ERPAreaNavigation.select === "function")
+      root.ERPAreaNavigation.select(code === "complete_quiz" ? "erp" : "hsk");
+  }
   function bind() {
     document.addEventListener("click", function (event) {
+      var mission = event.target.closest && event.target.closest("[data-exp-mission]");
+      if (mission) { openMission(mission.getAttribute("data-exp-mission")); return; }
       if (event.target.closest && event.target.closest("[data-exp-retry-mini]")) { refreshMini(); return; }
       if (event.target.closest && event.target.closest("[data-exp-open-all]")) {
         if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard("week");
       }
+    });
+    document.addEventListener("keydown", function(event) {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      var mission = event.target.closest && event.target.closest("[data-exp-mission]");
+      if (!mission) return;
+      event.preventDefault(); openMission(mission.getAttribute("data-exp-mission"));
     });
     document.addEventListener("vduckie:my-exp-loaded", function (event) {
       currentTotal = Number(event.detail && event.detail.totalEXP || 0);
