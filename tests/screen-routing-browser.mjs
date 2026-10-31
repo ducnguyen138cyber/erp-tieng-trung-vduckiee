@@ -1,7 +1,7 @@
 // Real Chromium navigation regression; no production Supabase credentials.
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
@@ -17,6 +17,7 @@ const server = createServer(async (req,res) => {
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base = 'http://127.0.0.1:'+server.address().port+'/';
 const browser = await chromium.launch({headless:true});
+await mkdir(path.join(root,'artifacts','sidebar-routing'),{recursive:true});
 const failures = [];
 try {
   for (const width of [1440,390]) {
@@ -39,10 +40,13 @@ try {
     }
     async function click(selector) { await page.locator(selector).evaluate(node=>node.click()); }
     await verify('home','#homeHub',['#leaderboard','#dailyLearningPanel']);
+    await page.screenshot({path:path.join(root,'artifacts','sidebar-routing',width+'-home.png'),fullPage:true});
     await click('#studySidebar [data-daily-nav="msutong"]');
     await verify('msutong','#curriculumWorkspace',['#homeHub','#leaderboard']);
+    await page.screenshot({path:path.join(root,'artifacts','sidebar-routing',width+'-msutong.png'),fullPage:true});
     await click('#studySidebar [data-exp-nav="ranking"]');
     await verify('ranking','#leaderboard',['#homeHub','#curriculumWorkspace','#hsk','#lessons']);
+    await page.screenshot({path:path.join(root,'artifacts','sidebar-routing',width+'-ranking.png'),fullPage:true});
     await click('#studySidebar [data-home]');
     await verify('home','#homeHub',['#leaderboard','#dailyLearningPanel']);
     await page.goBack();
