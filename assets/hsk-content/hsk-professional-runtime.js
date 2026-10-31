@@ -373,7 +373,7 @@
   function renderLesson(data, lesson) {
     var index = lessonIndex(data, lesson.id);
     var unit = unitForLesson(data, lesson);
-    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div><span class="hsk-pro-readonly">🔒 READ-ONLY ' + esc(data.manifest.phase) + '</span></div>' +
+    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div></div>' +
       '<section class="hsk-pro-objectives"><b>Sau bài này bạn làm được gì?</b>' + list(lesson.objectives) + '</section>';
     array(lesson.sections).forEach(function (section) {
       if (section.type === 'vocabulary') body += renderVocabulary(data, section);
@@ -397,7 +397,7 @@
     var exercises = refs.map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
     var sections = assessment.sections || {};
     var weights = assessment.skillWeights || {};
-    return '<div class="hsk-pro-lesson-head"><div><span class="step">' + esc(assessment.assessmentType) + '</span><h3><span lang="zh-CN">' + esc(assessment.titleZh) + '</span><small>' + esc(assessment.titleVi) + '</small></h3></div><span class="hsk-pro-readonly">🔒 READ-ONLY</span></div>' +
+    return '<div class="hsk-pro-lesson-head"><div><span class="step">' + esc(assessment.assessmentType) + '</span><h3><span lang="zh-CN">' + esc(assessment.titleZh) + '</span><small>' + esc(assessment.titleVi) + '</small></h3></div></div>' +
       '<section class="hsk-pro-objectives"><b>Cấu trúc đánh giá</b><div class="hsk-pro-metrics">' + Object.keys(sections).map(function (key) { return '<span><strong>' + esc(sections[key]) + '</strong>' + esc(key) + '</span>'; }).join('') + '</div><p>Điểm đạt: <b>' + esc(assessment.rubric && assessment.rubric.pass) + '%</b>. ' + esc(assessment.rubric && assessment.rubric.remediation) + '</p><p>Trọng số: ' + Object.keys(weights).map(function (key) { return esc(key) + ' ' + esc(weights[key]) + '%'; }).join(' · ') + '</p></section>' +
       '<section class="hsk-pro-section hsk-pro-practice"><h4>Làm assessment</h4><p class="hsk-pro-help">Không lưu điểm lên tài khoản. Các bài nói/viết mở dùng rubric để tự đối chiếu.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, true); }).join('') + '</div></section>';
   }
@@ -417,7 +417,7 @@
 
   function renderSidebar(data) {
     var progress = byId('hskProgress');
-    if (progress) progress.innerHTML = '<div class="hsk-pro-sidebar-status"><strong>HSK ' + esc(data.manifest.level) + ' Professional</strong><span>' + esc(data.units.length) + ' unit · ' + esc(data.lessons.length) + ' lesson · ' + esc(data.exercises.length) + ' bài tập</span><small>Read-only · chưa ghi progress</small></div>';
+    if (progress) progress.innerHTML = '';
     var node = byId('hskLessonList');
     if (!node) return;
     var html = '';
@@ -445,18 +445,9 @@
   }
 
   function updateIntro(data) {
+    // Public learner UI should not show internal phase, audit or migration notices.
     var intro = root.document && root.document.querySelector ? root.document.querySelector('.hsk-intro') : null;
-    if (intro) {
-      var strong = intro.querySelector('strong');
-      var paragraph = intro.querySelector('p');
-      var badge = intro.querySelector('.hsk-standard');
-      var title = 'HSK ' + data.manifest.level + ' Professional · ' + data.manifest.phase + ' learner-facing';
-      var summary = data.units.length + ' unit · ' + data.lessons.length + ' lesson · ' + data.grammar.length + ' điểm ngữ pháp · ' + data.characters.length + ' chữ Hán · ' + data.exercises.length + ' bài tập · ' + data.assessments.length + ' assessment. Read-only: không ghi progress, không migration.';
-      var status = data.manifest.phase + ' · READ-ONLY TEST';
-      if (strong && strong.textContent !== title) strong.textContent = title;
-      if (paragraph && paragraph.textContent !== summary) paragraph.textContent = summary;
-      if (badge && badge.textContent !== status) badge.textContent = status;
-    }
+    if (intro) intro.hidden = true;
     var home = root.document && root.document.querySelector ? root.document.querySelector('.home-resource-tile.resource-hsk') : null;
     if (home) {
       var count = home.querySelector('strong');
