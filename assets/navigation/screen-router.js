@@ -74,6 +74,7 @@
       // Recover an initially empty or reset curriculum panel on a repeat click.
       var panel = document.getElementById("dailyLearningPanel");
       if (screen !== "msutong" || (panel && !panel.classList.contains("hidden") && panel.querySelector(".graded-hsk-page"))) return;
+      historyMode = "replace"; // A repair must not add a second history entry.
     }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
