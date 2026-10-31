@@ -70,12 +70,19 @@
   }
   function show(screen, historyMode) {
     if (!valid(screen)) screen = "home";
-    if (screen === current && historyMode === "push") return;
+    if (screen === current && historyMode === "push") {
+      // Recover an initially empty or reset curriculum panel on a repeat click.
+      var panel = document.getElementById("dailyLearningPanel");
+      if (screen !== "msutong" || (panel && !panel.classList.contains("hidden") && panel.querySelector(".graded-hsk-page"))) return;
+      historyMode = "replace"; // A repair must not add a second history entry.
+    }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
     if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
     } else if (screen === "msutong" && root.VDuckieGradedHSK) {
+      // Legacy Daily owns the panel mount and layout visibility. Prepare it first.
+      if (root.VDuckieDailyLearning) root.VDuckieDailyLearning.show("msutong");
       root.VDuckieGradedHSK.open();
     } else if (screen === "home") {
       invoke("#studySidebar [data-home]");
@@ -124,7 +131,9 @@
   root.addEventListener("popstate", function () { show(fromLocation(), "none"); });
   function init() {
     // Route after the legacy modules have mounted their dynamically inserted screens.
-    show(fromLocation(), "replace");
+    // Other DOMContentLoaded initializers can reset the legacy panels.
+    // Run the route after those synchronous initialization listeners complete.
+    root.setTimeout(function () { show(fromLocation(), "replace"); }, 0);
   }
   root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen) { show(screen, "push"); }, current: function () { return current; } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true}); else init();

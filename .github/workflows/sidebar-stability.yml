@@ -19,7 +19,7 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.58.2
       - run: npx playwright install --with-deps chromium
       - name: Cache, auth, EXP, daily learning and layout unit regressions
-        run: node --test tests/graded-hsk-entry.test.js tests/hsk-focus-learning.test.js tests/hsk-clean-learner-ui.test.js tests/remove-roast-mode.test.js tests/curriculum.test.js tests/sidebar-service-worker.test.js tests/pwa.test.js tests/v90-exp-level-weekly.test.js tests/supabase-sync.test.js tests/daily-learning.test.js tests/v91.10-three-column-layout.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js
+        run: node --test tests/graded-hsk-direct-load.test.js tests/graded-hsk-entry.test.js tests/hsk-focus-learning.test.js tests/hsk-clean-learner-ui.test.js tests/remove-roast-mode.test.js tests/curriculum.test.js tests/sidebar-service-worker.test.js tests/pwa.test.js tests/v90-exp-level-weekly.test.js tests/supabase-sync.test.js tests/daily-learning.test.js tests/v91.10-three-column-layout.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js
       - name: Guest and mocked authenticated real Chromium clicks
         run: node tests/sidebar-browser.mjs
       - name: Exclusive screen navigation and history in Chromium
