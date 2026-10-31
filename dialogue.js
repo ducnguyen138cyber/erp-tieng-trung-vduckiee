@@ -225,7 +225,7 @@
   var scenarioIndex = 0;
   var stepIndex = 0;
   var exerciseMode = "conversation";
-  var roastVoice = true;
+  var roastVoice = false;
   var vietnameseVoice = null;
   var activeUtterance = null;
   var reactionTimer = null;
@@ -392,33 +392,11 @@
 
   function recognitionComment(score) {
     var percent = Math.round(score * 100);
-    var comments;
-    if (score >= 0.9) {
-      comments = [
-        "Máy nghe gần trọn câu. Ổn áp, lần này chưa biến công lệnh thành mật mã.",
-        "Phần chữ nhận được khớp rất cao. Giữ nhịp này rồi tự nghe lại bản ghi.",
-        "Qua đẹp về nội dung máy nghe được. Đừng vì thế mà ảo tưởng máy đã chấm đúng thanh điệu nhé."
-      ];
-    } else if (score >= 0.72) {
-      comments = [
-        "Máy nghe được phần lớn câu. Một vài chữ vẫn đang rơi khỏi chuyến xe.",
-        "Tạm ổn về nội dung nhận dạng. Nhìn phần “Máy nghe thành” để tìm chữ bị lệch.",
-        "Câu chưa nát, nhưng máy vẫn bỏ sót vài chỗ. Nghe mẫu rồi đọc lại từng cụm."
-      ];
-    } else if (score >= 0.5) {
-      comments = [
-        "Máy chỉ bắt được khoảng nửa câu. Đọc từng cụm ngắn, đừng nuốt luôn cả công lệnh.",
-        "Câu mẫu một đằng, phần máy nghe được đang chạy một nẻo. So từng chữ rồi thử lại.",
-        "Có vài chữ khớp nhưng cả câu còn lủng củng như báo cáo ghép tay."
-      ];
-    } else {
-      comments = [
-        "Máy nhận được quá ít chữ. Nghe mẫu, bám pinyin và đọc chậm lại từ đầu.",
-        "Phần nhận dạng đang nát như ERP mất kết nối giữa ca. Chia câu thành cụm ngắn nhé.",
-        "Máy gần như không ghép được câu. Kiểm tra microphone rồi đọc chậm, rõ từng từ."
-      ];
-    }
-    return "Độ khớp chữ máy nghe: " + percent + "%. " + comments[Math.floor(Math.random() * comments.length)];
+    var guidance = score >= 0.9 ? "Phần chữ nhận dạng khớp rất tốt với câu mẫu." :
+      score >= 0.72 ? "Phần lớn nội dung đã khớp. Hãy kiểm tra những chữ còn khác." :
+      score >= 0.5 ? "Một phần nội dung đã khớp. Hãy nghe mẫu và đọc lại từng cụm." :
+      "Độ khớp còn thấp. Hãy kiểm tra micro, nghe mẫu và thử đọc chậm hơn.";
+    return "Độ khớp chữ máy nghe: " + percent + "%. " + guidance;
   }
 
   function vietnameseVoiceScore(voice) {
@@ -555,8 +533,8 @@
         reactionTimer = null;
         var feedback = byId("dialogueFeedback");
         feedback.className = "dialogue-feedback bad";
-        feedback.textContent = "Hết 8 giây. Phản xạ chậm như hệ thống treo cuối tháng — câu chưa xong thì nghiệp vụ đã tắc. Chấm câu hiện tại hoặc làm lại.";
-        speakVietnamese(feedback.textContent);
+        feedback.textContent = "Hết 8 giây. Bạn có thể chấm câu hiện tại hoặc làm lại để luyện phản xạ.";
+
       }
     }, 1000);
   }
@@ -573,10 +551,10 @@
     var score = pronunciationScore(transcript, currentStep().target);
     var feedback = byId("pronunciationFeedback");
     feedback.className = score >= 0.72 ? "dialogue-feedback good" : score >= 0.5 ? "dialogue-feedback medium" : "dialogue-feedback bad";
-    var roast = recognitionComment(score);
-    feedback.textContent = roast + " Kết quả này chỉ so chữ máy nghe với câu mẫu, không đánh giá thanh điệu hay từng âm. Hãy nghe lại bản ghi để tự đối chiếu.";
-    if (speakNow !== false) speakVietnamese(roast);
-    return roast;
+    var feedbackMessage = recognitionComment(score);
+    feedback.textContent = feedbackMessage + " Kết quả này chỉ so chữ máy nghe với câu mẫu, không đánh giá thanh điệu hay từng âm. Hãy nghe lại bản ghi để tự đối chiếu.";
+
+    return feedbackMessage;
   }
 
   function resetAssessmentButton() {
@@ -803,11 +781,6 @@
     byId("dialogueMode").onchange = function () {
       exerciseMode = this.value;
       renderStep();
-    };
-    byId("roastVoice").onclick = function () {
-      roastVoice = !roastVoice;
-      this.textContent = roastVoice ? "🔊 Chửi giọng Việt: BẬT" : "🔇 Chửi giọng Việt: TẮT";
-      if (!roastVoice && root.speechSynthesis) root.speechSynthesis.cancel();
     };
     byId("listenPrompt").onclick = function () { speakChinese(exerciseMode === "shadow" ? currentStep().target : currentStep().prompt, 0.72); };
     byId("listenTarget").onclick = function () { speakChinese(currentStep().target, 0.68); };
