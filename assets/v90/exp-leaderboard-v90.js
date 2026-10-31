@@ -45,6 +45,7 @@
   }
   function bind() {
     document.addEventListener("click", function (event) {
+      if (event.target.closest && event.target.closest("[data-exp-retry-board]")) { root.VDuckieEXPBoard.refresh(root.VDuckieEXPBoard.period()); return; }
       var nav = event.target.closest ? event.target.closest("[data-exp-nav]") : null;
       if (nav) { event.preventDefault(); navigate(nav.getAttribute("data-exp-nav")); return; }
       var period = event.target.closest ? event.target.closest("[data-exp-period]") : null;
