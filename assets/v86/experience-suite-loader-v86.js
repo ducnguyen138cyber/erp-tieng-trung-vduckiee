@@ -3,7 +3,7 @@
 if(root.__VDUCKIE_EXPERIENCE_V86_LOADING__)return;
 root.__VDUCKIE_EXPERIENCE_V86_LOADING__=true;
 var files=[
-  "./assets/v86/home-dashboard-v86.5.js?v=87.5",
+  "./assets/v86/home-dashboard-v86.5.js?v=87.6",
   "./assets/v85/personal-dashboard-v85.js?v=87.5",
   "./assets/v86/premium-learning-v86.js?v=87.5",
   "./assets/v86/adaptive-sync-bridge-v86.js?v=86.2",

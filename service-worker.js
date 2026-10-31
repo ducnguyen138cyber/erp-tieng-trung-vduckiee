@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v12";
+const CACHE_VERSION = "vduckie-pwa-v13";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -90,12 +90,32 @@ self.addEventListener("fetch", (event) => {
   }
 
   if (!isStaticAsset(url)) return;
+  // Executable assets must be current on this load, not on the next reload.
+  // Keep query versions distinct; otherwise a pre-fix script can win forever.
+  if (/\.(?:html|css|js|json)$/i.test(url.pathname)) {
+    event.respondWith((async () => {
+      try {
+        const response = await fetch(request);
+        if (response.ok && response.type === "basic") {
+          const cache = await caches.open(STATIC_CACHE);
+          await cache.put(request, response.clone());
+        }
+        return response;
+      } catch (error) {
+        const cached = await caches.match(request);
+        if (cached) return cached;
+        throw error;
+      }
+    })());
+    return;
+  }
   event.respondWith(
-    caches.match(request, { ignoreSearch: true }).then((cached) => {
+    caches.match(request).then((cached) => {
       const refreshed = fetch(request).then((response) => {
         if (response.ok && response.type === "basic") caches.open(STATIC_CACHE).then((cache) => cache.put(request, response.clone()));
         return response;
       }).catch(() => cached);
+      event.waitUntil(refreshed);
       return cached || refreshed;
     })
   );

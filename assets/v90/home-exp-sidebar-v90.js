@@ -8,6 +8,17 @@
   var currentTotal = 0;
   var accountInitialized = false;
   var miniRequest = 0;
+  var miniCard = null;
+  var miniState = null;
+  var accountSignature = "";
+  var accountHost = null;
+  var missionError = null;
+
+  function setMarkup(host, html) {
+    if (host.__v90Markup === html) return;
+    host.innerHTML = html;
+    host.__v90Markup = html;
+  }
 
   function byId(id) { return document.getElementById(id); }
   function avatarMarkup(name, url, className) {
@@ -66,14 +77,19 @@
       if (!weekly) weekly = weeklyShell(sidebar.querySelector(".v865-weekly-card"));
       else if (weekly.parentNode !== sidebar) weekly = weeklyShell(sidebar.querySelector(".v865-weekly-card"));
       var mini = byId("expMiniLeaderboard");
-      if (!mini) mini = miniShell();
+      var mountingMini = !mini;
+      // The legacy home renderer replaces the sidebar. Reattach the resolved
+      // mini board instead of replacing its result/error with a loading shell.
+      if (!mini) mini = miniCard || miniShell();
+      miniCard = mini;
       var continueCard = sidebar.querySelector(".v865-continue-card");
-      if (streak) sidebar.appendChild(streak);
-      sidebar.appendChild(weekly);
-      sidebar.appendChild(mini);
-      if (continueCard) sidebar.appendChild(continueCard);
+      var desired = [streak, weekly, mini, continueCard].filter(Boolean);
+      desired.forEach(function (node, index) {
+        if (sidebar.children[index] !== node) sidebar.insertBefore(node, sidebar.children[index] || null);
+      });
+      if (mountingMini && miniState) renderMini(miniState.rows, miniState.mine, miniState.error);
       renderAccount(currentTotal);
-      renderMissions(currentMissions);
+      renderMissions(currentMissions, missionError);
     } finally {
       applying = false;
       if (observer && document.body) observer.observe(document.body, { childList: true, subtree: true });
@@ -91,11 +107,16 @@
     if (!session || !session.user) {
       host.hidden = true;
       accountInitialized = false;
+      accountSignature = "";
       return;
     }
     host.hidden = false;
     var meta = core.userMeta(session.user);
     var level = core.calculateUserLevel(total);
+    var signature = JSON.stringify([meta.name, meta.avatar, level.totalEXP]);
+    if (host === accountHost && signature === accountSignature) return;
+    accountHost = host;
+    accountSignature = signature;
     host.innerHTML = avatarMarkup(meta.name, meta.avatar, "v90-header-avatar") +
       '<div class="v90-header-account-copy"><strong title="' + core.escapeHtml(meta.name) + '">' + core.escapeHtml(meta.name) + '</strong>' +
       '<span>Level ' + level.level + ' · ' + core.formatEXP(level.totalEXP) + '</span>' +
@@ -111,7 +132,7 @@
     var host = byId("expWeeklyMissions");
     if (!host) return;
     if (error) {
-      host.innerHTML = '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-side-state is-error">Không tải được nhiệm vụ tuần.<small>Cần chạy migration Supabase v90.</small></div>';
+      setMarkup(host, '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-side-state is-error">Không tải được nhiệm vụ tuần.<small>Cần chạy migration Supabase v90.</small></div>');
       return;
     }
     var session = core.session();
@@ -128,7 +149,7 @@
       var reward = mission.claimed ? "✓ Đã nhận +" + mission.reward_exp + " EXP" : "⚡ +" + mission.reward_exp + " EXP";
       return '<div class="v90-mission' + (mission.completed ? " is-complete" : "") + (mission.claimed ? " is-claimed" : "") + '" role="button" tabindex="0" data-exp-mission="' + core.escapeHtml(mission.mission_code) + '" title="Mở hoạt động để hoàn thành nhiệm vụ"><span class="v90-mission-icon">' + missionIcon(mission.mission_code) + '</span><div class="v90-mission-body"><div class="v90-mission-title"><strong>' + core.escapeHtml(mission.title) + '</strong><span class="v90-mission-reward">' + core.escapeHtml(reward) + '</span></div><div class="v90-mission-progress-line"><div class="v90-mission-track"><i style="width:' + percent + '%"></i></div><b>' + current + '/' + target + '</b></div></div></div>';
     }).join("");
-    host.innerHTML = '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-mission-list">' + html + '</div><p class="v90-weekly-note">' + (session && session.user ? "Hoàn thành nhiệm vụ để nhận EXP và tăng Level." : "Đăng nhập để lưu tiến độ và nhận EXP nhiệm vụ.") + '</p>';
+    setMarkup(host, '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-mission-list">' + html + '</div><p class="v90-weekly-note">' + (session && session.user ? "Hoàn thành nhiệm vụ để nhận EXP và tăng Level." : "Đăng nhập để lưu tiến độ và nhận EXP nhiệm vụ.") + '</p>');
   }
   function refreshAccount() {
     var session = core.session();
@@ -144,6 +165,8 @@
     });
   }
   function renderMini(rows, mine, error) {
+    // RPCs can finish before the asynchronous home renderer mounts the sidebar.
+    miniState = { rows: rows, mine: mine, error: error };
     var host = byId("expMiniList");
     if (!host) return;
     if (error) {
@@ -194,13 +217,14 @@
     var session = core.session();
     if (!session || !session.user) {
       currentMissions = [];
+      missionError = null;
       renderMissions([]);
       return Promise.resolve([]);
     }
     renderMissions(currentMissions);
     return root.VDuckieWeeklyMissions.refresh().then(function (rows) {
       currentMissions = rows || [];
-      renderMissions(currentMissions);
+      renderMissions(currentMissions, missionError);
       return currentMissions;
     });
   }
@@ -258,7 +282,8 @@
     });
     document.addEventListener("vduckie:weekly-missions-updated", function (event) {
       currentMissions = event.detail && event.detail.missions || [];
-      renderMissions(currentMissions, event.detail && event.detail.error);
+      missionError = event.detail && event.detail.error || null;
+      renderMissions(currentMissions, missionError);
     });
     document.addEventListener("vduckie:mini-leaderboard-refresh", refreshMini);
     document.addEventListener("vduckie:exp-updated", function () { refreshAccount(); refreshMini(); });
