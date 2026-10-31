@@ -1,0 +1,20 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
+const js=readFileSync('assets/hsk-content/hsk-professional-runtime.js','utf8');
+const css=readFileSync('assets/hsk-content/hsk-professional-runtime.css','utf8');
+test('new HSK learning experience is syntactically valid and focused',()=>{
+ new vm.Script(js);
+ assert.match(js,/data-focus-stage="words"/);
+ assert.match(js,/data-focus-stage="examples"/);
+ assert.match(js,/data-focus-stage="practice"/);
+ assert.match(js,/data-focus-stage="extra"/);
+ assert.match(js,/data-focus-reveal/);
+ assert.match(js,/data-focus-start-quiz/);
+ assert.match(js,/data-focus-quiz-next/);
+ assert.match(js,/function renderPractice/);
+ assert.match(js,/function renderGrammar/);
+ assert.match(js,/data-focus-panel="practice"/);
+ assert.match(css,/hsk-focus-tabs/);
+});
