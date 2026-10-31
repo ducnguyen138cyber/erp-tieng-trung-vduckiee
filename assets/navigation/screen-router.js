@@ -70,7 +70,11 @@
   }
   function show(screen, historyMode) {
     if (!valid(screen)) screen = "home";
-    if (screen === current && historyMode === "push") return;
+    if (screen === current && historyMode === "push") {
+      // Recover an initially empty or reset curriculum panel on a repeat click.
+      var panel = document.getElementById("dailyLearningPanel");
+      if (screen !== "msutong" || (panel && !panel.classList.contains("hidden") && panel.querySelector(".graded-hsk-page"))) return;
+    }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
     if (screen === "ranking") {
