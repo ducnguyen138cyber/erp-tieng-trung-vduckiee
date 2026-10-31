@@ -596,6 +596,80 @@
     root.document.addEventListener('click', function (event) {
       var target = event.target && event.target.closest ? event.target.closest('button') : null;
       if (!target) return;
+      // Lesson stage navigation is distinct from the level/sidebar navigation.
+      var stageButton = target.closest('[data-focus-stage]');
+      if (stageButton) {
+        var lessonHost = byId('hskLesson');
+        if (!lessonHost || !lessonHost.contains(stageButton)) return;
+        var selectedStage = stageButton.getAttribute('data-focus-stage');
+        lessonHost.querySelectorAll('[data-focus-panel]').forEach(function (panel) {
+          panel.classList.toggle('hidden', panel.getAttribute('data-focus-panel') !== selectedStage);
+        });
+        lessonHost.querySelectorAll('[data-focus-stage]').forEach(function (button) {
+          var selected = button === stageButton;
+          button.classList.toggle('active', selected);
+          button.setAttribute('aria-pressed', selected ? 'true' : 'false');
+        });
+        return;
+      }
+      var cardHost = target.closest('.hsk-focus-vocabulary');
+      if (cardHost) {
+        var cards = Array.prototype.slice.call(cardHost.querySelectorAll('[data-focus-word]'));
+        var current = cards.findIndex(function (card) { return !card.classList.contains('hidden'); });
+        if (target.hasAttribute('data-focus-reveal')) {
+          var meaning = target.closest('[data-focus-word]').querySelector('[data-focus-meaning]');
+          if (meaning) meaning.classList.remove('hidden');
+          target.classList.add('hidden');
+          return;
+        }
+        if (target.hasAttribute('data-focus-prev') || target.hasAttribute('data-focus-next')) {
+          var next = Math.max(0, Math.min(cards.length - 1, current + (target.hasAttribute('data-focus-next') ? 1 : -1)));
+          cards.forEach(function (card, i) { card.classList.toggle('hidden', i !== next); });
+          cardHost.querySelector('[data-focus-prev]').disabled = next === 0;
+          cardHost.querySelector('[data-focus-next]').disabled = next === cards.length - 1;
+          return;
+        }
+        var quiz = cardHost.querySelector('[data-focus-quiz]');
+        if (quiz && (target.hasAttribute('data-focus-start-quiz') || target.hasAttribute('data-focus-quiz-next'))) {
+          var cursor = target.hasAttribute('data-focus-start-quiz') ? 0 : Number(quiz.dataset.index || 0) + 1;
+          var words = cards.map(function (card) {
+            return {zh: card.querySelector('.hsk-focus-word-title strong').textContent,
+              vi: card.querySelector('[data-focus-meaning]').textContent};
+          });
+          quiz.classList.remove('hidden');
+          cardHost.querySelector('[data-focus-cards]').classList.add('hidden');
+          cardHost.querySelector('.hsk-focus-word-nav').classList.add('hidden');
+          cardHost.querySelector('[data-focus-start-quiz]').classList.add('hidden');
+          var nextButton = quiz.querySelector('[data-focus-quiz-next]');
+          nextButton.classList.add('hidden');
+          if (cursor >= words.length) {
+            quiz.querySelector('[data-focus-quiz-word]').textContent = 'Đã hoàn thành ' + words.length + ' câu';
+            quiz.querySelector('[data-focus-quiz-choices]').innerHTML = '';
+            quiz.querySelector('[data-focus-quiz-feedback]').textContent = 'Hãy xem lại các từ chưa nhớ.';
+            return;
+          }
+          quiz.dataset.index = String(cursor);
+          quiz.querySelector('[data-focus-quiz-word]').textContent = words[cursor].zh;
+          quiz.querySelector('[data-focus-quiz-feedback]').textContent = '';
+          var distractors = words.filter(function (word) { return word.zh !== words[cursor].zh && word.vi !== words[cursor].vi; }).slice(0,3);
+          var options = [words[cursor]].concat(distractors);
+          // Rotate the correct choice instead of always putting it first.
+          options.splice(0,1);
+          options.splice(cursor % (options.length + 1),0,words[cursor]);
+          quiz.querySelector('[data-focus-quiz-choices]').innerHTML = options.map(function (word) {
+            return '<button type="button" data-focus-choice="' + attr(word.zh) + '">' + esc(word.vi) + '</button>';
+          }).join('');
+          return;
+        }
+        if (quiz && target.hasAttribute('data-focus-choice')) {
+          var expected = quiz.querySelector('[data-focus-quiz-word]').textContent;
+          var correct = target.getAttribute('data-focus-choice') === expected;
+          quiz.querySelector('[data-focus-quiz-feedback]').textContent = correct ? '✓ Chính xác!' : 'Chưa đúng. Đáp án: ' + cards.find(function(card) { return card.querySelector('.hsk-focus-word-title strong').textContent === expected; }).querySelector('[data-focus-meaning]').textContent;
+          quiz.querySelectorAll('[data-focus-choice]').forEach(function (choice) { choice.disabled = true; });
+          quiz.querySelector('[data-focus-quiz-next]').classList.remove('hidden');
+          return;
+        }
+      }
       if (target.hasAttribute('data-pro-retry')) {
         delete state.courseCache[state.selectedLevel];
         state.data = null;
@@ -636,7 +710,7 @@
       if (target.hasAttribute('data-pro-prev') || target.hasAttribute('data-pro-next')) {
         if (!state.selectedLessonId) return;
         var index = lessonIndex(state.data, state.selectedLessonId) + (target.hasAttribute('data-pro-next') ? 1 : -1);
-        if (index >= 0 && index < state.data.lessons.length) selectLesson(state.data.lessons[index].id, true);
+        if (index >= 0 && index < state.data.lessons.length) selectLesson(state.data.lessons[index].id, false);
       }
     });
   }

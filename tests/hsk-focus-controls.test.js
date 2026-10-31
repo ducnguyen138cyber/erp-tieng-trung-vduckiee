@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
+const source=fs.readFileSync('assets/hsk-content/hsk-professional-runtime.js','utf8');const css=fs.readFileSync('assets/hsk-content/hsk-professional-runtime.css','utf8');
+test('HSK tab and flashcard controls have working handlers',()=>{new vm.Script(source);for(const action of ['data-focus-stage','data-focus-reveal','data-focus-prev','data-focus-next','data-focus-start-quiz','data-focus-choice','data-focus-quiz-next'])assert.match(source,new RegExp("target\\.hasAttribute\\('"+action+"'\\)|target\\.closest\\('\\["+action+"\\]'\\)"));});
+test('Next lesson does not trigger forced scroll and navigation sticks',()=>{assert.match(source,/selectLesson\(state\.data\.lessons\[index\]\.id, false\)/);assert.match(css,/#hsk \.hsk-pro-bottom-nav\{\s*position:sticky/);assert.match(css,/border-radius:14px!important/);});
