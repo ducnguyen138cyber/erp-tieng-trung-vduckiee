@@ -43,6 +43,12 @@ try{
    assert.match(await page.locator('.cu-result').innerText(),/8\/8 câu đúng/);const saved=await page.evaluate(()=>window.VDuckieDailyLearning.getState().msutong);assert.equal(saved.completed['b1-u1'].completedAt,1,'old completion overwritten');assert.equal(Object.keys(saved.lessons['b1-u1'].answers).length,8);
    if(width===1440){await page.waitForFunction(()=>window.__courseCalls.filter(c=>c.name==='award_exp').length>=2);const awards=await page.evaluate(()=>window.__courseCalls.filter(c=>c.name==='award_exp'));assert(awards.some(c=>c.args.p_source_id==='hsk:curriculum_b1-u1:quiz'));assert(awards.some(c=>c.args.p_source_id==='hsk:curriculum_b1-u1:lesson'));}
    await page.locator('[data-cu="catalogue"]').first().click();await page.locator('[data-cu="review"]').click();await page.getByRole('button',{name:'Xin chào',exact:true}).click();await page.locator('[data-cu="review-next"]').click();assert.equal(await page.evaluate(()=>window.VDuckieDailyLearning.getState().msutong.review['你好'].lastReviewedAt>0),true);assert.equal(await page.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-review-srs-v1')).words['你好'].lastReviewedAt>0),true);
+   if(width===1440){
+    const before=await page.evaluate(()=>window.__courseCalls.filter(c=>c.name==='award_exp').length);
+    await page.evaluate(()=>window.VDuckieDailyLearning.updateCurriculum(m=>{m.lessons['b1-u1'].rewardPending=true;m.lessons['b1-u1'].rewardStatus='pending';}));
+    await open();await page.waitForFunction(()=>window.VDuckieDailyLearning.getState().msutong.lessons['b1-u1'].rewardPending===false);
+    const retry=await page.evaluate(n=>window.__courseCalls.filter(c=>c.name==='award_exp').slice(n),before);assert.equal(retry.length,2);assert(retry.every(c=>/^hsk:curriculum_b1-u1:(lesson|quiz)$/.test(c.args.p_source_id)),'retry must use the same deduplication sources');
+   }
    results.push({width,fullLesson:true,persisted:true,reviewLinked:true,maxNavigationMs:Math.max(...durations)});assert(Math.max(...durations)<2000,'step transition is unexpectedly slow');
   }else results.push({width,catalogueAndToc:true,noOverflow:true});
   assert.deepEqual(errors,[]);await ctx.close();

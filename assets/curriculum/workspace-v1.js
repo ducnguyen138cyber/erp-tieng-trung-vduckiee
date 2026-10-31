@@ -139,8 +139,8 @@ function click(e){
 }
 function input(e){if(e.target.id==='cuSearch'){query=e.target.value;renderResults();}if(e.target.id==='cuWriting'){clearTimeout(writingTimer);writingTimer=setTimeout(saveWriting,300);}}
 function change(e){if(e.target.id==='cuBook'){book=e.target.value;query='';filter='all';renderCatalogue();}if(lesson&&['cuSpoken','cuCheckedWriting'].includes(e.target.id)){const k=e.target.id==='cuSpoken'?'spoken':'checkedWriting';update(m=>P.entry(m,lesson.id)[k]=e.target.checked);}}
-function open(){if(!prepare())return;book=snapshot().currentBook||'beginner-1';query='';filter='all';renderCatalogue();}
-function init(){root.VDuckieEXPCore?.onSession(s=>{if(s?.user)awardPending();});root.addEventListener('online',awardPending);root.addEventListener('pagehide',saveWriting);}
+function open(){if(!prepare())return;book=snapshot().currentBook||'beginner-1';query='';filter='all';renderCatalogue();awardPending();}
+function init(){root.VDuckieEXPCore?.onSession(s=>{if(s?.user)awardPending();});root.addEventListener('online',awardPending);document.addEventListener('vduckie:daily-learning-synced',awardPending);root.addEventListener('pagehide',saveWriting);}
 root.VDuckieCurriculum=Object.freeze({open,openReview,hasDue:()=>due().length>0});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
 })(window,document);

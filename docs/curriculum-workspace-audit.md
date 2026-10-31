@@ -28,3 +28,15 @@ Baseline: main a229f849f1f2123c0d66c0767b34eaf1bde713cb.
 
 See `tests/curriculum.test.js` for content integrity, scoring/completion gates and merge behavior.
 `tests/curriculum-browser.mjs` exercises the complete app at 1440, 1024, 390 and 320px, including search, filters, books, sections, reload/resume, scoring, completion, EXP request contract, review linkage and overflow. Supabase is mocked in CI; this does not prove live Google OAuth.
+
+
+Browser checks passed on the preview with real Chromium at 1440/1024/390/320px.
+The 1440px authenticated-fixture and 390px guest runs completed the full lesson,
+including 8/8 explained answers, reload/resume, legacy completion preservation,
+stale cloud draft rejection, and SRS review. Observed maximum navigation times
+were 114ms and 120ms in CI (not a device performance guarantee).
+The existing twelve guest/authenticated-fixture sidebar click scenarios also passed.
+71 targeted Node tests passed locally, including ERP vocabulary, HSK migration
+locks, account sync, cache and curriculum contracts. CI runs 49 of those tests.
+Live Google OAuth and a live authenticated curriculum award are not claimed by
+these fixtures. No schema, RLS or auth provider configuration is changed here.
