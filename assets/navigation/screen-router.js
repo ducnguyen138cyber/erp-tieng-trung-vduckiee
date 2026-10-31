@@ -70,6 +70,8 @@
   function show(screen, historyMode) {
     if (!valid(screen)) screen = "home";
     if (screen === current && historyMode === "push") return;
+    var priorURL = root.location.pathname + root.location.search + root.location.hash;
+    var priorState = root.history.state;
     if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
     } else if (screen === "home") {
@@ -92,6 +94,9 @@
     document.body.setAttribute("data-current-area", screen);
     activate(screen);
     current = screen;
+    // Undo legacy replaceState calls before adding the new history entry.
+    // Otherwise Back returns to a mutated version of the previous screen.
+    root.history.replaceState(priorState, "", priorURL);
     if (historyMode === "push") root.history.pushState({vduckieScreen:screen}, "", urlFor(screen));
     else if (historyMode === "replace") root.history.replaceState({vduckieScreen:screen}, "", urlFor(screen));
     document.body.classList.remove("sidebar-open");
