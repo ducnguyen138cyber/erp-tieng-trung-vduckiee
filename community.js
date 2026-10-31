@@ -46,7 +46,7 @@
   }
   function loadHomeCopyV79(){
     var script=document.createElement("script");
-    script.src="./assets/v79/home-copy-v79.js?v=79.0";
+    script.src="./assets/v79/home-copy-v79.js?v=header-title2";
     script.onerror=function(){console.error("Không nạp được nội dung trang chủ v79.");};
     document.head.appendChild(script);
   }
