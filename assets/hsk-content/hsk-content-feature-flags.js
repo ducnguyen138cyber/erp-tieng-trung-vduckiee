@@ -9,7 +9,7 @@
       if (!document.querySelector('link[data-hsk-professional-css]')) {
         var stylesheet = document.createElement('link');
         stylesheet.rel = 'stylesheet';
-        stylesheet.href = './assets/hsk-content/hsk-professional-runtime.css?v=focus2';
+        stylesheet.href = './assets/hsk-content/hsk-professional-runtime.css?v=focus3';
         stylesheet.setAttribute('data-hsk-professional-css', 'c7web1');
         document.head.appendChild(stylesheet);
       }
