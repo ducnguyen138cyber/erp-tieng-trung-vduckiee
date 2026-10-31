@@ -80,6 +80,10 @@
       invoke('#studySidebar [data-area="hsk"]');
     } else if (screen.indexOf("erp:") === 0) {
       invoke('#studySidebar [data-view="' + screen.slice(4) + '"]');
+      // Legacy area selector rejects a home -> ERP switch without ?area=erp.
+      // Set the destination area first, then reconcile its active ERP panel.
+      document.body.setAttribute("data-current-area", "erp");
+      if (root.ERPAreaNavigation) root.ERPAreaNavigation.select("erp");
     } else if (root.VDuckieDailyLearning) {
       root.VDuckieDailyLearning.show(screen);
     }
