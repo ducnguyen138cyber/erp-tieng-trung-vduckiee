@@ -20,7 +20,7 @@ function dateKey(date){return date.getFullYear()+"-"+String(date.getMonth()+1).p
 function dayLabel(date){return["CN","T2","T3","T4","T5","T6","T7"][date.getDay()]}
 function completedCount(value){var total=0;value=value&&typeof value==="object"?value:{};Object.keys(value).forEach(function(key){if(value[key])total++});return total}
 function homeVisible(){var home=document.getElementById("homeHub");return Boolean(home&&!home.classList.contains("hidden"))}
-function navigate(area){var button=document.querySelector('[data-area="'+area+'"]');if(button)button.click();else if(root.ERPAreaNavigation&&typeof root.ERPAreaNavigation.select==="function")root.ERPAreaNavigation.select(area)}
+function navigate(area){var navigation=root.ERPAreaNavigation;if(navigation&&typeof navigation.select==="function"){navigation.select(area);return}var button=document.querySelector('[data-area="'+area+'"],[data-home-area="'+area+'"]');if(button)button.click()}
 function navigateHskLevel(level){navigate("hsk");root.setTimeout(function(){var button=document.querySelector('#hskLevels [data-hsk-level="'+level+'"]');if(button)button.click()},180)}
 
 function lastSevenDays(activity){
