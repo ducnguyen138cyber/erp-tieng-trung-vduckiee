@@ -1073,7 +1073,6 @@
         var help = byId("hskReadingHelp"); if (help) help.className = help.className.indexOf("hidden") === -1 ? "hsk-reading-help hidden" : "hsk-reading-help";
       } else if (action === "dictation-check") {
         var input = byId("hskDictationInput"), feedback = byId("hskDictationFeedback");
- else {
           var normalize = function (value) { return String(value || "").replace(/[\s，。！？、,.!?]/g, ""); };
           if (!input.value.trim()) feedback.textContent = "Hãy nghe mẫu và nhập câu trước khi kiểm tra.";
           else if (normalize(input.value) === normalize(target.getAttribute("data-answer"))) feedback.textContent = "Chính xác. Nghe và viết đều ổn.";
