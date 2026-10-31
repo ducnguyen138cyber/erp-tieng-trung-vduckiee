@@ -147,7 +147,8 @@
     var host = byId("expMiniList");
     if (!host) return;
     if (error) {
-      host.innerHTML = '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>Cần migration Supabase v90.</small></div>';
+      var needsMigration = /migration|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error));
+      host.innerHTML = '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Cần kiểm tra migration Supabase v90.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>';
       return;
     }
     if (!rows.length) {
@@ -162,6 +163,7 @@
     }).join("");
   }
   function refreshMini() {
+    var request = ++miniRequest;
     var host = byId("expMiniList");
     if (host) host.innerHTML = '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>';
     var client = core.client();
@@ -169,7 +171,6 @@
       renderMini([], null, new Error("not configured"));
       return Promise.resolve([]);
     }
-    var request = ++miniRequest;
     var session = core.session();
     return Promise.all([
       client.rpc("get_leaderboard", { p_period: "week", p_limit: 5 }),
@@ -183,6 +184,7 @@
       renderMini(rows, mine, null);
       return rows;
     }).catch(function (error) {
+      if (request !== miniRequest) return [];
       console.error("Mini leaderboard failed", error);
       renderMini([], null, error);
       return [];
@@ -204,6 +206,7 @@
   }
   function bind() {
     document.addEventListener("click", function (event) {
+      if (event.target.closest && event.target.closest("[data-exp-retry-mini]")) { refreshMini(); return; }
       if (event.target.closest && event.target.closest("[data-exp-open-all]")) {
         if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard("week");
       }
