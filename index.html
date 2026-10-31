@@ -42,7 +42,7 @@
         // The HTML shell replaces this document; inject the rule into that shell, not the outer loader.
         source=source.replace("</head>",'<style id="vduckie-hide-evolution-card">#v92EvolutionCard,.v92-evolution-card{display:none!important}</style></head>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/curriculum/graded-hsk-entry.css?v=1.0"></head>');
-        source=source.replace("</body>",'<script src="./assets/curriculum/graded-hsk-entry.js?v=1.0"><\/script><script src="./assets/navigation/screen-router.js?v=2.0"><\/script></body>');
+        source=source.replace("</body>",'<script src="./assets/curriculum/graded-hsk-entry.js?v=1.0"><\/script><script src="./assets/navigation/screen-router.js?v=3.0"><\/script></body>');
         document.open();document.write(source);document.close();
       }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=96.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();
