@@ -69,8 +69,9 @@
       document.dispatchEvent(new CustomEvent("vduckie:leaderboard-updated", { detail: { period: period, rows: list, myRank: mine } }));
       return list;
     }).catch(function (error) {
+      if (requestId !== requestNumber) return [];
       console.error("Leaderboard failed", error); podium([]);
-      if (host) host.innerHTML = '<div class="exp-state"><strong>Không tải được bảng xếp hạng</strong>' + (/migration v90|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error)) ? "Cần chạy migration Supabase v90 trước." : "Hãy kiểm tra kết nối và thử lại.") + '</div>';
+      if (host) host.innerHTML = '<div class="exp-state"><strong>Không tải được bảng xếp hạng</strong>' + (/migration v90|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error)) ? "Cần chạy migration Supabase v90 trước." : "Hãy kiểm tra kết nối và thử lại.") + '<button type="button" data-exp-retry-board>Thử lại</button></div>';
       return [];
     });
   }
