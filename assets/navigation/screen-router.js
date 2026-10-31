@@ -74,6 +74,8 @@
     var priorState = root.history.state;
     if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
+    } else if (screen === "msutong" && root.VDuckieGradedHSK) {
+      root.VDuckieGradedHSK.open();
     } else if (screen === "home") {
       invoke("#studySidebar [data-home]");
     } else if (screen === "hsk") {
