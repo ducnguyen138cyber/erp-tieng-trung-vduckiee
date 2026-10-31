@@ -122,3 +122,10 @@ body[data-hsk-professional="c2-readonly"] #hskLevels .hsk-level{min-width:0!impo
 #hsk .hsk-focus-quiz-choices button{border:1px solid #d6ded8;background:#f9fcfa;padding:14px;border-radius:12px;cursor:pointer;font:inherit}
 #hsk .hsk-focus-quiz-choices button:disabled{opacity:.7;cursor:default}
 @media(max-width:720px){#hsk .hsk-focus-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}#hsk .hsk-focus-word{padding:23px 12px}}
+
+/* Compact study workspace: remove oversized duplicate introduction when HSK is selected. */
+body[data-current-area="hsk"] #hskHero{display:none!important}
+body[data-current-area="hsk"] #hsk .hsk-pro-topline,
+body[data-current-area="hsk"] #hsk .hsk-intro{display:none!important}
+#hsk .hsk-pro-unit{border-bottom:1px solid #ede5d9;padding-bottom:8px;margin-bottom:8px}
+#hsk .hsk-pro-lesson-head h3{margin-top:8px}
