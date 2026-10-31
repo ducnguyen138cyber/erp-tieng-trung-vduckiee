@@ -446,7 +446,7 @@
   function installDock() {
     if (document.getElementById("mobileLearningDock")) return;
     var dock = document.createElement("nav"); dock.id = "mobileLearningDock"; dock.className = "mobile-learning-dock"; dock.setAttribute("aria-label", "Điều hướng học hằng ngày");
-    dock.innerHTML = '<button data-daily-home><b>⌂</b><span>Hôm nay</span></button><button data-daily-nav="msutong"><b>路</b><span>MSUTONG</span></button><button class="daily-five" data-daily-nav="daily"><b>+5</b><span class="dock-five-progress">0/5 ERP</span></button><button data-daily-nav="review"><b>↻</b><span>Ôn tập</span><i class="dock-badge">0</i></button><button data-daily-nav="profile" class="signature-dock"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><span>VDuckie</span></button>';
+    dock.innerHTML = '<button data-daily-home><b>⌂</b><span>Hôm nay</span></button><button data-daily-nav="msutong"><b>路</b><span>Giáo trình HSK</span></button><button class="daily-five" data-daily-nav="daily"><b>+5</b><span class="dock-five-progress">0/5 ERP</span></button><button data-daily-nav="review"><b>↻</b><span>Ôn tập</span><i class="dock-badge">0</i></button><button data-daily-nav="profile" class="signature-dock"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><span>VDuckie</span></button>';
     document.body.appendChild(dock); bindNav(dock); dock.querySelector("[data-daily-home]").onclick = closePanel;
     var offline = document.createElement("div"); offline.className = "daily-offline"; offline.textContent = "Đang ngoại tuyến · tiến độ chưa đồng bộ cloud"; document.body.appendChild(offline);
   }

@@ -24,7 +24,7 @@
     return null;
   }
   function valid(screen) {
-    return ["home","ranking","hsk","msutong","daily","review","dictionary","profile"].indexOf(screen) !== -1 ||
+    return ["home","ranking","hsk","msutong","hsk-study","daily","review","dictionary","profile"].indexOf(screen) !== -1 ||
       (screen.indexOf("erp:") === 0 && erpViews.indexOf(screen.slice(4)) !== -1);
   }
   function fromLocation() {
@@ -49,6 +49,7 @@
     });
     var selector = screen === "home" ? "#studySidebar [data-home]" :
       screen === "ranking" ? '#studySidebar [data-exp-nav="ranking"]' :
+      screen === "hsk-study" ? '#studySidebar [data-daily-nav="msutong"]' :
       screen === "hsk" ? '#studySidebar [data-area="hsk"]' :
       screen.indexOf("erp:") === 0 ? '#studySidebar [data-view="' + screen.slice(4) + '"]' :
       '#studySidebar [data-daily-nav="' + screen + '"]';
@@ -74,9 +75,11 @@
     var priorState = root.history.state;
     if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
+    } else if (screen === "msutong" && root.VDuckieGradedHSK) {
+      root.VDuckieGradedHSK.open();
     } else if (screen === "home") {
       invoke("#studySidebar [data-home]");
-    } else if (screen === "hsk") {
+    } else if (screen === "hsk" || screen === "hsk-study") {
       invoke('#studySidebar [data-area="hsk"]');
     } else if (screen.indexOf("erp:") === 0) {
       invoke('#studySidebar [data-view="' + screen.slice(4) + '"]');
