@@ -64,7 +64,7 @@ try {
     await page.goto(base);
     await page.waitForFunction(() => window.VDuckieHomeEXP90 && window.__VDUCKIE_EXPERIENCE_V86_READY__);
     const home = async () => {
-      await page.locator('[data-daily-home]').first().click();
+      await page.locator('#studySidebar [data-home]').click();
       await page.locator('#v865HomeSidebar [data-exp-mission]').first().waitFor({state:'visible'});
     };
     await home();

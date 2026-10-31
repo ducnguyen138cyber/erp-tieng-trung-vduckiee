@@ -9,6 +9,7 @@
   var accountInitialized = false;
   var miniRequest = 0;
   var miniCard = null;
+  var miniState = null;
   var accountSignature = "";
   var accountHost = null;
   var missionError = null;
@@ -76,6 +77,7 @@
       if (!weekly) weekly = weeklyShell(sidebar.querySelector(".v865-weekly-card"));
       else if (weekly.parentNode !== sidebar) weekly = weeklyShell(sidebar.querySelector(".v865-weekly-card"));
       var mini = byId("expMiniLeaderboard");
+      var mountingMini = !mini;
       // The legacy home renderer replaces the sidebar. Reattach the resolved
       // mini board instead of replacing its result/error with a loading shell.
       if (!mini) mini = miniCard || miniShell();
@@ -85,6 +87,7 @@
       desired.forEach(function (node, index) {
         if (sidebar.children[index] !== node) sidebar.insertBefore(node, sidebar.children[index] || null);
       });
+      if (mountingMini && miniState) renderMini(miniState.rows, miniState.mine, miniState.error);
       renderAccount(currentTotal);
       renderMissions(currentMissions, missionError);
     } finally {
@@ -162,6 +165,8 @@
     });
   }
   function renderMini(rows, mine, error) {
+    // RPCs can finish before the asynchronous home renderer mounts the sidebar.
+    miniState = { rows: rows, mine: mine, error: error };
     var host = byId("expMiniList");
     if (!host) return;
     if (error) {
