@@ -381,22 +381,26 @@
   function renderLesson(data, lesson) {
     var index = lessonIndex(data, lesson.id);
     var unit = unitForLesson(data, lesson);
-    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div></div>' +
-      '<section class="hsk-pro-objectives"><b>Sau bài này bạn làm được gì?</b>' + list(lesson.objectives) + '</section>';
+    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3></div></div>' +
+      '<nav class="hsk-focus-tabs" aria-label="Các bước học"><button type="button" class="active" data-focus-stage="words" aria-pressed="true">1 · Từ mới</button><button type="button" data-focus-stage="examples" aria-pressed="false">2 · Nghe & đọc</button><button type="button" data-focus-stage="practice" aria-pressed="false">3 · Luyện tập</button><button type="button" data-focus-stage="extra" aria-pressed="false">4 · Kiến thức thêm</button></nav>';
+    var stages = {words:'',examples:'',extra:''};
     array(lesson.sections).forEach(function (section) {
-      if (section.type === 'vocabulary') sectionHtml = renderVocabulary(data, section);
-      else if (section.type === 'character') sectionHtml = renderCharacters(data, section);
-      else if (section.type === 'grammar') sectionHtml = renderGrammar(data, section);
-      else if (section.type === 'dialogue') sectionHtml = renderDialogue(section);
-      else if (section.type === 'reading') sectionHtml = renderReading(section);
-      else if (section.type === 'listening') sectionHtml = renderListening(section);
-      else sectionHtml = renderGenericSection(section);
+      var stage = section.type === 'vocabulary' ? 'words' : ['dialogue','reading','listening'].indexOf(section.type) !== -1 ? 'examples' : 'extra';
+      var html = '';
+      if (section.type === 'vocabulary') html = renderVocabulary(data, section);
+      else if (section.type === 'character') html = renderCharacters(data, section);
+      else if (section.type === 'grammar') html = renderGrammar(data, section);
+      else if (section.type === 'dialogue') html = renderDialogue(section);
+      else if (section.type === 'reading') html = renderReading(section);
+      else if (section.type === 'listening') html = renderListening(section);
+      else html = renderGenericSection(section);
+      stages[stage] += html;
     });
-    body += renderPractice(data, lesson);
-    body += '<nav class="hsk-pro-bottom-nav">' +
-      '<button type="button" class="muted" data-pro-prev ' + (index <= 0 ? 'disabled' : '') + '>← Bài trước</button>' +
-      '<span>' + (index + 1) + ' / ' + data.lessons.length + '</span>' +
-      '<button type="button" class="accent" data-pro-next ' + (index >= data.lessons.length - 1 ? 'disabled' : '') + '>Bài sau →</button></nav>';
+    body += '<div class="hsk-focus-stage" data-focus-panel="words">' + (stages.words || '<p>Bài này không có danh sách từ mới riêng. Hãy bắt đầu ở phần Nghe & đọc.</p>') + '</div>';
+    body += '<div class="hsk-focus-stage hidden" data-focus-panel="examples">' + (stages.examples || '<p>Hãy mở ví dụ trên từng thẻ từ để luyện nghe và đọc.</p>') + '</div>';
+    body += '<div class="hsk-focus-stage hidden" data-focus-panel="practice">' + renderPractice(data, lesson) + '</div>';
+    body += '<div class="hsk-focus-stage hidden" data-focus-panel="extra">' + stages.extra + '<details class="hsk-focus-details"><summary>Mục tiêu bài học</summary>' + list(lesson.objectives) + '</details></div>';
+    body += '<nav class="hsk-pro-bottom-nav"><button type="button" class="muted" data-pro-prev ' + (index <= 0 ? 'disabled' : '') + '>← Bài trước</button><span>' + (index + 1) + ' / ' + data.lessons.length + '</span><button type="button" class="accent" data-pro-next ' + (index >= data.lessons.length - 1 ? 'disabled' : '') + '>Bài sau →</button></nav>';
     return body;
   }
 
