@@ -22,7 +22,7 @@ test("Home is compact and every primary function opens a dedicated screen", () =
   assert.match(css, /\.app-screen\{height:calc\(100svh/);
   assert.match(source, /showPanel\(kind\)/);
   assert.match(source, /renderRoadmap\(\)/);
-  assert.match(source, /startDaily\(kind === "review"\)/);
+  assert.match(source, /startDaily\(kind === "review" \|\| kind === "review-erp"\)/);
   assert.match(source, /renderProfile\(\)/);
   assert.match(source, /renderDictionary\(\)/);
   assert.match(source, /querySelector\("\.study-center > main"\)/);
@@ -96,7 +96,7 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=2\.7/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=3\.0/);
   assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.8/);
 });
 

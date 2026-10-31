@@ -100,7 +100,7 @@ try {
       await page.locator('#v865HomeSidebar ' + selector).click({ delay: 150 });
       if (target === '.daily-panel') {
         // Daily Learning mounts its destination as a sibling of the home hub.
-        await page.getByRole('heading', {name: selector.includes('review_10') ? 'Không có từ đến hạn' : 'MSUTONG · Sơ cấp 1', exact:true}).waitFor();
+        await page.getByRole('heading', {name: selector.includes('review_10') ? 'Không có từ đến hạn' : 'Giáo trình tiếng Trung', exact:true}).waitFor();
       } else await page.locator(target).waitFor({state:'visible'});
       assert.equal(await page.locator('#homeHub').isVisible(), false, selector + ' left home visible');
       results.push({session: authenticated ? 'mock authenticated' : 'guest', click:selector, passed:true});

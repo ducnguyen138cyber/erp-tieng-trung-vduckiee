@@ -16,8 +16,8 @@ Supabase Auth/đồng bộ dữ liệu theo tài khoản.
 - Ứng dụng là PWA cài đặt được. Manifest, service worker và toàn bộ URL cache
   dùng đường dẫn tương đối theo scope hiện tại, nên chạy được ở domain gốc và
   GitHub Pages subpath.
-- Service worker ưu tiên mạng cho navigation, dùng stale-while-revalidate cho
-  tài nguyên tĩnh, xóa cache PWA phiên bản cũ khi activate và có trang fallback
+- Service worker ưu tiên mạng cho navigation, ưu tiên mạng cho mã HTML/CSS/JS/JSON, giữ đúng phiên bản khi ngoại tuyến và dùng stale-while-revalidate cho
+  ảnh/tài nguyên tĩnh khác, xóa cache PWA phiên bản cũ khi activate và có trang fallback
   ngoại tuyến. Supabase Auth/sync, OAuth callback, Functions/API và request
   không phải GET luôn đi thẳng qua mạng, không được cache.
 
@@ -40,8 +40,9 @@ Supabase Auth/đồng bộ dữ liệu theo tài khoản.
 
 - Trang đầu chỉ có ba việc cần làm: tiếp tục MSUTONG, học 5 từ ERP mới và ôn
   các từ đến hạn. Mỗi việc mở thành một màn riêng, không tạo trang kéo dài.
-- MSUTONG là lộ trình chính. Sơ cấp 1 có 10 bài companion học được theo thứ tự
-  chủ đề công khai; các quyển sau chỉ hiển thị roadmap. HSK cũ vẫn là kho bổ trợ.
+- Mục MSUTONG mở không gian Giáo trình mới: 20 bài tự học nguyên bản thuộc hai quyển sơ cấp, nhóm theo chương. Mười ID bài cũ và tiến độ hoàn thành vẫn được giữ. Quyển giao tiếp mở rộng không phải bản số hóa MSUTONG quyển 2. HSK vẫn là kho bổ trợ riêng.
+- Mỗi bài có sáu mục, tám câu luyện tập có giải thích, phần nói/viết tự đối chiếu, lưu vị trí/draft và hàng đợi ôn từ. Hoàn thành cần đủ sáu mục và ít nhất 6/8 câu. Kết quả hoàn thành nối tới EXP/nhiệm vụ qua RPC hiện có; không cấp EXP chỉ vì mở bài.
+- Kiểm kê và quyết định triển khai: `docs/curriculum-workspace-audit.md`. Browser regression: `node tests/curriculum-browser.mjs`; dữ liệu/tiến độ: `node --test tests/curriculum.test.js`.
 - Daily 5 lấy từ kho `ERP_TERMS`, giữ nguyên năm từ trong cùng ngày và ưu tiên
   từ chưa học. Phiên học dạy từ trước, luyện nét, gọi lại, ghép cụm, đặt vào câu
   ERP, trộn năm từ rồi mới kiểm tra cuối.
