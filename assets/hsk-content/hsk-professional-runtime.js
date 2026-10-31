@@ -232,22 +232,30 @@
 
   function renderVocabulary(data, section) {
     var words = array(section.content && section.content.focusWords).map(function (focus) { return resolveFocusWord(data, focus); });
-    var html = '<p class="hsk-pro-help">' + esc(section.content && section.content.instructionVi || 'Học từ theo cụm và câu.') + '</p><div class="hsk-pro-vocab-grid">';
-    html += words.map(function (word) {
-      var status = word.lexicalStatus === 'canonical' ? 'HSK' + data.manifest.level + ' canonical' : 'Từ/cụm hỗ trợ';
-      return '<article class="hsk-pro-vocab-card"><div class="hsk-pro-vocab-head"><div><strong class="hsk-pro-hanzi">' + esc(word.simplified) + '</strong><span class="hsk-pro-pinyin">' + esc(word.pinyin) + '</span></div>' + speakButton(word.simplified, 'Nghe') + '</div>' +
-        '<p class="hsk-pro-meaning">' + esc(word.meaningVi) + '</p>' +
-        (word.partOfSpeech.length ? '<small>' + esc(word.partOfSpeech.join(', ')) + '</small>' : '') +
-        '<span class="hsk-pro-status">' + esc(status) + '</span>' +
-        (word.measureWord && word.measureWord !== '—' ? '<p class="hsk-pro-note"><b>Lượng từ khi đếm:</b> ' + esc(word.measureWord) + '</p>' : '') +
-        (word.usageNoteVi ? '<p class="hsk-pro-note"><b>Cách dùng:</b> ' + esc(word.usageNoteVi) + '</p>' : '') +
-        (word.confusables.length ? '<p class="hsk-pro-note"><b>Dễ nhầm:</b> ' + esc(word.confusables.join(' · ')) + '</p>' : '') +
-        (word.collocations.length ? '<div class="hsk-pro-mini"><b>Mẫu dùng tự nhiên</b>' + word.collocations.map(function (c) { return '<p><span lang="zh-CN">' + esc(c.zh) + '</span> — ' + esc(c.vi) + '</p>'; }).join('') + '</div>' : '') +
-        (word.commonErrorsVi.length ? '<div class="hsk-pro-warning"><b>Lỗi dễ mắc</b>' + list(word.commonErrorsVi) + '</div>' : '') +
-        (word.supportReason ? '<p class="hsk-pro-note">' + esc(word.supportReason) + '</p>' : '') +
-      '</article>';
-    }).join('') + '</div>';
-    return sectionCard(section.titleVi || 'Từ vựng', html, 'hsk-pro-section-vocab');
+    if (!words.length) return sectionCard('Từ mới', '<p>Chưa có từ mới trong bài này.</p>', 'hsk-pro-section-vocab');
+    var cards = words.map(function (word, index) {
+      var examples = word.collocations.slice(0, 3).map(function (c) {
+        return '<p class="hsk-focus-example"><strong lang="zh-CN">' + esc(c.zh) + '</strong>' + speakButton(c.zh, 'Nghe câu') + '<span>' + esc(c.vi) + '</span></p>';
+      }).join('');
+      var extra = (word.usageNoteVi ? '<p><b>Cách dùng:</b> ' + esc(word.usageNoteVi) + '</p>' : '') +
+        (word.measureWord && word.measureWord !== '—' ? '<p><b>Lượng từ:</b> ' + esc(word.measureWord) + '</p>' : '') +
+        (word.confusables.length ? '<p><b>Dễ nhầm:</b> ' + esc(word.confusables.join(' · ')) + '</p>' : '') +
+        (word.commonErrorsVi.length ? '<b>Lỗi thường gặp</b>' + list(word.commonErrorsVi) : '') +
+        (word.supportReason ? '<p>' + esc(word.supportReason) + '</p>' : '');
+      return '<article class="hsk-focus-word' + (index ? ' hidden' : '') + '" data-focus-word="' + index + '">' +
+        '<div class="hsk-focus-word-title"><span>TỪ ' + (index + 1) + ' / ' + words.length + '</span><strong lang="zh-CN">' + esc(word.simplified) + '</strong><b>' + esc(word.pinyin) + '</b>' + speakButton(word.simplified, 'Nghe phát âm') + '</div>' +
+        '<button type="button" class="hsk-focus-reveal" data-focus-reveal>Chạm để xem nghĩa</button>' +
+        '<p class="hsk-focus-meaning hidden" data-focus-meaning>' + esc(word.meaningVi) + '</p>' +
+        (examples ? '<details class="hsk-focus-details"><summary>Ví dụ sử dụng (' + word.collocations.slice(0,3).length + ')</summary>' + examples + '</details>' : '') +
+        (extra ? '<details class="hsk-focus-details"><summary>Hiểu sâu hơn</summary>' + extra + '</details>' : '') +
+        '</article>';
+    }).join('');
+    var quiz = words.length > 1 ? '<div class="hsk-focus-quiz hidden" data-focus-quiz><strong>Nhớ nghĩa của từ này?</strong><div class="hsk-focus-quiz-word" data-focus-quiz-word></div><div class="hsk-focus-quiz-choices" data-focus-quiz-choices></div><p aria-live="polite" data-focus-quiz-feedback></p><button class="accent hidden" type="button" data-focus-quiz-next>Từ tiếp theo →</button></div>' : '';
+    return '<section class="hsk-pro-section hsk-pro-section-vocab hsk-focus-vocabulary"><div class="hsk-focus-section-head"><h4>Học từ mới</h4><span>' + words.length + ' từ</span></div><p class="hsk-focus-intro">Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.</p>' +
+      '<div class="hsk-focus-cards" data-focus-cards>' + cards + '</div>' +
+      '<div class="hsk-focus-word-nav"><button type="button" class="muted" data-focus-prev disabled>← Từ trước</button><button type="button" class="accent" data-focus-next>Từ tiếp →</button></div>' +
+      (quiz ? '<button type="button" class="hsk-focus-start-quiz" data-focus-start-quiz>🎮 Chơi trò nhớ nghĩa (' + words.length + ' câu)</button>' + quiz : '') +
+      '</section>';
   }
 
   function renderCharacters(data, section) {
@@ -376,13 +384,13 @@
     var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3><p>' + esc(lesson.topic) + ' · khoảng ' + esc(lesson.estimatedMinutes) + ' phút</p></div></div>' +
       '<section class="hsk-pro-objectives"><b>Sau bài này bạn làm được gì?</b>' + list(lesson.objectives) + '</section>';
     array(lesson.sections).forEach(function (section) {
-      if (section.type === 'vocabulary') body += renderVocabulary(data, section);
-      else if (section.type === 'character') body += renderCharacters(data, section);
-      else if (section.type === 'grammar') body += renderGrammar(data, section);
-      else if (section.type === 'dialogue') body += renderDialogue(section);
-      else if (section.type === 'reading') body += renderReading(section);
-      else if (section.type === 'listening') body += renderListening(section);
-      else body += renderGenericSection(section);
+      if (section.type === 'vocabulary') sectionHtml = renderVocabulary(data, section);
+      else if (section.type === 'character') sectionHtml = renderCharacters(data, section);
+      else if (section.type === 'grammar') sectionHtml = renderGrammar(data, section);
+      else if (section.type === 'dialogue') sectionHtml = renderDialogue(section);
+      else if (section.type === 'reading') sectionHtml = renderReading(section);
+      else if (section.type === 'listening') sectionHtml = renderListening(section);
+      else sectionHtml = renderGenericSection(section);
     });
     body += renderPractice(data, lesson);
     body += '<nav class="hsk-pro-bottom-nav">' +
