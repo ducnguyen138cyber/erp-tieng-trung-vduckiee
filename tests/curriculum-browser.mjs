@@ -4,18 +4,20 @@ import {readFile,mkdir} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import assert from 'node:assert/strict';
+import {Script} from 'node:vm';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const types={'.js':'text/javascript','.css':'text/css','.html':'text/html','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp'};
 const server=createServer(async(req,res)=>{const u=new URL(req.url,'http://localhost'),file=path.resolve(root,'.'+(u.pathname==='/'?'/index.html':u.pathname));if(!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}try{res.writeHead(200,{'Content-Type':types[path.extname(file)]||'text/plain'}).end(await readFile(file));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}/`;
 const browser=await chromium.launch({headless:true}),results=[];
-function sdk(auth){return `(()=>{const session=${auth?JSON.stringify({user:{id:'00000000-0000-4000-8000-000000000001',user_metadata:{full_name:'Curriculum Test'}}}):'null'};window.__courseCalls=[];const query=()=>new Proxy({},{get(o,k){if(k==='then')return(r,j)=>Promise.resolve({data:[],error:null}).then(r,j);return()=>query()}});window.supabase={createClient(){return{auth:{getSession:async()=>({data:{session}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signInWithOAuth:async()=>({data:{}}),signOut:async()=>({})},from:query,rpc:async(name,args)=>{window.__courseCalls.push({name,args});return{error:null,data:name==='get_my_exp'?35:name==='get_leaderboard'||name==='get_my_rank'||name==='get_weekly_missions'?[]:name==='award_exp'?[{awarded:true,exp_awarded:args.p_activity_code==='quiz_pass'?15:20,total_exp:35}]:null}}}}})();`;}
+function sdk(auth){return `(()=>{const session=${auth?JSON.stringify({user:{id:'00000000-0000-4000-8000-000000000001',user_metadata:{full_name:'Curriculum Test'}}}):'null'};window.__courseCalls=[];const query=()=>new Proxy({},{get(o,k){if(k==='then')return(r,j)=>Promise.resolve({data:[],error:null}).then(r,j);return()=>query()}});window.supabase={createClient(){return{auth:{getSession:async()=>({data:{session}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signInWithOAuth:async()=>({data:{}}),signOut:async()=>({})},from:query,rpc:async(name,args)=>{window.__courseCalls.push({name,args});return{error:null,data:name==='get_my_exp'?35:name==='get_leaderboard'||name==='get_my_rank'||name==='get_weekly_missions'?[]:name==='award_exp'?[{awarded:true,exp_awarded:args.p_activity_code==='quiz_pass'?15:20,total_exp:35}]:null}}}}}})();`;}
+new Script(sdk(true));new Script(sdk(false));
 try{
  for(const width of [1440,1024,390,320]){
   const ctx=await browser.newContext({viewport:{width,height:950},serviceWorkers:'block'}),page=await ctx.newPage(),errors=[];page.setDefaultTimeout(15000);page.on('pageerror',e=>errors.push(e.message));
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',route=>route.fulfill({contentType:'text/javascript',body:sdk(width===1440)}));await page.route('https://*.supabase.co/**',route=>route.abort());
   await page.addInitScript(()=>{if(!localStorage.getItem('vduckie-daily-learning-v1'))localStorage.setItem('vduckie-daily-learning-v1',JSON.stringify({version:2,updatedAt:10,msutong:{currentBook:'beginner-1',currentLesson:'b1-u1',completed:{'b1-u1':{completedAt:1,score:2}}}}));});
-  await page.goto(base);await page.waitForFunction(()=>window.VDuckieCurriculum&&window.VDuckieEXPCore&&window.__VDUCKIE_EXPERIENCE_V86_READY__);
+  await page.goto(base);await page.waitForFunction(()=>window.VDuckieCurriculum&&window.VDuckieEXPCore&&window.__courseCalls&&window.__VDUCKIE_EXPERIENCE_V86_READY__);if(width===1440)await page.waitForFunction(()=>window.VDuckieEXPCore.session()?.user);
   const open=async()=>{await page.locator(width<=760?'#mobileLearningDock [data-daily-nav="msutong"]':'#studySidebar [data-daily-nav="msutong"]').click();await page.locator('#curriculumWorkspace').waitFor();};await open();
   assert.equal(await page.locator('.cu-lesson-card').count(),10);assert.equal(await page.locator('.cu-lesson-card.is-done').count(),1,'legacy completion lost');
   await page.locator('[data-cu="filter"][data-value="done"]').click();assert.equal(await page.locator('.cu-lesson-card').count(),1);
