@@ -15,7 +15,7 @@
   host.querySelectorAll('[data-graded-level]').forEach(function(button){
    button.addEventListener('click',function(){
     var level=Number(button.getAttribute('data-graded-level'));
-    root.VDuckieScreenRouter.navigate('hsk');
+    root.VDuckieScreenRouter.navigate('hsk-study');
     var runtime=root.VDuckieHskProfessionalRuntime;
     if(runtime&&typeof runtime.selectLevel==='function')runtime.selectLevel(level,false);
    });
