@@ -27,7 +27,7 @@
     document.body.setAttribute("data-current-area", "ranking"); document.title = "Bảng xếp hạng — Developed by VDuckie"; mark("ranking");
     if (root.history && root.history.replaceState) root.history.replaceState(null, "", "#leaderboard");
     root.VDuckieEXPBoard.refresh(nextPeriod || "week");
-    if (board) requestAnimationFrame(function () { board.scrollIntoView({ behavior: "smooth", block: "start" }); });
+    // The central screen router owns scroll position; never navigate by scrolling to a section.
   }
   function navigate(name) {
     hide(); mark(name);
