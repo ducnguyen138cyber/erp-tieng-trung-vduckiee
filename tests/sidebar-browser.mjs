@@ -57,6 +57,8 @@ try {
   for (const authenticated of [false, true]) {
     const context = await browser.newContext({ viewport: { width: 1440, height: 950 }, serviceWorkers: 'block' });
     const page = await context.newPage();
+    page.setDefaultTimeout(15000);
+    page.setDefaultNavigationTimeout(20000);
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**', route => route.fulfill({ contentType: 'text/javascript', body: sdkFixture(authenticated) }));
@@ -93,6 +95,7 @@ try {
       ['[data-exp-open-all]', '#leaderboard'],
       ['[data-v865-action="continue"]', '#hsk'],
     ]) {
+      console.log('Testing', authenticated ? 'mock authenticated' : 'guest', selector);
       await home();
       await page.locator('#v865HomeSidebar ' + selector).click({ delay: 150 });
       if (target === '.daily-panel') {
@@ -147,4 +150,4 @@ try {
     await context.close();
   }
   console.log(JSON.stringify({passed:true, results, limitations:['Supabase SDK mocked; live Google OAuth, production EXP and database migration are NOT verified.']}, null, 2));
-} finally { await browser.close(); await new Promise(resolve => server.close(resolve)); }
+} finally { await browser.close(); server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
