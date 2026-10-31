@@ -28,13 +28,13 @@
     var brandTitle=document.getElementById("brandTitle");
     var brandSubtitle=document.getElementById("brandSubtitle");
     var brandHome=document.getElementById("brandHome");
-    if(brandTitle)brandTitle.textContent="Tự học tiếng Trung cùng VDuckie";
+    if(brandTitle)brandTitle.textContent="Tự học tiếng Giao tiếp hiệu quả";
     if(brandSubtitle){
       brandSubtitle.textContent="";
       brandSubtitle.hidden=true;
       brandSubtitle.setAttribute("aria-hidden","true");
     }
-    if(brandHome)brandHome.setAttribute("aria-label","Tự học tiếng Trung cùng VDuckie");
+    if(brandHome)brandHome.setAttribute("aria-label","Tự học tiếng Giao tiếp hiệu quả");
 
     setTile(".home-resource-tile.resource-erp",formatCount(dictionaryCount()),"Từ vựng");
     setTile(".home-resource-tile.resource-roast",HSK_QUIZ_QUESTION_COUNT+"+","Câu kiểm tra");
