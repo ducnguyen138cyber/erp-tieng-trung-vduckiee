@@ -182,11 +182,29 @@
     });
     sidebar.__vduckieExclusiveObserver.observe(sidebar,{subtree:true,attributes:true,attributeFilter:["class","aria-current"],childList:true});
   }
+  function ensureExclusiveScreens() {
+    var main = document.querySelector(".study-center");
+    if (!main || main.__vduckieScreenObserver) return;
+    var scheduled = false;
+    main.__vduckieScreenObserver = new MutationObserver(function () {
+      if (scheduled || !current) return;
+      scheduled = true;
+      root.requestAnimationFrame(function () {
+        scheduled = false;
+        if (current.indexOf("erp:") !== 0) return;
+        var destination = document.getElementById(current.slice(4));
+        if (destination && destination.classList.contains("hidden")) destination.classList.remove("hidden");
+        var home = document.getElementById("homeHub");
+        if (home && !home.classList.contains("hidden")) home.classList.add("hidden");
+      });
+    });
+    main.__vduckieScreenObserver.observe(main,{subtree:true,attributes:true,attributeFilter:["class"],childList:true});
+  }
   function init() {
     // Route after the legacy modules have mounted their dynamically inserted screens.
     // Other DOMContentLoaded initializers can reset the legacy panels.
     // Run the route after those synchronous initialization listeners complete.
-    root.setTimeout(function () { show(fromLocation(), "replace"); ensureExclusiveSidebar(); }, 0);
+    root.setTimeout(function () { show(fromLocation(), "replace"); ensureExclusiveSidebar(); ensureExclusiveScreens(); }, 0);
   }
   root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen) { show(screen, "push"); }, current: function () { return current; } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true}); else init();
