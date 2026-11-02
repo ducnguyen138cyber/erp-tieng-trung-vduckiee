@@ -1,0 +1,25 @@
+/* VDuckie desktop polish: type scale, dropdown, and roomy HSK roadmap. */
+@media(min-width:981px){
+  #appShell{font-size:15px!important;line-height:1.55}
+  #appShell .study-sidebar button,#appShell .study-rail button{font-size:14px}
+  #appShell .study-sidebar .sidebar-label,#appShell .study-sidebar small{font-size:12px}
+  #appShell .v865-home-main p,#appShell .v865-home-sidebar p{font-size:14px;line-height:1.6}
+  #appShell .v865-home-main h2,#appShell .v865-home-sidebar h2{line-height:1.24}
+}
+.v91-account-dropdown{padding:13px!important;border-radius:22px!important;border-color:#dcd5c7!important;background:linear-gradient(180deg,#fffefa,#ffffff 58%)!important;box-shadow:0 22px 56px rgba(22,52,41,.17),0 4px 16px rgba(22,52,41,.06)!important;transform:translateY(-9px) scale(.985)!important;transform-origin:top right!important;transition:opacity .2s ease,transform .22s cubic-bezier(.2,.75,.2,1),visibility .2s ease!important}
+.v91-account-dropdown.is-open{transform:translateY(0) scale(1)!important}
+.v91-account-item{border-radius:13px!important;padding:12px 11px!important;min-height:48px!important;gap:13px!important;font-size:14px!important}
+.v91-account-item:hover,.v91-account-item:focus-visible{background:#edf5ef!important;transform:translateX(2px)}
+.v91-account-item.is-danger:hover{background:#fff0ed!important}
+.v91-account-summary{padding:8px 5px 10px!important;border-radius:14px;background:#f7faf7!important}
+.v91-account-divider{margin:10px 3px!important}
+.v91-account-trigger:hover{box-shadow:0 10px 28px rgba(20,53,41,.13)!important}
+html.v865-home-mode #v865HomeRoadmap{padding:24px!important;border-radius:23px!important}
+html.v865-home-mode #v865HomeRoadmap .v865-road-scroll{grid-auto-columns:minmax(150px,166px)!important;gap:14px!important;padding:12px 6px 18px!important}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card{min-height:160px!important;border-radius:20px!important;padding:17px 14px 14px!important;gap:8px!important}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card strong,
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card b{font-size:14px}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card small{font-size:12px}
+@media(min-width:1450px){html.v865-home-mode #v865HomeRoadmap .v865-road-scroll{grid-auto-columns:minmax(166px,184px)!important}}
+@media(max-width:760px){html.v865-home-mode #v865HomeRoadmap{padding:15px!important}html.v865-home-mode #v865HomeRoadmap .v865-road-scroll{grid-auto-columns:minmax(133px,149px)!important;gap:10px!important}html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card{min-height:145px!important;padding:13px!important}}
+@media(prefers-reduced-motion:reduce){.v91-account-dropdown{transition:none!important}.v91-account-item{transform:none!important}}

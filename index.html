@@ -49,6 +49,7 @@
           '<script>(function(){var html=document.documentElement;html.classList.add("vduckie-paint-pending");var done=false;function reveal(){if(done)return;done=true;html.classList.remove("vduckie-paint-pending");html.classList.add("vduckie-paint-ready")}function ready(){requestAnimationFrame(function(){requestAnimationFrame(reveal)})}document.addEventListener("DOMContentLoaded",ready,{once:true});window.addEventListener("load",reveal,{once:true});setTimeout(reveal,7000)})()<\/script>';
         source=source.replace('<head>','<head>'+paintGuard);
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/layout/wide-three-column-v1.css?v=1.0"></head>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/layout/ui-polish-20261102.css?v=1"></head>');
         document.open();document.write(source);document.close();
       }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=96.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();
