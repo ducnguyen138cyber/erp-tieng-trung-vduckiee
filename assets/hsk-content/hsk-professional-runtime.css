@@ -172,3 +172,10 @@ body[data-hsk-prof-ready="true"] #hskLesson{padding-bottom:100px!important}
  body[data-hsk-prof-ready="true"] #hsk .hsk-pro-bottom-nav button{font-size:13px;padding:10px 7px}
  body[data-hsk-prof-ready="true"] #hskLesson{padding-bottom:160px!important}
 }
+
+/* Route isolation: HSK runtime must never render below Home or other screens. */
+body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hsk,
+body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hskHero,
+body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hskJourney{
+ display:none!important;
+}

@@ -105,6 +105,13 @@
       hide("leaderboard");
       hide("dailyLearningPanel");
     }
+    // The HSK runtime may override legacy .hidden styles after it mounts.
+    // Keep the top-level screen exclusive regardless of mount order.
+    var hskScreen = screen === "hsk" || screen === "hsk-study";
+    ["hsk", "hskHero", "hskJourney"].forEach(function (id) {
+      var node = document.getElementById(id);
+      if (node && !hskScreen) node.classList.add("hidden");
+    });
     document.body.setAttribute("data-current-area", screen);
     activate(screen);
     current = screen;
