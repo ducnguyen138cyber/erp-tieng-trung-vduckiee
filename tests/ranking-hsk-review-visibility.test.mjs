@@ -16,7 +16,7 @@ test('review mode raises chat launcher above bottom action controls',()=>{
 });
 test('rank migration uses profile base and zero EXP instead of fake credits',()=>{
  const sql=read('supabase/migrations/leaderboard_include_zero_exp_profiles.sql');
- assert.match(sql,/from public\.profiles p cross join bounds b left join public\.exp_transactions t/);
+ assert.match(sql,/from public\.profiles p\s+cross join bounds b\s+left join public\.exp_transactions t/);
  assert.match(sql,/coalesce\(sum\(t\.exp_amount\),0\)/);
  assert.match(sql,/get_my_rank/);
 });
