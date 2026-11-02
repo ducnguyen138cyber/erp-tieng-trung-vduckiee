@@ -90,6 +90,8 @@
       root.VDuckieGradedHSK.open();
     } else if (screen === "home") {
       invoke("#studySidebar [data-home]");
+      var homeNode = document.getElementById("homeHub");
+      if (homeNode) homeNode.classList.remove("hidden");
     } else if (screen === "hsk" || screen === "hsk-study") {
       invoke('#studySidebar [data-area="hsk"]');
     } else if (screen.indexOf("erp:") === 0) {
@@ -98,6 +100,7 @@
       // Set the destination area first, then reconcile its active ERP panel.
       document.body.setAttribute("data-current-area", "erp");
       if (root.ERPAreaNavigation) root.ERPAreaNavigation.select("erp");
+      if (screen.slice(4) !== "lessons") invoke('#studySidebar [data-view="' + screen.slice(4) + '"]');
     } else if (root.VDuckieDailyLearning) {
       root.VDuckieDailyLearning.show(screen);
     }
@@ -128,7 +131,11 @@
       if (node && !hskScreen) node.classList.add("hidden");
     });
     if (screen !== "roadmap") hide("hskRoadmapScreen");
-    document.body.setAttribute("data-current-area", screen);
+    if (screen.indexOf("erp:") === 0) {
+      var erpPanel = document.getElementById(screen.slice(4));
+      if (erpPanel) erpPanel.classList.remove("hidden");
+    }
+    document.body.setAttribute("data-current-area", screen.indexOf("erp:") === 0 ? "erp" : screen);
     activate(screen);
     current = screen;
     // Undo legacy replaceState calls before adding the new history entry.
@@ -152,11 +159,52 @@
     show(screen, "push");
   }, true);
   root.addEventListener("popstate", function () { show(fromLocation(), "none"); });
+  function ensureExclusiveSidebar() {
+    var sidebar = document.getElementById("studySidebar");
+    if (!sidebar || sidebar.__vduckieExclusiveObserver) return;
+    var scheduled = false;
+    sidebar.__vduckieExclusiveObserver = new MutationObserver(function () {
+      if (scheduled || !current) return;
+      scheduled = true;
+      root.requestAnimationFrame(function () {
+        scheduled = false;
+        var activeButtons = sidebar.querySelectorAll("button.active");
+        var pageButtons = sidebar.querySelectorAll('button[aria-current="page"]');
+        var expected = one(
+          current === "home" ? '#studySidebar [data-home]' :
+          current === "ranking" ? '#studySidebar [data-exp-nav="ranking"]' :
+          ["msutong","hsk-study","roadmap"].indexOf(current) !== -1 ? '#studySidebar [data-daily-nav="msutong"]' :
+          current.indexOf("erp:") === 0 ? '#studySidebar [data-view="' + current.slice(4) + '"]' :
+          '#studySidebar [data-daily-nav="' + current + '"]'
+        );
+        if (expected && (activeButtons.length !== 1 || pageButtons.length !== 1 || activeButtons[0] !== expected || pageButtons[0] !== expected)) activate(current);
+      });
+    });
+    sidebar.__vduckieExclusiveObserver.observe(sidebar,{subtree:true,attributes:true,attributeFilter:["class","aria-current"],childList:true});
+  }
+  function ensureExclusiveScreens() {
+    var main = document.querySelector(".study-center");
+    if (!main || main.__vduckieScreenObserver) return;
+    var scheduled = false;
+    main.__vduckieScreenObserver = new MutationObserver(function () {
+      if (scheduled || !current) return;
+      scheduled = true;
+      root.requestAnimationFrame(function () {
+        scheduled = false;
+        if (current.indexOf("erp:") !== 0) return;
+        var destination = document.getElementById(current.slice(4));
+        if (destination && destination.classList.contains("hidden")) destination.classList.remove("hidden");
+        var home = document.getElementById("homeHub");
+        if (home && !home.classList.contains("hidden")) home.classList.add("hidden");
+      });
+    });
+    main.__vduckieScreenObserver.observe(main,{subtree:true,attributes:true,attributeFilter:["class"],childList:true});
+  }
   function init() {
     // Route after the legacy modules have mounted their dynamically inserted screens.
     // Other DOMContentLoaded initializers can reset the legacy panels.
     // Run the route after those synchronous initialization listeners complete.
-    root.setTimeout(function () { show(fromLocation(), "replace"); }, 0);
+    root.setTimeout(function () { show(fromLocation(), "replace"); ensureExclusiveSidebar(); ensureExclusiveScreens(); }, 0);
   }
   root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen) { show(screen, "push"); }, current: function () { return current; } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true}); else init();

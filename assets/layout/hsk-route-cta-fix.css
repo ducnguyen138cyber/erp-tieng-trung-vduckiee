@@ -5,3 +5,6 @@ body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hsk .h
 body[data-current-area="hsk-study"] #homeHub,
 body[data-current-area="hsk-study"] #homeJourney,
 body[data-current-area="hsk-study"] #v865HomeShell{display:none!important}
+
+/* Mobile dock must stay interactive, even if legacy HSK toolbar mounts late. */
+@media(max-width:760px){#mobileLearningDock{z-index:1800!important}body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hsk .hsk-pro-bottom-nav{display:none!important}}

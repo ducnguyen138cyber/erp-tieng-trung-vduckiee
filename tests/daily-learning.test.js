@@ -33,7 +33,7 @@ test("Home is compact and every primary function opens a dedicated screen", () =
 test("hamburger drawer groups daily, lookup, ERP and profile navigation", () => {
   assert.match(shell, /id="mobileMenu"[^>]*aria-label="Mở menu"/);
   for (const group of ["HỌC HÔM NAY", "TRA CỨU", "ERP CÔNG VIỆC", "KHÁC"]) assert.ok(shell.includes(group), group);
-  for (const label of ["Hôm nay", "MSUTONG", "Daily ERP +5", "Ôn tập", "Từ điển", "Bài học ERP", "Hội thoại ERP", "Sổ từ cá nhân"]) assert.ok(shell.includes(label), label);
+  for (const label of ["Hôm nay", "Giáo trình HSK", "Daily ERP +5", "Ôn tập", "Từ điển", "Bài học ERP", "Hội thoại ERP", "Sổ từ cá nhân"]) assert.ok(shell.includes(label), label);
   assert.match(css, /body\.sidebar-open \.study-sidebar/);
 });
 

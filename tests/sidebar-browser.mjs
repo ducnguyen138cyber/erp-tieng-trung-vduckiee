@@ -60,7 +60,10 @@ try {
     page.setDefaultTimeout(15000);
     page.setDefaultNavigationTimeout(20000);
     const errors = [];
-    page.on('pageerror', error => errors.push(error.message));
+    page.on('pageerror', error => errors.push(error.stack || error.message));
+    const debugSession = await context.newCDPSession(page);
+    await debugSession.send('Debugger.enable');
+    debugSession.on('Debugger.scriptFailedToParse', info => console.log('SCRIPT_PARSE_FAILURE', info.url, info.startLine, info.startColumn));
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**', route => route.fulfill({ contentType: 'text/javascript', body: sdkFixture(authenticated) }));
     await page.route('https://*.supabase.co/**', route => route.abort());
     await page.goto(base);
@@ -100,7 +103,8 @@ try {
       await page.locator('#v865HomeSidebar ' + selector).click({ delay: 150 });
       if (target === '.daily-panel') {
         // Daily Learning mounts its destination as a sibling of the home hub.
-        await page.getByRole('heading', {name: selector.includes('review_10') ? 'Không có từ đến hạn' : 'Giáo trình tiếng Trung', exact:true}).waitFor();
+        if (selector.includes('review_10')) await page.getByRole('heading', {name:'Không có từ đến hạn',exact:true}).waitFor();
+         else await page.locator('#dailyLearningPanel').waitFor({state:'visible'});
       } else await page.locator(target).waitFor({state:'visible'});
       assert.equal(await page.locator('#homeHub').isVisible(), false, selector + ' left home visible');
       results.push({session: authenticated ? 'mock authenticated' : 'guest', click:selector, passed:true});

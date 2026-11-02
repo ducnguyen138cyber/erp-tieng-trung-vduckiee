@@ -229,6 +229,7 @@
     });
   }
   function openMission(code) {
+    if (code === "complete_quiz" && root.VDuckieScreenRouter) { root.VDuckieScreenRouter.navigate("erp:quiz"); return; }
     var selector = code === "review_10_words" ? '[data-daily-nav="review"]' :
       code === "complete_quiz" ? '[data-view="quiz"]' : '[data-daily-nav="msutong"]';
     var target = document.querySelector(selector);
