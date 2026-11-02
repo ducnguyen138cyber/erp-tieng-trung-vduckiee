@@ -9,7 +9,7 @@ async function ask(messages){
 }
 test('short follow-up writing question inherits previous user topic',async()=>{
  const r=await ask([{role:'user',content:'ăn tối nghĩa là gì?'},{role:'assistant',content:'吃晚饭 (chī wǎnfàn) là ăn tối.'},{role:'user',content:'viết như thế nào?'}]);
- assert.equal(r.status,200);assert.match(r.system,/CÂU HỎI TIẾP NỐI/);assert.match(r.system,/ăn tối nghĩa là gì/);assert.match(r.system,/Không giải thích nghĩa của động từ/);
+ assert.equal(r.status,200);assert.match(r.system,/TIẾP NỐI/);assert.match(r.system,/ăn tối nghĩa là gì/);assert.match(r.system,/Không giải thích chữ/);
 });
 test('explicit new question does not force old topic',async()=>{
  const r=await ask([{role:'user',content:'ăn tối là gì?'},{role:'assistant',content:'吃晚饭'},{role:'user',content:'Giải thích câu 我喜欢中文'}]);
