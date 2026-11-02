@@ -10,11 +10,20 @@ export async function onRequestPost({request,env}){
  const raw=Array.isArray(body.messages)?body.messages:[];if(!raw.length||raw.length>12)return json({error:"Hội thoại phải có từ 1 đến 12 tin."},400);
  const messages=raw.map(m=>({role:m.role,content:m.content}));if(messages.some(m=>!["user","assistant"].includes(m.role)||typeof m.content!=="string"||!m.content.trim()||m.content.length>1600)||messages[messages.length-1].role!=="user")return json({error:"Nội dung tin nhắn không hợp lệ."},400);
  const last=messages[messages.length-1].content;
+ // Resolve short follow-up questions using the previous user topic instead of treating
+ // "viết" / "nghĩa" / "đọc" as the vocabulary word being asked about.
+ const isFollowUp=/^(?:(?:thế|vậy|còn|nó|từ đó|cái đó|câu đó|từ này|câu này|đấy|đó|và|thế còn|nếu vậy)[\\s,!?]*)?(?:viết|đọc|phát âm|phiên âm|pinyin|nghĩa|dùng|sử dụng|ví dụ|đặt câu|chữ hán|cách viết|cách đọc|sao viết|viết sao|viết chữ).*?(?:như thế nào|thế nào|là gì|ra sao|sao|không|ko|k|nhỉ|nào)?[?.!\\s]*$/i.test(last.trim()) && last.trim().length<75;
+ const previousUser=messages.slice(0,-1).reverse().find(m=>m.role==="user");
+ const previousAssistant=messages.slice(0,-1).reverse().find(m=>m.role==="assistant");
+ const followUpContext=isFollowUp&&previousUser?
+  "CÂU HỎI TIẾP NỐI: Người dùng vừa hỏi: "+previousUser.content+
+  (previousAssistant?"\\nTrợ giảng đã đáp: "+previousAssistant.content.slice(0,650):"")+
+  "\\nCâu mới '"+last+"' đang hỏi tiếp VỀ CHỦ ĐỀ CÂU TRƯỚC. Không giải thích nghĩa của động từ 'viết', 'đọc' hay 'nghĩa'. Nếu câu trước là 'ăn tối nghĩa là gì', câu tiếp 'viết như thế nào' phải trả lời chữ Hán cho 'ăn tối': 吃晚饭 (chī wǎnfàn). Nếu ngữ cảnh không đủ rõ mới hỏi lại.":"";
  // Only require Hanzi for prompts asking how to write/translate something into Chinese.
- const needsHanzi=/(tiếng trung|trung quốc|chữ hán|chữ trung|hán tự|pinyin|viết (như thế nào|thế nào|sao|ra sao)|dịch (sang|qua) (tiếng )?trung|怎么写|中文|汉字)/i.test(last);
+ const needsHanzi=isFollowUp&&/viết|chữ|pinyin|phiên âm/i.test(last)||/(tiếng trung|trung quốc|chữ hán|chữ trung|hán tự|pinyin|viết (như thế nào|thế nào|sao|ra sao)|dịch (sang|qua) (tiếng )?trung|怎么写|中文|汉字)/i.test(last);
  const hanzi=/[\u3400-\u9fff\uf900-\ufaff]/u;
  async function generate(extra){
-   const context=[{role:"system",content:SYSTEM+(extra?"\\n"+extra:"")},...messages];
+   const context=[{role:"system",content:SYSTEM+(followUpContext?"\\n"+followUpContext:"")+(extra?"\\n"+extra:"")},...messages];
    const result=await env.AI.run("@cf/meta/llama-3.1-8b-instruct-fast",{messages:context,max_tokens:800,temperature:0.15});
    return typeof result?.response==="string"?result.response:typeof result?.result?.response==="string"?result.result.response:"";
  }
