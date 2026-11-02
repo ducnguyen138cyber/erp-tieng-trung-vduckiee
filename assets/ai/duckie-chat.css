@@ -8,3 +8,13 @@
 .duckie-chat-status:not([hidden]){margin:5px 12px;padding:9px 10px;background:#fff0e7;border-radius:9px;color:#8f3f2c;font-size:12px}
 .duckie-chat-utility{display:flex;justify-content:flex-end;padding:0 12px 8px}
 .duckie-chat-utility button{border:0;background:transparent;color:#68746c;font-size:11px;cursor:pointer;text-decoration:underline}
+
+/* Tutor v2: readable Hanzi and multiline notes, without rendering untrusted HTML */
+.dc-line{min-height:1.2em;line-height:1.65;overflow-wrap:anywhere}
+.dc-line:empty{min-height:.65em}
+.dc-bubble.is-assistant{font-size:14px;line-height:1.7}
+.dc-bubble.is-assistant .dc-line{white-space:pre-wrap}
+.dc-bubble.is-assistant strong{font-weight:800}
+.dc-listen{display:block;margin-top:8px;border:1px solid #bcd8c4;background:#fff;border-radius:9px;padding:6px 10px;color:#1a5440;cursor:pointer;font-size:12px}
+.dc-retry{border:1px solid #d1a994;background:#fffdfa;color:#74442d;border-radius:8px;padding:4px 10px;margin-left:4px;cursor:pointer}
+@media(max-width:640px){.dc-bubble{max-width:95%}.dc-line{font-size:13px}}
