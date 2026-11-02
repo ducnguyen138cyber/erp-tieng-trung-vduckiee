@@ -43,7 +43,7 @@
       var style=document.createElement("style");
       style.id="home-copy-v79-style";
       style.textContent=[
-        ".brand-home #brandTitle{max-width:340px;line-height:1.15;white-space:normal}",
+        ".brand-home #brandTitle{max-width:290px;line-height:1.25;white-space:normal;font-size:13px;font-weight:700}",
         ".brand-home #brandSubtitle{display:none!important}",
         ".home-resource-tile span{overflow-wrap:anywhere}",
         "@media(max-width:1100px){.brand-home #brandTitle{max-width:250px;font-size:14px}}"
