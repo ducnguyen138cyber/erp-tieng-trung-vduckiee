@@ -8,14 +8,18 @@ function status(text){var node=document.getElementById("vsearchSaveStatus");if(n
 function ownWord(){var service=root.VDuckieHeaderSearch;return service&&service.selected&&service.selected()}
 function selectChars(word){return Array.from(word||"").filter(function(ch){return /[\u3400-\u9fff]/.test(ch)})}
 function showCharacter(pos){var chars=selectChars(activeWord);if(!chars.length)return;characterIndex=(pos+chars.length)%chars.length;var el=document.getElementById("vsearchStrokeCanvas"),label=document.getElementById("vsearchStrokeLabel");if(!el||!label)return;label.textContent=chars[characterIndex]+" · "+(characterIndex+1)+"/"+chars.length;el.innerHTML="";writer=null;if(!root.HanziWriter){el.textContent="Chưa nạp thư viện hướng dẫn nét.";return}
- try{writer=root.HanziWriter.create(el,chars[characterIndex],{width:210,height:210,padding:12,showOutline:true,showCharacter:false,strokeAnimationSpeed:1.1,delayBetweenStrokes:250,onLoadCharDataSuccess:function(){statusStroke("")},onLoadCharDataError:function(){statusStroke("Chưa có dữ liệu nét cho chữ này.")}});writer.animateCharacter()}catch(err){statusStroke("Không thể tải dữ liệu nét của chữ này.")}}
+ try{writer=root.HanziWriter.create(el,chars[characterIndex],{width:210,height:210,padding:12,showOutline:true,showCharacter:false,strokeAnimationSpeed:1.1,delayBetweenStrokes:250,onLoadCharDataSuccess:function(data){statusStroke(data&&data.strokes?"Tổng "+data.strokes.length+" nét.":"Đã tải dữ liệu viết nét.")},onLoadCharDataError:function(){statusStroke("Chưa có dữ liệu nét cho chữ này.")}});writer.animateCharacter()}catch(err){statusStroke("Không thể tải dữ liệu nét của chữ này.")}}
 function statusStroke(msg){var n=document.getElementById("vsearchStrokeStatus");if(n)n.textContent=msg}
 async function save(){var word=ownWord();if(!word)return;var state=context();if(!state.session||!state.session.user){status("Đăng nhập Google để lưu từ và đồng bộ giữa các thiết bị.");return}if(!state.client){status("Chưa kết nối được tài khoản Supabase.");return}
  var m=word.meanings||{},meaning=[].concat(m.hsk||[],m.erp||[]).filter(function(v){return typeof v==="string"&&!/^LT:/.test(v)}).slice(0,4).join("; ");
  var examples=word.examples||{},ex=[].concat(examples.hsk||[],examples.erp||[]).find(function(v){return v&&v.zh&&v.vi})||{};
  var row={user_id:state.session.user.id,word_key:word.hanzi,hanzi:word.hanzi,pinyin:word.pinyin||"",meaning_vi:meaning,category:"HSK",example_zh:ex.zh||"",example_vi:ex.vi||"",is_saved:true};
  status("Đang lưu…");
- var result=await state.client.from("user_words").upsert(row,{onConflict:"user_id,word_key"});
+ var current=await state.client.from("user_words").select("word_key").eq("user_id",row.user_id).eq("word_key",row.word_key).maybeSingle();
+ if(current.error){status("Không kiểm tra được sổ từ: "+current.error.message);return}
+ var result=current.data?
+   await state.client.from("user_words").update({is_saved:true}).eq("user_id",row.user_id).eq("word_key",row.word_key):
+   await state.client.from("user_words").insert(row);
  status(result.error?"Không lưu được từ: "+result.error.message:"Đã lưu vào sổ từ cá nhân ✓");
 }
 function build(){var modal=document.getElementById("vsearchDetail");if(!modal||modal.querySelector(".vsearch-writer"))return;var word=ownWord();if(!word)return;activeWord=word.hanzi;
