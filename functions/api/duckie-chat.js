@@ -10,7 +10,7 @@ export async function onRequestPost({request,env}){
  const raw=Array.isArray(body.messages)?body.messages:[];if(!raw.length||raw.length>12)return json({error:"Hội thoại phải có từ 1 đến 12 tin."},400);
  const messages=raw.map(m=>({role:m.role,content:m.content}));if(messages.some(m=>!["user","assistant"].includes(m.role)||typeof m.content!=="string"||!m.content.trim()||m.content.length>1600)||messages[messages.length-1].role!=="user")return json({error:"Nội dung tin nhắn không hợp lệ."},400);
  try{
-  const result=await env.AI.run("@cf/meta/llama-3.1-8b-instruct",{messages:[{role:"system",content:SYSTEM},...messages],max_tokens:700,temperature:0.35});
+  const result=await env.AI.run("@cf/meta/llama-3.1-8b-instruct-fast",{messages:[{role:"system",content:SYSTEM},...messages],max_tokens:700,temperature:0.35});
   const reply=typeof result?.response==="string"?result.response:typeof result?.result?.response==="string"?result.result.response:"";
   if(!reply.trim())return json({error:"Mô hình AI không trả về nội dung."},502);
   return json({reply:reply.slice(0,4000)});
