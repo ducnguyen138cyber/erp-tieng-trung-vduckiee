@@ -23,9 +23,10 @@ function intent(s){
 function followup(s){return s.trim().length<85&&/^(?:thế|vậy|còn|nó|từ này|câu này|từ đó|cái đó|đó)?[\s,!?]*(?:viết|đọc|phát âm|phiên âm|pinyin|nghĩa|dùng|ví dụ|đặt câu|cách viết|cách đọc)\b/i.test(s.trim())}
 function lookup(s){const q=plain(s);return GLOSSARY.find(x=>x.keys.some(key=>q.includes(plain(key)))&&/tieng trung|viet|dich|chu han/.test(q))||null}
 function unpack(r){return typeof r?.response==="string"?r.response:typeof r?.result?.response==="string"?r.result.response:typeof r?.choices?.[0]?.message?.content==="string"?r.choices[0].message.content:""}
-function validate(reply,kind){
+function validate(reply,kind,fact){
  if(!reply||!reply.trim())return "empty";
  if(/["“”‘’]\s*["“”‘’]\s*\([^)]*[āǎīǐōǒūǔ]/iu.test(reply))return "empty-hanzi";
+ if(fact&&kind==="vocab"&&!reply.includes(fact.hanzi)&&!/không chắc|chưa xác định/i.test(reply))return "wrong-word";
  if(["vocab","translate","grammar","correct"].includes(kind)){
   if(!HANZI.test(reply))return "missing-hanzi";
   if(["vocab","translate"].includes(kind)&&!TONE.test(reply)&&!/không chắc|chưa xác định/i.test(reply))return "missing-pinyin";
@@ -56,9 +57,9 @@ export async function onRequestPost({request,env}){
   return unpack(r).trim();
  }
  try{
-  let reply=await generate(""),reason=validate(reply,kind);
-  if(reason){reply=await generate(reason);reason=validate(reply,kind)}
-  if(reason)return json({error:"Duckie chưa tạo được câu trả lời đủ tin cậy. Hãy thử lại với câu hỏi rõ hơn.",reason},422);
+  let reply=await generate(""),reason=validate(reply,kind,fact);
+  if(reason){reply=await generate(reason);reason=validate(reply,kind,fact)}
+  if(reason)return json({error:"Duckie chưa thể xác minh chữ Hán và phiên âm trong câu trả lời. Hãy thử hỏi lại rõ hơn.",reason},422);
   return json({reply:reply.slice(0,5000)});
  }catch(e){console.error("Duckie AI call failed",String(e?.message||e).slice(0,160));return json({error:"Duckie tạm thời không trả lời được. Hãy thử lại sau."},503)}
 }
