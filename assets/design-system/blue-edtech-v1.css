@@ -100,3 +100,120 @@ body,.shell,#appShell,.study-layout,.study-center,.study-rail,.study-sidebar{bac
 @media(prefers-reduced-motion:reduce){
  .study-sidebar button,.study-rail button,.home-course-card,.home-resource-tile{transition:none!important}
 }
+
+
+/* BLUE EDTECH V2: coherent replacement of legacy cream/olive/orange color surfaces.
+   Kept semantic warning/reward colors only in their explicit role. */
+:root{
+ --ink:#0F172A;--muted:#64748B;--surface:#FFFFFF;--line:#E2E8F0;
+ --primary:#2563EB;--accent:#2563EB;--secondary:#64748B;
+ --bg:#F8FAFC;--bg-soft:#EFF6FF;--card:#FFFFFF;
+ --paper:#FFFFFF;--cream:#FFFFFF;--forest:#2563EB;--green:#2563EB;
+ --orange:#2563EB;--border:#E2E8F0;
+}
+html,body,#appShell,.study-layout,.study-center,.app-screen{background:#F8FAFC!important;color:#0F172A!important}
+.top,.study-sidebar,.study-rail,#studySidebar,.home-overview-grid,.v865-home-shell{border-color:#E2E8F0!important}
+.top,.study-sidebar,.study-rail,#studySidebar{background:#FFFFFF!important}
+:is(.v865-home-main,.v865-home-sidebar,.v865-home-mode,.daily-panel,.learning-session,.roadmap-screen,.profile-screen,.dictionary-screen,.exp-leaderboard){color:#0F172A!important}
+:is(.v865-side-card,.v865-streak-card,.v865-weekly-card,.v865-continue-card,.v865-roadmap,.home-course-card,.v85-card,.v86-card,.v865-road-stage,.hsk-roadmap-card,.daily-panel,.daily-task,.learning-session,.daily-summary,.dictionary-card,.profile-screen,.roadmap-screen,.exp-podium-card,.exp-board-card,.exp-row,.exp-login-callout,.v90-account-card,.v90-weekly-card,.v90-mini-board,.v91-account-dropdown,.v91-account-trigger,.hsk-pro-card,.graded-hsk-card){
+ background-color:#FFFFFF!important;
+ border-color:#E2E8F0!important;
+ color:#0F172A!important;
+ box-shadow:0 2px 10px rgba(15,23,42,.045)!important
+}
+:is(.v865-kicker,.v865-card-heading small,.v865-roadmap-head small,.home-recommended-heading small,.daily-task-kicker,.focus-kicker,.exp-board-head small,.v90-mini-head small,.graded-hsk-level,.roadmap-kicker){
+ color:#2563EB!important;
+ background-color:transparent!important;
+}
+:is(.v865-roadmap-head,.v865-card-heading,.home-recommended-heading,.daily-heading,.exp-board-head,.v90-mini-head){
+ color:#0F172A!important
+}
+:is(.v865-roadmap-head h2,.v865-card-heading h2,.home-recommended-heading h2,.v865-side-card h2,.v865-side-card h3,.exp-board-head h2,.daily-heading h2,.graded-hsk-card h2){
+ color:#0F172A!important
+}
+:is(.v865-side-card p,.v865-weekly-note,.v865-mission-body,.v865-mission-title,.v865-road-stage p,.home-course-copy p,.daily-task p,.daily-date,.exp-state,.exp-person,.exp-row,.v90-weekly-note,.v90-account-exp,.v90-mini-exp,.v865-streak-summary p,.v865-continue-meta p){
+ color:#64748B!important
+}
+:is(.v865-streak-days,.v865-streak-day,.v865-mission,.v90-mission,.v90-mini-row,.exp-table-head,.exp-period-tabs,.v865-road-icon,.v865-road-track,.v865-road-stage .hsk-card-status,.daily-pill,.lesson-choice,.daily-option,.daily-options button){
+ border-color:#E2E8F0!important;
+}
+:is(.v865-mission-track,.v90-mission-track,.v90-mission-progress-line,.v865-road-track,.v865-streak-day,.v90-level-progress,.session-progress,.daily-bar,.roadmap-progress){
+ background-color:#E8EEF7!important
+}
+:is(.v865-mission-track>span,.v865-mission-track i,.v90-mission-track>span,.v90-mission-progress-line>span,.v90-level-progress>span,.session-progress>span,.daily-bar>span,.roadmap-progress>span){
+ background:#2563EB!important
+}
+:is(.v865-red-cta,.v865-home-mode .v865-red-cta,.v865-continue-card button,.v865-continue-card .primary,.daily-action.primary,.daily-submit,.v90-header-account button.primary){
+ background:#2563EB!important;color:#FFFFFF!important;border-color:#2563EB!important;
+ box-shadow:none!important
+}
+:is(.v865-red-cta,.daily-submit,.daily-action.primary):hover{
+ background:#1D4ED8!important;border-color:#1D4ED8!important
+}
+:is(.v865-road-stage.current,.hsk-roadmap-card.current,.lesson-choice.current,.graded-hsk-card:not(.is-locked):hover){
+ background:#EFF6FF!important;border-color:#93C5FD!important
+}
+:is(.v865-road-stage.locked,.hsk-roadmap-card.locked,.graded-hsk-card.is-locked){
+ background:#F1F5F9!important;border-color:#E2E8F0!important;color:#94A3B8!important
+}
+:is(.v865-road-stage .hsk-card-status,.v865-road-stage.current .hsk-card-status,.v865-road-stage .hsk-level-badge){
+ box-shadow:none!important
+}
+:is(.exp-period-tabs button.active,.exp-period-tabs button[aria-selected=true],.exp-main-nav .active){
+ background:#2563EB!important;color:#FFFFFF!important;border-color:#2563EB!important
+}
+:is(.exp-podium-card.rank-1,.exp-podium-card.rank-2,.exp-podium-card.rank-3,.exp-row.is-me,.v90-mini-row.is-me,.exp-my-rank){
+ background:#EFF6FF!important;border-color:#BFDBFE!important
+}
+:is(.exp-table-head,.v90-mini-head,.v865-weekly-note,.v90-weekly-note){
+ background:#F8FAFC!important
+}
+:is(.v865-streak-card,.v865-weekly-card,.v865-roadmap,.v90-weekly-card,.exp-board-card){
+ border-radius:16px!important
+}
+:is(.v865-fire-orb,.v865-mission-icon,.v90-mission-icon,.v865-heading-icon,.v90-mini-crown){
+ box-shadow:none!important
+}
+:is(.v865-mission-icon,.v90-mission-icon,.v865-heading-icon){background:#EFF6FF!important;color:#2563EB!important}
+:is(.v865-road-stage.current .v865-road-icon,.v865-road-stage.current .hsk-level-badge){
+ background:#2563EB!important;color:#FFFFFF!important
+}
+:is(.daily-panel,.learning-session,.daily-today,.daily-task,.daily-summary,.lesson-overview,.dictionary-results,.dictionary-card,.roadmap-screen,.profile-screen){
+ border-color:#E2E8F0!important
+}
+:is(.daily-panel,.learning-session,.lesson-overview,.daily-today,.daily-task,.daily-summary,.dictionary-card){
+ background-color:#FFFFFF!important
+}
+:is(.learning-session-head,.daily-heading,.lesson-overview-meta,.daily-options,.daily-feedback,.lesson-picker,.dictionary-results){
+ color:#0F172A!important
+}
+:is(.learning-session-nav,.result-actions,.writing-actions){
+ background:#FFFFFF!important;border-color:#E2E8F0!important
+}
+:is(.daily-options button,.lesson-choice,.dictionary-search input,.daily-input){
+ background:#FFFFFF!important;color:#0F172A!important;border-color:#CBD5E1!important
+}
+:is(.daily-options .correct,.daily-feedback.correct){background:#ECFDF5!important;color:#047857!important;border-color:#A7F3D0!important}
+:is(.daily-options .wrong,.daily-feedback.wrong){background:#FEF2F2!important;color:#B91C1C!important;border-color:#FECACA!important}
+:is(.top input,.top-search input,.v91-account-trigger,.v91-account-dropdown,.v91-account-summary,.v90-account-card){
+ border-color:#E2E8F0!important
+}
+:is(.v91-account-summary,.v90-account-top){background:#EFF6FF!important}
+:is(.v91-account-item:hover,.study-sidebar button:not(.active):hover){background:#EFF6FF!important;color:#1D4ED8!important}
+:is(.duckie-chat-head,.va-head){background:#EFF6FF!important;color:#0F172A!important}
+:is(.duckie-chat-panel,.va-panel){background:#FFFFFF!important;border-color:#E2E8F0!important}
+:is(.duckie-chat-launch,.va-tabs button[aria-current="page"]){background:#2563EB!important;color:#FFFFFF!important}
+:is(.dc-bubble.is-user){background:#2563EB!important}
+:is(.dc-bubble.is-assistant){background:#F1F5F9!important;color:#0F172A!important}
+:is(.v865-home-main,.v865-home-sidebar,.home-overview-grid,.home-recommended,.v865-roadmap,.exp-leaderboard,.daily-panel) :is(a,button):focus-visible{
+ outline-color:#2563EB!important
+}
+/* Preserve semantic reward orange only for explicit EXP, flame/streak, and warnings. */
+.v865-streak-card .v865-red-cta,.v865-streak-card button.v865-red-cta{background:#2563EB!important}
+/* Brand illustration reused consistently; older card illustrations are deliberately hidden in favor of one blue Duckie. */
+.v865-home-mode .home-course-art img,.v865-home-mode .home-library-card img[src*="mascot"],.v865-home-mode .home-resource-tile img[src*="duckie"]{
+ filter:none!important
+}
+@media(max-width:760px){
+ .v865-side-card,.v865-roadmap,.home-course-card,.exp-board-card{border-radius:14px!important}
+}
