@@ -40,11 +40,17 @@
 
   function cardMarkup(stage, detail, percent, isCurrent) {
     var status = isCurrent ? '<span class="hsk-card-status">Đang học</span>' : "";
-    return status +
-      badgeMarkup(stage.icon) +
+    var front = status + badgeMarkup(stage.icon) +
       '<strong>' + escapeHtml(stage.label) + '</strong>' +
       '<small>' + escapeHtml(detail) + '</small>' +
       '<span class="v865-road-track hsk-roadmap-track"><i style="width:' + Number(percent || 0) + '%"></i></span>';
+    var action = isCurrent || Number(percent) > 0 ? 'Tiếp tục học' : 'Học ngay';
+    var back = '<span class="hsk-full-flip-back-title">' + escapeHtml(stage.label) + '</span>' +
+      '<span class="hsk-full-flip-back-detail">' + escapeHtml(detail) + '</span>' +
+      '<span class="hsk-full-flip-cta">' + (Number(stage.level) >= 5 ? 'Xem lộ trình' : action) + ' →</span>';
+    return '<span class="hsk-full-flip-inner">' +
+      '<span class="hsk-full-flip-face hsk-full-flip-front">' + front + '</span>' +
+      '<span class="hsk-full-flip-face hsk-full-flip-back">' + back + '</span></span>';
   }
 
   function enhanceButton(button) {
@@ -67,6 +73,8 @@
     button.removeAttribute("data-hsk-roadmap-v893");
     button.setAttribute("aria-label", stage.label + ", " + detailText + (isCurrent ? ", đang học" : ""));
     button.innerHTML = cardMarkup(stage, detailText, percent, isCurrent);
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", stage.label + ". Lật thẻ để xem cách học.");
   }
 
   function createLockedButton(stage, activeLevel) {
@@ -116,7 +124,26 @@
     root.requestAnimationFrame(enhanceRoadmap);
   }
 
+  function handleCardFlip(event) {
+    var target = event.target;
+    var card = target && target.closest && target.closest("#v865HomeRoadmap .hsk-roadmap-card[data-v865-level]");
+    if (!card || card.disabled || card.classList.contains("locked")) return;
+    // First activation flips the complete card; second activation uses existing lesson navigation.
+    if (!card.classList.contains("hsk-full-flipped")) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      var roadmap = document.getElementById("v865HomeRoadmap");
+      if (roadmap) roadmap.querySelectorAll(".hsk-full-flipped").forEach(function (other) {
+        other.classList.remove("hsk-full-flipped"); other.setAttribute("aria-pressed", "false");
+      });
+      card.classList.add("hsk-full-flipped");
+      card.setAttribute("aria-pressed", "true");
+      card.setAttribute("aria-label", "Học " + (card.querySelector(".hsk-full-flip-back-title") || {}).textContent + ". Nhấn lần nữa để vào bài học.");
+    }
+  }
+
   function start() {
+    root.addEventListener("click", handleCardFlip, true);
     schedule();
     if (!root.MutationObserver || !document.body) return;
     observer = new MutationObserver(schedule);
