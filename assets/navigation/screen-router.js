@@ -155,11 +155,34 @@
     show(screen, "push");
   }, true);
   root.addEventListener("popstate", function () { show(fromLocation(), "none"); });
+  function ensureExclusiveSidebar() {
+    var sidebar = document.getElementById("studySidebar");
+    if (!sidebar || sidebar.__vduckieExclusiveObserver) return;
+    var scheduled = false;
+    sidebar.__vduckieExclusiveObserver = new MutationObserver(function () {
+      if (scheduled || !current) return;
+      scheduled = true;
+      root.requestAnimationFrame(function () {
+        scheduled = false;
+        var activeButtons = sidebar.querySelectorAll("button.active");
+        var pageButtons = sidebar.querySelectorAll('button[aria-current="page"]');
+        var expected = one(
+          current === "home" ? '#studySidebar [data-home]' :
+          current === "ranking" ? '#studySidebar [data-exp-nav="ranking"]' :
+          ["msutong","hsk-study","roadmap"].indexOf(current) !== -1 ? '#studySidebar [data-daily-nav="msutong"]' :
+          current.indexOf("erp:") === 0 ? '#studySidebar [data-view="' + current.slice(4) + '"]' :
+          '#studySidebar [data-daily-nav="' + current + '"]'
+        );
+        if (expected && (activeButtons.length !== 1 || pageButtons.length !== 1 || activeButtons[0] !== expected || pageButtons[0] !== expected)) activate(current);
+      });
+    });
+    sidebar.__vduckieExclusiveObserver.observe(sidebar,{subtree:true,attributes:true,attributeFilter:["class","aria-current"],childList:true});
+  }
   function init() {
     // Route after the legacy modules have mounted their dynamically inserted screens.
     // Other DOMContentLoaded initializers can reset the legacy panels.
     // Run the route after those synchronous initialization listeners complete.
-    root.setTimeout(function () { show(fromLocation(), "replace"); }, 0);
+    root.setTimeout(function () { show(fromLocation(), "replace"); ensureExclusiveSidebar(); }, 0);
   }
   root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen) { show(screen, "push"); }, current: function () { return current; } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true}); else init();
