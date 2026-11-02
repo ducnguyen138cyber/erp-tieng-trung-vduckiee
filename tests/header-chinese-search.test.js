@@ -23,3 +23,8 @@ test('Vietnamese, Chinese and Pinyin resolve same dictionary record',()=>{
  for(const query of ['你好','ni hao'])assert.equal(svc.search(query)[0]?.hanzi,'你好',query);
  assert.equal(svc.search('notawordabcd').length,0);
 });
+
+test('legacy HSK enhancement runtime stays syntactically valid',()=>{
+ const source=fs.readFileSync('assets/v62/runtime-v70.2.js','utf8');
+ new vm.Script(source);
+});
