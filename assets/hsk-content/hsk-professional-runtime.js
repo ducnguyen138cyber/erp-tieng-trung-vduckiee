@@ -421,7 +421,7 @@
     for (var level = 1; level <= 9; level++) {
       var config = COURSE_CONFIG[level];
       var active = level === state.selectedLevel ? ' active' : '';
-      if (config) html += '<button type="button" class="hsk-level hsk-pro-level' + active + '" data-pro-level="' + level + '"><strong>HSK ' + level + '</strong><small>' + esc(config.label) + '</small></button>';
+      if (config && level <= 4) html += '<button type="button" class="hsk-level hsk-pro-level' + active + '" data-pro-level="' + level + '"><strong>HSK ' + level + '</strong><small>' + esc(config.label) + '</small></button>';
       else html += '<button type="button" class="hsk-level hsk-pro-level locked" disabled aria-disabled="true"><strong>HSK ' + level + '</strong><small>Sắp mở</small></button>';
     }
     node.innerHTML = html;
@@ -542,7 +542,7 @@
 
   function selectLevel(level, shouldScroll) {
     level = Number(level);
-    if (!COURSE_CONFIG[level]) return Promise.resolve(false);
+    if (!COURSE_CONFIG[level] || level > 4) return Promise.resolve(false);
     if (level === state.selectedLevel && state.data) {
       if (state.data.lessons[0]) selectLesson(state.data.lessons[0].id, shouldScroll);
       return Promise.resolve(true);

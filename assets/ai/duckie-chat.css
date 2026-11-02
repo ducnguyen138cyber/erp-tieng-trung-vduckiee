@@ -20,3 +20,8 @@
 @media(max-width:640px){.dc-bubble{max-width:95%}.dc-line{font-size:13px}}
 
 .dc-hanzi{font-size:1.18em;font-family:'Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;line-height:1.5;letter-spacing:.01em}
+
+/* Keep review/rehearsal bottom actions unobstructed by chat launcher. */
+body[data-current-area="review"] .duckie-chat-launch,body[data-current-area="daily"] .duckie-chat-launch{bottom:100px}
+body:has(.daily-panel:not(.hidden) .daily-review-session) .duckie-chat-launch{bottom:100px}
+@media(max-width:760px){body[data-current-area="review"] .duckie-chat-launch,body[data-current-area="daily"] .duckie-chat-launch{bottom:145px}}
