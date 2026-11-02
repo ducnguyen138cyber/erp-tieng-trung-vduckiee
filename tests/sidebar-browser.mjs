@@ -61,6 +61,9 @@ try {
     page.setDefaultNavigationTimeout(20000);
     const errors = [];
     page.on('pageerror', error => errors.push(error.stack || error.message));
+    const cdp = await context.newCDPSession(page);
+    await cdp.send('Debugger.enable');
+    cdp.on('Debugger.scriptFailedToParse', info => console.log('SCRIPT_PARSE_FAILURE', info.url, info.startLine, info.startColumn, info.scriptSource || ''));
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**', route => route.fulfill({ contentType: 'text/javascript', body: sdkFixture(authenticated) }));
     await page.route('https://*.supabase.co/**', route => route.abort());
     await page.goto(base);
