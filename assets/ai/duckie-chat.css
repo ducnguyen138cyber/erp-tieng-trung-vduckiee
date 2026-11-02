@@ -18,3 +18,5 @@
 .dc-listen{display:block;margin-top:8px;border:1px solid #bcd8c4;background:#fff;border-radius:9px;padding:6px 10px;color:#1a5440;cursor:pointer;font-size:12px}
 .dc-retry{border:1px solid #d1a994;background:#fffdfa;color:#74442d;border-radius:8px;padding:4px 10px;margin-left:4px;cursor:pointer}
 @media(max-width:640px){.dc-bubble{max-width:95%}.dc-line{font-size:13px}}
+
+.dc-hanzi{font-size:1.18em;font-family:'Noto Sans SC','Microsoft YaHei',system-ui,sans-serif;line-height:1.5;letter-spacing:.01em}
