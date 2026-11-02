@@ -45,7 +45,7 @@ export async function onRequestPost({request,env}){
  const last=messages.at(-1).content,prev=messages.slice(0,-1).reverse().find(x=>x.role==="user");
  const isContinuation=followup(last)&&!!prev;
  const kind=isContinuation&&/viết|đọc|pinyin|phiên âm/i.test(last)?"vocab":intent(last);
- const fact=lookup(last)||(isContinuation?lookup(prev.content):null);
+ const fact=isContinuation?GLOSSARY.find(x=>x.keys.some(key=>plain(prev.content).includes(plain(key))))||null:lookup(last);
  const hints=["Kiểu câu hỏi: "+kind+". Tùy loại câu hỏi chọn độ dài và bố cục phù hợp."];
  if(isContinuation)hints.push("Đây là câu hỏi TIẾP NỐI chủ đề trước: "+prev.content+". Không giải thích chữ 'viết' hoặc 'đọc' nếu người dùng đang hỏi cách viết/đọc từ trước.");
  if(fact)hints.push("Dữ liệu từ điển đã kiểm tra (chỉ dùng khi đúng ngữ cảnh): "+fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+"; "+fact.example+".");
