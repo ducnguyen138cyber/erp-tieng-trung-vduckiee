@@ -1,0 +1,16 @@
+/* Full-card flip: both faces occupy the whole rounded HSK card. */
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card{perspective:1100px!important;overflow:visible!important;transform-style:preserve-3d;position:relative!important;padding:0!important;background:transparent!important;box-shadow:none!important;border:0!important;min-height:153px!important;isolation:isolate}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-inner{position:relative;display:block;width:100%;height:100%;min-height:153px;transform-style:preserve-3d;transition:transform .62s cubic-bezier(.21,.73,.23,1)}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flipped .hsk-full-flip-inner{transform:rotateY(180deg)}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:flex-start;gap:7px;padding:13px 11px;border:1px solid var(--road-border,#d7d0c5);border-radius:19px;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:linear-gradient(150deg,var(--road-soft,#f4f7f5),#fff 75%);box-shadow:0 7px 16px rgba(24,53,46,.07);overflow:hidden;text-align:left}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-front{transform:rotateY(0)}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-back{transform:rotateY(180deg);align-items:center;justify-content:center;text-align:center;gap:11px;background:linear-gradient(145deg,#eaf4ee,#fffdf8)}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-back-title{font-size:18px;font-weight:850;color:#163f34}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-back-detail{font-size:12px;color:#536b5d}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-cta{display:block;width:100%;border-radius:11px;background:#174436;color:#fff;padding:10px 6px;font-size:13px;font-weight:800;text-align:center}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-front .hsk-roadmap-track{margin-top:auto;width:100%}
+html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-front .hsk-badge-inner{animation:none!important}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card:hover .hsk-badge-inner{animation:none!important}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card.locked{cursor:not-allowed}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card:focus-visible{outline:3px solid #d08e4e;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){html.v865-home-mode #v865HomeRoadmap .hsk-full-flip-inner{transition:none!important}}
