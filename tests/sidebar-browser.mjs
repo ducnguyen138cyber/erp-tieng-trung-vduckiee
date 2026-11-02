@@ -150,6 +150,16 @@ try {
       const call = await page.evaluate(() => window.__sidebarTest.calls.find(call => call.name === 'award_exp'));
       assert.deepEqual(call.args, {p_activity_code:'quiz_pass',p_source_id:'test:quiz'});
     }
+    // Six free learning-assistant modules use dictionary data without an API key.
+    await page.locator('.va-launcher').click();
+    await page.locator('#vduckieAssistant').waitFor({state:'visible'});
+    for(const mode of ['explain','talk','quiz','weak','voice','help']){
+      await page.locator('[data-va-tab="'+mode+'"]').click();
+      assert.equal(await page.locator('[data-va-tab="'+mode+'"]').getAttribute('aria-current'),'page');
+      assert.equal(await page.locator('.va-content').isVisible(),true);
+    }
+    await page.locator('[data-va-close]').click();
+    assert.equal(await page.locator('#vduckieAssistant').isVisible(),false);
     assert.deepEqual(errors, [], 'uncaught browser errors');
     await context.close();
   }
