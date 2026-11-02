@@ -131,7 +131,7 @@
   // Window capture precedes the legacy document capture listener (Daily) and all bubble listeners.
   root.addEventListener("click", function (event) {
     if (busy || !event.target.closest) return;
-    var target = event.target.closest('[data-exp-nav],[data-exp-open-all],[data-daily-nav],[data-daily-home],[data-home],[data-area],[data-view],[data-home-area],[data-journey-view],#brandHome');
+    var target = event.target.closest('[data-v865-action="open-hsk"],[data-exp-nav],[data-exp-open-all],[data-daily-nav],[data-daily-home],[data-home],[data-area],[data-view],[data-home-area],[data-journey-view],#brandHome');
     if (!target || target.closest("[data-exp-period]")) return;
     var screen = screenOf(target);
     if (!screen || !valid(screen)) return;
