@@ -2,11 +2,17 @@
 (function(root,document){
 "use strict";
 function open(){
- var host=document.getElementById("dailyLearningPanel");
- if(!host)return;
- if(root.VDuckieDailyLearning)root.VDuckieDailyLearning.show("msutong");
- host=document.getElementById("dailyLearningPanel");if(!host)return;
- host.className="panel daily-panel hsk-full-roadmap";
+ var host=document.getElementById("hskRoadmapScreen");
+ if(!host){
+  host=document.createElement("section");
+  host.id="hskRoadmapScreen";
+  host.className="hsk-full-roadmap";
+  var center=document.querySelector(".study-center");
+  if(!center)return;
+  center.insertBefore(host,center.firstChild);
+ }
+ host.hidden=false;
+ host.classList.remove("hidden");
  var cards=[];
  for(var i=1;i<=9;i++){
   var available=i<=6;

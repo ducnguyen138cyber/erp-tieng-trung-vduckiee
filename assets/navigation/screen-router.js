@@ -5,7 +5,7 @@
   var current = null;
   var viewIds = ["homeHub","erpHero","hskHero","lessons","cards","quiz","glossary",
     "personal","community","hsk","dialogue","homeJourney","erpJourney","hskJourney",
-    "leaderboard","dailyLearningPanel"];
+    "leaderboard","dailyLearningPanel","hskRoadmapScreen"];
   var erpViews = ["lessons","cards","dialogue","quiz","glossary","personal","community"];
   function one(selector) { return document.querySelector(selector); }
   function screenOf(button) {
@@ -101,13 +101,16 @@
     } else if (root.VDuckieDailyLearning) {
       root.VDuckieDailyLearning.show(screen);
     }
-    if (screen === "ranking") {
+    if (screen === "roadmap") {
+      viewIds.forEach(function (id) { if (id !== "hskRoadmapScreen") hide(id); });
+    } else if (screen === "ranking") {
       viewIds.forEach(function (id) { if (id !== "leaderboard") hide(id); });
     } else if (["msutong","roadmap","daily","review","dictionary","profile"].indexOf(screen) !== -1) {
       viewIds.forEach(function (id) { if (id !== "dailyLearningPanel") hide(id); });
     } else {
       hide("leaderboard");
       hide("dailyLearningPanel");
+      hide("hskRoadmapScreen");
     }
     // The HSK runtime may override legacy .hidden styles after it mounts.
     // Keep the top-level screen exclusive regardless of mount order.
@@ -116,6 +119,7 @@
       var node = document.getElementById(id);
       if (node && !hskScreen) node.classList.add("hidden");
     });
+    if (screen !== "roadmap") hide("hskRoadmapScreen");
     document.body.setAttribute("data-current-area", screen);
     activate(screen);
     current = screen;
