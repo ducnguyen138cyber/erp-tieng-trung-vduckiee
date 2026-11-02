@@ -12,7 +12,7 @@ export async function onRequestPost({request,env}){
  const last=messages[messages.length-1].content;
  // Only require Hanzi for prompts asking how to write/translate something into Chinese.
  const needsHanzi=/(tiếng trung|trung quốc|chữ hán|chữ trung|hán tự|pinyin|viết (như thế nào|thế nào|sao|ra sao)|dịch (sang|qua) (tiếng )?trung|怎么写|中文|汉字)/i.test(last);
- const hanzi=/[\\u3400-\\u9fff\\uf900-\\ufaff]/u;
+ const hanzi=/[\u3400-\u9fff\uf900-\ufaff]/u;
  async function generate(extra){
    const context=[{role:"system",content:SYSTEM+(extra?"\\n"+extra:"")},...messages];
    const result=await env.AI.run("@cf/meta/llama-3.1-8b-instruct-fast",{messages:context,max_tokens:800,temperature:0.15});
