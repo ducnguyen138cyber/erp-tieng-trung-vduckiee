@@ -128,6 +128,19 @@
     var target = event.target;
     var card = target && target.closest && target.closest("#v865HomeRoadmap .hsk-roadmap-card[data-v865-level]");
     if (!card || card.disabled || card.classList.contains("locked")) return;
+    if (card.classList.contains("hsk-full-flipped")) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      var level = Number(card.getAttribute("data-v865-level"));
+      if (level >= 1 && level <= 4 && root.VDuckieScreenRouter) {
+        root.VDuckieScreenRouter.navigate("hsk-study");
+        var runtime = root.VDuckieHskProfessionalRuntime;
+        if (runtime && typeof runtime.selectLevel === "function") runtime.selectLevel(level, false);
+      } else if (root.VDuckieScreenRouter) {
+        root.VDuckieScreenRouter.navigate("roadmap");
+      }
+      return;
+    }
     // First activation flips the complete card; second activation uses existing lesson navigation.
     if (!card.classList.contains("hsk-full-flipped")) {
       event.preventDefault();

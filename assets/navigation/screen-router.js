@@ -115,6 +115,14 @@
     // The HSK runtime may override legacy .hidden styles after it mounts.
     // Keep the top-level screen exclusive regardless of mount order.
     var hskScreen = screen === "hsk" || screen === "hsk-study";
+    if (hskScreen) {
+      // The legacy area handler leaves Home mounted when clicking a Home roadmap card.
+      // Route, not scroll position, must own the visible lesson surface.
+      ["homeHub","homeJourney","erpHero","erpJourney","hskRoadmapScreen"].forEach(hide);
+      var course = document.getElementById("hsk");
+      if (course) course.classList.remove("hidden");
+      document.documentElement.classList.remove("v865-home-mode");
+    }
     ["hsk", "hskHero", "hskJourney"].forEach(function (id) {
       var node = document.getElementById(id);
       if (node && !hskScreen) node.classList.add("hidden");

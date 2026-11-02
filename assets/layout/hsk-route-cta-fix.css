@@ -1,0 +1,7 @@
+/* Keep authentication access, remove redundant on-device sync notice. */
+.cloud-auth-copy{display:none!important}
+/* A fixed HSK lesson toolbar must not appear on Home or other screens. */
+body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hsk .hsk-pro-bottom-nav{display:none!important}
+body[data-current-area="hsk-study"] #homeHub,
+body[data-current-area="hsk-study"] #homeJourney,
+body[data-current-area="hsk-study"] #v865HomeShell{display:none!important}
