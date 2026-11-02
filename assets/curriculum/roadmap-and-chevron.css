@@ -22,3 +22,28 @@ html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card{min-height:153px!importan
 .hsk-map-coming{font-weight:700;color:#7c8982;font-size:13px}
 @media(max-width:850px){.hsk-map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.hsk-map-grid{grid-template-columns:1fr}.hsk-map-head{align-items:start;flex-direction:column}}
+
+/* Match dropdown frame to its account trigger: same left and right edges. */
+@media(min-width:761px){
+ .v91-account-ready .v91-account-dropdown{
+   width:252px!important;max-width:252px!important;
+   right:0!important;left:auto!important;
+   box-sizing:border-box!important;
+ }
+}
+@media(max-width:760px){
+ .v91-account-ready .v91-account-dropdown{
+   width:min(205px,50vw)!important;max-width:205px!important;
+   right:0!important;left:auto!important;
+   box-sizing:border-box!important;
+ }
+}
+@media(max-width:480px){
+ .v91-account-ready .v91-account-dropdown{
+   width:min(185px,49vw)!important;max-width:185px!important;
+ }
+}
+/* Roadmap is an independent content page, never an overlay on Home. */
+#hskRoadmapScreen[hidden],#hskRoadmapScreen.hidden{display:none!important}
+body[data-current-area="roadmap"] #hskRoadmapScreen{display:block!important;min-height:55vh}
+body:not([data-current-area="roadmap"]) #hskRoadmapScreen{display:none!important}
