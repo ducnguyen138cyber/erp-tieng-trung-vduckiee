@@ -1,0 +1,7 @@
+/* Compact account menu with no repeated profile summary. */
+.v91-account-dropdown{padding:7px 8px!important;border-radius:17px!important}
+.v91-account-dropdown .v91-account-summary,#v91AccountSummary{display:none!important}
+.v91-account-dropdown .v91-account-item{min-height:36px!important;padding:7px 9px!important;gap:9px!important;border-radius:10px!important;line-height:1.25!important;font-size:13px!important;transform:none!important}
+.v91-account-dropdown .v91-item-icon{width:20px!important;height:20px!important;flex-basis:20px!important;font-size:17px!important}
+.v91-account-dropdown .v91-account-divider{margin:6px 3px!important}
+@media(max-width:760px){.v91-account-dropdown .v91-account-item{min-height:40px!important;padding:9px!important}}
