@@ -217,3 +217,53 @@ html,body,#appShell,.study-layout,.study-center,.app-screen{background:#F8FAFC!i
 @media(max-width:760px){
  .v865-side-card,.v865-roadmap,.home-course-card,.exp-board-card{border-radius:14px!important}
 }
+
+
+/* v3 hard cleanup, photographed route coverage: no original forest/cream surfaces */
+:root{--vd-primary:#2563EB;--vd-primary-soft:#EFF6FF;--vd-bg:#F8FAFC;--vd-card:#FFFFFF;--vd-text:#0F172A;--vd-muted:#64748B;--vd-line:#E2E8F0}
+:is(.v85-personal,.v865-home-shell,.v865-home-main,.v865-home-sidebar,.v865-home-mode,.study-layout,.study-center){background:#F8FAFC!important;color:#0F172A!important}
+:is(.v85-card,.v85-profile,.v85-stats,.v85-choice,.v85-role-grid button,.v85-recommendation,.v85-personal .home-course-card,.v865-continue-card,.v865-side-card,.v865-roadmap,.v865-road-stage,.v865-streak-card,.v865-weekly-card,.exp-podium-card,.exp-board-card,.daily-panel,.home-course-card){
+ background:#FFFFFF!important;border-color:#E2E8F0!important;color:#0F172A!important;box-shadow:0 3px 14px rgba(23,43,80,.045)!important
+}
+.v85-profile{background:linear-gradient(135deg,#FFFFFF,#EFF6FF)!important}
+.v85-profile:after{color:rgba(37,99,235,.05)!important}
+.v85-head h3,.v85-role-title,.v85-choice b,.v85-personal h2,.v85-personal h3,.v865-continue-card h3,.v865-side-card h3,.v865-roadmap h3{color:#0F172A!important;font-family:Inter,'Segoe UI',system-ui,sans-serif!important}
+.v85-kicker,.v865-kicker,.v85-personal .eyebrow,.v85-personal .section-label,.v865-roadmap-head small,.v865-card-heading small{color:#2563EB!important}
+.v85-choice.active,.v85-role-grid button.active,.v85-mode-grid .active,.v85-personal button.active:not(.exp-btn){background:#2563EB!important;border-color:#2563EB!important;color:#FFFFFF!important;box-shadow:none!important}
+.v85-choice.active *, .v85-role-grid button.active *{color:#FFFFFF!important}
+.v85-role-grid button{background:#FFFFFF!important;border-color:#CBD5E1!important;color:#334155!important}
+.v85-role-grid button.active{background:#DBEAFE!important;color:#1D4ED8!important;border-color:#93C5FD!important}
+.v85-choice.active{background:#2563EB!important;color:#FFFFFF!important}
+.v85-choice small,.v85-profile-note,.v85-personal small{color:#64748B!important}
+.v85-choice.active small{color:#DBEAFE!important}
+.v85-personal :is(.v85-stats,.v85-stat,.v85-goal,.v85-recommend-card,.v85-recommendation,.v85-personal-recommendation){
+ background:#FFFFFF!important;border-color:#E2E8F0!important
+}
+.v85-personal :is(.v85-stat,.v85-stat-box,.v85-stats>div){background:#F8FAFC!important}
+.v85-personal :is(.v85-recommend-card,.v85-recommendation-card){background:#FFFFFF!important;border-color:#DCE6F8!important}
+.v85-personal :is(.v85-recommend-card,.v85-recommendation-card):first-child{background:#EFF6FF!important}
+.v85-personal :is(.v85-recommend-card a,.v85-recommend-card button,.v85-recommendation-card button){background:#2563EB!important;border-color:#2563EB!important;color:#FFFFFF!important}
+.v865-roadmap{background:#FFFFFF!important}
+.v865-road-scroll,.v865-roadmap .v865-road-stage{background:#FFFFFF!important}
+.v865-road-stage.current,.v865-road-stage.is-current{background:#EFF6FF!important;border-color:#93C5FD!important}
+.v865-road-stage.locked{background:#F1F5F9!important;border-color:#E2E8F0!important}
+.v865-road-stage :is(.v865-road-icon,.hsk-level-badge){background:#DBEAFE!important;color:#2563EB!important;border-color:#BFDBFE!important}
+.v865-road-stage.current :is(.v865-road-icon,.hsk-level-badge){background:#2563EB!important;color:white!important}
+.v865-road-stage :is(.v865-road-track,.hsk-roadmap-track){background:#E2E8F0!important}
+.v865-road-stage.current :is(.v865-road-track,.hsk-roadmap-track){background:#93C5FD!important}
+.v865-road-stage :is(.v865-road-count,.hsk-card-status){color:#64748B!important}
+.v865-continue-card{background:linear-gradient(135deg,#EFF6FF,#DBEAFE)!important;border:1px solid #BFDBFE!important}
+.v865-continue-card :is(h2,h3,strong,.v865-continue-meta){color:#0F172A!important}
+.v865-continue-card :is(p,small){color:#475569!important}
+.v865-continue-card button{background:#2563EB!important;color:white!important;border-color:#2563EB!important}
+.v865-streak-card :is(.v865-red-cta,.v865-streak-btn){background:#2563EB!important;color:white!important;border-color:#2563EB!important}
+.v865-home-sidebar :is(.v865-weekly-card,.v865-streak-card){background:#FFFFFF!important;border-color:#E2E8F0!important}
+.home-course-art{background:#EFF6FF!important}
+.home-course-card{background:#FFFFFF!important;border-color:#E2E8F0!important}
+.home-course-copy :is(strong,small){color:#0F172A!important}
+.home-course-copy i,.home-recommended-heading .eyebrow{color:#2563EB!important}
+.v865-home-mode .study-sidebar,.study-sidebar{background:#FFFFFF!important;border-color:#E2E8F0!important}
+.study-sidebar :is(.menu-signature,.learning-menu-group,.sidebar-heading){color:#2563EB!important}
+.study-sidebar :is(.home-switch.active,.area-switch.active,.learning-menu-button.active){background:#2563EB!important;color:#FFFFFF!important}
+:is(.exp-leaderboard,.exp-podium,.exp-board-card,.exp-podium-card,.exp-table-head){background:#FFFFFF!important;color:#0F172A!important}
+.exp-podium-card.rank-1,.exp-podium-card.rank-2,.exp-podium-card.rank-3{background:#EFF6FF!important;border-color:#BFDBFE!important}
