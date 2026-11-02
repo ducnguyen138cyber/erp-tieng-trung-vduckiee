@@ -1,7 +1,7 @@
 /* Graded HSK curriculum entry. Legacy MSUTONG progress is never modified. */
 (function(root,document){
  "use strict";
- var levels=[24,28,36,48,60,72];
+ var levels=[24,28,36,48,60,72]; var MAX_LEARNER_HSK=4;
  function open(){
   var host=document.getElementById("dailyLearningPanel");
   if(!host)return;
