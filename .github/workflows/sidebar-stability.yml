@@ -22,7 +22,9 @@ jobs:
         run: node --test tests/ranking-hsk-review-visibility.test.mjs tests/duckie-tutor-quality-v2.test.mjs tests/duckie-chat-followup-context.test.mjs tests/duckie-chat-hanzi-validation.test.mjs tests/duckie-chat.test.js tests/free-learning-assistant.test.js tests/header-chinese-search.test.js tests/graded-hsk-direct-load.test.js tests/graded-hsk-entry.test.js tests/hsk-focus-learning.test.js tests/hsk-clean-learner-ui.test.js tests/remove-roast-mode.test.js tests/curriculum.test.js tests/sidebar-service-worker.test.js tests/pwa.test.js tests/v90-exp-level-weekly.test.js tests/supabase-sync.test.js tests/daily-learning.test.js tests/v91.10-three-column-layout.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js
       - name: Header Chinese search actual Chromium interactions
         run: node tests/header-search-browser.mjs
-      - name: Blue EdTech theme responsive browser snapshots\n        run: node tests/blue-edtech-browser.mjs\n      - name: Duckie Chat desktop and mobile UI with mocked AI
+      - name: Blue EdTech theme responsive browser snapshots
+        run: node tests/blue-edtech-browser.mjs
+      - name: Duckie Chat desktop and mobile UI with mocked AI
         run: node tests/duckie-chat-browser.mjs
       - name: Guest and mocked authenticated real Chromium clicks
         run: node tests/sidebar-browser.mjs
@@ -36,5 +38,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: sidebar-routing-screenshots
-          path: |\n            artifacts/sidebar-routing/\n            artifacts/blue-edtech/
+          path: |
+            artifacts/sidebar-routing/
+            artifacts/blue-edtech/
           if-no-files-found: ignore
