@@ -131,7 +131,11 @@
       if (node && !hskScreen) node.classList.add("hidden");
     });
     if (screen !== "roadmap") hide("hskRoadmapScreen");
-    document.body.setAttribute("data-current-area", screen);
+    if (screen.indexOf("erp:") === 0) {
+      var erpPanel = document.getElementById(screen.slice(4));
+      if (erpPanel) erpPanel.classList.remove("hidden");
+    }
+    document.body.setAttribute("data-current-area", screen.indexOf("erp:") === 0 ? "erp" : screen);
     activate(screen);
     current = screen;
     // Undo legacy replaceState calls before adding the new history entry.
