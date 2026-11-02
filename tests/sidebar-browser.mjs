@@ -151,7 +151,9 @@ try {
       assert.deepEqual(call.args, {p_activity_code:'quiz_pass',p_source_id:'test:quiz'});
     }
     // Six free learning-assistant modules use dictionary data without an API key.
-    await page.locator('.va-launcher').click();
+    await page.locator('.duckie-chat-launch').click();
+    await page.locator('#duckieChat').waitFor({state:'visible'});
+    await page.locator('[data-dc-tools]').click();
     await page.locator('#vduckieAssistant').waitFor({state:'visible'});
     for(const mode of ['explain','talk','quiz','weak','voice','help']){
       await page.locator('[data-va-tab="'+mode+'"]').click();
