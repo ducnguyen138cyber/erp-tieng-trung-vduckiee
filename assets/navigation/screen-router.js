@@ -98,6 +98,7 @@
       // Set the destination area first, then reconcile its active ERP panel.
       document.body.setAttribute("data-current-area", "erp");
       if (root.ERPAreaNavigation) root.ERPAreaNavigation.select("erp");
+      if (screen.slice(4) !== "lessons") invoke('#studySidebar [data-view="' + screen.slice(4) + '"]');
     } else if (root.VDuckieDailyLearning) {
       root.VDuckieDailyLearning.show(screen);
     }
