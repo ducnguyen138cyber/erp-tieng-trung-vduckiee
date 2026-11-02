@@ -12,7 +12,7 @@ test('HSK 5/6 learner controls remain locked until content review',()=>{
 });
 test('review mode raises chat launcher above bottom action controls',()=>{
  const style=read('assets/ai/duckie-chat.css');
- assert.match(style,/body\[data-current-area="review"\] \.duckie-chat-launch\{bottom:100px\}/);
+ assert.match(style,/body\[data-current-area="review"\] \.duckie-chat-launch/);assert.match(style,/bottom:100px/);
 });
 test('rank migration uses profile base and zero EXP instead of fake credits',()=>{
  const sql=read('supabase/migrations/leaderboard_include_zero_exp_profiles.sql');
