@@ -1,0 +1,21 @@
+/* Wider, balanced desktop workspace. Keep the existing mobile drawer unchanged. */
+@media(min-width:1200px){
+ html body .shell#appShell{width:calc(100% - 48px)!important;max-width:1920px!important;margin-inline:auto!important}
+ html body .study-layout{display:grid!important;grid-template-columns:clamp(218px,15vw,272px) minmax(0,1fr) clamp(260px,20vw,350px)!important;column-gap:clamp(16px,1.6vw,28px)!important;align-items:start!important}
+ html body .study-sidebar{min-width:0!important}
+ html body .study-center{min-width:0!important}
+ html body .study-rail{min-width:0!important}
+ html.v865-home-mode .study-center{grid-column:2 / 4!important;width:100%!important}
+ html.v865-home-mode .v865-home-shell{display:grid!important;grid-template-columns:minmax(0,1fr) clamp(260px,20vw,350px)!important;gap:clamp(16px,1.6vw,28px)!important;width:100%!important;align-items:start!important}
+ html.v865-home-mode .v865-home-main{min-width:0!important}
+ html.v865-home-mode .v865-home-sidebar{display:flex!important;flex-direction:column;gap:14px;min-width:0!important;width:100%!important}
+ html.v865-home-mode .v865-home-sidebar:empty{display:none!important}
+}
+@media(min-width:1600px){
+ html body .shell#appShell{width:calc(100% - 64px)!important}
+ html body .study-layout{grid-template-columns:264px minmax(0,1fr) 336px!important}
+ html.v865-home-mode .v865-home-shell{grid-template-columns:minmax(0,1fr) 336px!important}
+}
+@media(min-width:981px) and (max-width:1199px){
+ html body .shell#appShell{width:calc(100% - 28px)!important;max-width:none!important}
+}
