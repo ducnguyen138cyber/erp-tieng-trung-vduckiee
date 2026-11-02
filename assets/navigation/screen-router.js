@@ -9,6 +9,7 @@
   var erpViews = ["lessons","cards","dialogue","quiz","glossary","personal","community"];
   function one(selector) { return document.querySelector(selector); }
   function screenOf(button) {
+    if (button.matches('[data-v865-action="open-hsk"]')) return "roadmap";
     if (button.matches("[data-exp-open-all]")) return "ranking";
     if (button.hasAttribute("data-daily-home") || button.hasAttribute("data-home") || button.id === "brandHome") return "home";
     if (button.hasAttribute("data-daily-nav")) return button.getAttribute("data-daily-nav");
@@ -24,7 +25,7 @@
     return null;
   }
   function valid(screen) {
-    return ["home","ranking","hsk","msutong","hsk-study","daily","review","dictionary","profile"].indexOf(screen) !== -1 ||
+    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile"].indexOf(screen) !== -1 ||
       (screen.indexOf("erp:") === 0 && erpViews.indexOf(screen.slice(4)) !== -1);
   }
   function fromLocation() {
@@ -49,6 +50,7 @@
     });
     var selector = screen === "home" ? "#studySidebar [data-home]" :
       screen === "ranking" ? '#studySidebar [data-exp-nav="ranking"]' :
+      screen === "roadmap" ? '#studySidebar [data-daily-nav="msutong"]' :
       screen === "hsk-study" ? '#studySidebar [data-daily-nav="msutong"]' :
       screen === "hsk" ? '#studySidebar [data-area="hsk"]' :
       screen.indexOf("erp:") === 0 ? '#studySidebar [data-view="' + screen.slice(4) + '"]' :
@@ -78,7 +80,9 @@
     }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
-    if (screen === "ranking") {
+    if (screen === "roadmap" && root.VDuckieHSKRoadmap) {
+      root.VDuckieHSKRoadmap.open();
+    } else if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
     } else if (screen === "msutong" && root.VDuckieGradedHSK) {
       // Legacy Daily owns the panel mount and layout visibility. Prepare it first.
@@ -99,7 +103,7 @@
     }
     if (screen === "ranking") {
       viewIds.forEach(function (id) { if (id !== "leaderboard") hide(id); });
-    } else if (["msutong","daily","review","dictionary","profile"].indexOf(screen) !== -1) {
+    } else if (["msutong","roadmap","daily","review","dictionary","profile"].indexOf(screen) !== -1) {
       viewIds.forEach(function (id) { if (id !== "dailyLearningPanel") hide(id); });
     } else {
       hide("leaderboard");
