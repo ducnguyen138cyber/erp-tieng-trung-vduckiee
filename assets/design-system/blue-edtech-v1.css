@@ -1,0 +1,102 @@
+/* VDuckie Blue EdTech v1 — minimal, non-destructive theme tokens.
+   Base colors: neutral 80%, blue 15%, semantic accents 5%.
+   Never changes hidden state, progress storage, routing or API calls. */
+:root{
+ --vd-bg:#F8FAFC;--vd-card:#FFFFFF;--vd-primary:#2563EB;--vd-primary-dark:#1D4ED8;
+ --vd-primary-soft:#EFF6FF;--vd-purple:#7C3AED;--vd-amber:#F59E0B;
+ --vd-success:#10B981;--vd-text:#0F172A;--vd-muted:#64748B;
+ --vd-line:#E2E8F0;--vd-shadow:0 3px 13px rgba(15,23,42,.045);
+ --vd-radius:16px;--vd-space-1:4px;--vd-space-2:8px;--vd-space-3:12px;
+ --vd-space-4:16px;--vd-space-6:24px;--vd-space-8:32px;
+ color-scheme:light;
+}
+html,body{background:var(--vd-bg)!important;color:var(--vd-text)!important;font-family:Inter,"Segoe UI","Noto Sans SC",Arial,sans-serif}
+body,.shell,#appShell,.study-layout,.study-center,.study-rail,.study-sidebar{background-color:var(--vd-bg)}
+#appShell{color:var(--vd-text)!important}
+.top{border-bottom:1px solid var(--vd-line)!important;background:rgba(248,250,252,.96)!important;box-shadow:none!important}
+.brand,.brand-home,.brand-home strong{color:var(--vd-text)!important}
+.study-sidebar,.study-rail{border:1px solid var(--vd-line)!important;background:var(--vd-card)!important;border-radius:var(--vd-radius)!important;box-shadow:none!important}
+.study-center{min-width:0}
+.study-sidebar button,.study-sidebar .home-switch,.study-sidebar .area-switch,.study-rail button{
+ border-radius:11px!important;transition:background-color .16s ease,color .16s ease,border-color .16s ease!important;
+}
+.study-sidebar button.active,.study-sidebar button[aria-current="page"],.study-rail button.active{
+ background:var(--vd-primary)!important;color:white!important;border-color:var(--vd-primary)!important;
+}
+.study-sidebar button:not(.active):hover,.study-rail button:not(.active):hover{background:var(--vd-primary-soft)!important;color:var(--vd-primary-dark)!important}
+.study-sidebar .sidebar-heading,.study-sidebar .menu-signature{color:var(--vd-muted)!important}
+:is(.home-card,.v865-side-card,.v865-roadmap,.v865-continue-card,.panel,.flashcard,.community-box,.hsk-lesson,.study-center .hero,.v91-account-dropdown,.v91-account-trigger){
+ border:1px solid var(--vd-line)!important;background-color:var(--vd-card)!important;
+ box-shadow:var(--vd-shadow)!important;border-radius:var(--vd-radius)!important;
+}
+.v865-home-main,.v865-home-sidebar{min-width:0}
+.home-overview-grid,.v865-home-shell{gap:16px!important}
+.home-welcome-card{
+ border:1px solid #D5E5FF!important;
+ background:#EFF6FF!important;
+ box-shadow:none!important;overflow:hidden;
+}
+.home-welcome-card .home-welcome-copy{position:relative;z-index:1}
+.home-welcome-card h1,.home-welcome-card h2{color:#172B58!important;letter-spacing:-.028em}
+.home-welcome-card p{color:#425B80!important}
+.home-welcome-mascot{width:min(37%,300px)!important;height:auto!important;max-height:290px!important;object-fit:contain!important;filter:none!important}
+.home-primary-action,.home-welcome-actions .home-primary-action{
+ background:var(--vd-primary)!important;color:#fff!important;border:1px solid var(--vd-primary)!important;
+ box-shadow:none!important;border-radius:11px!important;font-weight:700!important;
+}
+.home-primary-action:hover{background:var(--vd-primary-dark)!important}
+.home-secondary-action{background:#fff!important;color:var(--vd-primary-dark)!important;border:1px solid #BFD5FC!important;border-radius:11px!important}
+.home-library-card,.home-course-card,.home-resource-tile{background-color:#fff!important;border:1px solid var(--vd-line)!important;box-shadow:none!important;border-radius:13px!important}
+.home-course-card:hover,.home-resource-tile:hover{border-color:#93C5FD!important;box-shadow:0 5px 16px rgba(37,99,235,.08)!important}
+.v865-streak-card,.v865-weekly-card{background:#fff!important;border-color:var(--vd-line)!important;box-shadow:none!important}
+.v865-red-cta{background:var(--vd-primary)!important;color:#fff!important;border-radius:11px!important}
+.v865-mission-track,.v91-progress{background:#E8EEF7!important}
+.v865-mission-track i,.v91-progress i{background:var(--vd-primary)!important}
+.v865-roadmap{padding:20px!important}
+.hsk-roadmap-card{box-shadow:none!important}
+.v91-account-trigger{border-radius:13px!important}
+.v91-account-copy strong,.v91-account-chevron{color:var(--vd-text)!important}
+.v91-account-summary{background:var(--vd-primary-soft)!important}
+.v91-account-item:hover{background:var(--vd-primary-soft)!important;color:var(--vd-primary-dark)!important}
+.v91-account-dropdown{background:#fff!important;box-shadow:0 12px 28px rgba(15,23,42,.12)!important}
+:is(input,textarea,select){accent-color:var(--vd-primary)}
+:is(input,textarea,select):focus-visible{outline:2px solid #93C5FD!important;outline-offset:1px}
+:is(button,a,input,textarea,select):focus-visible{outline:3px solid #60A5FA!important;outline-offset:2px}
+.duckie-chat-launch,.duckie-chat-form button{background:var(--vd-primary)!important;box-shadow:0 6px 15px rgba(37,99,235,.18)!important}
+.duckie-chat-panel{background:#fff!important;border-color:var(--vd-line)!important;box-shadow:0 12px 35px rgba(15,23,42,.14)!important}
+.duckie-chat-head{background:var(--vd-primary-soft)!important}
+.dc-bubble.is-user{background:var(--vd-primary)!important}
+.dc-bubble.is-assistant{background:#F1F5F9!important;color:var(--vd-text)!important}
+.duckie-chat-launch img,.duckie-chat-mascot{background:#DBEAFE!important}
+.va-panel{background:#fff!important}
+.panel,.quiz-actions,.options,.controls{min-width:0}
+.hanzi,.va-word b,.dc-hanzi{font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif}
+.muted,.home-card-kicker,.v865-kicker{color:var(--vd-muted)}
+/* Prevent giant generic SaaS-cards from dwarfing learning material. */
+.home-recommended{margin-top:12px!important}
+.home-course-grid{gap:12px!important}
+.home-course-card{min-width:0!important}
+.home-library-card .home-resource-grid{gap:10px!important}
+.home-resource-tile{min-height:0!important}
+@media(min-width:981px){
+ .study-layout{gap:16px!important}
+ .study-center{flex:1 1 auto}
+ .home-welcome-card{min-height:260px!important}
+}
+@media(max-width:980px){
+ .home-welcome-mascot{width:min(35%,215px)!important}
+ .study-layout{gap:12px!important}
+ .home-overview-grid,.v865-home-shell{gap:12px!important}
+}
+@media(max-width:760px){
+ .top{background:#fff!important}
+ .home-welcome-card{min-height:225px!important}
+ .home-welcome-mascot{width:37%!important;max-height:180px!important}
+ .home-welcome-copy{max-width:67%}
+ .home-overview-grid,.v865-home-shell{gap:10px!important}
+ .v865-roadmap{padding:14px!important}
+ .duckie-chat-panel{max-width:calc(100vw - 16px)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .study-sidebar button,.study-rail button,.home-course-card,.home-resource-tile{transition:none!important}
+}
