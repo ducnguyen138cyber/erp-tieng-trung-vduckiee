@@ -31,6 +31,19 @@ try{
   assert.equal((await page.locator('#vsearchStrokeCanvas').getAttribute('data-real-character')),'力');
   await page.locator('[data-vsearch-save]').click();
   assert.match(await page.locator('#vsearchSaveStatus').textContent(),/Đăng nhập Google/);
+  await page.evaluate(()=>{
+    window.__savedRows=[];
+    window.VDuckieEXPCore={
+      session:()=>({user:{id:'11111111-1111-4111-8111-111111111111'}}),
+      client:()=>({from(){return {
+        select(){return {eq(){return {eq(){return {maybeSingle:async()=>({data:null,error:null})}}}}}},
+        insert:async(row)=>{window.__savedRows.push(row);return {data:row,error:null}}
+      }}})
+    };
+  });
+  await page.locator('[data-vsearch-save]').click();
+  await page.waitForFunction(()=>document.querySelector('#vsearchSaveStatus')?.textContent.includes('Đã lưu'));
+  assert.equal(await page.evaluate(()=>window.__savedRows[0].hanzi),'努力');
   await page.locator('[data-vsearch-quiz]').click();
   assert.match(await page.locator('#vsearchStrokeStatus').textContent(),/Vẽ các nét/);
   assert.deepEqual(errors,[],'uncaught errors');
