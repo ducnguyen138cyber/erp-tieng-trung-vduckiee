@@ -60,7 +60,7 @@ try {
     page.setDefaultTimeout(15000);
     page.setDefaultNavigationTimeout(20000);
     const errors = [];
-    page.on('pageerror', error => errors.push(error.message));
+    page.on('pageerror', error => errors.push(error.stack || error.message));
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**', route => route.fulfill({ contentType: 'text/javascript', body: sdkFixture(authenticated) }));
     await page.route('https://*.supabase.co/**', route => route.abort());
     await page.goto(base);
