@@ -13,7 +13,7 @@ test('six free assistant modules load without paid API or invented model answers
  assert.match(entry,/assets\/ai\/free-learning-assistant\.css/);
 });
 test('learning outcomes distinguish rules from actual AI',()=>{
- assert.match(source,/chưa có khả năng hiểu và sửa câu tự do/);
+ assert.match(source,/Bản không dùng AI API/);
  assert.match(source,/không chấm chính xác ngữ pháp/);
  assert.match(source,/chưa phải điểm đánh giá thanh điệu/);
 });
