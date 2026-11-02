@@ -9,8 +9,8 @@ function renderText(container,value){
  const lines=String(value||"").split(/\n/);
  lines.forEach((line,index)=>{
   const row=elt("div","dc-line");
-  const pieces=line.split(/(\*\*[^*]+\*\*)/g);
-  pieces.forEach(part=>{if(part.startsWith("**")&&part.endsWith("**")&&part.length>4)row.appendChild(elt("strong","",part.slice(2,-2)));else row.appendChild(document.createTextNode(part))});
+  const cleaned=line.replace(/^\s*#{1,4}\s+/,"").replace(/^\s*[-*]\s+/,"• ");const pieces=cleaned.split(/(\*\*[^*]+\*\*)/g);
+  pieces.forEach(part=>{const strong=part.startsWith("**")&&part.endsWith("**")&&part.length>4;const parent=strong?elt("strong",""):row;const content=strong?part.slice(2,-2):part;content.split(/([\\u3400-\\u9fff]+)/g).forEach(chunk=>{if(/[\\u3400-\\u9fff]/.test(chunk)){const h=elt("span","dc-hanzi",chunk);h.lang="zh-CN";parent.appendChild(h)}else if(chunk)parent.appendChild(document.createTextNode(chunk))});if(strong)row.appendChild(parent)});
   container.appendChild(row);
  });
 }
