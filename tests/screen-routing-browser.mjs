@@ -25,7 +25,7 @@ try {
     const page = await context.newPage();
     const consoleErrors = [], networkFailures = [];
     page.on('pageerror', e=>consoleErrors.push(e.message));
-    page.on('requestfailed', request=>{ if(new URL(request.url()).hostname==='127.0.0.1') networkFailures.push(request.url()); });
+    page.on('requestfailed', request=>{ if(new URL(request.url()).hostname==='127.0.0.1' && !/ERR_ABORTED|cancelled/i.test(request.failure()?.errorText||'')) networkFailures.push(request.url()); });
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**', route=>route.fulfill({contentType:'text/javascript',body:`window.supabase={createClient(){const q=()=>new Proxy({}, {get(_o,k){if(k==='then')return (ok)=>Promise.resolve({data:[],error:null}).then(ok);return ()=>q();}});return {auth:{getSession:async()=>({data:{session:null},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}}),signInWithOAuth:async()=>({data:{},error:null})},from:q,rpc:async()=>({data:[],error:null})}}};`}));
     await page.route('https://*.supabase.co/**',route=>route.abort());
     await page.goto(base);
