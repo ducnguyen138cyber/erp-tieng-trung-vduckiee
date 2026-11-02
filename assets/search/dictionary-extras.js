@@ -57,10 +57,18 @@ async function openNotebook(){
  function render(){
   var q=panel.querySelector("[data-notebook-query]").value.toLowerCase().trim(),level=panel.querySelector("[data-notebook-level]").value,mode=panel.querySelector("[data-notebook-status]").value;
   var found=notebookRows.filter(function(row){return (!q||(row.hanzi+" "+row.pinyin+" "+row.meaning_vi).toLowerCase().includes(q))&&(!level||lookupLevel(row.hanzi).split(",").includes(level))&&(!mode||(row.memory_status|| (row.is_known?"known":"new"))===mode)});
-  resultArea.innerHTML=found.length?found.map(function(row){return '<article class="vsearch-saved-word"><strong lang="zh-CN">'+escapeText(row.hanzi)+'</strong><span>'+escapeText(row.pinyin)+'</span><small>'+escapeText(row.meaning_vi)+'</small><button data-notebook-known="'+escapeText(row.word_key)+'">'+(row.is_known?"✓ Đã thuộc":"Đánh dấu đã thuộc")+'</button><button data-notebook-delete="'+escapeText(row.word_key)+'">Xóa</button></article>'}).join(""):'<p>Không có từ nào khớp bộ lọc.</p>';
+  resultArea.innerHTML=found.length?found.map(function(row){return '<article class="vsearch-saved-word"><strong lang="zh-CN">'+escapeText(row.hanzi)+'</strong><span>'+escapeText(row.pinyin)+'</span><small>'+escapeText(row.meaning_vi)+'</small><select data-notebook-update="'+escapeText(row.word_key)+'">'+["new","learning","review","known"].map(function(v,i){return '<option value="'+v+'"'+((row.memory_status||"new")===v?' selected':'')+'>'+["Chưa học","Đang học","Cần ôn lại","Đã thuộc"][i]+'</option>'}).join("")+'</select><button data-notebook-delete="'+escapeText(row.word_key)+'">Xóa</button></article>'}).join(""):'<p>Không có từ nào khớp bộ lọc.</p>';
  }
  panel.addEventListener("input",render);
- panel.addEventListener("change",render);
+ panel.addEventListener("change",function(e){if(!e.target.matches("[data-notebook-update]"))render()});
+ panel.addEventListener("change",async function(ev){
+  var sel=ev.target.closest("[data-notebook-update]");if(!sel)return;
+  var key=sel.getAttribute("data-notebook-update"),row=notebookRows.find(function(x){return x.word_key===key});if(!row)return;
+  var next=sel.value;
+  var res=await current.client.from("user_words").update({is_known:next==="known",memory_status:next}).eq("user_id",current.session.user.id).eq("word_key",key);
+  if(res.error){resultArea.textContent="Không lưu được trạng thái: "+res.error.message;return}
+  row.memory_status=next;row.is_known=next==="known";render();
+ });
  panel.addEventListener("click",async function(ev){
    if(ev.target===panel||ev.target.closest("[data-notebook-close]")){panel.remove();return}
    var del=ev.target.closest("[data-notebook-delete]"),known=ev.target.closest("[data-notebook-known]");if(!del&&!known)return;
