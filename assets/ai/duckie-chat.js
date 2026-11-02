@@ -37,7 +37,7 @@ function mount(){
   messages.push({role:"user",content:question});messages=messages.slice(-MAX);save();input.value="";render();busy=true;send.disabled=true;status.hidden=false;status.textContent="Duckie đang suy nghĩ…";
   try{
    const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),25000);
-   let response;try{response=await fetch("./api/duckie-chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:messages.slice(-12)}),signal:controller.signal})}finally{clearTimeout(timeout)}
+   let response;try{response=await fetch("./api/duckie-chat",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({messages:messages.slice(-12),context:(()=>{const item=window.VDuckieHeaderSearch?.selected?.();return item&&typeof item.hanzi==="string"?{hanzi:item.hanzi}:null})()}),signal:controller.signal})}finally{clearTimeout(timeout)}
    let data={};try{data=await response.json()}catch{}
    if(!response.ok){const error=data.error||"Không kết nối được máy chủ AI.";throw new Error(error)}
    if(typeof data.reply!=="string"||!data.reply.trim())throw new Error("Máy chủ chưa trả lời được.");
