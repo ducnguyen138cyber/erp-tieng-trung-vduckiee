@@ -90,6 +90,8 @@
       root.VDuckieGradedHSK.open();
     } else if (screen === "home") {
       invoke("#studySidebar [data-home]");
+      var homeNode = document.getElementById("homeHub");
+      if (homeNode) homeNode.classList.remove("hidden");
     } else if (screen === "hsk" || screen === "hsk-study") {
       invoke('#studySidebar [data-area="hsk"]');
     } else if (screen.indexOf("erp:") === 0) {
