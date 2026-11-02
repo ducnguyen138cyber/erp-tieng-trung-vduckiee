@@ -5,7 +5,7 @@ html.v865-home-mode #v865HomeRoadmap {
   overflow: hidden;
   background:
     radial-gradient(circle at 88% 0%,rgba(255,255,255,.92),transparent 34%),
-    linear-gradient(180deg,#fffdf9 0%,#f7f1e6 100%);
+    linear-gradient(180deg,#FFFFFF 0%,#F8FAFC 100%);
 }
 
 html.v865-home-mode #v865HomeRoadmap:not([data-hsk-roadmap-v894="ready"]) .v865-road-scroll {
@@ -21,18 +21,18 @@ html.v865-home-mode #v865HomeRoadmap .v865-road-scroll {
   overscroll-behavior-inline: contain;
   transition: opacity .16s ease;
   scrollbar-width: thin;
-  scrollbar-color: #c7c1b5 transparent;
+  scrollbar-color: #CBD5E1 transparent;
 }
 
 html.v865-home-mode #v865HomeRoadmap .v865-road-scroll::-webkit-scrollbar { height: 7px; }
-html.v865-home-mode #v865HomeRoadmap .v865-road-scroll::-webkit-scrollbar-thumb { border-radius: 999px; background: #c7c1b5; }
+html.v865-home-mode #v865HomeRoadmap .v865-road-scroll::-webkit-scrollbar-thumb { border-radius: 999px; background: #CBD5E1; }
 
 html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card {
-  --road-color:#168864;
-  --road-dark:#0f654c;
-  --road-soft:#eaf7f2;
+  --road-color:#2563EB;
+  --road-dark:#1D4ED8;
+  --road-soft:#EFF6FF;
   --road-border:#76bea8;
-  --road-track:#dceee8;
+  --road-track:#DBEAFE;
   --road-shadow:rgba(22,136,100,.22);
   position: relative;
   display: grid;
@@ -48,7 +48,7 @@ html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card {
   background:
     linear-gradient(90deg,var(--road-color),var(--road-color)) top/100% 4px no-repeat,
     linear-gradient(150deg,var(--road-soft) 0%,#fff 74%);
-  color: #18352e;
+  color: #0F172A;
   box-shadow: 0 7px 16px rgba(24,53,46,.07),inset 0 1px 0 rgba(255,255,255,.92);
   opacity: 1;
   filter: none;
@@ -61,10 +61,10 @@ html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card {
   -webkit-tap-highlight-color: transparent;
 }
 
-html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="0"] { --road-color:#168864;--road-dark:#0f654c;--road-soft:#eaf7f2;--road-border:#76bea8;--road-track:#dceee8;--road-shadow:rgba(22,136,100,.24); }
-html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="1"] { --road-color:#d88a34;--road-dark:#a9601d;--road-soft:#fff4df;--road-border:#efbd78;--road-track:#f7e3c2;--road-shadow:rgba(216,138,52,.24); }
-html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="2"] { --road-color:#c87525;--road-dark:#955217;--road-soft:#fff0d6;--road-border:#e5a75e;--road-track:#f3d9ae;--road-shadow:rgba(200,117,37,.24); }
-html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="3"] { --road-color:#c65d43;--road-dark:#93402e;--road-soft:#fce9e3;--road-border:#df9786;--road-track:#f0cec5;--road-shadow:rgba(198,93,67,.24); }
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="0"] { --road-color:#2563EB;--road-dark:#1D4ED8;--road-soft:#EFF6FF;--road-border:#76bea8;--road-track:#DBEAFE;--road-shadow:rgba(22,136,100,.24); }
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="1"] { --road-color:#2563EB;--road-dark:#1D4ED8;--road-soft:#EFF6FF;--road-border:#efbd78;--road-track:#DBEAFE;--road-shadow:rgba(216,138,52,.24); }
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="2"] { --road-color:#c87525;--road-dark:#1D4ED8;--road-soft:#EFF6FF;--road-border:#e5a75e;--road-track:#f3d9ae;--road-shadow:rgba(200,117,37,.24); }
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="3"] { --road-color:#2563EB;--road-dark:#93402e;--road-soft:#EFF6FF;--road-border:#df9786;--road-track:#f0cec5;--road-shadow:rgba(198,93,67,.24); }
 html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="4"] { --road-color:#9e4b41;--road-dark:#74342e;--road-soft:#f5e6e3;--road-border:#c9857c;--road-track:#e7cbc6;--road-shadow:rgba(158,75,65,.24); }
 html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="5"] { --road-color:#718995;--road-dark:#526a75;--road-soft:#edf3f5;--road-border:#a9bdc5;--road-track:#d9e4e8;--road-shadow:rgba(113,137,149,.2); }
 html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card[data-v865-level="6"] { --road-color:#6e7692;--road-dark:#515873;--road-soft:#eff0f6;--road-border:#afb3c8;--road-track:#dfe1eb;--road-shadow:rgba(110,118,146,.2); }
@@ -137,7 +137,7 @@ html.v865-home-mode #v865HomeRoadmap .hsk-badge-back { transform: rotateX(180deg
 html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card strong {
   min-width: 0;
   overflow: hidden;
-  color: #18352e;
+  color: #0F172A;
   font-size: 13px;
   line-height: 1.22;
   text-overflow: ellipsis;
