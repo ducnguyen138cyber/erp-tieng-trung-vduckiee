@@ -49,14 +49,14 @@ async function openNotebook(){
  var current=context();if(!current.client||!current.session||!current.session.user){status("Đăng nhập Google để mở sổ từ đồng bộ.");return}
  var old=document.getElementById("vsearchNotebook");if(old)old.remove();
  var panel=document.createElement("section");panel.id="vsearchNotebook";panel.className="vsearch-overlay";
- panel.innerHTML='<div class="vsearch-notebook" role="dialog" aria-modal="true"><header><h2>Sổ từ cá nhân</h2><button type="button" data-notebook-close>×</button></header><p class="vsearch-source">Chỉ hiển thị từ của tài khoản đang đăng nhập.</p><div class="vsearch-notebook-filters"><input data-notebook-query type="search" placeholder="Tìm từ đã lưu…"><select data-notebook-level><option value="">Mọi cấp HSK</option>'+[1,2,3,4,5,6].map(function(i){return '<option value="'+i+'">HSK '+i+'</option>'}).join("")+'</select><select data-notebook-status><option value="">Tất cả</option><option value="learned">Đã thuộc</option><option value="learning">Đang học</option></select></div><div data-notebook-results>Đang tải sổ từ…</div></div>';
+ panel.innerHTML='<div class="vsearch-notebook" role="dialog" aria-modal="true"><header><h2>Sổ từ cá nhân</h2><button type="button" data-notebook-close>×</button></header><p class="vsearch-source">Chỉ hiển thị từ của tài khoản đang đăng nhập.</p><div class="vsearch-notebook-filters"><input data-notebook-query type="search" placeholder="Tìm từ đã lưu…"><select data-notebook-level><option value="">Mọi cấp HSK</option>'+[1,2,3,4,5,6].map(function(i){return '<option value="'+i+'">HSK '+i+'</option>'}).join("")+'</select><select data-notebook-status><option value="">Tất cả</option><option value="new">Chưa học</option><option value="learning">Đang học</option><option value="review">Cần ôn lại</option><option value="known">Đã thuộc</option></select></div><div data-notebook-results>Đang tải sổ từ…</div></div>';
  document.body.appendChild(panel);
- var response=await current.client.from("user_words").select("word_key,hanzi,pinyin,meaning_vi,category,is_saved,is_known").eq("user_id",current.session.user.id).eq("is_saved",true).order("updated_at",{ascending:false}).limit(500);
+ var response=await current.client.from("user_words").select("word_key,hanzi,pinyin,meaning_vi,category,is_saved,is_known,memory_status").eq("user_id",current.session.user.id).eq("is_saved",true).order("updated_at",{ascending:false}).limit(500);
  notebookRows=response.data||[];
  var resultArea=panel.querySelector("[data-notebook-results]");if(response.error){resultArea.textContent="Không tải được sổ từ: "+response.error.message;return}
  function render(){
   var q=panel.querySelector("[data-notebook-query]").value.toLowerCase().trim(),level=panel.querySelector("[data-notebook-level]").value,mode=panel.querySelector("[data-notebook-status]").value;
-  var found=notebookRows.filter(function(row){return (!q||(row.hanzi+" "+row.pinyin+" "+row.meaning_vi).toLowerCase().includes(q))&&(!level||lookupLevel(row.hanzi).split(",").includes(level))&&(!mode||(mode==="learned" ? row.is_known : !row.is_known))});
+  var found=notebookRows.filter(function(row){return (!q||(row.hanzi+" "+row.pinyin+" "+row.meaning_vi).toLowerCase().includes(q))&&(!level||lookupLevel(row.hanzi).split(",").includes(level))&&(!mode||(row.memory_status|| (row.is_known?"known":"new"))===mode)});
   resultArea.innerHTML=found.length?found.map(function(row){return '<article class="vsearch-saved-word"><strong lang="zh-CN">'+escapeText(row.hanzi)+'</strong><span>'+escapeText(row.pinyin)+'</span><small>'+escapeText(row.meaning_vi)+'</small><button data-notebook-known="'+escapeText(row.word_key)+'">'+(row.is_known?"✓ Đã thuộc":"Đánh dấu đã thuộc")+'</button><button data-notebook-delete="'+escapeText(row.word_key)+'">Xóa</button></article>'}).join(""):'<p>Không có từ nào khớp bộ lọc.</p>';
  }
  panel.addEventListener("input",render);
@@ -65,9 +65,9 @@ async function openNotebook(){
    if(ev.target===panel||ev.target.closest("[data-notebook-close]")){panel.remove();return}
    var del=ev.target.closest("[data-notebook-delete]"),known=ev.target.closest("[data-notebook-known]");if(!del&&!known)return;
    var key=(del||known).getAttribute(del?"data-notebook-delete":"data-notebook-known"),row=notebookRows.find(function(item){return item.word_key===key});if(!row)return;
-   var request=current.client.from("user_words").update(del?{is_saved:false}:{is_known:!row.is_known}).eq("user_id",current.session.user.id).eq("word_key",key);
+   var request=current.client.from("user_words").update(del?{is_saved:false}:{is_known:!row.is_known,memory_status:row.is_known?"learning":"known"}).eq("user_id",current.session.user.id).eq("word_key",key);
    var answer=await request;if(answer.error){resultArea.textContent="Không cập nhật được: "+answer.error.message;return}
-   if(del)notebookRows=notebookRows.filter(function(item){return item.word_key!==key});else row.is_known=!row.is_known;
+   if(del)notebookRows=notebookRows.filter(function(item){return item.word_key!==key});else {row.is_known=!row.is_known;row.memory_status=row.is_known?"known":"learning"};
    render();
  });
  render();
