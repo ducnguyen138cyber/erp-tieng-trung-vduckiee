@@ -61,8 +61,8 @@
         source=source.replace("</body>",'<script src="./vendor/hanzi-writer.min.js"><\/script><script src="./assets/search/dictionary-extras.js?v=1"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/ai/free-learning-assistant.css?v=1"></head>');
         source=source.replace("</body>",'<script src="./assets/ai/free-learning-assistant.js?v=1"><\/script></body>');
-        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/ai/duckie-chat.css?v=2"></head>');
-        source=source.replace("</body>",'<script src="./assets/ai/duckie-chat.js?v=2"><\/script></body>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/ai/duckie-chat.css?v=tutor2"></head>');
+        source=source.replace("</body>",'<script src="./assets/ai/duckie-chat.js?v=tutor2"><\/script></body>');
         document.open();document.write(source);document.close();
       }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/home/vduckie-welcome.webp?v=96.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();
