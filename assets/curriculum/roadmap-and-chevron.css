@@ -1,0 +1,24 @@
+/* Compact Home preview cards, detailed level selection, refined account chevron. */
+html.v865-home-mode #v865HomeRoadmap .v865-road-scroll{grid-auto-columns:126px!important;gap:12px!important}
+html.v865-home-mode #v865HomeRoadmap .hsk-roadmap-card{min-height:153px!important;padding:13px 11px!important}
+@media(min-width:1450px){html.v865-home-mode #v865HomeRoadmap .v865-road-scroll{grid-auto-columns:137px!important}}
+.v91-account-chevron{width:29px!important;height:29px!important;flex:0 0 29px!important;border:1px solid #dce4df;border-radius:10px;background:#f4f8f5;display:grid!important;place-items:center;font-size:0!important;color:transparent!important;transition:background .2s ease,border-color .2s ease!important}
+.v91-account-chevron::after{content:"";width:8px;height:8px;border-right:2px solid #27483e;border-bottom:2px solid #27483e;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+.v91-account-trigger[aria-expanded="true"] .v91-account-chevron{transform:none!important;background:#e5f1e8;border-color:#a7cabb}
+.v91-account-trigger[aria-expanded="true"] .v91-account-chevron::after{transform:translateY(2px) rotate(225deg)}
+.hsk-full-roadmap{width:100%;max-width:none!important}
+.hsk-full-roadmap-inner{padding:18px 4px 40px;max-width:1250px;margin:0 auto}
+.hsk-map-head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:26px}
+.hsk-map-kicker{font-size:12px;letter-spacing:.1em;color:#ac622e;font-weight:800}
+.hsk-map-head h1{font-size:clamp(30px,3vw,42px);color:#143d33;margin:6px 0}
+.hsk-map-head p{font-size:15px;color:#65746c;max-width:670px}
+.hsk-map-head button{border-radius:13px;border:1px solid #dcd5c7;background:#fff;padding:12px 16px;font-weight:700;cursor:pointer}
+.hsk-map-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hsk-map-level{border:1px solid #ddd8cb;background:#fff;border-radius:20px;padding:23px;display:flex;flex-direction:column;gap:10px;min-height:220px;box-shadow:0 4px 15px rgba(20,50,40,.04)}
+.hsk-map-level h2{font-size:30px;margin:0;color:#163f32}
+.hsk-map-level p{font-size:14px;line-height:1.55;color:#65736c;flex:1;margin:0}
+.hsk-map-level button{border:0;border-radius:13px;background:#173f34;color:white;padding:13px;cursor:pointer;font-weight:700}
+.hsk-map-level.is-locked{background:#f8f7f3;opacity:.65}
+.hsk-map-coming{font-weight:700;color:#7c8982;font-size:13px}
+@media(max-width:850px){.hsk-map-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.hsk-map-grid{grid-template-columns:1fr}.hsk-map-head{align-items:start;flex-direction:column}}
