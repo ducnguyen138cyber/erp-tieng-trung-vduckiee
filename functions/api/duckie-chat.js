@@ -21,7 +21,7 @@ function intent(s){
  return "general";
 }
 function followup(s){return s.trim().length<85&&/^(?:thế|vậy|còn|nó|từ này|câu này|từ đó|cái đó|đó)?[\s,!?]*(?:viết|đọc|phát âm|phiên âm|pinyin|nghĩa|dùng|ví dụ|đặt câu|cách viết|cách đọc)\b/i.test(s.trim())}
-function lookup(s){const q=plain(s);return GLOSSARY.find(x=>x.keys.some(key=>q.includes(plain(key)))&&/tieng trung|viet|dich|chu han/.test(q))||null}
+function lookup(s){const q=plain(s);if(!/tieng trung|viet|dich|chu han/.test(q))return null;const matches=GLOSSARY.flatMap(entry=>entry.keys.map(key=>({entry,key:plain(key)}))).filter(item=>q.includes(item.key)).sort((a,b)=>b.key.length-a.key.length);return matches[0]?.entry||null}
 function unpack(r){return typeof r?.response==="string"?r.response:typeof r?.result?.response==="string"?r.result.response:typeof r?.choices?.[0]?.message?.content==="string"?r.choices[0].message.content:""}
 function validate(reply,kind,fact){
  if(!reply||!reply.trim())return "empty";
