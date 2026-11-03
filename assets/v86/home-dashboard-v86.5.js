@@ -21,7 +21,22 @@ function dayLabel(date){return["CN","T2","T3","T4","T5","T6","T7"][date.getDay()
 function completedCount(value){var total=0;value=value&&typeof value==="object"?value:{};Object.keys(value).forEach(function(key){if(value[key])total++});return total}
 function homeVisible(){var home=document.getElementById("homeHub");return Boolean(home&&!home.classList.contains("hidden"))}
 function navigate(area){var button=document.querySelector('[data-area="'+area+'"],[data-home-area="'+area+'"]');if(button){button.click();return}var navigation=root.ERPAreaNavigation;if(navigation&&typeof navigation.select==="function")navigation.select(area)}
-function navigateHskLevel(level){navigate("hsk");root.setTimeout(function(){var button=document.querySelector('#hskLevels [data-hsk-level="'+level+'"]');if(button)button.click()},180)}
+function navigateHskLevel(level){
+  if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("hsk-study");
+  else navigate("hsk");
+  if(root.VDuckieHskProfessionalRuntime)root.VDuckieHskProfessionalRuntime.selectLevel(level,false);
+}
+function resumePrimaryHsk(review){
+  var progress=root.VDuckieHskStudyJourney, saved=progress?progress.current():{level:1,lessonId:""};
+  if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("hsk-study");
+  else navigate("hsk");
+  var runtime=root.VDuckieHskProfessionalRuntime;
+  if(!runtime||!runtime.selectLevel)return;
+  runtime.selectLevel(saved.level,false).then(function(){
+    if(saved.lessonId)runtime.selectLesson(saved.lessonId,false);
+    if(review&&root.VDuckieHskStudyFlow)root.VDuckieHskStudyFlow.openReview();
+  }).catch(function(error){if(root.console&&root.console.error)root.console.error("Resume HSK",error);});
+}
 
 function lastSevenDays(activity){
   var today=new Date(),days=[];
@@ -62,6 +77,13 @@ function weeklyData(streak){
   ]};
 }
 function continueData(){
+  var journey=root.VDuckieHskStudyJourney;
+  if(journey){
+    var sum=journey.summary(),current=sum.current,level=Number(current.level)||1;
+    return {level:level,title:sum.totalCompleted?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
+      subtitle:sum.totalCompleted?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
+      done:sum.totalCompleted,reviewDue:sum.due,lessonId:current.lessonId||""};
+  }
   var state=read(HSK_STATE_KEY,{level:0,lesson:0}),level=Number(state.level||0),lessonIndex=Number(state.lesson||0),curriculum=root.HSKCurriculum,item=curriculum&&curriculum.levels&&curriculum.levels[level]&&curriculum.levels[level][lessonIndex],done=completedCount(read(HSK_PROGRESS_KEY,{}));
   return{level:level,title:item&&item.title?item.title:(level===0?"Bắt đầu phần Nền tảng":"Tiếp tục lộ trình HSK"),subtitle:item&&item.goal?item.goal:"Quay lại đúng bài gần nhất đã học.",done:done};
 }
@@ -93,7 +115,7 @@ function weeklyMarkup(data){
   return'<article class="v865-side-card v865-weekly-card"><div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v865-mission-list">'+missions+'</div><p class="v865-weekly-note">Hoàn thành cả ba để nhận huy hiệu <strong>Vịt bền bỉ</strong>.</p></article>';
 }
 function continueMarkup(data){
-  return'<article class="v865-side-card v865-continue-card"><span class="v865-kicker">TIẾP TỤC HỌC</span><h3>'+esc(data.title)+'</h3><p>'+esc(data.subtitle)+'</p><div class="v865-continue-meta"><span>'+data.done+' bài đã hoàn thành</span><span>'+(data.level?"HSK "+data.level:"Nền tảng")+'</span></div><button data-v865-action="continue">Học tiếp →</button></article>';
+  return'<article class="v865-side-card v865-continue-card"><span class="v865-kicker">TIẾP TỤC HỌC</span><h3>'+esc(data.title)+'</h3><p>'+esc(data.subtitle)+'</p><div class="v865-continue-meta"><span>'+data.done+' bài đã hoàn thành</span><span>'+(data.level?"HSK "+data.level:"Nền tảng")+'</span></div><button data-v865-action="continue">Học tiếp →</button>'+(data.reviewDue?'<button class="v865-review-action" data-v865-action="review-hsk">↻ Ôn '+data.reviewDue+' từ HSK đến hạn</button>':'')+'</article>';
 }
 function roadmapMarkup(stages){
   var cards=stages.map(function(stage){var detail=stage.active?(stage.progress.total?stage.progress.done+"/"+stage.progress.total+" bài":"Sẵn sàng học"):"Sắp mở";return'<button class="v865-road-stage '+(stage.current?"current ":"")+(stage.active?"":"locked")+'" data-v865-level="'+stage.level+'" '+(stage.active?"":"disabled")+'><span class="v865-road-icon">'+stage.icon+'</span><strong>'+stage.label+'</strong><small>'+detail+'</small><div class="v865-road-track"><i style="width:'+stage.progress.percent+'%"></i></div></button>'}).join("");
@@ -176,12 +198,17 @@ function bind(){
   document.addEventListener("click",function(event){
     var button=event.target&&event.target.closest&&event.target.closest("button");if(!button)return;
     var action=button.getAttribute("data-v865-action");
-    if(action==="start-streak"||action==="continue"||action==="open-hsk")navigate("hsk");
+    if(action==="continue")resumePrimaryHsk(false);
+    if(action==="review-hsk")resumePrimaryHsk(true);
+    if(action==="start-streak"||action==="open-hsk"){
+      if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("msutong");
+      else navigate("hsk");
+    }
     if(button.hasAttribute("data-v865-level"))navigateHskLevel(Number(button.getAttribute("data-v865-level")));
     if(button.hasAttribute("data-home")||button.hasAttribute("data-area")||button.hasAttribute("data-home-area"))root.setTimeout(scheduleRender,70);
   },true);
   document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsRender(event))scheduleRender()});
-  ["vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
+  ["vduckie:hsk-study-journey-change","vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
 }
 function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=86.5";document.head.appendChild(link)}
 function install(){
