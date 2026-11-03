@@ -39,6 +39,12 @@ test('changed scripts and index bootstrap remain syntactically valid', () => {
     'assets/design-system/mascot-swap-v1.js', 'assets/v95/mascot-manifest-v95.js']) {
     assert.doesNotThrow(() => new vm.Script(read(p)), p);
   }
-  const scripts = [...read('index.html').matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)];
-  for (const m of scripts) assert.doesNotThrow(() => new vm.Script(m[1]));
+  const scripts = [...read('index.html').matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
+  for (const m of scripts) {
+    if (/\btype=["']application\/ld\+json["']/i.test(m[1])) {
+      assert.doesNotThrow(() => JSON.parse(m[2]), 'JSON-LD must be valid JSON');
+    } else {
+      assert.doesNotThrow(() => new vm.Script(m[2]), 'Executable inline script must parse');
+    }
+  }
 });
