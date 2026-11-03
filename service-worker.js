@@ -131,6 +131,13 @@ self.addEventListener("fetch", (event) => {
       } catch (error) {
         const cached = await caches.match(request);
         if (cached) return cached;
+        // The app bootstraps a versioned shell URL while install precaches an
+        // unversioned copy. Fall back to that shell only when offline; keep
+        // scripts/styles strictly query-versioned to avoid stale code.
+        if (url.pathname === new URL("./app-shell-v88.html", SCOPE_URL).pathname) {
+          const shell = await caches.match(scoped("./app-shell-v88.html"));
+          if (shell) return shell;
+        }
         throw error;
       }
     })());
