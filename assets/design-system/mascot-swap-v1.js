@@ -12,8 +12,10 @@ function update(){
   ].join(",");
   d.querySelectorAll(selector).forEach(function(img){
     if(img.tagName!=="IMG")return;
+    var role=img.closest('.resource-erp,.course-vocabulary')?'flashcards':img.closest('.resource-hsk,.course-grammar')?'writing':img.closest('.resource-speaking,.course-speaking')?'speaking':img.closest('.resource-road,.course-listening')?'listening':null;
+    var target=role?'./assets/mascot/duckie-'+role+'-2d-v3.webp?v=3.0':asset;
     if(!img.dataset.vduckieMascotOriginal)img.dataset.vduckieMascotOriginal=img.getAttribute("src")||"unknown";
-    if(img.getAttribute("src")!==asset){img.src=asset;img.alt="Linh vật Duckie đồng hành học tiếng Trung"}
+    if(img.getAttribute("src")!==target){img.src=target;img.alt=role?'Duckie '+({flashcards:'học thẻ từ',writing:'luyện viết',speaking:'luyện nói',listening:'luyện nghe'}[role]):"Linh vật Duckie đồng hành học tiếng Trung"}
   });
 }
 var pending=false;function queue(){if(pending)return;pending=true;requestAnimationFrame(function(){pending=false;update()})}

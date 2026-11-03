@@ -4,11 +4,11 @@
    remain owned by their existing modules. */
 @layer vduckie-brand {
  :root,body,#appShell,.cu-workspace {
-  --vd-bg:#f8fafc!important;--vd-card:#fff!important;--vd-primary:#2563eb!important;--vd-primary-dark:#1d4ed8!important;--vd-primary-soft:#eff6ff!important;--vd-text:#111827!important;--vd-muted:#475569!important;--vd-line:#e2e8f0!important;
-  --ink:#111827!important;--muted:#475569!important;--surface:#fff!important;--line:#e2e8f0!important;--primary:#2563eb!important;--accent:#2563eb!important;--secondary:#475569!important;--bg:#f8fafc!important;--bg-soft:#eff6ff!important;--card:#fff!important;--paper:#fff!important;--cream:#fff!important;--forest:#2563eb!important;--green:#2563eb!important;--orange:#2563eb!important;--border:#e2e8f0!important;
-  --layout-green:#111827!important;--layout-muted:#475569!important;--layout-orange:#2563eb!important;--layout-border:#e2e8f0!important;--layout-panel:#fff!important;
-  --learn-green:#111827!important;--learn-muted:#475569!important;--learn-orange:#2563eb!important;--learn-cream:#fff!important;--learn-line:#e2e8f0!important;
-  --cu-ink:#111827!important;--cu-muted:#475569!important;--cu-accent:#2563eb!important;--cu-line:#e2e8f0!important;--cu-paper:#fff!important;
+  --vd-bg:#f8fafc!important;--vd-card:#fff!important;--vd-primary:#3b82f6!important;--vd-primary-dark:#1d4ed8!important;--vd-primary-soft:#eff6ff!important;--vd-text:#111827!important;--vd-muted:#475569!important;--vd-line:#e2e8f0!important;
+  --ink:#111827!important;--muted:#475569!important;--surface:#fff!important;--line:#e2e8f0!important;--primary:#3b82f6!important;--accent:#3b82f6!important;--secondary:#475569!important;--bg:#f8fafc!important;--bg-soft:#eff6ff!important;--card:#fff!important;--paper:#fff!important;--cream:#fff!important;--forest:#3b82f6!important;--green:#3b82f6!important;--orange:#3b82f6!important;--border:#e2e8f0!important;
+  --layout-green:#111827!important;--layout-muted:#475569!important;--layout-orange:#3b82f6!important;--layout-border:#e2e8f0!important;--layout-panel:#fff!important;
+  --learn-green:#111827!important;--learn-muted:#475569!important;--learn-orange:#3b82f6!important;--learn-cream:#fff!important;--learn-line:#e2e8f0!important;
+  --cu-ink:#111827!important;--cu-muted:#475569!important;--cu-accent:#3b82f6!important;--cu-line:#e2e8f0!important;--cu-paper:#fff!important;
  }
  html,body,#appShell,.study-layout,.study-center,.study-rail {background:#f8fafc!important;color:#111827!important}
  /* Reset inherited legacy forest text, preserving deliberate control contrast. */
@@ -27,14 +27,14 @@
  #cloudLogin,.study-layout button.primary,.dictionary-actions button:last-child:not(.saved),.home-primary-action,.v865-red-cta,.v865-continue-card button,.daily-action,.daily-submit,.learning-session-nav .primary,.session-answer,.session-next,.session-start,.cu-primary,.hsk-focus-reveal,.hsk-full-flip-cta,.hsk-focus-next-primary,.hsk-pro-primary,.hsk-pro-grammar code,.graded-hsk-card button,.graded-hsk-legacy button,.duckie-chat-launch,.duckie-chat-form button,.dc-bubble.is-user,
  .study-sidebar button.active,.study-sidebar button[aria-current="page"],.study-rail button.active,.mobile-learning-dock button.active,
  .hsk-focus-tabs button.active,.hsk-pro-tabs button.active,.hsk-pro-step-tabs button.active,.hsk-clean-tabs button.active,.hsk-mobile-step-tabs button.active,.exp-period-tabs button.active,.exp-period-tabs button[aria-selected="true"],.exp-main-nav button.active,
- .study-layout :where(.options button.selected,.daily-options button.selected,.v85-choice.active,.v85-role-grid button.active,.v85-mode-grid button.active){background:#2563eb!important;background-image:none!important;color:#fff!important;border-color:#2563eb!important;box-shadow:none!important}
+ .study-layout :where(.options button.selected,.daily-options button.selected,.v85-choice.active,.v85-role-grid button.active,.v85-mode-grid button.active){background:#dbeafe!important;background-image:none!important;color:#111827!important;border-color:#bfdbfe!important;box-shadow:none!important}
  :is(#cloudLogin,.study-layout button.primary,.dictionary-actions button:last-child:not(.saved),.home-primary-action,.v865-red-cta,.v865-continue-card button,.daily-action,.daily-submit,.learning-session-nav .primary,.cu-primary,.hsk-focus-reveal,.hsk-full-flip-cta,.hsk-focus-next-primary,.hsk-pro-primary,.hsk-pro-grammar code,.graded-hsk-card button,.duckie-chat-launch,.duckie-chat-form button,.dc-bubble.is-user,.study-sidebar button.active,.study-sidebar button[aria-current="page"],.study-rail button.active,.mobile-learning-dock button.active,.exp-period-tabs button.active,.v85-choice.active) :is(span,strong,b,i,small,div){color:inherit!important;background-color:transparent!important}
  .study-layout :where(.home-secondary-action,.home-library-link,.hsk-pro-inline-button,.dc-listen,.daily-options button,.hsk-focus-tabs button:not(.active),.cu-quiet,.cu-audio,.cu-back){background:#fff!important;color:#111827!important;border-color:#dbeafe!important}
  .study-layout :where(.home-secondary-action:hover,.home-library-link:hover,.study-sidebar button:not(.active):hover,.study-rail button:not(.active):hover){background:#eff6ff!important;color:#1d4ed8!important}
  .study-layout :where(.daily-options .correct,.daily-feedback.correct,.cu-answers .is-correct,.cu-feedback.good,.hsk-pro-feedback.good){background:#eff6ff!important;color:#1d4ed8!important;border-color:#93c5fd!important}
  .study-layout :where(.daily-options .wrong,.daily-feedback.wrong,.cu-answers .is-wrong,.cu-feedback.bad,.hsk-pro-feedback.bad){background:#fef2f2!important;color:#b91c1c!important;border-color:#fecaca!important}
  .study-layout :where(.daily-bar,.session-progress,.roadmap-progress,.v90-mission-track,.v865-mission-track,.v865-road-track,.v91-progress,.cu-overall-progress,.cu-card-progress){background:#e2e8f0!important}
- .study-layout :where(.daily-bar i,.daily-bar span,.session-progress i,.session-progress span,.roadmap-progress i,.v90-mission-track i,.v865-mission-track i,.v865-road-track i,.v91-progress i,.cu-overall-progress i,.cu-card-progress i){background:#2563eb!important}
+ .study-layout :where(.daily-bar i,.daily-bar span,.session-progress i,.session-progress span,.roadmap-progress i,.v90-mission-track i,.v865-mission-track i,.v865-road-track i,.v91-progress i,.cu-overall-progress i,.cu-card-progress i){background:#60a5fa!important}
  .study-layout :where(.home-course-art,.home-resource-tile,.v865-streak-day,.v865-streak-days,.v865-fire-orb,.exp-podium-card,.v865-road-stage,.hsk-roadmap-card,.hsk-pro-progress,.cu-dialogue article:nth-child(even)){background:#eff6ff!important;background-image:none!important;border-color:#dbeafe!important}
  .study-layout :where(.v865-road-stage.locked,.hsk-roadmap-card.locked,.graded-hsk-card.is-locked){background:#f1f5f9!important;color:#64748b!important;border-color:#e2e8f0!important}
  .study-layout :where(.v85-profile:after){color:#dbeafe!important}
@@ -47,4 +47,17 @@
  .study-layout :where(.hsk-pro-audio-state,.hsk-pro-tokens span,.hsk-pro-metrics span,.hsk-pro-sidebar-status,.result-mark){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
  .study-layout .hsk-pro-practice{background:#fff!important}
  .study-layout :where(.dictionary-example strong,.dictionary-speak,.dictionary-badge,.badge-hsk,.badge-erp,.badge-category,.dictionary-toolbar,.dictionary-empty){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
+ /* Pale information surfaces: ERP detail and the actual adaptive-home card. */
+ .study-layout :where(.erp-curriculum-summary,.erp-curriculum-score,.erp-module-goal,.v86-adaptive){background:#eff6ff!important;background-image:none!important;color:#111827!important;border-color:#dbeafe!important}
+ .study-layout :where(.erp-module-list,.erp-module-detail,.erp-lesson-word,.erp-workflow li,.erp-module-quiz){background:#fff!important;background-image:none!important;color:#111827!important;border-color:#e2e8f0!important}
+ .study-layout :where(.journey-number,.erp-module-number,.erp-flow-number,.erp-module-status,.erp-word-speak,.erp-flow-speak,.erp-module-result>span,.v86-chip){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
+ .study-layout .erp-module-link.active{background:#dbeafe!important;color:#111827!important;box-shadow:inset 3px 0 #60a5fa!important}
+ .study-layout .erp-module-link.done .erp-module-number{background:#dbeafe!important;color:#111827!important}
+ .study-layout :where(.erp-curriculum-score .bar,.study-rail .bar){background:#dbeafe!important}
+ .study-layout .erp-curriculum-score .bar i,.study-rail .bar span{background:#60a5fa!important}
+ .study-layout .erp-module-goal small{border-color:#dbeafe!important}
+ .study-layout :where(.erp-module-option.correct,.erp-module-feedback.good){background:#eff6ff!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+ .study-layout :where(.erp-module-option.wrong,.erp-module-feedback.bad,.erp-module-result.retry>span){background:#fef2f2!important;color:#b91c1c!important;border-color:#fecaca!important}
+ .study-layout .v86-adaptive:after{color:#dbeafe!important}
+ .study-layout :where(.v86-kicker,.erp-curriculum-summary>div>span,.erp-module-head>div>span){color:#2563eb!important}
 }

@@ -8,15 +8,15 @@
   <meta name="theme-color" content="#F8FAFC">
   <title>VDuckie – Học tiếng Trung</title>
   <link rel="manifest" href="./manifest.webmanifest">
-  <link rel="icon" type="image/webp" href="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0">
-  <link rel="alternate icon" type="image/png" href="./assets/mascot/duckie-reader-icon-32.png?v=2.0">
+  <link rel="icon" type="image/png" sizes="64x64" href="./assets/mascot/duckie-tab-v3.png?v=3.0">
+  
   <link rel="apple-touch-icon" href="./assets/mascot/duckie-reader-icon-180.png?v=2.0">
   <script defer src="./pwa-register.js?v=2"></script>
   <style>html,body{margin:0;min-height:100%;background:#F8FAFC;color:#0F172A;font-family:Arial,"Segoe UI","Noto Sans SC",sans-serif}.vduckie-static-loading{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}.vduckie-static-loading img{display:block;width:min(240px,70vw);height:auto;margin:0 auto 18px}.vduckie-static-loading p{margin:0;color:#66736e}</style>
   <script>
     (async function restoreStaticVDuckie(){
-      var shellUrl="./app-shell-v88.html?v=brand-runtime-20261103-v2";
-      var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
+      var shellUrl="./app-shell-v88.html?v=workspace-20261103-v2.2";
+      var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Duckie đọc sách tiếng Trung">';
       try{
         var response=await fetch(shellUrl,{cache:"no-store"});
         if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
@@ -25,11 +25,11 @@
         if(!animatedMascot.test(source))throw new Error("Không tìm thấy mascot SVG cần thay thế");
         source=source.replace(animatedMascot,staticMascot);
         source=source.replace(/<title>[\s\S]*?<\/title>/i,'<title>VDuckie – Học tiếng Trung</title>');
-        source=source.replace(/<link rel="icon" type="image\/png" href="\.\/assets\/vduckie-logo\.png\?v=1">\s*/i,"");
+        source=source.replace(/<link\b(?=[^>]*\brel=["'][^"']*icon[^"']*["'])[^>]*>\s*/gi,"");
         source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=96.0");
         source=source.replace(/\.\/supabase-config\.js\?v=[^"']+/g,"./supabase-config.js?v=96.0");
         source=source.replace(/\.\/supabase-sync\.js\?v=[^"']+/g,"./supabase-sync.js?v=96.0");
-        source=source.replace("</head>",'<link rel="icon" type="image/webp" href="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0"><link rel="alternate icon" type="image/png" href="./assets/mascot/duckie-reader-icon-32.png?v=2.0"><link rel="apple-touch-icon" href="./assets/mascot/duckie-reader-icon-180.png?v=2.0"><link rel="stylesheet" href="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1"><link rel="stylesheet" href="./assets/v89/hsk-roadmap-v89.4.css?v=89.4"><link rel="stylesheet" href="./assets/v90/exp-system-v90.css?v=90.1"><link rel="stylesheet" href="./assets/v90/home-header-sidebar-v90.1.css?v=90.3"><link rel="stylesheet" href="./assets/v91/header-account-dropdown-v91.css?v=91.5"><link rel="stylesheet" href="./assets/v91/three-column-scroll-v91.10.css?v=91.10"><link rel="stylesheet" href="./assets/v92/vduckie-evolution-v92.css?v=96.0"><link rel="stylesheet" href="./assets/v93/developer-preview-v93.css?v=108.1"><link rel="stylesheet" href="./assets/v95/vduckie-mascot-v95.css?v=100.0"><link rel="stylesheet" href="./assets/v96/vduckie-lv1-lv2-v96.css?v=96.0"></head>');
+        source=source.replace("</head>",'<link rel="icon" type="image/png" sizes="64x64" href="./assets/mascot/duckie-tab-v3.png?v=3.0"><link rel="apple-touch-icon" href="./assets/mascot/duckie-reader-icon-180.png?v=2.0"><link rel="stylesheet" href="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1"><link rel="stylesheet" href="./assets/v89/hsk-roadmap-v89.4.css?v=89.4"><link rel="stylesheet" href="./assets/v90/exp-system-v90.css?v=90.1"><link rel="stylesheet" href="./assets/v90/home-header-sidebar-v90.1.css?v=90.3"><link rel="stylesheet" href="./assets/v91/header-account-dropdown-v91.css?v=91.5"><link rel="stylesheet" href="./assets/v91/three-column-scroll-v91.10.css?v=91.10"><link rel="stylesheet" href="./assets/v92/vduckie-evolution-v92.css?v=96.0"><link rel="stylesheet" href="./assets/v93/developer-preview-v93.css?v=108.1"><link rel="stylesheet" href="./assets/v95/vduckie-mascot-v95.css?v=100.0"><link rel="stylesheet" href="./assets/v96/vduckie-lv1-lv2-v96.css?v=96.0"></head>');
         source=source.replace("</body>",'<script src="./assets/v90/exp-core-v90.js?v=90.0"><\/script><script src="./assets/v92/progress-store-v92.js?v=106.1"><\/script><script src="./assets/v90/exp-board-v90.js?v=90.0"><\/script><script src="./assets/v90/exp-leaderboard-v90.js?v=90.4"><\/script><script src="./assets/v89/exp-learning-hooks-v89.js?v=2b4.0"><\/script><script src="./assets/v90/exp-weekly-v90.js?v=90.0"><\/script><script src="./assets/v90/header-account-session-bridge-v90.3.js?v=90.3"><\/script><script src="./assets/v90/home-exp-sidebar-v90.js?v=90.4"><\/script><script src="./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1"><\/script><script src="./assets/v89/hsk-roadmap-v89.4.js?v=card-cta2"><\/script><script src="./assets/v91/header-account-dropdown-v91.js?v=compact1"><\/script><script src="./assets/v92/evolution-manifest-v92.js?v=96.0"><\/script><script src="./assets/v95/thoughts-v95.js?v=104.0"><\/script><script src="./assets/v95/mascot-manifest-v95.js?v=96.0"><\/script><script src="./assets/v96/mascot-manifest-v96.js?v=96.0"><\/script><script src="./assets/v95/vduckie-mascot-v95.js?v=96.0"><\/script><script src="./assets/v96/vduckie-mascot-v96.js?v=100.0"><\/script><script src="./assets/v94/customization-store-v94.js?v=96.0"><\/script><script src="./assets/v95/vduckie-evolution-v95.js?v=104.0"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/v97/vduckie-lv3-lv4-v97.css?v=97.0"></head>');
         source=source.replace('<script src="./assets/v95/vduckie-mascot-v95.js?v=96.0"><\/script>','<script src="./assets/v97/mascot-manifest-v97.js?v=97.0"><\/script><script src="./assets/v98/mascot-manifest-v98.js?v=98.0"><\/script><script src="./assets/v99/mascot-manifest-v99.js?v=99.0"><\/script><script src="./assets/v95/vduckie-mascot-v95.js?v=96.0"><\/script>');
@@ -64,9 +64,9 @@
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/ai/duckie-chat.css?v=review-fix"></head>');
         source=source.replace("</body>",'<script src="./assets/ai/duckie-chat.js?v=tutor2"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/blue-edtech-v1.css?v=5-nov03"></head>');
-        source=source.replace("</body>",'<script src="./assets/design-system/mascot-swap-v1.js?v=5"><\/script></body>');
-        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/brand-runtime-v2.css?v=2.0"></head>');
-        source=source.replace("</head>",'<meta name="vduckie-visual-release" content="blue-white-2d-20261103"></head>');
+        source=source.replace("</body>",'<script src="./assets/design-system/mascot-swap-v1.js?v=6"><\/script></body>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/brand-runtime-v2.css?v=2.2"><link rel="stylesheet" href="./assets/design-system/erp-workspace-v1.css?v=1.0"></head>');
+        source=source.replace("</head>",'<meta name="vduckie-visual-release" content="blue-white-workspace-20261103"></head>');
         document.open();document.write(source);document.close();
       }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();

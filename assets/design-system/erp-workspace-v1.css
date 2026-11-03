@@ -1,0 +1,57 @@
+/* Shared ERP workspace spacing and controls. Scoped to existing screens. */
+@layer vduckie-brand {
+ #community,#personal,#glossary,#quiz,#dialogue,#cards{box-sizing:border-box;padding:clamp(18px,2vw,28px)!important;min-width:0}
+ :is(#community,#personal,#glossary,#quiz,#dialogue,#cards) .section-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px}
+ :is(#community,#personal,#glossary,#quiz,#dialogue,#cards) .section-head h2{margin:6px 0 0;line-height:1.25}
+ :is(#community,#personal,#glossary,#quiz,#dialogue,#cards) button{box-sizing:border-box;min-height:42px;padding:10px 15px;border:1px solid #cbd5e1!important;border-radius:12px;font-family:inherit;font-size:14px;font-weight:650;line-height:1.3;cursor:pointer;background:#fff!important;color:#111827!important}
+ :is(#community,#personal,#glossary,#quiz,#dialogue,#cards) button:hover{background:#eff6ff!important;border-color:#93c5fd!important}
+ :is(#community,#personal,#glossary,#quiz,#dialogue,#cards) button:focus-visible{outline:3px solid #93c5fd;outline-offset:3px}
+ :is(#community,#personal,#glossary,#quiz,#dialogue,#cards) button:disabled{cursor:default;opacity:.6}
+ #community #submitCommunity,#personal #saveNew,#cards #knowCard,#dialogue #assessSpeech,#quiz #nextQuiz,#quiz #restartQuiz,#dialogue #nextDialogue,#glossary .filter button.active{background:#dbeafe!important;border-color:#93c5fd!important;color:#111827!important;font-weight:750}
+ #community #submitCommunity,#personal #saveNew{width:100%;min-height:48px;box-shadow:0 2px 0 #bfdbfe}
+ #community .community-top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+ :is(#community,#personal) :is(.community-box,.personal-box){min-width:0;padding:20px!important;border:1px solid #e2e8f0!important;border-radius:16px;background:#fff!important}
+ :is(#community,#personal) :is(.community-box,.personal-box)>h3{margin:0 0 10px}
+ :is(#community,#personal) :is(.community-box,.personal-box)>p{line-height:1.6;margin:0 0 16px}
+ :is(#community,#personal) :is(.community-form,.form-grid){gap:10px}
+ :is(#community,#personal) .field,#glossary .search{box-sizing:border-box;min-height:46px;max-width:100%;padding:12px 14px!important;border-radius:12px}
+ #glossary .filter{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+ #glossary .filter button{min-height:36px;padding:7px 12px;border-radius:999px}
+ :is(#community,#personal,#glossary) .term{min-width:0;padding:18px!important;border:1px solid #e2e8f0!important;border-radius:16px}
+ :is(#community,#personal,#glossary) .term>strong{margin-right:10px}
+ :is(#community,#personal,#glossary) .term>i{display:block;margin-top:8px;line-height:1.5;color:#475569!important}
+ #quiz .options{gap:12px}
+ #quiz .options button{min-height:68px;padding:16px;text-align:left}
+ #quiz .options button.correct{background:#eff6ff!important;border-color:#60a5fa!important;color:#1e40af!important}
+ #quiz .options button.wrong{background:#fef2f2!important;border-color:#fca5a5!important;color:#b91c1c!important}
+ #cards .controls,#dialogue .dialogue-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+ #cards .flashcard{box-sizing:border-box;padding:18px;border:1px solid #dbeafe!important;border-radius:18px;background:#f8fbff!important}
+ #dialogue .dialogue-toolbar{display:grid;grid-template-columns:1fr 1fr auto;align-items:end;gap:14px;margin-bottom:18px}
+ #dialogue .dialogue-toolbar label{display:grid;gap:8px;min-width:0}
+ #dialogue .dialogue-toolbar select{box-sizing:border-box;width:100%;min-height:46px;padding:10px 12px}
+ #dialogue .dialogue-bubble,#dialogue .dialogue-hint{box-sizing:border-box;padding:22px;border:1px solid #dbeafe!important;border-radius:18px;background:#eff6ff!important;background-image:none!important;color:#111827!important;box-shadow:none!important}
+ #dialogue .dialogue-zh{display:block;color:#111827!important;line-height:1.5}
+ #dialogue .dialogue-pinyin,#dialogue .dialogue-near{display:block;margin-top:10px;color:#475569!important;line-height:1.6}
+ #dialogue .dialogue-workspace{gap:18px;margin-top:20px}
+ #dialogue .dialogue-textarea{box-sizing:border-box;width:100%;min-height:120px;padding:14px}
+ .journey-score{display:flex;align-items:baseline;gap:10px;margin:20px 0 12px}
+ .journey-score>strong,.journey-score>strong>span{font:750 26px/1.15 Arial,"Noto Sans SC",sans-serif!important;letter-spacing:0;font-variant-numeric:tabular-nums}
+ .journey-score>span{font-size:13px!important;color:#475569!important}
+ /* Blues vary by stage; the Hanzi remain dark and legible on light badges. */
+ #v865HomeRoadmap .hsk-roadmap-card{--stage-soft:#e0f2fe;--stage-ink:#0c4a6e;--stage-border:#7dd3fc}
+ #v865HomeRoadmap [data-v865-level="1"]{--stage-soft:#dbeafe;--stage-ink:#1e3a8a;--stage-border:#93c5fd}
+ #v865HomeRoadmap [data-v865-level="2"]{--stage-soft:#e0e7ff;--stage-ink:#312e81;--stage-border:#a5b4fc}
+ #v865HomeRoadmap [data-v865-level="3"]{--stage-soft:#d7edff;--stage-ink:#164e63;--stage-border:#7dd3fc}
+ #v865HomeRoadmap [data-v865-level="4"]{--stage-soft:#cfe2ff;--stage-ink:#1e40af;--stage-border:#93c5fd}
+ #v865HomeRoadmap .locked{--stage-soft:#edf2fa;--stage-ink:#475569;--stage-border:#cbd5e1}
+ #v865HomeRoadmap .hsk-full-flip-face{background:linear-gradient(150deg,var(--stage-soft),#fff 85%)!important;border-color:var(--stage-border)!important;box-shadow:0 5px 12px #0f172a08!important}
+ #v865HomeRoadmap .hsk-badge-face{background:var(--stage-soft)!important;background-image:none!important;color:var(--stage-ink)!important;border-color:#fff!important;box-shadow:0 2px 0 var(--stage-border)!important;font-size:22px!important;font-weight:900!important}
+ #v865HomeRoadmap .hsk-card-status{background:#dbeafe!important;color:#1e3a8a!important;box-shadow:none!important}
+ @media(max-width:760px){
+  #community,#personal,#glossary,#quiz,#dialogue,#cards{padding:16px!important}
+  #community .community-layout,#personal .personal-grid{grid-template-columns:1fr!important;gap:14px}
+  #dialogue .dialogue-toolbar{grid-template-columns:1fr}
+  :is(#community,#personal) :is(.community-box,.personal-box){padding:16px!important}
+  #cards .controls button,#dialogue .dialogue-actions button{flex:1 1 140px}
+ }
+}

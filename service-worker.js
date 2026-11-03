@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v15";
+const CACHE_VERSION = "vduckie-pwa-v16";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -15,9 +15,15 @@ const APP_SHELL = [
   "./assets/mascot/duckie-reader-icon-180.png?v=2.0",
   "./assets/mascot/duckie-reader-icon-192.png",
   "./assets/mascot/duckie-reader-icon-512.png",
-  "./assets/design-system/brand-runtime-v2.css?v=2.0",
-  "./assets/design-system/mascot-swap-v1.js?v=5",
+  "./assets/design-system/brand-runtime-v2.css?v=2.2",
+  "./assets/design-system/mascot-swap-v1.js?v=6",
   "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0",
+  "./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0",
+  "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0",
+  "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0",
+  "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0",
+  "./assets/mascot/duckie-tab-v3.png?v=3.0",
+  "./assets/design-system/erp-workspace-v1.css?v=1.0",
   "./manifest.webmanifest",
   "./assets/mascot/duckie-reader-maskable-512.png",
   "./pwa-register.js",
