@@ -109,14 +109,23 @@
 
   function renderToday() {
     var hub = document.getElementById("homeHub"); if (!hub) return;
-    if (!isAppLayout()) return;
+    var existingToday = hub.querySelector(".daily-today");
+    if (!isAppLayout()) {
+      if (existingToday) existingToday.remove();
+      return;
+    }
     var lesson = currentLesson(), due = dueTerms().length, done = completedToday(), lessonDone = Object.keys(state.msutong.completed).length;
-    hub.innerHTML = '<section class="daily-today app-screen"><header class="daily-heading"><div><span class="daily-task-kicker">HÔM NAY</span><h1>Mở, học, hoàn thành.</h1><p>Chỉ ba việc cần tập trung hôm nay.</p></div><span class="daily-date">' + new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit" }) + '</span></header><div class="daily-grid">' +
+    var todayMarkup = '<section class="daily-today app-screen" aria-label="Nhiệm vụ hôm nay"><header class="daily-heading"><div><span class="daily-task-kicker">HÔM NAY</span><h1>Mở, học, hoàn thành.</h1><p>Chỉ ba việc cần tập trung hôm nay.</p></div><span class="daily-date">' + new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit" }) + '</span></header><div class="daily-grid">' +
       task("primary", "GIÁO TRÌNH · " + (lesson && lesson.book === "beginner-2" ? "SƠ CẤP 2" : "SƠ CẤP 1"), lesson ? lesson.title : "Bài đầu tiên", lesson ? lesson.goal : "Bắt đầu lộ trình", lessonDone + "/" + lessons().length + " bài", lessons().length ? lessonDone / lessons().length * 100 : 0, "Tiếp tục", "msutong") +
       task("", "ERP · 5 TỪ MỚI", done + " / 5 hôm nay", "Dạy trước, luyện chữ, ghép cụm rồi mới kiểm tra.", done + "/5 từ", done * 20, "Học ngay", "daily") +
       task("", "ÔN TẬP", due + " từ đến hạn", due ? "VDuckie ưu tiên đúng loại lỗi bạn từng mắc." : "Hiện chưa có từ nào đến hạn.", due ? due + " từ" : "Đã xong", due ? 18 : 100, due ? "Ôn ngay" : "Xem", "review") +
       '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ ERP đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
-    bindNav(hub);
+    // Never replace #homeHub: the complete home dashboard must remain accessible on phones/PWA.
+    // Repaint only the optional daily summary so home links and events survive sync.
+    if (existingToday) existingToday.outerHTML = todayMarkup;
+    else hub.insertAdjacentHTML("afterbegin", todayMarkup);
+    var todayNode = hub.querySelector(".daily-today");
+    if (todayNode) bindNav(todayNode);
   }
   function task(classes, kicker, title, copy, progress, width, action, kind) {
     return '<article class="daily-task ' + classes + '"><span class="daily-task-kicker">' + esc(kicker) + '</span><h2>' + esc(title) + '</h2><p>' + esc(copy) + '</p><div class="daily-task-progress"><span><b>Tiến độ</b><b>' + esc(progress) + '</b></span><div class="daily-bar"><i style="width:' + Math.min(100, width) + '%"></i></div><button class="daily-action" type="button" data-daily-nav="' + kind + '">' + esc(action) + ' →</button></div></article>';
