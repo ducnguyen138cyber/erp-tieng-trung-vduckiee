@@ -6,12 +6,19 @@
   function openLesson(level,lessonId,review){
     if(!root.VDuckieScreenRouter)return;
     root.VDuckieScreenRouter.navigate("hsk-study");
-    var runtime=root.VDuckieHskProfessionalRuntime;
-    if(!runtime||typeof runtime.selectLevel!=="function")return;
-    runtime.selectLevel(level,false).then(function(){
-      if(lessonId&&typeof runtime.selectLesson==="function")runtime.selectLesson(lessonId,false);
-      if(review&&root.VDuckieHskStudyFlow)root.VDuckieHskStudyFlow.openReview();
-    }).catch(function(error){if(root.console&&root.console.error)root.console.error("HSK entry:",error);});
+    function enter(attempt){
+      var runtime=root.VDuckieHskProfessionalRuntime;
+      if(!runtime||typeof runtime.selectLevel!=="function"){
+        if(attempt<35)root.setTimeout(function(){enter(attempt+1);},150);
+        else if(root.console&&root.console.warn)root.console.warn("HSK course is not ready yet.");
+        return;
+      }
+      runtime.selectLevel(level,false).then(function(){
+        if(lessonId&&typeof runtime.selectLesson==="function")runtime.selectLesson(lessonId,false);
+        if(review&&root.VDuckieHskStudyFlow)root.VDuckieHskStudyFlow.openReview();
+      }).catch(function(error){if(root.console&&root.console.error)root.console.error("HSK entry:",error);});
+    }
+    enter(0);
   }
   function open(){
     var host=document.getElementById("dailyLearningPanel");if(!host)return;
