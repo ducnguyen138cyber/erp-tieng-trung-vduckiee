@@ -1,0 +1,193 @@
+name: Finalize HSK7 C8 Sharded # validator-fixed-final-1
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/build-hsk7-c8
+    paths:
+      - '.github/workflows/materialize-hsk7-c8.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  regression:
+    name: regression-${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/build-hsk7-c8
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Restore deterministic C8 builder
+        run: |
+          cat scripts/.hsk7-c8-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk7-c8.py
+          test "$(wc -c < scripts/build-hsk7-c8.py)" -eq 105635
+          python -m py_compile scripts/build-hsk7-c8.py
+      - name: Install full regression dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          python -m pip install --disable-pip-version-check pypinyin playwright
+          python -m playwright install --with-deps chromium
+          echo "CHROMIUM_PATH=$(python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              print(p.chromium.executable_path)
+          PY
+          )" >> "$GITHUB_ENV"
+          identify -version
+      - name: Materialize exact HSK7 output
+        run: python scripts/build-hsk7-c8.py
+      - name: Syntax gate
+        run: |
+          python -m py_compile scripts/build-hsk7-c8.py tests/hsk7-learner-browser-smoke.py
+          find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+      - name: Run full regression shard ${{ matrix.shard }}
+        env:
+          SHARD: ${{ matrix.shard }}
+          TOTAL_SHARDS: 4
+        run: |
+          set -o pipefail
+          mapfile -t ALL_TESTS < <(find tests -maxdepth 1 -type f -name '*.test.js' | sort)
+          mapfile -t SHARD_TESTS < <(printf '%s\n' "${ALL_TESTS[@]}" | awk -v shard="$SHARD" -v total="$TOTAL_SHARDS" '((NR-1)%total)==shard')
+          echo "all_test_files=${#ALL_TESTS[@]} shard=$SHARD selected=${#SHARD_TESTS[@]}"
+          printf '%s\n' "${SHARD_TESTS[@]}"
+          test "${#ALL_TESTS[@]}" -gt 0
+          test "${#SHARD_TESTS[@]}" -gt 0
+          failed=0
+          for test_file in "${SHARD_TESTS[@]}"; do
+            log_file="/tmp/$(basename "$test_file").log"
+            echo "::group::${test_file}"
+            if node --test --test-concurrency=1 "$test_file" 2>&1 | tee "$log_file"; then
+              echo "PASS ${test_file}"
+            else
+              echo "::error file=${test_file},title=Regression test failed::${test_file} failed in shard ${SHARD}"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          exit "$failed"
+
+  finalize:
+    needs: regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/build-hsk7-c8
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Confirm clean C8 baseline
+        run: |
+          git status -sb
+          test "$(git branch --show-current)" = "agent/build-hsk7-c8"
+          git merge-base --is-ancestor ce927ba650f00cf0658ce62d4f35341f6371d648 HEAD
+          test ! -f .git/MERGE_HEAD
+          test ! -d .git/rebase-merge
+          test ! -d .git/rebase-apply
+          git diff --check ce927ba650f00cf0658ce62d4f35341f6371d648...HEAD
+      - name: Restore deterministic C8 builder
+        run: |
+          cat scripts/.hsk7-c8-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk7-c8.py
+          test "$(wc -c < scripts/build-hsk7-c8.py)" -eq 105635
+          python -m py_compile scripts/build-hsk7-c8.py
+      - name: Install final gate dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick
+          python -m pip install --disable-pip-version-check pypinyin playwright
+          python -m playwright install --with-deps chromium
+          echo "CHROMIUM_PATH=$(python - <<'PY'
+          from playwright.sync_api import sync_playwright
+          with sync_playwright() as p:
+              print(p.chromium.executable_path)
+          PY
+          )" >> "$GITHUB_ENV"
+      - name: Materialize final HSK7 tree
+        run: python scripts/build-hsk7-c8.py
+      - name: Final syntax, validator and targeted gates
+        run: |
+          set -o pipefail
+          python -m py_compile scripts/build-hsk7-c8.py tests/hsk7-learner-browser-smoke.py
+          find assets/hsk-content scripts tests -type f -name '*.js' -print0 | xargs -0 -n1 node --check
+          node scripts/validate-hsk-content.js | tee /tmp/hsk7-final-validator.log
+          node --test tests/hsk7-c8-quality.test.js | tee /tmp/hsk7-targeted.log
+          node --test tests/hsk7-learner-browser-smoke.test.js | tee /tmp/hsk7-browser.log
+      - name: Deterministic reports, duplicate, coverage and provenance gates
+        run: |
+          set -o pipefail
+          node scripts/generate-hsk-report.js | tee /tmp/hsk7-final-reports-first.log
+          node - <<'NODE'
+          const fs=require('fs');
+          const quality=JSON.parse(fs.readFileSync('reports/hsk-quality-report.json','utf8'));
+          const duplicate=JSON.parse(fs.readFileSync('reports/hsk-duplication-report.json','utf8'));
+          const coverage=JSON.parse(fs.readFileSync('reports/hsk-coverage-report.json','utf8'));
+          const source=JSON.parse(fs.readFileSync('reports/hsk-source-report.json','utf8'));
+          const level=coverage.levels.find(x=>x.level===7);
+          if(!level) throw new Error('HSK7 coverage missing');
+          const expected={units:15,lessons:56,vocabulary:1680,grammar:50,characters:400,exercises:784,assessments:22};
+          for(const [key,value] of Object.entries(expected)) if(level[key]!==value) throw new Error(`${key}: ${level[key]} !== ${value}`);
+          if(quality.validation.errors!==0||quality.validation.warnings!==0) throw new Error(`validation ${JSON.stringify(quality.validation)}`);
+          if(duplicate.summary.blockers!==0) throw new Error(`duplicate blockers ${duplicate.summary.blockers}`);
+          if(level.missingSkills.length) throw new Error(`missingSkills ${level.missingSkills}`);
+          if(level.vocabularyIntroducedButNotPracticed.length) throw new Error(`unpracticed vocabulary ${level.vocabularyIntroducedButNotPracticed.length}`);
+          if(level.grammarWithoutExercise.length) throw new Error(`grammar without exercise ${level.grammarWithoutExercise.length}`);
+          if(source.automaticProductionGate!=='blocked') throw new Error(`source review gate ${source.automaticProductionGate}`);
+          if(!Array.isArray(source.usedReviewRequiredSources)||!source.usedReviewRequiredSources.length) throw new Error('review-required provenance missing');
+          const manifest=JSON.parse(fs.readFileSync('data/hsk/hsk7/course-manifest.json','utf8'));
+          if(manifest.officialBandPolicy.officialBand!=='7-9'||manifest.officialBandPolicy.officialSplit!==false) throw new Error('combined-band policy invalid');
+          if(manifest.writesProgress!==false||manifest.productionEnabled!==false||manifest.readOnly!==true) throw new Error('production safety invalid');
+          console.log(JSON.stringify({validation:quality.validation,duplicates:duplicate.summary,hsk7:level,sourceGate:source.automaticProductionGate,usedReviewRequiredSources:source.usedReviewRequiredSources,officialBandPolicy:manifest.officialBandPolicy},null,2));
+          NODE
+          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json reports/hsk7-c8-learner-integration.json > /tmp/reports-before.sha
+          node scripts/generate-hsk-report.js > /tmp/hsk7-final-reports-second.log
+          sha256sum reports/hsk-quality-report.json reports/hsk-coverage-report.json reports/hsk-duplication-report.json reports/hsk-source-report.json reports/hsk1-phase2a-report.json reports/hsk7-c8-learner-integration.json > /tmp/reports-after.sha
+          diff -u /tmp/reports-before.sha /tmp/reports-after.sha
+          git diff --check
+      - name: Cleanup all C8 recovery artifacts
+        run: |
+          rm -rf scripts/.hsk7-c8-bootstrap
+          rm -f .github/workflows/materialize-hsk7-c8.yml
+          rm -f .github/workflows/hsk7-c8-recovery-diagnostic.yml
+          rm -f .github/workflows/hsk7-c8-final-trigger.yml
+          rm -f tests/hsk7-c8-validator-diagnostic.test.js
+          rm -rf .tmp .pytest_cache .mypy_cache test-results playwright-report
+          find . -type d -name '__pycache__' -prune -exec rm -rf {} +
+          find . -type f -name '*.pyc' -delete
+          test ! -e scripts/.hsk7-c8-bootstrap
+          test ! -e .github/workflows/materialize-hsk7-c8.yml
+          test ! -e .github/workflows/hsk7-c8-recovery-diagnostic.yml
+          test ! -e .github/workflows/hsk7-c8-final-trigger.yml
+          test ! -e tests/hsk7-c8-validator-diagnostic.test.js
+          if git status --porcelain | grep -E '(\.tmp/|bootstrap|diagnostic|test-results|playwright-report|__pycache__|\.pyc$|\.log$)' | grep -vE '^( D|D )'; then
+            echo 'Temporary C8 artifact remains in final diff' >&2
+            exit 1
+          fi
+          git diff --check
+      - name: Commit and push final C8 branch
+        run: |
+          git config user.name "VDuckie Curriculum Agent"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git diff --cached --check
+          git commit -m "Build professional HSK 7 course"
+          git push origin HEAD:agent/build-hsk7-c8
+          git fetch origin agent/build-hsk7-c8
+          test "$(git rev-parse HEAD)" = "$(git rev-parse origin/agent/build-hsk7-c8)"
+          test -z "$(git status --porcelain)"
+          echo "FINAL_COMMIT=$(git rev-parse HEAD)"
+          echo "FINAL_TREE=$(git rev-parse HEAD^{tree})"
+          git show --stat --oneline --decorate --summary HEAD

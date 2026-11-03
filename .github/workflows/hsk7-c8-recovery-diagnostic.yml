@@ -1,0 +1,94 @@
+name: HSK7 C8 Recovery Diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - agent/build-hsk7-c8
+    paths:
+      - '.github/workflows/hsk7-c8-recovery-diagnostic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/build-hsk7-c8
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Restore deterministic C8 builder
+        run: |
+          cat scripts/.hsk7-c8-bootstrap/part*.b64 | base64 --decode | gzip --decompress > scripts/build-hsk7-c8.py
+          test "$(wc -c < scripts/build-hsk7-c8.py)" -eq 105635
+          python -m py_compile scripts/build-hsk7-c8.py
+      - name: Materialize exact HSK7 output
+        run: |
+          python -m pip install --disable-pip-version-check pypinyin
+          python scripts/build-hsk7-c8.py
+      - name: Export complete validator diagnostics
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const { validateRepository } = require('./scripts/hsk-content-lib');
+          const result = validateRepository(process.cwd());
+          const normalized = result.errors.map((issue) => ({
+            rule: issue.rule || 'unknown',
+            file: issue.file || null,
+            id: issue.id || null,
+            message: issue.message || '',
+          }));
+          const byRule = {};
+          const bySignature = {};
+          const byFile = {};
+          for (const issue of normalized) {
+            byRule[issue.rule] = (byRule[issue.rule] || 0) + 1;
+            const signature = `${issue.rule}|${issue.message.replace(/hsk7-[a-z0-9-]+/gi, '<HSK7_ID>').replace(/\d+/g, '<N>')}`;
+            if (!bySignature[signature]) bySignature[signature] = { count: 0, samples: [] };
+            bySignature[signature].count += 1;
+            if (bySignature[signature].samples.length < 8) bySignature[signature].samples.push(issue);
+            const file = issue.file || '<none>';
+            byFile[file] = (byFile[file] || 0) + 1;
+          }
+          const sortObject = (input) => Object.fromEntries(Object.entries(input).sort((a,b) => {
+            const av = typeof a[1] === 'number' ? a[1] : a[1].count;
+            const bv = typeof b[1] === 'number' ? b[1] : b[1].count;
+            return bv - av || a[0].localeCompare(b[0]);
+          }));
+          const payload = {
+            ok: result.ok,
+            summary: result.summary,
+            errors: normalized,
+          };
+          const grouped = {
+            summary: result.summary,
+            byRule: sortObject(byRule),
+            bySignature: sortObject(bySignature),
+            byFile: sortObject(byFile),
+            firstErrors: normalized.slice(0, 500),
+          };
+          fs.writeFileSync('/tmp/hsk7-validator-full.json', JSON.stringify(payload, null, 2) + '\n');
+          fs.writeFileSync('/tmp/hsk7-validator-groups.json', JSON.stringify(grouped, null, 2) + '\n');
+          console.log(JSON.stringify({ summary: result.summary, byRule: grouped.byRule, topSignatures: Object.entries(grouped.bySignature).slice(0, 30) }, null, 2));
+          NODE
+      - name: Package materialized tree
+        run: |
+          tar --exclude=.git --exclude=node_modules --exclude='*.pyc' --exclude='__pycache__' -czf /tmp/hsk7-c8-materialized-tree.tar.gz .
+          ls -lh /tmp/hsk7-validator-full.json /tmp/hsk7-validator-groups.json /tmp/hsk7-c8-materialized-tree.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hsk7-c8-recovery-diagnostic
+          path: |
+            /tmp/hsk7-validator-full.json
+            /tmp/hsk7-validator-groups.json
+            /tmp/hsk7-c8-materialized-tree.tar.gz
+          if-no-files-found: error
+          retention-days: 3
