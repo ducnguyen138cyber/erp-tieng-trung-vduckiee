@@ -124,8 +124,7 @@
     // Repaint only the optional daily summary so home links and events survive sync.
     if (existingToday) existingToday.outerHTML = todayMarkup;
     else hub.insertAdjacentHTML("afterbegin", todayMarkup);
-    var todayNode = hub.querySelector(".daily-today");
-    if (todayNode) bindNav(todayNode);
+    bindNav(hub);
   }
   function task(classes, kicker, title, copy, progress, width, action, kind) {
     return '<article class="daily-task ' + classes + '"><span class="daily-task-kicker">' + esc(kicker) + '</span><h2>' + esc(title) + '</h2><p>' + esc(copy) + '</p><div class="daily-task-progress"><span><b>Tiến độ</b><b>' + esc(progress) + '</b></span><div class="daily-bar"><i style="width:' + Math.min(100, width) + '%"></i></div><button class="daily-action" type="button" data-daily-nav="' + kind + '">' + esc(action) + ' →</button></div></article>';
