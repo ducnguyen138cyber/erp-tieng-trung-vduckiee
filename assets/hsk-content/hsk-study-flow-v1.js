@@ -28,8 +28,23 @@
     var stats=journal.stats(info.lesson.id,info.exercises.length);
     var remaining=Math.max(0,stats.total-stats.checked),done=stats.completed;
     var percent=stats.graded?Math.round(stats.correct/stats.graded*100):null;
-    if(done)return '<div class="hsk-study-finish is-done" data-hsk-finish-panel><h4>✓ Hoàn thành bài học</h4><p>Bạn đã kiểm tra '+stats.checked+'/'+stats.total+' câu'+(percent!==null?'; đúng '+stats.correct+'/'+stats.graded+' câu tự chấm':'')+'. Từ mới của bài đã được đưa vào lịch ôn.</p><div class="hsk-study-actions"><button type="button" data-hsk-review-open>Ôn từ HSK</button><button type="button" data-hsk-next-lesson>Học bài tiếp →</button></div></div>';
+    if(done)return '<div class="hsk-study-finish is-done" data-hsk-finish-panel><h4>✓ Hoàn thành bài học</h4><p>Bạn đã kiểm tra '+stats.checked+'/'+stats.total+' câu'+(percent!==null?'; đúng '+stats.correct+'/'+stats.graded+' câu có đáp án':'')+'. Từ mới của bài đã được đưa vào lịch ôn.</p><div class="hsk-study-actions"><button type="button" data-hsk-review-open>Ôn từ HSK</button><button type="button" data-hsk-next-lesson>Học bài tiếp →</button></div></div>';
     return '<div class="hsk-study-finish" data-hsk-finish-panel><h4>Kết thúc bài học</h4><p>'+(remaining?'Còn '+remaining+' câu chưa kiểm tra. Làm và kiểm tra hết các câu để lưu hoàn thành.':'Đã kiểm tra đủ câu. Hãy lưu bài học và quay lại ôn từ vào ngày mai.')+'</p><button type="button" data-hsk-finish'+(remaining?' disabled':'')+'>✓ Hoàn thành & lưu tiến độ</button></div>';
+  }
+  function railProgress(info){
+    var rail=q("#hskProgress");if(!rail)return;
+    var done=journal.levelCount(info.level),total=info.data.lessons.length;
+    rail.innerHTML='<div class="hsk-study-rail-progress"><strong>HSK '+info.level+' · '+done+'/'+total+' bài</strong><span>Tiến độ tự học đã lưu</span><div class="hsk-study-track"><i style="width:'+Math.min(100,Math.round(done*100/Math.max(1,total)))+'%"></i></div></div>';
+    var buttons=doc.querySelectorAll("#hskLessonList [data-pro-lesson]");
+    buttons.forEach(function(button){
+      if(button.getAttribute("data-pro-lesson")!==info.lesson.id)return;
+      var finished=journal.stats(info.lesson.id,info.exercises.length).completed;
+      button.classList.toggle("done",finished);
+      if(finished&&!button.querySelector(".hsk-study-done-icon")){
+        var icon=doc.createElement("i");
+        icon.className="hsk-study-done-icon";icon.textContent="✓";icon.setAttribute("aria-label","Đã hoàn thành");button.appendChild(icon);
+      }
+    });
   }
   function dueHtml(){
     var due=journal.due();return '<button type="button" class="hsk-study-review-open" data-hsk-review-open>↻ Ôn từ HSK'+(due.length?' · '+due.length+' từ đến hạn':'')+'</button>';
@@ -39,6 +54,7 @@
     var host=q("#hskLesson");if(!host||!host.contains(q('[data-hsk-progress-host]')))return;
     var intro=q("[data-hsk-progress-host]");if(intro)intro.innerHTML=progressHtml(current);
     var finish=q("[data-hsk-finish-panel]");if(finish){var wrapper=doc.createElement("div");wrapper.innerHTML=finishHtml(current);finish.replaceWith(wrapper.firstChild);}
+    railProgress(current);
     var reviewButton=q("#hskJourney [data-hsk-review-open]");if(reviewButton){reviewButton.textContent="↻ Ôn HSK"+(journal.due().length?" · "+journal.due().length:"");}
   }
   function reviewDrawer(){
@@ -71,6 +87,7 @@
     intro.innerHTML=progressHtml(current);host.insertBefore(intro,host.firstChild);
     var practice=host.querySelector('[data-focus-panel="practice"]');
     if(practice)practice.insertAdjacentHTML("beforeend",finishHtml(current));
+    railProgress(current);
     var rail=q("#hskProgress");if(rail){
       var n=q("#hskJourney [data-hsk-review-open]");
       if(!n){rail.insertAdjacentHTML("afterend",dueHtml());}
