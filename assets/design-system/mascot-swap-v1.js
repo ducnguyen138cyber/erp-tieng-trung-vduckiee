@@ -1,5 +1,5 @@
 (function(w,d){"use strict";
-var asset="./assets/mascot/duckie-explorer-blue.svg?v=2";
+var asset="./assets/mascot/duckie-explorer-blue.svg?v=3";
 function update(){
   var hero=d.querySelector(".home-welcome-card");
   if(hero&&!hero.querySelector(".home-welcome-mascot")){var img=d.createElement("img");img.className="home-welcome-mascot";img.src=asset;img.alt="Duckie học tiếng Trung";hero.appendChild(img)}
