@@ -8,7 +8,9 @@ function update(){
     ".home-course-art img",".home-resource-tile img",".home-library-card img",
     ".v865-home-main img[src*='vduckie-']",
     ".v865-home-sidebar img[src*='vduckie-']",
-    ".v865-home-shell img[src*='vduckie-']"
+    ".v865-home-shell img[src*='vduckie-']",
+    ".v95-mascot-image",".v95-sprite-fallback",".v95-lottie-fallback",
+    ".v92-evolution-visual img[data-v95-asset]",".v95-wardrobe-preview img[data-v95-asset]"
   ].join(",");
   d.querySelectorAll(selector).forEach(function(img){
     if(img.tagName!=="IMG")return;
