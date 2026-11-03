@@ -5,7 +5,12 @@ export async function inspectVisuals(page){return page.evaluate(()=>{
  for(const e of document.querySelectorAll('body *')){
   if(['SCRIPT','STYLE','LINK','META','IMG','SVG','PATH'].includes(e.tagName)||e.closest('svg'))continue;
   const box=e.getBoundingClientRect(),s=getComputedStyle(e);
-  if(!box.width||!box.height||box.right<=0||box.left>=innerWidth||s.visibility==='hidden'||s.opacity==='0'||e.closest('[hidden],.hidden'))continue;
+  if(!box.width||!box.height||box.right<=0||box.left>=innerWidth||s.visibility==='hidden'||s.opacity==='0')continue;
+  // A legacy .hidden class can be overridden by later display rules.
+  // Geometry and computed ancestor paint determine actual visibility.
+  let ancestor=e.parentElement,transparentAncestor=false;
+  while(ancestor){if(getComputedStyle(ancestor).opacity==='0'){transparentAncestor=true;break;}ancestor=ancestor.parentElement;}
+  if(transparentAncestor)continue;
   inspected++;
   if(e.matches('button')&&!e.disabled&&e.textContent.trim()){
    const rgb=v=>{const a=v.match(/[\d.]+/g)?.map(Number);return a&&a.length>=3?a:null};

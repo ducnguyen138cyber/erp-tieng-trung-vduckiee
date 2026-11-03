@@ -50,11 +50,11 @@
  /* Pale information surfaces: ERP detail and the actual adaptive-home card. */
  .study-layout :where(.erp-curriculum-summary,.erp-curriculum-score,.erp-module-goal,.v86-adaptive){background:#eff6ff!important;background-image:none!important;color:#111827!important;border-color:#dbeafe!important}
  .study-layout :where(.erp-module-list,.erp-module-detail,.erp-lesson-word,.erp-workflow li,.erp-module-quiz){background:#fff!important;background-image:none!important;color:#111827!important;border-color:#e2e8f0!important}
- .study-layout :where(.erp-module-number,.erp-flow-number,.erp-module-status,.erp-word-speak,.erp-flow-speak,.erp-module-result>span,.v86-chip){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
+ .study-layout :where(.journey-number,.erp-module-number,.erp-flow-number,.erp-module-status,.erp-word-speak,.erp-flow-speak,.erp-module-result>span,.v86-chip){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
  .study-layout .erp-module-link.active{background:#dbeafe!important;color:#111827!important;box-shadow:inset 3px 0 #60a5fa!important}
  .study-layout .erp-module-link.done .erp-module-number{background:#dbeafe!important;color:#111827!important}
- .study-layout :where(.erp-curriculum-score .bar){background:#dbeafe!important}
- .study-layout .erp-curriculum-score .bar i{background:#60a5fa!important}
+ .study-layout :where(.erp-curriculum-score .bar,.study-rail .bar){background:#dbeafe!important}
+ .study-layout .erp-curriculum-score .bar i,.study-rail .bar span{background:#60a5fa!important}
  .study-layout .erp-module-goal small{border-color:#dbeafe!important}
  .study-layout :where(.erp-module-option.correct,.erp-module-feedback.good){background:#eff6ff!important;color:#1d4ed8!important;border-color:#93c5fd!important}
  .study-layout :where(.erp-module-option.wrong,.erp-module-feedback.bad,.erp-module-result.retry>span){background:#fef2f2!important;color:#b91c1c!important;border-color:#fecaca!important}
