@@ -7,7 +7,7 @@
     var serviceWorkerUrl = new URL("./service-worker.js", window.location.href);
     var scopeUrl = new URL("./", window.location.href);
 
-    navigator.serviceWorker.register(serviceWorkerUrl.href, { scope: scopeUrl.pathname })
+    navigator.serviceWorker.register(serviceWorkerUrl.href, { scope: scopeUrl.pathname, updateViaCache: "none" })
       .then(function (registration) {
         registration.update();
       })

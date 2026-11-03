@@ -8,23 +8,23 @@
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#f5f1e8",
-  "theme_color": "#f5b928",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "./assets/pwa/vduckie-192.png",
+      "src": "./assets/mascot/duckie-reader-icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/pwa/vduckie-512.png",
+      "src": "./assets/mascot/duckie-reader-icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "./assets/pwa/vduckie-maskable-512.png",
+      "src": "./assets/mascot/duckie-reader-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

@@ -22,18 +22,18 @@ test("manifest is installable and subpath-safe", () => {
   assert.ok(manifest.icons.some((icon) => icon.sizes === "512x512"));
   assert.ok(manifest.icons.some((icon) => icon.purpose === "maskable"));
   for (const icon of manifest.icons) assert.ok(fs.existsSync(path.join(root, icon.src)), icon.src);
-  assert.deepEqual(pngSize("assets/pwa/vduckie-192.png"), [192, 192]);
-  assert.deepEqual(pngSize("assets/pwa/vduckie-512.png"), [512, 512]);
-  assert.deepEqual(pngSize("assets/pwa/vduckie-maskable-512.png"), [512, 512]);
+  assert.deepEqual(pngSize("assets/mascot/duckie-reader-icon-192.png"), [192, 192]);
+  assert.deepEqual(pngSize("assets/mascot/duckie-reader-icon-512.png"), [512, 512]);
+  assert.deepEqual(pngSize("assets/mascot/duckie-reader-maskable-512.png"), [512, 512]);
 });
 
 test("index registers relative PWA resources", () => {
   const index = read("index.html");
   const shell = read("app-shell-v88.html");
   assert.match(index, /rel="manifest" href="\.\/manifest\.webmanifest"/);
-  assert.match(index, /src="\.\/pwa-register\.js\?v=1"/);
+  assert.match(index, /src="\.\/pwa-register\.js\?v=2"/);
   assert.match(shell, /rel="manifest" href="\.\/manifest\.webmanifest"/);
-  assert.match(shell, /src="\.\/pwa-register\.js\?v=1"/);
+  assert.match(shell, /src="\.\/pwa-register\.js\?v=2"/);
   const registration = read("pwa-register.js");
   assert.match(registration, /new URL\("\.\/service-worker\.js", window\.location\.href\)/);
   assert.match(registration, /new URL\("\.\/", window\.location\.href\)/);
@@ -41,7 +41,7 @@ test("index registers relative PWA resources", () => {
 
 test("service worker versions caches and cleans prior VDuckie caches", () => {
   const worker = read("service-worker.js");
-  assert.match(worker, /CACHE_VERSION = "vduckie-pwa-v13"/);
+  assert.match(worker, /CACHE_VERSION = "vduckie-pwa-v15"/);
   assert.match(worker, /key\.startsWith\("vduckie-pwa-"\)/);
   assert.match(worker, /caches\.delete\(key\)/);
   assert.match(worker, /self\.skipWaiting\(\)/);

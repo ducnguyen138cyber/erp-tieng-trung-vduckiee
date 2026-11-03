@@ -280,7 +280,7 @@
     panel().querySelectorAll("[data-writing-char]").forEach(function (button) { button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); }; });
     if (!root.HanziWriter || !selected) { if (status) status.textContent = "Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở."; return; }
     try {
-      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#18352e", outlineColor: "#d9d2c5", highlightColor: "#c7673c", drawingColor: "#c7673c", drawingWidth: 5, charDataLoader: loadCharacterData });
+      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData });
       var replay = panel().querySelector("[data-writing-replay]"), practice = panel().querySelector("[data-writing-practice]");
       if (replay) replay.onclick = function () { writer.animateCharacter(); if (status) status.textContent = "Đang chạy thứ tự nét của chữ " + selected + "."; };
       if (practice) practice.onclick = function () { writer.quiz({ showHintAfterMisses: 2, onComplete: function () { if (status) status.textContent = "Đã viết hết các nét. Hãy viết lại một lần vào vở."; } }); if (status) status.textContent = "Viết theo từng nét trong ô vuông."; };
@@ -418,7 +418,7 @@
   }
 
   function renderProfile() {
-    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><div><strong>' + totalMastered() + ' từ ERP đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Supabase sync khi đăng nhập</span><span class="daily-pill">PWA dùng chung tiến độ</span></div></div>';
+    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><div><strong>' + totalMastered() + ' từ ERP đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Supabase sync khi đăng nhập</span><span class="daily-pill">PWA dùng chung tiến độ</span></div></div>';
     panel().querySelector("[data-session-exit]").onclick = closePanel;
   }
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
@@ -446,7 +446,7 @@
   function installDock() {
     if (document.getElementById("mobileLearningDock")) return;
     var dock = document.createElement("nav"); dock.id = "mobileLearningDock"; dock.className = "mobile-learning-dock"; dock.setAttribute("aria-label", "Điều hướng học hằng ngày");
-    dock.innerHTML = '<button data-daily-home><b>⌂</b><span>Hôm nay</span></button><button data-daily-nav="msutong"><b>路</b><span>Giáo trình HSK</span></button><button class="daily-five" data-daily-nav="daily"><b>+5</b><span class="dock-five-progress">0/5 ERP</span></button><button data-daily-nav="review"><b>↻</b><span>Ôn tập</span><i class="dock-badge">0</i></button><button data-daily-nav="profile" class="signature-dock"><img src="./assets/vduckie-logo.png?v=1" alt="VDuckie"><span>VDuckie</span></button>';
+    dock.innerHTML = '<button data-daily-home><b>⌂</b><span>Hôm nay</span></button><button data-daily-nav="msutong"><b>路</b><span>Giáo trình HSK</span></button><button class="daily-five" data-daily-nav="daily"><b>+5</b><span class="dock-five-progress">0/5 ERP</span></button><button data-daily-nav="review"><b>↻</b><span>Ôn tập</span><i class="dock-badge">0</i></button><button data-daily-nav="profile" class="signature-dock"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><span>VDuckie</span></button>';
     document.body.appendChild(dock); bindNav(dock); dock.querySelector("[data-daily-home]").onclick = closePanel;
     var offline = document.createElement("div"); offline.className = "daily-offline"; offline.textContent = "Đang ngoại tuyến · tiến độ chưa đồng bộ cloud"; document.body.appendChild(offline);
   }

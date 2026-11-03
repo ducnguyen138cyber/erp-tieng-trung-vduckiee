@@ -19,9 +19,17 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.58.2
       - run: npx playwright install --with-deps chromium
       - name: Cache, auth, EXP, daily learning and layout unit regressions
-        run: node --test tests/blue-edtech-legacy-purge.test.mjs tests/ranking-hsk-review-visibility.test.mjs tests/duckie-tutor-quality-v2.test.mjs tests/duckie-chat-followup-context.test.mjs tests/duckie-chat-hanzi-validation.test.mjs tests/duckie-chat.test.js tests/free-learning-assistant.test.js tests/header-chinese-search.test.js tests/graded-hsk-direct-load.test.js tests/graded-hsk-entry.test.js tests/hsk-focus-learning.test.js tests/hsk-clean-learner-ui.test.js tests/remove-roast-mode.test.js tests/curriculum.test.js tests/sidebar-service-worker.test.js tests/pwa.test.js tests/v90-exp-level-weekly.test.js tests/supabase-sync.test.js tests/daily-learning.test.js tests/v91.10-three-column-layout.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js
+        run: node --test tests/brand-runtime.test.mjs tests/blue-edtech-legacy-purge.test.mjs tests/ranking-hsk-review-visibility.test.mjs tests/duckie-tutor-quality-v2.test.mjs tests/duckie-chat-followup-context.test.mjs tests/duckie-chat-hanzi-validation.test.mjs tests/duckie-chat.test.js tests/free-learning-assistant.test.js tests/header-chinese-search.test.js tests/graded-hsk-direct-load.test.js tests/graded-hsk-entry.test.js tests/hsk-focus-learning.test.js tests/hsk-clean-learner-ui.test.js tests/remove-roast-mode.test.js tests/curriculum.test.js tests/sidebar-service-worker.test.js tests/pwa.test.js tests/v90-exp-level-weekly.test.js tests/supabase-sync.test.js tests/daily-learning.test.js tests/v91.10-three-column-layout.test.js tests/v81-account-progress-sync.test.js tests/v82-account-learning-sync.test.js
       - name: Header Chinese search actual Chromium interactions
         run: node tests/header-search-browser.mjs
+      - name: Painted theme across all learning screens
+        run: node tests/brand-runtime-browser.mjs
+      - name: Confirm previous deployment Network, Service Worker and Cache
+        if: always()
+        env:
+          VISUAL_BASE_URL: https://e619e492.vduckie.pages.dev/
+          VISUAL_OBSERVE_ONLY: "1"
+        run: node tests/brand-runtime-browser.mjs
       - name: Blue EdTech theme responsive browser snapshots
         run: node tests/blue-edtech-browser.mjs
       - name: Duckie Chat desktop and mobile UI with mocked AI
@@ -41,4 +49,5 @@ jobs:
           path: |
             artifacts/sidebar-routing/
             artifacts/blue-edtech/
+            artifacts/brand-runtime/
           if-no-files-found: ignore

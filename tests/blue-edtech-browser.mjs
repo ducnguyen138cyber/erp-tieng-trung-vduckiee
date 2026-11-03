@@ -13,10 +13,10 @@ try{for(const width of [1920,1366,768,390]){
  await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',route=>route.fulfill({contentType:'text/javascript',body:'window.supabase={createClient(){const q=()=>new Proxy({},{get(_o,k){if(k==="then")return ok=>Promise.resolve({data:[],error:null}).then(ok);return ()=>q()}});return {auth:{getSession:async()=>({data:{session:null},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}}'}));
  await page.goto(base);await page.locator('.duckie-chat-launch').waitFor({state:'visible'});
  const palette=await page.evaluate(()=>({bg:getComputedStyle(document.body).backgroundColor,main:getComputedStyle(document.documentElement).getPropertyValue('--vd-primary').trim(),mascot:document.querySelector('.home-welcome-mascot')?.getAttribute('src'),horizontal:document.documentElement.scrollWidth-window.innerWidth}));
- assert.equal(palette.main,'#2563EB');
+ assert.equal(palette.main.toLowerCase(),'#2563eb');
  assert.ok(palette.horizontal<15,'horizontal overflow '+width+': '+palette.horizontal);
  await page.locator('.duckie-chat-launch').click();await page.locator('#duckieChat').waitFor({state:'visible'});
- assert.ok((await page.locator('.duckie-chat-mascot').getAttribute('src')).includes('duckie-explorer-blue.svg'));
+ assert.ok((await page.locator('.duckie-chat-mascot').getAttribute('src')).includes('duckie-reader-2d-v2.webp'));
  await page.locator('[data-dc-min]').click();
  assert.deepEqual(errors,[],'page errors '+width);
  await page.screenshot({path:'artifacts/blue-edtech/'+width+'-home.png',fullPage:false});
