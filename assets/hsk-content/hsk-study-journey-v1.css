@@ -70,3 +70,17 @@
   .hsk-study-actions button{width:100%}
   .hsk-study-finish{padding:15px}
 }
+
+
+/* Right rail: make completed lessons and level progress visible without adding another panel. */
+#hskJourney .hsk-study-rail-progress{display:grid;gap:5px;padding:9px 4px 13px;color:#111827}
+#hskJourney .hsk-study-rail-progress strong{font-size:13px;line-height:1.35}
+#hskJourney .hsk-study-rail-progress span{font-size:12px;color:#64748b}
+#hskJourney .hsk-study-track{height:7px;border-radius:20px;background:#e2e8f0;overflow:hidden;margin-top:5px}
+#hskJourney .hsk-study-track i{display:block;height:100%;background:#3b82f6;border-radius:20px}
+#hskJourney .hsk-pro-lesson-link.done{position:relative;padding-right:26px!important}
+#hskJourney .hsk-study-done-icon{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-style:normal;font-weight:850;font-size:13px;color:#2563eb;
+  pointer-events:none
+}
