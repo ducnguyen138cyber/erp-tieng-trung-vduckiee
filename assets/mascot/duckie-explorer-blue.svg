@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="520" height="540" viewBox="0 0 520 540">
 <title>Duckie Chinese – linh vật vịt học tiếng Trung</title>
-<defs><linearGradient id="hat" x2=".3" y2="1"><stop stop-color="#ffe3a1"/><stop offset="1" stop-color="#f5b850"/></linearGradient><linearGradient id="book" x2="1" y2=".2"><stop stop-color="#317df1"/><stop offset="1" stop-color="#1b50c4"/></linearGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="7"/></filter></defs>
+<defs><linearGradient id="hat" x2=".3" y2="1"><stop stop-color="#dbeafe"/><stop offset="1" stop-color="#93c5fd"/></linearGradient><linearGradient id="book" x2="1" y2=".2"><stop stop-color="#317df1"/><stop offset="1" stop-color="#1b50c4"/></linearGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="7"/></filter></defs>
 <ellipse cx="257" cy="503" rx="157" ry="17" fill="#c8d9f7" opacity=".48" filter="url(#shadow)"/>
-<g stroke="#30435c" stroke-linecap="round" stroke-linejoin="round">
-<!-- lively hand-ink rays -->
-<g fill="none" stroke="#F4AC22" stroke-width="6"><path d="M77 183l-21-12M63 226l-25 4M438 171l20-15M460 220l23-1"/></g>
-<!-- green backpack, legs and feet -->
-<path d="M360 267q67-13 76 52l-1 103q-2 49-40 54l-44-12z" fill="#11986E" stroke-width="8"/>
-<path d="M387 284q26 13 28 51M389 436l19-2" fill="none" stroke="#7DE2BC" stroke-width="7"/>
-<rect x="390" y="363" width="55" height="60" rx="17" fill="#20B88F" stroke-width="6"/>
-<path d="M205 449v37q-11 14-30 16-27 4-29 25 17 18 62 10l35-27 9-47zM294 453l-4 38q11 21 33 21 22 5 25 25-44 12-82-17l-11-54z" fill="#FFBC43" stroke-width="8"/>
+<g stroke="#26374f" stroke-linecap="round" stroke-linejoin="round">
+<!-- restrained hand-drawn animation accents -->
+<g fill="none" stroke="#60a5fa" stroke-width="5"><path d="M77 183l-21-12M438 171l20-15"/></g>
+<!-- blue explorer backpack and feet -->
+<path d="M360 267q67-13 76 52l-1 103q-2 49-40 54l-44-12z" fill="#60a5fa" stroke-width="8"/>
+<path d="M387 284q26 13 28 51M389 436l19-2" fill="none" stroke="#dbeafe" stroke-width="7"/>
+<rect x="390" y="363" width="55" height="60" rx="17" fill="#93c5fd" stroke-width="6"/>
+<path d="M205 449v37q-11 14-30 16-27 4-29 25 17 18 62 10l35-27 9-47zM294 453l-4 38q11 21 33 21 22 5 25 25-44 12-82-17l-11-54z" fill="#fbbf24" stroke-width="8"/>
 <!-- pear-shaped fluffy body -->
 <path d="M163 274q-59 31-66 100-9 98 80 128 76 25 160-4 82-28 73-124-4-79-58-110z" fill="#fff" stroke-width="9"/>
 <path d="M116 370q3 79 63 113" stroke="#D7E5F3" stroke-width="5" fill="none"/>
@@ -22,15 +22,15 @@
 <!-- soft cheeks -->
 <ellipse cx="155" cy="343" rx="30" ry="18" fill="#FFB7C5" stroke="none"/><ellipse cx="367" cy="344" rx="30" ry="18" fill="#FFB7C5" stroke="none"/>
 <g stroke-width="9" fill="none"><path d="M174 300q26-33 53 2M294 301q26-37 54 0"/></g>
-<circle cx="200" cy="301" r="3" fill="#30435c" stroke="none"/><circle cx="321" cy="300" r="3" fill="#30435c" stroke="none"/>
+<circle cx="200" cy="301" r="3" fill="#26374f" stroke="none"/><circle cx="321" cy="300" r="3" fill="#26374f" stroke="none"/>
 <!-- friendly golden bill -->
-<path d="M220 327q31-32 67-3l26 16q18 19-2 33-46 29-86 1-32-14-24-34z" fill="#FFBD33" stroke-width="8"/>
-<path d="M220 357q36 19 80 3" fill="none" stroke="#DE852E" stroke-width="5"/>
+<path d="M220 327q31-32 67-3l26 16q18 19-2 33-46 29-86 1-32-14-24-34z" fill="#fbbf24" stroke-width="8"/>
+<path d="M220 357q36 19 80 3" fill="none" stroke="#c47b14" stroke-width="5"/>
 <!-- explorer hat layered above eyes -->
 <path d="M112 194q-7-99 94-120 115-26 170 72l21 49-136 18-139-4z" fill="url(#hat)" stroke-width="8"/>
-<path d="M143 146q89-30 221 3" fill="none" stroke="#FFF4D6" stroke-width="10"/>
-<path d="M107 200q76 13 158 8 104-6 167-28 11-5 16 6 4 26-44 45-91 38-230 20-88-12-102-36-6-16 35-15z" fill="#FFD17C" stroke-width="8"/>
-<path d="M127 226q121 26 261-11" fill="none" stroke="#C78B3F" stroke-width="5"/>
+<path d="M143 146q89-30 221 3" fill="none" stroke="#eff6ff" stroke-width="5"/>
+<path d="M107 200q76 13 158 8 104-6 167-28 11-5 16 6 4 26-44 45-91 38-230 20-88-12-102-36-6-16 35-15z" fill="#bfdbfe" stroke-width="8"/>
+<path d="M127 226q121 26 261-11" fill="none" stroke="#3b82f6" stroke-width="5"/>
 <!-- the iconic Hanyu book -->
 <path d="M145 356q53-27 103-1l25 133q-63-18-107 4z" fill="#3784F1" stroke-width="8"/>
 <path d="M273 488l-25-133q56-30 112-7l13 139q-52-19-100 1z" fill="url(#book)" stroke-width="8"/>
