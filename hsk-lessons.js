@@ -683,7 +683,8 @@
       var level = item.level;
       var locked = level >= 5;
       var finished = !locked && levels[level].length && levelCompleted(level) === levels[level].length;
-      html += '<button class="hsk-level level-' + level + (selectedLevel === level ? " active" : "") + (finished ? " complete" : "") + (locked ? " locked" : "") + '" data-hsk-level="' + level + '"' + (locked ? " disabled" : "") + '><span class="hsk-level-medal" aria-hidden="true">' + item.medal + '</span><span class="hsk-level-copy"><strong>' + item.label + '</strong><small>' + (locked ? item.description + " · Sắp mở" : levelCompleted(level) + "/" + levels[level].length + " bài · " + item.description) + "</small></span></button>";
+      var labelText = item.label + (locked ? ' · Sắp mở' : ' · ' + levelCompleted(level) + '/' + levels[level].length + ' bài');
+      html += '<button type="button" class="hsk-level level-' + level + (selectedLevel === level ? " active" : "") + (finished ? " complete" : "") + (locked ? " locked" : "") + '" data-hsk-level="' + level + '"' + (locked ? ' disabled aria-disabled="true"' : '') + ' aria-label="' + labelText + '"><strong>' + item.label + '</strong></button>';
     }
     byId("hskLevels").innerHTML = html;
   }
@@ -906,6 +907,7 @@
     if (practiceWords(item).length) setupWritingTrainer(item, Boolean(autoPlayWriting));
   }
   function renderAll() {
+    if (root.document.body && root.document.body.getAttribute("data-hsk-prof-ready") === "true") return;
     if (!byId("hskLevels") || !byId("hskLesson")) return;
     renderLevels();
     renderLessonList();
