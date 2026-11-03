@@ -43,4 +43,7 @@
  .duckie-chat-panel :where(.dc-listen,.dc-retry,.duckie-chat-utility button){background:#fff!important;color:#2563eb!important;border-color:#dbeafe!important}
  .duckie-chat-mascot,.duckie-chat-launch img{background:transparent!important;object-fit:contain!important}
  .home-welcome-mascot,.brand-logo,.home-course-art img,.home-resource-tile img{filter:none!important}
+ .study-layout :where(.hsk-focus-start-quiz,.hsk-pro-assessment-link,.hsk-level.locked,.hsk-pro-lesson-link>span){background:#eff6ff!important;background-image:none!important;color:#111827!important;border-color:#dbeafe!important}
+ .study-layout :where(.hsk-pro-audio-state,.hsk-pro-tokens span,.hsk-pro-metrics span,.hsk-pro-sidebar-status,.result-mark){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
+ .study-layout .hsk-pro-practice{background:#fff!important}
 }
