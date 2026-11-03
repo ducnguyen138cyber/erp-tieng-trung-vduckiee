@@ -1,0 +1,74 @@
+/* VDuckie visual finishing pass — dictionary, free assistant and HSK/leaderboard alignment.
+   Visual only: no routing, authentication, learning progress or EXP calculation changes. */
+@layer vduckie-brand {
+  #vsearchDetail .vsearch-detail,.vsearch-notebook,.va-panel{background:#fff!important;color:#111827!important;border-color:#dbeafe!important}
+  #vsearchDetail .vsearch-detail h2,.va-panel .va-content h3{color:#111827!important}
+  #vsearchDetail .vsearch-phonetic,.va-panel .va-word span{color:#2563eb!important}
+  #vsearchDetail .vsearch-actions button,#vsearchDetail .vsearch-example button,
+  .va-panel .va-content button,.va-panel .va-tabs button[aria-current="page"]{
+    background:#dbeafe!important;border-color:#bfdbfe!important;color:#1e40af!important
+  }
+  #vsearchDetail .vsearch-example,.va-panel .va-dialog,.va-panel blockquote{background:#f8fbff!important;border-color:#dbeafe!important;color:#111827!important}
+  .va-panel .va-head{background:#eff6ff!important;border-color:#dbeafe!important}
+  .va-panel .va-tabs button:not([aria-current="page"]){background:#fff!important;color:#334155!important;border-color:#e2e8f0!important}
+  .va-panel .va-content :is(input,textarea,select){background:#fff!important;color:#111827!important;border-color:#cbd5e1!important}
+  .va-panel .va-disclaimer,.va-panel .va-muted,.vsearch-detail .vsearch-source{color:#64748b!important}
+  #leaderboard .exp-period-tabs button.active{background:#dbeafe!important;color:#1e40af!important}
+  #hskJourney .hsk-level.active{background:#dbeafe!important;color:#1d4ed8!important;border-color:#93c5fd!important}
+  #hskJourney .hsk-level:not(.active){background:#fff!important;color:#111827!important;border-color:#e2e8f0!important}
+  #hskJourney .hsk-level:disabled,#hskJourney .hsk-level.disabled{background:#f1f5f9!important;color:#94a3b8!important;border-color:#e2e8f0!important}
+}
+/* Preserve DOM ordering and role semantics, only adjust spacing/alignment. */
+#vsearchDetail .vsearch-examples{display:grid;gap:12px}
+#vsearchDetail .vsearch-example{display:grid;gap:6px;min-width:0;overflow-wrap:anywhere}
+#vsearchDetail .vsearch-example-pinyin,#vsearchDetail .vsearch-example>span{display:block}
+#vsearchDetail .vsearch-example button{justify-self:start;min-height:36px}
+#vsearchDetail .vsearch-actions{flex-wrap:wrap}
+.va-panel .va-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.va-panel .va-content{min-width:0}
+.near-lite{display:none!important}
+#leaderboard.exp-leaderboard{box-sizing:border-box;width:100%;max-width:1120px;padding:clamp(18px,2.2vw,28px)!important;margin:0 auto 40px!important}
+#leaderboard .exp-board-head{display:grid!important;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:18px 22px;margin:0 0 20px!important}
+#leaderboard .exp-board-head>div:first-child{min-width:0}
+#leaderboard .exp-board-head h1{margin:7px 0 8px;font-family:inherit;font-weight:750;line-height:1.18;font-size:clamp(28px,3.1vw,40px)}
+#leaderboard .exp-board-head p{margin:0;max-width:650px;line-height:1.6}
+#leaderboard .exp-period-tabs{align-self:end;justify-self:end;white-space:nowrap;min-width:0}
+#leaderboard .exp-podium{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:stretch!important;gap:12px;margin:18px 0 20px!important}
+#leaderboard .exp-podium-card{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:0;min-height:240px;padding:20px 12px!important;transform:none!important}
+#leaderboard .exp-podium-card.rank-1{border-color:#93c5fd}
+#leaderboard .exp-podium-card :is(strong,small,b){max-width:100%;overflow-wrap:anywhere;text-align:center}
+#leaderboard .exp-podium-card strong{white-space:normal;line-height:1.3}
+#leaderboard .exp-board-card{min-width:0;overflow:hidden;border-radius:18px}
+#leaderboard .exp-table-head,#leaderboard .exp-row{box-sizing:border-box;display:grid!important;grid-template-columns:64px 62px minmax(0,1fr) 112px!important;gap:10px;align-items:center;padding:14px 18px!important}
+#leaderboard .exp-table-head>span:last-child,#leaderboard .exp-row .exp-points{text-align:right!important}
+#leaderboard .exp-row .exp-person{min-width:0}
+#leaderboard .exp-row .exp-name{overflow-wrap:anywhere}
+#hskJourney{box-sizing:border-box;min-width:0;width:100%;padding:clamp(16px,1.6vw,22px)!important}
+#hskJourney .journey-kicker{display:block;margin-bottom:10px}
+#hskJourney h2{margin:0 0 14px!important;line-height:1.32}
+#hskJourney #hskLevels{position:relative;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:9px!important;margin:14px 0 18px!important;width:100%;min-width:0}
+#hskJourney .hsk-levels::before{display:none!important}
+#hskJourney .hsk-level{box-sizing:border-box;display:flex!important;align-items:center;justify-content:center;min-width:0;min-height:65px;padding:9px 5px!important;border:1px solid #dbeafe;border-radius:12px;text-align:center}
+#hskJourney .hsk-level strong{font-size:14px!important;line-height:1.25;white-space:nowrap}
+#hskJourney .hsk-level small{font-size:11px;white-space:normal;overflow-wrap:anywhere}
+#hskJourney .hsk-sidebar{box-sizing:border-box;position:static!important;min-width:0;margin:0;padding:12px 0 0!important;border:0!important;background:transparent!important}
+#hskJourney #hskProgress,#hskJourney #hskLessonList{min-width:0;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+#hskJourney #hskLessonList{padding-right:4px}
+#hskJourney .hsk-lesson-link{min-width:0;width:100%;overflow-wrap:anywhere}
+@media(max-width:760px){
+  #leaderboard .exp-board-head{grid-template-columns:minmax(0,1fr);gap:12px}
+  #leaderboard .exp-period-tabs{justify-self:start;max-width:100%;overflow-x:auto}
+  #leaderboard .exp-podium{gap:7px}
+  #leaderboard .exp-podium-card{min-height:175px;padding:12px 6px!important}
+  #leaderboard .exp-podium-card .exp-avatar{width:46px;height:46px}
+  #leaderboard .exp-table-head,#leaderboard .exp-row{grid-template-columns:42px 42px minmax(0,1fr) 74px!important;gap:6px;padding:12px 9px!important}
+  #leaderboard .exp-points{font-size:12px}
+}
+@media(max-width:390px){
+  #leaderboard.exp-leaderboard{padding:14px!important}
+  #leaderboard .exp-podium-card{min-height:158px}
+  #leaderboard .exp-table-head{display:none!important}
+  #hskJourney #hskLevels{gap:6px!important}
+  #hskJourney .hsk-level{min-height:58px;padding:7px 3px!important}
+  #hskJourney .hsk-level strong{font-size:13px!important}
+}
