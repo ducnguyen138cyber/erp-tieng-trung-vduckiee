@@ -74,7 +74,7 @@ test("dictionary is a separate unified page and VDuckie uses the signature asset
   assert.match(shell, /assets\/v79\/unified-dictionary-v79\.js/);
   assert.match(shell, /data-daily-nav="dictionary"/);
   assert.match(source, /signature-dock/);
-  assert.match(source, /assets\/vduckie-logo\.png/);
+  assert.match(source, /assets\/mascot\/duckie-reader-2d-v2\.webp/);
   assert.match(source, /function renderDictionary/);
   assert.match(source, /searchCompact/);
   assert.match(source, /compactNeedle/);
