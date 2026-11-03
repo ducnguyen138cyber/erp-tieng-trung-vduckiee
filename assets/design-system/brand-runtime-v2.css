@@ -46,4 +46,5 @@
  .study-layout :where(.hsk-focus-start-quiz,.hsk-pro-assessment-link,.hsk-level.locked,.hsk-pro-lesson-link>span){background:#eff6ff!important;background-image:none!important;color:#111827!important;border-color:#dbeafe!important}
  .study-layout :where(.hsk-pro-audio-state,.hsk-pro-tokens span,.hsk-pro-metrics span,.hsk-pro-sidebar-status,.result-mark){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
  .study-layout .hsk-pro-practice{background:#fff!important}
+ .study-layout :where(.dictionary-example strong,.dictionary-speak,.dictionary-badge,.badge-hsk,.badge-erp,.badge-category,.dictionary-toolbar,.dictionary-empty){background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important}
 }

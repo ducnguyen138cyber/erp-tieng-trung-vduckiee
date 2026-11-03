@@ -57,10 +57,13 @@ learning storage and unrelated caches are preserved.
 
 `tests/brand-runtime-browser.mjs` inspects actual painted colors, rendered asset
 URLs, missing requests and Console exceptions at 1440px and 390px across home,
-curriculum, all four HSK lesson stages, Daily ERP including writing, review,
+curriculum, all four HSK lesson stages, Daily ERP, review,
 dictionary, all ranking periods, profile and Chat. It waits for deferred learning
 modules/styles rather than checking the initial document only. It also injects a
 late legacy important rule to prove the cascade priority.
+
+The isolated visual audit checks screen paint; it does not exercise every external
+stroke-data file or change the existing stroke-data fallback.
 
 With `VISUAL_BASE_URL` it runs against an actual deployment and records response
 status/Service Worker origin, worker registration, cache names and a warm reload.

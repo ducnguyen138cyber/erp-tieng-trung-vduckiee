@@ -801,7 +801,7 @@
       var stageSize = Math.floor(stage.getBoundingClientRect().width) - 2;
       if (!stageSize || stageSize < 160) stageSize = 240;
       stageSize = Math.min(258, stageSize);
-      activeWriter = root.HanziWriter.create("hskStrokeTarget", character, { renderer: "svg", width: stageSize, height: stageSize, padding: 32, showOutline: true, showCharacter: false, strokeColor: "#18352e", outlineColor: "#d9d2c5", highlightColor: "#c7673c", drawingColor: "#c7673c", drawingWidth: 5, strokeAnimationSpeed: 0.75, delayBetweenStrokes: 280, charDataLoader: loadCharacterData });
+      activeWriter = root.HanziWriter.create("hskStrokeTarget", character, { renderer: "svg", width: stageSize, height: stageSize, padding: 32, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, strokeAnimationSpeed: 0.75, delayBetweenStrokes: 280, charDataLoader: loadCharacterData });
       activeWriter.showOutline({ duration: 0 });
       writingAnimating = Boolean(autoPlay);
       writingPaused = false;
