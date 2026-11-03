@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v13";
+const CACHE_VERSION = "vduckie-pwa-v14";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -96,7 +96,7 @@ self.addEventListener("fetch", (event) => {
   if (!isStaticAsset(url)) return;
   // Executable assets must be current on this load, not on the next reload.
   // Keep query versions distinct; otherwise a pre-fix script can win forever.
-  if (/\.(?:html|css|js|json)$/i.test(url.pathname)) {
+  if (/\.(?:html|css|js|json|svg|png|jpe?g|webp)$/i.test(url.pathname)) {
     event.respondWith((async () => {
       try {
         const response = await fetch(request);
