@@ -30,12 +30,18 @@ function resumePrimaryHsk(review){
   var progress=root.VDuckieHskStudyJourney, saved=progress?progress.current():{level:1,lessonId:""};
   if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("hsk-study");
   else navigate("hsk");
-  var runtime=root.VDuckieHskProfessionalRuntime;
-  if(!runtime||!runtime.selectLevel)return;
-  runtime.selectLevel(saved.level,false).then(function(){
-    if(saved.lessonId)runtime.selectLesson(saved.lessonId,false);
-    if(review&&root.VDuckieHskStudyFlow)root.VDuckieHskStudyFlow.openReview();
-  }).catch(function(error){if(root.console&&root.console.error)root.console.error("Resume HSK",error);});
+  function openWhenReady(attempt){
+    var runtime=root.VDuckieHskProfessionalRuntime;
+    if(!runtime||!runtime.selectLevel){
+      if(attempt<35)root.setTimeout(function(){openWhenReady(attempt+1);},150);
+      return;
+    }
+    runtime.selectLevel(saved.level,false).then(function(){
+      if(saved.lessonId)runtime.selectLesson(saved.lessonId,false);
+      if(review&&root.VDuckieHskStudyFlow)root.VDuckieHskStudyFlow.openReview();
+    }).catch(function(error){if(root.console&&root.console.error)root.console.error("Resume HSK",error);});
+  }
+  openWhenReady(0);
 }
 
 function lastSevenDays(activity){
