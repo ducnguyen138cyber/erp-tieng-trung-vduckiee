@@ -1,30 +1,52 @@
 /* Header global multilingual dictionary search */
 .top .vsearch-header{position:relative;flex:1 1 440px;max-width:730px;min-width:170px;margin:0 22px;z-index:100}
-.vsearch-input-wrap{height:47px;border:1px solid #d8d5c8;border-radius:15px;display:flex;align-items:center;gap:10px;background:#fff;padding:0 13px;box-shadow:0 3px 12px rgba(22,52,41,.045);transition:border-color .18s,box-shadow .18s}
-.vsearch-input-wrap:focus-within{border-color:#76a590;box-shadow:0 0 0 3px rgba(48,123,92,.12)}
-.vsearch-input-wrap>span{font-size:26px;color:#44665b;line-height:1}
-.vsearch-input-wrap input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:14px;color:#173e34}
+.vsearch-input-wrap{height:47px;border:1px solid #dbeafe;border-radius:15px;display:flex;align-items:center;gap:10px;background:#fff;padding:0 13px;box-shadow:0 3px 12px rgba(22,52,41,.045);transition:border-color .18s,box-shadow .18s}
+.vsearch-input-wrap:focus-within{border-color:#60a5fa;box-shadow:0 0 0 3px rgba(48,123,92,.12)}
+.vsearch-input-wrap>span{font-size:26px;color:#2563eb;line-height:1}
+.vsearch-input-wrap input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:14px;color:#111827}
 .vsearch-input-wrap input::-webkit-search-cancel-button{display:none}
-.vsearch-clear{border:0;background:#f3f0e9;color:#586e62;border-radius:8px;width:25px;height:25px;cursor:pointer}
-.vsearch-list{position:absolute;top:calc(100% + 8px);left:0;right:0;max-height:420px;overflow-y:auto;border:1px solid #ddd6c9;border-radius:17px;padding:6px;background:#fff;box-shadow:0 20px 50px rgba(21,48,38,.17);z-index:1500}
+.vsearch-clear{border:0;background:#eff6ff;color:#475569;border-radius:8px;width:25px;height:25px;cursor:pointer}
+.vsearch-list{position:absolute;top:calc(100% + 8px);left:0;right:0;max-height:420px;overflow-y:auto;border:1px solid #e2e8f0;border-radius:17px;padding:6px;background:#fff;box-shadow:0 20px 50px rgba(21,48,38,.17);z-index:1500}
 .vsearch-list[hidden]{display:none!important}
-.vsearch-list [data-vsearch-result]{display:grid;grid-template-columns:minmax(62px,auto) minmax(60px,1fr);gap:4px 10px;text-align:left;width:100%;border:0;background:#fff;border-radius:10px;padding:9px 10px;cursor:pointer;color:#173e34}
-.vsearch-list [data-vsearch-result]:hover,.vsearch-list [data-vsearch-result].chosen{background:#eff6f1}
+.vsearch-list [data-vsearch-result]{display:grid;grid-template-columns:minmax(62px,auto) minmax(60px,1fr);gap:4px 10px;text-align:left;width:100%;border:0;background:#fff;border-radius:10px;padding:9px 10px;cursor:pointer;color:#111827}
+.vsearch-list [data-vsearch-result]:hover,.vsearch-list [data-vsearch-result].chosen{background:#eff6ff}
 .vsearch-list [data-vsearch-result] b{font-size:20px;grid-row:span 2}
-.vsearch-list [data-vsearch-result] span{font-size:13px;color:#b46532}
-.vsearch-list [data-vsearch-result] small{font-size:12px;color:#53645d;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.vsearch-all{border:0;background:#f0f6f2;color:#154a39;width:100%;border-radius:10px;padding:11px;cursor:pointer;font-weight:750}
-.vsearch-status{margin:8px;padding:12px;color:#596c63;font-size:14px}
+.vsearch-list [data-vsearch-result] span{font-size:13px;color:#2563eb}
+.vsearch-list [data-vsearch-result] small{font-size:12px;color:#475569;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vsearch-all{border:0;background:#eff6ff;color:#1d4ed8;width:100%;border-radius:10px;padding:11px;cursor:pointer;font-weight:750}
+.vsearch-status{margin:8px;padding:12px;color:#475569;font-size:14px}
 .vsearch-overlay{position:fixed;inset:0;background:rgba(17,38,30,.45);z-index:10000;display:grid;place-items:center;padding:18px}
-.vsearch-detail{width:min(570px,100%);max-height:85vh;overflow:auto;border-radius:24px;background:#fffdf8;padding:24px;box-shadow:0 25px 70px rgba(0,0,0,.2)}
-.vsearch-detail-top{display:flex;justify-content:space-between;align-items:center;color:#a26133;font-size:12px;font-weight:800;letter-spacing:.06em}
-.vsearch-detail-top button{border:0;background:#ede9df;border-radius:10px;width:35px;height:35px;font-size:24px;cursor:pointer}
-.vsearch-detail h2{font-size:52px;color:#143e33;margin:12px 0 0}
-.vsearch-phonetic{font-size:20px;color:#b45e2c;font-weight:700}
+.vsearch-detail{width:min(570px,100%);max-height:85vh;overflow:auto;border-radius:24px;background:#fff;padding:24px;box-shadow:0 25px 70px rgba(0,0,0,.2)}
+.vsearch-detail-top{display:flex;justify-content:space-between;align-items:center;color:#2563eb;font-size:12px;font-weight:800;letter-spacing:.06em}
+.vsearch-detail-top button{border:0;background:#eff6ff;border-radius:10px;width:35px;height:35px;font-size:24px;cursor:pointer}
+.vsearch-detail h2{font-size:52px;color:#111827;margin:12px 0 0}
+.vsearch-phonetic{font-size:20px;color:#2563eb;font-weight:700}
 .vsearch-def{font-size:18px;line-height:1.6}
 .vsearch-actions{display:flex;gap:10px;margin-top:20px}
-.vsearch-actions button{background:#17483a;border:0;color:white;border-radius:12px;padding:11px 19px;cursor:pointer}
+.vsearch-actions button{background:#dbeafe;border:0;color:white;border-radius:12px;padding:11px 19px;cursor:pointer}
 .vsearch-examples{margin-top:12px;line-height:1.7}
-.vsearch-source{font-size:12px;color:#77847d}
+.vsearch-source{font-size:12px;color:#64748b}
 @media(max-width:950px){.top{flex-wrap:wrap}.top .vsearch-header{order:3;flex-basis:100%;max-width:none;margin:5px 0 0}}
 @media(max-width:520px){.vsearch-input-wrap{height:43px}.vsearch-input-wrap input{font-size:12px}.vsearch-detail{padding:17px}}
+
+
+/* Dictionary detail: neutral text, sky-blue actions, distinct Hanzi / Pinyin / Vietnamese lines. */
+.vsearch-overlay{background:rgba(15,23,42,.48);padding:clamp(10px,2.2vw,20px)}
+.vsearch-detail{box-sizing:border-box;width:min(590px,100%);max-height:min(90dvh,830px);padding:clamp(18px,3vw,26px);background:#fff;border:1px solid #dbeafe;color:#111827;overscroll-behavior:contain}
+.vsearch-detail h2{color:#111827;font-weight:750;line-height:1.2}
+.vsearch-phonetic{color:#2563eb;line-height:1.4}
+.vsearch-detail-top{color:#2563eb}
+.vsearch-detail-top button{background:#eff6ff;color:#111827;border:1px solid #dbeafe}
+.vsearch-actions{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.vsearch-actions button{min-height:42px;background:#dbeafe;color:#1e40af;border:1px solid #bfdbfe;border-radius:12px;font-weight:700}
+.vsearch-actions button:hover{background:#bfdbfe}
+.vsearch-examples{display:grid;gap:12px;margin-top:14px;line-height:1.55}
+.vsearch-example{display:grid;gap:5px;padding:12px 14px;background:#f8fbff;border:1px solid #e2e8f0;border-radius:12px;min-width:0;overflow-wrap:anywhere}
+.vsearch-example [lang="zh-CN"],.vsearch-example>b{display:block;color:#111827;font-size:17px}
+.vsearch-example-pinyin{display:block;color:#2563eb;font-size:14px}
+.vsearch-example>span:not(.vsearch-example-pinyin){display:block;color:#334155}
+.vsearch-example button{justify-self:start;border:1px solid #bfdbfe;border-radius:10px;background:#eff6ff;color:#1e40af;padding:7px 12px}
+.vsearch-breakdown{margin-top:18px;padding-top:12px;border-top:1px solid #e2e8f0}
+.vsearch-breakdown span{display:block;margin:5px 0;color:#334155}
+.vsearch-source{color:#64748b;line-height:1.5}
+@media(max-width:540px){.vsearch-detail{max-height:calc(100dvh - 20px)}.vsearch-actions button{flex:1 1 auto}}
