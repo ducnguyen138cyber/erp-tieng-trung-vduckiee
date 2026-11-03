@@ -704,7 +704,7 @@
     for (var i = 0; i < item.words.length; i++) {
       var word = item.words[i];
       var wordReading = reading(word[0], word[1]);
-      html += '<article class="hsk-word"><button class="hsk-speak" data-hsk-speak="' + escapeHtml(word[0]) + '" aria-label="Nghe ' + escapeHtml(word[0]) + '">♪</button><strong>' + escapeHtml(word[0]) + "</strong><b>" + escapeHtml(word[1]) + '</b><i>Gần âm: ' + escapeHtml(wordReading.nearVi) + "</i><p>" + escapeHtml(word[2]) + "</p>";
+      html += '<article class="hsk-word"><button class="hsk-speak" data-hsk-speak="' + escapeHtml(word[0]) + '" aria-label="Nghe ' + escapeHtml(word[0]) + '">♪</button><strong>' + escapeHtml(word[0]) + "</strong><b>" + escapeHtml(word[1]) + '</b><p>' + escapeHtml(word[2]) + "</p>";
       if (item.canonicalPreview && Array.isArray(word[5])) {
         html += '<div class="hsk-canonical-examples">';
         for (var exampleIndex = 0; exampleIndex < word[5].length; exampleIndex++) {
@@ -764,7 +764,7 @@
     }
     var shift = (selectedLesson + selectedLevel) % options.length;
     options = options.slice(shift).concat(options.slice(0, shift));
-    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Đọc hiểu</h4><span>Đọc chữ Hán trước, chỉ mở gợi ý khi thật sự cần</span></div><div class="hsk-reading-card"><div class="hsk-reading-text">' + escapeHtml(passage.zh) + '</div><div class="hsk-reading-help hidden" id="hskReadingHelp"><strong>' + escapeHtml(passageReading.pinyin) + '</strong><br><span>Gần âm: ' + escapeHtml(passageReading.nearVi) + '</span><br><span>' + escapeHtml(passage.vi) + '</span></div><div class="hsk-writing-tools" style="justify-content:flex-start"><button class="muted" data-hsk-action="reading-help">Hiện pinyin và nghĩa</button><button class="hsk-speak" data-hsk-reading-audio="' + escapeHtml(passage.zh) + '">♪ Nghe bài đọc</button></div><div class="hsk-reading-question"><strong>Nội dung nào đúng với bài đọc?</strong><div class="hsk-reading-options">';
+    var html = '<div class="hsk-section"><div class="hsk-section-title"><h4>' + sectionNumber + '. Đọc hiểu</h4><span>Đọc chữ Hán trước, chỉ mở gợi ý khi thật sự cần</span></div><div class="hsk-reading-card"><div class="hsk-reading-text">' + escapeHtml(passage.zh) + '</div><div class="hsk-reading-help hidden" id="hskReadingHelp"><strong>' + escapeHtml(passageReading.pinyin) + '</strong><br><span>' + escapeHtml(passage.vi) + '</span></div><div class="hsk-writing-tools" style="justify-content:flex-start"><button class="muted" data-hsk-action="reading-help">Hiện pinyin và nghĩa</button><button class="hsk-speak" data-hsk-reading-audio="' + escapeHtml(passage.zh) + '">♪ Nghe bài đọc</button></div><div class="hsk-reading-question"><strong>Nội dung nào đúng với bài đọc?</strong><div class="hsk-reading-options">';
     for (var i = 0; i < options.length; i++) html += '<button data-hsk-reading-option="' + i + '" data-correct="' + (options[i] === passage.vi ? "1" : "0") + '">' + escapeHtml(options[i]) + "</button>";
     return html + "</div></div></div></div>";
   }
