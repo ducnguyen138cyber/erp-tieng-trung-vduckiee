@@ -26,7 +26,7 @@
     dictionaryHero = document.createElement("section");
     dictionaryHero.id = "dictionaryHero";
     dictionaryHero.className = "hero dictionary-hero hidden";
-    dictionaryHero.innerHTML = '<div><p class="eyebrow">TỪ ĐIỂN CHUNG · HSK + ERP</p><h1>Hơn 10.000 từ để tra cứu.</h1><p class="copy">Tìm chữ Hán, phồn thể, pinyin, nghĩa tiếng Việt và cách đọc gần. Từ trùng giữa HSK và ERP chỉ có một bản ghi nhưng vẫn giữ đủ nhãn nguồn.</p></div>';
+    dictionaryHero.innerHTML = '<div><p class="eyebrow">TỪ ĐIỂN CHUNG · HSK + ERP</p><h1>Hơn 10.000 từ để tra cứu.</h1><p class="copy">Tìm chữ Hán, phồn thể, Pinyin và nghĩa tiếng Việt. Từ trùng giữa HSK và ERP chỉ có một bản ghi nhưng vẫn giữ đủ nhãn nguồn.</p></div>';
     var hskHero = byId("hskHero");
     center.insertBefore(dictionaryHero, hskHero ? hskHero.nextSibling : main);
 
@@ -113,7 +113,6 @@
     return '<article class="dictionary-card" data-word="' + escapeHtml(record.hanzi) + '">' +
       '<div class="dictionary-card-top"><div class="dictionary-word"><strong>' + escapeHtml(record.hanzi) + '</strong><span>' + escapeHtml(record.pinyin || "—") + '</span>' + traditional + '</div><button class="dictionary-speak" type="button" data-dictionary-speak="' + escapeHtml(record.hanzi) + '" aria-label="Nghe phát âm ' + escapeHtml(record.hanzi) + '">♪ Nghe</button></div>' +
       '<div class="dictionary-badges">' + badgeHtml(record) + '</div>' +
-      (record.nearVi ? '<p class="dictionary-near">Đọc gần: <strong>' + escapeHtml(record.nearVi) + '</strong></p>' : "") +
       '<div class="dictionary-meaning">' + meaningHtml(record) + '</div>' +
       exampleHtml(record) +
       '</article>';
