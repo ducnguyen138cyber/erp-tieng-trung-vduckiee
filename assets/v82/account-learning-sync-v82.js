@@ -25,7 +25,8 @@
     "vduckie-review-srs-v1": true,
     "vduckie-study-activity-v1": true,
     "vduckie-study-goals-v1": true,
-    "vduckie-learning-settings-v1": true
+    "vduckie-learning-settings-v1": true,
+    "vduckie-hsk-study-journey-v1": true
   };
 
   var EXCLUDED_KEYS = {
