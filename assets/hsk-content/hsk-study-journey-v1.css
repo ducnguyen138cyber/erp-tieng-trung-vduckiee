@@ -2,7 +2,7 @@
 .hsk-entry-quick{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:17px}
 .hsk-entry-quick button,.v865-review-action{
   border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff;color:#1e40af;
-  padding:12px 15px;font:700 14px/1.35 inherit;min-height:44px;cursor:pointer
+  padding:12px 15px;font-weight:700;font-size:14px;line-height:1.35;font-family:inherit;min-height:44px;cursor:pointer
 }
 .hsk-entry-quick [data-graded-continue]{background:#2563eb;color:#fff;border-color:#2563eb}
 .hsk-entry-quick button:hover:not(:disabled),.v865-review-action:hover{background:#dbeafe;color:#1d4ed8}
@@ -30,7 +30,7 @@
   background:#eff6ff;max-width:100%;box-sizing:border-box;color:#111827
 }
 .hsk-study-finish.is-done{background:#f8fbff}
-.hsk-study-finish h4{margin:0 0 8px;color:#111827;font:750 18px/1.3 inherit}
+.hsk-study-finish h4{margin:0 0 8px;color:#111827;font-weight:750;font-size:18px;line-height:1.3;font-family:inherit}
 .hsk-study-finish p{margin:0 0 15px;color:#475569;line-height:1.55}
 .hsk-study-finish button,.hsk-study-actions button,.hsk-study-review-open{
   border:1px solid #93c5fd;background:#2563eb;color:#fff;border-radius:12px;
@@ -51,7 +51,7 @@
 .hsk-study-review-drawer[hidden]{display:none!important}
 .hsk-study-review-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:13px}
 .hsk-study-review-head span{display:block;font-size:11px;color:#2563eb;font-weight:850;letter-spacing:.07em}
-.hsk-study-review-head h4{margin:3px 0 0;font:750 19px/1.35 inherit;color:#111827}
+.hsk-study-review-head h4{margin:3px 0 0;font-weight:750;font-size:19px;line-height:1.35;font-family:inherit;color:#111827}
 .hsk-study-review-head [data-hsk-review-close]{
   flex:none;border:1px solid #dbeafe;background:#fff;color:#111827;border-radius:10px;
   min-width:36px;min-height:36px;font-size:20px;cursor:pointer
