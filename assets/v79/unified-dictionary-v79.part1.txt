@@ -147,12 +147,11 @@
       var record = records[r];
       record.hskLevels.sort(levelSort);
       record.hskLevel = record.hskLevels.length ? record.hskLevels[0] : null;
-      var mayGenerateNear = records.length < 3000;
-      if ((!record.pinyin || (!record.nearVi && mayGenerateNear)) && pronunciation && typeof pronunciation.generate === "function") {
+      
+      if (!record.pinyin && pronunciation && typeof pronunciation.generate === "function") {
         var generated = pronunciation.generate(record.hanzi);
         if (generated) {
           if (!record.pinyin) record.pinyin = text(generated.pinyin);
-          if (!record.nearVi && mayGenerateNear) record.nearVi = text(generated.nearVi);
         }
       }
-      var searchParts = [record.hanzi, record.traditional, record.pinyin, record.nearVi, record.pos]
+      var searchParts = [record.hanzi, record.traditional, record.pinyin, record.pos]
