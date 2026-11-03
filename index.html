@@ -16,7 +16,7 @@
   <script>
     (async function restoreStaticVDuckie(){
       var shellUrl="./app-shell-v88.html?v=blue-hard-purge-20261102";
-      var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-explorer-blue.svg?v=2" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
+      var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-explorer-blue.svg?v=3" alt="Vịt VDuckie mặc áo học sinh đang vẫy chào">';
       try{
         var response=await fetch(shellUrl,{cache:"no-store"});
         if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
@@ -63,10 +63,11 @@
         source=source.replace("</body>",'<script src="./assets/ai/free-learning-assistant.js?v=1"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/ai/duckie-chat.css?v=review-fix"></head>');
         source=source.replace("</body>",'<script src="./assets/ai/duckie-chat.js?v=tutor2"><\/script></body>');
-        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/blue-edtech-v1.css?v=4-hard-purge"></head>');
-        source=source.replace("</body>",'<script src="./assets/design-system/mascot-swap-v1.js?v=2"><\/script></body>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/blue-edtech-v1.css?v=5-nov03"></head>');
+        source=source.replace("</body>",'<script src="./assets/design-system/mascot-swap-v1.js?v=3"><\/script></body>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/blue-white-final-20261103.css?v=1"></head>');
         document.open();document.write(source);document.close();
-      }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/mascot/duckie-explorer-blue.svg?v=2" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
+      }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/mascot/duckie-explorer-blue.svg?v=3" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();
   </script>
 </head>
