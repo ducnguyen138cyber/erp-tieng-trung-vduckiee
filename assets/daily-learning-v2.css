@@ -13,7 +13,7 @@ body[data-current-area="home"] .study-rail,body[data-current-area="msutong"] .st
 @media(max-width:980px){.study-layout{grid-template-columns:minmax(0,1fr) 270px}.daily-grid{grid-template-columns:1.15fr 1fr}.daily-task:first-child{grid-row:1/3}.app-screen{min-height:530px}}
 @media(max-width:760px){body{padding-bottom:calc(69px + env(safe-area-inset-bottom))}.shell{width:min(100% - 16px,760px)}.top{padding:10px 0}.brand-logo{width:42px!important;height:42px!important;flex-basis:42px!important}.cloud-auth-copy{display:none}.learning-menu-button{order:-1}.app-screen{height:calc(100svh - 132px);min-height:480px;max-height:none}.daily-heading{padding:14px 16px}.daily-heading h1{font-size:29px}.daily-heading p{font-size:13px}.daily-date{display:none}.daily-grid{grid-template-columns:1fr;gap:8px}.daily-task,.daily-task:first-child{display:grid;grid-template-columns:1fr auto;grid-row:auto;min-height:0;padding:13px 14px}.daily-task .daily-task-kicker,.daily-task h2,.daily-task p{grid-column:1}.daily-task h2{margin:4px 0;font-size:20px}.daily-task p{font-size:12px}.daily-task-progress{grid-column:2;grid-row:1/4;display:flex;min-width:104px;flex-direction:column;justify-content:center;margin:0;padding:0 0 0 10px}.daily-task-progress>span,.daily-task-progress .daily-bar{display:none}.daily-task-progress .daily-action{margin:0}.daily-summary{display:none}.mobile-learning-dock{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;z-index:65;padding:7px 6px calc(7px + env(safe-area-inset-bottom));border-top:1px solid var(--learn-line);background:rgba(255,253,248,.97);backdrop-filter:blur(14px);box-shadow:0 -8px 24px rgba(30,48,41,.1)}.mobile-learning-dock button{position:relative;display:grid;place-items:center;gap:2px;min-width:0;border:0;background:transparent;color:#111827;padding:4px 1px;font-size:10px;font-weight:800}.mobile-learning-dock b{font-size:18px}.mobile-learning-dock .daily-five b{display:grid;place-items:center;width:38px;height:38px;margin-top:-18px;border-radius:50%;background:var(--learn-orange);color:#fff;box-shadow:0 4px 12px rgba(199,103,60,.35)}.signature-dock img{width:24px;height:24px}.dock-badge{position:absolute;top:0;right:16%;min-width:17px;padding:2px 5px;border-radius:99px;background:#9a332d;color:#fff;font-size:9px}.learning-step{padding:12px}.focus-word,.context-focus,.question-focus,.grammar-focus,.lesson-overview{min-height:300px}.focus-word>strong{font-size:65px}.daily-options{grid-template-columns:1fr}.writing-focus{grid-template-columns:1fr;justify-items:center}.writing-focus>.focus-kicker,.writing-focus>small,.writing-focus>p,.writing-actions{grid-column:1}.writing-word-pills{display:flex;max-width:100%;overflow:auto}.writing-word-pills button{min-width:46px}.daily-stroke-target{width:222px;height:222px}.dialogue-focus article{grid-template-columns:32px 1fr auto}.dialogue-focus article b{font-size:12px}.result-stats{gap:6px}.result-stats div{padding:12px 7px}.result-stats strong{font-size:22px}.roadmap-screen,.profile-screen,.dictionary-screen{padding:13px}.screen-title h1{font-size:28px}.roadmap-progress>span{display:block}.roadmap-progress i{display:block;margin-top:3px}.future-roadmap{display:block}.future-roadmap span,.future-roadmap small{display:block;margin-top:3px}.lesson-choice small{font-size:11px}.learning-session-head{padding:12px 14px 9px}.learning-session-nav{padding:9px 12px calc(9px + env(safe-area-inset-bottom))}.session-exit,.screen-title>button{right:11px;top:10px}.learning-result,.learning-empty{padding:18px}.profile-signature{flex-direction:column;text-align:center}.dictionary-results{grid-template-columns:1fr}.dictionary-word>strong{font-size:31px}.dictionary-screen .screen-title p{font-size:12px}}
 @media(max-width:390px){.daily-task p{display:none}.daily-task-progress{grid-row:1/3}.daily-heading p{display:none}.daily-heading{min-height:80px}.focus-word>strong{font-size:56px}.daily-stroke-target{width:200px;height:200px}.writing-actions button{font-size:11px;padding:7px}.dialogue-focus article p{font-size:12px}}
-@media(max-width:980px),(display-mode:standalone){body[data-current-area="home"] #homeHub>:not(.daily-today){display:none!important}}
+/* Mobile/PWA preserves all homeHub panels; legacy hide-everything rule removed. */
 @media(min-width:981px) and (display-mode:browser){
   .learning-menu-button{display:none!important}
   .study-layout{grid-template-columns:230px minmax(0,1fr) 300px!important}
@@ -28,4 +28,40 @@ body[data-current-area="home"] .study-rail,body[data-current-area="msutong"] .st
   body[data-current-area="msutong"] .roadmap-progress{grid-column:1;grid-row:2;align-self:start}
   body[data-current-area="msutong"] .lesson-picker{grid-column:2;grid-row:1/4}
   body[data-current-area="msutong"] .future-roadmap{grid-column:1;grid-row:3;align-self:end}
+}
+
+
+/* Mobile PWA content visibility fix: summary coexists with the full dashboard. */
+@media(max-width:980px),(display-mode:standalone){
+  body[data-current-area="home"] #homeHub>.daily-today.app-screen{
+    box-sizing:border-box;height:auto!important;min-height:0!important;max-height:none!important;
+    overflow:visible!important;grid-template-rows:auto auto auto!important;margin-bottom:18px!important;
+  }
+  body[data-current-area="home"] #homeHub>.daily-today .daily-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    min-height:0!important;align-items:stretch!important;
+  }
+  body[data-current-area="home"] #homeHub>.daily-today .daily-task:first-child{
+    grid-row:auto!important;
+  }
+  body[data-current-area="home"] #homeHub>.daily-today .daily-summary{
+    display:flex!important;flex-wrap:wrap!important;
+  }
+}
+@media(max-width:760px){
+  body[data-current-area="home"] #homeHub>.daily-today .daily-grid{grid-template-columns:1fr!important}
+  body[data-current-area="home"] #homeHub>.daily-today .daily-task p,
+  body[data-current-area="home"] #homeHub>.daily-today .daily-heading p{
+    display:block!important;line-height:1.45;
+  }
+  body[data-current-area="home"] #homeHub>.daily-today .daily-task-progress{
+    min-width:100px!important;
+  }
+  /* PWA dock must not cover the last block of the now scrollable home page. */
+  body{scroll-padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+  body[data-current-area="home"] #homeHub{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+}
+@media(max-width:390px){
+  body[data-current-area="home"] #homeHub>.daily-today .daily-task{grid-template-columns:minmax(0,1fr) auto;gap:8px}
+  body[data-current-area="home"] #homeHub>.daily-today .daily-heading{min-height:0!important}
 }
