@@ -1,0 +1,72 @@
+/* HSK learner journey: intentionally scoped, no global typography overrides. */
+.hsk-entry-quick{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:17px}
+.hsk-entry-quick button,.v865-review-action{
+  border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff;color:#1e40af;
+  padding:12px 15px;font:700 14px/1.35 inherit;min-height:44px;cursor:pointer
+}
+.hsk-entry-quick [data-graded-continue]{background:#2563eb;color:#fff;border-color:#2563eb}
+.hsk-entry-quick button:hover:not(:disabled),.v865-review-action:hover{background:#dbeafe;color:#1d4ed8}
+.hsk-entry-quick [data-graded-continue]:hover{background:#1d4ed8!important;color:#fff!important}
+.hsk-entry-quick button:disabled{opacity:.55;cursor:not-allowed}
+.hsk-entry-note{font-size:13px;line-height:1.55;margin:13px 0 0!important;color:#64748b!important}
+.v865-review-action{display:inline-flex;width:100%;align-items:center;justify-content:center;margin-top:8px}
+[data-hsk-progress-host]{display:block;margin:0 0 18px}
+.hsk-study-progress{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  background:#f8fbff;border:1px solid #dbeafe;border-radius:13px;
+  padding:12px 15px;color:#111827
+}
+.hsk-study-progress strong{display:block;font-size:14px;font-weight:800;margin-bottom:3px}
+.hsk-study-progress small{display:block;color:#64748b;font-size:12px;line-height:1.4}
+.hsk-study-chip{
+  display:inline-flex;align-items:center;justify-content:center;flex:none;
+  padding:7px 10px;border-radius:10px;white-space:nowrap;
+  border:1px solid #bfdbfe;background:#eff6ff;color:#1e40af;
+  font-size:12px;font-weight:800
+}
+.hsk-study-complete{border-color:#a5dac4;background:#effaf5;color:#166534}
+.hsk-study-finish{
+  margin:20px 0 0;padding:18px;border-radius:15px;border:1px solid #bfdbfe;
+  background:#eff6ff;max-width:100%;box-sizing:border-box;color:#111827
+}
+.hsk-study-finish.is-done{background:#f8fbff}
+.hsk-study-finish h4{margin:0 0 8px;color:#111827;font:750 18px/1.3 inherit}
+.hsk-study-finish p{margin:0 0 15px;color:#475569;line-height:1.55}
+.hsk-study-finish button,.hsk-study-actions button,.hsk-study-review-open{
+  border:1px solid #93c5fd;background:#2563eb;color:#fff;border-radius:12px;
+  padding:11px 14px;min-height:44px;font-weight:750;cursor:pointer
+}
+.hsk-study-finish button:disabled{background:#e2e8f0;border-color:#e2e8f0;color:#64748b;cursor:not-allowed}
+.hsk-study-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:13px}
+.hsk-study-actions button+button{background:#fff;color:#1e40af;border-color:#bfdbfe}
+.hsk-study-actions button:hover:not(:disabled),.hsk-study-review-open:hover{filter:brightness(.96)}
+#hskJourney .hsk-study-review-open{
+  display:block;width:100%;margin:8px 0 14px;min-height:40px;
+  background:#eff6ff;border-color:#bfdbfe;color:#1e40af;text-align:center
+}
+.hsk-study-review-drawer{
+  box-sizing:border-box;margin:0 0 18px;padding:17px;border-radius:16px;
+  border:1px solid #bfdbfe;background:#f8fbff;box-shadow:0 12px 30px rgba(37,99,235,.08)
+}
+.hsk-study-review-drawer[hidden]{display:none!important}
+.hsk-study-review-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:13px}
+.hsk-study-review-head span{display:block;font-size:11px;color:#2563eb;font-weight:850;letter-spacing:.07em}
+.hsk-study-review-head h4{margin:3px 0 0;font:750 19px/1.35 inherit;color:#111827}
+.hsk-study-review-head [data-hsk-review-close]{
+  flex:none;border:1px solid #dbeafe;background:#fff;color:#111827;border-radius:10px;
+  min-width:36px;min-height:36px;font-size:20px;cursor:pointer
+}
+.hsk-study-review-word{display:flex;flex-direction:column;align-items:center;gap:6px;padding:15px 10px;background:#fff;border:1px solid #e2e8f0;border-radius:12px}
+.hsk-study-review-word strong{font:750 clamp(38px,6vw,56px)/1.25 "Noto Sans SC","Microsoft YaHei",sans-serif;color:#111827}
+.hsk-study-review-word span{color:#2563eb;font-size:16px}
+.hsk-study-review-word p{color:#111827;font-size:16px;font-weight:700;text-align:center;margin:8px 0 0}
+.hsk-study-review-drawer .hsk-study-actions{justify-content:center}
+.hsk-study-review-drawer .hsk-study-actions button[hidden]{display:none!important}
+@media(max-width:640px){
+  .hsk-entry-quick{display:grid;grid-template-columns:1fr}
+  .hsk-study-progress{align-items:flex-start;flex-direction:column}
+  .hsk-study-chip{white-space:normal}
+  .hsk-study-actions{flex-direction:column}
+  .hsk-study-actions button{width:100%}
+  .hsk-study-finish{padding:15px}
+}
