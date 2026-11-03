@@ -421,15 +421,16 @@
     for (var level = 1; level <= 9; level++) {
       var config = COURSE_CONFIG[level];
       var active = level === state.selectedLevel ? ' active' : '';
-      if (config && level <= 4) html += '<button type="button" class="hsk-level hsk-pro-level' + active + '" data-pro-level="' + level + '"><strong>HSK ' + level + '</strong><small>' + esc(config.label) + '</small></button>';
-      else html += '<button type="button" class="hsk-level hsk-pro-level locked" disabled aria-disabled="true"><strong>HSK ' + level + '</strong><small>Sắp mở</small></button>';
+      if (config && level <= 4) html += '<button type="button" class="hsk-level hsk-pro-level' + active + '" data-pro-level="' + level + '" aria-label="HSK ' + level + '"><strong>HSK ' + level + '</strong></button>';
+      else html += '<button type="button" class="hsk-level hsk-pro-level locked" disabled aria-disabled="true" aria-label="HSK ' + level + ' · Sắp mở"><strong>HSK ' + level + '</strong></button>';
     }
-    node.innerHTML = html;
+    // Avoid repainting the right rail on unrelated async Pinyin/lesson events.
+    if (node.innerHTML !== html) node.innerHTML = html;
   }
 
   function renderSidebar(data) {
     var progress = byId('hskProgress');
-    if (progress) progress.innerHTML = '';
+    if (progress && progress.innerHTML) progress.innerHTML = '';
     var node = byId('hskLessonList');
     if (!node) return;
     var html = '';
@@ -453,7 +454,7 @@
       var id = assessment.id;
       html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + esc(assessment.titleVi || assessment.titleZh || id) + '</button>';
     });
-    node.innerHTML = html;
+    if (node.innerHTML !== html) node.innerHTML = html;
   }
 
   function updateIntro(data) {
