@@ -441,7 +441,9 @@
         var lesson = data.lessonById[ref.id];
         if (!lesson) return;
         var active = state.selectedLessonId === lesson.id ? ' active' : '';
-        html += '<button type="button" class="hsk-pro-lesson-link' + active + '" data-pro-lesson="' + attr(lesson.id) + '"><span>' + esc(lesson.order) + '</span><b>' + esc(lesson.titleVi) + '</b><small lang="zh-CN">' + esc(lesson.titleZh) + '</small></button>';
+        var journalEntry = root.VDuckieHskStudyJourney && root.VDuckieHskStudyJourney.lesson(lesson.id);
+        var completed = journalEntry && journalEntry.completedAt ? ' done' : '';
+        html += '<button type="button" class="hsk-pro-lesson-link' + active + completed + '" data-pro-lesson="' + attr(lesson.id) + '"><span>' + esc(lesson.order) + '</span><b>' + esc(lesson.titleVi) + '</b><small lang="zh-CN">' + esc(lesson.titleZh) + '</small>' + (completed ? '<i class="hsk-study-done-icon" aria-label="Đã hoàn thành">✓</i>' : '') + '</button>';
       });
       var checkpoint = unit.checkpointRef && data.assessmentById[unit.checkpointRef.id];
       if (checkpoint) html += '<button type="button" class="hsk-pro-assessment-link' + (state.selectedAssessmentId === checkpoint.id ? ' active' : '') + '" data-pro-assessment="' + attr(checkpoint.id) + '">✓ Checkpoint Unit ' + esc(unit.order) + '</button>';
