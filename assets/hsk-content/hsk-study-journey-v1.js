@@ -70,7 +70,7 @@
     return Object.assign({ok:true},stats(lessonId,total));
   }
   function due(level,includeFuture){
-    var items=Object.keys(load().reviews).map(function(k){return load().reviews[k];}).filter(function(item){
+    var reviews=load().reviews;var items=Object.keys(reviews).map(function(k){return reviews[k];}).filter(function(item){
       return item&&safe(item.hanzi)&&(!level||Number(item.level)===Number(level))&&
         (includeFuture||Number(item.nextAt||0)<=now());
     });
@@ -80,7 +80,7 @@
     var data=load(),key=reviewKey(level,hanzi),item=data.reviews[key];
     if(!item)return false;
     item.stage=known?Math.min(INTERVALS.length-1,(Number(item.stage)||0)+1):0;
-    item.lastAt=now();item.nextAt=now()+(known?INTERVALS[item.stage]*DAY:0);
+    item.lastAt=now();item.nextAt=now()+(known?INTERVALS[item.stage]*DAY:5*60000);
     return emit(data);
   }
   function levelCount(level){
