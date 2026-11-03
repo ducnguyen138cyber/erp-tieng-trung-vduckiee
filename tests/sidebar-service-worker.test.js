@@ -75,10 +75,10 @@ test('Supabase, OAuth and non-GET requests bypass cache; activation removes only
   }
   await w.caches.open('unrelated-user-cache');
   await w.caches.open('vduckie-pwa-v12-static');
-  await w.caches.open('vduckie-pwa-v16-static');
+  await w.caches.open('vduckie-pwa-v17-static');
   let pending;
   w.handlers.activate({ waitUntil(value) { pending = value; } });
   await pending;
-  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v16-static']);
+  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v17-static']);
   assert.deepEqual(w.requests, []);
 });
