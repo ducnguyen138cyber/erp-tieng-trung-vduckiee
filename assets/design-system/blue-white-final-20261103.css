@@ -1,0 +1,22 @@
+/* Final source theme: blue / white, November 3 */
+:root{--vd-bg:#f8fafc;--vd-card:#fff;--vd-primary:#2563eb;--vd-primary-dark:#1d4ed8;--vd-primary-soft:#eff6ff;--vd-text:#111827;--vd-muted:#475569;--vd-line:#e2e8f0}
+html,body,#appShell,.shell,.study-layout,.study-center,.study-rail{background-color:#f8fafc!important;color:#111827!important}
+:is(h1,h2,h3,h4,h5,h6,.home-welcome-card h1,.graded-hsk-head h1,.graded-hsk-card h2,.hsk-pro-title,.hsk-pro-character,.v85-personal h2,.v865-home-main h2){color:#111827!important}
+:is(.home-welcome-card,.home-course-card,.home-library-card,.home-resource-tile,.v865-side-card,.v865-home-main .panel,.v865-home-sidebar .panel,.v85-personal .panel,.v85-personal .v85-recommend-card,.graded-hsk-card,.graded-hsk-legacy,.hsk-pro-vocab-card,.hsk-pro-exercise,.hsk-pro-lesson,.hsk-pro-panel){background:#fff!important;border-color:#e2e8f0!important;color:#111827!important}
+:is(.graded-hsk-head p,.graded-hsk-card p,.graded-hsk-legacy p,.hsk-pro-subtitle,.hsk-pro-description,.v85-personal p,.home-welcome-card p){color:#475569!important}
+:is(.graded-hsk-eyebrow,.graded-hsk-level,.home-card-kicker,.home-recommended-heading .eyebrow,.hsk-pro-kicker,.hsk-pro-step-count,.v85-personal .eyebrow){color:#2563eb!important}
+:is(.graded-hsk-card button,.graded-hsk-legacy button,.hsk-pro-primary,.hsk-pro-vocab-card button.primary,.hsk-pro-lesson button.primary,.hsk-pro-tabs button.active,.hsk-pro-step-tabs button.active){background:#2563eb!important;border-color:#2563eb!important;color:#fff!important}
+:is(.graded-hsk-card button,.graded-hsk-legacy button,.hsk-pro-primary):hover{background:#1d4ed8!important}
+.graded-hsk-card.is-locked{background:#f1f5f9!important;border-color:#e2e8f0!important}
+.graded-hsk-card.is-locked .graded-hsk-coming{background:#e2e8f0!important;color:#64748b!important}
+:is(.hsk-pro-tabs,.hsk-pro-step-tabs,.hsk-pro-vocab-card,.hsk-pro-flashcard,.hsk-pro-bottom-nav,.hsk-pro-progress,.hsk-pro-vocab-stage){border-color:#dbeafe!important}
+:is(.hsk-pro-tabs,.hsk-pro-step-tabs,.hsk-pro-vocab-stage){background:#f1f7ff!important}
+:is(.hsk-pro-tabs button:not(.active),.hsk-pro-step-tabs button:not(.active)){background:#fff!important;border-color:#dbeafe!important;color:#111827!important}
+:is(.hsk-pro-vocab-card,.hsk-pro-flashcard){background:#fff!important}
+.study-sidebar,.study-rail,.v865-home-sidebar :is(.v865-streak-card,.v865-weekly-card){background:#fff!important;border-color:#e2e8f0!important}
+.study-sidebar :is(button,.home-switch,.area-switch,.learning-menu-button):not(.active){color:#111827}
+.study-sidebar :is(.menu-signature,.sidebar-heading,.learning-menu-group){color:#2563eb!important}
+:is(.home-primary-action,.v865-streak-btn,.v865-red-cta,.home-welcome-card .home-primary-action){background:#2563eb!important;border-color:#2563eb!important;color:#fff!important}
+:is(.v85-personal .v85-recommend-card:first-child,.v85-personal .v85-recommendation-card:first-child){background:#eff6ff!important}
+:is(.v85-personal .v85-adaptive-card,.v85-personal .v85-review-card,.v86-adaptive-card,.v86-adaptive-panel,.v86-review-card,.v86-error-report,.adaptive-review-card,.adaptive-quiz-card){background:#fff!important;color:#111827!important;border-color:#dbeafe!important}
+:is(.v85-personal,.v86-adaptive-card,.v86-adaptive-panel) :is(button.primary,.start-button,.btn-primary){background:#2563eb!important;color:#fff!important;border-color:#2563eb!important}
