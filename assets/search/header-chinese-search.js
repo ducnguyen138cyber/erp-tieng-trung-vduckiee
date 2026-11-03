@@ -20,7 +20,7 @@ function detail(r){selected=r;close();var old=document.getElementById("vsearchDe
    var original=examples.find(function(e){return e.zh===node.getAttribute("data-vsearch-example-pinyin")});
    if(original&&original.pinyin)return;
    var generated=root.ERPPronunciation.generate(node.getAttribute("data-vsearch-example-pinyin"));
-   node.textContent=generated&&generated.pinyin?"Pinyin (tự động): "+generated.pinyin:"Chưa có Pinyin được xác minh";
+   node.textContent=generated&&generated.pinyin?generated.pinyin:"Chưa có Pinyin được xác minh";
   });
  }).catch(function(){modal.querySelectorAll("[data-vsearch-example-pinyin]").forEach(function(node){node.textContent="Chưa có Pinyin được xác minh"})});var chars=Array.from(r.hanzi||"").filter(function(ch){return /[\u3400-\u9fff]/.test(ch)});
  if(chars.length>1){var parts=chars.map(function(ch){var match=search(ch).find(function(candidate){return candidate.hanzi===ch});return match?'<span><b>'+esc(ch)+'</b> · '+esc(match.pinyin||"")+' · '+esc(terms(match)[0]||"Chưa có nghĩa riêng")+'</span>':'<span><b>'+esc(ch)+'</b> · Chưa có dữ liệu phân tích riêng</span>'});
