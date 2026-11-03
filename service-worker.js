@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v15";
+const CACHE_VERSION = "vduckie-pwa-v16";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -15,7 +15,7 @@ const APP_SHELL = [
   "./assets/mascot/duckie-reader-icon-180.png?v=2.0",
   "./assets/mascot/duckie-reader-icon-192.png",
   "./assets/mascot/duckie-reader-icon-512.png",
-  "./assets/design-system/brand-runtime-v2.css?v=2.0",
+  "./assets/design-system/brand-runtime-v2.css?v=2.1",
   "./assets/design-system/mascot-swap-v1.js?v=5",
   "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0",
   "./manifest.webmanifest",
