@@ -58,7 +58,7 @@
         // The HTML shell replaces this document; inject the rule into that shell, not the outer loader.
         source=source.replace("</head>",'<style id="vduckie-hide-evolution-card">#v92EvolutionCard,.v92-evolution-card{display:none!important}</style></head>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/curriculum/graded-hsk-entry.css?v=release-lock.0"></head>');
-        source=source.replace("</body>",'<script src="./assets/curriculum/graded-hsk-entry.js?v=2.0"><\/script><script src="./assets/navigation/screen-router.js?v=hsk-main-journey1"><\/script></body>');
+        source=source.replace("</body>",'<script src="./assets/curriculum/graded-hsk-entry.js?v=2.1"><\/script><script src="./assets/navigation/screen-router.js?v=hsk-main-journey1"><\/script></body>');
         // Prevent unstyled HTML from flashing while the dynamic shell's CSS and scripts initialize.
         // Show a neutral, tiny loading surface instead of exposing the raw document.
         var paintGuard = '<style id="vduckie-paint-guard">html.vduckie-paint-pending body{visibility:hidden!important}html.vduckie-paint-pending::after{content:"Đang mở VDuckie…";position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;background:#F8FAFC;color:#64748B;font:600 14px Arial,sans-serif}html.vduckie-paint-ready body{animation:vduckie-paint-in .16s ease-out both}@keyframes vduckie-paint-in{from{opacity:.6}to{opacity:1}}@media(prefers-reduced-motion:reduce){html.vduckie-paint-ready body{animation:none}}</style>' +
