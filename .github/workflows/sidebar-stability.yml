@@ -25,6 +25,7 @@ jobs:
       - name: Painted theme across all learning screens
         run: node tests/brand-runtime-browser.mjs
       - name: Confirm previous deployment Network, Service Worker and Cache
+        if: always()
         env:
           VISUAL_BASE_URL: https://e619e492.vduckie.pages.dev/
           VISUAL_OBSERVE_ONLY: "1"

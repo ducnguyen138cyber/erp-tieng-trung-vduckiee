@@ -22,9 +22,9 @@ test("manifest is installable and subpath-safe", () => {
   assert.ok(manifest.icons.some((icon) => icon.sizes === "512x512"));
   assert.ok(manifest.icons.some((icon) => icon.purpose === "maskable"));
   for (const icon of manifest.icons) assert.ok(fs.existsSync(path.join(root, icon.src)), icon.src);
-  assert.deepEqual(pngSize("assets/pwa/vduckie-192.png"), [192, 192]);
-  assert.deepEqual(pngSize("assets/pwa/vduckie-512.png"), [512, 512]);
-  assert.deepEqual(pngSize("assets/pwa/vduckie-maskable-512.png"), [512, 512]);
+  assert.deepEqual(pngSize("assets/mascot/duckie-reader-icon-192.png"), [192, 192]);
+  assert.deepEqual(pngSize("assets/mascot/duckie-reader-icon-512.png"), [512, 512]);
+  assert.deepEqual(pngSize("assets/mascot/duckie-reader-maskable-512.png"), [512, 512]);
 });
 
 test("index registers relative PWA resources", () => {

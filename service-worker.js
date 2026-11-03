@@ -19,6 +19,7 @@ const APP_SHELL = [
   "./assets/design-system/mascot-swap-v1.js?v=5",
   "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0",
   "./manifest.webmanifest",
+  "./assets/mascot/duckie-reader-maskable-512.png",
   "./pwa-register.js",
   "./v72-layout.css",
   "./erp-lessons-v74.css",
