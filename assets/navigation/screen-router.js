@@ -9,7 +9,7 @@
   var erpViews = ["lessons","cards","dialogue","quiz","glossary","personal","community"];
   function one(selector) { return document.querySelector(selector); }
   function screenOf(button) {
-    if (button.matches('[data-v865-action="open-hsk"]')) return "roadmap";
+    if (button.matches('[data-v865-action="open-hsk"]')) return "msutong";
     if (button.matches("[data-exp-open-all]")) return "ranking";
     if (button.hasAttribute("data-daily-home") || button.hasAttribute("data-home") || button.id === "brandHome") return "home";
     if (button.hasAttribute("data-daily-nav")) return button.getAttribute("data-daily-nav");
