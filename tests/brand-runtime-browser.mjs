@@ -22,7 +22,7 @@ try{for(const width of (observe?[1440]:[1440,390])){
   await open('erp:'+screen);await page.locator('#'+screen).waitFor({state:'visible'});
   assert(await page.locator('#'+screen).evaluate(e=>parseFloat(getComputedStyle(e).paddingLeft))>=16,screen+' missing padding');
   const counter=await page.locator('.journey-score').evaluate(e=>[e.querySelector('strong'),...e.querySelectorAll('strong>span')].map(x=>getComputedStyle(x).fontSize));assert.equal(new Set(counter).size,1,'counter slash and digits differ');
-  if(screen==='community'||screen==='personal'){const button=page.locator(screen==='community'?'#submitCommunity':'#saveNew');assert(await button.evaluate(e=>e.getBoundingClientRect().height)>=44);assert.equal(await button.evaluate(e=>getComputedStyle(e).borderTopWidth),'1px');}
+  if(screen==='community'||screen==='personal'){const button=page.locator(screen==='community'?'#submitCommunity':'#saveNew');assert(await button.evaluate(e=>e.getBoundingClientRect().height)>=44,screen+' submit/save target is too small');assert.equal(await button.evaluate(e=>getComputedStyle(e).borderTopWidth),'1px');}
   if(screen==='glossary'){await page.locator('#search').fill('库存');await page.locator('#filters [data-category="Kho"]').click();}
   if(screen==='dialogue'){assert.equal(await page.locator('.dialogue-bubble').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(239, 246, 255)');await page.locator('#showDialogueHint').click();}
   if(screen==='cards'){await page.locator('#flashcard').click();await page.locator('#cardBack').waitFor({state:'visible'});}
