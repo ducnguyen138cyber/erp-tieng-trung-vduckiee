@@ -71,3 +71,23 @@ status/Service Worker origin, worker registration, cache names and a warm reload
 Local fixtures isolate Supabase for repeatable regressions; live audits do not
 mock public site requests or send chat messages. These checks do not claim a new
 Google OAuth or live authenticated EXP test.
+
+## Recorded pre-merge findings
+
+The baseline live audit recorded worker/cache v14 and updateViaCache `imports`,
+with no failed same-origin requests in the audited desktop flow. Forest/cream
+colors were still present in a fresh context, so cache alone does not explain the
+problem. The corrected build passed the computed paint and enabled-button contrast
+audit at both 1440px and 390px. Mobile home intentionally uses `.daily-today`
+(the desktop dashboard is hidden below 980px); the audit inspects that actual UI.
+
+Cloud Browser preview checks opened the home, HSK catalogue/lesson, Daily ERP,
+review, dictionary, ranking/month tab and Chat. The Console exposed an existing
+Supabase multiple-GoTrueClient warning; this paint-only change does not alter Auth
+initialization. The browser extension metadata error is outside the app origin.
+
+Candidate and baseline screenshots/reports are kept in separate artifact folders.
+After merge, `brand-production-audit.yml` waits for the Cloudflare check matching
+the exact merge SHA and audits its new immutable deployment without network mocks,
+including fresh/warm loads and worker/cache state. Consult the PR checks for the
+completed run rather than treating this document as a deployment success signal.
