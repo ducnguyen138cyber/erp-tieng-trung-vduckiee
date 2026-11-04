@@ -57,9 +57,6 @@
     host.querySelector("[data-graded-review]").addEventListener("click",function(){
       if(summary.due)openLesson(Number(current.level)||1,current.lessonId,true);
     });
-    host.querySelector("[data-practice-open]").addEventListener("click",function(){
-      if(root.VDuckieHSKPractice)root.VDuckieHSKPractice.open();
-    });
     host.querySelector("[data-graded-legacy]").addEventListener("click",function(){
       if(root.VDuckieDailyLearning)root.VDuckieDailyLearning.show("msutong");
     });
