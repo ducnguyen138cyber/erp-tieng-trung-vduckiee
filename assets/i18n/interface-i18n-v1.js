@@ -2601,6 +2601,10 @@
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
       var variants=[
+        [/^Hạng của bạn:\s*#(\d+)$/i,["你的排名：#$1","Your rank: #$1"]],
+        [/^UNIT\s*(\d+)$/i,["单元 $1","UNIT $1"]],
+        [/^Checkpoint\s+Unit\s*(\d+)$/i,["单元 $1 阶段测验","Unit $1 checkpoint"]],
+        [/^Thứ\s*(\d+)\s*\/\s*(\d+)$/i,["第 $1/$2 项","$1/$2"]],
         [/^Pinyin đúng của\s*([\u3400-\u9fff]+)\s*là gì\?$/i,["$1的正确拼音是什么？","What is the correct pinyin for $1?"]],
         [/^([\u3400-\u9fff]+)\s*nghĩa là gì\?$/i,["$1是什么意思？","What does $1 mean?"]],
         [/^(\d+)\s*kết quả\s*[·•]\s*đang hiện\s*(\d+)\s*kết quả đầu$/i,["找到 $1 条结果 · 显示前 $2 条","$1 results · showing first $2"]],
