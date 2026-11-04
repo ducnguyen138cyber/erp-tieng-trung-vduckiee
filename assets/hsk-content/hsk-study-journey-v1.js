@@ -80,6 +80,8 @@
     var data=load(),key=reviewKey(level,hanzi),item=data.reviews[key];
     if(!item)return false;
     item.stage=known?Math.min(INTERVALS.length-1,(Number(item.stage)||0)+1):0;
+    item.attempts=Math.max(0,Number(item.attempts)||0)+1;
+    item.correct=Math.max(0,Number(item.correct)||0)+(known?1:0);
     if(!known){item.weak=true;item.mistakes=Math.max(0,Number(item.mistakes)||0)+1;}
     else if(item.stage>=2)item.weak=false;
     item.lastAt=now();item.nextAt=now()+(known?INTERVALS[item.stage]*DAY:5*60000);
