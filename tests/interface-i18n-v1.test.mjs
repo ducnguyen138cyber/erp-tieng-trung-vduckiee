@@ -60,7 +60,7 @@ test('signed-in selector is inside the account dropdown under profile details, g
   assert.match(source,/data-vd-ui-lang="vi"/);
   assert.match(source,/data-vd-ui-lang="zh"/);
   assert.match(source,/data-vd-ui-lang="en"/);
-  assert.match(source,/id="vdUiLanguageGuest"/);
+  assert.match(source,/wrap\.id="vdUiLanguageGuest"/);
   assert.match(source,/function ensureGuest\(\)/);
 });
 test('app bootstrap and PWA install the two localized assets',()=>{
