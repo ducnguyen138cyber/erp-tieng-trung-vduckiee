@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 440" width="420" height="440" role="img" aria-labelledby="duckieTitle duckieDesc">
+<title id="duckieTitle">Duckie luyện nói và đề HSK - đủ hai cánh</title><desc id="duckieDesc">Vịt trắng má hồng, mũ vàng, balo xanh, cầm micro bằng cánh trái, cánh phải giơ lên rõ ràng.</desc>
+<!-- Flat 2D mascot artwork. Intentionally no gradients, filters or fake 3D gloss. -->
+<ellipse cx="215" cy="415" rx="112" ry="11" fill="#dbeafe" opacity=".72"/>
+<g stroke="#273649" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+<!-- travel bag, visible behind shoulder -->
+<path d="M302 251q58-15 68 31l-4 73q-4 31-35 35l-34-16z" fill="#60a5fa"/>
+<path d="M330 276q21 23 14 62" fill="none" stroke="#dbeafe" stroke-width="5"/>
+<rect x="339" y="320" width="34" height="43" rx="12" fill="#2563eb"/>
+<!-- duck body and small feet -->
+<path d="M157 327q-2 46-23 68 22 18 56-1l21-35M260 354l5 38q21 17 47 7-1-20-29-29" fill="#ffba42"/>
+<path d="M121 246q-32 24-34 81-2 63 52 78 67 22 137 0 48-16 48-83 0-44-30-72z" fill="#fff"/>
+<path d="M105 309q-22-11-36 5-16 20-2 37 11 16 38 4l30-20M320 301q24-5 34 15 10 19-5 34-11 12-35 3" fill="#fff"/>
+<!-- oversize round head -->
+<path d="M95 182q-18 27-16 71 3 86 72 113 53 22 113 5 81-22 93-104 9-56-26-91-38-38-111-40-88-2-125 46z" fill="#fff"/>
+<!-- small blush and smiling crescent eyes -->
+<ellipse cx="127" cy="287" rx="24" ry="13" fill="#ffbecb" stroke="none"/>
+<ellipse cx="313" cy="286" rx="24" ry="13" fill="#ffbecb" stroke="none"/>
+<path d="M144 254q15-20 31 0M260 253q15-22 31-1" fill="none" stroke-width="7"/>
+<!-- cute rounded bill with a little open smile -->
+<path d="M181 276q26-20 51-4 9 7 23 8 12 3 7 18-9 23-42 25-34-1-51-22-7-12 12-25z" fill="#ffbb3c"/>
+<path d="M191 300q30 13 53-2" fill="none" stroke="#cc7a20" stroke-width="4"/>
+<!-- curved safari hat and uneven illustrated brim -->
+<path d="M122 173q7-73 77-84 80-13 115 42l21 49-96 15-110-7z" fill="#ffd46b"/>
+<path d="M139 147q83-21 161 5" fill="none" stroke="#fff0b6" stroke-width="5"/>
+<path d="M114 180q69 16 129 12 65-4 111-22 9-3 12 7 4 20-36 34-88 29-181 12-50-10-56-27-1-11 21-16z" fill="#ffc44f"/>
+<path d="M167 116q12-16 39-18" fill="none" stroke="#ad782b" stroke-width="4"/>
+<!-- microphone body in front of the left wing -->
+<path d="M104 350l64-77" stroke="#293b57" stroke-width="19" fill="none"/>
+<path d="M104 350l64-77" stroke="#64748b" stroke-width="11" fill="none"/>
+<ellipse cx="178" cy="257" rx="27" ry="29" transform="rotate(30 178 257)" fill="#94a3b8"/>
+<ellipse cx="178" cy="257" rx="24" ry="26" transform="rotate(30 178 257)" fill="#475569" stroke="#273649" stroke-width="4"/>
+<g stroke="#cbd5e1" stroke-width="3" fill="none">
+<path d="M158 245l38 23M156 255l37 22M164 235l37 22M170 232l29 18"/>
+<path d="M166 233l-14 33M181 231l-17 42M194 238l-16 35"/>
+</g>
+<path d="M141 298l19 16" fill="none" stroke="#60a5fa" stroke-width="8"/>
+<!-- both wings fully present: left wing grips microphone, right wing gestures -->
+<path d="M127 342q-22-10-31 8-8 20 21 30l23-6M307 342q21-13 31 3 10 18-20 29l-21-2" fill="#fff"/>
+</g>
+<!-- two low-key motion strokes instead of generative sparkle overload -->
+<g fill="none" stroke="#f5ae28" stroke-linecap="round" stroke-width="6"><path d="M71 203l-18-8M66 224l-18 3"/></g>
+</svg>
