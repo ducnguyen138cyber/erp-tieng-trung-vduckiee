@@ -68,7 +68,7 @@ test('quiz completion uses actual backend awards and does not manufacture EXP in
   assert.match(ui,/q\.type==="writing"&&!dictationRewardTried/);
   assert.match(ui,/awardEXP\("dictation_complete"/);
   assert.match(ui,/awardWordMastery\(page\.level,q\.hanzi/);
-  assert.match(ui,/if\(pass&&root\.VDuckieEXP/);
+  assert.match(ui,/if\(!restoreOnly&&pass&&root\.VDuckieEXP/);
   assert.match(ui,/awardEXP\("quiz_pass",source\)/);
   assert.doesNotMatch(ui,/localStorage\.setItem\(["']exp|\.totalEXP\s*\+=/i);
   const core=read('assets/v90/exp-core-v90.js');
