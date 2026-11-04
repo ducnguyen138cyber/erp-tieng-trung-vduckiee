@@ -118,17 +118,22 @@
     });
   }
   function awardEXP(activityCode, sourceId) {
-    if (!session || !session.user) {
-      showToast("Đăng nhập Google để lưu EXP và tham gia bảng xếp hạng.");
-      return Promise.resolve({ awarded: false, reason: "not_authenticated", exp_awarded: 0 });
-    }
     if (!client) return Promise.resolve({ awarded: false, reason: "not_configured", exp_awarded: 0 });
-    return rpc("award_exp", { p_activity_code: activityCode, p_source_id: sourceId }).then(function (data) {
+    // A fresh session read avoids dropping rewards immediately after Google OAuth.
+    return client.auth.getSession().then(function (result) {
+      if (result.error) throw result.error;
+      if (!result.data || !result.data.session || !result.data.session.user) {
+        showToast("Đăng nhập Google để lưu EXP và tham gia bảng xếp hạng.");
+        return { awarded: false, reason: "not_authenticated", exp_awarded: 0 };
+      }
+      if (!session || session.user.id !== result.data.session.user.id) setSession(result.data.session);
+      return rpc("award_exp", { p_activity_code: activityCode, p_source_id: sourceId }).then(function (data) {
       var row = Array.isArray(data) ? data[0] : data;
       row = row || { awarded: false, reason: "unknown", exp_awarded: 0 };
       if (row.awarded) showToast("+" + row.exp_awarded + " EXP", "good");
       document.dispatchEvent(new CustomEvent("vduckie:exp-updated", { detail: row }));
       return row;
+      });
     }).catch(function (error) {
       console.error("Award EXP failed", error);
       if (/function|relation|schema cache|award_exp/i.test(String(error.message || error))) {
@@ -155,12 +160,22 @@
     if (!root.VDuckieEXPUI) return Promise.resolve();
     return root.VDuckieEXPUI.refreshLeaderboard(period);
   }
+  var initTries = 0;
   function init() {
-    client = createClient();
-    if (!client) { notify(); return; }
-    client.auth.getSession().then(function (result) { setSession(result.data && result.data.session); });
+    // One shared browser auth client: prevents stale tokens and duplicate GoTrueClient instances.
+    var cloud = root.VDuckieCloud;
+    client = cloud && typeof cloud.getClient === "function" ? cloud.getClient() : null;
+    if (!client) {
+      if (++initTries < 40) root.setTimeout(init, 150);
+      else { console.error("EXP: shared Supabase client unavailable"); notify(); }
+      return;
+    }
+    client.auth.getSession().then(function (result) {
+      if (result.error) throw result.error;
+      setSession(result.data && result.data.session);
+    }).catch(function(error){ console.warn("EXP could not restore session",error); });
     client.auth.onAuthStateChange(function (_event, nextSession) {
-      setTimeout(function () { setSession(nextSession); }, 0);
+      root.setTimeout(function () { setSession(nextSession); }, 0);
     });
   }
 
