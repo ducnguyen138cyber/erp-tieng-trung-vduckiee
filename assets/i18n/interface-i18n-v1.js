@@ -2477,7 +2477,11 @@
   }
   function apply(){
     if(!doc.body)return;
-    doc.documentElement.lang=lang==="zh"?"zh-CN":lang;
+    // Treat one translation pass as an atomic DOM operation. Our own text updates
+    // must not trigger a second observer pass or repeatedly repaint the UI.
+    if(observer)observer.disconnect();
+    try{
+      doc.documentElement.lang=lang==="zh"?"zh-CN":lang;
     ensureMenu();
     ensureGuest();
     var roots=doc.querySelectorAll(rootsSelector);
@@ -2493,10 +2497,25 @@
       if(controls[j].closest(rootsSelector))continue;
       translateRoot(controls[j]);
     }
-    translatePinned();
-    ensureMenu();
+      translatePinned();
+      ensureMenu();
+    }finally{
+      if(observer)observer.observe(doc.body,{childList:true,subtree:true,characterData:true});
+    }
   }
-  function schedule(){if(scheduled)return;scheduled=true;root.setTimeout(function(){scheduled=false;apply();},85);}
+  // MutationObserver runs before the next browser paint. Translate in a microtask
+  // instead of waiting 85ms, when the Vietnamese source text was briefly visible.
+  function schedule(){
+    if(scheduled)return;
+    scheduled=true;
+    var run=function(){scheduled=false;apply();};
+    if(typeof root.queueMicrotask==="function")root.queueMicrotask(run);
+    else Promise.resolve().then(run);
+  }
+  function localizeSubtree(element){
+    // Detached cards are translated before attachment, so rerenders never flash VI.
+    if(element)translateRoot(element);
+  }
   function setLanguage(next){
     if(!supported[next])return false;
     if(next!==lang){lang=next;try{root.localStorage.setItem(KEY,lang);}catch(error){}
@@ -2527,6 +2546,6 @@
       observer.observe(doc.body,{childList:true,subtree:true,characterData:true});
     }
   }
-  root.VDuckieInterfaceI18n=Object.freeze({getLanguage:function(){return lang;},setLanguage:setLanguage,t:t,translateUI:translateValue,refresh:apply});
+  root.VDuckieInterfaceI18n=Object.freeze({getLanguage:function(){return lang;},setLanguage:setLanguage,t:t,translateUI:translateValue,localizeSubtree:localizeSubtree,refresh:apply});
   if(doc.readyState==="loading")doc.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })(window,document);

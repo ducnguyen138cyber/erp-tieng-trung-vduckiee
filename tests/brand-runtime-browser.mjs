@@ -32,7 +32,29 @@ try{for(const width of (observe?[1440]:[1440,390])){
        const expectedReview=code==='zh'?'根据你的错题调整练习':'Practice adapts to your mistakes';
        await page.waitForFunction(expected=>document.querySelector('#v85PersonalDashboard .v85-recommend h3')?.textContent===expected,expectedRec);
        await page.waitForFunction(expected=>document.querySelector('#v86PremiumLearning .v86-adaptive h3')?.textContent===expected,expectedReview);
-       if(code==='zh')await page.waitForFunction(()=>document.querySelector('#v86PremiumLearning .v86-adaptive-meta .v86-chip')?.textContent.startsWith('难度：'));
+       if(code==='zh'){
+         await page.waitForFunction(()=>document.querySelector('#v86PremiumLearning .v86-adaptive-meta .v86-chip')?.textContent.startsWith('难度：'));
+         const flashes=await page.evaluate(async()=>{
+           const failures=[];
+           const expected=[
+             ['#v85PersonalDashboard .v85-recommend h3','每个人都有自己的学习路线'],
+             ['#v86PremiumLearning .v86-adaptive h3','根据你的错题调整练习']
+           ];
+           const observe=new MutationObserver(()=>{
+             for(const [selector,zh] of expected){
+               const value=document.querySelector(selector)?.textContent.trim();
+               if(value&&value!==zh)failures.push(selector+': '+value);
+             }
+           });
+           observe.observe(document.body,{childList:true,subtree:true,characterData:true});
+           document.dispatchEvent(new CustomEvent('vduckie:learning-change'));
+           document.dispatchEvent(new CustomEvent('vduckie:adaptive-change'));
+           await new Promise(done=>requestAnimationFrame(()=>requestAnimationFrame(done)));
+           observe.disconnect();
+           return failures;
+         });
+         assert.deepEqual(flashes,[],'Vietnamese flash when personalized cards are rerendered');
+       }
      }
      await page.screenshot({path:outDir+'/'+width+'-home-'+code+'.png'});
    }
@@ -72,6 +94,13 @@ try{for(const width of (observe?[1440]:[1440,390])){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
    await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '));
    assert.equal((await page.locator('.hsk-focus-intro').first().textContent()).trim(),'听发音 → 猜意思 → 看例句 → 回忆。');
+   const prePaint=await page.evaluate(async()=>{
+     const element=document.querySelector('.hsk-focus-intro');
+     element.textContent='Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.';
+     await new Promise(done=>requestAnimationFrame(done));
+     return element.textContent.trim();
+   });
+   assert.equal(prePaint,'听发音 → 猜意思 → 看例句 → 回忆。','HSK text should retranslate before the next browser paint');
    assert.match((await page.locator('.hsk-focus-details summary').first().textContent()).trim(),/使用例句/);
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
  }
