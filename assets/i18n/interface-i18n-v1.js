@@ -153,7 +153,24 @@
     "Chưa có dữ liệu":["暂无数据","No data yet"],
     "Lưu tiến độ":["保存进度","Save progress"],
     "Gửi":["发送","Send"],
-    "Duckie Chat":["Duckie 聊天","Duckie Chat"]
+    "Duckie Chat":["Duckie 聊天","Duckie Chat"],
+    "Tự học tiếng Trung":["中文自学","Learn Chinese"],
+    "Giao tiếp hiệu quả":["高效沟通学习","Communicate effectively"],
+    "Học từ ERP":["学习 ERP 词汇","Learn ERP words"],
+    "Từ ERP":["ERP 词汇","ERP words"],
+    "Học mẫu rồi né bẫy":["学习范例并避开常见错误","Learn patterns and avoid pitfalls"],
+    "Giữ chuỗi hôm nay":["保持今日连续学习","Keep today's streak"],
+    "TIẾP TỤC HỌC":["继续学习","CONTINUE LEARNING"],
+    "Đã hoàn thành bài học":["已完成课程","Lesson completed"],
+    "Học bài tiếp":["继续下一课","Next lesson"],
+    "Từ đã luyện":["已练习词汇","Practiced words"],
+    "Từ cần ôn lại":["需再次复习的词汇","Words to revisit"],
+    "Từ đã nhớ":["已记住的词汇","Remembered words"],
+    "Tổng số từ":["词汇总数","Total words"],
+    "Tiến độ tự học đã lưu":["自学进度已保存","Study progress saved"],
+    "Chọn một bài vừa sức và học tiếng Trung theo cách của bạn — từ công việc ERP đến lộ trình HSK.":["选择适合自己的课程，按自己的节奏学习中文——从职场 ERP 词汇到 HSK 课程。","Choose a lesson at your level, from workplace ERP vocabulary to the HSK curriculum."],
+    "Bạn là một người mới chưa biết bắt đầu học tiếng Trung từ đâu? Hãy chọn “Bắt đầu học HSK” để học từ số 0; nếu cần tiếng Trung cho công việc, chọn “Học từ vựng ERP”.":["刚开始学中文？选择“开始学习 HSK”从零起步；学习职场中文可选择“学习 ERP 词汇”。","New to Chinese? Start with HSK from zero, or choose ERP vocabulary for workplace Chinese."],
+    "Hãy chọn “Bắt đầu học HSK” để học từ số 0; nếu cần tiếng Trung cho công việc, chọn “Học từ vựng ERP”.":["选择 HSK 从零起步，也可以学习职场 ERP 中文。","Start HSK from zero or learn ERP Chinese for work."]
   };
   var rootsSelector="header.top,#studySidebar,#homeHub,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
@@ -164,6 +181,8 @@
   function translateValue(original){
     var direct=t(original);
     if(direct!==original)return direct;
+    var button=original.match(/^(.+?)(\\s*[→↗›])$/);
+    if(button){var base=button[1].trim(),translation=t(base);if(translation!==base)return translation+button[2];}
     var m=original.match(/^([+]?\d[\d.,]*)(\s*)(bài|từ|ngày) đã hoàn thành$/i);
     if(m&&lang!=="vi")return lang==="zh"?m[1]+(m[3]==="bài"?" 课已完成":m[3]==="từ"?" 个词已掌握":" 天已完成"):m[1]+" "+(m[3]==="bài"?"lessons":m[3]==="từ"?"words":"days")+" completed";
     return original;
