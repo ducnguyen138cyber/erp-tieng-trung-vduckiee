@@ -1347,6 +1347,200 @@
     "SELECT LANGUAGE"
   ]
 });
+  Object.assign(strings,{
+  "CÂU MẪU TRẢ LỜI": [
+    "参考回答",
+    "MODEL ANSWER"
+  ],
+  "Dùng câu này": [
+    "使用此句",
+    "Use this sentence"
+  ],
+  "MÁY NGHE THÀNH": [
+    "语音识别结果",
+    "SPEECH RECOGNIZED AS"
+  ],
+  "Lượt tiếp theo →": [
+    "下一轮 →",
+    "Next round →"
+  ],
+  "Kết quả chỉ đo mức độ khớp giữa chữ trình duyệt nghe được và câu mẫu; không chấm thanh điệu, âm đầu hay vận mẫu. Hãy nghe lại bản ghi để tự đối chiếu. Micro hoặc dịch vụ nhận dạng kém có thể làm kết quả sai lệch. Bản ghi chỉ nằm trên thiết bị của bạn.": [
+    "结果只比较语音识别文本与示例句，不评估声调及发音细节。请回听录音。识别可能受麦克风影响；录音仅保存在设备上。",
+    "Results compare recognized text with the example, not tones or precise pronunciation. Listen back to assess yourself. Accuracy depends on your microphone; recordings stay on your device."
+  ],
+  "Bắt đầu từ phát âm và chữ Hán, sau đó tiến dần qua từng cấp HSK.": [
+    "从发音和汉字基础入门，再逐级学习 HSK。",
+    "Start with pronunciation and Hanzi, then progress through HSK levels."
+  ],
+  "Phát âm · chữ Hán": [
+    "发音 · 汉字",
+    "Pronunciation · Hanzi"
+  ],
+  "Nhập môn": [
+    "入门",
+    "Introductory"
+  ],
+  "Sơ cấp": [
+    "初级",
+    "Elementary"
+  ],
+  "Tiền trung cấp → trung cấp": [
+    "准中级 → 中级",
+    "Pre-intermediate → intermediate"
+  ],
+  "Mở lộ trình HSK": [
+    "打开 HSK 学习路线",
+    "Open HSK roadmap"
+  ],
+  "LỘ TRÌNH HÔM NAY": [
+    "今日学习路线",
+    "TODAY'S ROADMAP"
+  ],
+  "Học theo từng bước": [
+    "循序渐进学习",
+    "Learn step by step"
+  ],
+  "từ đã nhớ": [
+    "个已记住的词",
+    "words remembered"
+  ],
+  "Bài nghiệp vụ": [
+    "业务课程",
+    "Workplace lessons"
+  ],
+  "8 bài Kho · Sản xuất": [
+    "8 节仓库 · 生产课程",
+    "8 Warehouse · Production lessons"
+  ],
+  "Học thẻ từ": [
+    "使用词卡学习",
+    "Study flashcards"
+  ],
+  "10 từ theo chủ đề": [
+    "10 个主题词汇",
+    "10 themed words"
+  ],
+  "Kiểm tra nhanh": [
+    "快速测验",
+    "Quick quiz"
+  ],
+  "5 câu củng cố": [
+    "5 道巩固题",
+    "5 review questions"
+  ],
+  "Luyện phản xạ": [
+    "反应练习",
+    "Response practice"
+  ],
+  "20 tình huống · Luyện phản xạ": [
+    "20 个场景 · 反应练习",
+    "20 scenarios · Response practice"
+  ],
+  "câu chưa kiểm tra": [
+    "道题尚未检查",
+    "unchecked questions"
+  ],
+  "Chưa kiểm tra": [
+    "尚未检查",
+    "Not checked"
+  ],
+  "Trả lời đúng": [
+    "回答正确",
+    "Correct answers"
+  ],
+  "Tỷ lệ đúng": [
+    "正确率",
+    "Accuracy"
+  ],
+  "Lịch ôn tập": [
+    "复习日程",
+    "Review schedule"
+  ],
+  "Kiểm tra lại": [
+    "重新检查",
+    "Check again"
+  ],
+  "Tiến độ": [
+    "进度",
+    "Progress"
+  ],
+  "Xem chi tiết": [
+    "查看详情",
+    "View details"
+  ],
+  "Thu gọn": [
+    "收起",
+    "Collapse"
+  ],
+  "Mở rộng": [
+    "展开",
+    "Expand"
+  ],
+  "Chọn đáp án": [
+    "选择答案",
+    "Select an answer"
+  ],
+  "Chọn bài học": [
+    "选择课程",
+    "Choose a lesson"
+  ],
+  "Lưu thay đổi": [
+    "保存更改",
+    "Save changes"
+  ],
+  "Xem lại": [
+    "复习",
+    "Review"
+  ],
+  "Đã học": [
+    "已学习",
+    "Studied"
+  ],
+  "Chưa có lịch sử": [
+    "暂无记录",
+    "No history"
+  ],
+  "Nhật ký học tập": [
+    "学习记录",
+    "Learning journal"
+  ],
+  "Hoàn thành mục tiêu": [
+    "目标已完成",
+    "Goal completed"
+  ],
+  "Chủ đề": [
+    "主题",
+    "Topic"
+  ],
+  "Thống kê": [
+    "统计",
+    "Statistics"
+  ],
+  "Phát âm": [
+    "发音",
+    "Pronunciation"
+  ],
+  "Hoạt động học": [
+    "学习活动",
+    "Learning activity"
+  ],
+  "Bài tập": [
+    "练习题",
+    "Exercises"
+  ],
+  "Trắc nghiệm": [
+    "选择题",
+    "Multiple-choice quiz"
+  ],
+  "Thành tích": [
+    "成就",
+    "Achievements"
+  ],
+  "Điểm kinh nghiệm": [
+    "经验值",
+    "Experience points"
+  ]
+});
   var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,.duckie-chat-panel,.free-learning-assistant,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
