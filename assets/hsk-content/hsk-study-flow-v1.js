@@ -117,7 +117,7 @@
       var quiz=button.closest("[data-focus-quiz]");
       if(quiz&&quiz.contains(button)){
         var expected=quiz.querySelector("[data-focus-quiz-word]");
-        var hanzi=expected&&expected.textContent;
+        var hanzi=quiz.dataset.correctHanzi||expected&&expected.textContent;
         var cards=button.closest(".hsk-focus-vocabulary");
         var focusCard=cards&&Array.prototype.find.call(cards.querySelectorAll("[data-focus-word]"),function(card){
           var title=card.querySelector(".hsk-focus-word-title strong");
