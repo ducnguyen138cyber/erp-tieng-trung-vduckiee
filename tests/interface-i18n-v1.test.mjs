@@ -296,8 +296,8 @@ test('screenshot audit: review, ranking, dictionary, HSK tabs, and profile use C
   const cases=[
     ['Ôn tập thích ứng','自适应复习'],
     ['GỌI LẠI','回忆练习'],
-    ['Pinyin đúng của 上架确认 là gì?','上架确认 的正确拼音是什么？'],
-    ['上架确认 nghĩa là gì?','上架确认 是什么意思？'],
+    ['Pinyin đúng của 上架确认 là gì?','上架确认的正确拼音是什么？'],
+    ['上架确认 nghĩa là gì?','上架确认是什么意思？'],
     ['← Quay lại','← 返回'],
     ['1 · Từ mới','1 · 生词'],
     ['2 · Nghe & đọc','2 · 听读'],
