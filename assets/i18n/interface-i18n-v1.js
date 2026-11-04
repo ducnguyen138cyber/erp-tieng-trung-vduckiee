@@ -2587,7 +2587,7 @@
       "Stroke count:"
     ]
   });
-  Object.assign(strings,{"Kho đề luyện HSK · 224 đề":["HSK 模拟练习题库 · 224 套","HSK practice bank · 224 papers"],"HSK 1–4 · 56 đề mỗi cấp · 24 câu hỏi có chấm điểm.":["HSK 1–4 · 每级 56 套 · 每套 24 道可评分练习题。","HSK 1–4 · 56 papers per level · 24 scored questions each."],"Mở kho đề HSK →":["打开 HSK 练习题库 →","Open HSK practice bank →"]});
+  Object.assign(strings,{"Kho đề luyện HSK · 224 đề":["HSK 模拟练习题库 · 224 套","HSK practice bank · 224 papers"],"HSK1: 40 câu · HSK2: 60 · HSK3: 80 · HSK4: 100. Nghe, Đọc, Viết theo cấp độ; chỉ chấm khi nộp bài, không cộng EXP.":["HSK1：40 题 · HSK2：60 题 · HSK3：80 题 · HSK4：100 题。按级别设听力、阅读与书写部分；交卷后评分，不奖励 EXP。","HSK1: 40 · HSK2: 60 · HSK3: 80 · HSK4: 100 questions. Listening, reading and writing by level; graded on submission with no EXP."],"Mở kho đề HSK →":["打开 HSK 练习题库 →","Open HSK practice bank →"]});
   var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
