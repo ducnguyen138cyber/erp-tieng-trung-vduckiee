@@ -126,8 +126,13 @@
         if(focusCard&&hanzi){
           var word=wordsFromLesson(current).find(function(w){return w.hanzi===hanzi;});
           var correct=button.getAttribute("data-focus-choice")===hanzi;
-          journal.recordWord(current.level,current.lesson.id,hanzi,correct,
+          var old=journal.load().reviews[current.level+":"+hanzi];
+          var firstCorrect=correct&&(!old||!Number(old.correct));
+          var saved=journal.recordWord(current.level,current.lesson.id,hanzi,correct,
             word&&word.pinyin||"",word&&word.meaningVi||"");
+          if(firstCorrect&&saved)doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-word-mastered",{detail:{
+            level:current.level,hanzi:hanzi,lessonId:current.lesson.id,origin:button
+          }}));
           update();
         }
       }
@@ -179,7 +184,12 @@
     }
     if(button.hasAttribute("data-hsk-review-grade")){
       var first=journal.due()[0];if(!first)return;
-      journal.reviewWord(first.level,first.hanzi,button.getAttribute("data-hsk-review-grade")==="1");
+      var remembered=button.getAttribute("data-hsk-review-grade")==="1";
+      var freshRecall=remembered&&!Number(first.correct);
+      var savedReview=journal.reviewWord(first.level,first.hanzi,remembered);
+      if(savedReview&&freshRecall)doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-word-mastered",{detail:{
+        level:first.level,hanzi:first.hanzi,lessonId:first.lessonId,origin:button
+      }}));
       update();reviewDrawer();return;
     }
     if(button.hasAttribute("data-hsk-next-lesson"))moveLesson(1);
