@@ -69,6 +69,7 @@
       (byId("expHomeAccount")||byId("cloudIdentity")||byId("hskLesson"));
     if(target&&target.getBoundingClientRect){
       var r=target.getBoundingClientRect();
+      if(!r.width&&!r.height&&byId("hskLesson"))r=byId("hskLesson").getBoundingClientRect();
       var x=Math.max(46,Math.min(root.innerWidth-46,r.left+r.width/2));
       var y=Math.max(48,Math.min(root.innerHeight-50,r.top+Math.min(r.height,56)/2));
       span.style.left=x+"px";span.style.top=y+"px";
@@ -166,7 +167,7 @@
   }
   function awardEXP(activityCode, sourceId) {
     if (!session || !session.user) {
-      showToast("Đăng nhập Google để lưu EXP và tham gia bảng xếp hạng.");
+      // No interrupting toast. Sign-in guidance remains visible on the leaderboard.
       return Promise.resolve({ awarded: false, reason: "not_authenticated", exp_awarded: 0 });
     }
     if (!client) return Promise.resolve({ awarded: false, reason: "not_configured", exp_awarded: 0 });
@@ -177,7 +178,7 @@
     }).catch(function (error) {
       console.error("Award EXP failed", error);
       if (/function|relation|schema cache|award_exp/i.test(String(error.message || error))) {
-        showToast("EXP chưa hoạt động: cần chạy migration Supabase v90.", "bad");
+        document.dispatchEvent(new CustomEvent("vduckie:exp-error",{detail:{code:"award_exp",message:"EXP chưa sẵn sàng; hãy kiểm tra Supabase."}}));
       }
       return { awarded: false, reason: "error", exp_awarded: 0, error: error };
     });
