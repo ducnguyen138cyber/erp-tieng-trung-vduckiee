@@ -1,273 +1,363 @@
-/* Real interactive HSK practice UI: 4 levels × 56 seeded forms.
- * XP only via existing authenticated Supabase RPC; animation lives in EXP core.
+/* VDuckie HSK full-paper practice: sectioned exam view, NO EXP awards.
+ * Distinct from HSK curriculum learning rewards: a correct practice answer,
+ * submission, retry, or review must never trigger any Supabase award RPC.
  */
-(function (root, document) {
+(function(root,document){
   "use strict";
-  if (!root || !document) return;
-  var bank = root.VDuckieHSKPracticeBank;
-  if (!bank) return;
-  var cache = Object.create(null), requestSeq = 0;
-  var level = 1, page = null, step = 0, marks = [], answered = false, finished = false, dictationRewardTried = false, audioFallback = false;
-  function byId(id) { return document.getElementById(id); }
-  function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){
+  if(!root||!document||!root.VDuckieHSKPracticeBank)return;
+  var bank=root.VDuckieHSKPracticeBank,cache=Object.create(null),seq=0;
+  var level=1,paper=null,answers=Object.create(null),finished=false,review=false;
+  var remaining=0,clock=null,confirmSubmit=false,loadingPaper=false;
+
+  function el(id){return document.getElementById(id);}
+  function esc(value){return String(value==null?"":value).replace(/[&<>"']/g,function(ch){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
-  }); }
-  function locale() { return root.VDuckieInterfaceI18n && root.VDuckieInterfaceI18n.getLanguage() || "vi"; }
-  function label(vi,zh,en) { var l=locale();return l==="zh"?zh:l==="en"?en:vi; }
-  function panel() { return byId("dailyLearningPanel"); }
-  function decorate(html) {
-    var host = panel(); if (!host) return;
-    host.className = "panel daily-panel graded-hsk-screen hsk-practice-screen";
-    host.innerHTML = html;
+  });}
+  function lang(){return root.VDuckieInterfaceI18n&&root.VDuckieInterfaceI18n.getLanguage()||"vi";}
+  function t(vi,zh,en){return lang()==="zh"?zh:lang()==="en"?en:vi;}
+  function host(){return el("dailyLearningPanel");}
+  function mount(html){
+    var node=host();if(!node)return;
+    node.className="panel daily-panel graded-hsk-screen hsk-practice-screen";
+    node.innerHTML=html;
     document.body.setAttribute("data-current-area","msutong");
   }
-  function loading(text) {
-    decorate('<section class="hsk-practice-container"><p class="hsk-practice-wait">'+esc(text)+'</p></section>');
+  function stopTimer(){if(clock!==null&&root.clearInterval)root.clearInterval(clock);clock=null;}
+  function timeText(seconds){
+    var m=Math.floor(Math.max(0,seconds)/60),s=Math.max(0,seconds)%60;
+    return String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
   }
-  function getWords(hsk) {
-    if (cache[hsk]) return cache[hsk];
-    var dir = "./data/hsk/hsk"+hsk+"/vocabulary/";
-    cache[hsk] = root.fetch(dir+"index.json").then(function (res) {
-      if (!res.ok) throw new Error("Cannot load HSK vocabulary index: " + res.status);
-      return res.json();
-    }).then(function (idx) {
-      if (!Array.isArray(idx.shards)||!idx.shards.length)throw new Error("Missing HSK vocabulary shards");
-      return Promise.all(idx.shards.map(function(shard){
-        if (!/^[a-z0-9_-]+\.json$/i.test(shard.file))throw new Error("Invalid vocabulary shard");
-        return root.fetch(dir+shard.file).then(function(r){
-          if(!r.ok)throw new Error("Cannot load HSK words: "+shard.file);
-          return r.json();
-        }).then(function(json){return json.records||[];});
-      })).then(function(parts){return parts.reduce(function(a,b){return a.concat(b)},[]);});
-    }).catch(function(err){delete cache[hsk];throw err;});
+  function updateTimer(){
+    var target=el("hskPracticeClock");
+    if(target)target.textContent=timeText(remaining);
+  }
+  function tick(){
+    if(!paper||finished)return;
+    remaining=Math.max(0,remaining-1);
+    updateTimer();
+    if(remaining===0)finish(true);
+  }
+  function startTimer(){
+    stopTimer();
+    if(typeof root.setInterval==="function")clock=root.setInterval(tick,1000);
+  }
+  function getWords(hsk){
+    if(cache[hsk])return cache[hsk];
+    var directory="./data/hsk/hsk"+hsk+"/vocabulary/";
+    cache[hsk]=root.fetch(directory+"index.json").then(function(resp){
+      if(!resp.ok)throw new Error("Cannot load vocabulary index ("+resp.status+")");
+      return resp.json();
+    }).then(function(index){
+      if(!index||!Array.isArray(index.shards)||!index.shards.length)throw new Error("Missing vocabulary shards");
+      return Promise.all(index.shards.map(function(shard){
+        if(!/^[a-z0-9_-]+\.json$/i.test(shard.file))throw new Error("Invalid source filename");
+        return root.fetch(directory+shard.file).then(function(resp){
+          if(!resp.ok)throw new Error("Unable to load "+shard.file);
+          return resp.json();
+        }).then(function(data){return data.records||[];});
+      })).then(function(parts){return parts.reduce(function(out,rows){return out.concat(rows);},[]);});
+    }).catch(function(error){delete cache[hsk];throw error;});
     return cache[hsk];
   }
-  function progress() {
-    try { var obj=JSON.parse(root.localStorage.getItem("vduckie-hsk-practice-results-v1")||"{}");
-      return obj&&typeof obj==="object"&&!Array.isArray(obj)?obj:{}; }
-    catch(e){return {};}
+  function progress(){
+    try{
+      var value=JSON.parse(root.localStorage.getItem("vduckie-hsk-practice-exams-v2")||"{}");
+      return value&&typeof value==="object"&&!Array.isArray(value)?value:{};
+    }catch(e){return {};}
   }
-  function saveResult(score) {
-    try {
-      var key=page.id, stored=progress(), previous=stored[key]||{};
-      stored[key]={attempts:Math.min(999,Number(previous.attempts||0)+1),
-        best:Math.max(score,Number(previous.best||0)),last:score,date:new Date().toISOString()};
-      root.localStorage.setItem("vduckie-hsk-practice-results-v1",JSON.stringify(stored));
-    }catch(error){ /* Local history is optional; results still show. */ }
+  function save(score){
+    try{
+      var data=progress(),old=data[paper.id]||{};
+      data[paper.id]={attempts:Math.min(999,Number(old.attempts||0)+1),
+        best:Math.max(score,Number(old.best||0)),last:score,date:new Date().toISOString()};
+      root.localStorage.setItem("vduckie-hsk-practice-exams-v2",JSON.stringify(data));
+    }catch(e){/* Browser may disable storage; no impact on examination. */}
   }
-  function shellHeader(title,detail) {
+  function sectionTitle(section){
+    return section==="listening"?t("Phần 1 · Nghe","第一部分 · 听力","Part 1 · Listening"):
+      section==="reading"?t("Phần 2 · Đọc","第二部分 · 阅读","Part 2 · Reading"):
+      t("Phần 3 · Viết","第三部分 · 书写","Part 3 · Writing");
+  }
+  function countAnswers(){
+    if(!paper)return 0;
+    return paper.questions.filter(function(q){
+      return Object.prototype.hasOwnProperty.call(answers,q.id)&&String(answers[q.id]).trim()!=="";
+    }).length;
+  }
+  function header(title,subtitle){
     return '<header class="hsk-practice-header"><div><span class="hsk-practice-kicker">'+
-      esc(label("LUYỆN ĐỀ HSK · VDUCKIE","HSK 模拟练习 · VDUCKIE","HSK PRACTICE · VDUCKIE"))+'</span><h2>'+
-      esc(title)+'</h2><p>'+esc(detail)+'</p></div><button type="button" class="hsk-practice-back" data-practice-close>'+
-      esc(label("← Giáo trình HSK","← 返回 HSK 课程","← HSK curriculum"))+'</button></header>';
+      esc(t("ĐỀ LUYỆN HSK · VDUCKIE","HSK 模拟试卷 · VDUCKIE","HSK PRACTICE PAPER · VDUCKIE"))+
+      '</span><h2>'+esc(title)+'</h2><p>'+esc(subtitle)+'</p></div>'+
+      '<button type="button" class="hsk-practice-back" data-practice-close>'+
+      esc(t("← Giáo trình HSK","← 返回 HSK 课程","← HSK curriculum"))+'</button></header>';
   }
-  function catalog() {
-    requestSeq++;
-    page = null; finished=false; level=Number(level)||1;
-    var results=progress();
-    var nav='<div class="hsk-practice-levels" role="tablist" aria-label="HSK levels">'+
-      [1,2,3,4].map(function(l){
-        return '<button role="tab" aria-selected="'+(l===level)+'" type="button" class="'+(l===level?'active':'')+'" data-practice-level="'+l+'">HSK '+l+'</button>';
+  function catalog(){
+    ++seq;stopTimer();paper=null;answers=Object.create(null);finished=false;review=false;confirmSubmit=false;loadingPaper=false;
+    var saved=progress(),plan=bank.BLUEPRINT[level],total=plan.listening+plan.reading+plan.writing;
+    var tabs='<div class="hsk-practice-levels" role="tablist" aria-label="HSK">'+
+      [1,2,3,4].map(function(n){
+        return '<button type="button" role="tab" aria-selected="'+(n===level)+'" class="'+(n===level?'active':'')+
+          '" data-practice-level="'+n+'">HSK '+n+'</button>';
       }).join("")+'</div>';
-    var list=[];
-    for(var i=1;i<=bank.PAPERS_PER_LEVEL;i++){
-      var id="hsk"+level+"-practice-"+String(i).padStart(2,"0"),result=results[id];
-      list.push('<button class="hsk-practice-paper" type="button" data-practice-start="'+i+'"><b>'+
-        esc(label("Đề","第","Paper"))+' '+String(i).padStart(2,"0")+'</b><small>'+
-        (result?esc(label("Cao nhất: ","最高：","Best: "))+Math.round(result.best)+'%':esc(label("Chưa làm","尚未作答","Not attempted")))+
+    var cards=[];
+    for(var n=1;n<=bank.PAPERS_PER_LEVEL;n++){
+      var key="hsk"+level+"-practice-"+String(n).padStart(2,"0"),stat=saved[key];
+      cards.push('<button type="button" class="hsk-practice-paper" data-practice-start="'+n+'"><b>'+
+        esc(t("Đề","第","Paper"))+' '+String(n).padStart(2,"0")+'</b><small>'+
+        (stat?esc(t("Cao nhất: ","最佳：","Best: "))+Math.round(stat.best)+'%':
+        esc(t("Chưa làm","尚未作答","Not attempted")))+
         '</small></button>');
     }
-    decorate('<section class="hsk-practice-container">'+shellHeader(
-      label("Kho đề luyện HSK · 224 đề","HSK 模拟练习题库 · 224 套","HSK practice bank · 224 papers"),
-      label("HSK 1–4 · 56 mã đề mỗi cấp · 24 câu/đề · chấm điểm và giải thích ngay.",
-      "HSK 1–4 · 每级 56 套 · 每套 24 题 · 即时评分与解析。",
-      "HSK 1–4 · 56 forms per level · 24 questions each · instant scoring."))+
-      '<p class="hsk-practice-disclaimer">'+esc(label(
-      "Đây là bộ đề mô phỏng do VDuckie tạo từ thư viện từ vựng đang có, không phải 224 đề chính thức hoặc 224 ngân hàng câu hỏi hoàn toàn khác nhau. Các mã đề có thể trùng từ.",
-      "此为 VDuckie 根据现有词库生成的练习卷，并非 224 套官方试卷或完全独立的题库；不同试卷可能出现重复词汇。",
-      "Original practice variants generated from the VDuckie word bank, not 224 official exams or fully independent question banks. Words can repeat across papers."))+'</p>'+
-      nav+'<div class="hsk-practice-catalog">'+list.join("")+'</div></section>');
+    mount('<section class="hsk-practice-container">'+header(
+      t("Kho đề luyện HSK · 224 mã đề","HSK 模拟练习 · 224 套","HSK practice · 224 paper variants"),
+      t("Chọn cấp độ và mã đề để bắt đầu.","请选择考试等级与试卷。","Choose a level and a practice paper."))+
+      '<p class="hsk-practice-disclaimer">'+esc(t(
+        "Đề mô phỏng theo số lượng câu HSK phổ biến, được tạo từ từ vựng VDuckie. Phần nghe dùng giọng đọc TTS, không phải audio hay đề thi chính thức. Làm đề không cộng EXP.",
+        "基于 VDuckie 词库、按常见 HSK 题量生成的模拟练习。听力为 TTS 朗读，并非官方试卷或录音。练习不奖励 EXP。",
+        "Original vocabulary practice using familiar HSK section lengths. Listening uses TTS, not official audio. Practice exams do not earn EXP."))+'</p>'+
+      '<div class="hsk-practice-catalog-meta">'+esc(t("Cấu trúc cấp này: ","本级结构：","This level: ")+
+        plan.listening+" "+t("Nghe","听力","listening")+" · "+plan.reading+" "+t("Đọc","阅读","reading")+
+        (plan.writing?" · "+plan.writing+" "+t("Viết","书写","writing"):"")+
+        " · "+total+" "+t("câu","题","questions"))+'</div>'+tabs+
+      '<div class="hsk-practice-catalog">'+cards.join("")+'</div></section>');
   }
-  function start(l,number){
-    level=Number(l);step=0;marks=[];answered=false;finished=false;dictationRewardTried=false;audioFallback=false;
-    var token=++requestSeq;
-    loading(label("Đang nạp câu hỏi…","正在加载题目…","Loading questions…"));
+  function questionPrompt(q){
+    if(q.type==="listening")return t("Nghe và chọn chữ Hán đúng.","听发音，选择正确的汉字。","Listen and select the matching Hanzi.");
+    if(q.type==="meaning")return t("Chọn nghĩa đúng.","选择正确的释义。","Choose the correct meaning.");
+    if(q.type==="hanzi")return t("Chọn chữ Hán đúng.","选择正确的汉字。","Choose the correct Hanzi.");
+    if(q.type==="pinyin")return t("Chọn Pinyin đúng.","选择正确的拼音。","Choose the correct Pinyin.");
+    if(q.type==="reading")return t("Đọc và chọn nghĩa đúng.","阅读并选择正确的释义。","Read and choose the correct meaning.");
+    return t("Viết chữ Hán tương ứng.","填写正确的汉字。","Write the Hanzi.");
+  }
+  function answerOptions(q){
+    var selected=Object.prototype.hasOwnProperty.call(answers,q.id)?String(answers[q.id]):"";
+    if(q.type==="writing"){
+      return '<label class="hsk-exam-write-label" for="'+esc(q.id)+'">'+
+        esc(t("Nhập chữ Hán","输入汉字","Write Hanzi"))+'</label><input id="'+esc(q.id)+
+        '" data-practice-write="'+esc(q.id)+'" class="hsk-exam-input" type="text" lang="zh-CN" autocomplete="off" spellcheck="false" placeholder="汉字"'+
+        (finished?' disabled':'')+' value="'+esc(selected)+'">';
+    }
+    return '<div class="hsk-exam-choices">'+q.options.map(function(option,i){
+      var key=String(i);
+      return '<label class="hsk-exam-choice'+(selected===option?' is-selected':'')+'"><input type="radio" name="'+esc(q.id)+
+        '" data-practice-answer="'+esc(q.id)+'" value="'+i+'"'+(selected===option?' checked':'')+
+        (finished?' disabled':'')+'><span class="hsk-exam-letter">'+String.fromCharCode(65+i)+
+        '</span><span>'+esc(option)+'</span></label>';
+    }).join("")+'</div>';
+  }
+  function renderCard(q,index){
+    var listening=q.section==="listening",wrote=q.type==="writing";
+    var stimulus=listening?'<div class="hsk-exam-audio"><button type="button" data-practice-listen="'+index+'"'+
+      (finished?' disabled':'')+' aria-label="'+esc(t("Nghe câu "+q.sectionNumber,"播放第 "+q.sectionNumber+" 题","Play question "+q.sectionNumber))+
+      '">🔊 '+esc(t("Nghe câu "+q.sectionNumber,"播放第 "+q.sectionNumber+" 题","Play item "+q.sectionNumber))+'</button></div>':
+      '<div class="hsk-exam-stimulus'+(q.type==="meaning"||q.type==="pinyin"?' is-hanzi':'')+'">'+esc(q.stimulus)+'</div>';
+    var reviewHtml="";
+    if(finished){
+      var answer=answers[q.id]||"",correct=bank.grade(q,answer);
+      reviewHtml='<div class="hsk-exam-review '+(correct?'is-correct':'is-incorrect')+'"><strong>'+
+        esc(correct?t("✓ Đúng","✓ 正确","✓ Correct"):t("✗ Chưa đúng","✗ 错误","✗ Incorrect"))+
+        '</strong><span>'+esc(t("Đáp án: ","正确答案：","Answer: "))+esc(q.answer)+
+        '</span><small>'+esc(q.hanzi+" · "+q.pinyin+" · "+q.meaning)+'</small></div>';
+    }
+    return '<article class="hsk-practice-question hsk-exam-question" id="hsk-exam-q'+(index+1)+
+      '" data-practice-question="'+esc(q.id)+'"><div class="hsk-exam-q-head"><span>'+
+      esc(t("Câu ","第 ","Question "))+q.sectionNumber+'</span><small>'+esc(questionPrompt(q))+'</small></div>'+
+      stimulus+answerOptions(q)+reviewHtml+'</article>';
+  }
+  function sectionQuestions(section){
+    return paper.questions.map(function(q,i){return q.section===section?renderCard(q,i):"";}).join("");
+  }
+  function updateCounters(){
+    if(!paper)return;
+    var done=countAnswers(),n=el("hskPracticeDone"),status=el("hskPracticeStatus"),bar=el("hskPracticeBar");
+    if(n)n.textContent=done+"/"+paper.questionCount;
+    if(bar)bar.style.width=Math.round(100*done/paper.questionCount)+"%";
+    if(status&&!finished)status.textContent=t("Đã làm ","已完成 ","Answered ")+done+"/"+paper.questionCount+
+      " · "+t("Còn ","剩余 ","Remaining ")+(paper.questionCount-done);
+  }
+  function renderExam(){
+    if(!paper)return;
+    var heading=t("HSK "+level+" · Đề "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套","HSK "+level+" · Paper "+paper.number);
+    var nav='<nav class="hsk-exam-section-nav" aria-label="Exam sections">'+
+      paper.sections.map(function(section){
+        return '<button type="button" data-practice-go="'+section+'">'+esc(sectionTitle(section))+
+          ' <b>'+paper.blueprint[section]+'</b></button>';
+      }).join("")+'</nav>';
+    var body=paper.sections.map(function(section){
+      return '<section class="hsk-exam-section" id="hsk-exam-'+section+'"><div class="hsk-exam-section-header"><div><h3>'+
+        esc(sectionTitle(section))+'</h3><p>'+esc(section==="listening"?
+          t("Bấm nghe riêng từng câu và chọn đáp án. Audio sử dụng TTS.","逐题播放 TTS 音频并选择答案。","Play each TTS item and answer."):
+          section==="reading"?t("Đọc và trả lời tất cả câu hỏi.","阅读并回答全部问题。","Read and answer all items."):
+          t("Gõ chữ Hán phù hợp vào mỗi ô.","在每题中填写正确的汉字。","Enter the appropriate Hanzi for each item."))+
+        '</p></div><strong>'+paper.blueprint[section]+' '+esc(t("câu","题","questions"))+
+        '</strong></div><div class="hsk-exam-question-list">'+sectionQuestions(section)+'</div></section>';
+    }).join("");
+    var control=finished?'<button type="button" class="hsk-exam-submit" data-practice-results>'+
+      esc(t("← Quay lại kết quả","← 返回成绩","← Back to results"))+'</button>':
+      '<div class="hsk-exam-submit-bar"><span id="hskPracticeStatus" role="status" aria-live="polite"></span>'+
+      '<button type="button" class="hsk-exam-submit" data-practice-submit>'+esc(t("Nộp bài và chấm điểm","提交试卷并评分","Submit exam for grading"))+
+      '</button></div><p id="hskPracticeSubmitWarning" class="hsk-exam-warning" role="status"></p>';
+    mount('<section class="hsk-practice-container">'+header(heading,t(
+      "Đề mô phỏng. Mọi câu hỏi và các phần thi đều hiển thị; chỉ xem đáp án sau khi nộp. Không cộng EXP.",
+      "模拟试卷：全部题目可见，交卷后才显示答案，不奖励 EXP。",
+      "All sections are visible; answers are revealed only after submission. No EXP."))+
+      '<div class="hsk-exam-status"><div><span>'+esc(t("Đã trả lời","已作答","Answered"))+
+      '</span><strong id="hskPracticeDone"></strong></div><div><span>'+esc(t("Còn lại","剩余时间","Time left"))+
+      '</span><strong id="hskPracticeClock">'+timeText(remaining)+'</strong></div></div>'+
+      '<div class="hsk-practice-track"><i id="hskPracticeBar"></i></div>'+nav+body+control+'</section>');
+    updateCounters();updateTimer();
+  }
+  function start(nextLevel,number){
+    stopTimer();level=Number(nextLevel);var token=++seq;
+    paper=null;answers=Object.create(null);finished=false;review=false;confirmSubmit=false;loadingPaper=true;
+    mount('<section class="hsk-practice-container"><p class="hsk-practice-wait">'+esc(t("Đang tải đề…","正在加载试卷…","Loading paper…"))+'</p></section>');
     getWords(level).then(function(records){
-      if(token!==requestSeq||document.body.getAttribute("data-current-area")!=="msutong")return;
-      page=bank.build(level,number,records);renderQuestion();
+      if(token!==seq||document.body.getAttribute("data-current-area")!=="msutong")return;
+      paper=bank.build(level,number,records);remaining=paper.blueprint.minutes*60;
+      loadingPaper=false;renderExam();startTimer();
     }).catch(function(error){
-      if(token!==requestSeq)return;
-      decorate('<section class="hsk-practice-container">'+shellHeader(
-        label("Không tải được đề","无法加载试卷","Unable to load paper"),
-        String(error&&error.message||error))+
-        '<button type="button" data-practice-catalog>'+esc(label("Trở về danh sách","返回列表","Back to papers"))+'</button></section>');
+      if(token!==seq)return;
+      loadingPaper=false;
+      mount('<section class="hsk-practice-container">'+header(
+        t("Không thể tải đề","无法加载试卷","Cannot load paper"),String(error&&error.message||error))+
+        '<button type="button" data-practice-catalog>'+esc(t("Trở lại danh sách","返回试卷列表","Back to papers"))+
+        '</button></section>');
     });
   }
-  function listen() {
-    if(!page||finished)return;
-    var question=page.questions[step];
-    if(!question||question.type!=="listening")return;
+  function play(index){
+    if(!paper||finished)return;
+    var q=paper.questions[index];if(!q||q.type!=="listening")return;
     if(!root.speechSynthesis||!root.SpeechSynthesisUtterance){
-      var fallback=byId("hskPracticeAudioFallback");
-      if(fallback)fallback.textContent=label("Thiết bị không hỗ trợ phát âm; từ cần nghe: ","设备不支持语音；目标词：","Speech unavailable; target: ")+question.hanzi;
-      audioFallback=true;
+      var msg=el("hskPracticeSubmitWarning");
+      if(msg)msg.textContent=t("Trình duyệt không hỗ trợ đọc tiếng Trung.","此浏览器不支持语音合成。","Speech synthesis is not supported here.");
       return;
     }
     root.speechSynthesis.cancel();
-    var speech=new root.SpeechSynthesisUtterance(question.hanzi);
-    speech.lang="zh-CN";speech.rate=.84;
-    root.speechSynthesis.speak(speech);
+    var voice=new root.SpeechSynthesisUtterance(q.hanzi);
+    voice.lang="zh-CN";voice.rate=.85;
+    root.speechSynthesis.speak(voice);
   }
-  function renderQuestion() {
-    if(!page||!panel())return;
-    var q=page.questions[step], percent=Math.round(100*step/page.questions.length);
-    var title=label("HSK "+level+" · Đề "+page.number,"HSK "+level+" · 第 "+page.number+" 套","HSK "+level+" · Paper "+page.number);
-    var heading=shellHeader(title,label("Làm đúng câu hỏi để ghi nhận kiến thức. Điểm thưởng chỉ cộng khi Supabase xác nhận.",
-      "正确答题可记录学习成果；只有 Supabase 确认后才会显示 EXP 奖励。",
-      "Correct answers show learning progress; EXP appears only when Supabase confirms it."));
-    var progressHtml='<div class="hsk-practice-progress"><span>'+esc(label("Câu ","第 ","Question "))+String(step+1)+' / '+page.questions.length+'</span>'+
-      '<span>'+Math.round(100*step/page.questions.length)+'%</span><div class="hsk-practice-track"><i style="width:'+percent+'%"></i></div></div>';
-    var prompt = q.type==="meaning"?label("Chọn nghĩa đúng của từ tiếng Trung.","选择这个汉语词的正确释义。","Choose the word's correct meaning."):
-      q.type==="hanzi"?label("Chọn chữ Hán tương ứng với nghĩa.","根据释义选择正确的汉字。","Choose the matching Hanzi."):
-      q.type==="pinyin"?label("Chọn Pinyin có thanh điệu chính xác.","选择正确的声调拼音。","Choose the correct tone-marked pinyin."):
-      q.type==="listening"?label("Nghe phát âm và chọn chữ Hán được đọc.","听发音并选择对应的汉字。","Listen and choose the spoken Hanzi."):
-      q.type==="reading"?label("Đọc câu và chọn nghĩa của từ được hỏi.","阅读句子并选择目标词的正确释义。","Read the sentence and choose the target word's meaning."):
-      label("Viết chữ Hán cho từ dưới đây.","根据提示填写汉字。","Write the Hanzi for this word.");
-    var stimulus=q.type==="listening"?
-      '<button type="button" class="hsk-practice-audio" data-practice-listen>🔊 '+esc(label("Nghe từ","播放发音","Play audio"))+'</button>'+
-      '<p id="hskPracticeAudioFallback" class="hsk-practice-fallback" aria-live="polite"></p>':
-      '<div class="hsk-practice-stimulus'+(q.type==="hanzi"||q.type==="writing"||q.type==="reading"?' is-meaning':'')+'">'+esc(q.stimulus)+'</div>';
-    var answers=q.type==="writing"?
-      '<form class="hsk-practice-writing" data-practice-write><label for="hskPracticeAnswer">'+esc(label("Nhập chữ Hán","输入汉字","Type Hanzi"))+
-      '</label><input id="hskPracticeAnswer" type="text" lang="zh-CN" autocomplete="off" spellcheck="false" required placeholder="汉字">'+
-      '<button type="submit">'+esc(label("Kiểm tra câu trả lời","检查答案","Check answer"))+'</button></form>':
-      '<div class="hsk-practice-answers">'+q.options.map(function(o,i){
-        return '<button type="button" class="hsk-practice-choice" data-practice-choice="'+i+'">'+
-          '<span>'+String.fromCharCode(65+i)+'</span>'+esc(o)+'</button>';
-      }).join("")+'</div>';
-    var kind={
-      meaning:label("Nghĩa từ","词义","Meaning"),
-      hanzi:label("Hán tự","汉字","Hanzi"),
-      pinyin:label("Pinyin","拼音","Pinyin"),
-      listening:label("Nghe","听力","Listening"),
-      reading:label("Đọc hiểu","阅读","Reading"),
-      writing:label("Viết","书写","Writing")
-    }[q.type]||q.type;
-    decorate('<section class="hsk-practice-container">'+heading+progressHtml+
-      '<div class="hsk-practice-question"><span class="hsk-practice-kind">'+esc(kind)+
-      '</span><h3>'+esc(prompt)+'</h3>'+stimulus+answers+
-      '<div class="hsk-practice-feedback" id="hskPracticeFeedback" aria-live="polite"></div>'+
-      '<div class="hsk-practice-actions"><button type="button" data-practice-catalog>'+
-      esc(label("Danh sách đề","试卷列表","Paper list"))+'</button><button type="button" class="primary" data-practice-next disabled>'+
-      esc(step===page.questions.length-1?label("Xem kết quả","查看结果","See results"):
-      label("Câu tiếp →","下一题 →","Next →"))+'</button></div></div></section>');
-    if(answered&&marks[step])paintAnswer(q,marks[step].answer,marks[step].correct);
-  }
-  function paintAnswer(q,answer,right) {
-    var buttons=panel().querySelectorAll("[data-practice-choice]");
-    Array.prototype.forEach.call(buttons,function(button){
-      var idx=Number(button.getAttribute("data-practice-choice"));
-      button.disabled=true;
-      if(q.options[idx]===q.answer)button.classList.add("correct");
-      else if(q.options[idx]===answer)button.classList.add("wrong");
+  function results(){
+    var totals={},all=0;
+    paper.sections.forEach(function(section){
+      var qs=paper.questions.filter(function(q){return q.section===section;});
+      var correct=qs.filter(function(q){return bank.grade(q,answers[q.id]||"");}).length;
+      totals[section]={correct:correct,total:qs.length,points:Math.round(100*correct/qs.length)};
+      all+=totals[section].points;
     });
-    var writer=byId("hskPracticeAnswer");
-    if(writer)writer.disabled=true;
-    var form=panel().querySelector("[data-practice-write] button");
-    if(form)form.disabled=true;
-    var feedback=byId("hskPracticeFeedback");
-    if(feedback){
-      feedback.className="hsk-practice-feedback "+(right?"correct":"wrong");
-      feedback.innerHTML='<strong>'+esc(right?
-        label("Chính xác!","回答正确！","Correct!"):
-        label("Chưa chính xác.","回答不正确。","Not quite."))+'</strong><p>'+
-        esc(label("Đáp án: ","正确答案：","Answer: "))+esc(q.answer)+'</p>'+
-        '<p>'+esc(q.hanzi+" · "+q.pinyin+" · "+q.meaning)+'</p>';
-    }
-    var next=panel().querySelector("[data-practice-next]");
-    if(next)next.disabled=false;
+    var max=paper.sections.length*100,score=all,passed=score>=max*.6;
+    return {totals:totals,max:max,score:score,percent:Math.round(100*score/max),
+      correct:paper.questions.filter(function(q){return bank.grade(q,answers[q.id]||"");}).length,
+      passed:passed};
   }
-  function submit(answer,anchor) {
-    if(!page||answered||finished)return;
-    var q=page.questions[step], right=bank.grade(q,answer);
-    answered=true;marks.push({id:q.id,answer:answer,correct:right,wordId:q.wordId});
-    paintAnswer(q,answer,right);
-    // Only a verified positive Supabase award displays floating EXP.
-    // MCQ first correct word: +5 per distinct word (server deduped).
-    // Written Hanzi: +10 for first correct dictation in this paper (server deduped).
-    if(right && root.VDuckieEXP){
-      if(q.type==="writing"&&!dictationRewardTried && typeof root.VDuckieEXP.awardEXP==="function"){
-        dictationRewardTried=true;
-        root.VDuckieEXP.awardEXP("dictation_complete",
-          "hsk:practice-l"+page.level+"-p"+String(page.number).padStart(2,"0")+":dictation").catch(function(){});
-      } else if(q.type!=="writing"&&!(q.type==="listening"&&audioFallback)&&
-        typeof root.VDuckieEXP.awardWordMastery==="function"){
-        root.VDuckieEXP.awardWordMastery(page.level,q.hanzi,anchor||null).catch(function(){});
-      }
-    }
+  function renderResults(){
+    if(!paper)return;
+    var r=results();
+    var lines=paper.sections.map(function(section){
+      var part=r.totals[section];
+      return '<tr><td>'+esc(sectionTitle(section))+'</td><td>'+part.correct+'/'+part.total+
+        '</td><td>'+part.points+'/100</td></tr>';
+    }).join("");
+    mount('<section class="hsk-practice-container">'+header(
+      t("Kết quả HSK "+level+" · Đề "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套成绩",
+        "HSK "+level+" · Paper "+paper.number+" results"),
+      t("Điểm mô phỏng chỉ để luyện tập, không phải chứng chỉ hoặc điểm HSK chính thức.",
+        "成绩仅供练习参考，不代表官方 HSK 成绩。","Practice score only; not an official HSK result."))+
+      '<div class="hsk-practice-result"><div class="hsk-practice-score">'+r.score+'/'+r.max+'</div>'+
+      '<h3>'+esc(r.passed?t("Đạt mức luyện tập","达到练习目标","Practice target met"):
+        t("Nên ôn thêm","建议继续复习","Keep reviewing"))+'</h3>'+
+      '<p>'+r.correct+'/'+paper.questionCount+' '+esc(t("câu đúng","题正确","correct answers"))+
+      ' · '+r.percent+'%</p><table class="hsk-exam-score-table"><thead><tr><th>'+
+      esc(t("Phần thi","考试部分","Section"))+'</th><th>'+esc(t("Câu đúng","答对","Correct"))+
+      '</th><th>'+esc(t("Điểm","分数","Score"))+'</th></tr></thead><tbody>'+lines+
+      '</tbody></table><p>'+esc(t("Làm đề và đạt điểm cao không cộng EXP. Học từ mới và hoàn thành bài HSK trong giáo trình vẫn được thưởng như bình thường.",
+        "模拟考试不奖励 EXP。词汇学习与课程完成仍可依照规则获得奖励。",
+        "Practice papers award no EXP; qualifying word learning and curriculum lessons still do."))+
+      '</p><div class="hsk-practice-result-buttons">'+
+      '<button type="button" data-practice-review>'+esc(t("Xem đáp án toàn đề","查看全卷答案","Review all answers"))+
+      '</button><button type="button" data-practice-again>'+esc(t("Làm lại đề","重做本卷","Retry paper"))+
+      '</button><button type="button" data-practice-catalog>'+esc(t("Chọn đề khác","选择其他试卷","Choose another paper"))+
+      '</button></div></div></section>');
   }
-  function finish(restoreOnly) {
-    if(!page||(finished&&!restoreOnly))return;
-    if(!restoreOnly)finished=true;
-    var correct=marks.filter(function(x){return x.correct;}).length;
-    var score=Math.round(correct*100/page.questions.length);
-    if(!restoreOnly)saveResult(score);
-    var pass=score>=70;
-    decorate('<section class="hsk-practice-container">'+shellHeader(
-      label("Kết quả luyện tập","练习成绩","Practice result"),
-      label("HSK "+page.level+" · Đề "+page.number,"HSK "+page.level+" · 第 "+page.number+" 套","HSK "+page.level+" · Paper "+page.number))+
-      '<div class="hsk-practice-result"><div class="hsk-practice-score">'+score+'%</div><h3>'+
-      esc(pass?label("Đạt mục tiêu luyện tập","达到练习目标","Practice target met"):
-      label("Cần ôn thêm","建议继续复习","Keep reviewing"))+'</h3><p>'+correct+'/'+page.questions.length+' '+
-      esc(label("câu đúng.","题正确。","correct answers."))+'</p><p>'+
-      esc(label("Đây là điểm luyện tập, không phải điểm thi HSK chính thức.","此分数仅供练习参考，并非官方 HSK 成绩。",
-      "This practice score is not an official HSK result."))+'</p><div class="hsk-practice-result-buttons">'+
-      '<button type="button" data-practice-again>'+esc(label("Làm lại đề","重做本套","Retry paper"))+'</button>'+
-      '<button type="button" data-practice-catalog>'+esc(label("Chọn đề khác","选择其他试卷","Choose another paper"))+'</button></div></div></section>');
-    // Existing server awards 15 EXP for a qualifying, first-time quiz pass.
-    // New attempts and client-side scores cannot bypass the server dedupe key.
-    if(!restoreOnly&&pass&&root.VDuckieEXP&&typeof root.VDuckieEXP.awardEXP==="function"){
-      var source="hsk:practice-l"+page.level+"-p"+String(page.number).padStart(2,"0")+":quiz";
-      root.VDuckieEXP.awardEXP("quiz_pass",source).catch(function(){});
-    }
+  function finish(byTime){
+    if(!paper||finished)return;
+    finished=true;review=false;confirmSubmit=false;stopTimer();
+    var r=results();save(r.percent);
+    // Exams are deliberately EXP-free: no awardWordMastery, awardEXP,
+    // quiz_pass or dictation_complete RPC is called anywhere in this module.
+    renderResults();
   }
-  function onClick(event) {
-    var button=event.target.closest&&event.target.closest("button");if(!button)return;
-    if(button.hasAttribute("data-practice-open")){open();return;}
-    var host=panel();if(!host||!host.contains(button))return;
-    if(button.hasAttribute("data-practice-close")){
-      if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;
-    }
-    if(button.hasAttribute("data-practice-level")){level=Number(button.dataset.practiceLevel);catalog();return;}
-    if(button.hasAttribute("data-practice-catalog")){catalog();return;}
-    if(button.hasAttribute("data-practice-start")){start(level,Number(button.dataset.practiceStart));return;}
-    if(button.hasAttribute("data-practice-again")){start(page.level,page.number);return;}
-    if(button.hasAttribute("data-practice-listen")){listen();return;}
-    if(button.hasAttribute("data-practice-choice")){
-      var choice=page&&page.questions[step]&&page.questions[step].options[Number(button.dataset.practiceChoice)];
-      if(choice!==undefined)submit(choice,button);
+  function submit(){
+    if(!paper||finished)return;
+    var missing=paper.questionCount-countAnswers(),warning=el("hskPracticeSubmitWarning");
+    if(missing>0&&!confirmSubmit){
+      confirmSubmit=true;
+      if(warning)warning.textContent=t("Còn "+missing+" câu chưa làm. Bấm Nộp bài lần nữa để chấm cả câu bỏ trống là sai.",
+        "还有 "+missing+" 题未作答。再次点击提交将把空题按错误计分。",
+        missing+" questions unanswered. Click Submit again to grade blanks as incorrect.");
       return;
     }
-    if(button.hasAttribute("data-practice-next")&&!button.disabled){
-      if(step+1>=page.questions.length)finish();
-      else {step++;answered=false;audioFallback=false;renderQuestion();}
-    }
+    finish(false);
   }
-  function onSubmit(event) {
-    if(!event.target.matches||!event.target.matches("[data-practice-write]"))return;
-    event.preventDefault();
-    var input=byId("hskPracticeAnswer");
-    if(input)submit(input.value,event.target.querySelector("button"));
+  function scrollSection(section){
+    var node=el("hsk-exam-"+section);
+    if(node&&node.scrollIntoView)node.scrollIntoView({behavior:"smooth",block:"start"});
   }
-  function open(l) { level=(Number(l)>=1&&Number(l)<=4)?Number(l):1;catalog(); }
+  function onClick(event){
+    var button=event.target&&event.target.closest&&event.target.closest("button");
+    if(!button)return;
+    if(button.hasAttribute("data-practice-open")){event.preventDefault();open();return;}
+    var node=host();if(!node||!node.contains(button))return;
+    if(button.hasAttribute("data-practice-close")){stopTimer();++seq;if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
+    if(button.hasAttribute("data-practice-level")){level=Number(button.getAttribute("data-practice-level"));catalog();return;}
+    if(button.hasAttribute("data-practice-catalog")){catalog();return;}
+    if(button.hasAttribute("data-practice-start")){start(level,Number(button.getAttribute("data-practice-start")));return;}
+    if(button.hasAttribute("data-practice-again")){start(paper.level,paper.number);return;}
+    if(button.hasAttribute("data-practice-listen")){play(Number(button.getAttribute("data-practice-listen")));return;}
+    if(button.hasAttribute("data-practice-go")){scrollSection(button.getAttribute("data-practice-go"));return;}
+    if(button.hasAttribute("data-practice-submit")){submit();return;}
+    if(button.hasAttribute("data-practice-review")&&finished){review=true;renderExam();return;}
+    if(button.hasAttribute("data-practice-results")&&finished){review=false;renderResults();}
+  }
+  function onChange(event){
+    if(!paper||finished||!event.target.matches||!event.target.matches("[data-practice-answer]"))return;
+    var input=event.target,id=input.getAttribute("data-practice-answer");
+    var q=paper.questions.find(function(item){return item.id===id;});
+    if(!q)return;
+    var option=q.options[Number(input.value)];
+    if(option===undefined)return;
+    answers[id]=option;confirmSubmit=false;
+    var card=input.closest(".hsk-exam-question");
+    if(card)Array.prototype.forEach.call(card.querySelectorAll(".hsk-exam-choice"),function(label){
+      label.classList.toggle("is-selected",!!label.querySelector("input:checked"));
+    });
+    var warning=el("hskPracticeSubmitWarning");if(warning)warning.textContent="";
+    updateCounters();
+  }
+  function onInput(event){
+    if(!paper||finished||!event.target.matches||!event.target.matches("[data-practice-write]"))return;
+    answers[event.target.getAttribute("data-practice-write")]=event.target.value;
+    confirmSubmit=false;var warning=el("hskPracticeSubmitWarning");
+    if(warning)warning.textContent="";
+    updateCounters();
+  }
+  function open(l){
+    level=Number(l)>=1&&Number(l)<=4?Number(l):1;
+    catalog();
+  }
   document.addEventListener("click",onClick);
-  document.addEventListener("submit",onSubmit);
+  document.addEventListener("change",onChange);
+  document.addEventListener("input",onInput);
   document.addEventListener("vduckie:language-change",function(){
-    var host=panel();
-    if(!host||!host.classList.contains("hsk-practice-screen"))return;
-    if(finished)finish(true);
-    else if(page)renderQuestion();
-    else catalog();
+    var node=host();
+    if(!node||!node.classList.contains("hsk-practice-screen"))return;
+    if(finished){if(review)renderExam();else renderResults();}
+    else if(paper)renderExam();
+    else if(!loadingPaper)catalog();
   });
-  root.VDuckieHSKPractice=Object.freeze({open:open,build:bank.build,config:{papers:bank.TOTAL_PAPERS,perLevel:bank.PAPERS_PER_LEVEL,questions:bank.QUESTIONS_PER_PAPER}});
+  root.VDuckieHSKPractice=Object.freeze({open:open,build:bank.build,
+    config:{papers:bank.TOTAL_PAPERS,perLevel:bank.PAPERS_PER_LEVEL,blueprint:bank.BLUEPRINT},
+    // Tests/read-only observability; no reward functions are exposed.
+    getExamState:function(){return paper?{id:paper.id,total:paper.questionCount,answered:countAnswers(),submitted:finished}:null;}
+  });
 })(window,document);
