@@ -7,7 +7,7 @@
   var bank = root.VDuckieHSKPracticeBank;
   if (!bank) return;
   var cache = Object.create(null);
-  var level = 1, page = null, step = 0, marks = [], answered = false, finished = false;
+  var level = 1, page = null, step = 0, marks = [], answered = false, finished = false, dictationRewardTried = false, audioFallback = false;
   function byId(id) { return document.getElementById(id); }
   function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){
     return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
@@ -87,7 +87,7 @@
       nav+'<div class="hsk-practice-catalog">'+list.join("")+'</div></section>');
   }
   function start(l,number){
-    level=Number(l);step=0;marks=[];answered=false;finished=false;
+    level=Number(l);step=0;marks=[];answered=false;finished=false;dictationRewardTried=false;audioFallback=false;
     loading(label("Đang nạp câu hỏi…","正在加载题目…","Loading questions…"));
     getWords(level).then(function(records){
       page=bank.build(level,number,records);renderQuestion();
@@ -105,6 +105,7 @@
     if(!root.speechSynthesis||!root.SpeechSynthesisUtterance){
       var fallback=byId("hskPracticeAudioFallback");
       if(fallback)fallback.textContent=label("Thiết bị không hỗ trợ phát âm; từ cần nghe: ","设备不支持语音；目标词：","Speech unavailable; target: ")+question.hanzi;
+      audioFallback=true;
       return;
     }
     root.speechSynthesis.cancel();
@@ -125,11 +126,12 @@
       q.type==="hanzi"?label("Chọn chữ Hán tương ứng với nghĩa.","根据释义选择正确的汉字。","Choose the matching Hanzi."):
       q.type==="pinyin"?label("Chọn Pinyin có thanh điệu chính xác.","选择正确的声调拼音。","Choose the correct tone-marked pinyin."):
       q.type==="listening"?label("Nghe phát âm và chọn chữ Hán được đọc.","听发音并选择对应的汉字。","Listen and choose the spoken Hanzi."):
+      q.type==="reading"?label("Đọc câu và chọn nghĩa của từ được hỏi.","阅读句子并选择目标词的正确释义。","Read the sentence and choose the target word's meaning."):
       label("Viết chữ Hán cho từ dưới đây.","根据提示填写汉字。","Write the Hanzi for this word.");
     var stimulus=q.type==="listening"?
       '<button type="button" class="hsk-practice-audio" data-practice-listen>🔊 '+esc(label("Nghe từ","播放发音","Play audio"))+'</button>'+
       '<p id="hskPracticeAudioFallback" class="hsk-practice-fallback" aria-live="polite"></p>':
-      '<div class="hsk-practice-stimulus'+(q.type==="hanzi"||q.type==="writing"?' is-meaning':'')+'">'+esc(q.stimulus)+'</div>';
+      '<div class="hsk-practice-stimulus'+(q.type==="hanzi"||q.type==="writing"||q.type==="reading"?' is-meaning':'')+'">'+esc(q.stimulus)+'</div>';
     var answers=q.type==="writing"?
       '<form class="hsk-practice-writing" data-practice-write><label for="hskPracticeAnswer">'+esc(label("Nhập chữ Hán","输入汉字","Type Hanzi"))+
       '</label><input id="hskPracticeAnswer" type="text" lang="zh-CN" autocomplete="off" spellcheck="false" required placeholder="汉字">'+
@@ -173,10 +175,18 @@
     }
     var next=panel().querySelector("[data-practice-next]");
     if(next)next.disabled=false;
-    // One-time +5 for a correctly recalled word. No points are ever minted in JS.
-    // The server enforces login, per-word deduplication, and daily award cap.
-    if(right&&root.VDuckieEXP&&typeof root.VDuckieEXP.awardWordMastery==="function"){
-      root.VDuckieEXP.awardWordMastery(page.level,q.hanzi,anchor||null).catch(function(){});
+    // Only a verified positive Supabase award displays floating EXP.
+    // MCQ first correct word: +5 per distinct word (server deduped).
+    // Written Hanzi: +10 for first correct dictation in this paper (server deduped).
+    if(right && root.VDuckieEXP){
+      if(q.type==="writing"&&!dictationRewardTried && typeof root.VDuckieEXP.awardEXP==="function"){
+        dictationRewardTried=true;
+        root.VDuckieEXP.awardEXP("dictation_complete",
+          "hsk:practice-l"+page.level+"-p"+String(page.number).padStart(2,"0")+":dictation").catch(function(){});
+      } else if(q.type!=="writing"&&!(q.type==="listening"&&audioFallback)&&
+        typeof root.VDuckieEXP.awardWordMastery==="function"){
+        root.VDuckieEXP.awardWordMastery(page.level,q.hanzi,anchor||null).catch(function(){});
+      }
     }
   }
   function finish() {
@@ -223,7 +233,7 @@
     }
     if(button.hasAttribute("data-practice-next")&&!button.disabled){
       if(step+1>=page.questions.length)finish();
-      else {step++;answered=false;renderQuestion();}
+      else {step++;answered=false;audioFallback=false;renderQuestion();}
     }
   }
   function onSubmit(event) {
