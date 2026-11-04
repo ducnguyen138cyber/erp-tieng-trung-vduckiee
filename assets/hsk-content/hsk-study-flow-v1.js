@@ -22,7 +22,8 @@
     var stats=journal.stats(info.lesson.id,info.exercises.length),done=stats.completed;
     var summary=done?'<span class="hsk-study-chip hsk-study-complete">✓ Đã hoàn thành bài</span>':
       '<span class="hsk-study-chip">'+stats.checked+'/'+stats.total+' câu đã kiểm tra</span>';
-    return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>Được lưu trong nhật ký học tập riêng; không thay đổi EXP hoặc điểm thi HSK.</small></div>'+summary+'</div>';
+    var weak=journal.weakWords(info.level).length;
+    return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>'+(weak?'HSK '+info.level+': '+weak+' từ đang cần ôn lại.':'Làm quiz nhớ nghĩa để phát hiện từ chưa thuộc.')+'</small></div>'+summary+'</div>';
   }
   function finishHtml(info){
     var stats=journal.stats(info.lesson.id,info.exercises.length);
@@ -112,11 +113,37 @@
   function handle(event){
     var button=event.target&&event.target.closest?event.target.closest("button"):null;
     if(!button)return;
+    if(button.hasAttribute("data-focus-choice")&&current){
+      var quiz=button.closest("[data-focus-quiz]");
+      if(quiz&&quiz.contains(button)){
+        var expected=quiz.querySelector("[data-focus-quiz-word]");
+        var hanzi=expected&&expected.textContent;
+        var cards=button.closest(".hsk-focus-vocabulary");
+        var focusCard=cards&&Array.prototype.find.call(cards.querySelectorAll("[data-focus-word]"),function(card){
+          var title=card.querySelector(".hsk-focus-word-title strong");
+          return title&&title.textContent===hanzi;
+        });
+        if(focusCard&&hanzi){
+          var word=wordsFromLesson(current).find(function(w){return w.hanzi===hanzi;});
+          var correct=button.getAttribute("data-focus-choice")===hanzi;
+          journal.recordWord(current.level,current.lesson.id,hanzi,correct,
+            word&&word.pinyin||"",word&&word.meaningVi||"");
+          update();
+        }
+      }
+    }
     if(button.hasAttribute("data-hsk-finish")){
       event.preventDefault();
       if(!current)return;
+      var alreadyCompleted=journal.stats(current.lesson.id,current.exercises.length).completed;
       var result=journal.complete(current.level,current.lesson.id,current.exercises.length,wordsFromLesson(current));
       update();
+      if(result.ok&&!alreadyCompleted){
+        doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-learner-completed",{detail:{
+          level:current.level,lessonId:current.lesson.id,checked:result.checked,
+          graded:result.graded,correct:result.correct
+        }}));
+      }
       if(result.ok){
         var stage=q('[data-focus-stage="practice"]');if(stage){stage.click();}
         var finish=q("[data-hsk-finish-panel]");if(finish&&finish.scrollIntoView)finish.scrollIntoView({behavior:"smooth",block:"nearest"});
