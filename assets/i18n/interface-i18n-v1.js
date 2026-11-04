@@ -2587,6 +2587,7 @@
       "Stroke count:"
     ]
   });
+  Object.assign(strings,{"Kho đề luyện HSK · 224 đề":["HSK 模拟练习题库 · 224 套","HSK practice bank · 224 papers"],"HSK 1–4 · 56 đề mỗi cấp · 24 câu hỏi có chấm điểm.":["HSK 1–4 · 每级 56 套 · 每套 24 道可评分练习题。","HSK 1–4 · 56 papers per level · 24 scored questions each."],"Mở kho đề HSK →":["打开 HSK 练习题库 →","Open HSK practice bank →"]});
   var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
@@ -2683,6 +2684,8 @@
     if(element.closest("script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
     // Never localize Vietnamese glosses, learner answers or Chinese examples, even inside UI-permitted elements.
     if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages,.daily-options,.dictionary-word,.dictionary-meta small,.dictionary-example,.focus-word>p,.focus-word>small,.context-focus>p,.question-focus>p,.hsk-pro-lesson-head h3 small"))return true;
+    // The practice runtime directly localizes chrome; never change quiz answers or shown HSK words.
+    if(element.closest(".hsk-practice-container"))return true;
     return !!(element.closest(excludedSelector)&&!permittedProtected(element));
   }
   function translateText(node){
