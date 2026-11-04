@@ -13,11 +13,11 @@
     3: Object.freeze({ level: 3, key: "primary", name: "Học sinh tiểu học", symbol: "🎒", defaultAsset: "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0", renderMode: "full-skin", motionProfile: "primary" }),
     4: Object.freeze({ level: 4, key: "student", name: "Sinh viên đại học", symbol: "🎓", defaultAsset: "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0", renderMode: "full-skin", motionProfile: "student" }),
     5: Object.freeze({ level: 5, key: "office", name: "Nhân viên công sở", symbol: "💻", defaultAsset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0", renderMode: "full-skin", motionProfile: "office" }),
-    6: Object.freeze({ level: 6, key: "manager", name: "Quản lý trẻ", symbol: "📱", defaultAsset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0", renderMode: "full-skin", motionProfile: "manager" }),
+    6: Object.freeze({ level: 6, key: "manager", name: "Quản lý trẻ", symbol: "📱", defaultAsset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0", renderMode: "full-skin", motionProfile: "manager" }),
     7: Object.freeze({ level: 7, key: "expert", name: "Chuyên gia", symbol: "🧰", defaultAsset: "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0", renderMode: "full-skin", motionProfile: "expert" }),
     8: Object.freeze({ level: 8, key: "leader", name: "Lãnh đạo", symbol: "👔", defaultAsset: "./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0", renderMode: "full-skin", motionProfile: "leader" }),
     9: Object.freeze({ level: 9, key: "master", name: "Master", symbol: "✨", defaultAsset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0", renderMode: "full-skin", motionProfile: "master" }),
-    10: Object.freeze({ level: 10, key: "grandmaster", name: "Grandmaster", symbol: "🏆", defaultAsset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0", renderMode: "full-skin", motionProfile: "grandmaster" })
+    10: Object.freeze({ level: 10, key: "grandmaster", name: "Grandmaster", symbol: "🏆", defaultAsset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0", renderMode: "full-skin", motionProfile: "grandmaster" })
   });
 
   function item(data) {
@@ -103,11 +103,11 @@
     variant({ level: 3, asset: "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" }),
     variant({ level: 4, asset: "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" }),
     variant({ level: 5, asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
-    variant({ level: 6, asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
+    variant({ level: 6, asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
     variant({ level: 7, asset: "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" }),
     variant({ level: 8, asset: "./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0" }),
     variant({ level: 9, asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
-    variant({ level: 10, asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
+    variant({ level: 10, asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
 
     variant({ level: 3, outfit: "primary-school", asset: "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" }),
     variant({ level: 4, outfit: "primary-school", asset: "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" }),
@@ -120,18 +120,18 @@
     variant({ level: 8, outfit: "office", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
     variant({ level: 9, outfit: "office", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
     variant({ level: 10, outfit: "office", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
-    variant({ level: 6, outfit: "manager", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 7, outfit: "manager", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 8, outfit: "manager", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 9, outfit: "manager", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 10, outfit: "manager", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
+    variant({ level: 6, outfit: "manager", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 7, outfit: "manager", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 8, outfit: "manager", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 9, outfit: "manager", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 10, outfit: "manager", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
     variant({ level: 7, outfit: "executive", asset: "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" }),
     variant({ level: 8, outfit: "executive", asset: "./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0" }),
     variant({ level: 9, outfit: "executive", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
-    variant({ level: 10, outfit: "executive", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
+    variant({ level: 10, outfit: "executive", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
     variant({ level: 9, outfit: "master", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
-    variant({ level: 10, outfit: "master", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 10, outfit: "grandmaster", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
+    variant({ level: 10, outfit: "master", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 10, outfit: "grandmaster", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
 
     variant({ level: 2, outfit: "*", accessory: "book", asset: "./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0" }),
     variant({ level: 3, outfit: "*", accessory: "book", asset: "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" }),
@@ -143,13 +143,13 @@
     variant({ level: 8, outfit: "*", accessory: "headphones", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
     variant({ level: 9, outfit: "*", accessory: "headphones", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
     variant({ level: 10, outfit: "*", accessory: "headphones", asset: "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" }),
-    variant({ level: 4, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 5, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 6, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 7, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 8, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 9, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" }),
-    variant({ level: 10, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-2d-v3.webp?v=3.0" })
+    variant({ level: 4, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 5, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 6, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 7, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 8, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 9, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" }),
+    variant({ level: 10, outfit: "*", accessory: "microphone", asset: "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0" })
   ]);
 
   var MOTION = Object.freeze({
