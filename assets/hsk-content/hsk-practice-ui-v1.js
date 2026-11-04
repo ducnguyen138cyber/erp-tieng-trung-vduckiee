@@ -119,10 +119,8 @@
     var heading=shellHeader(title,label("Làm đúng câu hỏi để ghi nhận kiến thức. Điểm thưởng chỉ cộng khi Supabase xác nhận.",
       "正确答题可记录学习成果；只有 Supabase 确认后才会显示 EXP 奖励。",
       "Correct answers show learning progress; EXP appears only when Supabase confirms it."));
-    var progressHtml='<div class="hsk-practice-progress"><span>'+esc(label("Câu ","第 ","Question "))+String(step+1)+' / '+q.questionCount+'</span>'+
+    var progressHtml='<div class="hsk-practice-progress"><span>'+esc(label("Câu ","第 ","Question "))+String(step+1)+' / '+page.questions.length+'</span>'+
       '<span>'+Math.round(100*step/page.questions.length)+'%</span><div class="hsk-practice-track"><i style="width:'+percent+'%"></i></div></div>';
-    // Use the question count from the paper, not from the question object.
-    progressHtml=progressHtml.replace(" / undefined"," / "+page.questions.length);
     var prompt = q.type==="meaning"?label("Chọn nghĩa đúng của từ tiếng Trung.","选择这个汉语词的正确释义。","Choose the word's correct meaning."):
       q.type==="hanzi"?label("Chọn chữ Hán tương ứng với nghĩa.","根据释义选择正确的汉字。","Choose the matching Hanzi."):
       q.type==="pinyin"?label("Chọn Pinyin có thanh điệu chính xác.","选择正确的声调拼音。","Choose the correct tone-marked pinyin."):
