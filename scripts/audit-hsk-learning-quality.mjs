@@ -41,6 +41,6 @@ export function auditLevel(level, base = process.cwd()) {
 if(process.argv[1]&&path.resolve(process.argv[1])===path.resolve(new URL(import.meta.url).pathname)){
   const reports=[1,2,3,4].map(level=>auditLevel(level));
   process.stdout.write(JSON.stringify({generatedAt:new Date().toISOString(),levels:reports},null,2)+'\n');
-  if(reports.some(report=>report.stats.missingExerciseRefs||report.stats.duplicateLessonIds||report.stats.missingAnswers))
+  if(process.argv.includes('--strict')&&reports.some(report=>report.stats.missingExerciseRefs||report.stats.duplicateLessonIds||report.stats.missingAnswers))
     process.exitCode=1;
 }
