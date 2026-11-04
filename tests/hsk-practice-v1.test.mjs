@@ -85,6 +85,6 @@ test('practice is reachable from the HSK curriculum and precached with PWA v34',
   assert.match(html,/hsk-practice-ui-v1\.js\?v=1/);
   assert.match(html,/hsk-practice-ui-v1\.css\?v=1/);
   assert.match(html,/graded-hsk-entry\.js\?v=practice1/);
-  assert.match(sw,/vduckie-pwa-v34/);
+  assert.match(sw,/vduckie-pwa-v35/);
   assert.match(sw,/hsk-practice-bank-v1\.js\?v=1/);
 });

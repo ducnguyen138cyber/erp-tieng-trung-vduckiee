@@ -65,10 +65,10 @@ test('signed-in selector is inside the account dropdown under profile details, g
 });
 test('app bootstrap and PWA install the two localized assets',()=>{
   const html=read('index.html'),worker=read('service-worker.js'),css=read('assets/i18n/interface-language-menu-v1.css');
-  assert.match(html,/interface-i18n-v1\.js\?v=3f1/);
+  assert.match(html,/interface-i18n-v1\.js\?v=3g1/);
   assert.match(html,/interface-language-menu-v1\.css\?v=3b1/);
-  assert.match(worker,/vduckie-pwa-v34/);
-  assert.match(worker,/interface-i18n-v1\.js\?v=3f1/);
+  assert.match(worker,/vduckie-pwa-v35/);
+  assert.match(worker,/interface-i18n-v1\.js\?v=3g1/);
   assert.match(css,/#vdI18nChoices/);
   assert.match(css,/\.vd-i18n-guest/);
 });

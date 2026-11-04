@@ -2502,9 +2502,9 @@
       "每周和每月 EXP 用于周期排行榜；等级始终根据累计 EXP 计算。",
       "Weekly/monthly EXP determines period rankings; level is always based on lifetime EXP."
     ],
-    "Nhớ đúng một từ HSK mới: +5 EXP · Viết chính tả: +10 EXP · Hoàn thành bài: +20 EXP · Vượt kiểm tra đủ điều kiện: +15 EXP · Ôn bài: +2 EXP. Chỉ được cộng khi đã đăng nhập; mỗi hoạt động được kiểm tra trùng lặp và giới hạn điểm theo ngày.": [
-      "正确记住一个新 HSK 词汇：+5 EXP · 听写：+10 EXP · 完成课程：+20 EXP · 通过符合条件的测验：+15 EXP · 复习：+2 EXP。登录后才能获得奖励，每项活动均有重复校验和每日积分上限。",
-      "Recall a new HSK word: +5 EXP · Dictation: +10 · Finish a lesson: +20 · Eligible test: +15 · Review: +2. Sign-in, anti-duplicate checks, and daily limits apply."
+    "Nhớ đúng một từ HSK mới: +3 EXP (tối đa 50 từ/ngày) · Viết chính tả: +10 EXP · Hoàn thành bài: +20 EXP · Vượt kiểm tra đủ điều kiện: +15 EXP · Ôn bài: +2 EXP. Chỉ được cộng khi đã đăng nhập; mỗi hoạt động được kiểm tra trùng lặp và giới hạn điểm theo ngày.": [
+      "正确记住一个新 HSK 词汇：+3 EXP（每天最多 50 个词）· 听写：+10 EXP · 完成课程：+20 EXP · 通过符合条件的测验：+15 EXP · 复习：+2 EXP。登录后才能获得奖励，每项活动均有重复校验和每日积分上限。",
+      "Recall a new HSK word: +3 EXP (up to 50 words/day) · Dictation: +10 · Finish a lesson: +20 · Eligible test: +15 · Review: +2. Sign-in, anti-duplicate checks, and daily limits apply."
     ],
     "Đăng nhập để lưu EXP, nhận thưởng nhiệm vụ và xem hạng của bạn.": [
       "登录以保存 EXP、领取任务奖励并查看自己的排名。",
