@@ -89,6 +89,25 @@ try{for(const width of (observe?[1440]:[1440,390])){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
  }
  await check('curriculum');
+ if(!observe){
+   await page.locator('[data-practice-open]').click();
+   await page.locator('.hsk-practice-paper').first().waitFor();
+   assert.equal(await page.locator('.hsk-practice-paper').count(),56,'HSK1 must show 56 playable practice papers');
+   await page.locator('[data-practice-level="3"]').click();
+   assert.equal(await page.locator('.hsk-practice-paper').count(),56,'HSK3 must show 56 practice papers');
+   await page.locator('[data-practice-level="1"]').click();
+   await page.locator('[data-practice-start="1"]').click();
+   await page.locator('.hsk-practice-question').waitFor();
+   assert.match(await page.locator('.hsk-practice-progress').textContent(),/1 \/ 24/);
+   if(await page.locator('[data-practice-choice]').count())await page.locator('[data-practice-choice]').first().click();
+   else{await page.locator('#hskPracticeAnswer').fill('汉字');await page.locator('[data-practice-write] button').click();}
+   await page.locator('[data-practice-next]:not([disabled])').waitFor();
+   assert.match(await page.locator('.hsk-practice-feedback').textContent(),/Đáp án:/);
+   await page.locator('[data-practice-catalog]').click();
+   assert.equal(await page.locator('.hsk-practice-paper').count(),56);
+   await page.locator('[data-practice-close]').click();
+   await page.locator('.graded-hsk-page').waitFor();
+ }
  await page.getByRole('button',{name:'Học HSK 1 →',exact:true}).click();await page.locator('.hsk-focus-tabs').waitFor();
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
