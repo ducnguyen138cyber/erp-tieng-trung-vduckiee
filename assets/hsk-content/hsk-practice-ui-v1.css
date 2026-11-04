@@ -1,0 +1,55 @@
+/* VDuckie HSK practice: clean blue/white native screen, no EXP popups. */
+.hsk-practice-screen{width:100%;min-width:0}
+.hsk-practice-container{background:#fff;color:#0f172a;border:1px solid #dbeafe;border-radius:20px;padding:clamp(16px,2.8vw,30px);max-width:1160px;margin:0 auto}
+.hsk-practice-header{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;border-bottom:1px solid #e2e8f0;padding-bottom:19px;margin-bottom:22px}
+.hsk-practice-header h2{font-size:clamp(22px,2.7vw,30px);line-height:1.25;margin:6px 0 9px;font-weight:800;color:#0f172a}
+.hsk-practice-header p{font-size:14px;line-height:1.6;color:#64748b;max-width:760px;margin:0}
+.hsk-practice-kicker{font-size:11px;letter-spacing:.11em;color:#2563eb;font-weight:850}
+.hsk-practice-screen button{cursor:pointer;min-height:44px;transition:background-color .16s,border-color .16s,transform .16s;font-family:inherit}
+.hsk-practice-screen button:focus-visible,.hsk-practice-screen input:focus-visible{outline:3px solid #93c5fd;outline-offset:3px}
+.hsk-practice-screen button:disabled{cursor:not-allowed;opacity:.55}
+.hsk-practice-back,.hsk-practice-actions button,.hsk-practice-result-buttons button{padding:10px 14px;border:1px solid #bfdbfe;border-radius:12px;background:#fff;font-weight:750;color:#1e40af}
+.hsk-practice-back:hover,.hsk-practice-actions button:hover,.hsk-practice-result-buttons button:hover{background:#eff6ff}
+.hsk-practice-disclaimer{font-size:13px;line-height:1.6;padding:13px 15px;color:#475569;background:#f8fafc;border-left:3px solid #93c5fd;border-radius:10px}
+.hsk-practice-levels{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.hsk-practice-levels button{border:1px solid #dbeafe;border-radius:11px;background:#fff;color:#1e293b;padding:10px 18px;font-weight:800}
+.hsk-practice-levels button.active{background:#dbeafe;border-color:#93c5fd;color:#1e40af}
+.hsk-practice-catalog{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.hsk-practice-paper{min-height:86px!important;padding:14px 8px;background:#f8fbff;border:1px solid #dbeafe;border-radius:14px;text-align:center;color:#0f172a}
+.hsk-practice-paper b{display:block;font-size:15px}.hsk-practice-paper small{display:block;margin-top:6px;font-size:11px;color:#64748b}
+.hsk-practice-paper:hover{border-color:#60a5fa;background:#eff6ff;transform:translateY(-2px)}
+.hsk-practice-progress{display:grid;grid-template-columns:1fr auto;gap:8px;font-weight:700;font-size:13px;color:#475569;margin-bottom:16px}
+.hsk-practice-track{grid-column:1/-1;height:7px;background:#e2e8f0;border-radius:10px;overflow:hidden}
+.hsk-practice-track i{display:block;height:100%;background:#3b82f6;border-radius:10px;transition:width .2s}
+.hsk-practice-question{max-width:800px;margin:26px auto 8px;text-align:center}
+.hsk-practice-kind{font-size:11px;font-weight:850;letter-spacing:.1em;color:#2563eb}
+.hsk-practice-question h3{font-size:clamp(18px,2.6vw,22px);margin:10px 0 12px;color:#0f172a}
+.hsk-practice-stimulus{font-size:clamp(45px,8vw,64px);font-weight:800;line-height:1.25;margin:14px 0 26px;overflow-wrap:anywhere}
+.hsk-practice-stimulus.is-meaning{font-size:clamp(20px,3vw,28px);line-height:1.5;max-width:740px;margin:24px auto}
+.hsk-practice-answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;text-align:left}
+.hsk-practice-choice{padding:15px 13px;border:1px solid #cfe0fa;border-radius:12px;background:#fff;color:#0f172a;font-size:14px;font-weight:700;text-align:left;line-height:1.5;display:flex;align-items:center;gap:12px;min-width:0;overflow-wrap:anywhere}
+.hsk-practice-choice span{display:grid;place-items:center;width:28px;height:28px;flex:0 0 28px;border-radius:8px;background:#eff6ff;color:#1d4ed8}
+.hsk-practice-choice:hover:not(:disabled){background:#eff6ff;border-color:#60a5fa}
+.hsk-practice-choice.correct,.hsk-practice-choice.correct:disabled{background:#ecfdf5;border-color:#34d399;opacity:1}
+.hsk-practice-choice.wrong,.hsk-practice-choice.wrong:disabled{background:#fff1f2;border-color:#fda4af;opacity:1}
+.hsk-practice-audio{border:1px solid #93c5fd;color:#1d4ed8;background:#dbeafe;border-radius:13px;padding:12px 20px;font-weight:800;margin:22px auto}
+.hsk-practice-fallback{font-size:12px;color:#64748b}
+.hsk-practice-writing{display:flex;gap:9px;align-items:center;flex-wrap:wrap;justify-content:center;margin:23px auto}
+.hsk-practice-writing label{font-size:13px;color:#475569}
+.hsk-practice-writing input{width:min(100%,280px);min-height:46px;border:1px solid #cbd5e1;border-radius:10px;padding:10px 13px;font-size:17px}
+.hsk-practice-writing button{background:#dbeafe;color:#1e40af;border:1px solid #93c5fd;border-radius:10px;padding:10px 15px;font-weight:800}
+.hsk-practice-feedback{margin:18px 0;min-height:8px;text-align:left;border-radius:13px;padding:0;line-height:1.5}
+.hsk-practice-feedback.correct,.hsk-practice-feedback.wrong{padding:13px 16px}
+.hsk-practice-feedback.correct{background:#ecfdf5;border:1px solid #a7f3d0}
+.hsk-practice-feedback.wrong{background:#fff1f2;border:1px solid #fecdd3}
+.hsk-practice-feedback p{font-size:14px;margin:6px 0 0;color:#334155}
+.hsk-practice-actions{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+.hsk-practice-actions .primary{background:#dbeafe;border-color:#93c5fd}
+.hsk-practice-result{display:grid;justify-items:center;text-align:center;gap:12px;padding:34px 0 22px}
+.hsk-practice-score{font-size:clamp(54px,10vw,88px);font-weight:850;color:#2563eb;letter-spacing:-.045em}
+.hsk-practice-result h3{font-size:24px;margin:0}.hsk-practice-result p{font-size:14px;line-height:1.55;max-width:520px;color:#64748b;margin:0}
+.hsk-practice-result-buttons{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:12px}
+.hsk-practice-wait{padding:70px 20px;text-align:center;color:#64748b}
+@media(max-width:950px){.hsk-practice-catalog{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:620px){.hsk-practice-container{border-radius:14px;padding:14px}.hsk-practice-header{flex-direction:column}.hsk-practice-back{align-self:flex-start}.hsk-practice-catalog{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.hsk-practice-answers{grid-template-columns:1fr}.hsk-practice-stimulus{font-size:48px}.hsk-practice-question{margin-top:15px}.hsk-practice-actions{gap:8px}}
+@media(prefers-reduced-motion:reduce){.hsk-practice-paper:hover{transform:none}.hsk-practice-screen button{transition:none}}
