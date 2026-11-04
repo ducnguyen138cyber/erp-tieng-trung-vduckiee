@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'assets/design-system/**'
+      - 'assets/i18n/**'
+      - 'tests/interface-i18n-v1.test.mjs'
       - 'assets/mascot/**'
       - 'index.html'
       - 'app-shell-v88.html'
