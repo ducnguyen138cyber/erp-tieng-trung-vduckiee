@@ -94,6 +94,7 @@ try{for(const width of (observe?[1440]:[1440,390])){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
    await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '));
    assert.equal((await page.locator('.hsk-focus-intro').first().textContent()).trim(),'听发音 → 猜意思 → 看例句 → 回忆。');
+   assert.deepEqual(await page.locator('.hsk-focus-tabs button').allTextContents(),['1 · 生词','2 · 听读','3 · 练习','4 · 补充知识']);
    const prePaint=await page.evaluate(async()=>{
      const element=document.querySelector('.hsk-focus-intro');
      element.textContent='Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.';
@@ -106,11 +107,42 @@ try{for(const width of (observe?[1440]:[1440,390])){
  }
  await check('hsk-words');
  for(const stage of ['examples','practice','extra']){await page.locator(`[data-focus-stage="${stage}"]`).click();await check('hsk-'+stage);}
- await open('daily');await page.locator('.learning-session').waitFor();await check('daily');
+ await open('daily');await page.locator('.learning-session').waitFor();
+ if(!observe){
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('.learning-session .focus-kicker')?.textContent.trim()==='认识新词');
+   assert.match(await page.locator('.learning-session-nav').textContent(),/返回/);
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+ }
+ await check('daily');
  await open('review');await page.locator('#dailyLearningPanel:not(.hidden)').waitFor();await check('review');
- await open('dictionary');await page.locator('#dailyDictionarySearch').fill('学习');await page.locator('#dailyDictionarySearch').press('Enter');await check('dictionary');
- await open('ranking');await page.locator('#leaderboard').waitFor();for(const period of ['week','month','total']){await page.locator(`[data-exp-period="${period}"]`).click();await check('ranking-'+period);}
- await open('profile');await check('profile');
+ await open('dictionary');await page.locator('#dailyDictionarySearch').fill('学习');await page.locator('#dailyDictionarySearch').press('Enter');
+ if(!observe){
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('.dictionary-screen h1')?.textContent==='中越词典');
+   await page.waitForFunction(()=>/条结果/.test(document.querySelector('#dailyDictionaryStatus')?.textContent||''));
+   assert.equal((await page.locator('.dictionary-screen .focus-kicker').textContent()).trim(),'独立词汇查询');
+   const words=await page.locator('.dictionary-word p').allTextContents();
+   assert(words.every(Boolean),'Dictionary meanings must still be available');
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+ }
+ await check('dictionary');
+ await open('ranking');await page.locator('#leaderboard').waitFor();
+ if(!observe){
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('#leaderboard .exp-award-guide')?.textContent.startsWith('正确记住'));
+   assert.match(await page.locator('#leaderboard .exp-board-head p').first().textContent(),/每周和每月 EXP/);
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+ }
+ for(const period of ['week','month','total']){await page.locator(`[data-exp-period="${period}"]`).click();await check('ranking-'+period);}
+ await open('profile');
+ if(!observe){
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('.profile-screen h1')?.textContent==='我的 VDuckie');
+   assert.match(await page.locator('.profile-signature strong').textContent(),/已掌握/);
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+ }
+ await check('profile');
  await page.locator('.duckie-chat-launch').click();await page.locator('#duckieChat').waitFor();await check('chat');
  if(!observe){await page.addStyleTag({content:'body .duckie-chat-panel .dc-greeting{background:#f5f1e8!important;color:#18352e!important}'});assert.equal(await page.locator('.dc-greeting').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(239, 246, 255)','late injected CSS beat the brand layer');assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);assert.deepEqual(network.filter(r=>r.status>=400),[]);}
  let storage=null;if(live){storage=await page.evaluate(async()=>({controller:navigator.serviceWorker.controller?.scriptURL||null,registrations:(await navigator.serviceWorker.getRegistrations()).map(r=>({scope:r.scope,active:r.active?.scriptURL||null,updateViaCache:r.updateViaCache})),caches:await caches.keys()}));await page.reload();await page.locator('.duckie-chat-launch').waitFor();await check('warm-reload');}

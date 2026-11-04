@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v32";
+const CACHE_VERSION = "vduckie-pwa-v33";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -24,7 +24,7 @@ const APP_SHELL = [
   "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0",
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
-  "./assets/i18n/interface-i18n-v1.js?v=3d1",
+  "./assets/i18n/interface-i18n-v1.js?v=3e1",
   "./assets/v90/exp-core-v90.js?v=word-float1",
   "./assets/v89/exp-learning-hooks-v89.js?v=word-float1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
