@@ -2280,8 +2280,315 @@
       "Review due words"
     ]
   });
+  // Regression catalog from Chinese UI screenshot audit: interface chrome, not word meanings.
+  Object.assign(strings,{
+    "Ôn tập thích ứng": [
+      "自适应复习",
+      "Adaptive review"
+    ],
+    "GỌI LẠI": [
+      "回忆练习",
+      "RECALL"
+    ],
+    "KIỂM TRA CUỐI": [
+      "最终测验",
+      "FINAL CHECK"
+    ],
+    "NHỚ CHỮ HÁN": [
+      "记住汉字",
+      "RECALL HANZI"
+    ],
+    "GẶP TỪ MỚI": [
+      "认识新词",
+      "NEW WORD"
+    ],
+    "THỨ TỰ NÉT": [
+      "笔画顺序",
+      "STROKE ORDER"
+    ],
+    "KHÔNG HỌC TỪ CÔ LẬP": [
+      "结合语境学词",
+      "LEARN IN CONTEXT"
+    ],
+    "ĐIỀN TỪ VÀO CÂU ERP": [
+      "ERP 句子填空",
+      "ERP SENTENCE FILL"
+    ],
+    "← Quay lại": [
+      "← 返回",
+      "← Back"
+    ],
+    "Tiếp": [
+      "下一步",
+      "Next"
+    ],
+    "Tao đã xem": [
+      "我已看过",
+      "I've viewed it"
+    ],
+    "Gõ chữ Hán": [
+      "输入汉字",
+      "Type Hanzi"
+    ],
+    "Kiểm tra": [
+      "检查",
+      "Check"
+    ],
+    "Kết quả": [
+      "结果",
+      "Results"
+    ],
+    "HOÀN THÀNH PHIÊN": [
+      "本次练习已完成",
+      "SESSION COMPLETE"
+    ],
+    "Ôn tập xong!": [
+      "复习完成！",
+      "Review complete!"
+    ],
+    "Lượt đúng": [
+      "正确次数",
+      "Correct answers"
+    ],
+    "Lượt sai": [
+      "错误次数",
+      "Incorrect answers"
+    ],
+    "Từ cần ôn thêm": [
+      "需要加强的词汇",
+      "Words to review"
+    ],
+    "Một câu đúng chưa được tính là đã thuộc. Từ yếu đã được hẹn quay lại sớm hơn.": [
+      "答对一次不代表完全掌握。薄弱词汇会提前安排复习。",
+      "One correct answer does not mean mastery. Weak words will reappear sooner."
+    ],
+    "Về Hôm nay": [
+      "返回今日学习",
+      "Back to Today"
+    ],
+    "Không có từ đến hạn": [
+      "暂无到期复习词汇",
+      "No words due"
+    ],
+    "Hôm nay đã xong": [
+      "今日学习已完成",
+      "Today's learning complete"
+    ],
+    "VDuckie sẽ đưa từ quay lại đúng lịch. Không cần học dồn.": [
+      "VDuckie 会按计划提醒复习，无需集中突击。",
+      "VDuckie will schedule each review. No cramming needed."
+    ],
+    "Đúng. Từ này vẫn sẽ quay lại để nhớ chắc.": [
+      "回答正确！这个词以后还会复习，以巩固记忆。",
+      "Correct! This word will return to reinforce your memory."
+    ],
+    "Xem nét mẫu hoặc tự viết theo trên màn hình.": [
+      "查看笔画演示，或在屏幕上练习书写。",
+      "Watch the stroke demo or practice writing on screen."
+    ],
+    "▶ Xem viết mẫu": [
+      "▶ 查看笔画演示",
+      "▶ Stroke demo"
+    ],
+    "✍ Tự viết": [
+      "✍ 自己书写",
+      "✍ Practice writing"
+    ],
+    "♪ Nghe từ": [
+      "♪ 听单词",
+      "♪ Hear word"
+    ],
+    "♪ Nghe phát âm": [
+      "♪ 听发音",
+      "♪ Pronunciation"
+    ],
+    "♪ Nghe cụm từ": [
+      "♪ 听词组",
+      "♪ Hear phrase"
+    ],
+    "Phiên bản này hướng dẫn và cho viết theo; chưa chấm hình dáng chữ tự do.": [
+      "当前版本支持笔画演示和跟写，暂不自动评分自由书写的字形。",
+      "This version supports stroke guidance but does not grade freehand shapes yet."
+    ],
+    "TRA CỨU RIÊNG": [
+      "独立词汇查询",
+      "WORD LOOKUP"
+    ],
+    "Từ điển Trung – Việt": [
+      "中越词典",
+      "Chinese–Vietnamese Dictionary"
+    ],
+    "Tra chữ Hán, pinyin hoặc nghĩa Việt; nghe và lưu thẳng vào Sổ từ.": [
+      "可用汉字、拼音或越南语释义搜索；支持朗读并保存到个人生词本。",
+      "Search by Hanzi, pinyin, or Vietnamese meaning; listen and save words to your wordbook."
+    ],
+    "Tìm từ": [
+      "搜索词汇",
+      "Search words"
+    ],
+    "Xóa tìm kiếm": [
+      "清除搜索",
+      "Clear search"
+    ],
+    "Ví dụ: 领料, lingliao, lĩnh liệu": [
+      "例如：领料、lingliao、lĩnh liệu",
+      "E.g. 领料, lingliao, lĩnh liệu"
+    ],
+    "♪ Nghe": [
+      "♪ 听发音",
+      "♪ Listen"
+    ],
+    "+ Sổ từ": [
+      "+ 生词本",
+      "+ Wordbook"
+    ],
+    "✓ Đã lưu": [
+      "✓ 已保存",
+      "✓ Saved"
+    ],
+    "Không tìm thấy từ phù hợp.": [
+      "未找到匹配的词汇。",
+      "No matching words found."
+    ],
+    "Thử chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt khác.": [
+      "试试汉字、无声调拼音或其他越南语释义。",
+      "Try Hanzi, unaccented pinyin or another Vietnamese meaning."
+    ],
+    "Chưa có pinyin": [
+      "暂无拼音",
+      "No pinyin"
+    ],
+    "Chưa có nghĩa Việt": [
+      "暂无越南语释义",
+      "No Vietnamese meaning"
+    ],
+    "HỒ SƠ HỌC TẬP": [
+      "学习档案",
+      "LEARNING PROFILE"
+    ],
+    "VDuckie của bạn": [
+      "我的 VDuckie",
+      "Your VDuckie"
+    ],
+    "Supabase sync khi đăng nhập": [
+      "登录后通过 Supabase 同步",
+      "Sync with Supabase when signed in"
+    ],
+    "PWA dùng chung tiến độ": [
+      "PWA 共享学习进度",
+      "PWA shares learning progress"
+    ],
+    "Tiến độ dùng chung khi đăng nhập": [
+      "登录后共享学习进度",
+      "Progress shared after sign-in"
+    ],
+    "1 · Từ mới": [
+      "1 · 生词",
+      "1 · Vocabulary"
+    ],
+    "2 · Nghe & đọc": [
+      "2 · 听读",
+      "2 · Listen & read"
+    ],
+    "3 · Luyện tập": [
+      "3 · 练习",
+      "3 · Practice"
+    ],
+    "4 · Kiến thức thêm": [
+      "4 · 补充知识",
+      "4 · More knowledge"
+    ],
+    "EXP tuần/tháng dùng để xếp hạng theo kỳ; Level luôn tính từ tổng EXP toàn thời gian.": [
+      "每周和每月 EXP 用于周期排行榜；等级始终根据累计 EXP 计算。",
+      "Weekly/monthly EXP determines period rankings; level is always based on lifetime EXP."
+    ],
+    "Nhớ đúng một từ HSK mới: +5 EXP · Viết chính tả: +10 EXP · Hoàn thành bài: +20 EXP · Vượt kiểm tra đủ điều kiện: +15 EXP · Ôn bài: +2 EXP. Chỉ được cộng khi đã đăng nhập; mỗi hoạt động được kiểm tra trùng lặp và giới hạn điểm theo ngày.": [
+      "正确记住一个新 HSK 词汇：+5 EXP · 听写：+10 EXP · 完成课程：+20 EXP · 通过符合条件的测验：+15 EXP · 复习：+2 EXP。登录后才能获得奖励，每项活动均有重复校验和每日积分上限。",
+      "Recall a new HSK word: +5 EXP · Dictation: +10 · Finish a lesson: +20 · Eligible test: +15 · Review: +2. Sign-in, anti-duplicate checks, and daily limits apply."
+    ],
+    "Đăng nhập để lưu EXP, nhận thưởng nhiệm vụ và xem hạng của bạn.": [
+      "登录以保存 EXP、领取任务奖励并查看自己的排名。",
+      "Sign in to save EXP, earn mission rewards and see your rank."
+    ],
+    "Có hồ sơ người học không đồng nghĩa với đã hoàn thành bài được thưởng EXP. Hãy đăng nhập, hoàn thành một bài HSK rồi kiểm tra lại mục Tổng EXP.": [
+      "拥有学习者档案不代表已完成可获得 EXP 的课程。请登录并完成一节 HSK 课程，再查看“总 EXP”。",
+      "Having a learner profile does not mean you've earned EXP. Sign in, complete an HSK lesson, then check Total EXP."
+    ],
+    "Chưa có dữ liệu EXP": [
+      "暂无 EXP 数据",
+      "No EXP data"
+    ],
+    "Hãy hoàn thành bài học đầu tiên để xuất hiện ở đây.": [
+      "完成第一节课程后即可在这里显示。",
+      "Complete your first lesson to appear here."
+    ],
+    "Chưa có người học": [
+      "暂无学习者",
+      "No learners yet"
+    ],
+    "Chưa kết nối Supabase": [
+      "尚未连接 Supabase",
+      "Supabase not connected"
+    ],
+    "Không thể tải bảng xếp hạng.": [
+      "无法加载排行榜。",
+      "Unable to load leaderboard."
+    ],
+    "Hạng của bạn:": [
+      "你的排名：",
+      "Your rank:"
+    ],
+    "tháng này": [
+      "本月",
+      "this month"
+    ],
+    "tuần này": [
+      "本周",
+      "this week"
+    ],
+    "tổng EXP": [
+      "总 EXP",
+      "total EXP"
+    ],
+    "Hạng": [
+      "排名",
+      "Rank"
+    ],
+    "Avatar": [
+      "头像",
+      "Avatar"
+    ],
+    "Người học": [
+      "学习者",
+      "Learner"
+    ],
+    "Bài đầu tiên": [
+      "第一课",
+      "First lesson"
+    ],
+    "Bắt đầu lộ trình": [
+      "开始学习路线",
+      "Start your learning path"
+    ],
+    "Nhiệm vụ hôm nay": [
+      "今日任务",
+      "Today's tasks"
+    ],
+    "Đang ngoại tuyến · tiến độ chưa đồng bộ cloud": [
+      "当前离线 · 学习进度尚未同步到云端",
+      "Offline · progress not yet synced to cloud"
+    ],
+    "Định hướng phát âm và chữ Hán": [
+      "发音与汉字入门",
+      "Introduction to pronunciation and Hanzi"
+    ],
+    "Số nét:": [
+      "笔画数：",
+      "Stroke count:"
+    ]
+  });
   var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
-  var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
+  var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
@@ -2294,6 +2601,19 @@
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
       var variants=[
+        [/^Pinyin đúng của\s*([\u3400-\u9fff][\u3400-\u9fffA-Za-z0-9\s]*)\s*là gì\?$/i,["$1 的正确拼音是什么？","What is the correct pinyin for $1?"]],
+        [/^([\u3400-\u9fff][\u3400-\u9fffA-Za-z0-9\s]*)\s*nghĩa là gì\?$/i,["$1 是什么意思？","What does $1 mean?"]],
+        [/^(\d+)\s*kết quả\s*[·•]\s*đang hiện\s*(\d+)\s*kết quả đầu$/i,["找到 $1 条结果 · 显示前 $2 条","$1 results · showing first $2"]],
+        [/^(\d+)\s*kết quả$/i,["找到 $1 条结果","$1 results"]],
+        [/^(\d+)\s*từ ERP đã thuộc$/i,["已掌握 $1 个 ERP 词汇","$1 ERP words mastered"]],
+        [/^(\d+)\s*\/\s*(\d+)\s*bài giáo trình hoàn thành$/i,["已完成 $1/$2 节课程","$1/$2 curriculum lessons completed"]],
+        [/^(\d+)\s*\/\s*(\d+)\s*bài giáo trình$/i,["$1/$2 节课程","$1/$2 curriculum lessons"]],
+        [/^UNIT\s*(\d+)\s*[·•]\s*BÀI\s*(\d+)\s*\/\s*(\d+)$/i,["单元 $1 · 第 $2/$3 课","UNIT $1 · LESSON $2/$3"]],
+        [/^Level\s*(\d+)$/i,["等级 $1","Level $1"]],
+        [/^Chưa đúng:\s*([\u3400-\u9fff]+)\s*[·•]\s*(.+)$/i,["还不对：$1 · $2","Not quite: $1 · $2"]],
+        [/^(\d+)\s*từ ERP hôm nay$/i,["今日学习 $1 个 ERP 词汇","$1 ERP words today"]],
+        [/^Ôn từ đến hạn\s*(\d+)$/i,["复习第 $1 个到期词汇","Review due word $1"]],
+        [/^Nhớ đúng một từ HSK mới:/i,["正确记住一个新 HSK 词汇：","Recall one new HSK word:"]],
         [/^TỪ\s*(\d+)\s*\/\s*(\d+)$/i,["单词 $1 / $2","WORD $1 / $2"]],
         [/^Ví dụ sử dụng\s*\((\d+)\)$/i,["使用例句（$1）","Usage examples ($1)"]],
         [/^(\d+)\s*\/\s*(\d+)\s*bài đã hoàn thành\s*[·•]\s*Từ mới, ví dụ, nghe đọc và luyện tập\.$/i,["已完成 $1/$2 课 · 生词、例句、听读和练习。","$1/$2 lessons completed · Vocabulary, examples, listening, reading and practice."]],
@@ -2352,13 +2672,13 @@
     return original;
   }
   function permittedProtected(element){
-    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,.hsk-focus-intro,.hsk-focus-section-head>span,.hsk-focus-word-title>span,.hsk-focus-quiz>strong,.hsk-focus-quiz>[data-focus-quiz-feedback],.v86-listening-top>strong,.v86-speaking-diff>strong,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
+    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,.hsk-focus-intro,.hsk-pro-lesson-head .step,.hsk-focus-section-head>span,.hsk-focus-word-title>span,.hsk-focus-quiz>strong,.hsk-focus-quiz>[data-focus-quiz-feedback],.v86-listening-top>strong,.v86-speaking-diff>strong,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
   }
   function isProtected(element){
     if(!element||!element.closest)return true;
     if(element.closest("script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
     // Never localize Vietnamese glosses, learner answers or Chinese examples, even inside UI-permitted elements.
-    if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages"))return true;
+    if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages,.daily-options,.dictionary-word,.dictionary-meta,.dictionary-example,.focus-word>p,.focus-word>small,.context-focus>p,.question-focus>p,.hsk-pro-lesson-head h3 small"))return true;
     return !!(element.closest(excludedSelector)&&!permittedProtected(element));
   }
   function translateText(node){
