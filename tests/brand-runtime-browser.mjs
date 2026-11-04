@@ -27,6 +27,13 @@ try{for(const width of (observe?[1440]:[1440,390])){
      assert.equal((await page.locator('#homeRecommendedTitle').textContent()).trim(),recommended,'recommendations i18n '+code);
      assert.equal(await page.evaluate(()=>window.VDuckieInterfaceI18n.getLanguage()),code);
      assert.equal(await page.evaluate(()=>performance.getEntriesByType('navigation').length),before,'language switch caused reload');
+     if(code==='zh'||code==='en'){
+       const expectedRec=code==='zh'?'每个人都有自己的学习路线':'Everyone has a different learning path';
+       const expectedReview=code==='zh'?'根据你的错题调整练习':'Practice adapts to your mistakes';
+       await page.waitForFunction(expected=>document.querySelector('#v85PersonalDashboard .v85-recommend h3')?.textContent===expected,expectedRec);
+       await page.waitForFunction(expected=>document.querySelector('#v86PremiumLearning .v86-adaptive h3')?.textContent===expected,expectedReview);
+       if(code==='zh')await page.waitForFunction(()=>document.querySelector('#v86PremiumLearning .v86-adaptive-meta .v86-chip')?.textContent.startsWith('难度：'));
+     }
      await page.screenshot({path:outDir+'/'+width+'-home-'+code+'.png'});
    }
    console.log('PASS: desktop/mobile VI -> ZH -> EN UI switch, no reload and stable titles');
@@ -52,8 +59,23 @@ try{for(const width of (observe?[1440]:[1440,390])){
   if(screen==='quiz'&&!live)await page.locator('#quizOptions button').first().click();
   await check('erp-'+screen);
  }}
- await open('msutong');await page.locator('.graded-hsk-page').waitFor();await check('curriculum');
- await page.getByRole('button',{name:'Học HSK 1 →',exact:true}).click();await page.locator('.hsk-focus-tabs').waitFor();await check('hsk-words');
+ await open('msutong');await page.locator('.graded-hsk-page').waitFor();
+ if(!observe){
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('.graded-hsk-card p')?.textContent.includes('课'));
+   assert.match(await page.locator('.hsk-entry-note').textContent(),/HSK 补充资源/);
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+ }
+ await check('curriculum');
+ await page.getByRole('button',{name:'Học HSK 1 →',exact:true}).click();await page.locator('.hsk-focus-tabs').waitFor();
+ if(!observe){
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '));
+   assert.equal((await page.locator('.hsk-focus-intro').first().textContent()).trim(),'听发音 → 猜意思 → 看例句 → 回忆。');
+   assert.match((await page.locator('.hsk-focus-details summary').first().textContent()).trim(),/使用例句/);
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+ }
+ await check('hsk-words');
  for(const stage of ['examples','practice','extra']){await page.locator(`[data-focus-stage="${stage}"]`).click();await check('hsk-'+stage);}
  await open('daily');await page.locator('.learning-session').waitFor();await check('daily');
  await open('review');await page.locator('#dailyLearningPanel:not(.hidden)').waitFor();await check('review');
