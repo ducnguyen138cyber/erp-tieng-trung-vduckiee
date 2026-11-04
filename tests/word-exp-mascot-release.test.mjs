@@ -29,6 +29,11 @@ test('word mastery +3 EXP uses a restricted RPC, dedupe and a 50-word daily cap'
   assert.match(sql,/auth\.uid\(\)/);
   assert.match(sql,/exp_awarded := case when awarded then 3/);
   assert.match(sql,/v_today_words >= 50/);
+  assert.match(sql,/select count\(\*\)::integer into v_today_words/);
+  assert.match(sql,/word_mastery_daily:/,'all words per user/day must share an advisory lock');
+  assert.match(sql,/created_at >= v_start/,'daily quota uses Vietnam local day');
+  assert.match(sql,/values \(v_uid, 'word_mastered', v_source, 3, v_dedupe\)/);
+  assert.doesNotMatch(sql,/v_today_exp\s*\+\s*5\s*>\s*50/);
   assert.match(sql,/on conflict\(user_id, dedupe_key\) do nothing/);
   assert.match(sql,/grant execute on function public\.award_word_mastery\(integer,text\) to authenticated/);
   assert.match(sql,/revoke all on function public\.award_word_mastery\(integer,text\) from public, anon/);
@@ -62,4 +67,16 @@ test('all new assets have cache-busted public entrypoints and current PWA cache'
   assert.match(index,/mascot-swap-v1\.js\?v=9/);
   assert.match(worker,/vduckie-pwa-v35/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
+});
+
+test('EXP reward guide matches the deployed three-point, fifty-word rule in every language',()=>{
+  const board=read('assets/v90/exp-leaderboard-v90.js');
+  const i18n=read('assets/i18n/interface-i18n-v1.js');
+  const index=read('index.html');
+  assert.match(board,/Nhớ đúng một từ HSK mới: \+3 EXP \(tối đa 50 từ\/ngày\)/);
+  assert.doesNotMatch(board,/Nhớ đúng một từ HSK mới: \+5 EXP/);
+  assert.match(i18n,/每天最多 50 个词/);
+  assert.match(i18n,/up to 50 words\/day/);
+  assert.match(index,/exp-leaderboard-v90\.js\?v=word3-50/);
+  assert.match(index,/interface-i18n-v1\.js\?v=3g1/);
 });
