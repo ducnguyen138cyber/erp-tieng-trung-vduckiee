@@ -2074,7 +2074,11 @@
     ensureMenu();
     ensureGuest();
     var roots=doc.querySelectorAll(rootsSelector);
-    for(var i=0;i<roots.length;i++)translateRoot(roots[i]);
+    for(var i=0;i<roots.length;i++){
+      var nested=false;
+      for(var j=0;j<i;j++)if(roots[j]&&typeof roots[j].contains==="function"&&roots[j].contains(roots[i])){nested=true;break;}
+      if(!nested)translateRoot(roots[i]);
+    }
     // Interactive controls can exist on screens outside the homepage.
     var controls=doc.querySelectorAll("button,[role='tab'],[role='menuitem']");
     for(var j=0;j<controls.length;j++){
@@ -2085,7 +2089,7 @@
     translatePinned();
     ensureMenu();
   }
-  function schedule(){if(scheduled)return;scheduled=true;var done=function(){scheduled=false;apply();};if(root.requestAnimationFrame)root.requestAnimationFrame(done);else root.setTimeout(done,32);}
+  function schedule(){if(scheduled)return;scheduled=true;root.setTimeout(function(){scheduled=false;apply();},85);}
   function setLanguage(next){
     if(!supported[next])return false;
     if(next!==lang){lang=next;try{root.localStorage.setItem(KEY,lang);}catch(error){}
