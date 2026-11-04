@@ -666,22 +666,28 @@
             return;
           }
           quiz.dataset.index = String(cursor);
-          quiz.querySelector('[data-focus-quiz-word]').textContent = words[cursor].zh;
-          quiz.querySelector('[data-focus-quiz-feedback]').textContent = '';
+          // Alternate recall direction: recognize Hanzi, then retrieve Hanzi from Vietnamese.
+          var reverse = cursor % 2 === 1 && words.length > 1;
+          quiz.dataset.reverse = reverse ? '1' : '0';
+          quiz.dataset.correctHanzi = words[cursor].zh;
+          quiz.querySelector('[data-focus-quiz-word]').textContent = reverse ? words[cursor].vi : words[cursor].zh;
+          quiz.querySelector('[data-focus-quiz-feedback]').textContent = reverse ? 'Chọn chữ Hán đúng với nghĩa trên.' : 'Chọn nghĩa đúng của chữ Hán trên.';
           var distractors = words.filter(function (word) { return word.zh !== words[cursor].zh && word.vi !== words[cursor].vi; }).slice(0,3);
           var options = [words[cursor]].concat(distractors);
           // Rotate the correct choice instead of always putting it first.
           options.splice(0,1);
           options.splice(cursor % (options.length + 1),0,words[cursor]);
           quiz.querySelector('[data-focus-quiz-choices]').innerHTML = options.map(function (word) {
-            return '<button type="button" data-focus-choice="' + attr(word.zh) + '">' + esc(word.vi) + '</button>';
+            return '<button type="button" data-focus-choice="' + attr(word.zh) + '">' + esc(reverse ? word.zh : word.vi) + '</button>';
           }).join('');
           return;
         }
         if (quiz && target.hasAttribute('data-focus-choice')) {
-          var expected = quiz.querySelector('[data-focus-quiz-word]').textContent;
+          var expected = quiz.dataset.correctHanzi || quiz.querySelector('[data-focus-quiz-word]').textContent;
           var correct = target.getAttribute('data-focus-choice') === expected;
-          quiz.querySelector('[data-focus-quiz-feedback]').textContent = correct ? '✓ Chính xác!' : 'Chưa đúng. Đáp án: ' + cards.find(function(card) { return card.querySelector('.hsk-focus-word-title strong').textContent === expected; }).querySelector('[data-focus-meaning]').textContent;
+          var card = cards.find(function(item) { return item.querySelector('.hsk-focus-word-title strong').textContent === expected; });
+          var meaning = card && card.querySelector('[data-focus-meaning]');
+          quiz.querySelector('[data-focus-quiz-feedback]').textContent = correct ? '✓ Chính xác!' : 'Chưa đúng. Đáp án: ' + (quiz.dataset.reverse === '1' ? expected : meaning && meaning.textContent || expected);
           quiz.querySelectorAll('[data-focus-choice]').forEach(function (choice) { choice.disabled = true; });
           quiz.querySelector('[data-focus-quiz-next]').classList.remove('hidden');
           return;
