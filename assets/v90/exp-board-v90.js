@@ -37,7 +37,9 @@
   function rows(rowsData, myRank) {
     var host = byId("expLeaderboardList"); if (!host) return;
     if (!rowsData.length) { host.innerHTML = '<div class="exp-state"><strong>Chưa có dữ liệu EXP</strong>Hãy hoàn thành bài học đầu tiên để xuất hiện ở đây.</div>'; return; }
-    host.innerHTML = rowsData.map(function (row) {
+    var noEXP=rowsData.every(function(row){return row.total_exp===0;});
+    var note=noEXP?'<div class="exp-state exp-zero-explained"><strong>Chưa ai nhận EXP</strong>3 hồ sơ người học không đồng nghĩa với 3 tài khoản đã hoàn thành bài. Hãy đăng nhập, hoàn thành một bài HSK rồi kiểm tra lại mục Tổng EXP.</div>':'';
+    host.innerHTML = note+rowsData.map(function (row) {
       var mine = myRank && Number(row.rank) === Number(myRank.rank);
       return '<div class="exp-row' + (mine ? " is-me" : "") + '"><span class="exp-rank">#' + core.escapeHtml(row.rank) + '</span>' + avatar(row.display_name, row.avatar_url) + '<span class="exp-person"><span class="exp-name">' + core.escapeHtml(row.display_name) + '</span><small>' + levelText(row.total_exp) + '</small></span><span class="exp-points">' + core.escapeHtml(core.formatEXP(row.period_exp)) + '</span></div>';
     }).join("");
