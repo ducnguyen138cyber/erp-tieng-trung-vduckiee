@@ -72,3 +72,61 @@ test('app bootstrap and PWA install the two localized assets',()=>{
   assert.match(css,/#vdI18nChoices/);
   assert.match(css,/\.vd-i18n-guest/);
 });
+
+
+test('Chinese UI copy translates the screenshot headline and common dynamic learning labels',()=>{
+  const {api}=runtime();
+  api.setLanguage('zh');
+  assert.equal(api.translateUI('Bắt đầu hành trình cùng VDuckie'),'与 VDuckie 开启学习之旅');
+  assert.equal(api.translateUI('Học ngay →'),'立即学习 →');
+  assert.equal(api.translateUI('   Bài học đề xuất cho bạn  '),'为你推荐的课程');
+  assert.equal(api.translateUI('5/10 câu đã kiểm tra'),'已检查 5/10 题');
+  assert.equal(api.translateUI('Còn 2 từ cần ôn'),'还有 2 个待复习词汇');
+  assert.equal(api.translateUI('CẤP ĐỘ 3'),'等级 3');
+  assert.equal(api.translateUI('HSK 3 · 12/36 bài'),'HSK 3 · 已完成 12/36 课');
+  assert.equal(api.translateUI('努力'),'努力');
+  api.setLanguage('en');
+  assert.equal(api.translateUI('Bắt đầu hành trình cùng VDuckie'),'Start your journey with VDuckie');
+  assert.equal(api.translateUI('Học ngay →'),'Learn now →');
+  assert.equal(api.translateUI('5/10 câu đã kiểm tra'),'5/10 questions checked');
+});
+
+test('homepage hero heading uses a stable i18n binding when content is regenerated',()=>{
+  const shell=read('app-shell-v88.html');
+  assert.match(shell,/<h1 id="homeHubTitle" data-vd-i18n-key="Bắt đầu hành trình cùng VDuckie">/);
+  const pin={textContent:'Bắt đầu hành trình cùng VDuckie',getAttribute:()=> 'Bắt đầu hành trình cùng VDuckie'};
+  const document={readyState:'loading',body:{},documentElement:{lang:'vi'},
+    addEventListener(){},dispatchEvent(){},getElementById(){return null;},
+    querySelector(){return null;},
+    querySelectorAll(query){return query==='[data-vd-i18n-key]'?[pin]:[];}};
+  const window={document,localStorage:{getItem:()=>null,setItem(){}},requestAnimationFrame:()=>{}};
+  const context={window,document,CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}}};
+  vm.runInNewContext(source,context);
+  assert.equal(window.VDuckieInterfaceI18n.setLanguage('zh'),true);
+  assert.equal(pin.textContent,'与 VDuckie 开启学习之旅');
+  pin.textContent='Bắt đầu hành trình cùng VDuckie';
+  window.VDuckieInterfaceI18n.refresh();
+  assert.equal(pin.textContent,'与 VDuckie 开启学习之旅');
+  window.VDuckieInterfaceI18n.setLanguage('vi');
+  assert.equal(pin.textContent,'Bắt đầu hành trình cùng VDuckie');
+});
+
+test('homepage, sidebar and roadmap have no untranslated Vietnamese UI labels in Chinese mode',()=>{
+  const {api}=runtime();
+  api.setLanguage('zh');
+  const shell=read('app-shell-v88.html');
+  const sections=[
+    shell.slice(shell.indexOf('id="studySidebar"'),shell.indexOf('</aside>',shell.indexOf('id="studySidebar"'))),
+    shell.slice(shell.indexOf('id="homeHub"'),shell.indexOf('</section>',shell.indexOf('id="homeHub"'))),
+    shell.slice(shell.indexOf('id="homeJourney"'),shell.indexOf('</section>',shell.indexOf('id="homeJourney"')))
+  ];
+  const missing=[];
+  for(const block of sections){
+    const labels=[...new Set([...block.matchAll(/>([^<>]+)</g)].map(m=>m[1].trim().replace(/&amp;/g,'&')).filter(Boolean))];
+    for(const label of labels){
+      if(label==='×'||!/[À-ỹĐđ]/.test(label))continue;
+      if(api.translateUI(label)===label)missing.push(label);
+    }
+  }
+  assert.deepEqual(missing,[]);
+});
