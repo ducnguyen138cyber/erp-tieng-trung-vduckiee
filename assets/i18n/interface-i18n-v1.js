@@ -181,7 +181,7 @@
   function translateValue(original){
     var direct=t(original);
     if(direct!==original)return direct;
-    var button=original.match(/^(.+?)(\\s*[→↗›])$/);
+    var button=original.match(/^(.+?)(\s*[→↗›])$/);
     if(button){var base=button[1].trim(),translation=t(base);if(translation!==base)return translation+button[2];}
     var m=original.match(/^([+]?\d[\d.,]*)(\s*)(bài|từ|ngày) đã hoàn thành$/i);
     if(m&&lang!=="vi")return lang==="zh"?m[1]+(m[3]==="bài"?" 课已完成":m[3]==="từ"?" 个词已掌握":" 天已完成"):m[1]+" "+(m[3]==="bài"?"lessons":m[3]==="từ"?"words":"days")+" completed";
