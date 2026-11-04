@@ -1347,23 +1347,49 @@
     "SELECT LANGUAGE"
   ]
 });
-  var rootsSelector="header.top,#studySidebar,#homeHub,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card";
+  var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,.duckie-chat-panel,.free-learning-assistant,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
   function t(key,next){var index=(next||lang)==="zh"?0:(next||lang)==="en"?1:-1;return index<0||!strings[key]?key:strings[key][index]||key;}
   function translateValue(original){
-    var direct=t(original);
-    if(direct!==original)return direct;
-    var button=original.match(/^(.+?)(\s*[→↗›])$/);
-    if(button){var base=button[1].trim(),translation=t(base);if(translation!==base)return translation+button[2];}
-    var m=original.match(/^([+]?\d[\d.,]*)(\s*)(bài|từ|ngày) đã hoàn thành$/i);
-    if(m&&lang!=="vi")return lang==="zh"?m[1]+(m[3]==="bài"?" 课已完成":m[3]==="từ"?" 个词已掌握":" 天已完成"):m[1]+" "+(m[3]==="bài"?"lessons":m[3]==="từ"?"words":"days")+" completed";
+    var canonical=String(original||"").replace(/\u00a0/g," ").replace(/\s+/g," ").normalize("NFC").trim();
+    var direct=t(canonical);
+    if(direct!==canonical)return direct;
+    var arrow=canonical.match(/^(.+?)(\s*[→↗›])$/);
+    if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
+    if(lang!=="vi"){
+      var variants=[
+        [/^([+]?\d[\d.,]*)\s+(bài|từ|ngày) đã hoàn thành$/i,["已完成 $1 项","$1 completed"]],
+        [/^(\d+)\s*\/\s*(\d+)\s+câu đã kiểm tra$/i,["已检查 $1/$2 题","$1/$2 questions checked"]],
+        [/^(\d+)\s+từ cần ôn$/i,["$1 个待复习词汇","$1 words to review"]],
+        [/^(\d+)\s+từ đã luyện$/i,["已练习 $1 个词汇","$1 words practiced"]],
+        [/^(\d+)\s+bài đã hoàn thành$/i,["已完成 $1 课","$1 lessons completed"]],
+        [/^HSK\s*([1-4])\s*[·•]\s*(\d+)\s*\/\s*(\d+)\s*bài$/i,["HSK $1 · 已完成 $2/$3 课","HSK $1 · $2/$3 lessons"]],
+        [/^Tiếp tục HSK\s*([1-4])(?:\s*[→›])?$/i,["继续学习 HSK $1 →","Continue HSK $1 →"]],
+        [/^Học HSK\s*([1-4])(?:\s*[→›])?$/i,["学习 HSK $1 →","Study HSK $1 →"]],
+        [/^CẤP ĐỘ\s*([1-9])$/i,["等级 $1","LEVEL $1"]],
+        [/^Còn\s*(\d+)\s*từ cần ôn$/i,["还有 $1 个待复习词汇","$1 words to review"]],
+        [/^(\d+)\s*từ đến hạn$/i,["$1 个词已到复习时间","$1 words due"]],
+        [/^↻\s*Ôn HSK\s*·\s*(\d+)$/i,["↻ 复习 HSK · $1","↻ Review HSK · $1"]]
+      ];
+      for(var n=0;n<variants.length;n++)if(variants[n][0].test(canonical)){
+        return canonical.replace(variants[n][0],variants[n][1][lang==="zh"?0:1]);
+      }
+    }
     return original;
   }
+  function permittedProtected(element){
+    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,button,[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
+  }
+  function isProtected(element){
+    if(!element||!element.closest)return true;
+    if(element.closest("script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
+    return !!(element.closest(excludedSelector)&&!permittedProtected(element));
+  }
   function translateText(node){
-    if(!node||!node.parentElement||node.parentElement.closest(excludedSelector))return;
+    if(!node||!node.parentElement||isProtected(node.parentElement))return;
     var original=node.nodeValue||"", entry=history.get(node);
     if(entry&&original===entry.output)original=entry.source;
     else if(entry&&original===entry.source)original=entry.source;
@@ -1375,10 +1401,9 @@
     if(node.nodeValue!==result)node.nodeValue=result;
   }
   function translateAttributes(element){
-    if(element.closest&&element.closest(".vd-i18n-slot,.vd-i18n-guest"))return;
-    if(element.closest(excludedSelector))return;
+    if(isProtected(element))return;
     var prev=attrs.get(element)||{};
-    ["placeholder","aria-label","title"].forEach(function(attr){
+    ["placeholder","aria-label","aria-description","title","alt"].forEach(function(attr){
       var raw=element.getAttribute(attr);
       if(!raw)return;
       var source=prev[attr]&&prev[attr].output===raw?prev[attr].source:raw;
@@ -1392,7 +1417,7 @@
     if(!element)return;
     translateAttributes(element);
     var walker=doc.createTreeWalker(element,4,null),node;
-    while((node=walker.nextNode())){if(node.parentElement&&!node.parentElement.closest(".vd-i18n-slot,.vd-i18n-guest"))translateText(node);}
+    while((node=walker.nextNode()))translateText(node);
     var elements=element.querySelectorAll("[aria-label],[placeholder],[title]");
     for(var i=0;i<elements.length;i++)translateAttributes(elements[i]);
   }
@@ -1470,6 +1495,13 @@
       option.setAttribute("aria-pressed",selected?"true":"false");
     });
   }
+  function translatePinned(){
+    doc.querySelectorAll("[data-vd-i18n-key]").forEach(function(element){
+      var key=element.getAttribute("data-vd-i18n-key"),wanted=t(key);
+      if(!strings[key])return;
+      if(element.textContent!==wanted)element.textContent=wanted;
+    });
+  }
   function apply(){
     if(!doc.body)return;
     doc.documentElement.lang=lang==="zh"?"zh-CN":lang;
@@ -1484,6 +1516,7 @@
       if(controls[j].closest(rootsSelector))continue;
       translateRoot(controls[j]);
     }
+    translatePinned();
     ensureMenu();
   }
   function schedule(){if(scheduled)return;scheduled=true;var done=function(){scheduled=false;apply();};if(root.requestAnimationFrame)root.requestAnimationFrame(done);else root.setTimeout(done,32);}
