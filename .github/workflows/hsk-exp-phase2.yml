@@ -8,6 +8,11 @@ on:
       - 'assets/v89/exp-learning-hooks-v89.js'
       - 'assets/v90/exp-*.js'
       - 'tests/hsk-*'
+      - 'tests/word-exp-mascot-release.test.mjs'
+      - 'assets/mascot/**'
+      - 'assets/design-system/mascot-swap-v1.js'
+      - 'assets/v90/exp-floating-feedback-v91.css'
+      - 'supabase/migrations/*'
       - 'tests/v90-exp-level-weekly.test.js'
       - 'tests/pwa.test.js'
       - 'scripts/audit-hsk-learning-quality.mjs'
@@ -26,6 +31,6 @@ jobs:
         with:
           node-version: '24'
       - name: HSK learner and EXP regression tests
-        run: node --test tests/hsk-phase2-exp-regression.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-focus-learning.test.js tests/graded-hsk-entry.test.js tests/v90-exp-level-weekly.test.js tests/pwa.test.js
+        run: node --test tests/word-exp-mascot-release.test.mjs tests/hsk-phase2-exp-regression.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-focus-learning.test.js tests/graded-hsk-entry.test.js tests/v90-exp-level-weekly.test.js tests/pwa.test.js
       - name: HSK1–4 language quality inventory (advisory)
         run: node scripts/audit-hsk-learning-quality.mjs
