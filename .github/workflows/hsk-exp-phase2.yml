@@ -4,6 +4,8 @@ on:
     branches: [main]
     paths:
       - 'assets/hsk-content/**'
+      - 'assets/i18n/**'
+      - 'tests/interface-i18n-v1.test.mjs'
       - 'assets/curriculum/graded-hsk-entry.js'
       - 'assets/v89/exp-learning-hooks-v89.js'
       - 'assets/v90/exp-*.js'
@@ -31,6 +33,6 @@ jobs:
         with:
           node-version: '24'
       - name: HSK learner and EXP regression tests
-        run: node --test tests/word-exp-mascot-release.test.mjs tests/hsk-phase2-exp-regression.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-focus-learning.test.js tests/graded-hsk-entry.test.js tests/v90-exp-level-weekly.test.js tests/pwa.test.js
+        run: node --test tests/interface-i18n-v1.test.mjs tests/word-exp-mascot-release.test.mjs tests/hsk-phase2-exp-regression.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-focus-learning.test.js tests/graded-hsk-entry.test.js tests/v90-exp-level-weekly.test.js tests/pwa.test.js
       - name: HSK1–4 language quality inventory (advisory)
         run: node scripts/audit-hsk-learning-quality.mjs
