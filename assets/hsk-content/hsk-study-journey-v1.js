@@ -80,13 +80,47 @@
     var data=load(),key=reviewKey(level,hanzi),item=data.reviews[key];
     if(!item)return false;
     item.stage=known?Math.min(INTERVALS.length-1,(Number(item.stage)||0)+1):0;
+    if(!known){item.weak=true;item.mistakes=Math.max(0,Number(item.mistakes)||0)+1;}
+    else if(item.stage>=2)item.weak=false;
     item.lastAt=now();item.nextAt=now()+(known?INTERVALS[item.stage]*DAY:5*60000);
     return emit(data);
+  }
+  function recordWord(level,lessonId,hanzi,correct,pinyin,meaningVi){
+    level=Number(level);lessonId=safe(lessonId);hanzi=safe(hanzi);
+    if(level<1||level>4||!lessonId||!hanzi)return false;
+    var data=load(),key=reviewKey(level,hanzi),item=object(data.reviews[key]),timestamp=now();
+    item.level=level;item.lessonId=lessonId;item.hanzi=hanzi;
+    item.pinyin=safe(pinyin)||safe(item.pinyin);item.meaningVi=safe(meaningVi)||safe(item.meaningVi);
+    item.attempts=Math.max(0,Number(item.attempts)||0)+1;
+    item.correct=Math.max(0,Number(item.correct)||0)+(correct===true?1:0);
+    item.mistakes=Math.max(0,Number(item.mistakes)||0)+(correct===false?1:0);
+    item.lastAt=timestamp;
+    if(correct===false){
+      item.stage=0;item.nextAt=timestamp;item.weak=true;
+    }else{
+      // A single correct answer doesn't instantly erase prior weaknesses.
+      item.stage=Math.max(0,Number(item.stage)||0);
+      item.nextAt=item.nextAt && Number(item.nextAt)>timestamp ? item.nextAt:timestamp+DAY;
+    }
+    data.reviews[key]=item;
+    return emit(data);
+  }
+  function wordStats(){
+    var reviews=load().reviews,words=Object.keys(reviews).map(function(key){return reviews[key];}).filter(Boolean);
+    var correct=0,attempts=0;
+    words.forEach(function(word){attempts+=Number(word.attempts)||0;correct+=Number(word.correct)||0;});
+    return {studied:words.length,weak:words.filter(function(word){return !!word.weak;}).length,
+      attempts:attempts,correct:correct,accuracy:attempts?Math.round(correct*100/attempts):null};
+  }
+  function weakWords(level){
+    return Object.keys(load().reviews).map(function(key){return load().reviews[key];}).filter(function(item){
+      return item&&item.weak&&(!level||Number(item.level)===Number(level));
+    }).sort(function(a,b){return Number(b.mistakes||0)-Number(a.mistakes||0);});
   }
   function levelCount(level){
     var lessons=load().lessons;
     return Object.keys(lessons).filter(function(id){return Number(lessons[id]&&lessons[id].level)===Number(level)&&!!lessons[id].completedAt;}).length;
   }
-  function summary(){var data=load();return {current:copy(data.current),totalCompleted:Object.keys(data.lessons).filter(function(id){return !!data.lessons[id].completedAt;}).length,due:due().length};}
-  return Object.freeze({KEY:KEY,load:load,current:current,visit:visit,lesson:lesson,recordAnswer:recordAnswer,stats:stats,complete:complete,due:due,reviewWord:reviewWord,levelCount:levelCount,summary:summary});
+  function summary(){var data=load();return Object.assign({current:copy(data.current),totalCompleted:Object.keys(data.lessons).filter(function(id){return !!data.lessons[id].completedAt;}).length,due:due().length},wordStats());}
+  return Object.freeze({KEY:KEY,load:load,current:current,visit:visit,lesson:lesson,recordAnswer:recordAnswer,stats:stats,complete:complete,due:due,reviewWord:reviewWord,recordWord:recordWord,wordStats:wordStats,weakWords:weakWords,levelCount:levelCount,summary:summary});
 });
