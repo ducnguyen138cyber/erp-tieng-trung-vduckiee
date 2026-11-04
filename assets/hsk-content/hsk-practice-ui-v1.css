@@ -61,3 +61,63 @@
 .hsk-practice-entry button{border:1px solid #93c5fd;background:#dbeafe;border-radius:12px;padding:12px 18px;color:#1d4ed8;font-weight:850;white-space:nowrap;min-height:44px;cursor:pointer}
 .hsk-practice-entry button:hover{background:#bfdbfe}
 @media(max-width:620px){.hsk-practice-entry{flex-direction:column;align-items:stretch;padding:15px}.hsk-practice-entry button{white-space:normal}}
+
+
+/* v2: full exam paper, section navigation and all questions visible at once. */
+.hsk-exam-status{display:flex;gap:28px;align-items:center;justify-content:space-between;background:#f8fbff;border:1px solid #dbeafe;border-radius:14px;padding:13px 18px;margin-bottom:11px}
+.hsk-exam-status>div{display:flex;align-items:center;gap:9px}
+.hsk-exam-status span{font-size:12px;color:#64748b}
+.hsk-exam-status strong{font-size:16px;color:#1d4ed8;font-variant-numeric:tabular-nums}
+.hsk-exam-section-nav{display:flex;flex-wrap:wrap;gap:9px;margin:19px 0 25px}
+.hsk-exam-section-nav button{padding:11px 14px;border:1px solid #bfdbfe;background:#eff6ff;color:#1e40af;border-radius:11px;font-weight:750}
+.hsk-exam-section-nav button:hover{background:#dbeafe}
+.hsk-exam-section-nav b{font-size:12px;margin-left:6px;border-radius:8px;padding:2px 7px;background:#dbeafe}
+.hsk-exam-section{scroll-margin-top:24px;padding:0 0 27px;margin:25px 0 30px;border-bottom:1px solid #e2e8f0}
+.hsk-exam-section-header{display:flex;align-items:center;justify-content:space-between;gap:20px;border-bottom:1px solid #bfdbfe;padding:12px 0 15px}
+.hsk-exam-section-header h3{font-size:23px;font-weight:850;margin:0 0 7px;color:#0f172a}
+.hsk-exam-section-header p{font-size:13px;color:#64748b;margin:0;line-height:1.65}
+.hsk-exam-section-header>strong{white-space:nowrap;background:#dbeafe;color:#1e40af;padding:8px 11px;border-radius:10px;font-size:13px}
+.hsk-exam-question-list{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;margin-top:15px}
+.hsk-practice-screen .hsk-practice-question.hsk-exam-question{max-width:none;text-align:left;margin:0;padding:17px 20px 19px;border:1px solid #e2e8f0;border-radius:14px;background:#fff;scroll-margin-top:20px}
+.hsk-exam-q-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:start;margin-bottom:10px}
+.hsk-exam-q-head span{font-size:15px;color:#0f172a;font-weight:850}
+.hsk-exam-q-head small{font-size:12px;font-weight:500;color:#64748b;line-height:1.5}
+.hsk-exam-stimulus{font-size:17px;font-weight:700;margin:8px 0 13px;line-height:1.7;color:#111827;overflow-wrap:anywhere}
+.hsk-exam-stimulus.is-hanzi{font-size:27px;letter-spacing:.01em}
+.hsk-exam-audio{margin:8px 0 13px}
+.hsk-exam-audio button{padding:10px 15px;border:1px solid #93c5fd;border-radius:11px;background:#eff6ff;color:#1d4ed8;font-weight:800}
+.hsk-exam-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.hsk-exam-choice{display:flex;gap:11px;align-items:center;padding:10px 12px;min-height:50px;border:1px solid #dbeafe;border-radius:11px;font-size:14px;color:#1e293b;line-height:1.55;cursor:pointer;overflow-wrap:anywhere}
+.hsk-exam-choice:hover{background:#f8fbff;border-color:#93c5fd}
+.hsk-exam-choice.is-selected{background:#eff6ff;border-color:#60a5fa;box-shadow:0 0 0 1px #bfdbfe inset}
+.hsk-exam-choice input{accent-color:#2563eb;flex:0 0 auto;width:16px;height:16px;cursor:pointer}
+.hsk-exam-letter{display:grid;place-items:center;flex:0 0 24px;width:24px;height:24px;border-radius:7px;background:#f1f5f9;color:#475569;font-size:12px;font-weight:850}
+.hsk-exam-write-label{display:block;font-size:12px;color:#64748b;margin:8px 0}
+.hsk-exam-input{width:min(100%,390px);min-height:46px;border:1px solid #cbd5e1;border-radius:10px;padding:10px 12px;font-size:17px;background:white;color:#0f172a}
+.hsk-exam-input:focus{outline:3px solid #bfdbfe;border-color:#60a5fa}
+.hsk-exam-submit-bar{display:flex;gap:14px;justify-content:space-between;align-items:center;border-radius:13px;border:1px solid #bfdbfe;background:#eff6ff;padding:14px 16px;margin-top:19px}
+.hsk-exam-submit-bar>span{font-size:13px;color:#334155}
+.hsk-exam-submit{padding:12px 20px;border-radius:11px;background:#2563eb;color:white;border:1px solid #2563eb;font-weight:850;white-space:normal}
+.hsk-exam-submit:hover{background:#1d4ed8}
+.hsk-exam-warning{font-size:13px;color:#b45309;font-weight:750;margin:9px 3px;min-height:1em}
+.hsk-exam-review{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px;margin:13px 0 0;padding:11px 13px;border-radius:10px;font-size:13px}
+.hsk-exam-review.is-correct{background:#ecfdf5;border:1px solid #a7f3d0}
+.hsk-exam-review.is-incorrect{background:#fff1f2;border:1px solid #fecdd3}
+.hsk-exam-review small{font-size:12px;color:#475569;flex:1 1 100%}
+.hsk-exam-score-table{border-collapse:collapse;width:min(100%,650px);margin:20px 0 12px;text-align:left;font-size:14px}
+.hsk-exam-score-table th,.hsk-exam-score-table td{padding:13px 14px;border-bottom:1px solid #e2e8f0}
+.hsk-exam-score-table th{background:#eff6ff;color:#1e40af}
+.hsk-practice-catalog-meta{font-size:13px;color:#1d4ed8;font-weight:750;margin:14px 0}
+.hsk-practice-screen button:focus-visible,.hsk-practice-screen input:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+@media(max-width:620px){
+ .hsk-exam-status{padding:10px 12px;gap:12px}
+ .hsk-exam-status>div{gap:5px;flex-direction:column;align-items:start}
+ .hsk-exam-section-nav{gap:6px}
+ .hsk-exam-section-nav button{font-size:12px;padding:9px}
+ .hsk-exam-section-header{align-items:flex-start}
+ .hsk-exam-section-header h3{font-size:20px}
+ .hsk-practice-screen .hsk-practice-question.hsk-exam-question{padding:13px}
+ .hsk-exam-choices{grid-template-columns:1fr}
+ .hsk-exam-submit-bar{align-items:stretch;flex-direction:column}
+ .hsk-exam-submit{width:100%}
+}
