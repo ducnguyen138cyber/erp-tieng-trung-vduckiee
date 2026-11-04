@@ -11,12 +11,17 @@
   if (root) root.VDuckieHSKPracticeBank = api;
 })(typeof window !== "undefined" ? window : null, function () {
   "use strict";
-  var LEVELS = 4, PAPERS_PER_LEVEL = 56, QUESTIONS_PER_PAPER = 24;
-  var TYPES = ["meaning","meaning","meaning","meaning","meaning","meaning",
-    "hanzi","hanzi","hanzi","hanzi","hanzi","reading",
-    "pinyin","pinyin","pinyin","pinyin",
-    "listening","listening","listening","listening",
-    "writing","writing","writing","reading"];
+  var LEVELS = 4, PAPERS_PER_LEVEL = 56;
+  // Counts match the widely used HSK 1–4 paper structure. Questions are
+  // original VDuckie vocabulary drills (TTS for listening), not official
+  // released exam questions or a certified HSK simulation.
+  var BLUEPRINT = Object.freeze({
+    1: Object.freeze({listening:20,reading:20,writing:0,minutes:40}),
+    2: Object.freeze({listening:35,reading:25,writing:0,minutes:55}),
+    3: Object.freeze({listening:40,reading:30,writing:10,minutes:90}),
+    4: Object.freeze({listening:45,reading:40,writing:15,minutes:105})
+  });
+  var READING_TYPES = ["meaning","hanzi","pinyin","reading"];
   function clean(value) { return String(value == null ? "" : value).trim(); }
   function normalize(value) {
     return clean(value).normalize("NFKC").toLocaleLowerCase().replace(/[\s，。！？、,.!?;；:：]/g, "");
@@ -75,58 +80,61 @@
     level = Number(level); paperNumber = Number(paperNumber);
     if (!Number.isInteger(level) || level < 1 || level > LEVELS) throw new RangeError("HSK level must be 1–4");
     if (!Number.isInteger(paperNumber) || paperNumber < 1 || paperNumber > PAPERS_PER_LEVEL) throw new RangeError("Invalid practice paper");
-    var pool = validWords(records).sort(function (a,b) { return a.id.localeCompare(b.id); });
-    if (pool.length < QUESTIONS_PER_PAPER + 8) throw new Error("HSK vocabulary bank is incomplete");
+    var plan = BLUEPRINT[level], total = plan.listening + plan.reading + plan.writing;
+    var pool = validWords(records).sort(function (a,b) {return a.id.localeCompare(b.id);});
+    if (pool.length < total + 8) throw new Error("HSK vocabulary bank is incomplete");
     var rng = random(seed(level,paperNumber));
-    var selected = shuffle(pool, rng).slice(0, QUESTIONS_PER_PAPER);
-    var types = shuffle(TYPES,rng);
-    var questions = selected.map(function (word, index) {
-      var type = types[index];
-      var id = "hsk" + level + "-practice-" + String(paperNumber).padStart(2,"0") + "-q" + String(index + 1).padStart(2,"0");
-      var question = {id:id,wordId:word.id,hanzi:word.hanzi,pinyin:word.pinyin,meaning:word.meaning,
-        example:word.example,type:type,options:[],answer:"",stimulus:"",prompt:""};
-      if (type === "meaning") {
-        question.prompt = "Chọn nghĩa đúng của từ tiếng Trung.";
-        question.stimulus = word.hanzi;
-        question.answer = word.meaning;
-        question.options = optionsFor(word,pool,"meaning",rng);
-      } else if (type === "hanzi") {
-        question.prompt = "Chọn chữ Hán tương ứng với nghĩa.";
-        question.stimulus = word.meaning;
-        question.answer = word.hanzi;
-        question.options = optionsFor(word,pool,"hanzi",rng);
-      } else if (type === "pinyin") {
-        question.prompt = "Chọn Pinyin có thanh điệu chính xác.";
-        question.stimulus = word.hanzi;
-        question.answer = word.pinyin;
-        question.options = optionsFor(word,pool,"pinyin",rng);
-      } else if (type === "reading") {
-        question.prompt = "Đọc câu và chọn nghĩa của từ được hỏi.";
-        question.stimulus = word.example ? word.example + " (" + word.hanzi + ")" : word.hanzi;
-        question.answer = word.meaning;
-        question.options = optionsFor(word,pool,"meaning",rng);
-      } else if (type === "listening") {
-        question.prompt = "Nghe phát âm và chọn chữ Hán được đọc.";
-        question.stimulus = ""; // Do not reveal the answer until submitted.
-        question.answer = word.hanzi;
-        question.options = optionsFor(word,pool,"hanzi",rng);
-      } else {
-        question.prompt = "Viết chữ Hán cho từ dưới đây.";
-        question.stimulus = word.pinyin + " · " + word.meaning;
-        question.answer = word.hanzi;
+    var selected = shuffle(pool,rng).slice(0,total);
+    var sections = ["listening","reading","writing"].filter(function(kind){return plan[kind]>0;});
+    var questions=[],cursor=0;
+    sections.forEach(function(section) {
+      for(var part=0;part<plan[section];part++) {
+        var word=selected[cursor],type=section==="reading"?READING_TYPES[part%READING_TYPES.length]:section;
+        var id="hsk"+level+"-practice-"+String(paperNumber).padStart(2,"0")+"-q"+String(cursor+1).padStart(3,"0");
+        var question={id:id,wordId:word.id,hanzi:word.hanzi,pinyin:word.pinyin,meaning:word.meaning,
+          example:word.example,section:section,sectionNumber:part+1,type:type,
+          options:[],answer:"",stimulus:"",prompt:""};
+        if(type==="meaning") {
+          question.prompt="Chọn nghĩa đúng của từ tiếng Trung.";
+          question.stimulus=word.hanzi;question.answer=word.meaning;
+          question.options=optionsFor(word,pool,"meaning",rng);
+        }else if(type==="hanzi"){
+          question.prompt="Chọn chữ Hán tương ứng với nghĩa.";
+          question.stimulus=word.meaning;question.answer=word.hanzi;
+          question.options=optionsFor(word,pool,"hanzi",rng);
+        }else if(type==="pinyin"){
+          question.prompt="Chọn Pinyin có thanh điệu chính xác.";
+          question.stimulus=word.hanzi;question.answer=word.pinyin;
+          question.options=optionsFor(word,pool,"pinyin",rng);
+        }else if(type==="reading"){
+          question.prompt="Đọc câu và chọn nghĩa của từ được hỏi.";
+          question.stimulus=word.example ? word.example+" ("+word.hanzi+")" : word.hanzi;
+          question.answer=word.meaning;
+          question.options=optionsFor(word,pool,"meaning",rng);
+        }else if(type==="listening"){
+          question.prompt="Nghe phát âm và chọn chữ Hán được đọc.";
+          question.stimulus=""; // no answer revealed before submission
+          question.answer=word.hanzi;
+          question.options=optionsFor(word,pool,"hanzi",rng);
+        }else{
+          question.prompt="Viết chữ Hán cho từ dưới đây.";
+          question.stimulus=word.pinyin+" · "+word.meaning;question.answer=word.hanzi;
+        }
+        questions.push(question);
+        cursor++;
       }
-      return question;
     });
-    if (new Set(questions.map(function (x) {return x.wordId;})).size !== QUESTIONS_PER_PAPER) throw new Error("Duplicate term inside paper");
-    return { id:"hsk"+level+"-practice-"+String(paperNumber).padStart(2,"0"),level:level,number:paperNumber,
-      questionCount:questions.length,questions:questions,originalPractice:true,official:false,
-      note:"Đề luyện tập mô phỏng từ kho từ vựng VDuckie; không phải đề thi HSK chính thức." };
+    if(new Set(questions.map(function(q){return q.wordId;})).size!==total)throw new Error("Duplicate term inside paper");
+    return {id:"hsk"+level+"-practice-"+String(paperNumber).padStart(2,"0"),level:level,number:paperNumber,
+      questionCount:questions.length,questions:questions,sections:sections,
+      blueprint:Object.assign({},plan),official:false,originalPractice:true,
+      note:"Đề luyện tập từ kho từ vựng VDuckie, có số lượng câu theo khung HSK phổ biến. Không phải đề thi HSK chính thức."};
   }
   function grade(question, answer) {
     if (!question || !clean(answer)) return false;
     return normalize(answer) === normalize(question.answer);
   }
   return Object.freeze({LEVELS:LEVELS,PAPERS_PER_LEVEL:PAPERS_PER_LEVEL,
-    TOTAL_PAPERS:LEVELS*PAPERS_PER_LEVEL,QUESTIONS_PER_PAPER:QUESTIONS_PER_PAPER,
+    TOTAL_PAPERS:LEVELS*PAPERS_PER_LEVEL,BLUEPRINT:BLUEPRINT,
     build:build,grade:grade,validWords:validWords,seed:seed});
 });
