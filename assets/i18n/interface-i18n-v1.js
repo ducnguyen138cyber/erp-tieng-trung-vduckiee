@@ -26,7 +26,7 @@
     "VDuckie & thống kê":["VDuckie 与统计","VDuckie & Statistics"],
     "你好! (Xin chào!)":["你好！","Hello!"],
     "Bắt đầu hành trình cùng VDuckie":["与 VDuckie 开启学习之旅","Start your journey with VDuckie"],
-    "Chọn một bài vừa sức và học tiếng Trung theo cách của bạn — từ công việc ERP đến lộ trình HSK。":["选择适合自己的课程，按自己的节奏学习中文。","Choose a suitable lesson and learn Chinese at your own pace."],
+    "Chọn một bài vừa sức và học tiếng Trung theo cách của bạn — từ công việc ERP đến lộ trình HSK.":["选择适合自己的课程，按自己的节奏学习中文。","Choose a suitable lesson and learn Chinese at your own pace."],
     "Bắt đầu học HSK":["开始学习 HSK","Start learning HSK"],
     "Học từ vựng ERP":["学习 ERP 词汇","Learn ERP Vocabulary"],
     "KHO HỌC LIỆU":["学习资源","LEARNING RESOURCES"],
@@ -231,8 +231,10 @@
         });
       });
     }
-    menu.querySelector("[data-vd-lang-title]").textContent=t("Ngôn ngữ");
-    menu.querySelector("[data-vd-lang-current]").textContent=lang==="zh"?"中文":lang.toUpperCase();
+    var label=menu.querySelector("[data-vd-lang-title]"),current=menu.querySelector("[data-vd-lang-current]");
+    var translated=t("Ngôn ngữ"),shortLabel=lang==="zh"?"中文":lang.toUpperCase();
+    if(label.textContent!==translated)label.textContent=translated;
+    if(current.textContent!==shortLabel)current.textContent=shortLabel;
     menu.querySelectorAll("[data-vd-ui-lang]").forEach(function(b){var selected=b.getAttribute("data-vd-ui-lang")===lang;b.classList.toggle("is-selected",selected);b.setAttribute("aria-pressed",selected?"true":"false");});
   }
   function apply(){
@@ -250,7 +252,7 @@
     }
     ensureMenu();
   }
-  function schedule(){if(scheduled)return;scheduled=true;(root.requestAnimationFrame||root.setTimeout)(function(){scheduled=false;apply();},0);}
+  function schedule(){if(scheduled)return;scheduled=true;var done=function(){scheduled=false;apply();};if(root.requestAnimationFrame)root.requestAnimationFrame(done);else root.setTimeout(done,32);}
   function setLanguage(next){
     if(!supported[next])return false;
     if(next!==lang){lang=next;try{root.localStorage.setItem(KEY,lang);}catch(error){}
