@@ -92,6 +92,11 @@ try{for(const width of (observe?[1440]:[1440,390])){
  if(!observe){
    await page.locator('[data-practice-open]').click();
    await page.locator('.hsk-practice-paper').first().waitFor();
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   await page.waitForFunction(()=>document.querySelector('.hsk-practice-header h2')?.textContent.includes('HSK 模拟练习题库'));
+   assert.equal(await page.locator('.hsk-practice-paper').count(),56,'Chinese locale must retain all papers');
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
+   await page.waitForFunction(()=>document.querySelector('.hsk-practice-header h2')?.textContent.includes('Kho đề luyện'));
    assert.equal(await page.locator('.hsk-practice-paper').count(),56,'HSK1 must show 56 playable practice papers');
    await page.locator('[data-practice-level="3"]').click();
    assert.equal(await page.locator('.hsk-practice-paper').count(),56,'HSK3 must show 56 practice papers');
@@ -103,6 +108,10 @@ try{for(const width of (observe?[1440]:[1440,390])){
    else{await page.locator('#hskPracticeAnswer').fill('汉字');await page.locator('[data-practice-write] button').click();}
    await page.locator('[data-practice-next]:not([disabled])').waitFor();
    assert.match(await page.locator('.hsk-practice-feedback').textContent(),/Đáp án:/);
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
+   assert.match(await page.locator('.hsk-practice-feedback').textContent(),/正确答案：/);
+   assert.equal(await page.locator('[data-practice-next]:not([disabled])').count(),1,'language change must preserve answered state');
+   await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
    await page.locator('[data-practice-catalog]').click();
    assert.equal(await page.locator('.hsk-practice-paper').count(),56);
    await page.locator('[data-practice-close]').click();
