@@ -1566,7 +1566,21 @@
         [/^CẤP ĐỘ\s*([1-9])$/i,["等级 $1","LEVEL $1"]],
         [/^Còn\s*(\d+)\s*từ cần ôn$/i,["还有 $1 个待复习词汇","$1 words to review"]],
         [/^(\d+)\s*từ đến hạn$/i,["$1 个词已到复习时间","$1 words due"]],
-        [/^↻\s*Ôn HSK\s*·\s*(\d+)$/i,["↻ 复习 HSK · $1","↻ Review HSK · $1"]]
+        [/^↻\s*Ôn HSK\s*·\s*(\d+)$/i,["↻ 复习 HSK · $1","↻ Review HSK · $1"]],
+        [/^Còn\s*(\d+)\s*câu chưa kiểm tra\.\s*Làm và kiểm tra hết các câu để lưu hoàn thành\.$/i,["还有 $1 题未检查。完成并检查所有题目才能保存进度。","$1 questions remaining. Answer and check all to save completion."]],
+        [/^(\d+)\s*\/\s*(\d+)\s*từ$/i,["$1/$2 个词汇","$1/$2 words"]],
+        [/^(\d+)\s*\/\s*(\d+)\s*bài$/i,["$1/$2 课","$1/$2 lessons"]],
+        [/^(\d+)\s*\/\s*(\d+)\s*câu$/i,["$1/$2 题","$1/$2 questions"]],
+        [/^Bài\s*(\d+)$/i,["第 $1 课","Lesson $1"]],
+        [/^Câu\s*(\d+)$/i,["第 $1 题","Question $1"]],
+        [/^Ôn lại\s*(\d+)\s*từ$/i,["复习 $1 个词汇","Review $1 words"]],
+        [/^(\d+)\s*ngày liên tiếp$/i,["连续学习 $1 天","$1-day streak"]],
+        [/^(\d+)\s*ngày$/i,["$1 天","$1 days"]],
+        [/^(\d+)\s*từ đã nhớ$/i,["已记住 $1 个词","$1 words remembered"]],
+        [/^(\d+)\s*từ đang chờ ôn$/i,["$1 个待复习词汇","$1 words pending review"]],
+        [/^(\d+)\s*bài HSK đã hoàn thành$/i,["已完成 $1 节 HSK 课程","$1 HSK lessons completed"]],
+        [/^(\d+)\s*bài ERP đã hoàn thành$/i,["已完成 $1 节 ERP 课程","$1 ERP lessons completed"]],
+        [/^(\d+)\s*từ đã có lịch ôn$/i,["$1 个词已有复习计划","$1 words scheduled for review"]]
       ];
       for(var n=0;n<variants.length;n++)if(variants[n][0].test(canonical)){
         return canonical.replace(variants[n][0],variants[n][1][lang==="zh"?0:1]);
@@ -1744,6 +1758,6 @@
       observer.observe(doc.body,{childList:true,subtree:true,characterData:true});
     }
   }
-  root.VDuckieInterfaceI18n=Object.freeze({getLanguage:function(){return lang;},setLanguage:setLanguage,t:t,refresh:apply});
+  root.VDuckieInterfaceI18n=Object.freeze({getLanguage:function(){return lang;},setLanguage:setLanguage,t:t,translateUI:translateValue,refresh:apply});
   if(doc.readyState==="loading")doc.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })(window,document);
