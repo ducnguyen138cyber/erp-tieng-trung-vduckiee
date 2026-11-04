@@ -19,6 +19,11 @@ function update(){
     if(!img.dataset.vduckieMascotOriginal)img.dataset.vduckieMascotOriginal=img.getAttribute("src")||"unknown";
     if(img.getAttribute("src")!==target){img.src=target;img.alt=role?'Duckie '+({flashcards:'học thẻ từ',writing:'luyện viết',speaking:'luyện nói',listening:'luyện nghe'}[role]):"Linh vật Duckie đồng hành học tiếng Trung"}
   });
+  // Global legacy guard: old microphone art may be injected outside the known cards.
+  d.querySelectorAll('img[src*="duckie-speaking-2d-v3.webp"]').forEach(function(img){
+    img.src="./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0";
+    img.alt="Duckie cầm micro, có đầy đủ hai cánh";
+  });
 }
 var pending=false;function queue(){if(pending)return;pending=true;requestAnimationFrame(function(){pending=false;update()})}
 function mount(){update();new MutationObserver(queue).observe(d.body,{subtree:true,childList:true,attributes:true,attributeFilter:["src"]});}
