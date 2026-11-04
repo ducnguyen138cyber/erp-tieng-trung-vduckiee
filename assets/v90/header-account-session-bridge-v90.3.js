@@ -36,7 +36,7 @@
 
   core.session = function () {
     var live = originalSession();
-    return live && live.user ? live : legacySignedInSession();
+    return live && live.user ? live : null; // Never fake an authenticated user without a valid JWT.
   };
   core.__headerSessionBridgeV903 = true;
 
