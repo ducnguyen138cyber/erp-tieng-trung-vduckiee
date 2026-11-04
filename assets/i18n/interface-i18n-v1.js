@@ -2678,7 +2678,7 @@
     if(!element||!element.closest)return true;
     if(element.closest("script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
     // Never localize Vietnamese glosses, learner answers or Chinese examples, even inside UI-permitted elements.
-    if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages,.daily-options,.dictionary-word,.dictionary-meta,.dictionary-example,.focus-word>p,.focus-word>small,.context-focus>p,.question-focus>p,.hsk-pro-lesson-head h3 small"))return true;
+    if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages,.daily-options,.dictionary-word,.dictionary-meta small,.dictionary-example,.focus-word>p,.focus-word>small,.context-focus>p,.question-focus>p,.hsk-pro-lesson-head h3 small"))return true;
     return !!(element.closest(excludedSelector)&&!permittedProtected(element));
   }
   function translateText(node){
