@@ -22,7 +22,12 @@
     var stats=journal.stats(info.lesson.id,info.exercises.length),done=stats.completed;
     var summary=done?'<span class="hsk-study-chip hsk-study-complete">✓ Đã hoàn thành bài</span>':
       '<span class="hsk-study-chip">'+stats.checked+'/'+stats.total+' câu đã kiểm tra</span>';
-    return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>Được lưu trong nhật ký học tập riêng; không thay đổi EXP hoặc điểm thi HSK.</small></div>'+summary+'</div>';
+    var learning=journal.summary();
+    var insight='<div class="hsk-study-insights"><span>Đã hoàn thành <b>'+learning.totalCompleted+' bài</b></span>'+
+      '<span>Đã nhớ lâu <b>'+learning.knownWords+' từ</b></span>'+
+      '<span>Từ đang yếu <b>'+learning.weak+'</b></span>'+
+      (learning.accuracy===null?'':'<span>Đúng <b>'+learning.accuracy+'%</b> câu có đáp án</span>')+'</div>';
+    return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>Tiến độ học được lưu riêng; EXP chỉ cộng khi hoàn thành hoạt động hợp lệ.</small>'+insight+'</div>'+summary+'</div>';
   }
   function finishHtml(info){
     var stats=journal.stats(info.lesson.id,info.exercises.length);
@@ -100,6 +105,12 @@
     if(!journal.recordAnswer(current.level,current.lesson.id,exerciseId,correct))return false;
     update();return true;
   }
+  function onWordAttempt(word,correct){
+    if(!current||!word||typeof correct!=="boolean")return false;
+    var saved=journal.recordWordAttempt(current.level,current.lesson.id,word,correct);
+    if(saved){update();if(reviewOpen)reviewDrawer();}
+    return saved;
+  }
   function moveLesson(next){
     var runtime=root.VDuckieHskProfessionalRuntime;
     if(!runtime||!current)return;
@@ -158,5 +169,5 @@
     doc.addEventListener("vduckie:account-learning-synced",function(){update();reviewDrawer();});
   }
   bind();
-  root.VDuckieHskStudyFlow=Object.freeze({decorate:decorate,onChecked:onChecked,openReview:function(){reviewOpen=true;reviewDrawer();},getCurrent:function(){return current?{level:current.level,lessonId:current.lesson.id}:null;}});
+  root.VDuckieHskStudyFlow=Object.freeze({decorate:decorate,onChecked:onChecked,onWordAttempt:onWordAttempt,openReview:function(){reviewOpen=true;reviewDrawer();},getCurrent:function(){return current?{level:current.level,lessonId:current.lesson.id}:null;}});
 })(typeof window!=="undefined"?window:globalThis);
