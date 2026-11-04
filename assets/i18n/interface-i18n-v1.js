@@ -236,6 +236,9 @@
     var translated=t("Ngôn ngữ"),shortLabel=lang==="zh"?"中文":lang.toUpperCase();
     if(label.textContent!==translated)label.textContent=translated;
     if(current.textContent!==shortLabel)current.textContent=shortLabel;
+    var note=menu.querySelector(".vd-i18n-note"),noteText=t("Giáo trình hiện chủ yếu bằng tiếng Việt.");
+    note.hidden=lang==="vi";
+    if(!note.hidden&&note.textContent!==noteText)note.textContent=noteText;
     menu.querySelectorAll("[data-vd-ui-lang]").forEach(function(b){var selected=b.getAttribute("data-vd-ui-lang")===lang;b.classList.toggle("is-selected",selected);b.setAttribute("aria-pressed",selected?"true":"false");});
   }
   function ensureGuest(){
@@ -299,6 +302,18 @@
   }
   function start(){
     apply();
+    ["vduckie:exp-session","vduckie:my-exp-loaded","vduckie:exp-updated"].forEach(function(event){
+      doc.addEventListener(event,schedule);
+    });
+    doc.addEventListener("click",function(event){
+      var guest=doc.getElementById("vdUiLanguageGuest");
+      if(guest&&!guest.contains(event.target)){
+        var menu=guest.querySelector(".vd-i18n-guest-choices");
+        if(menu&&!menu.hidden){
+          menu.hidden=true;guest.querySelector(".vd-i18n-guest-trigger").setAttribute("aria-expanded","false");
+        }
+      }
+    });
     if(root.MutationObserver){
       observer=new root.MutationObserver(function(changes){
         for(var i=0;i<changes.length;i++){
