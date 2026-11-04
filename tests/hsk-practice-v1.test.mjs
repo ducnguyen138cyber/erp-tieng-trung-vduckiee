@@ -80,7 +80,7 @@ test('paper generation rejects invalid levels and incomplete banks',()=>{
   const vocab=words(1);
   for(const id of [0,57,-1,NaN])assert.throws(()=>bank.build(1,id,vocab));
   assert.throws(()=>bank.build(5,1,vocab));
-  assert.throws(()=>bank.build(4,1,vocab),/incomplete/);
+  assert.throws(()=>bank.build(4,1,vocab.slice(0,20)),/incomplete/);
   assert.throws(()=>bank.build(1,1,[]),/incomplete/);
 });
 test('practice exam is completely EXP-free; rewards remain in the learning flow',()=>{
