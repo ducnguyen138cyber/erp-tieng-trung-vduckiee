@@ -1,0 +1,31 @@
+name: Phase 2 HSK and EXP checks
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/hsk-content/**'
+      - 'assets/curriculum/graded-hsk-entry.js'
+      - 'assets/v89/exp-learning-hooks-v89.js'
+      - 'assets/v90/exp-*.js'
+      - 'tests/hsk-*'
+      - 'tests/v90-exp-level-weekly.test.js'
+      - 'tests/pwa.test.js'
+      - 'scripts/audit-hsk-learning-quality.mjs'
+      - 'index.html'
+      - 'service-worker.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hsk-and-exp:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: HSK learner and EXP regression tests
+        run: node --test tests/hsk-phase2-exp-regression.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-focus-learning.test.js tests/graded-hsk-entry.test.js tests/v90-exp-level-weekly.test.js tests/pwa.test.js
+      - name: HSK1–4 language quality inventory (advisory)
+        run: node scripts/audit-hsk-learning-quality.mjs
