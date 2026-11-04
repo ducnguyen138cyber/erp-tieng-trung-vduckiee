@@ -160,3 +160,66 @@ test('headings/controls can translate within protected learning areas, but vocab
   assert.match(source,/header,nav,\[role='button'\]/);
   assert.match(source,/querySelectorAll\("\[data-vd-i18n-key\]"\)/);
 });
+
+
+test('screenshot regression: Chinese UI has localized dashboard, adaptive review and HSK controls',()=>{
+  const {api}=runtime();
+  api.setLanguage('zh');
+  const cases=[
+    ['Tiếp tục bài HSK','继续上次的 HSK 课程'],
+    ['Tra từ theo mục tiêu','按学习目标查词'],
+    ['Ôn từ yếu','复习薄弱词汇'],
+    ['Bám đúng cấp độ và bài gần nhất của bạn.','从上次学习的等级和课程继续。'],
+    ['⚡ Bắt đầu phiên 5 câu','⚡ 开始 5 题练习'],
+    ['Mức: Tiêu chuẩn','难度：标准'],
+    ['Độ chính xác 65%','正确率 65%'],
+    ['0 phiên đã làm','已完成 0 次练习'],
+    ['0/24 bài đã hoàn thành · Từ mới, ví dụ, nghe đọc và luyện tập.','已完成 0/24 课 · 生词、例句、听读和练习。'],
+    ['Kho HSK bổ trợ ở menu là nơi tra cứu sâu, không phải giáo trình chính. Kết quả tự học được lưu riêng với điểm thi và EXP.','菜单中的 HSK 补充资源用于深入查阅，并非主课程。自学进度与考试分数和 EXP 分开记录。'],
+    ['TỪ 1 / 15','单词 1 / 15'],
+    ['Ví dụ sử dụng (2)','使用例句（2）'],
+    ['🔊 Nghe phát âm','🔊 听发音'],
+    ['Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.','听发音 → 猜意思 → 看例句 → 回忆。'],
+    ['← Bài trước','← 上一课'],
+    ['Bài sau →','下一课 →'],
+    ['15 từ','15 个词汇'],
+    ['Kho','仓库']
+  ];
+  for(const [input,want] of cases)assert.equal(api.translateUI(input),want,input);
+  api.setLanguage('en');
+  assert.equal(api.translateUI('Ví dụ sử dụng (2)'),'Usage examples (2)');
+  assert.equal(api.translateUI('TỪ 1 / 15'),'WORD 1 / 15');
+  assert.equal(api.translateUI('Mức: Tiêu chuẩn'),'Level: Standard');
+  api.setLanguage('vi');
+  assert.equal(api.translateUI('0/24 bài đã hoàn thành · Từ mới, ví dụ, nghe đọc và luyện tập.'),
+    '0/24 bài đã hoàn thành · Từ mới, ví dụ, nghe đọc và luyện tập.');
+});
+
+test('localized lesson UI is permitted inside protected HSK, but Vietnamese word meanings remain untouched',()=>{
+  const nodes=[
+    {nodeValue:'Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.',type:'intro'},
+    {nodeValue:'TỪ 1 / 15',type:'wordCounter'},
+    {nodeValue:'Bắt đầu',type:'meaning'}
+  ];
+  function closestFor(type,selector){
+    if(selector.includes('script,style,noscript'))return null;
+    if(selector.includes('.hsk-focus-example,.hsk-focus-meaning')&&type==='meaning')return {};
+    if(selector.includes('#hskLesson'))return {};
+    if(selector.includes('.hsk-focus-intro')&&type==='intro')return {};
+    if(selector.includes('.hsk-focus-word-title>span')&&type==='wordCounter')return {};
+    return null;
+  }
+  for(const node of nodes)node.parentElement={closest:selector=>closestFor(node.type,selector)};
+  const root={getAttribute:()=>null,querySelectorAll:()=>[],closest:()=>null};
+  const doc={readyState:'loading',body:root,documentElement:{lang:'vi'},
+    addEventListener(){},dispatchEvent(){},getElementById:()=>null,querySelector:()=>null,
+    querySelectorAll(selector){return selector.startsWith('header.top,')?[root]:[];},
+    createTreeWalker(){let i=0;return {nextNode(){return nodes[i++]||null;}};}
+  };
+  const window={document:doc,localStorage:{getItem:()=>null,setItem(){}}};
+  vm.runInNewContext(source,{window,document:doc,CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}}});
+  assert.equal(window.VDuckieInterfaceI18n.setLanguage('zh'),true);
+  assert.equal(nodes[0].nodeValue,'听发音 → 猜意思 → 看例句 → 回忆。');
+  assert.equal(nodes[1].nodeValue,'单词 1 / 15');
+  assert.equal(nodes[2].nodeValue,'Bắt đầu','vocabulary meaning must remain unchanged');
+});
