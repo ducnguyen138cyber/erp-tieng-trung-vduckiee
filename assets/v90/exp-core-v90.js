@@ -57,6 +57,53 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(function () { toast.className = "exp-toast"; }, 2800);
   }
+  function floatAward(amount, anchor) {
+    amount=Number(amount)||0;
+    if(amount<=0||!document.body||!document.createElement)return;
+    var reduced=root.matchMedia&&root.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var span=document.createElement("span");
+    span.className="vduckie-exp-float";
+    span.textContent="+"+amount+" EXP";
+    span.setAttribute("aria-hidden","true");
+    var target=anchor&&anchor.getBoundingClientRect?anchor:
+      (byId("expHomeAccount")||byId("cloudIdentity")||byId("hskLesson"));
+    if(target&&target.getBoundingClientRect){
+      var r=target.getBoundingClientRect();
+      var x=Math.max(46,Math.min(root.innerWidth-46,r.left+r.width/2));
+      var y=Math.max(48,Math.min(root.innerHeight-50,r.top+Math.min(r.height,56)/2));
+      span.style.left=x+"px";span.style.top=y+"px";
+    }else{span.style.right="24px";span.style.top="70px";span.className+=" vduckie-exp-float-fixed";}
+    document.body.appendChild(span);
+    root.setTimeout(function(){if(span.parentNode)span.parentNode.removeChild(span);},reduced?900:1500);
+  }
+  function hashWord(level,hanzi){
+    var text=String(level)+":"+String(hanzi||"").trim(),value=2166136261;
+    for(var i=0;i<text.length;i++){value^=text.charCodeAt(i);value=Math.imul(value,16777619);}
+    return (value>>>0).toString(36).padStart(7,"0");
+  }
+  function announceAward(row,anchor){
+    if(row&&row.awarded&&Number(row.exp_awarded)>0){
+      floatAward(row.exp_awarded,anchor);
+      document.dispatchEvent(new CustomEvent("vduckie:exp-updated",{detail:row}));
+      document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded",{detail:{totalEXP:Number(row.total_exp)||0}}));
+      if(root.VDuckieEXPUI&&root.VDuckieEXPUI.isLeaderboardOpen&&root.VDuckieEXPUI.isLeaderboardOpen())root.VDuckieEXPUI.refreshLeaderboard();
+    }
+    return row;
+  }
+  function awardWordMastery(level,hanzi,anchor){
+    if(!session||!session.user)return Promise.resolve({awarded:false,reason:"not_authenticated",exp_awarded:0});
+    level=Number(level);hanzi=String(hanzi||"").trim();
+    if(level<1||level>4||!hanzi)return Promise.resolve({awarded:false,reason:"invalid_word",exp_awarded:0});
+    return rpc("award_word_mastery",{p_level:level,p_word_hash:hashWord(level,hanzi)})
+      .then(function(data){
+        var row=Array.isArray(data)?data[0]:data;
+        return announceAward(row||{awarded:false,reason:"empty_result"},anchor);
+      }).catch(function(error){
+        console.warn("Word mastery EXP award failed",error);
+        document.dispatchEvent(new CustomEvent("vduckie:exp-error",{detail:{code:"word_mastered",message:error&&error.message||"EXP unavailable"}}));
+        return {awarded:false,reason:"error",exp_awarded:0};
+      });
+  }
   function configured() {
     return /^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(config.url || "") &&
       /^(sb_publishable_|eyJ)/.test(config.publishableKey || "");
@@ -126,9 +173,7 @@
     return rpc("award_exp", { p_activity_code: activityCode, p_source_id: sourceId }).then(function (data) {
       var row = Array.isArray(data) ? data[0] : data;
       row = row || { awarded: false, reason: "unknown", exp_awarded: 0 };
-      if (row.awarded) showToast("+" + row.exp_awarded + " EXP", "good");
-      document.dispatchEvent(new CustomEvent("vduckie:exp-updated", { detail: row }));
-      return row;
+      return announceAward(row);
     }).catch(function (error) {
       console.error("Award EXP failed", error);
       if (/function|relation|schema cache|award_exp/i.test(String(error.message || error))) {
@@ -146,9 +191,7 @@
     return rpc("claim_weekly_mission", { p_mission_code: missionCode }).then(function (data) {
       var row = Array.isArray(data) ? data[0] : data;
       row = row || { awarded: false, reason: "unknown", exp_awarded: 0 };
-      if (row.awarded) showToast("Nhiệm vụ tuần: +" + row.exp_awarded + " EXP", "good");
-      document.dispatchEvent(new CustomEvent("vduckie:exp-updated", { detail: row }));
-      return row;
+      return announceAward(row);
     });
   }
   function refreshLeaderboard(period) {
@@ -181,6 +224,7 @@
   };
   root.VDuckieEXP = Object.freeze({
     awardEXP: awardEXP,
+    awardWordMastery: awardWordMastery,
     getCurrentUserEXP: getCurrentUserEXP,
     refreshLeaderboard: refreshLeaderboard,
     recordLearningEvent: recordLearningEvent,
