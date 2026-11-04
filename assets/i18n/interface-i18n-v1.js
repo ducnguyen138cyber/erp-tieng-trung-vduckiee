@@ -1823,6 +1823,72 @@
     "days"
   ]
 });
+  Object.assign(strings,{
+  "Ôn": [
+    "复习",
+    "Review"
+  ],
+  "Đang đến hạn ôn": [
+    "已到复习时间",
+    "Review due"
+  ],
+  "Mỗi ngày có hoạt động học sẽ được đóng dấu lửa và lưu theo tài khoản.": [
+    "每天完成学习活动即可保留连续学习记录，并同步至账户。",
+    "Daily activity maintains your streak and syncs to your account."
+  ],
+  "Mới bắt đầu? Chọn HSK 1. Đã biết tiếng Trung? Chọn cấp phù hợp rồi học lần lượt: từ mới → nghe & đọc → luyện tập → lưu tiến độ.": [
+    "刚开始学习中文？请选择 HSK 1。已有基础可选相应等级，依次学习生词、听读、练习并保存进度。",
+    "New to Chinese? Start with HSK 1. Otherwise pick your level, then learn vocabulary, listen, practice and save progress."
+  ],
+  "Người Việt dễ mắc": [
+    "越南学习者常见问题",
+    "Common difficulties for Vietnamese learners"
+  ],
+  "Bộ:": [
+    "部首：",
+    "Radical:"
+  ],
+  "Chưa có từ mới trong bài này.": [
+    "本课暂无生词。",
+    "No new vocabulary in this lesson."
+  ],
+  "Tiếp tục đúng vị trí đang học hoặc chọn cấp độ khác.": [
+    "继续上次的课程或选择其他等级。",
+    "Resume where you left off or select another level."
+  ],
+  "Tiến độ MSUTONG cũ được giữ nguyên": [
+    "旧版 MSUTONG 学习进度已保留",
+    "Your previous MSUTONG progress is preserved"
+  ],
+  "Nếu cần học lại phần trước, mở riêng giáo trình cũ.": [
+    "如需复习旧内容，请打开旧版课程。",
+    "Open the previous curriculum to review earlier lessons."
+  ],
+  "Đang học HSK": [
+    "正在学习 HSK",
+    "Currently studying HSK"
+  ],
+  "Đã đánh dấu hoàn thành": [
+    "已标记完成",
+    "Marked as complete"
+  ],
+  "Cấp người học": [
+    "学习者等级",
+    "Learner level"
+  ],
+  "đến cấp tiếp theo": [
+    "距离下一级",
+    "to next level"
+  ],
+  "Xem thêm": [
+    "查看更多",
+    "See more"
+  ],
+  "Chỉ hiển thị": [
+    "仅显示",
+    "Showing only"
+  ]
+});
   var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
@@ -1862,7 +1928,17 @@
         [/^(\d+)\s*từ đang chờ ôn$/i,["$1 个待复习词汇","$1 words pending review"]],
         [/^(\d+)\s*bài HSK đã hoàn thành$/i,["已完成 $1 节 HSK 课程","$1 HSK lessons completed"]],
         [/^(\d+)\s*bài ERP đã hoàn thành$/i,["已完成 $1 节 ERP 课程","$1 ERP lessons completed"]],
-        [/^(\d+)\s*từ đã có lịch ôn$/i,["$1 个词已有复习计划","$1 words scheduled for review"]]
+        [/^(\d+)\s*từ đã có lịch ôn$/i,["$1 个词已有复习计划","$1 words scheduled for review"]],
+        [/^Bạn đã hoàn thành\s*(\d+)\s*bài\.\s*Tiếp tục đúng vị trí đang học hoặc chọn cấp độ khác\.$/i,["你已完成 $1 课。继续上次学习的课程，或选择其他等级。","You have completed $1 lessons. Resume your current lesson or select another level."]],
+        [/^Tiến độ MSUTONG cũ được giữ nguyên\s*\((\d+)\s*bài\)\.\s*Nếu cần học lại phần trước, mở riêng giáo trình cũ\.$/i,["旧版 MSUTONG 已保留 $1 课进度。如需复习，请打开旧版课程。","Your $1 previous MSUTONG lessons are preserved. Open the previous curriculum to review them."]],
+        [/^↻\s*Ôn từ đến hạn\s*\((\d+)\)$/i,["↻ 复习到期词汇（$1）","↻ Review due words ($1)"]],
+        [/^Chọn HSK\s*([1-9])\s*→$/i,["选择 HSK $1 →","Choose HSK $1 →"]],
+        [/^Cấp người học\s*(\d+)$/i,["学习者等级 $1","Learner level $1"]],
+        [/^Chuỗi hiện tại\s*(\d+)\s*ngày\.$/i,["当前已连续学习 $1 天。","Current streak: $1 days."]],
+        [/^Sai\s*(\d+)\s*·\s*đúng\s*(\d+)$/i,["错误 $1 · 正确 $2","Wrong $1 · correct $2"]],
+        [/^(\d+)\s*\/\s*(\d+)\s*XP đến cấp tiếp theo$/i,["距离下一等级 $1/$2 XP","$1/$2 XP to the next level"]],
+        [/^↻\s*Ôn\s*(\d+)\s*từ HSK đến hạn$/i,["↻ 复习 $1 个到期 HSK 词汇","↻ Review $1 due HSK words"]],
+        [/^(\d+)\s*từ$/i,["$1 个词汇","$1 words"]]
       ];
       for(var n=0;n<variants.length;n++)if(variants[n][0].test(canonical)){
         return canonical.replace(variants[n][0],variants[n][1][lang==="zh"?0:1]);
