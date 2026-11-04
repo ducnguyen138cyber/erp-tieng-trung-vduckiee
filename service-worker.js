@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v24";
+const CACHE_VERSION = "vduckie-pwa-v25";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -22,12 +22,17 @@ const APP_SHELL = [
   "./assets/mascot/duckie-writing-2d-v3.webp?v=3.0",
   "./assets/mascot/duckie-listening-2d-v3.webp?v=3.0",
   "./assets/mascot/duckie-speaking-two-wings-v4.svg?v=4.0",
+  "./assets/v90/exp-floating-feedback-v91.css?v=1",
+  "./assets/v90/exp-core-v90.js?v=word-float1",
+  "./assets/v89/exp-learning-hooks-v89.js?v=word-float1",
+  "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
+  "./assets/design-system/mascot-swap-v1.js?v=8",
   "./assets/mascot/duckie-reader-icon-32.png?v=4.0",
   "./assets/design-system/erp-workspace-v1.css?v=1.0",
   "./assets/design-system/remaining-interface-polish-20261103.css?v=1",
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
   "./assets/hsk-content/hsk-study-journey-v1.js?v=phase2.3",
-  "./assets/hsk-content/hsk-study-flow-v1.js?v=phase2.4",
+  "./assets/hsk-content/hsk-study-flow-v1.js?v=word-float1",
   "./assets/hsk-content/hsk-study-journey-v1.css?v=phase2.3",
   "./assets/hsk-content/hsk-professional-runtime.js?v=phase2.4",
   "./assets/hsk-content/hsk-content-feature-flags.js?v=phase2.1",
