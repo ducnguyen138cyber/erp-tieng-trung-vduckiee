@@ -43,7 +43,7 @@
           '<p>'+(available?done+'/'+count+' bài đã hoàn thành · Từ mới, ví dụ, nghe đọc và luyện tập.':'Nội dung đang kiểm duyệt, chưa mở học.')+'</p>'+
           (available?'<button type="button" data-graded-level="'+level+'">'+(done?'Học tiếp HSK ':'Học HSK ')+level+' →</button>':'<span class="graded-hsk-coming">Sắp mở</span>')+
           '</article>';
-      }).join('')+'</div><details class="graded-hsk-legacy"><summary>Ôn lại giáo trình MSUTONG trước đây</summary><p>Tiến độ MSUTONG cũ được giữ nguyên ('+oldCount+' bài). Nếu cần học lại phần trước, mở riêng giáo trình cũ.</p><button type="button" data-graded-legacy>Ôn giáo trình cũ</button></details></section>';
+      }).join('')+'</div><section class="hsk-practice-entry"><div><b>HSK 实战题库 · 224 đề luyện</b><p>HSK 1–4 · Mỗi cấp 56 mã đề · 24 câu thật có đáp án và chấm điểm.</p></div><button type="button" data-practice-open>Mở kho đề HSK →</button></section><details class="graded-hsk-legacy"><summary>Ôn lại giáo trình MSUTONG trước đây</summary><p>Tiến độ MSUTONG cũ được giữ nguyên ('+oldCount+' bài). Nếu cần học lại phần trước, mở riêng giáo trình cũ.</p><button type="button" data-graded-legacy>Ôn giáo trình cũ</button></details></section>';
     host.querySelectorAll("[data-graded-level]").forEach(function(button){
       button.addEventListener("click",function(){
         var level=Number(button.getAttribute("data-graded-level"));
@@ -56,6 +56,9 @@
     });
     host.querySelector("[data-graded-review]").addEventListener("click",function(){
       if(summary.due)openLesson(Number(current.level)||1,current.lessonId,true);
+    });
+    host.querySelector("[data-practice-open]").addEventListener("click",function(){
+      if(root.VDuckieHSKPractice)root.VDuckieHSKPractice.open();
     });
     host.querySelector("[data-graded-legacy]").addEventListener("click",function(){
       if(root.VDuckieDailyLearning)root.VDuckieDailyLearning.show("msutong");
