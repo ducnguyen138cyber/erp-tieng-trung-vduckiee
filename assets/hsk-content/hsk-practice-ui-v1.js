@@ -6,7 +6,7 @@
   if (!root || !document) return;
   var bank = root.VDuckieHSKPracticeBank;
   if (!bank) return;
-  var cache = Object.create(null);
+  var cache = Object.create(null), requestSeq = 0;
   var level = 1, page = null, step = 0, marks = [], answered = false, finished = false, dictationRewardTried = false, audioFallback = false;
   function byId(id) { return document.getElementById(id); }
   function esc(value) { return String(value == null ? "" : value).replace(/[&<>"']/g,function(ch){
@@ -61,6 +61,7 @@
       esc(label("← Giáo trình HSK","← 返回 HSK 课程","← HSK curriculum"))+'</button></header>';
   }
   function catalog() {
+    requestSeq++;
     page = null; finished=false; level=Number(level)||1;
     var results=progress();
     var nav='<div class="hsk-practice-levels" role="tablist" aria-label="HSK levels">'+
@@ -88,10 +89,13 @@
   }
   function start(l,number){
     level=Number(l);step=0;marks=[];answered=false;finished=false;dictationRewardTried=false;audioFallback=false;
+    var token=++requestSeq;
     loading(label("Đang nạp câu hỏi…","正在加载题目…","Loading questions…"));
     getWords(level).then(function(records){
+      if(token!==requestSeq||document.body.getAttribute("data-current-area")!=="msutong")return;
       page=bank.build(level,number,records);renderQuestion();
     }).catch(function(error){
+      if(token!==requestSeq)return;
       decorate('<section class="hsk-practice-container">'+shellHeader(
         label("Không tải được đề","无法加载试卷","Unable to load paper"),
         String(error&&error.message||error))+
@@ -148,11 +152,9 @@
       esc(label("Danh sách đề","试卷列表","Paper list"))+'</button><button type="button" class="primary" data-practice-next disabled>'+
       esc(step===page.questions.length-1?label("Xem kết quả","查看结果","See results"):
       label("Câu tiếp →","下一题 →","Next →"))+'</button></div></div></section>');
+    if(answered&&marks[step])paintAnswer(q,marks[step].answer,marks[step].correct);
   }
-  function submit(answer,anchor) {
-    if(!page||answered||finished)return;
-    var q=page.questions[step], right=bank.grade(q,answer);
-    answered=true;marks.push({id:q.id,correct:right,wordId:q.wordId});
+  function paintAnswer(q,answer,right) {
     var buttons=panel().querySelectorAll("[data-practice-choice]");
     Array.prototype.forEach.call(buttons,function(button){
       var idx=Number(button.getAttribute("data-practice-choice"));
@@ -175,6 +177,12 @@
     }
     var next=panel().querySelector("[data-practice-next]");
     if(next)next.disabled=false;
+  }
+  function submit(answer,anchor) {
+    if(!page||answered||finished)return;
+    var q=page.questions[step], right=bank.grade(q,answer);
+    answered=true;marks.push({id:q.id,answer:answer,correct:right,wordId:q.wordId});
+    paintAnswer(q,answer,right);
     // Only a verified positive Supabase award displays floating EXP.
     // MCQ first correct word: +5 per distinct word (server deduped).
     // Written Hanzi: +10 for first correct dictation in this paper (server deduped).
@@ -189,12 +197,12 @@
       }
     }
   }
-  function finish() {
-    if(!page||finished)return;
-    finished=true;
+  function finish(restoreOnly) {
+    if(!page||(finished&&!restoreOnly))return;
+    if(!restoreOnly)finished=true;
     var correct=marks.filter(function(x){return x.correct;}).length;
     var score=Math.round(correct*100/page.questions.length);
-    saveResult(score);
+    if(!restoreOnly)saveResult(score);
     var pass=score>=70;
     decorate('<section class="hsk-practice-container">'+shellHeader(
       label("Kết quả luyện tập","练习成绩","Practice result"),
@@ -209,7 +217,7 @@
       '<button type="button" data-practice-catalog>'+esc(label("Chọn đề khác","选择其他试卷","Choose another paper"))+'</button></div></div></section>');
     // Existing server awards 15 EXP for a qualifying, first-time quiz pass.
     // New attempts and client-side scores cannot bypass the server dedupe key.
-    if(pass&&root.VDuckieEXP&&typeof root.VDuckieEXP.awardEXP==="function"){
+    if(!restoreOnly&&pass&&root.VDuckieEXP&&typeof root.VDuckieEXP.awardEXP==="function"){
       var source="hsk:practice-l"+page.level+"-p"+String(page.number).padStart(2,"0")+":quiz";
       root.VDuckieEXP.awardEXP("quiz_pass",source).catch(function(){});
     }
@@ -245,5 +253,12 @@
   function open(l) { level=(Number(l)>=1&&Number(l)<=4)?Number(l):1;catalog(); }
   document.addEventListener("click",onClick);
   document.addEventListener("submit",onSubmit);
+  document.addEventListener("vduckie:language-change",function(){
+    var host=panel();
+    if(!host||!host.classList.contains("hsk-practice-screen"))return;
+    if(finished)finish(true);
+    else if(page)renderQuestion();
+    else catalog();
+  });
   root.VDuckieHSKPractice=Object.freeze({open:open,build:bank.build,config:{papers:bank.TOTAL_PAPERS,perLevel:bank.PAPERS_PER_LEVEL,questions:bank.QUESTIONS_PER_PAPER}});
 })(window,document);
