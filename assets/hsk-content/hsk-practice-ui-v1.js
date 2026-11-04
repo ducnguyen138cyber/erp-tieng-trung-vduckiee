@@ -56,7 +56,8 @@
     }catch(error){ /* Local history is optional; results still show. */ }
   }
   function shellHeader(title,detail) {
-    return '<header class="hsk-practice-header"><div><span class="hsk-practice-kicker">HSK PRACTICE · VDUCKIE</span><h2>'+
+    return '<header class="hsk-practice-header"><div><span class="hsk-practice-kicker">'+
+      esc(label("LUYỆN ĐỀ HSK · VDUCKIE","HSK 模拟练习 · VDUCKIE","HSK PRACTICE · VDUCKIE"))+'</span><h2>'+
       esc(title)+'</h2><p>'+esc(detail)+'</p></div><button type="button" class="hsk-practice-back" data-practice-close>'+
       esc(label("← Giáo trình HSK","← 返回 HSK 课程","← HSK curriculum"))+'</button></header>';
   }
@@ -144,8 +145,16 @@
         return '<button type="button" class="hsk-practice-choice" data-practice-choice="'+i+'">'+
           '<span>'+String.fromCharCode(65+i)+'</span>'+esc(o)+'</button>';
       }).join("")+'</div>';
+    var kind={
+      meaning:label("Nghĩa từ","词义","Meaning"),
+      hanzi:label("Hán tự","汉字","Hanzi"),
+      pinyin:label("Pinyin","拼音","Pinyin"),
+      listening:label("Nghe","听力","Listening"),
+      reading:label("Đọc hiểu","阅读","Reading"),
+      writing:label("Viết","书写","Writing")
+    }[q.type]||q.type;
     decorate('<section class="hsk-practice-container">'+heading+progressHtml+
-      '<div class="hsk-practice-question"><span class="hsk-practice-kind">'+esc(q.type.toUpperCase())+
+      '<div class="hsk-practice-question"><span class="hsk-practice-kind">'+esc(kind)+
       '</span><h3>'+esc(prompt)+'</h3>'+stimulus+answers+
       '<div class="hsk-practice-feedback" id="hskPracticeFeedback" aria-live="polite"></div>'+
       '<div class="hsk-practice-actions"><button type="button" data-practice-catalog>'+
