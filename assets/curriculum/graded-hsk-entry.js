@@ -28,10 +28,13 @@
     var journey=root.VDuckieHskStudyJourney;
     var summary=journey?journey.summary():{current:{level:1,lessonId:""},totalCompleted:0,due:0};
     var current=summary.current;
+    var studied=Number(summary.studied||0),weak=Number(summary.weak||0);
+    var accuracy=summary.accuracy===null||summary.accuracy===undefined?"Chưa có bài tự kiểm tra":summary.accuracy+"% câu nhớ nghĩa đúng";
     var intro=summary.totalCompleted
       ? '<p>Bạn đã hoàn thành '+summary.totalCompleted+' bài. Tiếp tục đúng vị trí đang học hoặc chọn cấp độ khác.</p>'
       : '<p>Mới bắt đầu? Chọn HSK 1. Đã biết tiếng Trung? Chọn cấp phù hợp rồi học lần lượt: từ mới → nghe & đọc → luyện tập → lưu tiến độ.</p>';
     host.innerHTML='<section class="graded-hsk-page"><header class="graded-hsk-head"><span class="graded-hsk-eyebrow">GIÁO TRÌNH CHÍNH · HSK 1–4</span><h1>Học tiếng Trung theo từng bài</h1>'+intro+
+      '<div class="hsk-entry-mastery"><span><b>'+studied+'</b> từ đã luyện</span><span><b>'+weak+'</b> từ cần ôn</span><span><b>'+esc(accuracy)+'</b></span></div>'+
       '<div class="hsk-entry-quick"><button type="button" data-graded-continue>'+(summary.totalCompleted?'Tiếp tục HSK '+current.level+' →':'Bắt đầu HSK 1 →')+'</button><button type="button" data-graded-review'+(summary.due?'':' disabled')+'>↻ Ôn từ đến hạn ('+summary.due+')</button></div>'+
       '<p class="hsk-entry-note">Kho HSK bổ trợ ở menu là nơi tra cứu sâu, không phải giáo trình chính. Kết quả tự học được lưu riêng với điểm thi và EXP.</p></header>'+
       '<div class="graded-hsk-levels">'+counts.map(function(count,i){
