@@ -223,3 +223,68 @@ test('localized lesson UI is permitted inside protected HSK, but Vietnamese word
   assert.equal(nodes[1].nodeValue,'单词 1 / 15');
   assert.equal(nodes[2].nodeValue,'Bắt đầu','vocabulary meaning must remain unchanged');
 });
+
+
+test('dynamic text is translated in the same paint cycle, without the old 85ms timeout or self-triggered observers',()=>{
+  const jobs=[],stats={timers:0,observed:0,disconnected:0};
+  let listener;
+  const textNode={nodeValue:'Tiếp tục bài HSK',parentElement:{closest:()=>null}};
+  const surface={closest:()=>null,getAttribute:()=>null,querySelectorAll:()=>[],contains:()=>false};
+  const doc={readyState:'complete',body:surface,documentElement:{lang:'vi'},
+    addEventListener(){},dispatchEvent(){},getElementById(){return null;},
+    querySelector(){return null;},querySelectorAll(selector){
+      if(selector.startsWith('header.top,'))return [surface];
+      return [];
+    },
+    createTreeWalker(element){let read=false;return{nextNode(){return !read&&element===surface?(read=true,textNode):null;}}}
+  };
+  class FakeMutationObserver{
+    constructor(callback){listener=callback;}
+    observe(){stats.observed++;}
+    disconnect(){stats.disconnected++;}
+  }
+  const win={document:doc,localStorage:{getItem(){return 'zh';},setItem(){}},
+    MutationObserver:FakeMutationObserver,
+    queueMicrotask(callback){jobs.push(callback);},
+    setTimeout(){stats.timers++;throw new Error('Delayed locale repaint');}
+  };
+  vm.runInNewContext(source,{window:win,document:doc,CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}}});
+  assert.equal(textNode.nodeValue,'继续上次的 HSK 课程');
+  // The host's runtime paints a Vietnamese source string again.
+  textNode.nodeValue='Tiếp tục bài HSK';
+  listener([{type:'characterData'}]);
+  listener([{type:'characterData'}]);
+  assert.equal(jobs.length,1,'coalesce repeated mutations into one microtask');
+  assert.equal(stats.timers,0,'do not wait for visible Vietnamese paint');
+  jobs.shift()();
+  assert.equal(textNode.nodeValue,'继续上次的 HSK 课程');
+  assert.equal(stats.disconnected,1,'disconnect before our own text mutations');
+  assert.equal(stats.observed,2,'resume observing after the atomic translation pass');
+});
+
+test('localized cards can be prepared while detached from the page and reverse on language change',()=>{
+  const node={nodeValue:'Ôn từ yếu',parentElement:{closest:()=>null}};
+  const card={getAttribute:()=>null,closest:()=>null,querySelectorAll:()=>[]};
+  const doc={readyState:'loading',body:null,documentElement:{lang:'vi'},
+    addEventListener(){},dispatchEvent(){},
+    createTreeWalker(element){let done=false;return{nextNode(){return element===card&&!done?(done=true,node):null;}}}
+  };
+  const data=new Map();
+  const win={document:doc,localStorage:{getItem:key=>data.get(key)||null,setItem:(key,value)=>data.set(key,value)}};
+  vm.runInNewContext(source,{window:win,document:doc,CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}}});
+  const api=win.VDuckieInterfaceI18n;
+  api.setLanguage('zh');
+  api.localizeSubtree(card);
+  assert.equal(node.nodeValue,'复习薄弱词汇');
+  api.setLanguage('en');
+  api.localizeSubtree(card);
+  assert.equal(node.nodeValue,'Review weak words');
+  api.setLanguage('vi');
+  api.localizeSubtree(card);
+  assert.equal(node.nodeValue,'Ôn từ yếu');
+  const personal=read('assets/v85/personal-dashboard-v85.js');
+  const premium=read('assets/v86/premium-learning-v86.js');
+  assert.match(personal,/localizeSubtree\(node\);if\(main\)/);
+  assert.match(premium,/localizeSubtree\(node\);if\(main\)/);
+  assert.match(premium,/localizeSubtree\(el\);document\.body\.appendChild\(el\)/);
+});
