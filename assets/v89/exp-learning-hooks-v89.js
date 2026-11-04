@@ -122,6 +122,39 @@
     }
     document.addEventListener("vduckie:account-learning-synced",reconcile);
   }
+  function bindWordMastery(){
+    var inFlight={};
+    document.addEventListener("vduckie:hsk-word-mastered",function(event){
+      var detail=event.detail||{},level=Number(detail.level),hanzi=String(detail.hanzi||"").trim();
+      if(level<1||level>4||!hanzi||!root.VDuckieEXP||!root.VDuckieEXP.awardWordMastery)return;
+      var key=level+":"+hanzi;
+      if(inFlight[key])return;
+      inFlight[key]=true;
+      root.VDuckieEXP.awardWordMastery(level,hanzi,detail.origin||null).finally(function(){delete inFlight[key];});
+    });
+    // Reconcile words already recalled locally, without granting points to unverified page visits.
+    // Server dedupe makes this safe to retry after sign-in and account profile sync.
+    var reconciling=false,lastUser="";
+    function reconcileWords(){
+      var core=root.VDuckieEXPCore,journey=root.VDuckieHskStudyJourney;
+      var session=core&&core.session&&core.session();
+      if(reconciling||!session||!session.user||!journey||!root.VDuckieEXP.awardWordMastery)return;
+      var user=session.user.id;
+      var saved=journey.load().reviews||{},eligible=Object.keys(saved).map(function(key){return saved[key];})
+        .filter(function(item){return item&&Number(item.correct)>0&&Number(item.level)>=1&&Number(item.level)<=4&&item.hanzi;});
+      if(!eligible.length)return;
+      reconciling=true;
+      var chain=Promise.resolve();
+      eligible.slice(0,10).forEach(function(item){
+        chain=chain.then(function(){return root.VDuckieEXP.awardWordMastery(item.level,item.hanzi);});
+      });
+      chain.finally(function(){reconciling=false;lastUser=user;});
+    }
+    if(root.VDuckieEXPCore&&typeof root.VDuckieEXPCore.onSession==="function"){
+      root.VDuckieEXPCore.onSession(function(session){if(session&&session.user&&session.user.id!==lastUser)reconcileWords();});
+    }
+    document.addEventListener("vduckie:account-learning-synced",reconcileWords);
+  }
   function bindDailyGoal() {
     var done = byId("doneCount"); if (!done || !root.MutationObserver) return;
     dailyCount = Number(done.textContent || 0);
@@ -131,6 +164,6 @@
       dailyCount = current;
     }).observe(done, { childList: true, characterData: true, subtree: true });
   }
-  function init() { bindERP(); bindHSK(); bindPrimaryHSK(); bindDailyGoal(); }
+  function init() { bindERP(); bindHSK(); bindPrimaryHSK(); bindWordMastery(); bindDailyGoal(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })(window, document);
