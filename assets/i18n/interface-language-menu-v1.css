@@ -27,3 +27,26 @@
  #vdUiLanguageSlot .vd-i18n-toggle{min-height:44px}
  #vdI18nChoices button{min-height:42px}
 }
+
+/* Before sign-in, keep a small discoverable language shortcut in the header. */
+.vd-i18n-guest{position:relative;flex:0 0 auto}
+.vd-i18n-guest[hidden]{display:none!important}
+.vd-i18n-guest-trigger{
+  min-height:36px;padding:7px 10px;border:1px solid #dbeafe;border-radius:12px;
+  background:#fff;color:#1d4ed8;font:800 12px/1.2 system-ui,-apple-system,"Segoe UI",sans-serif;
+  cursor:pointer;white-space:nowrap
+}
+.vd-i18n-guest-trigger:hover,.vd-i18n-guest-trigger:focus-visible{background:#eff6ff}
+.vd-i18n-guest-choices{
+  position:absolute;right:0;top:calc(100% + 7px);z-index:1500;
+  width:170px;display:grid;gap:3px;padding:7px;
+  border:1px solid #dbeafe;border-radius:12px;background:#fff;
+  box-shadow:0 12px 25px rgba(30,49,77,.16)
+}
+.vd-i18n-guest-choices[hidden]{display:none!important}
+.vd-i18n-guest-choices button{
+  min-height:36px;border:0;border-radius:8px;padding:8px 10px;
+  background:#fff;color:#334155;font:650 12px system-ui,sans-serif;text-align:left;cursor:pointer
+}
+.vd-i18n-guest-choices button:hover,.vd-i18n-guest-choices button.is-selected{background:#eff6ff;color:#1d4ed8}
+@media(max-width:480px){.vd-i18n-guest-trigger{padding:7px 8px;min-height:34px}}
