@@ -366,7 +366,9 @@
 
   function renderPractice(data, lesson) {
     var exercises = array(lesson.practiceRefs).map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
-    return sectionCard('Bài tập của lesson', '<p class="hsk-pro-help">Làm bài và bấm Kiểm tra từng câu. Nhật ký tự học được lưu riêng; đây không phải điểm thi HSK chính thức.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
+    var needsReview = exercises.filter(function(exercise) { return !['linguistic-reviewed','verified'].includes(exercise.reviewStatus); }).length;
+    var qualityNotice = needsReview ? '<p class="hsk-pro-quality-note">Lưu ý: ' + needsReview + '/' + exercises.length + ' câu trong bài chưa được kiểm định ngôn ngữ đầy đủ. Hãy dùng đáp án để tự luyện, không coi là đề thi chuẩn.</p>' : '';
+    return sectionCard('Bài tập của lesson', '<p class="hsk-pro-help">Làm bài và bấm Kiểm tra từng câu. Nhật ký tự học được lưu riêng; đây không phải điểm thi HSK chính thức.</p>' + qualityNotice + '<div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
   }
 
   function lessonIndex(data, id) {
