@@ -32,7 +32,8 @@
     if(target)target.textContent=timeText(remaining);
   }
   function tick(){
-    if(!paper||finished)return;
+    if(!paper||finished){stopTimer();return;}
+    if(document.body.getAttribute("data-current-area")!=="msutong"){stopTimer();++seq;return;}
     remaining=Math.max(0,remaining-1);
     updateTimer();
     if(remaining===0)finish(true);
@@ -148,7 +149,7 @@
   function renderCard(q,index){
     var listening=q.section==="listening",wrote=q.type==="writing";
     var stimulus=listening?'<div class="hsk-exam-audio"><button type="button" data-practice-listen="'+index+'"'+
-      (finished?' disabled':'')+' aria-label="'+esc(t("Nghe câu "+q.sectionNumber,"播放第 "+q.sectionNumber+" 题","Play question "+q.sectionNumber))+
+      ' aria-label="'+esc(t("Nghe câu "+q.sectionNumber,"播放第 "+q.sectionNumber+" 题","Play question "+q.sectionNumber))+
       '">🔊 '+esc(t("Nghe câu "+q.sectionNumber,"播放第 "+q.sectionNumber+" 题","Play item "+q.sectionNumber))+'</button></div>':
       '<div class="hsk-exam-stimulus'+(q.type==="meaning"||q.type==="pinyin"?' is-hanzi':'')+'">'+esc(q.stimulus)+'</div>';
     var reviewHtml="";
@@ -225,7 +226,7 @@
     });
   }
   function play(index){
-    if(!paper||finished)return;
+    if(!paper)return;
     var q=paper.questions[index];if(!q||q.type!=="listening")return;
     if(!root.speechSynthesis||!root.SpeechSynthesisUtterance){
       var msg=el("hskPracticeSubmitWarning");
