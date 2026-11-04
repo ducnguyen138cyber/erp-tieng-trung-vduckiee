@@ -1889,7 +1889,398 @@
     "Showing only"
   ]
 });
-  var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
+  // Screenshot-based regression catalog: functional UI only; learning definitions/examples remain untouched.
+  Object.assign(strings,{
+    "Tiếp tục bài HSK": [
+      "继续上次的 HSK 课程",
+      "Continue HSK lesson"
+    ],
+    "Bám đúng cấp độ và bài gần nhất của bạn.": [
+      "从上次学习的等级和课程继续。",
+      "Resume the last level and lesson you studied."
+    ],
+    "Tra từ theo mục tiêu": [
+      "按学习目标查词",
+      "Look up words by goal"
+    ],
+    "Mở từ điển và ưu tiên nguồn phù hợp.": [
+      "打开词典，优先显示合适的词库。",
+      "Open the dictionary with a suitable source."
+    ],
+    "Ôn từ yếu": [
+      "复习薄弱词汇",
+      "Review weak words"
+    ],
+    "Làm lại các từ có số lần sai cao nhất.": [
+      "优先复习错误次数最多的词汇。",
+      "Review the words you missed most often."
+    ],
+    "Ưu tiên từ và tình huống thuộc vai trò đã chọn.": [
+      "优先学习所选岗位的词汇与情境。",
+      "Prioritize words and situations for your chosen role."
+    ],
+    "Bắt đầu →": [
+      "开始 →",
+      "Start →"
+    ],
+    "ERP thực tế": [
+      "实用 ERP",
+      "Practical ERP"
+    ],
+    "Kho": [
+      "仓库",
+      "Warehouse"
+    ],
+    "Sản xuất": [
+      "生产",
+      "Production"
+    ],
+    "Mua hàng": [
+      "采购",
+      "Purchasing"
+    ],
+    "Kế toán": [
+      "会计",
+      "Accounting"
+    ],
+    "Tài chính": [
+      "财务",
+      "Finance"
+    ],
+    "Kho & tồn kho": [
+      "仓库与库存",
+      "Warehouse & inventory"
+    ],
+    "Sản xuất & BOM": [
+      "生产与物料清单",
+      "Production & BOM"
+    ],
+    "Kế toán & giá thành": [
+      "会计与成本",
+      "Accounting & costing"
+    ],
+    "Thi cử và nền tảng": [
+      "备考与基础",
+      "Exams and foundations"
+    ],
+    "Dùng ngay tại công ty": [
+      "职场即学即用",
+      "Use at work"
+    ],
+    "Học song song hai mục tiêu": [
+      "同时学习两类内容",
+      "Learn both tracks"
+    ],
+    "ERP chuyên sâu": [
+      "ERP 专项学习",
+      "Focused ERP"
+    ],
+    "Kết hợp HSK + ERP": [
+      "HSK 与 ERP 结合",
+      "HSK + ERP combined"
+    ],
+    "Kết hợp": [
+      "综合学习",
+      "Combined"
+    ],
+    "Đang ưu tiên": [
+      "当前重点",
+      "Current focus"
+    ],
+    "· hướng nghiệp vụ": [
+      "· 业务方向",
+      "· Business area"
+    ],
+    ". Lựa chọn này được đồng bộ theo tài khoản.": [
+      "。此设置会同步到你的账户。",
+      "This choice is synced to your account."
+    ],
+    "Lựa chọn này được đồng bộ theo tài khoản.": [
+      "此设置会同步到你的账户。",
+      "This choice is synced to your account."
+    ],
+    "ĐỀ XUẤT RIÊNG CHO BẠN": [
+      "为你量身推荐",
+      "Recommended for you"
+    ],
+    "Không phải ai cũng học cùng một lộ trình": [
+      "每个人都有自己的学习路线",
+      "Everyone has a different learning path"
+    ],
+    "VAI TRÒ ERP MUỐN ƯU TIÊN": [
+      "优先学习的 ERP 职能",
+      "ERP role to prioritize"
+    ],
+    "Vai trò ERP muốn ưu tiên": [
+      "优先学习的 ERP 职能",
+      "ERP role to prioritize"
+    ],
+    "DASHBOARD CÁ NHÂN": [
+      "个人学习看板",
+      "PERSONAL DASHBOARD"
+    ],
+    "Tiến bộ có số liệu": [
+      "用数据记录成长",
+      "Track your progress"
+    ],
+    "ngày streak hiện tại": [
+      "当前连续学习天数",
+      "current streak days"
+    ],
+    "từ đã có lịch ôn": [
+      "已安排复习的词汇",
+      "words scheduled for review"
+    ],
+    "bài HSK hoàn thành": [
+      "已完成的 HSK 课程",
+      "HSK lessons completed"
+    ],
+    "bài ERP hoàn thành": [
+      "已完成的 ERP 课程",
+      "ERP lessons completed"
+    ],
+    "Đề thay đổi theo lỗi của bạn": [
+      "根据你的错题调整练习",
+      "Practice adapts to your mistakes"
+    ],
+    "ÔN THÍCH ỨNG · V86": [
+      "自适应复习 · V86",
+      "ADAPTIVE REVIEW · V86"
+    ],
+    "Web ưu tiên từ sai nhiều, điều chỉnh độ khó theo tỷ lệ đúng và ghi lại kết quả để lần sau chọn câu phù hợp hơn.": [
+      "系统优先安排常错词汇，根据正确率调整难度，并记录结果以优化下次练习。",
+      "The app prioritizes missed words, adjusts difficulty to accuracy, and saves results to tailor future sessions."
+    ],
+    "Mức: Tiêu chuẩn": [
+      "难度：标准",
+      "Level: Standard"
+    ],
+    "Mức: Thử thách": [
+      "难度：挑战",
+      "Level: Challenge"
+    ],
+    "Mức: Củng cố": [
+      "难度：巩固",
+      "Level: Reinforcement"
+    ],
+    "Tiêu chuẩn": [
+      "标准",
+      "Standard"
+    ],
+    "Thử thách": [
+      "挑战",
+      "Challenge"
+    ],
+    "Củng cố": [
+      "巩固",
+      "Reinforcement"
+    ],
+    "⚡ Bắt đầu phiên 5 câu": [
+      "⚡ 开始 5 题练习",
+      "⚡ Start 5-question session"
+    ],
+    "BÁO CÁO LỖI CÁ NHÂN": [
+      "个人错题报告",
+      "PERSONAL ERROR REPORT"
+    ],
+    "Sai ở đâu, ôn đúng chỗ đó": [
+      "精准复习薄弱环节",
+      "Review exactly what you missed"
+    ],
+    "Chưa đủ dữ liệu lỗi. Làm thêm quiz, chính tả hoặc đọc hiểu để web phân tích.": [
+      "错题数据不足。请再完成一些测验、听写或阅读练习，以便系统分析。",
+      "Not enough error data. Complete more quizzes, dictation or reading exercises."
+    ],
+    "Khi có dữ liệu sai, hệ thống sẽ đưa ra từ và dạng bài cần ưu tiên.": [
+      "产生错题记录后，系统会推荐需要重点复习的词汇和题型。",
+      "Once mistakes are recorded, the app will recommend words and exercises to prioritize."
+    ],
+    "Ba từ cần chú ý:": [
+      "三个需要注意的词：",
+      "Three words to review:"
+    ],
+    "Cần ưu tiên trong phiên ôn tiếp theo": [
+      "下次复习需要重点关注",
+      "Prioritize in the next review"
+    ],
+    "lỗi": [
+      "个错误",
+      "errors"
+    ],
+    "Chính tả": [
+      "听写",
+      "Dictation"
+    ],
+    "Đọc hiểu": [
+      "阅读理解",
+      "Reading comprehension"
+    ],
+    "Ngữ pháp": [
+      "语法",
+      "Grammar"
+    ],
+    "Luyện nói": [
+      "口语练习",
+      "Speaking practice"
+    ],
+    "PHIÊN ÔN THÍCH ỨNG": [
+      "自适应复习",
+      "ADAPTIVE REVIEW"
+    ],
+    "5 câu theo lỗi cá nhân": [
+      "根据错题生成的 5 道题",
+      "5 questions based on your mistakes"
+    ],
+    "Chọn nghĩa chính xác ở mức thử thách.": [
+      "在挑战模式下选择正确的释义。",
+      "Choose the correct meaning in challenge mode."
+    ],
+    "Chọn nghĩa phù hợp nhất.": [
+      "选择最合适的释义。",
+      "Choose the best meaning."
+    ],
+    "Chính xác.": [
+      "回答正确。",
+      "Correct."
+    ],
+    "Xem kết quả →": [
+      "查看结果 →",
+      "View results →"
+    ],
+    "Câu tiếp theo →": [
+      "下一题 →",
+      "Next question →"
+    ],
+    "Phiên ôn rất ổn": [
+      "本次复习表现很好",
+      "Great review session"
+    ],
+    "Đã tìm ra chỗ cần ôn": [
+      "已找到需要加强的内容",
+      "Areas to review identified"
+    ],
+    "Kết quả đã được đưa vào hồ sơ học và sẽ ảnh hưởng đến phiên thích ứng tiếp theo.": [
+      "结果已保存到学习档案，并会影响下一次自适应练习。",
+      "Results are saved to your learning profile and will tailor the next session."
+    ],
+    "Làm vòng khác": [
+      "再练一轮",
+      "Try another round"
+    ],
+    "Hoàn tất": [
+      "完成",
+      "Finish"
+    ],
+    "Nghe từng cụm": [
+      "分段听读",
+      "Listen in chunks"
+    ],
+    "So sánh câu mẫu và máy nghe được": [
+      "对比示例句与识别结果",
+      "Compare sample and recognized speech"
+    ],
+    "Kho HSK bổ trợ ở menu là nơi tra cứu sâu, không phải giáo trình chính. Kết quả tự học được lưu riêng với điểm thi và EXP.": [
+      "菜单中的 HSK 补充资源用于深入查阅，并非主课程。自学进度与考试分数和 EXP 分开记录。",
+      "The HSK resource library is for deeper reference, not the main curriculum. Self-study progress is stored separately from exam scores and EXP."
+    ],
+    "Bài này không có danh sách từ mới riêng. Hãy bắt đầu ở phần Nghe & đọc.": [
+      "本课没有单独的生词表，请从听读部分开始。",
+      "This lesson has no separate word list. Start with listening and reading."
+    ],
+    "Hãy mở ví dụ trên từng thẻ từ để luyện nghe và đọc.": [
+      "请展开单词卡中的例句，练习听力和阅读。",
+      "Open examples on each word card to practice listening and reading."
+    ],
+    "TỪ": [
+      "单词",
+      "WORD"
+    ],
+    "Nghe phát âm": [
+      "听发音",
+      "Listen to pronunciation"
+    ],
+    "🔊 Nghe phát âm": [
+      "🔊 听发音",
+      "🔊 Listen to pronunciation"
+    ],
+    "🔊 Nghe câu": [
+      "🔊 听例句",
+      "🔊 Listen to sentence"
+    ],
+    "🔊 Nghe chữ": [
+      "🔊 听汉字发音",
+      "🔊 Listen to character"
+    ],
+    "🔊 Nghe": [
+      "🔊 听发音",
+      "🔊 Listen"
+    ],
+    "Ví dụ sử dụng": [
+      "使用例句",
+      "Usage examples"
+    ],
+    "← Bài trước": [
+      "← 上一课",
+      "← Previous lesson"
+    ],
+    "Bài sau": [
+      "下一课",
+      "Next lesson"
+    ],
+    "← Từ trước": [
+      "← 上一个词",
+      "← Previous word"
+    ],
+    "Từ tiếp": [
+      "下一个词",
+      "Next word"
+    ],
+    "Từ tiếp theo": [
+      "下一个词",
+      "Next word"
+    ],
+    "Nhớ nghĩa của từ này?": [
+      "记住这个词的意思了吗？",
+      "Do you remember this word's meaning?"
+    ],
+    "Học từ mới": [
+      "学习生词",
+      "Learn new words"
+    ],
+    "Mục tiêu bài học": [
+      "本课目标",
+      "Lesson objectives"
+    ],
+    "Các bước học": [
+      "学习步骤",
+      "Learning stages"
+    ],
+    "Cấu trúc đánh giá": [
+      "测评结构",
+      "Assessment structure"
+    ],
+    "Nội dung đang kiểm duyệt, chưa mở học.": [
+      "内容审核中，暂未开放。",
+      "Content under review, not yet available."
+    ],
+    "Từ mới, ví dụ, nghe đọc và luyện tập.": [
+      "生词、例句、听读和练习。",
+      "Vocabulary, examples, listening, reading and practice."
+    ],
+    "Đã hoàn thành": [
+      "已完成",
+      "Completed"
+    ],
+    "Từ đã luyện": [
+      "已练习词汇",
+      "Practiced words"
+    ],
+    "Ôn từ đến hạn": [
+      "复习到期词汇",
+      "Review due words"
+    ]
+  });
+  var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
@@ -1903,6 +2294,20 @@
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
       var variants=[
+        [/^TỪ\s*(\d+)\s*\/\s*(\d+)$/i,["单词 $1 / $2","WORD $1 / $2"]],
+        [/^Ví dụ sử dụng\s*\((\d+)\)$/i,["使用例句（$1）","Usage examples ($1)"]],
+        [/^(\d+)\s*\/\s*(\d+)\s*bài đã hoàn thành\s*[·•]\s*Từ mới, ví dụ, nghe đọc và luyện tập\.$/i,["已完成 $1/$2 课 · 生词、例句、听读和练习。","$1/$2 lessons completed · Vocabulary, examples, listening, reading and practice."]],
+        [/^(\d+)\s*\/\s*(\d+)\s*bài đã hoàn thành$/i,["已完成 $1/$2 课","$1/$2 lessons completed"]],
+        [/^Độ chính xác\s*(\d+)%$/i,["正确率 $1%","Accuracy $1%"]],
+        [/^(\d+)\s*phiên đã làm$/i,["已完成 $1 次练习","$1 sessions completed"]],
+        [/^(\d+)\s*bài HSK hoàn thành$/i,["已完成 $1 节 HSK 课程","$1 HSK lessons completed"]],
+        [/^(\d+)\s*bài ERP hoàn thành$/i,["已完成 $1 节 ERP 课程","$1 ERP lessons completed"]],
+        [/^(\d+)\s*ngày streak hiện tại$/i,["当前连续学习 $1 天","Current streak: $1 days"]],
+        [/^Học tiếp HSK\s*([1-9])(?:\s*[→›])?$/i,["继续学习 HSK $1 →","Continue HSK $1 →"]],
+        [/^Câu\s*(\d+)\s*\/\s*(\d+)$/i,["第 $1/$2 题","Question $1/$2"]],
+        [/^(\d+)\s*điểm$/i,["$1 分","$1 points"]],
+        [/^(\d+)\s*lỗi$/i,["$1 个错误","$1 errors"]],
+        [/^Chưa đúng\. Đáp án:\s*$/i,["回答有误。正确答案：","Not quite. Answer:"]],
         [/^([+]?\d[\d.,]*)\s+(bài|từ|ngày) đã hoàn thành$/i,["已完成 $1 项","$1 completed"]],
         [/^(\d+)\s*\/\s*(\d+)\s+câu đã kiểm tra$/i,["已检查 $1/$2 题","$1/$2 questions checked"]],
         [/^(\d+)\s+từ cần ôn$/i,["$1 个待复习词汇","$1 words to review"]],
@@ -1947,11 +2352,13 @@
     return original;
   }
   function permittedProtected(element){
-    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
+    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,.hsk-focus-intro,.hsk-focus-section-head>span,.hsk-focus-word-title>span,.hsk-focus-quiz>strong,.hsk-focus-quiz>[data-focus-quiz-feedback],.v86-listening-top>strong,.v86-speaking-diff>strong,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
   }
   function isProtected(element){
     if(!element||!element.closest)return true;
     if(element.closest("script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
+    // Never localize Vietnamese glosses, learner answers or Chinese examples, even inside UI-permitted elements.
+    if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages"))return true;
     return !!(element.closest(excludedSelector)&&!permittedProtected(element));
   }
   function translateText(node){
