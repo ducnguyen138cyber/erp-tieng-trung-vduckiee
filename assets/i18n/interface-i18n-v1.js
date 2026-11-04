@@ -1541,7 +1541,289 @@
     "Experience points"
   ]
 });
-  var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,.duckie-chat-panel,.free-learning-assistant,[data-vd-ui-surface]";
+  Object.assign(strings,{
+  "tháng này": [
+    "本月",
+    "this month"
+  ],
+  "tổng EXP": [
+    "累计 EXP",
+    "total EXP"
+  ],
+  "tuần này": [
+    "本周",
+    "this week"
+  ],
+  "✓ Đã nhận +": [
+    "✓ 已领取 +",
+    "✓ Claimed +"
+  ],
+  "Duckie Chat hỗ trợ học tiếng Trung": [
+    "Duckie Chat 中文学习助手",
+    "Duckie Chat for learning Chinese"
+  ],
+  "🔊 Nghe chữ Hán": [
+    "🔊 听汉字发音",
+    "🔊 Listen to Hanzi"
+  ],
+  "Chào hỏi": [
+    "打招呼",
+    "Greetings"
+  ],
+  "Mua hàng": [
+    "采购",
+    "Purchasing"
+  ],
+  "Công xưởng": [
+    "工厂",
+    "Factory"
+  ],
+  "Mở trợ giảng học tiếng Trung miễn phí": [
+    "打开免费中文学习助手",
+    "Open free Chinese tutor"
+  ],
+  "Đã nhận ra từ phù hợp tình huống:": [
+    "已识别符合情境的词汇：",
+    "Recognized matching words:"
+  ],
+  ". Chưa xác minh ngữ pháp toàn câu.": [
+    "。尚未检查整句语法。",
+    ". Full sentence grammar was not verified."
+  ],
+  "Chưa thấy các mẫu:": [
+    "未找到这些表达模式：",
+    "Missing these patterns:"
+  ],
+  ". Hãy thử một câu có từ phù hợp.": [
+    "。请尝试使用符合情境的词汇造句。",
+    ". Try a sentence with relevant words."
+  ],
+  "✓ Đúng.": [
+    "✓ 正确。",
+    "✓ Correct."
+  ],
+  "✗ Chưa đúng.": [
+    "✗ 不正确。",
+    "✗ Not correct."
+  ],
+  "Đáp án:": [
+    "答案：",
+    "Answer:"
+  ],
+  "Trình duyệt này chưa hỗ trợ nhận dạng giọng nói. Có thể nghe mẫu và luyện đọc thủ công.": [
+    "当前浏览器不支持语音识别。你仍可听示例并自行练习朗读。",
+    "Your browser does not support speech recognition. You can still listen and practice manually."
+  ],
+  "Nhận dạng:": [
+    "识别结果：",
+    "Recognized:"
+  ],
+  "Chưa khớp nội dung chữ Hán. Hãy nghe rồi thử lại.": [
+    "尚未匹配汉字内容。请听一遍再试。",
+    "The Hanzi did not match. Listen and try again."
+  ],
+  "Không nhận dạng được:": [
+    "无法识别：",
+    "Could not recognize:"
+  ],
+  ". Kiểm tra quyền micro và kết nối。": [
+    "。请检查麦克风权限和网络连接。",
+    ". Check microphone permissions and connection."
+  ],
+  "Đang nghe…": [
+    "正在聆听…",
+    "Listening…"
+  ],
+  "Không khởi động được micro:": [
+    "无法启动麦克风：",
+    "Could not start microphone:"
+  ],
+  "Học tiếng Trung cùng VDuckie": [
+    "与 VDuckie 一起学中文",
+    "Learn Chinese with VDuckie"
+  ],
+  "Kho từ điển đang tải. Hãy thử lại sau.": [
+    "词典仍在加载，请稍后重试。",
+    "The dictionary is loading. Try again shortly."
+  ],
+  "Nghĩa:": [
+    "释义：",
+    "Meaning:"
+  ],
+  "Chưa có ví dụ được xác minh cho mục từ này.": [
+    "该词条暂无已验证例句。",
+    "No verified example for this entry."
+  ],
+  "Muốn giải thích ngữ pháp linh hoạt và phân biệt ngữ cảnh, cần kết nối AI API ở phiên bản sau.": [
+    "灵活的语法和语境讲解功能需在后续版本连接 AI API。",
+    "Flexible grammar and context explanations require an AI API in a future version."
+  ],
+  "Chế độ miễn phí kiểm tra từ khóa phù hợp tình huống; không chấm chính xác ngữ pháp câu tự do.": [
+    "免费模式仅检查情境关键词，不会准确评分自由表达句子的语法。",
+    "Free mode checks keywords for the scenario, not full sentence grammar."
+  ],
+  "Chưa nạp đủ dữ liệu từ điển.": [
+    "词典数据尚未加载完成。",
+    "Dictionary data is not fully loaded."
+  ],
+  "Kết quả luyện tập": [
+    "练习结果",
+    "Practice results"
+  ],
+  "Làm lại bài khác": [
+    "练习另一组题",
+    "Try another quiz"
+  ],
+  "Phân tích điểm cần ôn": [
+    "分析复习重点",
+    "Review weak points"
+  ],
+  "Đã ghi nhận": [
+    "已记录",
+    "Recorded"
+  ],
+  "lượt làm bài trên thiết bị này.": [
+    "次本设备的练习记录。",
+    "practice sessions on this device."
+  ],
+  "Đăng nhập Google để lưu từ và đồng bộ giữa các thiết bị.": [
+    "请使用 Google 登录以保存词汇并在设备间同步。",
+    "Sign in with Google to save words and sync across devices."
+  ],
+  "Chưa kết nối được tài khoản Supabase.": [
+    "尚未连接 Supabase 账户。",
+    "Supabase account connection is unavailable."
+  ],
+  "Không kiểm tra được sổ từ:": [
+    "无法检查生词本：",
+    "Could not check wordbook:"
+  ],
+  "Không lưu được từ:": [
+    "无法保存词汇：",
+    "Could not save word:"
+  ],
+  "Đăng nhập Google để mở sổ từ đồng bộ.": [
+    "请登录 Google 以访问同步生词本。",
+    "Sign in with Google to access your synced wordbook."
+  ],
+  "Không tải được sổ từ:": [
+    "无法加载生词本：",
+    "Could not load wordbook:"
+  ],
+  "Không lưu được trạng thái:": [
+    "无法保存状态：",
+    "Could not save status:"
+  ],
+  "Không cập nhật được:": [
+    "无法更新：",
+    "Could not update:"
+  ],
+  "Chỉ hiển thị từ của tài khoản đang đăng nhập.": [
+    "仅显示当前登录账户的词汇。",
+    "Showing words for the signed-in account only."
+  ],
+  "Kho & tồn kho": [
+    "仓库与库存",
+    "Warehouse & inventory"
+  ],
+  "Sản xuất & BOM": [
+    "生产与 BOM",
+    "Production & BOM"
+  ],
+  "Kế toán & giá thành": [
+    "会计与成本",
+    "Accounting & costing"
+  ],
+  "Tài chính": [
+    "财务",
+    "Finance"
+  ],
+  "ERP chuyên sâu": [
+    "进阶 ERP",
+    "Advanced ERP"
+  ],
+  "Kết hợp HSK + ERP": [
+    "HSK + ERP 综合学习",
+    "HSK + ERP combined"
+  ],
+  "Kế toán": [
+    "会计",
+    "Accounting"
+  ],
+  "Thi cử và nền tảng": [
+    "考试与基础学习",
+    "Exams and foundations"
+  ],
+  "Dùng ngay tại công ty": [
+    "工作场景即学即用",
+    "Use directly at work"
+  ],
+  "Kết hợp": [
+    "综合",
+    "Combined"
+  ],
+  "Học song song hai mục tiêu": [
+    "同时兼顾两个学习目标",
+    "Study two goals together"
+  ],
+  "· hướng nghiệp vụ": [
+    "· 业务方向",
+    "· business track"
+  ],
+  ". Lựa chọn này được đồng bộ theo tài khoản。": [
+    "。此选择将与账户同步。",
+    ". This selection syncs with your account."
+  ],
+  "từ đã có lịch ôn": [
+    "个词已安排复习",
+    "words scheduled for review"
+  ],
+  "bài HSK hoàn thành": [
+    "节 HSK 课已完成",
+    "HSK lessons completed"
+  ],
+  "bài ERP hoàn thành": [
+    "节 ERP 课已完成",
+    "ERP lessons completed"
+  ],
+  "ngày streak hiện tại": [
+    "天当前连续学习",
+    "days in current streak"
+  ],
+  "Đã có lịch ôn": [
+    "已安排复习",
+    "Review scheduled"
+  ],
+  "Hoàn thành 40 hoạt động": [
+    "完成 40 项学习活动",
+    "Complete 40 activities"
+  ],
+  "Chinh phục 3 bài": [
+    "完成 3 课",
+    "Complete 3 lessons"
+  ],
+  "Học một hoạt động hôm nay để thắp đốm lửa đầu tiên. Dữ liệu sẽ đi theo tài khoản khi đổi máy.": [
+    "今天完成一项学习活动来开启连续学习记录。数据会与账户同步。",
+    "Complete a learning activity today to start your streak. Data will sync with your account."
+  ],
+  "Học và luyện từ": [
+    "学习与练习词汇",
+    "Study and practice vocabulary"
+  ],
+  "Tiếp tục một bài HSK": [
+    "继续一节 HSK 课程",
+    "Continue an HSK lesson"
+  ],
+  "STREAK 7 NGÀY · ĐỒNG BỘ TÀI KHOẢN": [
+    "连续学习 7 天 · 账户同步",
+    "7-DAY STREAK · ACCOUNT SYNC"
+  ],
+  "ngày": [
+    "天",
+    "days"
+  ]
+});
+  var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
@@ -1589,7 +1871,7 @@
     return original;
   }
   function permittedProtected(element){
-    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,button,[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
+    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,button,[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
   }
   function isProtected(element){
     if(!element||!element.closest)return true;
