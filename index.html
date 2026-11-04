@@ -29,7 +29,7 @@
   <style>html,body{margin:0;min-height:100%;background:#F8FAFC;color:#0F172A;font-family:Arial,"Segoe UI","Noto Sans SC",sans-serif}.vduckie-static-loading{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}.vduckie-static-loading img{display:block;width:min(240px,70vw);height:auto;margin:0 auto 18px}.vduckie-static-loading p{margin:0;color:#66736e}</style>
   <script>
     (async function restoreStaticVDuckie(){
-      var shellUrl="./app-shell-v88.html?v=interface-i18n-3b1";
+      var shellUrl="./app-shell-v88.html?v=interface-i18n-3b2";
       var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Duckie đọc sách tiếng Trung">';
       try{
         var response=await fetch(shellUrl,{cache:"no-store"});
@@ -82,7 +82,7 @@
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/blue-edtech-v1.css?v=5-nov03"></head>');
         source=source.replace("</body>",'<script src="./assets/design-system/mascot-swap-v1.js?v=9"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/i18n/interface-language-menu-v1.css?v=3b1"></head>');
-        source=source.replace("</body>",'<script src="./assets/i18n/interface-i18n-v1.js?v=3b1"><\/script></body>');
+        source=source.replace("</body>",'<script src="./assets/i18n/interface-i18n-v1.js?v=3b2"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/brand-runtime-v2.css?v=2.2"><link rel="stylesheet" href="./assets/design-system/erp-workspace-v1.css?v=1.0"></head>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/remaining-interface-polish-20261103.css?v=1"></head>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/design-system/hsk-rail-stability-v1.css?v=1"></head>');
