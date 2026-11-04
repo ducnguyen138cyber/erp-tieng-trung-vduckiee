@@ -139,9 +139,14 @@
       var result=journal.complete(current.level,current.lesson.id,current.exercises.length,wordsFromLesson(current));
       update();
       if(result.ok&&!alreadyCompleted){
+        var answers=journal.lesson(current.lesson.id).answers||{};
+        var verified=current.exercises.map(function(id){return current.data.exerciseById[id];}).filter(function(exercise){
+          return exercise&&['linguistic-reviewed','verified'].indexOf(exercise.reviewStatus)!==-1&&
+            answers[exercise.id]&&typeof answers[exercise.id].correct==="boolean";
+        });
         doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-learner-completed",{detail:{
           level:current.level,lessonId:current.lesson.id,checked:result.checked,
-          graded:result.graded,correct:result.correct
+          graded:verified.length,correct:verified.filter(function(exercise){return answers[exercise.id].correct;}).length
         }}));
       }
       if(result.ok){
