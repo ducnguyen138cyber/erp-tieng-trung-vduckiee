@@ -1947,7 +1947,7 @@
     return original;
   }
   function permittedProtected(element){
-    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,button,[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
+    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
   }
   function isProtected(element){
     if(!element||!element.closest)return true;
