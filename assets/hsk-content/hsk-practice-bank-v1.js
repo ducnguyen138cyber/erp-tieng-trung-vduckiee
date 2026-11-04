@@ -13,10 +13,10 @@
   "use strict";
   var LEVELS = 4, PAPERS_PER_LEVEL = 56, QUESTIONS_PER_PAPER = 24;
   var TYPES = ["meaning","meaning","meaning","meaning","meaning","meaning",
-    "hanzi","hanzi","hanzi","hanzi","hanzi","hanzi",
+    "hanzi","hanzi","hanzi","hanzi","hanzi","reading",
     "pinyin","pinyin","pinyin","pinyin",
     "listening","listening","listening","listening",
-    "writing","writing","writing","writing"];
+    "writing","writing","writing","reading"];
   function clean(value) { return String(value == null ? "" : value).trim(); }
   function normalize(value) {
     return clean(value).normalize("NFKC").toLocaleLowerCase().replace(/[\s，。！？、,.!?;；:：]/g, "");
@@ -100,6 +100,11 @@
         question.stimulus = word.hanzi;
         question.answer = word.pinyin;
         question.options = optionsFor(word,pool,"pinyin",rng);
+      } else if (type === "reading") {
+        question.prompt = "Đọc câu và chọn nghĩa của từ được hỏi.";
+        question.stimulus = word.example ? word.example + " (" + word.hanzi + ")" : word.hanzi;
+        question.answer = word.meaning;
+        question.options = optionsFor(word,pool,"meaning",rng);
       } else if (type === "listening") {
         question.prompt = "Nghe phát âm và chọn chữ Hán được đọc.";
         question.stimulus = ""; // Do not reveal the answer until submitted.
