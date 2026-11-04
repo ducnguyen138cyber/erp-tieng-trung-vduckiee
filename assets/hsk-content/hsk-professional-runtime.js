@@ -362,7 +362,7 @@
     var displayPrompt = text(exercise.prompt);
     // When recalling Hanzi from meaning, don't show the Pinyin answer inside the question.
     if (exercise.format === 'hanzi-from-meaning') {
-      displayPrompt = displayPrompt.replace(/\\s*\\([A-Za-züÜāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+\\)(?=[.!?]|$)/g, '');
+      displayPrompt = displayPrompt.replace(/\s*\([A-Za-züÜāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+\)(?=[.!?]|$)/g, '');
     }
     var action = open ? 'Xem rubric tự đối chiếu' : 'Kiểm tra';
     return '<article class="hsk-pro-exercise' + (compact ? ' compact' : '') + '" data-pro-exercise="' + attr(exercise.id) + '"><header><span>' + esc(exercise.skill) + ' · ' + esc(exercise.format) + '</span><b>Độ khó ' + esc(exercise.difficulty) + '</b></header><p class="hsk-pro-prompt">' + esc(displayPrompt) + '</p>' + exerciseStimulus(exercise) + input +
