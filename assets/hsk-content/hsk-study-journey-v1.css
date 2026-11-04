@@ -84,3 +84,16 @@
   font-style:normal;font-weight:850;font-size:13px;color:#2563eb;
   pointer-events:none
 }
+
+
+/* Learning outcomes, not decorative EXP: visible self-test stats and weak-word drill. */
+.hsk-study-insights{display:flex;gap:8px 12px;flex-wrap:wrap;margin-top:10px}
+.hsk-study-insights span{display:inline-flex;gap:4px;align-items:center;padding:5px 9px;border-radius:9px;background:#fff;border:1px solid #dbeafe;color:#475569;font-size:12px}
+.hsk-study-insights b{font-weight:800;color:#1d4ed8}
+.hsk-focus-quiz-starts{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+.hsk-focus-quiz-starts [data-focus-start-recognition]{background:#fff!important;color:#1d4ed8!important;border:1px solid #93c5fd!important}
+.hsk-focus-quiz-starts [data-focus-start-quiz]{background:#dbeafe!important;color:#1d4ed8!important;border:1px solid #bfdbfe!important}
+.hsk-focus-quiz-starts button{border-radius:12px;min-height:44px;padding:11px 14px;font-weight:750}
+.hsk-focus-quiz-starts button.hidden{display:none!important}
+.hsk-study-review-drawer [data-hsk-review-meaning][hidden]{display:none!important}
+@media(max-width:640px){.hsk-focus-quiz-starts{display:grid;grid-template-columns:1fr}.hsk-study-insights{gap:7px}.hsk-study-insights span{font-size:11px}}
