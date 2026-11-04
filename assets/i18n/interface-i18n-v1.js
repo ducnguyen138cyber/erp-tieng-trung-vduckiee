@@ -172,6 +172,1181 @@
     "Bạn là một người mới chưa biết bắt đầu học tiếng Trung từ đâu? Hãy chọn “Bắt đầu học HSK” để học từ số 0; nếu cần tiếng Trung cho công việc, chọn “Học từ vựng ERP”.":["刚开始学中文？选择“开始学习 HSK”从零起步；学习职场中文可选择“学习 ERP 词汇”。","New to Chinese? Start with HSK from zero, or choose ERP vocabulary for workplace Chinese."],
     "Hãy chọn “Bắt đầu học HSK” để học từ số 0; nếu cần tiếng Trung cho công việc, chọn “Học từ vựng ERP”.":["选择 HSK 从零起步，也可以学习职场 ERP 中文。","Start HSK from zero or learn ERP Chinese for work."]
   };
+  // UI-copy inventory shared by static shell and dynamic JS modules; course explanations stay untouched.
+  Object.assign(strings,{
+  "VDuckie – Tự học tiếng Trung HSK, từ điển và ERP": [
+    "VDuckie – HSK 中文学习、词典与 ERP",
+    "VDuckie – Learn Chinese, HSK, Dictionary and ERP"
+  ],
+  "Dữ liệu đang lưu trên thiết bị": [
+    "正在本设备保存数据",
+    "Data stored on this device"
+  ],
+  "Đang kiểm tra đồng bộ…": [
+    "正在检查同步…",
+    "Checking sync…"
+  ],
+  "Hôm nay": [
+    "今天",
+    "Today"
+  ],
+  "KHÁC": [
+    "其他",
+    "OTHER"
+  ],
+  "VDuckie &amp; thống kê": [
+    "VDuckie 与统计",
+    "VDuckie & Statistics"
+  ],
+  "Bài HSK": [
+    "HSK 课程",
+    "HSK Lessons"
+  ],
+  "卡 Từ vựng": [
+    "卡 词汇",
+    "卡 Vocabulary"
+  ],
+  "句 Ngữ pháp": [
+    "句 语法",
+    "句 Grammar"
+  ],
+  "听 Luyện nghe": [
+    "听 听力",
+    "听 Listening"
+  ],
+  "说 Luyện nói": [
+    "说 口语",
+    "说 Speaking"
+  ],
+  "ERP CÔNG VIỆC · MỖI NGÀY 10 PHÚT": [
+    "职场 ERP · 每天学习 10 分钟",
+    "WORKPLACE ERP · 10 MINUTES DAILY"
+  ],
+  "Học đúng từ bạn gặp trong xưởng.": [
+    "学习在工厂中真正用得到的词汇。",
+    "Learn words you actually use at work."
+  ],
+  "Thuật ngữ kho, sản xuất và ERP — có pinyin, ví dụ thực tế và phát âm tiếng Trung.": [
+    "仓库、生产及 ERP 术语，包含拼音、实用例句与中文发音。",
+    "Warehouse, manufacturing and ERP terms with pinyin, examples and pronunciation."
+  ],
+  "LỘ TRÌNH HSK 1 → 9": [
+    "HSK 1 → 9 学习路线",
+    "HSK 1 → 9 ROADMAP"
+  ],
+  "Học để đọc, viết và thi HSK.": [
+    "学习中文听说读写，备考 HSK。",
+    "Learn Chinese literacy and prepare for HSK."
+  ],
+  "Bắt đầu từ nền tảng rồi học tuần tự qua từng cấp độ. Chọn chặng và bài học ở cột lộ trình bên phải.": [
+    "从基础开始，循序渐进学习。请在右侧选择学习阶段与课程。",
+    "Start with the basics and progress level by level. Choose a stage and lesson on the right."
+  ],
+  "THẺ 1 / 10": [
+    "卡片 1 / 10",
+    "CARD 1 / 10"
+  ],
+  "Nhấn vào thẻ để xem nghĩa": [
+    "点击卡片查看释义",
+    "Tap the card to reveal meaning"
+  ],
+  "Nhấn để lật": [
+    "点击翻面",
+    "Tap to flip"
+  ],
+  "♪ Nghe phát âm": [
+    "♪ 听发音",
+    "♪ Listen to pronunciation"
+  ],
+  "NGHĨA TRONG ERP": [
+    "ERP 语境中的含义",
+    "MEANING IN ERP"
+  ],
+  "♪ Nghe câu mẫu": [
+    "♪ 听例句",
+    "♪ Listen to example"
+  ],
+  "← Trước": [
+    "← 上一个",
+    "← Previous"
+  ],
+  "Học lại": [
+    "重新学习",
+    "Study again"
+  ],
+  "Đã nhớ →": [
+    "记住了 →",
+    "Remembered →"
+  ],
+  "Tiếp →": [
+    "下一步 →",
+    "Next →"
+  ],
+  "+ Học thêm 10 từ": [
+    "+ 再学 10 个词",
+    "+ Study 10 more words"
+  ],
+  "Chế độ: Trung → Việt": [
+    "模式：中文 → 越南语",
+    "Mode: Chinese → Vietnamese"
+  ],
+  "Tốc độ: Chậm": [
+    "速度：慢速",
+    "Speed: Slow"
+  ],
+  "CÂU 1 / 5": [
+    "第 1 / 5 题",
+    "QUESTION 1 / 5"
+  ],
+  "Chọn nghĩa đúng": [
+    "选择正确释义",
+    "Choose the correct meaning"
+  ],
+  "Câu tiếp theo →": [
+    "下一题 →",
+    "Next question →"
+  ],
+  "Làm lại": [
+    "重做",
+    "Try again"
+  ],
+  "THUẬT NGỮ": [
+    "术语",
+    "TERMS"
+  ],
+  "Tất cả": [
+    "全部",
+    "All"
+  ],
+  "Sản xuất": [
+    "生产",
+    "Production"
+  ],
+  "Chứng từ": [
+    "单据",
+    "Documents"
+  ],
+  "TỪ ĐÃ LƯU": [
+    "已收藏的词汇",
+    "SAVED WORDS"
+  ],
+  "Tra bằng tiếng Việt": [
+    "用越南语查询",
+    "Search in Vietnamese"
+  ],
+  "Nếu từ đã có trong bộ 154 thuật ngữ, chữ Hán, Pinyin và nghĩa tiếng Việt sẽ hiện ngay để bạn lưu.": [
+    "如果已收录该术语，将显示汉字、拼音与越南语释义，方便收藏。",
+    "If a term exists, its Hanzi, Pinyin and Vietnamese meaning appear for saving."
+  ],
+  "Thêm thuật ngữ mới": [
+    "添加新术语",
+    "Add a new term"
+  ],
+  "Nhập nghĩa Việt và chữ Trung; Pinyin được tạo tự động. Từ đã lưu được gộp vào từ điển và hàng chờ thẻ học.": [
+    "输入越南语释义和汉字，系统自动生成拼音。收藏的词会加入词典与复习队列。",
+    "Enter Vietnamese meaning and Hanzi; Pinyin is generated. Saved words join your dictionary and review queue."
+  ],
+  "Nhập chữ Trung để tự tạo Pinyin. Có thể sửa lại trước khi lưu.": [
+    "输入汉字自动生成拼音，保存前可修改。",
+    "Enter Hanzi to generate Pinyin; edit it before saving."
+  ],
+  "Lưu vào sổ từ": [
+    "保存到生词本",
+    "Save to wordbook"
+  ],
+  "Từ của bạn": [
+    "你的词汇",
+    "Your words"
+  ],
+  "TỪ CỘNG ĐỒNG": [
+    "社区词库",
+    "COMMUNITY WORDS"
+  ],
+  "Kho từ dùng chung": [
+    "共享词库",
+    "Shared vocabulary"
+  ],
+  "Đang kết nối kho chung…": [
+    "正在连接共享词库…",
+    "Connecting to shared vocabulary…"
+  ],
+  "↻ Làm mới": [
+    "↻ 刷新",
+    "↻ Refresh"
+  ],
+  "Đóng góp thuật ngữ": [
+    "贡献新术语",
+    "Contribute a term"
+  ],
+  "Ai mở link cũng có thể thêm và nhìn thấy từ đã gửi. Pinyin được tạo tự động từ chữ Trung.": [
+    "任何访问者都能添加和查看共享词汇，拼音由汉字自动生成。",
+    "Anyone with the link can add and view shared words. Pinyin is generated from Hanzi."
+  ],
+  "Từ mới được lưu công khai, tự xác minh và gộp vào kho học chung.": [
+    "提交的词汇会公开保存并加入共享词库。",
+    "New words are shared publicly and added to the vocabulary library."
+  ],
+  "Kho công khai": [
+    "公开词库",
+    "Public library"
+  ],
+  "Ai mở web cũng thêm và xem được từ.": [
+    "所有访问者均可添加和查看词汇。",
+    "Everyone can add and view words."
+  ],
+  "Từ mới được xác minh ngay và gộp vào từ điển cùng hàng chờ học.": [
+    "新词经检查后加入词典和学习队列。",
+    "New terms are checked and added to the dictionary and study queue."
+  ],
+  "Mỗi thiết bị gửi tối đa 100 từ trong 24 giờ để hạn chế spam.": [
+    "每台设备每 24 小时最多提交 100 个词，以防垃圾信息。",
+    "Up to 100 words per device per 24 hours to prevent spam."
+  ],
+  "Từ trùng sẽ bị từ chối tự động.": [
+    "重复词汇将被自动拒绝。",
+    "Duplicate words are automatically rejected."
+  ],
+  "Từ mọi người đã lưu": [
+    "社区已收藏词汇",
+    "Words saved by the community"
+  ],
+  "Đang tải dữ liệu…": [
+    "正在加载数据…",
+    "Loading data…"
+  ],
+  "Học từ nền tảng chữ Hán đến đọc hiểu và làm bài": [
+    "从汉字基础到阅读和做题",
+    "From Hanzi basics to reading and exercises"
+  ],
+  "12 bài nhập môn + HSK 1–4 đang học được": [
+    "12 节入门课 + HSK 1–4 课程",
+    "12 introductory lessons + HSK 1–4"
+  ],
+  "Đây là bộ bài thử nghiệm đang được biên soạn và kiểm tra dần, chưa thay thế giáo trình chính thức. HSK 1–3 được ưu tiên hoàn thiện; HSK 4 giữ bộ bài hiện có. HSK 5–9 vẫn hiển thị đầy đủ ở trạng thái sắp mở.": [
+    "这是逐步完善的试用课程，尚不能代替正式教材。HSK 5–9 暂未开放。",
+    "This is a work-in-progress course, not a replacement for official materials. HSK 5–9 are not yet available."
+  ],
+  "BETA · Cập nhật dần": [
+    "测试版 · 持续更新",
+    "BETA · Updated progressively"
+  ],
+  "LUYỆN PHẢN XẠ & TỰ NGHE LẠI": [
+    "口语反应练习与录音回放",
+    "SPEAKING REFLEX & RECORDINGS"
+  ],
+  "Kiểu bài": [
+    "练习类型",
+    "Exercise type"
+  ],
+  "Hội thoại theo tình huống": [
+    "情景对话",
+    "Situational dialogues"
+  ],
+  "Dịch nhanh Việt → Trung": [
+    "越南语 → 中文快速翻译",
+    "Quick Vietnamese → Chinese"
+  ],
+  "Nghe và nhại": [
+    "跟读模仿",
+    "Listen and repeat"
+  ],
+  "Phản xạ trong 8 giây": [
+    "8 秒反应挑战",
+    "8-second response challenge"
+  ],
+  "Tình huống": [
+    "情境",
+    "Situation"
+  ],
+  "HỆ THỐNG NÓI": [
+    "口语练习系统",
+    "SPEAKING PRACTICE"
+  ],
+  "♪ Nghe câu hỏi": [
+    "♪ 听问题",
+    "♪ Listen to the question"
+  ],
+  "Câu trả lời tiếng Trung của bạn": [
+    "你的中文回答",
+    "Your answer in Chinese"
+  ],
+  "⏱ Bắt đầu 8 giây": [
+    "⏱ 开始 8 秒挑战",
+    "⏱ Start 8-second challenge"
+  ],
+  "🎙 Bắt đầu đọc": [
+    "🎙 开始朗读",
+    "🎙 Start speaking"
+  ],
+  "Chấm nội dung": [
+    "检查内容",
+    "Check response"
+  ],
+  "Xem câu mẫu": [
+    "查看示例回答",
+    "View model answer"
+  ],
+  "● Ghi âm để nghe lại": [
+    "● 录音回听",
+    "● Record and replay"
+  ],
+  "Tiếp tục HSK": [
+    "继续学习 HSK",
+    "Continue HSK"
+  ],
+  "Bắt đầu học HSK 1": [
+    "开始学习 HSK 1",
+    "Start HSK 1"
+  ],
+  "Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.": [
+    "返回上次的课程，继续练习并保存进度。",
+    "Return to your last lesson, practice and save progress."
+  ],
+  "Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.": [
+    "学习生词、练听力、做练习并跟踪进度。",
+    "Learn words, listen, practice and track progress."
+  ],
+  "Bắt đầu phần Nền tảng": [
+    "开始基础课程",
+    "Start Foundation"
+  ],
+  "Tiếp tục lộ trình HSK": [
+    "继续 HSK 学习路线",
+    "Continue HSK roadmap"
+  ],
+  "Quay lại đúng bài gần nhất đã học.": [
+    "返回最近学习的课程。",
+    "Return to your most recent lesson."
+  ],
+  "Nền tảng": [
+    "基础",
+    "Foundation"
+  ],
+  "BẮT ĐẦU CHUỖI CỦA BẠN": [
+    "开启你的连续学习",
+    "START YOUR STREAK"
+  ],
+  "TIẾP TỤC GIỮ LỬA": [
+    "继续保持学习动力",
+    "KEEP THE STREAK"
+  ],
+  "Sẵn sàng học": [
+    "准备好学习",
+    "Ready to learn"
+  ],
+  "Sắp mở": [
+    "即将开放",
+    "Coming soon"
+  ],
+  "ngày liên tiếp": [
+    "连续学习天数",
+    "consecutive days"
+  ],
+  "Học mỗi ngày để giữ chuỗi và ghi nhớ lâu hơn.": [
+    "每天学习，保持连续记录，记得更牢。",
+    "Learn daily to maintain your streak and remember longer."
+  ],
+  "Hoàn thành cả ba để nhận huy hiệu": [
+    "完成全部三项即可获得徽章",
+    "Complete all three to earn a badge"
+  ],
+  "Vịt bền bỉ": [
+    "坚持不懈的小鸭",
+    "Persistent Duckie"
+  ],
+  "Tiếp tục học →": [
+    "继续学习 →",
+    "Continue learning →"
+  ],
+  "Xem lộ trình →": [
+    "查看学习路线 →",
+    "View roadmap →"
+  ],
+  "Đăng nhập để lưu tiến độ và nhận EXP nhiệm vụ.": [
+    "登录后可保存进度并领取任务 EXP。",
+    "Sign in to save progress and claim mission EXP."
+  ],
+  "Cần kiểm tra migration Supabase v90.": [
+    "需要检查 Supabase v90 数据库迁移。",
+    "Check Supabase v90 migration."
+  ],
+  "Kiểm tra kết nối rồi thử lại.": [
+    "检查网络后重试。",
+    "Check your connection and try again."
+  ],
+  "Đang tải EXP…": [
+    "正在加载 EXP…",
+    "Loading EXP…"
+  ],
+  "👑 Bảng xếp hạng": [
+    "👑 排行榜",
+    "👑 Leaderboard"
+  ],
+  "Xem tất cả ›": [
+    "查看全部 ›",
+    "View all ›"
+  ],
+  "Không tải được nhiệm vụ tuần.": [
+    "无法加载每周任务。",
+    "Could not load weekly missions."
+  ],
+  "Cần chạy migration Supabase v90.": [
+    "需要运行 Supabase v90 迁移。",
+    "Supabase v90 migration required."
+  ],
+  "Không tải được bảng xếp hạng.": [
+    "无法加载排行榜。",
+    "Could not load leaderboard."
+  ],
+  "Thử lại": [
+    "重试",
+    "Retry"
+  ],
+  "Chưa có dữ liệu EXP tuần này.": [
+    "本周暂无 EXP 数据。",
+    "No EXP data this week."
+  ],
+  "Menu chính": [
+    "主菜单",
+    "Main menu"
+  ],
+  "Khoảng thời gian xếp hạng": [
+    "排行时间范围",
+    "Ranking period"
+  ],
+  "Bảng xếp hạng — Developed by VDuckie": [
+    "排行榜 — VDuckie 开发",
+    "Leaderboard — Developed by VDuckie"
+  ],
+  "EXP tuần/tháng dùng để xếp hạng theo kỳ; Level luôn tính từ tổng EXP toàn thời gian.": [
+    "每周、每月 EXP 用于相应排行；等级始终根据累计 EXP 计算。",
+    "Weekly/monthly EXP determines period rankings; level uses lifetime EXP."
+  ],
+  "Đăng nhập để lưu EXP, nhận thưởng nhiệm vụ và xem hạng của bạn.": [
+    "登录后可保存 EXP、领取任务奖励并查看排名。",
+    "Sign in to save EXP, claim rewards and view your ranking."
+  ],
+  "Cần chạy migration Supabase v90 trước.": [
+    "请先运行 Supabase v90 数据库迁移。",
+    "Run the Supabase v90 migration first."
+  ],
+  "Hãy kiểm tra kết nối và thử lại.": [
+    "请检查连接后重试。",
+    "Check your connection and try again."
+  ],
+  "Chưa có người học": [
+    "暂无学习者",
+    "No learners yet"
+  ],
+  "Chưa có dữ liệu EXP": [
+    "暂无 EXP 数据",
+    "No EXP data yet"
+  ],
+  "Hãy hoàn thành bài học đầu tiên để xuất hiện ở đây.": [
+    "完成第一课即可出现在这里。",
+    "Complete your first lesson to appear here."
+  ],
+  "Chưa kết nối Supabase": [
+    "尚未连接 Supabase",
+    "Supabase not connected"
+  ],
+  "Không thể tải bảng xếp hạng.": [
+    "无法加载排行榜。",
+    "Could not load the leaderboard."
+  ],
+  "Không tải được bảng xếp hạng": [
+    "无法加载排行榜",
+    "Could not load leaderboard"
+  ],
+  "Chưa có bài tự kiểm tra": [
+    "暂无自测记录",
+    "No self-tests yet"
+  ],
+  "% câu nhớ nghĩa đúng": [
+    "% 的词义回忆正确率",
+    "% recall accuracy"
+  ],
+  "Nội dung đang kiểm duyệt, chưa mở học.": [
+    "内容仍在审核，暂未开放。",
+    "Content under review; not yet available."
+  ],
+  "Học HSK": [
+    "学习 HSK",
+    "Study HSK"
+  ],
+  "từ đã luyện": [
+    "个已练习的词",
+    "words practiced"
+  ],
+  "từ cần ôn": [
+    "个待复习的词",
+    "words due for review"
+  ],
+  "CẤP ĐỘ": [
+    "等级",
+    "LEVEL"
+  ],
+  "Ôn lại giáo trình MSUTONG trước đây": [
+    "复习旧版 MSUTONG 课程",
+    "Review previous MSUTONG course"
+  ],
+  "Ôn giáo trình cũ": [
+    "复习旧版课程",
+    "Review old course"
+  ],
+  "Chọn cấp độ HSK": [
+    "选择 HSK 等级",
+    "Choose HSK level"
+  ],
+  "Chọn HSK": [
+    "选择 HSK",
+    "Choose HSK"
+  ],
+  "LỘ TRÌNH TIẾNG TRUNG": [
+    "中文学习路线",
+    "CHINESE LEARNING ROADMAP"
+  ],
+  "Chọn HSK cấp độ": [
+    "选择 HSK 等级",
+    "Select HSK level"
+  ],
+  "Đi từng cấp độ từ HSK 1 đến HSK 9. Chọn một trình độ để bắt đầu bài học tương ứng.": [
+    "从 HSK 1 到 HSK 9 循序渐进，选择等级开始学习。",
+    "Progress from HSK 1 to 9; select a level to start."
+  ],
+  "← Trang chủ": [
+    "← 首页",
+    "← Home"
+  ],
+  "Đang xây dựng nội dung.": [
+    "内容建设中。",
+    "Content in progress."
+  ],
+  "Học từ vựng, nghe đọc, ngữ pháp và luyện tập.": [
+    "学习词汇、听读、语法和练习。",
+    "Study vocabulary, listening, reading, grammar and exercises."
+  ],
+  "Tiến bộ có số liệu": [
+    "可量化的进步",
+    "Measurable progress"
+  ],
+  "DASHBOARD CÁ NHÂN": [
+    "个人学习面板",
+    "PERSONAL DASHBOARD"
+  ],
+  "CÁ NHÂN HÓA · V85": [
+    "个性化 · V85",
+    "PERSONALIZED · V85"
+  ],
+  "Web học theo mục tiêu của bạn": [
+    "按你的目标学习",
+    "Learning for your goals"
+  ],
+  "Vai trò ERP muốn ưu tiên": [
+    "优先学习的 ERP 职能",
+    "Preferred ERP role"
+  ],
+  "Đang ưu tiên": [
+    "当前重点",
+    "Current focus"
+  ],
+  "ĐỀ XUẤT RIÊNG CHO BẠN": [
+    "为你量身推荐",
+    "RECOMMENDED FOR YOU"
+  ],
+  "Không phải ai cũng học cùng một lộ trình": [
+    "每个人都有自己的学习路线",
+    "Everyone has a different learning path"
+  ],
+  "Bắt đầu →": [
+    "开始 →",
+    "Start →"
+  ],
+  "Chưa có lịch sử. Mỗi từ tra trong Từ điển sẽ được lưu ở đây.": [
+    "暂无历史记录。查询的词会保存在这里。",
+    "No history yet. Dictionary lookups will appear here."
+  ],
+  "TRUNG TÂM HỌC TẬP · V83": [
+    "学习中心 · V83",
+    "LEARNING CENTER · V83"
+  ],
+  "Học tiếp, không phải tìm lại.": [
+    "继续学习，无需重新查找。",
+    "Resume learning without searching again."
+  ],
+  "Mục tiêu ngày và lịch sử tra từ được lưu cùng tài khoản.": [
+    "每日目标和查词历史会关联至账户。",
+    "Your daily goals and lookups stay with your account."
+  ],
+  "Đồng bộ tài khoản": [
+    "账户同步",
+    "Account sync"
+  ],
+  "Mở Từ điển": [
+    "打开词典",
+    "Open Dictionary"
+  ],
+  "MỤC TIÊU HÔM NAY": [
+    "今日目标",
+    "TODAY'S GOALS"
+  ],
+  "Giữ nhịp học vừa sức": [
+    "保持适合自己的节奏",
+    "Keep a steady learning pace"
+  ],
+  "TRA GẦN ĐÂY": [
+    "最近查询",
+    "RECENT LOOKUPS"
+  ],
+  "Lịch sử Từ điển": [
+    "词典历史",
+    "Dictionary history"
+  ],
+  "LỐI TẮT": [
+    "快捷入口",
+    "SHORTCUTS"
+  ],
+  "Vào học trong một chạm": [
+    "一键开始学习",
+    "Start learning with one tap"
+  ],
+  "Tiếp tục bài hiện tại": [
+    "继续当前课程",
+    "Continue current lesson"
+  ],
+  "Kho, sản xuất, mua hàng": [
+    "仓库、生产、采购",
+    "Warehouse, production, purchasing"
+  ],
+  "12.000+ từ HSK và ERP": [
+    "12,000+ HSK 与 ERP 词汇",
+    "12,000+ HSK and ERP words"
+  ],
+  "Giữ lửa học tiếng Trung": [
+    "坚持中文学习",
+    "Keep your Chinese study streak"
+  ],
+  "HÔM NAY HỌC GÌ?": [
+    "今天学什么？",
+    "WHAT TO LEARN TODAY?"
+  ],
+  "Ba việc đủ để tiến bộ": [
+    "每天完成三项小任务",
+    "Three steps to make progress"
+  ],
+  "Hoàn thành ba mục để giữ streak và đạt mục tiêu ngày.": [
+    "完成三项任务，保持连续学习并达成每日目标。",
+    "Complete three tasks to maintain your streak and meet daily goals."
+  ],
+  "TỪ YẾU CỦA TÔI": [
+    "我的薄弱词汇",
+    "MY WEAK WORDS"
+  ],
+  "Sai nhiều thì ôn trước": [
+    "错得多的先复习",
+    "Review mistakes first"
+  ],
+  "NHIỆM VỤ TUẦN": [
+    "每周任务",
+    "WEEKLY MISSIONS"
+  ],
+  "Mốc nhỏ, tiến bộ thật": [
+    "小目标，真进步",
+    "Small goals, real progress"
+  ],
+  "Hoàn thành cả ba nhiệm vụ để mở huy hiệu": [
+    "完成全部三项即可解锁徽章",
+    "Complete all three missions to unlock a badge"
+  ],
+  "Không còn từ quá hạn": [
+    "没有逾期单词",
+    "No overdue words"
+  ],
+  "từ đang chờ ôn": [
+    "个待复习单词",
+    "words awaiting review"
+  ],
+  "Ôn ngay": [
+    "立即复习",
+    "Review now"
+  ],
+  "Đã có hoạt động bài học hôm nay": [
+    "今天已有学习记录",
+    "Learning activity recorded today"
+  ],
+  "Quay lại đúng bài đang học": [
+    "返回正在学习的课程",
+    "Resume your current lesson"
+  ],
+  "Chưa có từ yếu. Làm quiz hoặc chính tả để web nhận diện nội dung cần ôn.": [
+    "目前没有薄弱词汇。做测验或听写后可识别需复习的内容。",
+    "No weak words yet. Take a quiz or dictation to identify what to review."
+  ],
+  "Nghe chữ": [
+    "听汉字发音",
+    "Listen to Hanzi"
+  ],
+  "Chữ Hán": [
+    "汉字",
+    "Chinese characters"
+  ],
+  "Ngữ pháp": [
+    "语法",
+    "Grammar"
+  ],
+  "Hội thoại": [
+    "会话",
+    "Dialogue"
+  ],
+  "Đọc hiểu": [
+    "阅读理解",
+    "Reading comprehension"
+  ],
+  "Nội dung": [
+    "内容",
+    "Content"
+  ],
+  "Xem rubric tự đối chiếu": [
+    "查看自评标准",
+    "View self-check rubric"
+  ],
+  "Bài tập của lesson": [
+    "本课练习",
+    "Lesson exercises"
+  ],
+  "Hãy viết câu trả lời trước khi tự đối chiếu rubric.": [
+    "请先作答，再对照评分标准。",
+    "Answer first, then check the rubric."
+  ],
+  "Hãy nhập/chọn câu trả lời trước.": [
+    "请先填写或选择答案。",
+    "Please enter or select an answer first."
+  ],
+  "Đúng.": [
+    "正确。",
+    "Correct."
+  ],
+  "Chưa khớp.": [
+    "不正确。",
+    "Not quite."
+  ],
+  "Hãy xem lại các từ chưa nhớ.": [
+    "请复习尚未记住的词汇。",
+    "Review words you haven't mastered."
+  ],
+  "Chọn chữ Hán đúng với nghĩa trên.": [
+    "根据上面的意思选择正确汉字。",
+    "Choose the Hanzi matching the meaning above."
+  ],
+  "Chọn nghĩa đúng của chữ Hán trên.": [
+    "选择上方汉字的正确释义。",
+    "Choose the meaning of the Hanzi above."
+  ],
+  "✓ Chính xác!": [
+    "✓ 正确！",
+    "✓ Correct!"
+  ],
+  "Chưa đúng. Đáp án:": [
+    "不正确。答案：",
+    "Not quite. Answer:"
+  ],
+  "Chưa có từ mới trong bài này.": [
+    "本课暂无生词。",
+    "No vocabulary in this lesson yet."
+  ],
+  "Cách dùng:": [
+    "用法：",
+    "Usage:"
+  ],
+  "Lượng từ:": [
+    "量词：",
+    "Measure word:"
+  ],
+  "Dễ nhầm:": [
+    "易混淆：",
+    "Often confused:"
+  ],
+  "Lỗi thường gặp": [
+    "常见错误",
+    "Common mistakes"
+  ],
+  "Chạm để xem nghĩa": [
+    "点击查看释义",
+    "Tap to reveal meaning"
+  ],
+  "Hiểu sâu hơn": [
+    "深入理解",
+    "Learn more"
+  ],
+  "Nhớ nghĩa của từ này?": [
+    "记得这个词的意思吗？",
+    "Remember this word's meaning?"
+  ],
+  "Từ tiếp theo →": [
+    "下一个词 →",
+    "Next word →"
+  ],
+  "Từ tiếp →": [
+    "下一个词 →",
+    "Next word →"
+  ],
+  "← Từ trước": [
+    "← 上一个词",
+    "← Previous word"
+  ],
+  "Học từ mới": [
+    "学习生词",
+    "Study new words"
+  ],
+  "Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.": [
+    "听发音 → 猜意思 → 看例句 → 回忆。",
+    "Listen → guess → examples → recall."
+  ],
+  "🎮 Chơi trò nhớ nghĩa": [
+    "🎮 词义记忆游戏",
+    "🎮 Meaning recall game"
+  ],
+  "Nhớ lại": [
+    "回忆",
+    "Recall"
+  ],
+  "Phát transcript bằng TTS": [
+    "使用 TTS 播放文字稿",
+    "Play transcript with TTS"
+  ],
+  "Hiện/ẩn transcript": [
+    "显示/隐藏文字稿",
+    "Toggle transcript"
+  ],
+  "Xem đáp án + bằng chứng": [
+    "查看答案与依据",
+    "View answer & evidence"
+  ],
+  "Chưa xác minh": [
+    "尚未验证",
+    "Not verified"
+  ],
+  "Trình duyệt không hỗ trợ fetch.": [
+    "浏览器不支持请求功能。",
+    "Browser doesn't support fetch."
+  ],
+  "Không tải được": [
+    "加载失败",
+    "Could not load"
+  ],
+  "Tiến độ bài học": [
+    "学习进度",
+    "Lesson progress"
+  ],
+  "Làm quiz nhớ nghĩa để phát hiện từ chưa thuộc.": [
+    "通过词义测验找出还没掌握的词汇。",
+    "Take a recall quiz to identify weak words."
+  ],
+  "Đã kiểm tra đủ câu. Hãy lưu bài học và quay lại ôn từ vào ngày mai.": [
+    "所有题目已检查。请保存进度并在明天复习。",
+    "All questions checked. Save progress and review tomorrow."
+  ],
+  "Kết thúc bài học": [
+    "结束课程",
+    "Finish lesson"
+  ],
+  "✓ Hoàn thành bài học": [
+    "✓ 已完成课程",
+    "✓ Lesson completed"
+  ],
+  "✓ Hoàn thành & lưu tiến độ": [
+    "✓ 完成并保存进度",
+    "✓ Finish & save progress"
+  ],
+  "✓ Đã hoàn thành bài": [
+    "✓ 已完成",
+    "✓ Completed"
+  ],
+  "Học bài tiếp →": [
+    "学习下一课 →",
+    "Next lesson →"
+  ],
+  "ÔN TẬP CÁCH QUÃNG": [
+    "间隔复习",
+    "SPACED REVIEW"
+  ],
+  "Hôm nay không còn từ HSK đến hạn. Tiếp tục học một bài để tạo lịch ôn mới.": [
+    "今天没有待复习的 HSK 词汇。继续学习可生成新的复习计划。",
+    "No HSK words due today. Study another lesson to create a review schedule."
+  ],
+  "↻ Ôn HSK": [
+    "↻ 复习 HSK",
+    "↻ Review HSK"
+  ],
+  "Tiến độ tự học đã lưu": [
+    "学习进度已保存",
+    "Study progress saved"
+  ],
+  "Trợ giảng tiếng Trung": [
+    "中文学习助手",
+    "Chinese learning assistant"
+  ],
+  "Mở Duckie Chat": [
+    "打开 Duckie Chat",
+    "Open Duckie Chat"
+  ],
+  "Trợ giảng tiếng Trung miễn phí": [
+    "免费中文学习助手",
+    "Free Chinese tutor"
+  ],
+  "VDUCKIE · TRỢ GIẢNG MIỄN PHÍ": [
+    "VDUCKIE · 免费学习助手",
+    "VDUCKIE · FREE TUTOR"
+  ],
+  "✦ Hỏi trợ giảng": [
+    "✦ 询问学习助手",
+    "✦ Ask the tutor"
+  ],
+  "✦ Hỏi VDuckie": [
+    "✦ 问问 VDuckie",
+    "✦ Ask VDuckie"
+  ],
+  "Tra cứu và giải thích từ": [
+    "词汇查询与解释",
+    "Word lookup and explanation"
+  ],
+  "Tìm": [
+    "搜索",
+    "Search"
+  ],
+  "Chọn tình huống": [
+    "选择情境",
+    "Choose a situation"
+  ],
+  "🔊 Nghe mẫu": [
+    "🔊 听示例",
+    "🔊 Listen to example"
+  ],
+  "Kiểm tra theo mẫu": [
+    "对照示例检查",
+    "Check against example"
+  ],
+  "Câu tiếp →": [
+    "下一句 →",
+    "Next sentence →"
+  ],
+  "Trợ giảng": [
+    "学习助手",
+    "Tutor"
+  ],
+  "Giải thích": [
+    "解释",
+    "Explanation"
+  ],
+  "Điểm yếu": [
+    "薄弱项",
+    "Weak areas"
+  ],
+  "Luyện nói": [
+    "口语练习",
+    "Speaking practice"
+  ],
+  "Công cụ": [
+    "工具",
+    "Tools"
+  ],
+  "Phân biệt từ": [
+    "辨析词语",
+    "Compare words"
+  ],
+  "Xóa hội thoại": [
+    "清空对话",
+    "Clear conversation"
+  ],
+  "Nghe phát âm tiếng Trung": [
+    "听中文发音",
+    "Listen to Chinese pronunciation"
+  ],
+  "Bộ công cụ học tập chưa được tải.": [
+    "学习工具尚未加载。",
+    "Learning tools haven't loaded yet."
+  ],
+  "Không kết nối được máy chủ AI.": [
+    "无法连接 AI 服务器。",
+    "Could not connect to AI server."
+  ],
+  "Máy chủ chưa trả lời được.": [
+    "服务器尚未响应。",
+    "Server hasn't responded."
+  ],
+  "Phản hồi quá lâu. Thử gửi lại nhé.": [
+    "响应超时，请重试。",
+    "Response timed out. Try again."
+  ],
+  "Chưa kết nối được trợ giảng.": [
+    "尚未连接到学习助手。",
+    "Tutor connection unavailable."
+  ],
+  "Không tìm thấy từ phù hợp trong kho hiện có.": [
+    "当前词库中没有匹配的词汇。",
+    "No matching words in the current dictionary."
+  ],
+  "Đang tải dữ liệu từ điển…": [
+    "正在加载词典数据…",
+    "Loading dictionary data…"
+  ],
+  "TỪ ĐIỂN TRUNG – VIỆT": [
+    "中越词典",
+    "CHINESE–VIETNAMESE DICTIONARY"
+  ],
+  "Sao chép": [
+    "复制",
+    "Copy"
+  ],
+  "Câu ví dụ từ dữ liệu nguồn": [
+    "来源数据中的例句",
+    "Example from source data"
+  ],
+  "Các chữ cấu thành": [
+    "汉字组成",
+    "Character components"
+  ],
+  "Học cách viết Hán tự": [
+    "学习汉字书写",
+    "Learn Hanzi writing"
+  ],
+  "Đã tải dữ liệu viết nét.": [
+    "笔画数据已加载。",
+    "Stroke-order data loaded."
+  ],
+  "Chưa có dữ liệu nét cho chữ này.": [
+    "该字暂无笔画数据。",
+    "No stroke data for this character."
+  ],
+  "Không thể tải dữ liệu nét của chữ này.": [
+    "无法加载此字的笔画数据。",
+    "Could not load stroke data."
+  ],
+  "Đang lưu…": [
+    "正在保存…",
+    "Saving…"
+  ],
+  "Đã lưu vào sổ từ cá nhân ✓": [
+    "已保存到个人生词本 ✓",
+    "Saved to personal wordbook ✓"
+  ],
+  "Đúng nét": [
+    "笔画正确",
+    "Correct stroke"
+  ],
+  "Chưa học": [
+    "尚未学习",
+    "Not studied"
+  ],
+  "Đang học": [
+    "学习中",
+    "Studying"
+  ],
+  "Cần ôn lại": [
+    "需要复习",
+    "Needs review"
+  ],
+  "☆ Lưu vào sổ từ": [
+    "☆ 保存到生词本",
+    "☆ Save to wordbook"
+  ],
+  "📖 Mở sổ từ": [
+    "📖 打开生词本",
+    "📖 Open wordbook"
+  ],
+  "← Chữ trước": [
+    "← 上一个字",
+    "← Previous character"
+  ],
+  "Chữ sau →": [
+    "下一个字 →",
+    "Next character →"
+  ],
+  "▶ Viết mẫu": [
+    "▶ 笔画示范",
+    "▶ Show stroke order"
+  ],
+  "Tạm dừng / Tiếp tục": [
+    "暂停 / 继续",
+    "Pause / Resume"
+  ],
+  "✍ Tự luyện viết": [
+    "✍ 自行书写",
+    "✍ Practice writing"
+  ],
+  "Gợi ý": [
+    "提示",
+    "Hint"
+  ],
+  "Viết lại": [
+    "重写",
+    "Write again"
+  ],
+  "Mọi cấp HSK": [
+    "所有 HSK 等级",
+    "All HSK levels"
+  ],
+  "Đang tải sổ từ…": [
+    "正在加载生词本…",
+    "Loading wordbook…"
+  ],
+  "Xóa": [
+    "删除",
+    "Delete"
+  ],
+  "Không có từ nào khớp bộ lọc.": [
+    "没有符合筛选条件的词汇。",
+    "No words match the filters."
+  ],
+  "Giữ chuỗi hôm nay": [
+    "保持今日学习连续记录",
+    "Keep today's streak"
+  ],
+  "Chuỗi hiện tại": [
+    "当前连续学习天数",
+    "Current streak"
+  ],
+  "Chưa có từ đến hạn": [
+    "暂无待复习词汇",
+    "No words due"
+  ],
+  "Đã xong": [
+    "已完成",
+    "Done"
+  ],
+  "Làm quen từ": [
+    "熟悉词汇",
+    "Get familiar"
+  ],
+  "Cách viết": [
+    "书写方式",
+    "Writing"
+  ],
+  "Gọi lại từ": [
+    "回忆词汇",
+    "Recall word"
+  ],
+  "Ghép cụm ERP": [
+    "ERP 词语搭配",
+    "ERP phrases"
+  ],
+  "Đặt vào câu ERP": [
+    "ERP 造句",
+    "ERP sentences"
+  ],
+  "Kiểm tra cuối": [
+    "最终测验",
+    "Final quiz"
+  ],
+  "Ôn tập xong!": [
+    "复习完成！",
+    "Review complete!"
+  ],
+  "CHỌN NGÔN NGỮ": [
+    "选择语言",
+    "SELECT LANGUAGE"
+  ]
+});
   var rootsSelector="header.top,#studySidebar,#homeHub,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card";
   var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyLearningPanel,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
