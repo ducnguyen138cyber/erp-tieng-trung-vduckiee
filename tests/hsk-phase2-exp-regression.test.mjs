@@ -47,6 +47,14 @@ test('EXP is emitted from verified lesson completion, not from merely opening a 
   assert.match(core,/rpc\("award_exp"/);
   assert.doesNotMatch(flow,/awardEXP|p_exp_amount|service_role/);
 });
+test('vocabulary mini-game alternates two recall directions and tracks the actual Hanzi on reverse questions',()=>{
+  const runtime=read('assets/hsk-content/hsk-professional-runtime.js');
+  const flow=read('assets/hsk-content/hsk-study-flow-v1.js');
+  assert.match(runtime,/cursor % 2 === 1 && words\.length > 1/);
+  assert.match(runtime,/quiz\.dataset\.correctHanzi = words\[cursor\]\.zh/);
+  assert.match(runtime,/reverse \? word\.zh : word\.vi/);
+  assert.match(flow,/quiz\.dataset\.correctHanzi/);
+});
 test('Leaderboard uses actual Supabase rows and explains zero activity',()=>{
   const board=read('assets/v90/exp-board-v90.js');
   const ui=read('assets/v90/exp-leaderboard-v90.js');
