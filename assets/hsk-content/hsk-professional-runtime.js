@@ -254,7 +254,7 @@
     return '<section class="hsk-pro-section hsk-pro-section-vocab hsk-focus-vocabulary"><div class="hsk-focus-section-head"><h4>Học từ mới</h4><span>' + words.length + ' từ</span></div><p class="hsk-focus-intro">Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.</p>' +
       '<div class="hsk-focus-cards" data-focus-cards>' + cards + '</div>' +
       '<div class="hsk-focus-word-nav"><button type="button" class="muted" data-focus-prev disabled>← Từ trước</button><button type="button" class="accent" data-focus-next>Từ tiếp →</button></div>' +
-      (quiz ? '<button type="button" class="hsk-focus-start-quiz" data-focus-start-quiz>🎮 Chơi trò nhớ nghĩa (' + words.length + ' câu)</button>' + quiz : '') +
+      (quiz ? '<div class="hsk-focus-quiz-starts"><button type="button" class="hsk-focus-start-quiz" data-focus-start-quiz>Kiểm tra: chữ Hán → nghĩa</button><button type="button" class="hsk-focus-start-quiz" data-focus-start-recognition>Kiểm tra: nghĩa → chữ Hán</button></div>' + quiz : '') +
       '</section>';
   }
 
@@ -359,8 +359,13 @@
     } else {
       input = '<textarea class="hsk-pro-answer-input" data-pro-input-for="' + attr(exercise.id) + '" rows="3" placeholder="Tự làm nhiệm vụ rồi ghi câu/ý chính của bạn ở đây"></textarea>';
     }
+    var displayPrompt = text(exercise.prompt);
+    // When recalling Hanzi from meaning, don't show the Pinyin answer inside the question.
+    if (exercise.format === 'hanzi-from-meaning') {
+      displayPrompt = displayPrompt.replace(/\\s*\\([A-Za-züÜāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]+\\)(?=[.!?]|$)/g, '');
+    }
     var action = open ? 'Xem rubric tự đối chiếu' : 'Kiểm tra';
-    return '<article class="hsk-pro-exercise' + (compact ? ' compact' : '') + '" data-pro-exercise="' + attr(exercise.id) + '"><header><span>' + esc(exercise.skill) + ' · ' + esc(exercise.format) + '</span><b>Độ khó ' + esc(exercise.difficulty) + '</b></header><p class="hsk-pro-prompt">' + esc(exercise.prompt) + '</p>' + exerciseStimulus(exercise) + input +
+    return '<article class="hsk-pro-exercise' + (compact ? ' compact' : '') + '" data-pro-exercise="' + attr(exercise.id) + '"><header><span>' + esc(exercise.skill) + ' · ' + esc(exercise.format) + '</span><b>Độ khó ' + esc(exercise.difficulty) + '</b></header><p class="hsk-pro-prompt">' + esc(displayPrompt) + '</p>' + exerciseStimulus(exercise) + input +
       '<div class="hsk-pro-exercise-actions"><button type="button" class="accent" data-pro-check="' + attr(exercise.id) + '">' + action + '</button>' + (exercise.stimulus && exercise.stimulus.evidenceZh ? '<button type="button" class="muted" data-pro-show-evidence>Gợi ý bằng chứng</button>' : '') + '</div><div class="hsk-pro-feedback hidden" data-pro-feedback="' + attr(exercise.id) + '"></div></article>';
   }
 
@@ -645,8 +650,11 @@
           return;
         }
         var quiz = cardHost.querySelector('[data-focus-quiz]');
-        if (quiz && (target.hasAttribute('data-focus-start-quiz') || target.hasAttribute('data-focus-quiz-next'))) {
-          var cursor = target.hasAttribute('data-focus-start-quiz') ? 0 : Number(quiz.dataset.index || 0) + 1;
+        if (quiz && (target.hasAttribute('data-focus-start-quiz') || target.hasAttribute('data-focus-start-recognition') || target.hasAttribute('data-focus-quiz-next'))) {
+          var starting = target.hasAttribute('data-focus-start-quiz') || target.hasAttribute('data-focus-start-recognition');
+          if (starting) quiz.dataset.mode = target.hasAttribute('data-focus-start-recognition') ? 'recognize-hanzi' : 'recognize-meaning';
+          var recognizeHanzi = quiz.dataset.mode === 'recognize-hanzi';
+          var cursor = starting ? 0 : Number(quiz.dataset.index || 0) + 1;
           var words = cards.map(function (card) {
             return {zh: card.querySelector('.hsk-focus-word-title strong').textContent,
               vi: card.querySelector('[data-focus-meaning]').textContent};
@@ -655,6 +663,7 @@
           cardHost.querySelector('[data-focus-cards]').classList.add('hidden');
           cardHost.querySelector('.hsk-focus-word-nav').classList.add('hidden');
           cardHost.querySelector('[data-focus-start-quiz]').classList.add('hidden');
+          cardHost.querySelector('[data-focus-start-recognition]').classList.add('hidden');
           var nextButton = quiz.querySelector('[data-focus-quiz-next]');
           nextButton.classList.add('hidden');
           if (cursor >= words.length) {
@@ -664,7 +673,8 @@
             return;
           }
           quiz.dataset.index = String(cursor);
-          quiz.querySelector('[data-focus-quiz-word]').textContent = words[cursor].zh;
+          quiz.dataset.expectedHanzi = words[cursor].zh;
+          quiz.querySelector('[data-focus-quiz-word]').textContent = recognizeHanzi ? words[cursor].vi : words[cursor].zh;
           quiz.querySelector('[data-focus-quiz-feedback]').textContent = '';
           var distractors = words.filter(function (word) { return word.zh !== words[cursor].zh && word.vi !== words[cursor].vi; }).slice(0,3);
           var options = [words[cursor]].concat(distractors);
@@ -672,14 +682,20 @@
           options.splice(0,1);
           options.splice(cursor % (options.length + 1),0,words[cursor]);
           quiz.querySelector('[data-focus-quiz-choices]').innerHTML = options.map(function (word) {
-            return '<button type="button" data-focus-choice="' + attr(word.zh) + '">' + esc(word.vi) + '</button>';
+            return '<button type="button" data-focus-choice="' + attr(word.zh) + '">' + esc(recognizeHanzi ? word.zh : word.vi) + '</button>';
           }).join('');
           return;
         }
         if (quiz && target.hasAttribute('data-focus-choice')) {
-          var expected = quiz.querySelector('[data-focus-quiz-word]').textContent;
+          var expected = quiz.dataset.expectedHanzi;
           var correct = target.getAttribute('data-focus-choice') === expected;
-          quiz.querySelector('[data-focus-quiz-feedback]').textContent = correct ? '✓ Chính xác!' : 'Chưa đúng. Đáp án: ' + cards.find(function(card) { return card.querySelector('.hsk-focus-word-title strong').textContent === expected; }).querySelector('[data-focus-meaning]').textContent;
+          var correctCard = cards.find(function(card) { return card.querySelector('.hsk-focus-word-title strong').textContent === expected; });
+          var meaning = correctCard && correctCard.querySelector('[data-focus-meaning]') ? correctCard.querySelector('[data-focus-meaning]').textContent : '';
+          var pinyin = correctCard && correctCard.querySelector('.hsk-focus-word-title b') ? correctCard.querySelector('.hsk-focus-word-title b').textContent : '';
+          quiz.querySelector('[data-focus-quiz-feedback]').textContent = correct ? '✓ Chính xác!' : 'Chưa đúng. Đáp án: ' + expected + ' · ' + pinyin + ' · ' + meaning;
+          if(root.VDuckieHskStudyFlow&&root.VDuckieHskStudyFlow.onWordAttempt) {
+            root.VDuckieHskStudyFlow.onWordAttempt({hanzi:expected,pinyin:pinyin,meaningVi:meaning},correct);
+          }
           quiz.querySelectorAll('[data-focus-choice]').forEach(function (choice) { choice.disabled = true; });
           quiz.querySelector('[data-focus-quiz-next]').classList.remove('hidden');
           return;
