@@ -130,3 +130,33 @@ test('homepage, sidebar and roadmap have no untranslated Vietnamese UI labels in
   }
   assert.deepEqual(missing,[]);
 });
+
+
+test('dynamic HSK, review, personal stats and dictionary controls translate without touching course text',()=>{
+  const {api}=runtime();
+  api.setLanguage('zh');
+  assert.equal(api.translateUI('Bạn đã hoàn thành 7 bài. Tiếp tục đúng vị trí đang học hoặc chọn cấp độ khác.'),'你已完成 7 课。继续上次学习的课程，或选择其他等级。');
+  assert.equal(api.translateUI('Còn 3 câu chưa kiểm tra. Làm và kiểm tra hết các câu để lưu hoàn thành.'),'还有 3 题未检查。完成并检查所有题目才能保存进度。');
+  assert.equal(api.translateUI('↻ Ôn từ đến hạn (5)'),'↻ 复习到期词汇（5）');
+  assert.equal(api.translateUI('Chuỗi hiện tại 6 ngày.'),'当前已连续学习 6 天。');
+  assert.equal(api.translateUI('Sai 2 · đúng 8'),'错误 2 · 正确 8');
+  assert.equal(api.translateUI('Phát âm · chữ Hán'),'发音 · 汉字');
+  assert.equal(api.translateUI('Kho & tồn kho'),'仓库与库存');
+  assert.equal(api.translateUI('Không tải được bảng xếp hạng'),'无法加载排行榜');
+  assert.equal(api.translateUI('我今天去公司上班。'),'我今天去公司上班。');
+  api.setLanguage('en');
+  assert.equal(api.translateUI('Còn 3 câu chưa kiểm tra. Làm và kiểm tra hết các câu để lưu hoàn thành.'),'3 questions remaining. Answer and check all to save completion.');
+  assert.equal(api.translateUI('Phát âm · chữ Hán'),'Pronunciation · Hanzi');
+  assert.equal(api.translateUI('Không tải được bảng xếp hạng'),'Could not load leaderboard');
+});
+
+test('headings/controls can translate within protected learning areas, but vocabulary and examples remain protected',()=>{
+  assert.match(source,/function isProtected\(element\)/);
+  assert.match(source,/function permittedProtected\(element\)/);
+  assert.match(source,/\.graded-hsk-page/);
+  assert.match(source,/\.hsk-pro-exercises/);
+  assert.match(source,/\.hsk-focus-examples/);
+  assert.match(source,/\.hsk-study-progress/);
+  assert.match(source,/header,nav,\[role='button'\]/);
+  assert.match(source,/querySelectorAll\("\[data-vd-i18n-key\]"\)/);
+});
