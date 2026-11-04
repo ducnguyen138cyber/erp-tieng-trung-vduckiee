@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v22";
+const CACHE_VERSION = "vduckie-pwa-v23";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -26,12 +26,12 @@ const APP_SHELL = [
   "./assets/design-system/erp-workspace-v1.css?v=1.0",
   "./assets/design-system/remaining-interface-polish-20261103.css?v=1",
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
-  "./assets/hsk-content/hsk-study-journey-v1.js?v=1",
-  "./assets/hsk-content/hsk-study-flow-v1.js?v=2",
-  "./assets/hsk-content/hsk-study-journey-v1.css?v=2",
-  "./assets/hsk-content/hsk-professional-runtime.js?v=studyflow2",
+  "./assets/hsk-content/hsk-study-journey-v1.js?v=2",
+  "./assets/hsk-content/hsk-study-flow-v1.js?v=3",
+  "./assets/hsk-content/hsk-study-journey-v1.css?v=3",
+  "./assets/hsk-content/hsk-professional-runtime.js?v=phase2.1",
   "./assets/hsk-content/hsk-content-feature-flags.js?v=2b1.0",
-  "./assets/curriculum/graded-hsk-entry.js?v=2.1",
+  "./assets/curriculum/graded-hsk-entry.js?v=phase2.1",
   "./assets/v95/mascot-manifest-v95.js?v=96.1",
   "./assets/search/header-chinese-search.css?v=2",
   "./assets/search/header-chinese-search.js?v=2",
