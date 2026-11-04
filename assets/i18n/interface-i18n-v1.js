@@ -2601,8 +2601,8 @@
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
       var variants=[
-        [/^Pinyin đúng của\s*([\u3400-\u9fff]+)\s*là gì\?$/i,["$1 的正确拼音是什么？","What is the correct pinyin for $1?"]],
-        [/^([\u3400-\u9fff]+)\s*nghĩa là gì\?$/i,["$1 是什么意思？","What does $1 mean?"]],
+        [/^Pinyin đúng của\s*([\u3400-\u9fff]+)\s*là gì\?$/i,["$1的正确拼音是什么？","What is the correct pinyin for $1?"]],
+        [/^([\u3400-\u9fff]+)\s*nghĩa là gì\?$/i,["$1是什么意思？","What does $1 mean?"]],
         [/^(\d+)\s*kết quả\s*[·•]\s*đang hiện\s*(\d+)\s*kết quả đầu$/i,["找到 $1 条结果 · 显示前 $2 条","$1 results · showing first $2"]],
         [/^(\d+)\s*kết quả$/i,["找到 $1 条结果","$1 results"]],
         [/^(\d+)\s*từ ERP đã thuộc$/i,["已掌握 $1 个 ERP 词汇","$1 ERP words mastered"]],
