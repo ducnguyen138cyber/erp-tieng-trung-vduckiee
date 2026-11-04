@@ -24,14 +24,14 @@ test('mic Duckie uses a two-wing asset in every centralized reference',()=>{
   assert.match(swap,/role==="speaking"/);
   assert.match(swap,/legacy guard/);
 });
-test('word mastery +5 EXP happens through a restricted RPC with dedupe and a 50 EXP daily cap',()=>{
-  const sql=read('supabase/migrations/20261104_award_hsk_word_mastery_exp.sql');
+test('word mastery +3 EXP uses a restricted RPC, dedupe and a 50-word daily cap',()=>{
+  const sql=read('supabase/migrations/20261104_word_mastery_3exp_50_words_daily.sql');
   assert.match(sql,/auth\.uid\(\)/);
-  assert.match(sql,/exp_awarded:=case when awarded then 5/);
-  assert.match(sql,/v_today_exp\+5>50/);
-  assert.match(sql,/on conflict\(user_id,dedupe_key\) do nothing/);
+  assert.match(sql,/exp_awarded := case when awarded then 3/);
+  assert.match(sql,/v_today_words >= 50/);
+  assert.match(sql,/on conflict\(user_id, dedupe_key\) do nothing/);
   assert.match(sql,/grant execute on function public\.award_word_mastery\(integer,text\) to authenticated/);
-  assert.match(sql,/revoke all on function public\.award_word_mastery\(integer,text\) from public,anon/);
+  assert.match(sql,/revoke all on function public\.award_word_mastery\(integer,text\) from public, anon/);
   assert.doesNotMatch(sql,/service_role/i);
 });
 test('first correct recall or SRS confirmation emits learner evidence, passive viewing does not',()=>{
