@@ -8,8 +8,31 @@ try{for(const width of (observe?[1440]:[1440,390])){
  page.setDefaultTimeout(20000);page.on('console',m=>{if(['error','warning'].includes(m.type()))consoleEntries.push({type:m.type(),text:m.text()})});page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(new URL(r.url()).origin===new URL(base).origin)network.push({url:new URL(r.url()).pathname+new URL(r.url()).search,status:r.status(),sw:r.fromServiceWorker()})});page.on('requestfailed',r=>{if(new URL(r.url()).origin===new URL(base).origin&&!/ERR_ABORTED/i.test(r.failure()?.errorText||''))failed.push({url:r.url(),error:r.failure()?.errorText})});
  if(!live){await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:'window.supabase={createClient(){const q=()=>new Proxy({},{get(o,k){if(k==="then")return ok=>Promise.resolve({data:[],error:null}).then(ok);return()=>q()}});return{auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}}'}));}
  const open=async screen=>{await page.goto(base+'?screen='+encodeURIComponent(screen));await page.locator('.duckie-chat-launch').waitFor();await page.waitForFunction(()=>window.VDuckieScreenRouter&&window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieHskProfessionalRuntime?.getState().mounted);await page.waitForFunction(()=>[...document.querySelectorAll('link[rel="stylesheet"]')].every(e=>e.sheet));if(screen==='home'){try{await page.locator(width<=980?'#homeHub .daily-today':'#homeHub .home-overview-grid').waitFor({state:'visible'});}catch(error){console.log('HOME_DIAGNOSTIC',JSON.stringify(await page.evaluate(()=>({url:location.href,html:document.documentElement.className,body:document.body.className,home:document.querySelector('#homeHub')?.outerHTML.slice(0,3000),chain:[...document.querySelectorAll('#homeHub,#v865HomeShell,#v865HomeMain,.home-overview-grid,.study-center,.study-layout')].map(e=>({tag:e.tagName,id:e.id,cls:e.className,display:getComputedStyle(e).display,rect:e.getBoundingClientRect().toJSON()}))}))));await page.screenshot({path:`${outDir}/${width}-home-failure.png`});throw error;}}};
- const check=async name=>{await page.evaluate(()=>new Promise(ok=>requestAnimationFrame(()=>requestAnimationFrame(ok))));const view=await inspectVisuals(page);report.push({width,screen:name,...view});console.log(JSON.stringify({width,screen:name,issues:view.issues,inspected:view.inspected}));await page.screenshot({path:`${outDir}/${width}-${name}.png`});if(!observe){assert.equal(view.theme,'blue-white-workspace-20261103');assert(view.overflow<2,'horizontal overflow');for(const img of view.mascots){assert(/duckie-(reader|flashcards|writing|listening|speaking)-2d-v[23]\.webp/.test(img.src),name+' old mascot');assert(img.loaded,name+' mascot failed to load');}}};
+ const check=async name=>{await page.evaluate(()=>new Promise(ok=>requestAnimationFrame(()=>requestAnimationFrame(ok))));const view=await inspectVisuals(page);report.push({width,screen:name,...view});console.log(JSON.stringify({width,screen:name,issues:view.issues,inspected:view.inspected}));await page.screenshot({path:`${outDir}/${width}-${name}.png`});if(!observe){assert.equal(view.theme,'hsk-rail-mascot-stability-20261103');assert(view.overflow<2,'horizontal overflow');for(const img of view.mascots){assert(/duckie-(reader|flashcards|writing|listening|speaking)-2d-v[23]\.webp|duckie-speaking-two-wings-v4\.svg/.test(img.src),name+' invalid mascot');assert(img.loaded,name+' mascot failed to load');}}};
+ async function checkLanguages(){
+   await page.waitForFunction(()=>!!window.VDuckieInterfaceI18n?.setLanguage);
+   const headline=page.locator('#homeHubTitle');
+   const before=await page.evaluate(()=>performance.getEntriesByType('navigation').length);
+   const langControl=page.locator('#vdUiLanguageGuest .vd-i18n-guest-trigger');
+   await langControl.waitFor({state:'visible'});
+   for(const [code,heading,resource,recommended] of [
+      ['zh','与 VDuckie 开启学习之旅','每天都有新内容','为你推荐的课程'],
+      ['en','Start your journey with VDuckie','Everything you need to learn daily','Recommended lessons'],
+      ['vi','Bắt đầu hành trình cùng VDuckie','Đủ món để học mỗi ngày','Bài học đề xuất cho bạn']]){
+     await langControl.click();
+     await page.locator('[data-vd-guest-lang="'+code+'"]').click();
+     await page.waitForFunction(expected=>document.querySelector('#homeHubTitle')?.textContent===expected,heading);
+     assert.equal((await headline.textContent()).trim(),heading,'hero i18n '+code);
+     assert.equal((await page.locator('.home-library-card .home-card-heading h2').textContent()).trim(),resource,'resources i18n '+code);
+     assert.equal((await page.locator('#homeRecommendedTitle').textContent()).trim(),recommended,'recommendations i18n '+code);
+     assert.equal(await page.evaluate(()=>window.VDuckieInterfaceI18n.getLanguage()),code);
+     assert.equal(await page.evaluate(()=>performance.getEntriesByType('navigation').length),before,'language switch caused reload');
+     await page.screenshot({path:outDir+'/'+width+'-home-'+code+'.png'});
+   }
+   console.log('PASS: desktop/mobile VI -> ZH -> EN UI switch, no reload and stable titles');
+ }
  await open('home');if(!observe)await page.waitForFunction(()=>[...document.querySelectorAll('.home-resource-tile img,.home-course-art img')].every(e=>e.complete&&e.naturalWidth>0));await check('home');
+ if(!observe)await checkLanguages();
  if(!observe){assert.equal(await page.locator('link[rel="icon"]').count(),1);assert((await page.locator('link[rel="icon"]').getAttribute('href')).includes('duckie-tab-v3.png'));if(width>980)assert.equal(new Set(await page.locator('.home-resource-tile img').evaluateAll(es=>es.map(e=>e.getAttribute('src')))).size,4);}
  if(!observe&&width>980){assert.equal(await page.locator('.v86-adaptive').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(239, 246, 255)');assert.equal(await page.locator('.v86-adaptive').evaluate(e=>getComputedStyle(e).backgroundImage),'none');}
  if(!observe)assert.equal(await page.locator('.duckie-chat-launch').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(219, 234, 254)');
