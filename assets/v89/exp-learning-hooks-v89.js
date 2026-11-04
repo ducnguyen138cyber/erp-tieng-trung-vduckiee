@@ -107,8 +107,9 @@
       Object.keys(journal.lessons||{}).forEach(function(id){
         var lesson=journal.lessons[id];
         if(!lesson||!lesson.completedAt||!/^hsk[1-4]-lesson-[0-9]{2,3}$/.test(id))return;
-        var answers=lesson.answers||{},graded=Object.keys(answers).map(function(key){return answers[key];}).filter(function(answer){return answer&&typeof answer.correct==="boolean";});
-        pending.push({lessonId:id,graded:graded.length,correct:graded.filter(function(a){return a.correct;}).length});
+        // Historic local study journals do not store exercise review-status proof.
+        // Recover only the one-time lesson completion bonus, never infer a quiz pass.
+        pending.push({lessonId:id,graded:0,correct:0});
       });
       if(!pending.length)return;
       processing=true;
