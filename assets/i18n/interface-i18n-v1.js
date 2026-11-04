@@ -2672,7 +2672,7 @@
     return original;
   }
   function permittedProtected(element){
-    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,.hsk-focus-intro,.hsk-pro-lesson-head .step,.hsk-focus-section-head>span,.hsk-focus-word-title>span,.hsk-focus-quiz>strong,.hsk-focus-quiz>[data-focus-quiz-feedback],.v86-listening-top>strong,.v86-speaking-diff>strong,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
+    return !!(element&&element.closest&&element.closest(".graded-hsk-page,.v85-personal,.v84-retention,.v83-cockpit,.hsk-study-progress,.hsk-study-finish,.hsk-study-review-drawer,.hsk-focus-intro,.dictionary-meta>span,.hsk-pro-lesson-head .step,.hsk-focus-section-head>span,.hsk-focus-word-title>span,.hsk-focus-quiz>strong,.hsk-focus-quiz>[data-focus-quiz-feedback],.v86-listening-top>strong,.v86-speaking-diff>strong,button,a,label,summary,h1,h2,h3,h4,header,nav,[role='button'],[role='tab'],[role='menuitem'],[data-vd-i18n-key]"));
   }
   function isProtected(element){
     if(!element||!element.closest)return true;
