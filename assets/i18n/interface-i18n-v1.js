@@ -181,6 +181,7 @@
     if(node.nodeValue!==result)node.nodeValue=result;
   }
   function translateAttributes(element){
+    if(element.closest&&element.closest(".vd-i18n-slot,.vd-i18n-guest"))return;
     if(element.closest(excludedSelector))return;
     var prev=attrs.get(element)||{};
     ["placeholder","aria-label","title"].forEach(function(attr){
@@ -197,7 +198,7 @@
     if(!element)return;
     translateAttributes(element);
     var walker=doc.createTreeWalker(element,4,null),node;
-    while((node=walker.nextNode()))translateText(node);
+    while((node=walker.nextNode())){if(node.parentElement&&!node.parentElement.closest(".vd-i18n-slot,.vd-i18n-guest"))translateText(node);}
     var elements=element.querySelectorAll("[aria-label],[placeholder],[title]");
     for(var i=0;i<elements.length;i++)translateAttributes(elements[i]);
   }
@@ -237,10 +238,46 @@
     if(current.textContent!==shortLabel)current.textContent=shortLabel;
     menu.querySelectorAll("[data-vd-ui-lang]").forEach(function(b){var selected=b.getAttribute("data-vd-ui-lang")===lang;b.classList.toggle("is-selected",selected);b.setAttribute("aria-pressed",selected?"true":"false");});
   }
+  function ensureGuest(){
+    var top=doc.querySelector("header.top .top-actions");if(!top)return;
+    var wrap=doc.getElementById("vdUiLanguageGuest");
+    if(!wrap){
+      wrap=doc.createElement("div");wrap.id="vdUiLanguageGuest";wrap.className="vd-i18n-guest";
+      wrap.innerHTML='<button type="button" class="vd-i18n-guest-trigger" aria-label="Chọn ngôn ngữ giao diện" aria-expanded="false" aria-controls="vdGuestLanguageChoices">🌐 VI</button>'+
+        '<div class="vd-i18n-guest-choices" id="vdGuestLanguageChoices" role="group" aria-label="Chọn ngôn ngữ giao diện" hidden>'+
+        '<button type="button" data-vd-guest-lang="vi">🇻🇳 Tiếng Việt</button>'+
+        '<button type="button" data-vd-guest-lang="zh">🇨🇳 简体中文</button>'+
+        '<button type="button" data-vd-guest-lang="en">🇬🇧 English</button></div>';
+      wrap.querySelector(".vd-i18n-guest-trigger").addEventListener("click",function(){
+        var list=wrap.querySelector(".vd-i18n-guest-choices"),opened=list.hidden;
+        list.hidden=!opened;this.setAttribute("aria-expanded",opened?"true":"false");
+      });
+      wrap.querySelectorAll("[data-vd-guest-lang]").forEach(function(button){
+        button.addEventListener("click",function(){
+          setLanguage(button.getAttribute("data-vd-guest-lang"));
+          wrap.querySelector(".vd-i18n-guest-choices").hidden=true;
+          wrap.querySelector(".vd-i18n-guest-trigger").setAttribute("aria-expanded","false");
+        });
+      });
+    }
+    if(wrap.parentNode!==top)top.insertBefore(wrap,top.firstChild);
+    var accountTrigger=doc.querySelector(".v91-account-trigger");
+    var shouldShow=!accountTrigger||accountTrigger.hidden;
+    if(wrap.hidden===shouldShow)wrap.hidden=!shouldShow;
+    var current=lang==="zh"?"中文":lang.toUpperCase(),text="🌐 "+current;
+    var button=wrap.querySelector(".vd-i18n-guest-trigger");
+    if(button.textContent!==text)button.textContent=text;
+    wrap.querySelectorAll("[data-vd-guest-lang]").forEach(function(option){
+      var selected=option.getAttribute("data-vd-guest-lang")===lang;
+      option.classList.toggle("is-selected",selected);
+      option.setAttribute("aria-pressed",selected?"true":"false");
+    });
+  }
   function apply(){
     if(!doc.body)return;
     doc.documentElement.lang=lang==="zh"?"zh-CN":lang;
     ensureMenu();
+    ensureGuest();
     var roots=doc.querySelectorAll(rootsSelector);
     for(var i=0;i<roots.length;i++)translateRoot(roots[i]);
     // Interactive controls can exist on screens outside the homepage.
