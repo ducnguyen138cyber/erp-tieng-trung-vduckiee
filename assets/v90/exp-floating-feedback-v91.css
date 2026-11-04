@@ -1,0 +1,28 @@
+/* EXP is a light, nonblocking animation, never a modal/toast on success. */
+.vduckie-exp-float{
+  position:fixed;z-index:100000;pointer-events:none;user-select:none;
+  color:#2563eb;font:900 clamp(16px,2vw,21px)/1.15 system-ui,-apple-system,"Segoe UI",sans-serif;
+  text-shadow:0 2px 1px rgba(255,255,255,.8),0 0 15px rgba(59,130,246,.24);
+  white-space:nowrap;transform:translate(-50%,-50%);
+  animation:vduckie-exp-float-up 1.3s cubic-bezier(.18,.8,.3,1) both;
+  will-change:opacity,transform;
+}
+.vduckie-exp-float::after{
+  content:"✦";font-size:12px;margin-left:4px;color:#f59e0b;
+}
+.vduckie-exp-float-fixed{transform:none;animation-name:vduckie-exp-float-fixed}
+@keyframes vduckie-exp-float-up{
+  0%{opacity:0;transform:translate(-50%,0) scale(.83)}
+  18%{opacity:1;transform:translate(-50%,-13px) scale(1.1)}
+  65%{opacity:1;transform:translate(-50%,-42px) scale(1)}
+  100%{opacity:0;transform:translate(-50%,-72px) scale(.92)}
+}
+@keyframes vduckie-exp-float-fixed{
+  0%{opacity:0;transform:translateY(12px) scale(.85)}
+  25%{opacity:1;transform:translateY(-5px) scale(1.08)}
+  100%{opacity:0;transform:translateY(-54px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .vduckie-exp-float{animation:none;opacity:1;transform:translate(-50%,-50%)}
+  .vduckie-exp-float-fixed{transform:none}
+}
