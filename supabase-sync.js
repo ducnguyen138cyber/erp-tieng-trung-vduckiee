@@ -755,6 +755,8 @@
   };
 
   window.VDuckieCloud = {
+    getClient: function () { return client; },
+    getSession: function () { return session; },
     sync: synchronize,
     signIn: signIn,
     signOut: signOut,
