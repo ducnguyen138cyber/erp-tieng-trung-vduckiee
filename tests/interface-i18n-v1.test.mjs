@@ -288,3 +288,62 @@ test('localized cards can be prepared while detached from the page and reverse o
   assert.match(premium,/localizeSubtree\(node\);if\(main\)/);
   assert.match(premium,/localizeSubtree\(el\);document\.body\.appendChild\(el\)/);
 });
+
+
+test('screenshot audit: review, ranking, dictionary, HSK tabs, and profile use Chinese UI',()=>{
+  const {api}=runtime();
+  api.setLanguage('zh');
+  const cases=[
+    ['Ôn tập thích ứng','自适应复习'],
+    ['GỌI LẠI','回忆练习'],
+    ['Pinyin đúng của 上架确认 là gì?','上架确认 的正确拼音是什么？'],
+    ['上架确认 nghĩa là gì?','上架确认 是什么意思？'],
+    ['← Quay lại','← 返回'],
+    ['1 · Từ mới','1 · 生词'],
+    ['2 · Nghe & đọc','2 · 听读'],
+    ['3 · Luyện tập','3 · 练习'],
+    ['4 · Kiến thức thêm','4 · 补充知识'],
+    ['UNIT 10 · BÀI 24 / 24','单元 10 · 第 24/24 课'],
+    ['Từ điển Trung – Việt','中越词典'],
+    ['TRA CỨU RIÊNG','独立词汇查询'],
+    ['12529 kết quả · đang hiện 50 kết quả đầu','找到 12529 条结果 · 显示前 50 条'],
+    ['7 kết quả','找到 7 条结果'],
+    ['♪ Nghe','♪ 听发音'],
+    ['+ Sổ từ','+ 生词本'],
+    ['Kho','仓库'],
+    ['HỒ SƠ HỌC TẬP','学习档案'],
+    ['VDuckie của bạn','我的 VDuckie'],
+    ['0 từ ERP đã thuộc','已掌握 0 个 ERP 词汇'],
+    ['2/20 bài giáo trình hoàn thành','已完成 2/20 节课程'],
+    ['Supabase sync khi đăng nhập','登录后通过 Supabase 同步'],
+    ['PWA dùng chung tiến độ','PWA 共享学习进度'],
+    ['Level 1','等级 1'],
+    ['Có hồ sơ người học không đồng nghĩa với đã hoàn thành bài được thưởng EXP. Hãy đăng nhập, hoàn thành một bài HSK rồi kiểm tra lại mục Tổng EXP.','拥有学习者档案不代表已完成可获得 EXP 的课程。请登录并完成一节 HSK 课程，再查看“总 EXP”。'],
+  ];
+  for(const [from,to] of cases)assert.equal(api.translateUI(from),to,from);
+  // Lessons, example sentences and Vietnamese learner-facing dictionary definitions remain source data.
+  for(const content of ['上架确认','Lĩnh liệu / nhận nguyên vật liệu để sản xuất','Thứ Bảy chúng ta đi xem phim nhé']){
+    assert.equal(api.translateUI(content),content);
+  }
+  api.setLanguage('en');
+  assert.equal(api.translateUI('Pinyin đúng của 上架确认 là gì?'),'What is the correct pinyin for 上架确认?');
+  assert.equal(api.translateUI('12529 kết quả · đang hiện 50 kết quả đầu'),'12529 results · showing first 50');
+  assert.equal(api.translateUI('1 · Từ mới'),'1 · Vocabulary');
+  api.setLanguage('vi');
+  assert.equal(api.translateUI('HỒ SƠ HỌC TẬP'),'HỒ SƠ HỌC TẬP');
+});
+
+test('daily learning interface is translatable while dictionary glosses and quiz answers stay protected',()=>{
+  assert.doesNotMatch(source,/var excludedSelector=[^\n]*#dailyLearningPanel/);
+  assert.match(source,/var excludedSelector=[^\n]*#dailyDictionaryResults/);
+  assert.match(source,/\.daily-options/);
+  assert.match(source,/\.dictionary-word/);
+  assert.match(source,/\.dictionary-meta small/);
+  assert.match(source,/\.dictionary-example/);
+  assert.match(source,/\.focus-word>p/);
+  assert.match(source,/\.hsk-pro-lesson-head h3 small/);
+  const daily=read('assets/daily-learning-v2.js');
+  assert.match(daily,/id="dailyDictionaryStatus"/);
+  assert.match(daily,/class="profile-screen app-screen"/);
+  assert.match(daily,/class="learning-session app-screen"/);
+});
