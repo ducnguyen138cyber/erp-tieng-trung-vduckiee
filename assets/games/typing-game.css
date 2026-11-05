@@ -8,7 +8,6 @@
 /* The async HSK runtime must not expose a second screen after a deep-link load. */
 body[data-screen-route=games] .study-center> :not(#gamesScreen){display:none!important}
 body[data-screen-route=games] .study-rail{display:none!important}
-.typing-game-open .vduckie-exp-float{z-index:21000}
 /* Preserve contrast inside the illustration against the site's legacy color reset. */
 .games-screen .games-card-art .games-art-word,.games-screen .games-card-art .games-art-star{color:#ffe277!important}
 .games-screen .games-card-art .games-art-word small{color:#fff!important}
