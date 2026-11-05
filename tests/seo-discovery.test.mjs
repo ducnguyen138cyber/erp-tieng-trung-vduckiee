@@ -62,3 +62,12 @@ test("static learning guides are indexable, linked, and have distinct canonical 
   assert.equal([...sitemap.matchAll(/<loc>/g)].length, 3);
   assert.doesNotMatch(sitemap, /\?screen=|\.pages\.dev\/preview/);
 });
+
+test("visible home shell links guide pages as real anchors", () => {
+  const shell = read("app-shell-v88.html");
+  assert.match(shell, /<nav class="vd-seo-guides" aria-label="Cẩm nang học tiếng Trung">/);
+  for (const file of ["hoc-tieng-trung-hsk.html", "luyen-go-pinyin.html"]) {
+    assert.match(shell, new RegExp('href="\\./' + file.replace(".", "\\.") + '"'));
+  }
+  assert.match(shell, /href="\.\/assets\/seo\/home-guides\.css\?v=1"/);
+});
