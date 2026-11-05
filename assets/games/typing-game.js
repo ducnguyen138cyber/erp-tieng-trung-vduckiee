@@ -3,7 +3,7 @@
   'use strict';
   var Engine=root.VDuckieTypingEngine,host,level=0,mode='',words=[],session=null,loadId=0;
   var catalog=[],cache=new Map(),indexes=new Map(),stylePromise=null,gameStyles=null;
-  var STYLE_URL="./assets/games/typing-game.css?v=3";
+  var STYLE_URL="./assets/games/typing-game.css?v=4";
   var mascot='./assets/mascot/duckie-reader-2d-v2.webp?v=2.0';
   function esc(value){return String(value==null?'':value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function button(text,action,extra){return '<button type="button" data-game-action="'+action+'" '+(extra||'')+'>'+text+'</button>';}
@@ -27,7 +27,7 @@
   function open(){
     mount();close();loadId++;host.classList.remove('hidden');
     host.innerHTML=heading('HỌC QUA TỪNG LƯỢT CHƠI','Một chút thử thách.<br>Thêm một từ nhớ lâu.','Chơi cùng Duckie, luyện phản xạ chữ Hán và Pinyin mỗi ngày.')+
-      '<article class="games-card"><div class="games-card-art"><span class="games-orbit"></span><img src="'+mascot+'" alt="Mascot VDuckie"><span class="games-art-word">你好<small>nǐ hǎo</small></span><span class="games-art-star">✦</span></div><div class="games-card-copy"><span class="games-eyebrow">01 / PINYIN</span><h2>Luyện gõ</h2><p>Đọc chữ, gõ Pinyin, phá thiên thạch.<br>Giữ nhịp tay và đưa Duckie qua bầu trời sao.</p><div class="games-tags"><span>HSK 1–4</span><span>3 phút / ván</span><span>+3 EXP / từ mới</span></div>'+button('Chơi Luyện gõ <span aria-hidden="true">↗</span>','choose','class="games-primary"')+'</div></article><p class="games-footnote">EXP dùng chung hạn mức 50 từ/ngày với học từ. Chơi lại cùng từ không nhận thưởng trùng. Đăng nhập để lưu EXP.</p>';
+      '<article class="games-card"><div class="games-card-art"><span class="games-orbit"></span><img src="'+mascot+'" alt="Mascot VDuckie"><span class="games-art-word">你好<small>nǐ hǎo</small></span><span class="games-art-star">✦</span></div><div class="games-card-copy"><span class="games-eyebrow">01 / PINYIN</span><h2>Luyện gõ</h2><p>Đọc chữ, gõ Pinyin, phá thiên thạch.<br>Giữ nhịp tay và đưa Duckie qua bầu trời sao.</p><div class="games-tags"><span>HSK 1–4</span><span>3 phút / ván</span><span>Điểm &amp; combo</span></div>'+button('Chơi Luyện gõ <span aria-hidden="true">↗</span>','choose','class="games-primary"')+'</div></article><p class="games-footnote">Luyện phản xạ Pinyin, tích điểm và giữ combo. Trò chơi không cộng EXP tài khoản.</p>';
     document.title='Trò chơi — VDuckie';
   }
   async function availability(){
@@ -73,7 +73,7 @@
   function difficulty(){
     host.innerHTML=heading('BƯỚC 2 / 2 · HSK '+level,'Chọn nhịp chơi của bạn','Gõ Pinyin không dấu. Đủ từ là bắn vỡ, không cần Enter.')+
       '<div class="games-modes">'+Object.keys(Engine.MODES).map(function(key){var config=Engine.MODES[key];return button('<span class="games-mode-mark">'+({easy:'✧',medium:'✦',hard:'✷'}[key])+'</span><strong>'+config.label+'</strong><small>'+config.fall+' giây / thiên thạch</small>','mode','data-mode="'+key+'" aria-pressed="'+(mode===key)+'"');}).join('')+'</div>'+
-      '<div class="games-rules"><b>Sẵn sàng cất cánh?</b><p>3 tim ban đầu · Phá đá ♥ để hồi tim (tối đa 4 tim) · Tối đa 2 thiên thạch cùng lúc.</p><p>Gõ <b>shuohua</b> cho <b>shuōhuà</b>. Mỗi phím đúng bắn một viên đạn. Phím sai được bỏ qua, không cần xóa; Backspace vẫn dùng được. Chấp nhận ü / v / u: / u.</p><p>100 điểm mỗi từ; mỗi 5 combo tăng hệ số điểm (tối đa ×5). EXP luôn +3 cho từ mới, không nhân combo.</p></div><div class="games-setup-actions">'+button('← Đổi HSK','levels','class="games-back"')+button('Bắt đầu →','start','class="games-primary" '+(mode?'':'disabled'))+'</div>';
+      '<div class="games-rules"><b>Sẵn sàng cất cánh?</b><p>3 tim ban đầu · Phá đá ♥ để hồi tim (tối đa 4 tim) · Tối đa 2 thiên thạch cùng lúc.</p><p>Gõ <b>shuohua</b> cho <b>shuōhuà</b>. Mỗi phím đúng bắn một viên đạn. Phím sai được bỏ qua, không cần xóa; Backspace vẫn dùng được. Chấp nhận ü / v / u: / u.</p><p>100 điểm mỗi từ; mỗi 5 combo tăng hệ số điểm (tối đa ×5). Trò chơi chỉ tính điểm game, không cộng EXP tài khoản.</p></div><div class="games-setup-actions">'+button('← Đổi HSK','levels','class="games-back"')+button('Bắt đầu →','start','class="games-primary" '+(mode?'':'disabled'))+'</div>';
   }
   function prepareStyles(){
     if(stylePromise)return stylePromise;
@@ -98,7 +98,7 @@
   function close(){if(session){session.dispose();session=null;}}
   function View(vocabulary,difficultyKey,hsk,css){
     this.game=new Engine.Game({words:vocabulary,mode:difficultyKey});this.hsk=hsk;
-    this.alive=true;this.frame=0;this.last=0;this.audio=null;this.animations=new Set();this.activeSources=new Set();this.meteorNodes=new Map();this.uiDirty=true;this.lastSecond=-1;this.shotSerial=0;this.awards=new Map();this.rewarded=0;this.pending=0;this.rewardNote='';
+    this.alive=true;this.frame=0;this.last=0;this.audio=null;this.animations=new Set();this.activeSources=new Set();this.meteorNodes=new Map();this.uiDirty=true;this.lastSecond=-1;this.shotSerial=0;
     try{this.muted=localStorage.getItem('vduckie:typing-muted')==='1';}catch(error){this.muted=false;}
     this.previousFocus=document.activeElement;this.appShell=document.getElementById('appShell');if(this.appShell)this.appShell.inert=true;
     this.root=document.createElement('div');this.root.className='tg-overlay';this.root.setAttribute('role','dialog');this.root.setAttribute('aria-label','Luyện gõ HSK '+hsk);this.root.setAttribute('aria-modal','true');
@@ -224,7 +224,7 @@
       if(event.type==='destroy'){
         self.tone(true);var p=self.position(meteor);self.retireMeteor(meteor);
         self.effect('tg-burst','✦',p.x,p.y);self.effect('tg-points','+'+event.points+(meteor.heart?' ♥':''),p.x,p.y-22);
-        self.reward(meteor.word);if(self.input.value)self.input.value='';
+        if(self.input.value)self.input.value='';
       }
       if(event.type==='miss'){self.flash(meteor.word.hanzi+' · '+meteor.word.pinyin+' · '+meteor.word.meaning);self.input.value=self.game.input;}
       if(event.type==='end')self.end(event.reason);
@@ -237,23 +237,10 @@
     var animation=node.animate([{transform:transform+' scale(1)',opacity:1},{transform:transform+' scale(1.18)',opacity:0}],{duration:160,easing:'ease-out'});
     this.animations.add(animation);animation.onfinish=function(){self.animations.delete(animation);node.remove();};
   };
-  View.prototype.reward=function(word){
-    // One RPC in flight per word in this round. All rounds/modes/learning share server dedupe + daily quota.
-    var key=word.level+':'+word.hanzi;if(this.awards.has(key)||!root.VDuckieEXP)return;
-    var self=this;this.pending++;
-    var promise=root.VDuckieEXP.awardWordMastery(word.level,word.hanzi,this.scoreNode).then(function(row){
-      if(row&&row.awarded)self.rewarded+=Number(row.exp_awarded)||0;
-      if(row&&row.reason==='daily_cap')self.rewardNote='Đã đạt 50 từ thưởng hôm nay. Bạn vẫn chơi bình thường.';
-      if(row&&row.reason==='not_authenticated')self.rewardNote='Đăng nhập để lưu EXP; điểm game vẫn được tính.';
-      if(row&&row.reason==='error')self.rewardNote='Chưa xác nhận được EXP do kết nối. Điểm game vẫn được tính.';
-    }).catch(function(){self.rewardNote='Chưa xác nhận được EXP do kết nối.';}).finally(function(){self.pending--;if(self.alive&&self.game.ended)self.rewardSummary();});
-    this.awards.set(key,promise);
-  };
-  View.prototype.rewardSummary=function(){var node=this.cover.querySelector('[data-game-reward]');if(node)node.textContent=this.pending?'Đang xác nhận EXP…':('+'+this.rewarded+' EXP · '+(this.rewardNote||'Từ đã nhận thưởng không cộng lại.'));};
   View.prototype.end=function(reason){
     cancelAnimationFrame(this.frame);this.frame=0;this.input.disabled=true;this.input.blur();this.root.classList.add('is-paused');this.pauseAnimations();if(this.audio)this.audio.suspend().catch(function(){});
     var result=this.game.result(),missed=Array.from(new Map(result.missed.map(function(w){return [w.hanzi,w];})).values());
-    this.cover.hidden=false;this.cover.innerHTML='<div class="tg-dialog tg-results"><span class="games-eyebrow">'+(reason==='time'?'HOÀN THÀNH 3 PHÚT':'HẾT TIM')+'</span><h2>Một chuyến bay đáng nhớ</h2><div class="tg-result-score">'+result.score+' <small>điểm</small></div><div class="tg-result-stats"><span><b>'+result.accuracy+'%</b>Chính xác</span><span><b>'+result.bestCombo+'</b>Combo tốt nhất</span><span><b>'+result.completed+'</b>Từ hoàn thành</span></div><p data-game-reward role="status"></p><h3>Từ bỏ lỡ · Ôn lại</h3><div class="tg-missed">'+(missed.length?missed.map(function(w){return '<div><b lang="zh">'+esc(w.hanzi)+'</b><span>'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></div>';}).join(''):'<p>Bạn không bỏ lỡ từ nào. Tiếp tục giữ nhịp nhé!</p>')+'</div><div class="tg-result-actions">'+button('Chơi lại →','restart','class="games-primary"')+button('Đổi HSK / độ khó','choices')+button('Về Trò chơi','exit')+'</div></div>';this.rewardSummary();this.cover.querySelector('button').focus();
+    this.cover.hidden=false;this.cover.innerHTML='<div class="tg-dialog tg-results"><span class="games-eyebrow">'+(reason==='time'?'HOÀN THÀNH 3 PHÚT':'HẾT TIM')+'</span><h2>Một chuyến bay đáng nhớ</h2><div class="tg-result-score">'+result.score+' <small>điểm</small></div><div class="tg-result-stats"><span><b>'+result.accuracy+'%</b>Chính xác</span><span><b>'+result.bestCombo+'</b>Combo tốt nhất</span><span><b>'+result.completed+'</b>Từ hoàn thành</span></div><p>Điểm game không quy đổi thành EXP.</p><h3>Từ bỏ lỡ · Ôn lại</h3><div class="tg-missed">'+(missed.length?missed.map(function(w){return '<div><b lang="zh">'+esc(w.hanzi)+'</b><span>'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></div>';}).join(''):'<p>Bạn không bỏ lỡ từ nào. Tiếp tục giữ nhịp nhé!</p>')+'</div><div class="tg-result-actions">'+button('Chơi lại →','restart','class="games-primary"')+button('Đổi HSK / độ khó','choices')+button('Về Trò chơi','exit')+'</div></div>';this.cover.querySelector('button').focus();
   };
   View.prototype.position=function(m){return {x:this.arenaWidth*m.x,y:-44+(this.arenaHeight+44)*m.progress};};
   View.prototype.meteorTransform=function(y){return 'translate3d(-50%,'+y+'px,0) translateY(-50%)';};

@@ -49,12 +49,11 @@ bottom when a mobile keyboard reduces the available height.
 
 ## EXP
 
-The game calls the same `VDuckieEXP.awardWordMastery(level, hanzi, anchor)` used by
-word learning. There is no new reward endpoint, separate quota or local EXP counter.
-The existing authenticated RPC awards +3 EXP, deduplicates its word key across
-learning/game attempts, and serializes the shared 50-word daily quota in Vietnam time.
-Combo changes game score only. Guest play and play after the quota remain available.
-A per-round promise map also prevents duplicate concurrent calls for the same word.
+Typing gameplay is independent of account EXP. Completing words only changes
+round score/combo/hearts. Starting, ending (time or hearts), replaying and exiting
+a round never invoke EXP rewards or learning evidence. There is no end-of-round
+EXP bonus. Gameplay does not consume the 50-word daily learning reward quota.
+The existing word-learning EXP mechanism is unchanged.
 
 ## Verification
 
@@ -63,10 +62,11 @@ A per-round promise map also prevents duplicate concurrent calls for the same wo
   restart and real vocabulary shards.
 - `node tests/typing-game-browser.mjs`: Chromium integration with real-time gameplay,
   four viewport sizes, screenshots and WebM video under `artifacts/typing-game/`.
-  Only the EXP network boundary is mocked. A simulated visibility change verifies
+  Authenticated-like EXP spies assert zero reward/evidence calls during gameplay,
+  gameover, replay and exit. A simulated visibility change verifies
   the hidden-tab branch independently of headless Chrome's tab-visibility behavior.
-- `tests/sql/typing-exp-rollback.sql`: real +3 awards, repeated-word rejection,
-  shared daily cap and total EXP checks. All test writes are rolled back.
+- `tests/sql/typing-exp-rollback.sql`: historical shared word-learning reward
+  checks; the game no longer calls this RPC. No reward SQL changes are needed.
 - The existing Sidebar stability workflow covers navigation/auth/PWA regressions.
 
 Viewport checks include 1440×900, 390×844, 844×390 and 390×480. The last represents

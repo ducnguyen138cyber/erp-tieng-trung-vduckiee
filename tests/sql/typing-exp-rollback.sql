@@ -1,4 +1,5 @@
--- Exercise the same RPC used by learning and Games; no test writes persist.
+-- Historical game reward check, now used only for word-learning EXP regression.
+-- Games no longer invoke this RPC; no test writes persist.
 begin;
 do $setup$
 declare v_uid uuid;

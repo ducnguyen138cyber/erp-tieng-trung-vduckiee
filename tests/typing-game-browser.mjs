@@ -1,5 +1,5 @@
-// Real Chromium integration, responsive screenshots/video. Network rewards are mocked here;
-// the actual RPC is verified separately with tests/sql/typing-exp-rollback.sql.
+// Real Chromium integration, responsive screenshots/video. EXP boundary spies
+// verify that gameplay, gameover, replay and exit never award account EXP.
 import {chromium} from 'playwright';
 import {createServer} from 'node:http';
 import {readFile,mkdir,writeFile} from 'node:fs/promises';
@@ -44,14 +44,14 @@ try{
       if(n!==1){await page.locator('[data-game-action=levels]').click();}
     }
     await page.locator('[data-mode=easy]').click();
-    // Only the reward boundary is mocked, preserving the actual game + UI logic.
+    // Awarding spies behave like an authenticated account that can earn EXP.
+    // Any accidental game call would be observable, rather than hidden by guest rejection.
     await page.evaluate(()=>{
-      window.__typingRewardKeys=new Set();window.__typingRewardCalls=0;window.__typingRewardEXP=0;
-      window.VDuckieEXP={...window.VDuckieEXP,awardWordMastery:async(level,hanzi)=>{
-        window.__typingRewardCalls++;const key=level+':'+hanzi,duplicate=window.__typingRewardKeys.has(key);
-        window.__typingRewardKeys.add(key);if(!duplicate)window.__typingRewardEXP+=3;
-        return {awarded:!duplicate,exp_awarded:duplicate?0:3,reason:duplicate?'duplicate':'awarded'};
-      }};
+      window.__typingRewardCalls=0;window.__typingRewardEXP=0;
+      const award=async()=>{window.__typingRewardCalls++;window.__typingRewardEXP+=3;
+        return {awarded:true,exp_awarded:3,reason:'awarded'};};
+      window.VDuckieEXP={...window.VDuckieEXP,awardWordMastery:award,awardEXP:award,
+        recordLearningEvent:award,claimWeeklyMission:award};
     });
     console.log(name+': starting real-time gameplay');
     await page.locator('[data-game-action=start]').click();
@@ -92,13 +92,13 @@ try{
     assert.equal(await page.locator('[data-score]').textContent(),'100');assert.equal(await input.inputValue(),'');
     assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥♥');
     assert.ok(await page.evaluate(()=>window.__typingTones)>0,'real cached WebAudio buffer sources created');
-    assert.equal(await page.evaluate(()=>window.__typingRewardEXP),3);
+    assert.equal(await page.evaluate(()=>window.__typingRewardEXP),0,'completed words cannot award EXP');
     for(let i=0;i<2;i++){
       await page.locator('.tg-meteor.is-target .tg-word>span').waitFor({timeout:2000});
       await input.fill(normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent()));
       assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥♥','additional heart rocks cannot exceed four lives');
     }
-    const earnedBeforeReplay=await page.evaluate(()=>window.__typingRewardEXP);
+    assert.equal(await page.evaluate(()=>window.__typingRewardCalls),0,'multiple completed words never call EXP');
     await page.locator('.tg-meteor').waitFor({timeout:2000});
     await page.waitForTimeout(2200);
     const laterPlane=await page.locator('.tg-plane').boundingBox();assert.ok(Math.abs(laterPlane.x-planeBox.x)<1,'plane does not chase another meteor');
@@ -124,17 +124,20 @@ try{
       await page.locator('[data-game-action=choices]').click();
       await page.locator('[data-level=\"1\"]').click();await page.locator('[data-mode=easy]').click();await page.locator('[data-game-action=start]').click();
       const repeat=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());await input.pressSequentially(repeat);
-      assert.equal(await page.evaluate(()=>window.__typingRewardEXP),earnedBeforeReplay);
+      assert.equal(await page.evaluate(()=>window.__typingRewardEXP),0);
       await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
     }
     if(viewport.width===1440){
     assert.ok(await page.locator('.tg-missed b').count()>0);
+    assert.equal(await page.evaluate(()=>window.__typingRewardCalls),0,'gameover does not award EXP');
+    assert.equal(await page.locator('[data-game-reward]').count(),0);
+    assert.equal(await page.locator('.vduckie-exp-float').count(),0);
     await page.screenshot({path:path.join(out,name+'-results.png')});
     await page.locator('[data-game-action=restart]').click();
     await page.locator('.tg-overlay').waitFor();
     assert.equal(await page.locator('.tg-overlay').count(),1);assert.equal(await page.locator('[data-score]').textContent(),'0');assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥');
     const repeat=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());await input.pressSequentially(repeat);
-    assert.equal(await page.evaluate(()=>window.__typingRewardEXP),earnedBeforeReplay,'replay cannot award same word twice');
+    assert.equal(await page.evaluate(()=>window.__typingRewardEXP),0,'replay never awards EXP');
     await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();assert.equal(await page.locator('.tg-overlay').count(),0);
     await page.waitForTimeout(800);assert.equal(await page.locator('.tg-meteor').count(),0);
     for(const key of ['medium','hard']){
@@ -145,9 +148,10 @@ try{
       await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
     }
     }
-    console.log(name+': completed all interactions');
+    assert.equal(await page.evaluate(()=>window.__typingRewardCalls),0,'all modes, restart and exit remain independent of account EXP');
+    console.log(name+': completed all interactions without EXP calls');
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
-    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_key_ignored','automatic_score_once','heart_reward_max_four','centered_airplane','one_projectile_per_letter','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','reward_replay_dedupe_mock','exit_cleanup','responsive_bounds','shadow_isolation','reused_glyphs','bounded_effect_pool',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
+    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_key_ignored','automatic_score_once','heart_reward_max_four','centered_airplane','one_projectile_per_letter','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','zero_exp_calls_during_gameover_replay_exit','exit_cleanup','responsive_bounds','shadow_isolation','reused_glyphs','bounded_effect_pool',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
     const video=page.video();await context.close();if(video)await video.saveAs(path.join(out,name+'-gameplay.webm'));
   }
   await writeFile(path.join(out,'browser-results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
