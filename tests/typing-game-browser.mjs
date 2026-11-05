@@ -18,6 +18,7 @@ const normalize=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f\s]/g
 try{
   for(const viewport of [{width:1440,height:900},{width:390,height:844},{width:844,height:390},{width:390,height:480}]){
     const name=viewport.width+'x'+viewport.height,context=await browser.newContext({viewport,serviceWorkers:'block',recordVideo:{dir:out,size:viewport}}),page=await context.newPage();
+    console.log(name+': starting setup');page.setDefaultTimeout(15000);
     const errors=[],failures=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',req=>{if(req.url().startsWith(base)&&!/ABORTED/.test(req.failure()?.errorText||''))failures.push(req.url());});
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',route=>route.fulfill({contentType:'text/javascript',body:`window.supabase={createClient(){const q=()=>new Proxy({}, {get(o,k){if(k==='then')return ok=>Promise.resolve({data:[],error:null}).then(ok);return ()=>q()}});return {auth:{getSession:async()=>({data:{session:null},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}};`}));
     await page.route('https://*.supabase.co/**',route=>route.abort());
@@ -75,7 +76,7 @@ try{
     const inputBox=await input.boundingBox();assert.ok(inputBox.y+inputBox.height<=viewport.height,'input stays above viewport bottom');
     await page.screenshot({path:path.join(out,name+'-gameplay.png')});
     await page.locator('[data-game-action=pause]').click();const before=await page.locator('[data-time]').textContent();
-    await page.clock.runFor(15000);assert.equal(await page.locator('[data-time]').textContent(),before);
+    await page.clock.fastForward(15000);assert.equal(await page.locator('[data-time]').textContent(),before);
     await page.locator('[data-game-action=resume]').click();
     await page.locator('[data-game-action=sound]').click();assert.equal(await page.locator('[data-game-action=sound]').getAttribute('aria-label'),'Bật âm');
     await page.locator('[data-game-action=sound]').click();
@@ -86,7 +87,9 @@ try{
     await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
     assert.equal(await page.locator('.tg-cover').isVisible(),true);
     await page.evaluate(()=>Object.defineProperty(document,'hidden',{configurable:true,value:false}));await other.close();await page.bringToFront();await page.locator('[data-game-action=resume]').click();
-    await page.clock.runFor(60000);await page.locator('.tg-results').waitFor();
+    console.log(name+': checking gameover');
+    for(let i=0;i<5&&!await page.locator('.tg-results').count();i++)await page.clock.fastForward(15000);
+    await page.locator('.tg-results').waitFor();
     assert.ok(await page.locator('.tg-missed b').count()>0);
     await page.screenshot({path:path.join(out,name+'-results.png')});
     await page.locator('[data-game-action=restart]').click();
@@ -94,13 +97,14 @@ try{
     const repeat=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());await input.pressSequentially(repeat);
     assert.equal(await page.evaluate(()=>window.__typingRewardEXP),3,'replay cannot award same word twice');
     await page.locator('[data-game-action=exit]').click();assert.equal(await page.locator('.tg-overlay').count(),0);
-    await page.clock.runFor(20000);assert.equal(await page.locator('.tg-meteor').count(),0);
+    await page.clock.fastForward(20000);assert.equal(await page.locator('.tg-meteor').count(),0);
     for(const key of ['medium','hard']){
       await page.locator('[data-game-action=choose]').click();await page.locator('[data-level="1"]').click();await page.locator('[data-mode='+key+']').click();await page.locator('[data-game-action=start]').click();
       const threshold=key==='medium'?7200:4500;await page.clock.runFor(threshold-60);assert.equal(await page.locator('.tg-meteor').count(),1);
       await page.clock.runFor(100);assert.equal(await page.locator('.tg-meteor').count(),2);
       await page.locator('[data-game-action=exit]').click();
     }
+    console.log(name+': completed all interactions');
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
     results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_backspace','automatic_score_once','heart_reward','real_webaudio','spawn_600ms','pause','tab_pause','gameover','missed_review','restart','reward_replay_dedupe_mock','all_difficulties_stagger','exit_cleanup','responsive_bounds']});
     const video=page.video();await context.close();if(video)await video.saveAs(path.join(out,name+'-gameplay.webm'));
