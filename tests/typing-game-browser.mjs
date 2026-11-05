@@ -27,7 +27,7 @@ try{
       Math.random=()=>.05;
       const Native=window.AudioContext;if(Native)window.AudioContext=class extends Native{
         constructor(){super();window.__typingAudio=this;window.__typingTones=0;}
-        createOscillator(){window.__typingTones++;return super.createOscillator();}
+        createBufferSource(){window.__typingTones++;return super.createBufferSource();}
       };
     });
     await page.goto(base+'?screen=games&area=hsk&hskLevel=1');
@@ -65,13 +65,17 @@ try{
     assert.equal(await page.locator('.tg-plane').evaluate(n=>getComputedStyle(n).animationName),'none');
     assert.ok((await page.locator('.tg-plane img').getAttribute('src')).includes('airplane.svg'));
     await page.evaluate(()=>{
-      window.__typingShots=[];new MutationObserver(records=>{for(const r of records)for(const n of r.addedNodes){
-        if(n.nodeType===1&&n.classList.contains('tg-bullet'))window.__typingShots.push({letter:n.dataset.letter,x:parseFloat(n.style.left),delay:parseFloat(n.style.animationDelay)});
-      }}).observe(document.querySelector('.tg-effects'),{childList:true});
+      const tree=document.querySelector('.tg-stage-host').shadowRoot;
+      window.__typingShots=[];new MutationObserver(records=>{for(const r of records){const n=r.target;
+        if(n.classList.contains('tg-bullet'))window.__typingShots.push({letter:n.dataset.letter,x:parseFloat(n.style.left),delay:(n.getAnimations()[0]?.effect.getTiming().delay||0)/1000});
+      }}).observe(tree.querySelector('.tg-effects'),{subtree:true,attributes:true,attributeFilter:['data-shot']});
+      window.__typingFirstGlyph=tree.querySelector('.tg-meteor.is-target i');
     });
     const prefix=answer.slice(0,2);await input.fill(prefix);
     assert.equal(await page.locator('.tg-meteor.is-target i.is-correct').count(),prefix.length);
     assert.equal(await page.evaluate(()=>window.__typingShots.length),prefix.length,'two accepted letters produce two projectiles');
+    assert.equal(await page.locator('.tg-meteor.is-target i').first().evaluate(n=>n===window.__typingFirstGlyph),true,'typing reuses existing glyph nodes');
+    assert.equal(await page.locator('.tg-effects').evaluate(n=>n.childElementCount),80,'bounded effect pool is allocated once');
     const wrong=answer[prefix.length]==='x'?'q':'x';await input.pressSequentially(wrong);
     assert.equal(await input.inputValue(),prefix,'incorrect key is discarded without Backspace');
     assert.equal(await input.getAttribute('aria-invalid'),'false');
@@ -84,7 +88,7 @@ try{
     assert.ok(shots[1].delay>shots[0].delay,'batched keys have visibly separate launch times');
     assert.equal(await page.locator('[data-score]').textContent(),'100');assert.equal(await input.inputValue(),'');
     assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥♥');
-    assert.ok(await page.evaluate(()=>window.__typingTones)>0,'real WebAudio oscillators created');
+    assert.ok(await page.evaluate(()=>window.__typingTones)>0,'real cached WebAudio buffer sources created');
     assert.equal(await page.evaluate(()=>window.__typingRewardEXP),3);
     for(let i=0;i<2;i++){
       await page.locator('.tg-meteor.is-target .tg-word>span').waitFor({timeout:2000});
@@ -132,14 +136,14 @@ try{
     for(const key of ['medium','hard']){
       await page.locator('[data-game-action=choose]').click();await page.locator('[data-level="1"]').click();await page.locator('[data-mode='+key+']').click();await page.locator('[data-game-action=start]').click();
       const threshold=key==='medium'?7200:4500,started=Date.now();
-      await page.waitForFunction(()=>document.querySelectorAll('.tg-meteor').length===2,{},{timeout:threshold+4000});
+      await page.waitForFunction(()=>document.querySelector('.tg-stage-host').shadowRoot.querySelectorAll('.tg-meteor').length===2,{},{timeout:threshold+4000});
       assert.ok(Math.abs(Date.now()-started-threshold)<1500,'staggered spawn follows configured active seconds');
       await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
     }
     }
     console.log(name+': completed all interactions');
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
-    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_key_ignored','automatic_score_once','heart_reward_max_four','centered_airplane','one_projectile_per_letter','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','reward_replay_dedupe_mock','exit_cleanup','responsive_bounds',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
+    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_key_ignored','automatic_score_once','heart_reward_max_four','centered_airplane','one_projectile_per_letter','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','reward_replay_dedupe_mock','exit_cleanup','responsive_bounds','shadow_isolation','reused_glyphs','bounded_effect_pool',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
     const video=page.video();await context.close();if(video)await video.saveAs(path.join(out,name+'-gameplay.webm'));
   }
   await writeFile(path.join(out,'browser-results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
