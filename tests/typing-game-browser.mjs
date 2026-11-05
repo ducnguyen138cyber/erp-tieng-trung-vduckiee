@@ -116,8 +116,14 @@ try{
     }
     console.log(name+': completed all interactions');
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
-    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_backspace','automatic_score_once','heart_reward','real_webaudio','next_spawn','pause','tab_pause','gameover_desktop','missed_review_desktop','restart','reward_replay_dedupe_mock','all_difficulties_stagger','exit_cleanup','responsive_bounds']});
+    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_backspace','automatic_score_once','heart_reward','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','reward_replay_dedupe_mock','exit_cleanup','responsive_bounds',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
     const video=page.video();await context.close();if(video)await video.saveAs(path.join(out,name+'-gameplay.webm'));
   }
   await writeFile(path.join(out,'browser-results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));
-}finally{await browser.close();await new Promise(resolve=>server.close(resolve));}
+}finally{
+  // Browser code can leave an in-flight HTTP request when its tab closes.
+  // Close those sockets before awaiting server shutdown so CI cannot hang after PASS.
+  console.log('Closing static server connections');server.closeAllConnections();
+  await new Promise(resolve=>server.close(resolve));
+  console.log('Closing Chromium');await browser.close();console.log('Browser verification finished');
+}
