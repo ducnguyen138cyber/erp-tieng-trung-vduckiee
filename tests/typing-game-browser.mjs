@@ -127,3 +127,7 @@ try{
   await new Promise(resolve=>server.close(resolve));
   console.log('Closing Chromium');await browser.close();console.log('Browser verification finished');
 }
+// Playwright's extra recording tab can leave its ffmpeg helper handle alive after
+// every context/video has closed. This CLI reaches here only when all checks pass;
+// exceptions bypass this line and keep their normal nonzero exit status.
+process.exit(0);
