@@ -55,6 +55,7 @@ try{
     });
     console.log(name+': starting real-time gameplay');
     await page.locator('[data-game-action=start]').click();
+    await page.locator('.tg-overlay').waitFor();
     assert.equal(await page.locator('.tg-overlay').count(),1);
     assert.equal(await page.locator('.duckie-chat-launch').isVisible(),false);
     await page.waitForTimeout(2200);
@@ -70,11 +71,13 @@ try{
         if(n.classList.contains('tg-bullet'))window.__typingShots.push({letter:n.dataset.letter,x:parseFloat(n.style.left),delay:(n.getAnimations()[0]?.effect.getTiming().delay||0)/1000});
       }}).observe(tree.querySelector('.tg-effects'),{subtree:true,attributes:true,attributeFilter:['data-shot']});
       window.__typingFirstGlyph=tree.querySelector('.tg-meteor.is-target i');
+      window.__typingFirstFlight=tree.querySelector('.tg-meteor.is-target').getAnimations()[0];
     });
     const prefix=answer.slice(0,2);await input.fill(prefix);
     assert.equal(await page.locator('.tg-meteor.is-target i.is-correct').count(),prefix.length);
     assert.equal(await page.evaluate(()=>window.__typingShots.length),prefix.length,'two accepted letters produce two projectiles');
     assert.equal(await page.locator('.tg-meteor.is-target i').first().evaluate(n=>n===window.__typingFirstGlyph),true,'typing reuses existing glyph nodes');
+    assert.equal(await page.locator('.tg-meteor.is-target').evaluate(n=>n.getAnimations()[0]===window.__typingFirstFlight),true,'typing never restarts the fall');
     assert.equal(await page.locator('.tg-effects').evaluate(n=>n.childElementCount),80,'bounded effect pool is allocated once');
     const wrong=answer[prefix.length]==='x'?'q':'x';await input.pressSequentially(wrong);
     assert.equal(await input.inputValue(),prefix,'incorrect key is discarded without Backspace');
@@ -128,6 +131,7 @@ try{
     assert.ok(await page.locator('.tg-missed b').count()>0);
     await page.screenshot({path:path.join(out,name+'-results.png')});
     await page.locator('[data-game-action=restart]').click();
+    await page.locator('.tg-overlay').waitFor();
     assert.equal(await page.locator('.tg-overlay').count(),1);assert.equal(await page.locator('[data-score]').textContent(),'0');assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥');
     const repeat=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());await input.pressSequentially(repeat);
     assert.equal(await page.evaluate(()=>window.__typingRewardEXP),earnedBeforeReplay,'replay cannot award same word twice');

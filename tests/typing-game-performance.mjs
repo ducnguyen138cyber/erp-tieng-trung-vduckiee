@@ -23,7 +23,7 @@ try{
  for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
   for(const mode of (viewport.width===1440?['easy','medium','hard']:['hard'])){
    for(const variant of ['baseline','optimized']){
-    const name=viewport.width+'-'+mode+'-'+variant,record=viewport.width===1440&&mode==='hard'&&variant==='optimized';
+    const name=viewport.width+'-'+mode+'-'+variant;console.log(name+': starting A/B sample');const record=viewport.width===1440&&mode==='hard';
     const context=await browser.newContext({viewport,serviceWorkers:'block',...(record?{recordVideo:{dir:out,size:viewport}}:{})}),page=await context.newPage();
     page.setDefaultTimeout(15000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
     if(variant==='baseline'){
@@ -64,7 +64,9 @@ try{
     while(Date.now()-started<16000){
      const target=page.locator('.tg-meteor.is-target .tg-word>span');await target.waitFor({timeout:4000});const answer=normalize(await target.textContent());
      const input=page.locator('#typingPinyin'),wrong=answer[0]==='x'?'q':'x';
-     await input.pressSequentially(wrong+answer,{delay:32});letters+=answer.length;completed++;
+     const scoreBefore=Number(await page.locator('[data-score]').textContent());
+     await input.pressSequentially(wrong+answer,{delay:32});
+     assert.ok(Number(await page.locator('[data-score]').textContent())>scoreBefore,'word must actually complete under load');letters+=answer.length;completed++;
     }
     await page.evaluate(()=>{window.__perf.active=false;});const perf=await page.evaluate(()=>window.__perf),after=(await cdp.send('Performance.getMetrics')).metrics;
     const delta=key=>(after.find(x=>x.name===key)?.value||0)-(before.find(x=>x.name===key)?.value||0);
@@ -75,7 +77,7 @@ try{
      longTasks:perf.long.length,longTaskMs:perf.long.reduce((a,b)=>a+b,0),
      scriptMs:delta('ScriptDuration')*1000,layoutMs:delta('LayoutDuration')*1000,styleMs:delta('RecalcStyleDuration')*1000,
      observerCalls:observers.reduce((a,b)=>a+b.calls,0),observerMs:observers.reduce((a,b)=>a+b.ms,0),observers};
-    results.push(result);console.log(JSON.stringify(result));assert.deepEqual(errors,[]);assert.ok(completed>=8&&perf.frames.length>150);
+    results.push(result);await writeFile(path.join(out,'performance-results.json'),JSON.stringify({baselineCommit:baseline,results},null,2));console.log(JSON.stringify(result));assert.deepEqual(errors,[]);assert.ok(completed>=8&&perf.frames.length>150);
     if(variant==='optimized'){
      assert.equal(await page.locator('.tg-effects').evaluate(n=>n.childElementCount),80);
      await page.screenshot({path:path.join(out,name+'.png')});
@@ -88,7 +90,7 @@ try{
     }
     await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
     assert.equal(await page.locator('.tg-overlay').count(),0);const video=page.video();await context.close();
-    if(video)await video.saveAs(path.join(out,'hard-optimized-gameplay.webm'));
+    if(video)await video.saveAs(path.join(out,'hard-'+variant+'-gameplay.webm'));
    }
   }
  }
@@ -96,6 +98,7 @@ try{
  // Guard the cause, not a noisy fixed FPS number on a shared CI runner.
  for(const optimized of results.filter(r=>r.variant==='optimized')){
   const original=results.find(r=>r.viewport.width===optimized.viewport.width&&r.mode===optimized.mode&&r.variant==='baseline');
+  assert.ok(optimized.scriptMs<original.scriptMs*.5,'gameplay scripting must fall substantially: '+optimized.name);
   assert.ok(optimized.observerCalls<original.observerCalls*.4,'gameplay must substantially stop waking global observers: '+optimized.name);
  }
 }finally{server.closeAllConnections();await new Promise(r=>server.close(r));await browser.close();}
