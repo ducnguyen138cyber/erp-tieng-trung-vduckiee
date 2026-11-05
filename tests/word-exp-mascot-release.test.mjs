@@ -65,7 +65,7 @@ test('all new assets have cache-busted public entrypoints and current PWA cache'
   assert.match(index,/exp-floating-feedback-v91\.css\?v=1/);
   assert.match(index,/exp-core-v90\.js\?v=word-float1/);
   assert.match(index,/mascot-swap-v1\.js\?v=9/);
-  assert.match(worker,/vduckie-pwa-v36/);
+  assert.match(worker,/vduckie-pwa-v37/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
 });
 

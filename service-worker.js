@@ -1,12 +1,16 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v36";
+const CACHE_VERSION = "vduckie-pwa-v37";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
+  "./assets/games/typing-game.css?v=1",
+  "./assets/games/typing-engine.js?v=1",
+  "./assets/games/typing-game.js?v=1",
+  "./assets/games/duck-plane.svg",
   "./",
   "./index.html",
   "./app-shell-v88.html",

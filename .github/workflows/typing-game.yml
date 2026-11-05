@@ -1,0 +1,25 @@
+name: Typing game browser verification
+on:
+  pull_request:
+    paths: ['assets/games/**','assets/navigation/**','assets/hsk-content/**','assets/i18n/**','tests/typing-game*','.github/workflows/typing-game.yml','index.html','app-shell-v88.html']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  gameplay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test tests/typing-game.test.cjs
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/typing-game-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: typing-game-browser-evidence
+          path: artifacts/typing-game/
