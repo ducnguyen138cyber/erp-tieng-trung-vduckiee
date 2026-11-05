@@ -59,19 +59,42 @@ try{
     assert.equal(await page.locator('.duckie-chat-launch').isVisible(),false);
     await page.waitForTimeout(2200);
     const answer=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());
-    const input=page.locator('#typingPinyin');await input.pressSequentially(answer[0]);
-    assert.equal(await page.locator('.tg-meteor.is-target i.is-correct').count(),1);
-    await input.pressSequentially('x');assert.equal(await input.getAttribute('aria-invalid'),'true');
-    assert.equal(await page.locator('.tg-meteor.is-target i.is-correct').count(),1);
-    await page.screenshot({path:path.join(out,name+'-wrong.png')});
-    await input.press('Backspace');assert.equal(await input.inputValue(),answer[0]);
-    await input.pressSequentially(answer.slice(1));
+    const input=page.locator('#typingPinyin');
+    const planeBox=await page.locator('.tg-plane').boundingBox(),arenaBox=await page.locator('.tg-arena').boundingBox();
+    assert.ok(Math.abs(planeBox.x+planeBox.width/2-arenaBox.x-arenaBox.width/2)<1,'plane is fixed in the center');
+    assert.equal(await page.locator('.tg-plane').evaluate(n=>getComputedStyle(n).animationName),'none');
+    assert.ok((await page.locator('.tg-plane img').getAttribute('src')).includes('airplane.svg'));
+    await page.evaluate(()=>{
+      window.__typingShots=[];new MutationObserver(records=>{for(const r of records)for(const n of r.addedNodes){
+        if(n.nodeType===1&&n.classList.contains('tg-bullet'))window.__typingShots.push({letter:n.dataset.letter,x:parseFloat(n.style.left),delay:parseFloat(n.style.animationDelay)});
+      }}).observe(document.querySelector('.tg-effects'),{childList:true});
+    });
+    const prefix=answer.slice(0,2);await input.fill(prefix);
+    assert.equal(await page.locator('.tg-meteor.is-target i.is-correct').count(),prefix.length);
+    assert.equal(await page.evaluate(()=>window.__typingShots.length),prefix.length,'two accepted letters produce two projectiles');
+    const wrong=answer[prefix.length]==='x'?'q':'x';await input.pressSequentially(wrong);
+    assert.equal(await input.inputValue(),prefix,'incorrect key is discarded without Backspace');
+    assert.equal(await input.getAttribute('aria-invalid'),'false');
+    assert.equal(await page.evaluate(()=>window.__typingShots.length),prefix.length,'incorrect key never fires');
+    await page.screenshot({path:path.join(out,name+'-ignored-key.png')});
+    await input.pressSequentially(answer.slice(prefix.length));
+    const shots=await page.evaluate(()=>window.__typingShots);
+    assert.equal(shots.length,answer.length,'one projectile for every correct character');
+    assert.ok(shots.every(s=>Math.abs(s.x-arenaBox.width/2)<1),'all projectiles launch from the centered airplane');
+    assert.ok(shots[1].delay>shots[0].delay,'batched keys have visibly separate launch times');
     assert.equal(await page.locator('[data-score]').textContent(),'100');assert.equal(await input.inputValue(),'');
     assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥♥');
     assert.ok(await page.evaluate(()=>window.__typingTones)>0,'real WebAudio oscillators created');
     assert.equal(await page.evaluate(()=>window.__typingRewardEXP),3);
+    for(let i=0;i<2;i++){
+      await page.locator('.tg-meteor.is-target .tg-word>span').waitFor({timeout:2000});
+      await input.fill(normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent()));
+      assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥♥','additional heart rocks cannot exceed four lives');
+    }
+    const earnedBeforeReplay=await page.evaluate(()=>window.__typingRewardEXP);
     await page.locator('.tg-meteor').waitFor({timeout:2000});
     await page.waitForTimeout(2200);
+    const laterPlane=await page.locator('.tg-plane').boundingBox();assert.ok(Math.abs(laterPlane.x-planeBox.x)<1,'plane does not chase another meteor');
     const inputBox=await input.boundingBox();assert.ok(inputBox.y+inputBox.height<=viewport.height,'input stays above viewport bottom');
     await page.screenshot({path:path.join(out,name+'-gameplay.png')});
     await page.locator('[data-game-action=pause]').click();const before=await page.locator('[data-time]').textContent();
@@ -94,7 +117,7 @@ try{
       await page.locator('[data-game-action=choices]').click();
       await page.locator('[data-level=\"1\"]').click();await page.locator('[data-mode=easy]').click();await page.locator('[data-game-action=start]').click();
       const repeat=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());await input.pressSequentially(repeat);
-      assert.equal(await page.evaluate(()=>window.__typingRewardEXP),3);
+      assert.equal(await page.evaluate(()=>window.__typingRewardEXP),earnedBeforeReplay);
       await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
     }
     if(viewport.width===1440){
@@ -103,7 +126,7 @@ try{
     await page.locator('[data-game-action=restart]').click();
     assert.equal(await page.locator('.tg-overlay').count(),1);assert.equal(await page.locator('[data-score]').textContent(),'0');assert.equal(await page.locator('[data-hearts]').textContent(),'♥♥♥');
     const repeat=normalize(await page.locator('.tg-meteor.is-target .tg-word>span').textContent());await input.pressSequentially(repeat);
-    assert.equal(await page.evaluate(()=>window.__typingRewardEXP),3,'replay cannot award same word twice');
+    assert.equal(await page.evaluate(()=>window.__typingRewardEXP),earnedBeforeReplay,'replay cannot award same word twice');
     await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();assert.equal(await page.locator('.tg-overlay').count(),0);
     await page.waitForTimeout(800);assert.equal(await page.locator('.tg-meteor').count(),0);
     for(const key of ['medium','hard']){
@@ -116,7 +139,7 @@ try{
     }
     console.log(name+': completed all interactions');
     assert.deepEqual(errors,[]);assert.deepEqual(failures,[]);
-    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_backspace','automatic_score_once','heart_reward','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','reward_replay_dedupe_mock','exit_cleanup','responsive_bounds',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
+    results.push({viewport,passed:true,checks:['hsk1-4_data','required_setup','per_character_color','wrong_key_ignored','automatic_score_once','heart_reward_max_four','centered_airplane','one_projectile_per_letter','real_webaudio','next_spawn','pause','tab_pause_simulated_visibility','restart','reward_replay_dedupe_mock','exit_cleanup','responsive_bounds',...(viewport.width===1440?['gameover','missed_review','medium_hard_stagger_real_time']:[])]});
     const video=page.video();await context.close();if(video)await video.saveAs(path.join(out,name+'-gameplay.webm'));
   }
   await writeFile(path.join(out,'browser-results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify(results,null,2));

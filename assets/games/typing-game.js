@@ -72,7 +72,7 @@
   function difficulty(){
     host.innerHTML=heading('BƯỚC 2 / 2 · HSK '+level,'Chọn nhịp chơi của bạn','Gõ Pinyin không dấu. Đủ từ là bắn vỡ, không cần Enter.')+
       '<div class="games-modes">'+Object.keys(Engine.MODES).map(function(key){var config=Engine.MODES[key];return button('<span class="games-mode-mark">'+({easy:'✧',medium:'✦',hard:'✷'}[key])+'</span><strong>'+config.label+'</strong><small>'+config.fall+' giây / thiên thạch</small>','mode','data-mode="'+key+'" aria-pressed="'+(mode===key)+'"');}).join('')+'</div>'+
-      '<div class="games-rules"><b>Sẵn sàng cất cánh?</b><p>3 tim ban đầu · Phá đá ♥ để hồi tim · Tối đa 2 thiên thạch cùng lúc.</p><p>Gõ <b>shuohua</b> cho <b>shuōhuà</b>. Chữ đúng đổi xanh, sai đổi đỏ; Backspace để sửa. Chấp nhận ü / v / u: / u.</p><p>100 điểm mỗi từ; mỗi 5 combo tăng hệ số điểm (tối đa ×5). EXP luôn +3 cho từ mới, không nhân combo.</p></div><div class="games-setup-actions">'+button('← Đổi HSK','levels','class="games-back"')+button('Bắt đầu →','start','class="games-primary" '+(mode?'':'disabled'))+'</div>';
+      '<div class="games-rules"><b>Sẵn sàng cất cánh?</b><p>3 tim ban đầu · Phá đá ♥ để hồi tim (tối đa 4 tim) · Tối đa 2 thiên thạch cùng lúc.</p><p>Gõ <b>shuohua</b> cho <b>shuōhuà</b>. Mỗi phím đúng bắn một viên đạn. Phím sai được bỏ qua, không cần xóa; Backspace vẫn dùng được. Chấp nhận ü / v / u: / u.</p><p>100 điểm mỗi từ; mỗi 5 combo tăng hệ số điểm (tối đa ×5). EXP luôn +3 cho từ mới, không nhân combo.</p></div><div class="games-setup-actions">'+button('← Đổi HSK','levels','class="games-back"')+button('Bắt đầu →','start','class="games-primary" '+(mode?'':'disabled'))+'</div>';
   }
   function start(){close();session=new View(words,mode,level);session.start();}
   function close(){if(session){session.dispose();session=null;}}
@@ -82,7 +82,7 @@
     try{this.muted=localStorage.getItem('vduckie:typing-muted')==='1';}catch(error){this.muted=false;}
     this.previousFocus=document.activeElement;this.appShell=document.getElementById('appShell');if(this.appShell)this.appShell.inert=true;
     this.root=document.createElement('div');this.root.className='tg-overlay';this.root.setAttribute('role','dialog');this.root.setAttribute('aria-label','Luyện gõ HSK '+hsk);this.root.setAttribute('aria-modal','true');
-    this.root.innerHTML='<div class="tg-window"><header class="tg-header"><div><img src="'+mascot+'" alt="Mascot VDuckie"><b>VDuckie</b><span>Luyện gõ</span></div>'+button('×','exit','aria-label="Thoát trò chơi"')+'</header><div class="tg-space"><div class="tg-stars" aria-hidden="true"></div><div class="tg-hud"><div class="tg-score-group"><span class="tg-pill">HSK '+hsk+'</span><span class="tg-pill">Điểm <b data-score>0</b></span><span class="tg-timer" data-time>3:00</span></div><div class="tg-controls"><small>'+Engine.MODES[difficultyKey].label+'</small><span class="tg-hearts" data-hearts aria-label="3 tim">♥♥♥</span>'+button('♪','sound','aria-label="Tắt âm" aria-pressed="false"')+button('Ⅱ','pause','aria-label="Tạm dừng"')+'</div></div><div class="tg-arena" aria-label="Vùng thiên thạch"><div class="tg-rocks"></div><div class="tg-effects" aria-hidden="true"></div><div class="tg-plane"><img src="./assets/games/duck-plane.svg" alt="Vịt trắng lái máy bay"><i class="tg-propeller"></i></div><div class="tg-floor"></div></div><div class="tg-feedback" role="status" aria-live="polite"></div><div class="tg-combo" data-combo></div></div><form class="tg-inputbar"><label for="typingPinyin">Gõ Pinyin</label><div class="tg-input-wrap"><div class="tg-input-mirror" aria-hidden="true"></div><input id="typingPinyin" aria-label="Gõ Pinyin không dấu" placeholder="Gõ để bắn…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" enterkeyhint="done"></div>'+button('↶','focus','aria-label="Đặt con trỏ vào ô gõ"')+'</form><div class="tg-cover" hidden></div></div>';
+    this.root.innerHTML='<div class="tg-window"><header class="tg-header"><div><img src="'+mascot+'" alt="Mascot VDuckie"><b>VDuckie</b><span>Luyện gõ</span></div>'+button('×','exit','aria-label="Thoát trò chơi"')+'</header><div class="tg-space"><div class="tg-stars" aria-hidden="true"></div><div class="tg-hud"><div class="tg-score-group"><span class="tg-pill">HSK '+hsk+'</span><span class="tg-pill">Điểm <b data-score>0</b></span><span class="tg-timer" data-time>3:00</span></div><div class="tg-controls"><small>'+Engine.MODES[difficultyKey].label+'</small><span class="tg-hearts" data-hearts aria-label="3 tim">♥♥♥</span>'+button('♪','sound','aria-label="Tắt âm" aria-pressed="false"')+button('Ⅱ','pause','aria-label="Tạm dừng"')+'</div></div><div class="tg-arena" aria-label="Vùng thiên thạch"><div class="tg-rocks"></div><div class="tg-effects" aria-hidden="true"></div><div class="tg-plane"><img src="./assets/games/airplane.svg?v=2" alt="Máy bay xanh trắng"><i class="tg-propeller"></i></div><div class="tg-floor"></div></div><div class="tg-feedback" role="status" aria-live="polite"></div><div class="tg-combo" data-combo></div></div><form class="tg-inputbar"><label for="typingPinyin">Gõ Pinyin</label><div class="tg-input-wrap"><div class="tg-input-mirror" aria-hidden="true"></div><input id="typingPinyin" aria-label="Gõ Pinyin không dấu" placeholder="Gõ để bắn…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" enterkeyhint="done"></div>'+button('↶','focus','aria-label="Đặt con trỏ vào ô gõ"')+'</form><div class="tg-cover" hidden></div></div>';
     document.body.appendChild(this.root);document.body.classList.add('typing-game-open');document.documentElement.classList.add('typing-game-open');
     this.input=this.root.querySelector('input');this.arena=this.root.querySelector('.tg-arena');
     this.rocks=this.root.querySelector('.tg-rocks');this.effects=this.root.querySelector('.tg-effects');this.cover=this.root.querySelector('.tg-cover');
@@ -101,6 +101,7 @@
     var viewport=root.visualViewport;
     this.root.style.setProperty('--tg-height',(viewport?viewport.height:root.innerHeight)+'px');
     this.root.style.setProperty('--tg-top',(viewport?viewport.offsetTop:0)+'px');
+    this.arenaWidth=this.arena.clientWidth;this.arenaHeight=this.arena.clientHeight;
   };
   View.prototype.unlockAudio=function(){
     if(this.muted)return;
@@ -161,7 +162,12 @@
     this.game.drain().forEach(function(event){var meteor=event.meteor;
       if(event.type==='shot'){
         self.tone(false);var plane=self.root.querySelector('.tg-plane'),tx=self.position(meteor);
-        var bullet=document.createElement('i');bullet.className='tg-bullet';bullet.style.left=plane.offsetLeft+'px';bullet.style.top=(self.arena.clientHeight-45)+'px';bullet.style.setProperty('--dx',(tx.x-plane.offsetLeft)+'px');bullet.style.setProperty('--dy',(tx.y-self.arena.clientHeight+45)+'px');self.effects.appendChild(bullet);bullet.addEventListener('animationend',function(){bullet.remove();},{once:true});
+        var sx=self.arenaWidth/2,sy=plane.offsetTop+plane.clientHeight*.11,dx=tx.x-sx,dy=tx.y-sy;
+        var launchAt=Math.max(self.game.time,self.nextShotAt||0);self.nextShotAt=launchAt+.08;
+        var bullet=document.createElement('i');bullet.className='tg-bullet';bullet.dataset.letter=String(event.index);
+        bullet.style.left=sx+'px';bullet.style.top=sy+'px';bullet.style.animationDelay=(launchAt-self.game.time)+'s';
+        bullet.style.setProperty('--dx',dx+'px');bullet.style.setProperty('--dy',dy+'px');bullet.style.setProperty('--angle',(Math.atan2(dy,dx)*180/Math.PI+90)+'deg');
+        self.effects.appendChild(bullet);bullet.addEventListener('animationend',function(){bullet.remove();},{once:true});
       }
       if(event.type==='destroy'){
         self.tone(true);var p=self.position(meteor);self.effect('tg-burst','✦',p.x,p.y);self.effect('tg-points','+'+event.points+(meteor.heart?' ♥':''),p.x,p.y-22);
@@ -189,7 +195,7 @@
     var result=this.game.result(),missed=Array.from(new Map(result.missed.map(function(w){return [w.hanzi,w];})).values());
     this.cover.hidden=false;this.cover.innerHTML='<div class="tg-dialog tg-results"><span class="games-eyebrow">'+(reason==='time'?'HOÀN THÀNH 3 PHÚT':'HẾT TIM')+'</span><h2>Một chuyến bay đáng nhớ</h2><div class="tg-result-score">'+result.score+' <small>điểm</small></div><div class="tg-result-stats"><span><b>'+result.accuracy+'%</b>Chính xác</span><span><b>'+result.bestCombo+'</b>Combo tốt nhất</span><span><b>'+result.completed+'</b>Từ hoàn thành</span></div><p data-game-reward role="status"></p><h3>Từ bỏ lỡ · Ôn lại</h3><div class="tg-missed">'+(missed.length?missed.map(function(w){return '<div><b lang="zh">'+esc(w.hanzi)+'</b><span>'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></div>';}).join(''):'<p>Bạn không bỏ lỡ từ nào. Tiếp tục giữ nhịp nhé!</p>')+'</div><div class="tg-result-actions">'+button('Chơi lại →','restart','class="games-primary"')+button('Đổi HSK / độ khó','choices')+button('Về Trò chơi','exit')+'</div></div>';this.rewardSummary();this.cover.querySelector('button').focus();
   };
-  View.prototype.position=function(m){return {x:this.arena.clientWidth*m.x,y:-44+(this.arena.clientHeight+44)*m.progress};};
+  View.prototype.position=function(m){return {x:this.arenaWidth*m.x,y:-44+(this.arenaHeight+44)*m.progress};};
   View.prototype.render=function(){
     var game=this.game,target=game.target(),self=this,normalized=Engine.normalize(game.input),expected=target?Engine.normalize(target.word.pinyin):'',prefix=0;
     while(prefix<normalized.length&&normalized[prefix]===expected[prefix])prefix++;
@@ -198,13 +204,12 @@
     game.meteors.forEach(function(m){
       var node=self.rocks.querySelector('[data-id="'+m.id+'"]');if(!node){node=document.createElement('div');node.className='tg-meteor';node.dataset.id=m.id;self.rocks.appendChild(node);}
       var p=self.position(m),active=m===target;
-      node.style.left=p.x+'px';node.style.top=p.y+'px';
+      node.style.left=p.x+'px';node.style.transform='translate3d(-50%,'+p.y+'px,0) translateY(-50%)';
       function toggle(name,value){if(node.classList.contains(name)!==value)node.classList.toggle(name,value);}
       toggle('is-target',active);toggle('is-wrong',active&&wrong);toggle('is-cracked',active&&prefix>Engine.normalize(m.word.pinyin).length*.5);
       var content=(m.heart?'<span class="tg-heart-gift">♥</span>':'')+'<div class="tg-stone"></div><div class="tg-word"><strong lang="zh">'+esc(m.word.hanzi)+'</strong><span>'+Engine.glyphs(m.word.pinyin).map(function(g){var cls=active&&g.end<=prefix&&g.end>g.start?'is-correct':active&&wrong&&g.start===prefix?'is-wrong':'';return '<i class="'+cls+'">'+esc(g.char)+'</i>';}).join('')+'</span></div>';
       if(node.innerHTML!==content)node.innerHTML=content;
     });
-    var plane=this.root.querySelector('.tg-plane');plane.style.left=(target?target.x*100:50)+'%';
     function text(selector,value){var node=self.root.querySelector(selector);if(node.textContent!==String(value))node.textContent=value;}
     text('[data-score]',game.score);
     var hearts=this.root.querySelector('[data-hearts]');if(hearts.textContent!=='♥'.repeat(game.lives)){hearts.textContent='♥'.repeat(game.lives);hearts.setAttribute('aria-label',game.lives+' tim');}
