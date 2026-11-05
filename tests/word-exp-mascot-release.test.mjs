@@ -8,21 +8,20 @@ test('home resource catalog uses requested HSK exam tile and no obsolete Adam la
   assert.match(html,/<strong>200\+<\/strong><span>Đề HSK thực chiến<\/span>/);
   assert.doesNotMatch(html,/60<\/strong><span>Câu Adam/);
 });
-test('mic Duckie uses a two-wing asset in every centralized reference',()=>{
-  const files=['app-shell-v88.html','assets/v95/mascot-manifest-v95.js','service-worker.js'];
-  for(const file of files){
-    const source=read(file);
-    assert.match(source,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/,file);
-    assert.doesNotMatch(source,/duckie-speaking-2d-v3\.webp/,file);
+test('the two home speaking cards use the matching illustrated mascot without changing other variants',()=>{
+  const html=read('app-shell-v88.html'),swap=read('assets/design-system/mascot-swap-v1.js');
+  const src='./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0';
+  assert.equal(html.split(src).length-1,2,'exactly the two requested placements');
+  for(const selector of ['resource-speaking','course-speaking']){
+    const card=html.slice(html.indexOf(selector));assert(card.slice(0,450).includes(src),selector);
   }
-  const svg=read('assets/mascot/duckie-speaking-two-wings-v4.svg');
-  assert.match(svg,/both wings fully present/);
-  assert.match(svg,/microphone body/);
-  assert.match(svg,/M127 342/);
-  assert.match(svg,/M307 342/);
-  const swap=read('assets/design-system/mascot-swap-v1.js');
-  assert.match(swap,/role==="speaking"/);
-  assert.match(swap,/legacy guard/);
+  assert.match(swap,/role==="speaking"\?"\.\/assets\/mascot\/duckie-speaking-2d-v5\.webp\?v=5\.0"/);
+  assert.match(read('service-worker.js'),/duckie-speaking-2d-v5\.webp\?v=5\.0/);
+  const art=fs.readFileSync('assets/mascot/duckie-speaking-2d-v5.webp');
+  assert.equal(art.subarray(0,4).toString(),'RIFF');assert(art.length<80000,'small card art stays lightweight');
+  // Other contexts retain their existing variant; only the two home roles changed.
+  assert.match(read('assets/v95/mascot-manifest-v95.js'),/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
+  for(const role of ['reader','flashcards','writing','listening'])assert(html.includes('duckie-'+role+'-2d-v'));
 });
 test('word mastery +3 EXP uses a restricted RPC, dedupe and a 50-word daily cap',()=>{
   const sql=read('supabase/migrations/20261104_word_mastery_3exp_50_words_daily.sql');
@@ -64,8 +63,8 @@ test('all new assets have cache-busted public entrypoints and current PWA cache'
   const index=read('index.html'),worker=read('service-worker.js');
   assert.match(index,/exp-floating-feedback-v91\.css\?v=1/);
   assert.match(index,/exp-core-v90\.js\?v=word-float1/);
-  assert.match(index,/mascot-swap-v1\.js\?v=9/);
-  assert.match(worker,/vduckie-pwa-v40/);
+  assert.match(index,/mascot-swap-v1\.js\?v=10/);
+  assert.match(worker,/vduckie-pwa-v41/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
 });
 
