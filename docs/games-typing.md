@@ -72,3 +72,26 @@ A per-round promise map also prevents duplicate concurrent calls for the same wo
 Viewport checks include 1440×900, 390×844, 844×390 and 390×480. The last represents
 reduced space while typing; it does not replace a physical iPhone/Android keyboard
 check. Generated browser evidence is uploaded by the Typing game workflow.
+
+## Rendering performance
+
+The active game lives in an open ShadowRoot with the same stylesheet as the hub.
+Page-wide translation, mascot and roadmap MutationObservers cannot traverse its
+per-key DOM updates. The background app is inert and hidden while playing.
+Meteor travel is one linear Web Animation for the whole fall, rather than a
+JavaScript style write each frame. Physics still uses elapsed active seconds;
+resize rebuilds the remaining path, and pause/resume controls native animations.
+The existing glyph nodes are recolored in place. HUD text changes only when its
+value changes. Projectiles (64), bursts (8) and floating scores (8) reuse bounded
+pools. Native animations are canceled, and audio buffer sources stopped, on exit.
+Key/break tones use precomputed AudioBuffers instead of constructing oscillators
+and gain envelopes for every character. Completion fades the rock over 160 ms.
+
+`tests/typing-game-performance.mjs` compares shipped commit `b60fc4c` and the
+current renderer in the full app using identical Chromium, 4× CPU throttling,
+real keyboard events and deterministic vocabulary. It covers all desktop modes
+and mobile Hard, collecting frame intervals, long tasks, script/layout/style
+CPU time and MutationObserver callbacks. Results and an optimized Hard recording
+are uploaded by CI. EXP/auth boundaries are mocked, not physics or rendering.
+Frame intervals on a virtual CI runner are evidence of relative performance;
+they are not a guarantee for every physical display or GPU.
