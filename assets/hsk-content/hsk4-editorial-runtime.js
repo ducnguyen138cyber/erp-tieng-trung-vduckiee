@@ -37,6 +37,7 @@
   function hskRouteRequested() {
     try {
       var params = new URLSearchParams(root.location && root.location.search || '');
+      if (params.get('screen') === 'games') return false;
       return params.get('area') === 'hsk' || (root.location && root.location.hash === '#hsk');
     } catch (error) {
       return false;

@@ -5,7 +5,7 @@
   var current = null;
   var viewIds = ["homeHub","erpHero","hskHero","lessons","cards","quiz","glossary",
     "personal","community","hsk","dialogue","homeJourney","erpJourney","hskJourney",
-    "leaderboard","dailyLearningPanel","hskRoadmapScreen"];
+    "leaderboard","dailyLearningPanel","hskRoadmapScreen","gamesScreen"];
   var erpViews = ["lessons","cards","dialogue","quiz","glossary","personal","community"];
   function one(selector) { return document.querySelector(selector); }
   function screenOf(button) {
@@ -25,7 +25,7 @@
     return null;
   }
   function valid(screen) {
-    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile"].indexOf(screen) !== -1 ||
+    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games"].indexOf(screen) !== -1 ||
       (screen.indexOf("erp:") === 0 && erpViews.indexOf(screen.slice(4)) !== -1);
   }
   function fromLocation() {
@@ -40,10 +40,11 @@
     var url = new URL(root.location.href);
     url.searchParams.delete("area");
     url.searchParams.set("screen", screen);
+    if (screen === "games") ["hskLevel","hskLesson","hskView","hskTab"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
     return url.pathname + url.search + url.hash;
   }
-  function hide(id) { var node = document.getElementById(id); if (node) node.classList.add("hidden"); }
+  function hide(id) { var node = document.getElementById(id); if (node && !node.classList.contains("hidden")) node.classList.add("hidden"); }
   function activate(screen) {
     document.querySelectorAll("#studySidebar button.active, #studySidebar button[aria-current]").forEach(function (button) {
       button.classList.remove("active"); button.removeAttribute("aria-current");
@@ -80,7 +81,10 @@
     }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
-    if (screen === "roadmap" && root.VDuckieHSKRoadmap) {
+    if (screen !== "games" && root.VDuckieGames) root.VDuckieGames.leave();
+    if (screen === "games" && root.VDuckieGames) {
+      root.VDuckieGames.open();
+    } else if (screen === "roadmap" && root.VDuckieHSKRoadmap) {
       root.VDuckieHSKRoadmap.open();
     } else if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
@@ -104,7 +108,10 @@
     } else if (root.VDuckieDailyLearning) {
       root.VDuckieDailyLearning.show(screen);
     }
-    if (screen === "roadmap") {
+    if (screen === "games") {
+      viewIds.forEach(function (id) { if (id !== "gamesScreen") hide(id); });
+      document.documentElement.classList.remove("v865-home-mode");
+    } else if (screen === "roadmap") {
       viewIds.forEach(function (id) { if (id !== "hskRoadmapScreen") hide(id); });
     } else if (screen === "ranking") {
       viewIds.forEach(function (id) { if (id !== "leaderboard") hide(id); });
@@ -131,10 +138,12 @@
       if (node && !hskScreen) node.classList.add("hidden");
     });
     if (screen !== "roadmap") hide("hskRoadmapScreen");
+    if (screen !== "games") hide("gamesScreen");
     if (screen.indexOf("erp:") === 0) {
       var erpPanel = document.getElementById(screen.slice(4));
       if (erpPanel) erpPanel.classList.remove("hidden");
     }
+    document.body.setAttribute("data-screen-route", screen);
     document.body.setAttribute("data-current-area", screen.indexOf("erp:") === 0 ? "erp" : screen);
     activate(screen);
     current = screen;
@@ -191,6 +200,13 @@
       scheduled = true;
       root.requestAnimationFrame(function () {
         scheduled = false;
+        if (current === "games") {
+          viewIds.forEach(function(id){if(id!=="gamesScreen")hide(id);});
+          if (document.body.getAttribute("data-current-area") !== "games") document.body.setAttribute("data-current-area", "games");
+          if (document.title !== "Trò chơi — VDuckie") document.title = "Trò chơi — VDuckie";
+          if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor("games"));
+          return;
+        }
         if (current.indexOf("erp:") !== 0) return;
         var destination = document.getElementById(current.slice(4));
         if (destination && destination.classList.contains("hidden")) destination.classList.remove("hidden");

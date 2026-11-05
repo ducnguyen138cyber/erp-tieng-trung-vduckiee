@@ -483,6 +483,7 @@
   }
 
   function writeUrl() {
+    if (root.document && root.document.body && root.document.body.getAttribute('data-screen-route') === 'games') return;
     if (!root.history || !root.location) return;
     try {
       var url = new URL(root.location.href);

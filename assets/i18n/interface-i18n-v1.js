@@ -11,6 +11,7 @@
     "Giáo trình HSK":["HSK 课程","HSK Curriculum"],
     "Daily ERP +5":["每日 ERP +5","Daily ERP +5"],
     "Ôn tập":["复习","Review"],
+    "Trò chơi":["游戏","Games"],
     "Xếp hạng":["排行榜","Ranking"],
     "TRA CỨU":["查询工具","LOOKUP"],
     "Từ điển":["词典","Dictionary"],
@@ -2589,7 +2590,7 @@
   });
   Object.assign(strings,{"Kho đề luyện HSK · 224 đề":["HSK 模拟练习题库 · 224 套","HSK practice bank · 224 papers"],"HSK1: 40 câu · HSK2: 60 · HSK3: 80 · HSK4: 100. Nghe, Đọc, Viết theo cấp độ; chỉ chấm khi nộp bài, không cộng EXP.":["HSK1：40 题 · HSK2：60 题 · HSK3：80 题 · HSK4：100 题。按级别设听力、阅读与书写部分；交卷后评分，不奖励 EXP。","HSK1: 40 · HSK2: 60 · HSK3: 80 · HSK4: 100 questions. Listening, reading and writing by level; graded on submission with no EXP."],"Mở kho đề HSK →":["打开 HSK 练习题库 →","Open HSK practice bank →"]});
   var rootsSelector="header.top,#studySidebar,.study-center,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
-  var excludedSelector="#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
+  var excludedSelector=".tg-overlay,#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
@@ -2867,6 +2868,9 @@
     if(root.MutationObserver){
       observer=new root.MutationObserver(function(changes){
         for(var i=0;i<changes.length;i++){
+          var target=changes[i].target;
+          if(target&&target.nodeType===3)target=target.parentElement;
+          if(target&&target.closest&&target.closest(".tg-overlay"))continue;
           if(changes[i].type==="childList"||changes[i].type==="characterData"){schedule();break;}
         }
       });
