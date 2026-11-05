@@ -69,18 +69,24 @@
   };
   Game.prototype.type=function(raw){
     if(this.ended||this.paused||!this.target())return;
-    var target=this.target(),expected=normalize(target.word.pinyin),next=normalize(raw),old=normalize(this.input),shared=0;
+    var target=this.target(),expected=normalize(target.word.pinyin),next=normalize(raw),old=normalize(this.input),shared=0,suffix=0;
     while(shared<next.length&&shared<old.length&&next[shared]===old[shared])shared++;
-    var prefix=0;while(prefix<next.length&&next[prefix]===expected[prefix])prefix++;
-    for(var i=shared;i<next.length;i++){
+    // Retained text after a cursor edit is not another key press or another shot.
+    while(suffix<old.length-shared&&suffix<next.length-shared&&old[old.length-1-suffix]===next[next.length-1-suffix])suffix++;
+    var accepted=old.slice(0,shared),inserted=next.slice(shared,next.length-suffix);
+    for(var i=0;i<inserted.length;i++){
       this.attempts++;
-      if(i<prefix){this.correct++;this.emit('shot',{meteor:target,index:i});}
+      if(inserted[i]===expected[accepted.length]){
+        this.correct++;this.emit('shot',{meteor:target,index:accepted.length});accepted+=inserted[i];
+      }
     }
-    this.input=raw;
-    if(next!==expected)return;
+    var retained=suffix?old.slice(old.length-suffix):'';
+    for(var j=0;j<retained.length;j++){if(retained[j]!==expected[accepted.length])break;accepted+=retained[j];}
+    this.input=accepted;
+    if(accepted!==expected)return;
     this.meteors.shift();this.input='';this.completed++;this.combo++;this.bestCombo=Math.max(this.bestCombo,this.combo);
     var points=100*Math.min(5,1+Math.floor((this.combo-1)/5));this.score+=points;
-    if(target.heart)this.lives=Math.min(5,this.lives+1);
+    if(target.heart)this.lives=Math.min(4,this.lives+1);
     this.nextAt=Math.min(this.nextAt,this.time+.6);
     this.emit('destroy',{meteor:target,points:points,combo:this.combo});
   };

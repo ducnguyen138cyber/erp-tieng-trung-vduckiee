@@ -13,10 +13,12 @@ test('keyboard variants and tone marks map back to visible Pinyin glyphs',()=>{
     ['s',0,1],['h',1,2],['u',2,3],['ō',3,4],[' ',4,4],['h',4,5],['u',5,6],['à',6,7]
   ]);
 });
-test('wrong suffix survives, Backspace preserves prefix, completion auto scores once',()=>{
-  const g=create();g.drain();for(const s of ['s','sh','shu','shux','shu','shuo','shuoh','shuohu','shuohua'])g.type(s);
+test('wrong keys are ignored, Backspace works, completion auto scores once',()=>{
+  const g=create();g.drain();for(const s of ['s','sh','shu'])g.type(s);
+  g.type('shux');assert.equal(g.input,'shu');g.type('sh');assert.equal(g.input,'sh');
+  for(const s of ['shu','shuo','shuoh','shuohu','shuohua'])g.type(s);
   assert.equal(g.score,100);assert.equal(g.completed,1);assert.equal(g.input,'');
-  assert.equal(g.result().accuracy,88); // seven correct additions + one incorrect
+  assert.equal(g.result().accuracy,89); // eight correct additions (one retyped) + one incorrect
   assert.equal(g.drain().filter(e=>e.type==='destroy').length,1);
   g.type('shuohua');assert.equal(g.score,100);
   g.step(.599);assert.equal(g.meteors.length,0);g.step(.0011);assert.equal(g.meteors.length,1);
@@ -32,10 +34,10 @@ test('completion near threshold does not double spawn; bounded simultaneous typi
   g.step(.61);assert.equal(g.meteors.length,2);const ids=g.meteors.map(m=>m.id);g.step(0);assert.deepEqual(g.meteors.map(m=>m.id),ids);
   g.type('shuohua');g.type('shuohua');assert.equal(g.score,300);assert.equal(g.meteors.length,0);
 });
-test('heart probability, three starting lives, five-heart limit, missed heart does not heal',()=>{
+test('heart probability, three starting lives, four-heart limit, missed heart does not heal',()=>{
   const g=create('easy',()=>.05);assert.equal(g.lives,3);assert.equal(g.target().heart,true);
-  for(let i=0;i<4;i++){g.type('shuohua');g.step(.61);}assert.equal(g.lives,5);
-  g.step(12);assert.equal(g.lives,4);
+  for(let i=0;i<4;i++){g.type('shuohua');g.step(.61);}assert.equal(g.lives,4);
+  g.step(12);assert.equal(g.lives,3);
   assert.equal(create('easy',()=>.1).target().heart,false);
 });
 test('pause freezes physics/input; no-input game ends at zero hearts',()=>{
@@ -65,4 +67,19 @@ test('published vocabulary loads from existing shard indexes; polyphonic entries
       seen.add(w.simplified);count++;
     }}assert.equal(count,index.shards.reduce((n,s)=>n+s.count,0));total+=count;
   }assert.ok(total>=2000);
+});
+
+test('ni then hao emits exactly two then three shots; an incorrect key never blocks progress',()=>{
+  const g=new Game({words:[{hanzi:'你好',pinyin:'nǐ hǎo',meaning:'xin chào',level:1}],mode:'hard'});g.drain();
+  g.type('ni');assert.equal(g.input,'ni');assert.equal(g.drain().filter(e=>e.type==='shot').length,2);
+  g.type('nix');assert.equal(g.input,'ni');assert.equal(g.drain().length,0);
+  g.type('nihao');const events=g.drain();assert.equal(events.filter(e=>e.type==='shot').length,3);
+  assert.equal(events.filter(e=>e.type==='destroy').length,1);assert.equal(g.score,100);assert.equal(g.result().accuracy,83);
+});
+test('retained letters after cursor edits or IME re-emission never fire extra shots',()=>{
+  const g=create();g.drain();g.type('shu');g.drain();
+  g.type('shxu');assert.equal(g.input,'shu');assert.equal(g.drain().length,0);
+  g.type('shu');assert.equal(g.drain().length,0);
+  g.type('sh');assert.equal(g.input,'sh');assert.equal(g.drain().length,0);
+  g.type('shu');assert.equal(g.drain().filter(e=>e.type==='shot').length,1);
 });

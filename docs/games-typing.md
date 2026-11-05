@@ -22,7 +22,7 @@ and Vietnamese meaning, and removes repeated Hanzi within a selected pool.
 
 An early destruction schedules another meteor after 0.6 active seconds. A single
 spawn deadline and a maximum of two active meteors prevent duplicate spawns.
-Positions use elapsed active time as a fraction of the arena height. Pause stops
+The airplane stays fixed in the horizontal center. Meteor rendering uses compositor transforms. Positions use elapsed active time as a fraction of the arena height. Pause stops
 both physics and the three-minute round timer. A hidden document pauses the game;
 resuming requires the player's action.
 
@@ -30,13 +30,13 @@ Each complete word earns 100 game points times the combo multiplier. The first
 five words use ×1, the next five ×2, up to ×5. Missing a meteor resets the combo.
 Accuracy counts correct inserted characters divided by all inserted characters;
 deleting with Backspace is not another attempt. Each meteor has a 10% chance of
-carrying a heart; destroying it adds one life, capped at five. Initial lives: three.
+carrying a heart; destroying it adds one life, capped at four. Initial lives: three.
 
 ## Input and lifecycle
 
 Input accepts mixed case, spaces, tone marks, tone numbers and ü/v/u:/u. A glyph
 map keeps the tone-marked Pinyin highlight aligned with the unmarked input.
-A wrong suffix remains editable, preserving the correctly typed prefix. Completion
+Wrong inserted characters are ignored immediately, preserving the accepted prefix and allowing the next correct key without Backspace. Each newly accepted character emits one shot; rapid/batched input staggers visible projectiles by 80 ms. Completion
 is automatic and consumes one target, so repeated input events cannot score it twice.
 The browser draws live text and CSS/SVG effects; the reference screenshot is not
 used as an interactive background.
