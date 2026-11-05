@@ -12,8 +12,9 @@
   }
   function glyphs(value) {
     var cursor = 0;
-    return Array.from(String(value).normalize('NFC')).map(function (char) {
-      var length = normalize(char).length, start = cursor; cursor += length;
+    var characters=Array.from(String(value).normalize('NFC'));
+    return characters.map(function (char,index) {
+      var length = char===':'&&index>0&&normalize(characters[index-1])==='u'?0:normalize(char).length, start = cursor; cursor += length;
       return {char:char,start:start,end:cursor};
     });
   }

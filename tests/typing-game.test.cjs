@@ -8,6 +8,7 @@ const create=(mode='easy',random=()=>.5)=>new Game({words:[word],mode,random});
 test('keyboard variants and tone marks map back to visible Pinyin glyphs',()=>{
   for(const input of ['SHUO HUA','shuōhuà','shuo1 hua4'])assert.equal(normalize(input),'shuohua');
   for(const input of ['NǙ','nv','nu:','nu','nu\u0308\u030c'])assert.equal(normalize(input),'nu');
+  assert.deepEqual(glyphs('nu:').map(g=>[g.start,g.end]),[[0,1],[1,2],[2,2]]);
   const mapped=glyphs('shuō huà');assert.deepEqual(mapped.map(g=>[g.char,g.start,g.end]),[
     ['s',0,1],['h',1,2],['u',2,3],['ō',3,4],[' ',4,4],['h',4,5],['u',5,6],['à',6,7]
   ]);

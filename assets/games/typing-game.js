@@ -198,7 +198,9 @@
     game.meteors.forEach(function(m){
       var node=self.rocks.querySelector('[data-id="'+m.id+'"]');if(!node){node=document.createElement('div');node.className='tg-meteor';node.dataset.id=m.id;self.rocks.appendChild(node);}
       var p=self.position(m),active=m===target;
-      node.style.left=p.x+'px';node.style.top=p.y+'px';node.classList.toggle('is-target',active);node.classList.toggle('is-wrong',active&&wrong);node.classList.toggle('is-cracked',active&&prefix>Engine.normalize(m.word.pinyin).length*.5);
+      node.style.left=p.x+'px';node.style.top=p.y+'px';
+      function toggle(name,value){if(node.classList.contains(name)!==value)node.classList.toggle(name,value);}
+      toggle('is-target',active);toggle('is-wrong',active&&wrong);toggle('is-cracked',active&&prefix>Engine.normalize(m.word.pinyin).length*.5);
       var content=(m.heart?'<span class="tg-heart-gift">♥</span>':'')+'<div class="tg-stone"></div><div class="tg-word"><strong lang="zh">'+esc(m.word.hanzi)+'</strong><span>'+Engine.glyphs(m.word.pinyin).map(function(g){var cls=active&&g.end<=prefix&&g.end>g.start?'is-correct':active&&wrong&&g.start===prefix?'is-wrong':'';return '<i class="'+cls+'">'+esc(g.char)+'</i>';}).join('')+'</span></div>';
       if(node.innerHTML!==content)node.innerHTML=content;
     });
