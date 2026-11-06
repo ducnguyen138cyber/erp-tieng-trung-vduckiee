@@ -110,6 +110,11 @@
   function open(next) {
     if (!screen) return;
     if (screen.hidden) lastFocus = document.activeElement;
+    // The mobile study menu installs a document-level overlay; close it before auth.
+    if (root.VDuckieMobileLayoutFixV867 && typeof root.VDuckieMobileLayoutFixV867.close === "function") {
+      root.VDuckieMobileLayoutFixV867.close();
+    }
+    document.documentElement.classList.remove("v867-menu-open");
     screen.hidden = false;
     document.body.classList.add("vda-auth-open");
     setMode(next || "login");
