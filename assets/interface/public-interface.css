@@ -1,7 +1,11 @@
 /* Public-facing layout. No lesson data or account state is changed here. */
 #mobileMenu{display:none!important}
 html body #studySidebar #erpNav{display:grid!important}
-#v85PersonalDashboard .v85-top{grid-template-columns:1fr}
+/* The removed profile must not leave a second track reserved by legacy !important rules. */
+#appShell #v85PersonalDashboard .v85-top{grid-template-columns:minmax(0,1fr)!important}
+#v85PersonalDashboard .v85-stats{container:vd-home-stats / inline-size}
+#v85PersonalDashboard .v85-stat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@container vd-home-stats (min-width:640px){#v85PersonalDashboard .v85-stat-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 #v85PersonalDashboard .v85-profile{display:none!important}
 @media(max-width:980px){
  html body #appShell .top{display:grid!important;grid-template-columns:40px minmax(0,1fr) auto!important;grid-template-areas:"menu brand actions" "search search search";gap:8px!important;padding:10px 0!important;align-items:center!important}
