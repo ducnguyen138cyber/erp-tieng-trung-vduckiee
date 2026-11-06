@@ -13,7 +13,7 @@ const mascot = read('assets/v95/vduckie-mascot-v95.js');
 const coreCss = read('assets/v95/vduckie-mascot-core-v95.css');
 const motionCss = read('assets/v95/vduckie-mascot-motion-v95.css');
 const advancedCss = read('assets/v104/mascot-runtime-v104.css');
-const snapshot = getRuntimeSnapshot();
+const snapshot = getRuntimeSnapshot({search:'?developer=1'});
 
 test('progress store delegates level calculation to the existing EXP core', () => {
   assert.match(store, /core\.calculateUserLevel\(totalEXP\)/);

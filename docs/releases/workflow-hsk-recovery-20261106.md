@@ -20,10 +20,11 @@ The baseline HSK workflow on `main` already failed at its broad website regressi
 ## Validation
 
 - Repository content validator: **10,695 records, 21 sources, 9 schemas; zero errors/warnings**.
+- Broad local unit/data/UI run (browser launchers and expensive editorial-specific suites exercised separately in CI): **502 passed, zero failed**, about 50 seconds after the final expectation fixes.
 - Selected sidebar/cache/auth/EXP/curriculum/UI suite: **110 passed** after the runtime-inventory change.
 - Readiness/inventory negative tests and canonical bridge/read-only contract suite: **16 passed**.
 - Duplicate parity: **2 passed**, with the complete tracked duplicate findings unchanged.
-- Actual Chromium gameplay, public demo and sidebar tests pass on the current demo; performance A/B passed before the independent sentence-summary display fix and is rerun on the final demo commit.
-- HSK3–4 actual Chromium smoke passed; the first HSK5–6 recovery run exposed a stale selector for a disabled control (locked controls intentionally have no navigation data attribute). The selector was corrected to the rendered accessible label. Final workflow outcomes and remaining limits are recorded in the PR before review.
+- Final demo commit `b57c798`: actual Chromium gameplay, public demo, sidebar and 4× CPU performance A/B checks all passed.
+- HSK3–6 actual Chromium contracts all passed on `08d1851`: four level contracts across four viewports (16 combinations). The first HSK5–6 recovery run exposed a stale selector for a disabled control; the selector now follows its rendered accessible label. The complete broad workflow is rerun after the final three retired test expectations are updated; its outcome is recorded in the PR before review.
 
 No live OAuth flow, database write, reward claim, user-data migration, or HSK5+ publication is part of this recovery.

@@ -9,12 +9,14 @@ const {
   normalizeAssetReference
 } = require('./helpers/runtime-snapshot');
 
-test('runtime snapshot combines the app shell with bootstrap-injected assets', () => {
+test('runtime snapshot executes the app shell bootstrap and inventories its injected assets', () => {
   const snapshot = getRuntimeSnapshot();
   assert.match(snapshot.effectiveHtml, /id="studySidebar"/);
-  assert.match(snapshot.effectiveHtml, /source=source\.replace\("<\/body>"/);
+  assert.match(snapshot.indexSource, /source=source\.replace\("<\/body>"/);
+  assert.match(snapshot.effectiveHtml, /<script src=".\/assets\/games\/sentence-game\.js/);
   assertAssetLoaded(assert, 'app-shell-v88.html', { snapshot });
-  assertAssetLoaded(assert, 'developer-control-center.js', { snapshot });
+  assert.equal(snapshot.assets.some(asset=>asset.includes('/developer/')),false);
+  assertAssetLoaded(assert, 'developer-control-center.js', {snapshot:getRuntimeSnapshot({search:'?developer=1'})});
 });
 
 test('runtime asset parser ignores escaped regex source text', () => {
