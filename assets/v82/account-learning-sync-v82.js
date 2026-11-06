@@ -9,6 +9,7 @@
   var RELOAD_GUARD_PREFIX = "vduckie-learning-profile-applied-v2:";
   var client = null;
   var session = null;
+  var sessionGeneration = 0;
   var started = false;
   var applying = false;
   var pollTimer = null;
@@ -328,11 +329,14 @@
       if (root.sessionStorage.getItem(key) === signature) return;
       root.sessionStorage.setItem(key, signature);
     } catch (error) {}
-    root.setTimeout(function () { root.location.reload(); }, 250);
+    var generation = sessionGeneration;
+    root.setTimeout(function () {
+      if (generation === sessionGeneration && session && session.user && session.user.id === userId) root.location.reload();
+    }, 250);
   }
 
-  function upsertProfile(profile) {
-    if (!client || !session || !session.user || !root.navigator || !root.navigator.onLine) return Promise.resolve();
+  function upsertProfile(profile, generation) {
+    if (generation !== sessionGeneration || !client || !session || !session.user || !root.navigator || !root.navigator.onLine) return Promise.resolve();
     return client.from("user_words").upsert([profileRow(profile, session.user.id)], {
       onConflict: "user_id,word_key"
     }).then(function (result) {
@@ -354,19 +358,23 @@
   function synchronizeProfile() {
     if (!client || !session || !session.user) return Promise.resolve();
     var userId = session.user.id;
+    var generation = sessionGeneration;
     var cached = readProfileCache(userId);
     var local = captureProfile(userId, cached);
     setStatus("Đang đồng bộ toàn bộ dữ liệu học…", "waiting");
     return fetchRemoteProfile().then(function (row) {
+      if (generation !== sessionGeneration) return;
       var remote = parseProfileRow(row);
       var winning = remoteWinningKeys(local, remote);
       var merged = mergeProfiles(local, remote);
       var changed = applyProfile(merged, userId);
-      return upsertProfile(merged).then(function () {
+      return upsertProfile(merged, generation).then(function () {
+        if (generation !== sessionGeneration) return;
         setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
         maybeReload(userId, merged, changed, winning);
       });
     }).catch(function (error) {
+      if (generation !== sessionGeneration) return;
       console.error("VDuckie full learning profile sync failed", error);
       setStatus(root.navigator && root.navigator.onLine ? "Lỗi đồng bộ dữ liệu học" : "Chờ có mạng", root.navigator && root.navigator.onLine ? "bad" : "waiting");
     });
@@ -375,14 +383,19 @@
   function scheduleUpload() {
     if (!session || !session.user || applying) return;
     root.clearTimeout(uploadTimer);
+    var userId = session.user.id;
+    var generation = sessionGeneration;
     uploadTimer = root.setTimeout(function () {
-      var next = captureProfile(session.user.id, lastLocalProfile || readProfileCache(session.user.id));
+      if (generation !== sessionGeneration || !session || !session.user || session.user.id !== userId) return;
+      var next = captureProfile(userId, lastLocalProfile || readProfileCache(userId));
       if (stableStringify(next) === stableStringify(lastLocalProfile || {})) return;
       lastLocalProfile = next;
-      writeProfileCache(session.user.id, next);
-      upsertProfile(next).then(function () {
+      writeProfileCache(userId, next);
+      upsertProfile(next, generation).then(function () {
+        if (generation !== sessionGeneration) return;
         setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
       }).catch(function (error) {
+        if (generation !== sessionGeneration) return;
         console.error("VDuckie profile upload failed", error);
         setStatus("Lỗi đồng bộ dữ liệu học", "bad");
       });
@@ -670,6 +683,9 @@
   function handleSession(nextSession) {
     var previousSession = session;
     var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
+    sessionGeneration++;
+    root.clearTimeout(uploadTimer);
+    uploadTimer = null;
     session = nextSession || null;
     if (!session || !session.user) {
       if (previousUserId) writeProfileCache(previousUserId, captureProfile(previousUserId, lastLocalProfile || readProfileCache(previousUserId)));
