@@ -72,7 +72,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
    const layout=await mask.evaluate(n=>({width:n.clientWidth,scroll:n.scrollWidth,font:parseFloat(getComputedStyle(n).fontSize),box:n.parentElement.getBoundingClientRect().height}));assert.ok(layout.scroll<=layout.width+1);assert.ok(layout.font<=(viewport.width<=650?28:42));assert.ok(layout.box>=90);
    if(i===0){await input.pressSequentially(answer.slice(0,Math.min(6,answer.length-1)));await input.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,name+'-'+topic+'-masked.png')});}
    if(i===0&&topic==='factory'){
-    await page.emulateMedia({reducedMotion:'reduce'});await input.pressSequentially('#');const frames=await page.locator('.sg-slot.is-current').evaluate(n=>n.getAnimations()[0].effect.getKeyframes());assert.ok(frames.every(f=>f.transform==='none'||f.transform==='translateX(0)'));await page.emulateMedia({reducedMotion:'no-preference'});
+    await page.emulateMedia({reducedMotion:'reduce'});await input.pressSequentially('#');const frames=await page.locator('.sg-slot.is-current').evaluate(n=>n.getAnimations()[0].effect.getKeyframes());assert.ok(frames.every(f=>f.transform==='none'||/^translateX\(0(?:px)?\)$/.test(f.transform)));await page.emulateMedia({reducedMotion:'no-preference'});
    }
    if(i===1){await page.locator('[data-sentence-action=skip]').click();}else{await input.fill(answer);assert.equal(await page.locator('.sg-hanzi').textContent(),s.answers.at(-1).hanzi);assert.equal(await input.getAttribute('readonly'),'');}
    if(i===0)assert.equal(await page.locator('[data-sg-summary]').textContent(),'Đúng 1 câu · 100 điểm');
