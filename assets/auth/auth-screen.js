@@ -32,7 +32,7 @@
             '<div class="vda-field" id="vdaNameField" hidden><label for="vdaName">Tên hiển thị</label><input class="vda-input" type="text" id="vdaName" autocomplete="name" maxlength="60" placeholder="Ví dụ: Minh Anh"></div>' +
             '<div class="vda-field" id="vdaEmailField"><label for="vdaEmail">Email</label><input class="vda-input" type="email" id="vdaEmail" autocomplete="email" inputmode="email" maxlength="254" required placeholder="ten@gmail.com"></div>' +
             '<div class="vda-field" id="vdaPasswordField"><div class="vda-field-head"><label for="vdaPassword" id="vdaPasswordLabel">Mật khẩu</label><button type="button" class="vda-link" id="vdaForgot">Quên mật khẩu?</button></div><div class="vda-password-wrap"><input class="vda-input" type="password" id="vdaPassword" autocomplete="current-password" required placeholder="Nhập mật khẩu"><button type="button" class="vda-eye" id="vdaEye" aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button></div><p class="vda-hint" id="vdaPasswordHint" hidden>Ít nhất 8 ký tự để bảo vệ tài khoản.</p></div>' +
-            '<label class="vda-terms" id="vdaTermsField" hidden><input type="checkbox" id="vdaTerms"><span>Tôi đồng ý với các điều khoản sử dụng và chính sách bảo mật của VDuckie.</span></label>' +
+            '<label class="vda-terms" id="vdaTermsField" hidden><input type="checkbox" id="vdaTerms"><span>Tôi đồng ý tạo tài khoản và lưu thông tin, tiến độ học của mình để đồng bộ giữa các thiết bị.</span></label>' +
             '<div id="vdaMessage" class="vda-message" role="status" aria-live="polite" hidden></div>' +
             '<button type="submit" id="vdaSubmit" class="vda-submit">Đăng nhập</button>' +
           '</form><p class="vda-bottom"><span id="vdaSwitchCopy">Chưa có tài khoản?</span> <button type="button" class="vda-link" id="vdaSwitch" data-vda-mode="register">Đăng ký miễn phí</button></p>' +
@@ -262,7 +262,7 @@
       var detail = event.detail || {};
       if (detail.event === "PASSWORD_RECOVERY") {
         open("recover");
-      } else if (detail.signedIn && !recovery && !screen.hidden && mode !== "register") {
+      } else if (detail.signedIn && !recovery && !screen.hidden && !busy) {
         close();
       }
       syncHeader();
