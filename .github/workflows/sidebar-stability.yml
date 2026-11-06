@@ -50,6 +50,7 @@ jobs:
           name: sidebar-routing-screenshots
           path: |
             artifacts/sidebar-routing/
+            artifacts/auth-screen/
             artifacts/blue-edtech/
             artifacts/brand-runtime/
           if-no-files-found: ignore
