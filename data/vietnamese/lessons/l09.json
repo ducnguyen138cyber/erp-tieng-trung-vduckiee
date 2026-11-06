@@ -1,0 +1,332 @@
+{
+  "id": "l09",
+  "title": "问路与出行",
+  "titleVi": "Hỏi đường và đi lại",
+  "kind": "lesson",
+  "goal": "能询问地点、理解简单方向并选择交通方式。",
+  "words": [
+    {
+      "id": "l09-w01",
+      "vi": "đường",
+      "zh": "道路；路",
+      "example": "Đường này đi đến đâu?",
+      "exampleZh": "这条路通往哪里？"
+    },
+    {
+      "id": "l09-w02",
+      "vi": "đi thẳng",
+      "zh": "直走",
+      "example": "Anh đi thẳng khoảng một trăm mét.",
+      "exampleZh": "您直走约一百米。"
+    },
+    {
+      "id": "l09-w03",
+      "vi": "rẽ trái",
+      "zh": "左转",
+      "example": "Đến ngã tư thì rẽ trái.",
+      "exampleZh": "到十字路口左转。"
+    },
+    {
+      "id": "l09-w04",
+      "vi": "rẽ phải",
+      "zh": "右转",
+      "example": "Anh rẽ phải ở đây.",
+      "exampleZh": "您在这里右转。"
+    },
+    {
+      "id": "l09-w05",
+      "vi": "gần",
+      "zh": "近；在附近",
+      "example": "Khách sạn ở gần đây.",
+      "exampleZh": "酒店在这附近。"
+    },
+    {
+      "id": "l09-w06",
+      "vi": "xa",
+      "zh": "远",
+      "example": "Nhà ga có xa không?",
+      "exampleZh": "火车站远吗？"
+    },
+    {
+      "id": "l09-w07",
+      "vi": "ở đây",
+      "zh": "在这里",
+      "example": "Tôi đợi anh ở đây.",
+      "exampleZh": "我在这里等您。"
+    },
+    {
+      "id": "l09-w08",
+      "vi": "nhà vệ sinh",
+      "zh": "卫生间",
+      "example": "Nhà vệ sinh ở đâu ạ?",
+      "exampleZh": "请问卫生间在哪里？"
+    },
+    {
+      "id": "l09-w09",
+      "vi": "bệnh viện",
+      "zh": "医院",
+      "example": "Bệnh viện ở bên trái.",
+      "exampleZh": "医院在左边。"
+    },
+    {
+      "id": "l09-w10",
+      "vi": "khách sạn",
+      "zh": "酒店",
+      "example": "Tôi muốn về khách sạn.",
+      "exampleZh": "我想回酒店。"
+    },
+    {
+      "id": "l09-w11",
+      "vi": "xe buýt",
+      "zh": "公共汽车",
+      "example": "Tôi đi làm bằng xe buýt.",
+      "exampleZh": "我坐公交车上班。"
+    },
+    {
+      "id": "l09-w12",
+      "vi": "taxi",
+      "zh": "出租车",
+      "example": "Tôi muốn gọi taxi.",
+      "exampleZh": "我想叫出租车。"
+    },
+    {
+      "id": "l09-w13",
+      "vi": "xe máy",
+      "zh": "摩托车",
+      "example": "Anh ấy đi bằng xe máy.",
+      "exampleZh": "他骑摩托车去。"
+    },
+    {
+      "id": "l09-w14",
+      "vi": "đi bộ",
+      "zh": "步行",
+      "example": "Tôi đi bộ đến công ty.",
+      "exampleZh": "我步行去公司。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "地点与方向",
+      "body": "地点 + ở đâu？询问在哪里；đi thẳng/rẽ trái/rẽ phải 常用于指路。trái/phải 不是“对/错”，这里是左/右。",
+      "vi": "Nhà vệ sinh ở đâu ạ?",
+      "zh": "请问卫生间在哪里？"
+    },
+    {
+      "title": "交通工具前常用 bằng",
+      "body": "đi + bằng + 交通工具，如 đi bằng xe buýt。步行直接说 đi bộ，不说 đi bằng đi bộ。",
+      "vi": "Tôi đi bằng xe buýt.",
+      "zh": "我坐公交车去。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Xin lỗi, nhà vệ sinh ở đâu ạ?",
+      "zh": "不好意思，请问卫生间在哪里？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Anh đi thẳng rồi rẽ phải.",
+      "zh": "您直走，然后右转。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Có xa không ạ?",
+      "zh": "远吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Không xa, khoảng năm mươi mét.",
+      "zh": "不远，大约五十米。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Cảm ơn chị nhiều.",
+      "zh": "非常感谢您。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Không có gì.",
+      "zh": "不客气。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "đi thẳng",
+      "options": [
+        "直走",
+        "道路；路",
+        "左转",
+        "右转"
+      ],
+      "answer": 0,
+      "explanation": "đi thẳng：直走。",
+      "wordIds": [
+        "l09-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "rẽ trái",
+      "options": [
+        "左转",
+        "道路；路",
+        "直走",
+        "右转"
+      ],
+      "answer": 0,
+      "explanation": "rẽ trái：左转。",
+      "wordIds": [
+        "l09-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ này đi đến đâu?",
+      "answers": [
+        "Đường"
+      ],
+      "zh": "这条路通往哪里？",
+      "explanation": "完整句子：Đường này đi đến đâu?",
+      "wordIds": [
+        "l09-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Nhà",
+        "vệ",
+        "sinh",
+        "ở",
+        "đâu",
+        "ạ"
+      ],
+      "answer": "Nhà vệ sinh ở đâu ạ",
+      "zh": "请问卫生间在哪里？",
+      "explanation": "正确语序：Nhà vệ sinh ở đâu ạ?",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "đường",
+          "zh": "道路；路",
+          "wordId": "l09-w01"
+        },
+        {
+          "vi": "đi thẳng",
+          "zh": "直走",
+          "wordId": "l09-w02"
+        },
+        {
+          "vi": "rẽ trái",
+          "zh": "左转",
+          "wordId": "l09-w03"
+        },
+        {
+          "vi": "rẽ phải",
+          "zh": "右转",
+          "wordId": "l09-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l09-w01",
+        "l09-w02",
+        "l09-w03",
+        "l09-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "gần",
+      "options": [
+        "近；在附近",
+        "道路；路",
+        "直走",
+        "左转"
+      ],
+      "answer": 0,
+      "explanation": "gần：近；在附近。",
+      "wordIds": [
+        "l09-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "xa",
+      "options": [
+        "远",
+        "道路；路",
+        "直走",
+        "左转"
+      ],
+      "answer": 0,
+      "explanation": "xa：远。",
+      "wordIds": [
+        "l09-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ này đi đến đâu?",
+      "answers": [
+        "Đường"
+      ],
+      "zh": "这条路通往哪里？",
+      "explanation": "完整句子：Đường này đi đến đâu?",
+      "wordIds": [
+        "l09-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Nhà",
+        "vệ",
+        "sinh",
+        "ở",
+        "đâu",
+        "ạ"
+      ],
+      "answer": "Nhà vệ sinh ở đâu ạ",
+      "zh": "请问卫生间在哪里？",
+      "explanation": "正确语序：Nhà vệ sinh ở đâu ạ?",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "“我坐公交车去”哪个说法自然？",
+      "options": [
+        "Tôi đi bằng xe buýt.",
+        "Tôi đi bộ xe buýt.",
+        "Tôi là xe buýt."
+      ],
+      "answer": 0,
+      "explanation": "bằng 引出交通工具，đi bộ 专指步行。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

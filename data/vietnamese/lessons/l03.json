@@ -1,0 +1,328 @@
+{
+  "id": "l03",
+  "title": "称呼与人称",
+  "titleVi": "Xưng hô",
+  "kind": "lesson",
+  "goal": "能按年龄、关系与场景选择基本称呼，不把“你”固定翻成一个词。",
+  "words": [
+    {
+      "id": "l03-w01",
+      "vi": "tôi",
+      "zh": "我（较中性）",
+      "example": "Tôi là nhân viên mới.",
+      "exampleZh": "我是新员工。"
+    },
+    {
+      "id": "l03-w02",
+      "vi": "anh",
+      "zh": "哥哥；对稍年长男性的称呼",
+      "example": "Anh có rảnh không?",
+      "exampleZh": "您有空吗？"
+    },
+    {
+      "id": "l03-w03",
+      "vi": "chị",
+      "zh": "姐姐；对稍年长女性的称呼",
+      "example": "Chị giúp tôi với.",
+      "exampleZh": "请您帮帮我。"
+    },
+    {
+      "id": "l03-w04",
+      "vi": "em",
+      "zh": "弟妹；晚辈或较年轻者的自称、称呼",
+      "example": "Em chưa hiểu ạ.",
+      "exampleZh": "我还不明白。（对长者说）"
+    },
+    {
+      "id": "l03-w05",
+      "vi": "cô",
+      "zh": "姑姑；女老师；对年长女性的称呼",
+      "example": "Cô là giáo viên của em.",
+      "exampleZh": "她是我的老师。"
+    },
+    {
+      "id": "l03-w06",
+      "vi": "chú",
+      "zh": "叔叔；对父辈较年轻男性的称呼",
+      "example": "Chú làm việc ở đây ạ?",
+      "exampleZh": "叔叔，您在这里工作吗？"
+    },
+    {
+      "id": "l03-w07",
+      "vi": "bác",
+      "zh": "伯伯；对父辈较年长者的称呼",
+      "example": "Cháu chào bác ạ.",
+      "exampleZh": "您好。（向长辈问好）"
+    },
+    {
+      "id": "l03-w08",
+      "vi": "cháu",
+      "zh": "孙辈、侄甥辈；对长辈的自称",
+      "example": "Cháu cảm ơn bác ạ.",
+      "exampleZh": "谢谢您。（晚辈对长辈说）"
+    },
+    {
+      "id": "l03-w09",
+      "vi": "chúng tôi",
+      "zh": "我们（通常不含听话人）",
+      "example": "Chúng tôi là nhân viên mới.",
+      "exampleZh": "我们是新员工。"
+    },
+    {
+      "id": "l03-w10",
+      "vi": "chúng ta",
+      "zh": "我们（包含听话人）",
+      "example": "Chúng ta cùng học nhé.",
+      "exampleZh": "我们一起学吧。"
+    },
+    {
+      "id": "l03-w11",
+      "vi": "anh ấy",
+      "zh": "他（成年男性）",
+      "example": "Anh ấy là đồng nghiệp của tôi.",
+      "exampleZh": "他是我的同事。"
+    },
+    {
+      "id": "l03-w12",
+      "vi": "chị ấy",
+      "zh": "她（成年女性）",
+      "example": "Chị ấy làm ở phòng kế toán.",
+      "exampleZh": "她在会计室工作。"
+    },
+    {
+      "id": "l03-w13",
+      "vi": "mọi người",
+      "zh": "大家；所有人",
+      "example": "Mọi người nghỉ một chút nhé.",
+      "exampleZh": "大家休息一下吧。"
+    },
+    {
+      "id": "l03-w14",
+      "vi": "đồng nghiệp",
+      "zh": "同事",
+      "example": "Lan là đồng nghiệp của tôi.",
+      "exampleZh": "兰是我的同事。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "人称取决于关系",
+      "body": "anh/chị/em/cô/chú/bác 既可指对方，也可在合适关系中指自己。初见成年人可先用 tôi，按年龄称 anh/chị；不确定时礼貌询问。",
+      "vi": "Em chào anh ạ.",
+      "zh": "您好。（较年轻者对年长男性说）"
+    },
+    {
+      "title": "所属关系与我们",
+      "body": "常见结构：名词 + của + 人。chúng tôi 通常排除听话人；chúng ta 包含听话人。同事或朋友之间也可用 mình/bạn，不能随意用 mày。",
+      "vi": "Đây là đồng nghiệp của tôi.",
+      "zh": "这是我的同事。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Em chào chị ạ. Em là nhân viên mới.",
+      "zh": "您好，我是新员工。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Chào em. Chị tên là Hoa.",
+      "zh": "你好，我叫花。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Em nên xưng hô thế nào ạ?",
+      "zh": "我该怎么称呼您呢？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Em cứ gọi chị là chị Hoa nhé.",
+      "zh": "你叫我花姐就好。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Vâng, em cảm ơn chị Hoa.",
+      "zh": "好的，谢谢花姐。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Chúng ta cùng vào phòng nhé.",
+      "zh": "我们一起进办公室吧。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "anh",
+      "options": [
+        "哥哥；对稍年长男性的称呼",
+        "我（较中性）",
+        "姐姐；对稍年长女性的称呼",
+        "弟妹；晚辈或较年轻者的自称、称呼"
+      ],
+      "answer": 0,
+      "explanation": "anh：哥哥；对稍年长男性的称呼。",
+      "wordIds": [
+        "l03-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "chị",
+      "options": [
+        "姐姐；对稍年长女性的称呼",
+        "我（较中性）",
+        "哥哥；对稍年长男性的称呼",
+        "弟妹；晚辈或较年轻者的自称、称呼"
+      ],
+      "answer": 0,
+      "explanation": "chị：姐姐；对稍年长女性的称呼。",
+      "wordIds": [
+        "l03-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ là nhân viên mới.",
+      "answers": [
+        "Tôi"
+      ],
+      "zh": "我是新员工。",
+      "explanation": "完整句子：Tôi là nhân viên mới.",
+      "wordIds": [
+        "l03-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Em",
+        "chào",
+        "anh",
+        "ạ"
+      ],
+      "answer": "Em chào anh ạ",
+      "zh": "您好。（较年轻者对年长男性说）",
+      "explanation": "正确语序：Em chào anh ạ.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "tôi",
+          "zh": "我（较中性）",
+          "wordId": "l03-w01"
+        },
+        {
+          "vi": "anh",
+          "zh": "哥哥；对稍年长男性的称呼",
+          "wordId": "l03-w02"
+        },
+        {
+          "vi": "chị",
+          "zh": "姐姐；对稍年长女性的称呼",
+          "wordId": "l03-w03"
+        },
+        {
+          "vi": "em",
+          "zh": "弟妹；晚辈或较年轻者的自称、称呼",
+          "wordId": "l03-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l03-w01",
+        "l03-w02",
+        "l03-w03",
+        "l03-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "cô",
+      "options": [
+        "姑姑；女老师；对年长女性的称呼",
+        "我（较中性）",
+        "哥哥；对稍年长男性的称呼",
+        "姐姐；对稍年长女性的称呼"
+      ],
+      "answer": 0,
+      "explanation": "cô：姑姑；女老师；对年长女性的称呼。",
+      "wordIds": [
+        "l03-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "chú",
+      "options": [
+        "叔叔；对父辈较年轻男性的称呼",
+        "我（较中性）",
+        "哥哥；对稍年长男性的称呼",
+        "姐姐；对稍年长女性的称呼"
+      ],
+      "answer": 0,
+      "explanation": "chú：叔叔；对父辈较年轻男性的称呼。",
+      "wordIds": [
+        "l03-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ là nhân viên mới.",
+      "answers": [
+        "Tôi"
+      ],
+      "zh": "我是新员工。",
+      "explanation": "完整句子：Tôi là nhân viên mới.",
+      "wordIds": [
+        "l03-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Em",
+        "chào",
+        "anh",
+        "ạ"
+      ],
+      "answer": "Em chào anh ạ",
+      "zh": "您好。（较年轻者对年长男性说）",
+      "explanation": "正确语序：Em chào anh ạ.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "邀请对方“一起学习”，哪种“我们”更合适？",
+      "options": [
+        "Chúng ta cùng học nhé.",
+        "Chúng tôi là người Việt Nam.",
+        "Anh ấy cùng tôi."
+      ],
+      "answer": 0,
+      "explanation": "chúng ta 包含听话人，符合邀请对方一起做事的语境。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

@@ -389,6 +389,56 @@
     });
   }
 
+  // Isolated system records reuse existing owner-only user_words RLS.
+  // Every lesson/word is a separate row: Vietnamese never replaces a Daily/HSK snapshot.
+  var vietnamesePrefix = "__vduckie_vi_v1__:";
+  var vietnameseCategory = "__system_vietnamese__";
+  function vietnameseIdentity() { return { userId: session && session.user ? session.user.id : "", configured: !!client }; }
+  function requireVietnameseUser() {
+    if (!client || !session || !session.user) throw new Error("请先登录再同步。");
+    if (!navigator.onLine) throw new Error("当前离线。");
+    return session.user.id;
+  }
+  function loadVietnameseProgress() {
+    var userId;
+    try { userId = requireVietnameseUser(); } catch (error) { return Promise.reject(error); }
+    return client.from("user_words").select("word_key,note")
+      .eq("user_id", userId).eq("category", vietnameseCategory)
+      .like("word_key", vietnamesePrefix + "%").then(function (result) {
+        if (result.error) throw result.error;
+        if (vietnameseIdentity().userId !== userId) throw new Error("账户已切换。");
+        var records = {};
+        (result.data || []).forEach(function (row) {
+          if (!String(row.word_key || "").startsWith(vietnamesePrefix)) return;
+          var key = String(row.word_key || "").slice(vietnamesePrefix.length);
+          if (!/^(?:position|[lp]\d{2}(?:-w\d{2})?)$/.test(key)) return;
+          try { records[key] = JSON.parse(row.note); } catch (_) {}
+        });
+        return records;
+      });
+  }
+  function saveVietnameseRecords(records) {
+    var userId;
+    try { userId = requireVietnameseUser(); } catch (error) { return Promise.reject(error); }
+    if (!Array.isArray(records) || records.length > 24) return Promise.reject(new Error("同步批次无效。"));
+    var rows;
+    try { rows = records.map(function (record) {
+      if (!/^(?:position|[lp]\d{2}(?:-w\d{2})?)$/.test(record.key)) throw new Error("进度编号无效。");
+      var note = JSON.stringify(record.value);
+      if (!note || note.length > 16000) throw new Error("进度记录过大。");
+      var iso = new Date(Number(record.value.updatedAt) || Date.now()).toISOString();
+      return { user_id: userId, word_key: vietnamesePrefix + record.key, category: vietnameseCategory,
+        hanzi: "VIETNAMESE_PROGRESS", pinyin: "", near_vi: "", meaning_vi: "", note: note,
+        example_zh: "", example_vi: "", is_known: false, is_saved: false,
+        known_updated_at: iso, saved_updated_at: iso };
+    }); } catch (error) { return Promise.reject(error); }
+    if (!rows.length) return Promise.resolve();
+    return client.from("user_words").upsert(rows, { onConflict: "user_id,word_key" }).then(function (result) {
+      if (result.error) throw result.error;
+      if (vietnameseIdentity().userId !== userId) throw new Error("账户已切换。");
+    });
+  }
+
   function accountCacheKey(profileId) {
     return accountCachePrefix + (profileId || anonymousProfile);
   }
@@ -775,6 +825,9 @@
     updatePassword: function (password) {
       return client ? client.auth.updateUser({ password: password }) : Promise.reject(new Error("Đổi mật khẩu chưa sẵn sàng."));
     },
+    vietnameseIdentity: vietnameseIdentity,
+    loadVietnameseProgress: loadVietnameseProgress,
+    saveVietnameseRecords: saveVietnameseRecords,
     loadDailyLearning: loadDailyLearning,
     saveDailyLearning: saveDailyLearning,
     syncProgress: function () {

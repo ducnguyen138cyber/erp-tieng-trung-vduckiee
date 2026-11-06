@@ -1,0 +1,330 @@
+{
+  "id": "l10",
+  "title": "日常生活与工作",
+  "titleVi": "Sinh hoạt hằng ngày",
+  "kind": "lesson",
+  "goal": "能描述一天的安排，表达正在做、已经做和将要做。",
+  "words": [
+    {
+      "id": "l10-w01",
+      "vi": "thức dậy",
+      "zh": "醒来；起床",
+      "example": "Tôi thức dậy lúc sáu giờ.",
+      "exampleZh": "我六点起床。"
+    },
+    {
+      "id": "l10-w02",
+      "vi": "ăn sáng",
+      "zh": "吃早饭",
+      "example": "Tôi ăn sáng ở nhà.",
+      "exampleZh": "我在家吃早饭。"
+    },
+    {
+      "id": "l10-w03",
+      "vi": "đi làm",
+      "zh": "上班",
+      "example": "Tôi đi làm lúc bảy giờ.",
+      "exampleZh": "我七点去上班。"
+    },
+    {
+      "id": "l10-w04",
+      "vi": "tan làm",
+      "zh": "下班",
+      "example": "Tôi tan làm lúc năm giờ chiều.",
+      "exampleZh": "我下午五点下班。"
+    },
+    {
+      "id": "l10-w05",
+      "vi": "nghỉ ngơi",
+      "zh": "休息",
+      "example": "Cuối tuần tôi nghỉ ngơi.",
+      "exampleZh": "我周末休息。"
+    },
+    {
+      "id": "l10-w06",
+      "vi": "nấu ăn",
+      "zh": "做饭",
+      "example": "Buổi tối tôi nấu ăn.",
+      "exampleZh": "我晚上做饭。"
+    },
+    {
+      "id": "l10-w07",
+      "vi": "đi ngủ",
+      "zh": "睡觉；上床睡觉",
+      "example": "Tôi đi ngủ lúc mười giờ.",
+      "exampleZh": "我十点睡觉。"
+    },
+    {
+      "id": "l10-w08",
+      "vi": "bận",
+      "zh": "忙",
+      "example": "Hôm nay tôi rất bận.",
+      "exampleZh": "我今天很忙。"
+    },
+    {
+      "id": "l10-w09",
+      "vi": "rảnh",
+      "zh": "有空",
+      "example": "Chiều nay anh có rảnh không?",
+      "exampleZh": "您今天下午有空吗？"
+    },
+    {
+      "id": "l10-w10",
+      "vi": "thường",
+      "zh": "经常；通常",
+      "example": "Tôi thường đi bộ.",
+      "exampleZh": "我经常步行。"
+    },
+    {
+      "id": "l10-w11",
+      "vi": "đang",
+      "zh": "正在",
+      "example": "Tôi đang làm việc.",
+      "exampleZh": "我正在工作。"
+    },
+    {
+      "id": "l10-w12",
+      "vi": "đã",
+      "zh": "已；曾（完成、过去标记之一）",
+      "example": "Tôi đã ăn sáng rồi.",
+      "exampleZh": "我已经吃过早饭了。"
+    },
+    {
+      "id": "l10-w13",
+      "vi": "sẽ",
+      "zh": "将；会（将来）",
+      "example": "Ngày mai tôi sẽ gọi cho anh.",
+      "exampleZh": "我明天会给您打电话。"
+    },
+    {
+      "id": "l10-w14",
+      "vi": "mỗi ngày",
+      "zh": "每天",
+      "example": "Tôi học tiếng Việt mỗi ngày.",
+      "exampleZh": "我每天学越南语。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "动词本身不按人称变形",
+      "body": "越南语不像英语那样按人称给动词加词尾；用时间词和语境表达时间。đã、đang、sẽ 常放在动词前，但不能机械对应每一种汉语时态。",
+      "vi": "Tôi đang học tiếng Việt.",
+      "zh": "我正在学越南语。"
+    },
+    {
+      "title": "时间与否定",
+      "body": "hôm nay/ngày mai 可放句首；không 放在主要动词或形容词前。chưa 是“还没”；không 是“不”。",
+      "vi": "Tôi chưa ăn sáng.",
+      "zh": "我还没吃早饭。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Anh thường thức dậy lúc mấy giờ?",
+      "zh": "您通常几点起床？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi thức dậy lúc sáu giờ.",
+      "zh": "我六点起床。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Buổi tối anh làm gì?",
+      "zh": "您晚上做什么？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi học tiếng Việt rồi đi ngủ.",
+      "zh": "我学越南语，然后睡觉。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Ngày mai anh có đi làm không?",
+      "zh": "您明天上班吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Có, ngày mai tôi sẽ đi làm.",
+      "zh": "上，我明天会上班。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "ăn sáng",
+      "options": [
+        "吃早饭",
+        "醒来；起床",
+        "上班",
+        "下班"
+      ],
+      "answer": 0,
+      "explanation": "ăn sáng：吃早饭。",
+      "wordIds": [
+        "l10-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "đi làm",
+      "options": [
+        "上班",
+        "醒来；起床",
+        "吃早饭",
+        "下班"
+      ],
+      "answer": 0,
+      "explanation": "đi làm：上班。",
+      "wordIds": [
+        "l10-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi ____ lúc sáu giờ.",
+      "answers": [
+        "thức dậy"
+      ],
+      "zh": "我六点起床。",
+      "explanation": "完整句子：Tôi thức dậy lúc sáu giờ.",
+      "wordIds": [
+        "l10-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "đang",
+        "học",
+        "tiếng",
+        "Việt"
+      ],
+      "answer": "Tôi đang học tiếng Việt",
+      "zh": "我正在学越南语。",
+      "explanation": "正确语序：Tôi đang học tiếng Việt.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "thức dậy",
+          "zh": "醒来；起床",
+          "wordId": "l10-w01"
+        },
+        {
+          "vi": "ăn sáng",
+          "zh": "吃早饭",
+          "wordId": "l10-w02"
+        },
+        {
+          "vi": "đi làm",
+          "zh": "上班",
+          "wordId": "l10-w03"
+        },
+        {
+          "vi": "tan làm",
+          "zh": "下班",
+          "wordId": "l10-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l10-w01",
+        "l10-w02",
+        "l10-w03",
+        "l10-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "nghỉ ngơi",
+      "options": [
+        "休息",
+        "醒来；起床",
+        "吃早饭",
+        "上班"
+      ],
+      "answer": 0,
+      "explanation": "nghỉ ngơi：休息。",
+      "wordIds": [
+        "l10-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "nấu ăn",
+      "options": [
+        "做饭",
+        "醒来；起床",
+        "吃早饭",
+        "上班"
+      ],
+      "answer": 0,
+      "explanation": "nấu ăn：做饭。",
+      "wordIds": [
+        "l10-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi ____ lúc sáu giờ.",
+      "answers": [
+        "thức dậy"
+      ],
+      "zh": "我六点起床。",
+      "explanation": "完整句子：Tôi thức dậy lúc sáu giờ.",
+      "wordIds": [
+        "l10-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "đang",
+        "học",
+        "tiếng",
+        "Việt"
+      ],
+      "answer": "Tôi đang học tiếng Việt",
+      "zh": "我正在学越南语。",
+      "explanation": "正确语序：Tôi đang học tiếng Việt.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "“我还没吃早饭”哪句正确？",
+      "options": [
+        "Tôi chưa ăn sáng.",
+        "Tôi đang ăn sáng.",
+        "Tôi đã ăn sáng rồi."
+      ],
+      "answer": 0,
+      "explanation": "chưa 表示“还没”；đang 表示正在；đã…rồi 常表示已经完成。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

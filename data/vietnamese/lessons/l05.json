@@ -1,0 +1,330 @@
+{
+  "id": "l05",
+  "title": "日期与时间",
+  "titleVi": "Ngày tháng và giờ giấc",
+  "kind": "lesson",
+  "goal": "能约定星期、日期与时间，区分 thứ（日序）和 số（数字）。",
+  "words": [
+    {
+      "id": "l05-w01",
+      "vi": "hôm nay",
+      "zh": "今天",
+      "example": "Hôm nay là thứ hai.",
+      "exampleZh": "今天是星期一。"
+    },
+    {
+      "id": "l05-w02",
+      "vi": "hôm qua",
+      "zh": "昨天",
+      "example": "Hôm qua tôi đi làm.",
+      "exampleZh": "昨天我上班了。"
+    },
+    {
+      "id": "l05-w03",
+      "vi": "ngày",
+      "zh": "天；日期",
+      "example": "Hôm nay là ngày mấy?",
+      "exampleZh": "今天几号？"
+    },
+    {
+      "id": "l05-w04",
+      "vi": "tháng",
+      "zh": "月",
+      "example": "Tôi đến Việt Nam vào tháng ba.",
+      "exampleZh": "我三月来越南。"
+    },
+    {
+      "id": "l05-w05",
+      "vi": "năm nay",
+      "zh": "今年",
+      "example": "Năm nay tôi học tiếng Việt.",
+      "exampleZh": "今年我学越南语。"
+    },
+    {
+      "id": "l05-w06",
+      "vi": "tuần",
+      "zh": "周；星期",
+      "example": "Tuần này tôi khá bận.",
+      "exampleZh": "这周我比较忙。"
+    },
+    {
+      "id": "l05-w07",
+      "vi": "thứ hai",
+      "zh": "星期一",
+      "example": "Thứ hai tôi đi làm.",
+      "exampleZh": "我星期一上班。"
+    },
+    {
+      "id": "l05-w08",
+      "vi": "chủ nhật",
+      "zh": "星期日",
+      "example": "Chủ nhật tôi nghỉ.",
+      "exampleZh": "我星期日休息。"
+    },
+    {
+      "id": "l05-w09",
+      "vi": "giờ",
+      "zh": "小时；点钟",
+      "example": "Bây giờ là mấy giờ?",
+      "exampleZh": "现在几点？"
+    },
+    {
+      "id": "l05-w10",
+      "vi": "phút",
+      "zh": "分钟",
+      "example": "Tôi cần mười phút.",
+      "exampleZh": "我需要十分钟。"
+    },
+    {
+      "id": "l05-w11",
+      "vi": "buổi sáng",
+      "zh": "上午；早晨",
+      "example": "Buổi sáng tôi uống cà phê.",
+      "exampleZh": "我早上喝咖啡。"
+    },
+    {
+      "id": "l05-w12",
+      "vi": "buổi chiều",
+      "zh": "下午",
+      "example": "Buổi chiều chúng ta gặp nhau nhé.",
+      "exampleZh": "我们下午见吧。"
+    },
+    {
+      "id": "l05-w13",
+      "vi": "buổi tối",
+      "zh": "晚上",
+      "example": "Buổi tối tôi học ở nhà.",
+      "exampleZh": "我晚上在家学习。"
+    },
+    {
+      "id": "l05-w14",
+      "vi": "mấy giờ",
+      "zh": "几点",
+      "example": "Mấy giờ anh đi làm?",
+      "exampleZh": "您几点上班？"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "星期不从一开始",
+      "body": "星期一=thứ hai，星期二=thứ ba，一直到星期六=thứ bảy；星期日=chủ nhật。不要把 thứ hai 译成星期二。",
+      "vi": "Hôm nay là thứ sáu.",
+      "zh": "今天是星期五。"
+    },
+    {
+      "title": "时间、日期的常见顺序",
+      "body": "日期通常按 ngày + 日，tháng + 月，năm + 年。时间用 số + giờ + số + phút；giờ rưỡi 表示半点。询问数量或时间用 mấy。",
+      "vi": "Bảy giờ ba mươi phút.",
+      "zh": "七点三十分。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Ngày mai anh có rảnh không?",
+      "zh": "您明天有空吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Có. Chúng ta gặp nhau lúc mấy giờ?",
+      "zh": "有。我们几点见？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Lúc hai giờ chiều nhé.",
+      "zh": "下午两点吧。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Được. Ngày mai là thứ ba phải không?",
+      "zh": "好。明天是星期二，对吗？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Vâng, ngày mười tháng ba.",
+      "zh": "对，三月十日。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Hẹn gặp anh vào ngày mai.",
+      "zh": "明天见。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "hôm qua",
+      "options": [
+        "昨天",
+        "今天",
+        "天；日期",
+        "月"
+      ],
+      "answer": 0,
+      "explanation": "hôm qua：昨天。",
+      "wordIds": [
+        "l05-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "ngày",
+      "options": [
+        "天；日期",
+        "今天",
+        "昨天",
+        "月"
+      ],
+      "answer": 0,
+      "explanation": "ngày：天；日期。",
+      "wordIds": [
+        "l05-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ là thứ hai.",
+      "answers": [
+        "Hôm nay"
+      ],
+      "zh": "今天是星期一。",
+      "explanation": "完整句子：Hôm nay là thứ hai.",
+      "wordIds": [
+        "l05-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Hôm",
+        "nay",
+        "là",
+        "thứ",
+        "sáu"
+      ],
+      "answer": "Hôm nay là thứ sáu",
+      "zh": "今天是星期五。",
+      "explanation": "正确语序：Hôm nay là thứ sáu.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "hôm nay",
+          "zh": "今天",
+          "wordId": "l05-w01"
+        },
+        {
+          "vi": "hôm qua",
+          "zh": "昨天",
+          "wordId": "l05-w02"
+        },
+        {
+          "vi": "ngày",
+          "zh": "天；日期",
+          "wordId": "l05-w03"
+        },
+        {
+          "vi": "tháng",
+          "zh": "月",
+          "wordId": "l05-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l05-w01",
+        "l05-w02",
+        "l05-w03",
+        "l05-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "năm nay",
+      "options": [
+        "今年",
+        "今天",
+        "昨天",
+        "天；日期"
+      ],
+      "answer": 0,
+      "explanation": "năm nay：今年。",
+      "wordIds": [
+        "l05-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "tuần",
+      "options": [
+        "周；星期",
+        "今天",
+        "昨天",
+        "天；日期"
+      ],
+      "answer": 0,
+      "explanation": "tuần：周；星期。",
+      "wordIds": [
+        "l05-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ là thứ hai.",
+      "answers": [
+        "Hôm nay"
+      ],
+      "zh": "今天是星期一。",
+      "explanation": "完整句子：Hôm nay là thứ hai.",
+      "wordIds": [
+        "l05-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Hôm",
+        "nay",
+        "là",
+        "thứ",
+        "sáu"
+      ],
+      "answer": "Hôm nay là thứ sáu",
+      "zh": "今天是星期五。",
+      "explanation": "正确语序：Hôm nay là thứ sáu.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "thứ hai 对应哪一天？",
+      "options": [
+        "星期一",
+        "星期二",
+        "星期日"
+      ],
+      "answer": 0,
+      "explanation": "越南语星期一叫 thứ hai；星期日叫 chủ nhật。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

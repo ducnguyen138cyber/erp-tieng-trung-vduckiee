@@ -5,7 +5,7 @@
   var current = null;
   var viewIds = ["homeHub","erpHero","hskHero","lessons","cards","quiz","glossary",
     "personal","community","hsk","dialogue","homeJourney","erpJourney","hskJourney",
-    "leaderboard","dailyLearningPanel","hskRoadmapScreen","gamesScreen"];
+    "leaderboard","dailyLearningPanel","hskRoadmapScreen","gamesScreen","vietnameseScreen"];
   var erpViews = ["lessons","cards","dialogue","quiz","glossary","personal","community"];
   function one(selector) { return document.querySelector(selector); }
   function screenOf(button) {
@@ -25,7 +25,7 @@
     return null;
   }
   function valid(screen) {
-    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games"].indexOf(screen) !== -1 ||
+    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games","vietnamese"].indexOf(screen) !== -1 ||
       (screen.indexOf("erp:") === 0 && erpViews.indexOf(screen.slice(4)) !== -1);
   }
   function fromLocation() {
@@ -40,7 +40,8 @@
     var url = new URL(root.location.href);
     url.searchParams.delete("area");
     url.searchParams.set("screen", screen);
-    if (screen === "games") ["hskLevel","hskLesson","hskView","hskTab"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen !== "vietnamese") ["viUnit","viTab"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen === "games" || screen === "vietnamese") ["hskLevel","hskLesson","hskView","hskTab"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
     return url.pathname + url.search + url.hash;
   }
@@ -82,8 +83,12 @@
     }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
+    if (screen !== "vietnamese" && root.VDuckieVietnamese) root.VDuckieVietnamese.leave();
+    if (screen !== "vietnamese") { hide("vietnameseScreen"); if (document.title === "学越南语 — VDuckie") document.title = "VDuckie – Tự học tiếng Trung HSK và tiếng Trung công xưởng"; }
     if (screen !== "games" && root.VDuckieGames) root.VDuckieGames.leave();
-    if (screen === "games" && root.VDuckieGames) {
+    if (screen === "vietnamese" && root.VDuckieVietnamese) {
+      root.VDuckieVietnamese.open();
+    } else if (screen === "games" && root.VDuckieGames) {
       root.VDuckieGames.open();
     } else if (screen === "roadmap" && root.VDuckieHSKRoadmap) {
       root.VDuckieHSKRoadmap.open();
@@ -109,7 +114,10 @@
     } else if (root.VDuckieDailyLearning) {
       root.VDuckieDailyLearning.show(screen);
     }
-    if (screen === "games") {
+    if (screen === "vietnamese") {
+      viewIds.forEach(function (id) { if (id !== "vietnameseScreen") hide(id); });
+      document.documentElement.classList.remove("v865-home-mode");
+    } else if (screen === "games") {
       viewIds.forEach(function (id) { if (id !== "gamesScreen") hide(id); });
       document.documentElement.classList.remove("v865-home-mode");
     } else if (screen === "roadmap") {
@@ -201,6 +209,14 @@
       scheduled = true;
       root.requestAnimationFrame(function () {
         scheduled = false;
+        if (current === "vietnamese") {
+          viewIds.forEach(function(id){if(id!=="vietnameseScreen")hide(id);});
+          if (document.body.getAttribute("data-current-area") !== "vietnamese") document.body.setAttribute("data-current-area", "vietnamese");
+          if (document.title !== "学越南语 — VDuckie") document.title = "学越南语 — VDuckie";
+          var params = new URLSearchParams(root.location.search);
+          if (["area","hskLevel","hskLesson","hskView","hskTab"].some(function(key){return params.has(key);}) || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor("vietnamese"));
+          return;
+        }
         if (current === "games") {
           viewIds.forEach(function(id){if(id!=="gamesScreen")hide(id);});
           if (document.body.getAttribute("data-current-area") !== "games") document.body.setAttribute("data-current-area", "games");

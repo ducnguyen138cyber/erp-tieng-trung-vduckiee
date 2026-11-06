@@ -93,6 +93,7 @@
   <link rel="stylesheet" href="./assets/pwa/mobile-pwa.css?v=1">
   <link rel="manifest" href="./manifest.webmanifest">
   <script defer src="./pwa-register.js?v=3"></script>
+  <script defer src="./assets/vietnamese/entry.js?v=1"></script>
 </head>
 <body>
   <div class="shell" id="appShell">
@@ -116,6 +117,7 @@
           <button data-daily-nav="msutong"><span class="menu-icon">路</span><span>Giáo trình HSK</span></button>
           <button data-daily-nav="daily"><span class="menu-icon">+5</span><span>5 từ công xưởng</span></button>
           <button data-daily-nav="review"><span class="menu-icon">↻</span><span>Ôn tập</span></button>
+          <button data-daily-nav="vietnamese" type="button"><span class="menu-icon">Vi</span><span>Học tiếng Việt / 学越南语</span></button>
           <button data-daily-nav="games" type="button"><span class="menu-icon">⌘</span><span>Trò chơi</span></button>
         </nav>
         <span class="learning-menu-group">TRA CỨU</span>
@@ -143,7 +145,9 @@
 
       <div class="study-center">
         <section class="home-hub" id="homeHub" aria-labelledby="homeHubTitle">
+
           <div class="home-overview-grid">
+          <article class="vi-home-invite" lang="zh-CN" translate="no" style="grid-column:1 / -1;margin:0 0 4px;padding:20px;border:1px solid #dbeafe;border-radius:20px;background:#eff6ff;color:#111827;display:flex;align-items:center;gap:16px;flex-wrap:wrap"><img src="./assets/mascot/duckie-reader-icon-192.png" width="56" height="56" alt="Duckie"><div style="flex:1;min-width:180px"><h2 style="margin:0;font-size:21px">想学越南语？从这里开始。</h2><p style="margin:6px 0;color:#475569">零基础 · 12 课 + 2 个发音专题 · 共用 VDuckie 账户</p></div><button type="button" class="home-primary-action" data-daily-nav="vietnamese">学越南语 →</button></article>
             <article class="home-card home-welcome-card">
               <div class="home-welcome-copy">
                 <span class="home-card-kicker">你好! (Xin chào!)</span>
@@ -511,7 +515,7 @@
   </script>
   <script src="./supabase-config.js?v=71.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7/dist/umd/supabase.min.js"></script>
-    <script src="./assets/v82/account-learning-sync-v82.js?v=hsk-journey1"></script>
+    <script src="./assets/v82/account-learning-sync-v82.js?v=vi-session1"></script>
 <script src="./supabase-sync.js?v=82.1"></script>
   <script src="./vendor/hanzi-writer.min.js?v=1"></script>
   <script src="./vendor/hsk-char-data.js?v=1"></script>

@@ -1,0 +1,334 @@
+{
+  "id": "l07",
+  "title": "吃饭与点餐",
+  "titleVi": "Ăn uống và gọi món",
+  "kind": "lesson",
+  "goal": "能点餐、说明口味与饮食限制，并请求结账。",
+  "words": [
+    {
+      "id": "l07-w01",
+      "vi": "ăn",
+      "zh": "吃",
+      "example": "Tôi muốn ăn phở.",
+      "exampleZh": "我想吃河粉。"
+    },
+    {
+      "id": "l07-w02",
+      "vi": "uống",
+      "zh": "喝",
+      "example": "Anh uống nước nhé.",
+      "exampleZh": "您喝水吧。"
+    },
+    {
+      "id": "l07-w03",
+      "vi": "cơm",
+      "zh": "米饭；一餐饭（视语境）",
+      "example": "Tôi ăn cơm ở công ty.",
+      "exampleZh": "我在公司吃饭。"
+    },
+    {
+      "id": "l07-w04",
+      "vi": "phở",
+      "zh": "越南河粉",
+      "example": "Cho tôi một bát phở bò.",
+      "exampleZh": "请给我一碗牛肉河粉。"
+    },
+    {
+      "id": "l07-w05",
+      "vi": "nước",
+      "zh": "水（也可指液体、国家，依语境）",
+      "example": "Cho tôi một cốc nước.",
+      "exampleZh": "请给我一杯水。"
+    },
+    {
+      "id": "l07-w06",
+      "vi": "cà phê",
+      "zh": "咖啡",
+      "example": "Tôi uống cà phê không đường.",
+      "exampleZh": "我喝不加糖的咖啡。"
+    },
+    {
+      "id": "l07-w07",
+      "vi": "thịt bò",
+      "zh": "牛肉",
+      "example": "Tôi không ăn thịt bò.",
+      "exampleZh": "我不吃牛肉。"
+    },
+    {
+      "id": "l07-w08",
+      "vi": "thịt gà",
+      "zh": "鸡肉",
+      "example": "Món này có thịt gà không?",
+      "exampleZh": "这道菜有鸡肉吗？"
+    },
+    {
+      "id": "l07-w09",
+      "vi": "rau",
+      "zh": "蔬菜",
+      "example": "Tôi muốn thêm rau.",
+      "exampleZh": "我想加点蔬菜。"
+    },
+    {
+      "id": "l07-w10",
+      "vi": "ngon",
+      "zh": "好吃；好喝",
+      "example": "Món này rất ngon.",
+      "exampleZh": "这道菜很好吃。"
+    },
+    {
+      "id": "l07-w11",
+      "vi": "cay",
+      "zh": "辣",
+      "example": "Tôi không ăn được cay.",
+      "exampleZh": "我吃不了辣。"
+    },
+    {
+      "id": "l07-w12",
+      "vi": "không đường",
+      "zh": "不加糖",
+      "example": "Cho tôi cà phê không đường.",
+      "exampleZh": "请给我不加糖的咖啡。"
+    },
+    {
+      "id": "l07-w13",
+      "vi": "thực đơn",
+      "zh": "菜单",
+      "example": "Cho tôi xem thực đơn với.",
+      "exampleZh": "请让我看一下菜单。"
+    },
+    {
+      "id": "l07-w14",
+      "vi": "tính tiền",
+      "zh": "结账",
+      "example": "Chị ơi, cho tôi tính tiền.",
+      "exampleZh": "您好，请帮我结账。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "礼貌点餐",
+      "body": "Cho tôi + 数量 + 单位 + 菜品 是常见请求。bát（碗）、cốc（杯）跟在数字后；加 với、ạ 可更客气。",
+      "vi": "Cho tôi một bát phở gà ạ.",
+      "zh": "请给我一碗鸡肉河粉。"
+    },
+    {
+      "title": "想、不吃与不能吃",
+      "body": "muốn + 动词 表示想做；không ăn 表示不吃；không ăn được 常表示吃不了。过敏请直说 Tôi bị dị ứng với…，不要只说不喜欢。",
+      "vi": "Tôi không ăn được cay.",
+      "zh": "我吃不了辣。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Chị ơi, cho tôi xem thực đơn với.",
+      "zh": "您好，请让我看看菜单。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Vâng, anh muốn ăn gì ạ?",
+      "zh": "好的，您想吃什么？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Cho tôi một bát phở bò, không cay.",
+      "zh": "请给我一碗牛肉河粉，不要辣。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Anh uống gì ạ?",
+      "zh": "您喝什么？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Cho tôi một cốc nước. Cảm ơn chị.",
+      "zh": "请给我一杯水。谢谢。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Vâng, anh chờ một chút nhé.",
+      "zh": "好的，请稍等。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "uống",
+      "options": [
+        "喝",
+        "吃",
+        "米饭；一餐饭（视语境）",
+        "越南河粉"
+      ],
+      "answer": 0,
+      "explanation": "uống：喝。",
+      "wordIds": [
+        "l07-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "cơm",
+      "options": [
+        "米饭；一餐饭（视语境）",
+        "吃",
+        "喝",
+        "越南河粉"
+      ],
+      "answer": 0,
+      "explanation": "cơm：米饭；一餐饭（视语境）。",
+      "wordIds": [
+        "l07-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi muốn ____ phở.",
+      "answers": [
+        "ăn"
+      ],
+      "zh": "我想吃河粉。",
+      "explanation": "完整句子：Tôi muốn ăn phở.",
+      "wordIds": [
+        "l07-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Cho",
+        "tôi",
+        "một",
+        "bát",
+        "phở",
+        "gà",
+        "ạ"
+      ],
+      "answer": "Cho tôi một bát phở gà ạ",
+      "zh": "请给我一碗鸡肉河粉。",
+      "explanation": "正确语序：Cho tôi một bát phở gà ạ.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "ăn",
+          "zh": "吃",
+          "wordId": "l07-w01"
+        },
+        {
+          "vi": "uống",
+          "zh": "喝",
+          "wordId": "l07-w02"
+        },
+        {
+          "vi": "cơm",
+          "zh": "米饭；一餐饭（视语境）",
+          "wordId": "l07-w03"
+        },
+        {
+          "vi": "phở",
+          "zh": "越南河粉",
+          "wordId": "l07-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l07-w01",
+        "l07-w02",
+        "l07-w03",
+        "l07-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "nước",
+      "options": [
+        "水（也可指液体、国家，依语境）",
+        "吃",
+        "喝",
+        "米饭；一餐饭（视语境）"
+      ],
+      "answer": 0,
+      "explanation": "nước：水（也可指液体、国家，依语境）。",
+      "wordIds": [
+        "l07-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "cà phê",
+      "options": [
+        "咖啡",
+        "吃",
+        "喝",
+        "米饭；一餐饭（视语境）"
+      ],
+      "answer": 0,
+      "explanation": "cà phê：咖啡。",
+      "wordIds": [
+        "l07-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi muốn ____ phở.",
+      "answers": [
+        "ăn"
+      ],
+      "zh": "我想吃河粉。",
+      "explanation": "完整句子：Tôi muốn ăn phở.",
+      "wordIds": [
+        "l07-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Cho",
+        "tôi",
+        "một",
+        "bát",
+        "phở",
+        "gà",
+        "ạ"
+      ],
+      "answer": "Cho tôi một bát phở gà ạ",
+      "zh": "请给我一碗鸡肉河粉。",
+      "explanation": "正确语序：Cho tôi một bát phở gà ạ.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "不能吃辣时应该说什么？",
+      "options": [
+        "Tôi không ăn được cay.",
+        "Tôi rất cay.",
+        "Tôi là không cay."
+      ],
+      "answer": 0,
+      "explanation": "không ăn được cay 表示吃不了辣；Tôi rất cay 不是自然的饮食限制表达。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

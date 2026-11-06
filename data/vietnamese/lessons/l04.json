@@ -1,0 +1,330 @@
+{
+  "id": "l04",
+  "title": "数字与越南盾",
+  "titleVi": "Số đếm và số tiền",
+  "kind": "lesson",
+  "goal": "能读常用数字和价格，理解越南盾以及 mốt/lăm 的变化。",
+  "words": [
+    {
+      "id": "l04-w01",
+      "vi": "không",
+      "zh": "零",
+      "example": "Số này là số không.",
+      "exampleZh": "这个数是零。"
+    },
+    {
+      "id": "l04-w02",
+      "vi": "một",
+      "zh": "一",
+      "example": "Tôi mua một cái bút.",
+      "exampleZh": "我买一支笔。"
+    },
+    {
+      "id": "l04-w03",
+      "vi": "hai",
+      "zh": "二",
+      "example": "Tôi cần hai vé.",
+      "exampleZh": "我需要两张票。"
+    },
+    {
+      "id": "l04-w04",
+      "vi": "ba",
+      "zh": "三",
+      "example": "Có ba người ở đây.",
+      "exampleZh": "这里有三个人。"
+    },
+    {
+      "id": "l04-w05",
+      "vi": "bốn",
+      "zh": "四",
+      "example": "Tôi có bốn quyển sách.",
+      "exampleZh": "我有四本书。"
+    },
+    {
+      "id": "l04-w06",
+      "vi": "năm",
+      "zh": "五",
+      "example": "Tôi mua năm quả táo.",
+      "exampleZh": "我买五个苹果。"
+    },
+    {
+      "id": "l04-w07",
+      "vi": "sáu",
+      "zh": "六",
+      "example": "Có sáu cái ghế.",
+      "exampleZh": "有六把椅子。"
+    },
+    {
+      "id": "l04-w08",
+      "vi": "bảy",
+      "zh": "七",
+      "example": "Nhóm tôi có bảy người.",
+      "exampleZh": "我们组有七个人。"
+    },
+    {
+      "id": "l04-w09",
+      "vi": "tám",
+      "zh": "八",
+      "example": "Tôi cần tám cái hộp.",
+      "exampleZh": "我需要八个盒子。"
+    },
+    {
+      "id": "l04-w10",
+      "vi": "chín",
+      "zh": "九",
+      "example": "Có chín sản phẩm.",
+      "exampleZh": "有九件产品。"
+    },
+    {
+      "id": "l04-w11",
+      "vi": "mười",
+      "zh": "十",
+      "example": "Tôi có mười nghìn đồng.",
+      "exampleZh": "我有一万越南盾。"
+    },
+    {
+      "id": "l04-w12",
+      "vi": "trăm",
+      "zh": "百",
+      "example": "Giá là một trăm nghìn đồng.",
+      "exampleZh": "价格是十万越南盾。"
+    },
+    {
+      "id": "l04-w13",
+      "vi": "nghìn",
+      "zh": "千",
+      "example": "Cái này giá hai mươi nghìn đồng.",
+      "exampleZh": "这个两万越南盾。"
+    },
+    {
+      "id": "l04-w14",
+      "vi": "đồng",
+      "zh": "越南盾；越南货币单位",
+      "example": "Tổng cộng là năm mươi nghìn đồng.",
+      "exampleZh": "一共五万越南盾。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "从十到百万",
+      "body": "11=mười một；20=hai mươi；21=hai mươi mốt；25=hai mươi lăm；105=một trăm linh năm（北部常用 linh）。一百万=một triệu。不是每个一都读 mốt，也不是每个五都读 lăm。",
+      "vi": "Hai mươi lăm nghìn đồng.",
+      "zh": "两万五千越南盾。"
+    },
+    {
+      "title": "先问清币种与单位",
+      "body": "本课金额都用越南盾。50.000 在当地价格牌上通常表示五万；不是五十。口语可能省略 nghìn，初学时请确认完整金额。",
+      "vi": "Có phải năm mươi nghìn đồng không?",
+      "zh": "是五万越南盾吗？"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Cái này bao nhiêu tiền?",
+      "zh": "这个多少钱？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Hai mươi lăm nghìn đồng.",
+      "zh": "两万五千越南盾。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi mua hai cái.",
+      "zh": "我买两个。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tổng cộng là năm mươi nghìn đồng.",
+      "zh": "一共五万越南盾。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Đây là một trăm nghìn đồng.",
+      "zh": "这是一张十万越南盾。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi gửi lại anh năm mươi nghìn đồng.",
+      "zh": "找您五万越南盾。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "một",
+      "options": [
+        "一",
+        "零",
+        "二",
+        "三"
+      ],
+      "answer": 0,
+      "explanation": "một：一。",
+      "wordIds": [
+        "l04-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "hai",
+      "options": [
+        "二",
+        "零",
+        "一",
+        "三"
+      ],
+      "answer": 0,
+      "explanation": "hai：二。",
+      "wordIds": [
+        "l04-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Số này là số ____.",
+      "answers": [
+        "không"
+      ],
+      "zh": "这个数是零。",
+      "explanation": "完整句子：Số này là số không.",
+      "wordIds": [
+        "l04-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Hai",
+        "mươi",
+        "lăm",
+        "nghìn",
+        "đồng"
+      ],
+      "answer": "Hai mươi lăm nghìn đồng",
+      "zh": "两万五千越南盾。",
+      "explanation": "正确语序：Hai mươi lăm nghìn đồng.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "không",
+          "zh": "零",
+          "wordId": "l04-w01"
+        },
+        {
+          "vi": "một",
+          "zh": "一",
+          "wordId": "l04-w02"
+        },
+        {
+          "vi": "hai",
+          "zh": "二",
+          "wordId": "l04-w03"
+        },
+        {
+          "vi": "ba",
+          "zh": "三",
+          "wordId": "l04-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l04-w01",
+        "l04-w02",
+        "l04-w03",
+        "l04-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "bốn",
+      "options": [
+        "四",
+        "零",
+        "一",
+        "二"
+      ],
+      "answer": 0,
+      "explanation": "bốn：四。",
+      "wordIds": [
+        "l04-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "năm",
+      "options": [
+        "五",
+        "零",
+        "一",
+        "二"
+      ],
+      "answer": 0,
+      "explanation": "năm：五。",
+      "wordIds": [
+        "l04-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Số này là số ____.",
+      "answers": [
+        "không"
+      ],
+      "zh": "这个数是零。",
+      "explanation": "完整句子：Số này là số không.",
+      "wordIds": [
+        "l04-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Hai",
+        "mươi",
+        "lăm",
+        "nghìn",
+        "đồng"
+      ],
+      "answer": "Hai mươi lăm nghìn đồng",
+      "zh": "两万五千越南盾。",
+      "explanation": "正确语序：Hai mươi lăm nghìn đồng.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "价格牌 50.000 đồng 通常是多少钱？",
+      "options": [
+        "五万越南盾",
+        "五十越南盾",
+        "五百万越南盾"
+      ],
+      "answer": 0,
+      "explanation": "这里的点是千位分隔符，50.000 = 50 000，读 năm mươi nghìn đồng。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}
