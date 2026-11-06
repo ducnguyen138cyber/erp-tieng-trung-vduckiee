@@ -59,13 +59,13 @@ try {
     assert.ok(Math.abs(layout.heroWidth-layout.scrollPort)<2,'welcome banner fills available scrollport width');
     assert.ok(Math.abs(layout.cardCenter-layout.scrollPort/2)<4,'form card is centered');
     assert.ok(layout.cardTop<layout.heroBottom,'form overlaps welcome banner');
-    await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-login.png'),fullPage:true});
+    await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-login.png'),fullPage:false});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'horizontal overflow');
 
     await page.locator('#vdaSwitch').click();
     assert.equal(await auth.locator('h1').textContent(),'Tạo góc học tập của riêng bạn');
     assert.equal(await auth.locator('#vdaName').getAttribute('placeholder'),'Ví dụ: Duckie chăm học');
-    await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-register.png'),fullPage:true});
+    await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-register.png'),fullPage:false});
     await auth.locator('#vdaName').fill('Duckie chăm học');
     await auth.locator('#vdaEmail').fill('test@example.com');
     await auth.locator('#vdaPassword').fill('password123');
