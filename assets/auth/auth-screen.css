@@ -1,37 +1,37 @@
-/* VDuckie Auth v2: horizontal welcome banner + centered floating form.
+/* VDuckie Auth v3 pastel: horizontal welcome banner + centered floating form.
    Independent composition, not a split-screen clone of other learning websites. */
 #vduckieAuthScreen[hidden],#vduckieAuthScreen [hidden]{display:none!important}
 body.vda-auth-open{overflow:hidden!important}
-#vduckieAuthScreen{position:fixed;inset:0;z-index:2147482000;overflow:auto;overscroll-behavior:contain;background:#f2f7ff;color:#102441;font-family:Arial,"Segoe UI","Noto Sans SC",sans-serif}
+#vduckieAuthScreen{position:fixed;inset:0;z-index:2147482000;overflow:auto;overscroll-behavior:contain;background:#f8fbff;color:#182b43;font-family:Arial,"Segoe UI","Noto Sans SC",sans-serif}
 #vduckieAuthScreen *{box-sizing:border-box}
 #vduckieAuthScreen button,#vduckieAuthScreen input{font-family:inherit}
 #vduckieAuthScreen .vda-shell{min-height:100dvh;padding-bottom:44px}
-#vduckieAuthScreen .vda-hero{position:relative;min-height:325px;overflow:hidden;background:radial-gradient(ellipse 65% 95% at 90% -25%,#3463ac 0%,transparent 72%),linear-gradient(118deg,#102b51 0%,#173c70 54%,#21518a 100%);color:#fff;padding:25px max(24px,calc((100vw - 1120px)/2)) 100px}
-#vduckieAuthScreen .vda-hero:before{content:"";position:absolute;width:390px;height:390px;right:-130px;bottom:-250px;border:1px solid #b9e4ff36;border-radius:50%;box-shadow:0 0 0 85px #83caff0a,0 0 0 166px #83caff08;pointer-events:none}
-#vduckieAuthScreen .vda-hero:after{content:"你好";position:absolute;right:23%;top:77px;font-weight:850;font-size:115px;letter-spacing:-10px;color:#b1ddff0c;transform:rotate(-10deg);pointer-events:none}
+#vduckieAuthScreen .vda-hero{position:relative;min-height:325px;overflow:hidden;background:radial-gradient(ellipse 65% 95% at 95% -15%,#d2eaff 0%,transparent 75%),linear-gradient(118deg,#f7fbff 0%,#eaf5ff 54%,#d8ebff 100%);color:#173653;padding:25px max(24px,calc((100vw - 1120px)/2)) 100px}
+#vduckieAuthScreen .vda-hero:before{content:"";position:absolute;width:390px;height:390px;right:-130px;bottom:-250px;border:1px solid #70b4ea2b;border-radius:50%;box-shadow:0 0 0 85px #5aa4ed12,0 0 0 166px #8bbef514;pointer-events:none}
+#vduckieAuthScreen .vda-hero:after{content:"你好";position:absolute;right:23%;top:77px;font-weight:850;font-size:115px;letter-spacing:-10px;color:#6aabdd1f;transform:rotate(-10deg);pointer-events:none}
 #vduckieAuthScreen .vda-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:1}
 #vduckieAuthScreen .vda-brand{display:flex;align-items:center;gap:10px;font-size:19px;font-weight:850;letter-spacing:-.5px}
 #vduckieAuthScreen .vda-brand img{width:40px;height:40px;object-fit:contain;border-radius:13px;background:#fff;padding:3px}
-#vduckieAuthScreen .vda-brand small{display:block;margin-top:2px;font-size:10px;letter-spacing:1.6px;font-weight:700;color:#b8d9fa}
-#vduckieAuthScreen .vda-back{border:1px solid #b5d6ff59;background:#fff0;color:#e7f4ff;border-radius:99px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer}
-#vduckieAuthScreen .vda-back:hover{background:#ffffff18}
+#vduckieAuthScreen .vda-brand small{display:block;margin-top:2px;font-size:10px;letter-spacing:1.6px;font-weight:700;color:#557ca4}
+#vduckieAuthScreen .vda-back{border:1px solid #bad7f0;background:#fff;color:#2b648f;border-radius:99px;padding:10px 16px;font-size:13px;font-weight:700;cursor:pointer}
+#vduckieAuthScreen .vda-back:hover{background:#f0f8ff}
 #vduckieAuthScreen .vda-hero-body{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:center;margin:25px 0 0}
 #vduckieAuthScreen .vda-hero-copy{max-width:690px}
-#vduckieAuthScreen .vda-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:850;letter-spacing:1.5px;color:#a8e5ff;text-transform:uppercase}
-#vduckieAuthScreen .vda-eyebrow:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#66e4d1;box-shadow:0 0 0 5px #66e4d122}
+#vduckieAuthScreen .vda-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:850;letter-spacing:1.5px;color:#3176b6;text-transform:uppercase}
+#vduckieAuthScreen .vda-eyebrow:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#55acd9;box-shadow:0 0 0 5px #55acd922}
 #vduckieAuthScreen .vda-hero h2{margin:13px 0 10px;font-size:clamp(29px,3vw,43px);line-height:1.12;font-weight:850;letter-spacing:-1.2px;max-width:670px}
-#vduckieAuthScreen .vda-hero p{margin:0;color:#d6e8fa;font-size:14px;line-height:1.65;max-width:590px}
-#vduckieAuthScreen .vda-art{display:grid;place-items:center;justify-self:end;width:205px;height:175px;border-radius:48% 52% 47% 53%;background:#ffffff12;border:1px solid #ffffff2e;box-shadow:0 18px 52px #051d3b30,inset 0 0 40px #a3e1ff12;transform:rotate(5deg)}
+#vduckieAuthScreen .vda-hero p{margin:0;color:#526c85;font-size:14px;line-height:1.65;max-width:590px}
+#vduckieAuthScreen .vda-art{display:grid;place-items:center;justify-self:end;width:205px;height:175px;border-radius:48% 52% 47% 53%;background:#ffffffaa;border:1px solid #b4d8f0;box-shadow:0 18px 45px #6597bd1c,inset 0 0 40px #ffffff7a;transform:rotate(5deg)}
 #vduckieAuthScreen .vda-art img{width:178px;height:165px;object-fit:contain;transform:rotate(-5deg)}
 #vduckieAuthScreen .vda-features{display:flex;flex-wrap:wrap;gap:8px;margin:19px 0 0;padding:0;list-style:none}
-#vduckieAuthScreen .vda-features li{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:6px 12px;border:1px solid #b1d7ff44;border-radius:99px;background:#ffffff12;color:#f0f7ff;font-size:12px;font-weight:700}
-#vduckieAuthScreen .vda-features i{font-style:normal;color:#82e2ff;font-weight:850;font-size:14px}
+#vduckieAuthScreen .vda-features li{display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:6px 12px;border:1px solid #c5e0f6;border-radius:99px;background:#ffffffd9;color:#2c567b;font-size:12px;font-weight:700}
+#vduckieAuthScreen .vda-features i{font-style:normal;color:#368aca;font-weight:850;font-size:14px}
 #vduckieAuthScreen .vda-main{position:relative;z-index:2;max-width:560px;margin:-65px auto 0;padding:0 16px;outline:0}
 #vduckieAuthScreen .vda-content{padding:29px clamp(20px,4vw,46px) 29px;border:1px solid #dce8f7;border-radius:24px;background:#fff;box-shadow:0 25px 65px #123d7020,0 5px 16px #2048730c}
 #vduckieAuthScreen .vda-mobile-brand,#vduckieAuthScreen .vda-close{display:none}
 #vduckieAuthScreen .vda-mobile-tabs{display:grid;grid-template-columns:1fr 1fr;gap:5px;background:#f1f6fd;border:1px solid #e3ecf8;border-radius:13px;padding:5px;margin-bottom:24px}
 #vduckieAuthScreen .vda-mobile-tabs button{border:0;border-radius:9px;min-height:40px;background:transparent;color:#687e9e;font-size:13px;font-weight:800;cursor:pointer}
-#vduckieAuthScreen .vda-mobile-tabs button[aria-selected="true"]{background:#183e73;color:#fff;box-shadow:0 3px 10px #153a7026}
+#vduckieAuthScreen .vda-mobile-tabs button[aria-selected="true"]{background:#dceeff;color:#185c9e;box-shadow:0 3px 10px #3e86c521}
 #vduckieAuthScreen .vda-kicker{display:block;color:#2b72c6;font-size:10px;font-weight:850;letter-spacing:1.8px;margin-bottom:8px}
 #vduckieAuthScreen .vda-content h1{margin:0;font-size:27px;line-height:1.2;letter-spacing:-.8px;color:#112e53;font-weight:850}
 #vduckieAuthScreen .vda-subtitle{margin:8px 0 21px;color:#6b7f97;font-size:13px;line-height:1.5}
@@ -54,9 +54,9 @@ body.vda-auth-open{overflow:hidden!important}
 #vduckieAuthScreen .vda-hint{margin:0;color:#8495a9;font-size:11px}
 #vduckieAuthScreen .vda-terms{display:flex;align-items:flex-start;gap:11px;margin-top:2px;padding:12px;border:1px solid #dfebfa;background:#f5f9ff;border-radius:11px;color:#526d8b;font-size:12px;line-height:1.5;cursor:pointer}
 #vduckieAuthScreen .vda-terms input{margin:1px 0 0;accent-color:#2059a1;width:17px;height:17px;flex-shrink:0}
-#vduckieAuthScreen .vda-submit{height:46px;width:100%;border:0;border-radius:11px;background:#1a4d89;color:white;font-size:14px;font-weight:850;cursor:pointer;box-shadow:0 4px 0 #102e56;transition:background .15s,transform .15s,box-shadow .15s}
-#vduckieAuthScreen .vda-submit:hover{background:#245eab}
-#vduckieAuthScreen .vda-submit:active{transform:translateY(2px);box-shadow:0 2px 0 #102e56}
+#vduckieAuthScreen .vda-submit{height:46px;width:100%;border:0;border-radius:11px;background:#2f83da;color:white;font-size:14px;font-weight:850;cursor:pointer;box-shadow:0 4px 0 #1e5b9c;transition:background .15s,transform .15s,box-shadow .15s}
+#vduckieAuthScreen .vda-submit:hover{background:#2574c8}
+#vduckieAuthScreen .vda-submit:active{transform:translateY(2px);box-shadow:0 2px 0 #1e5b9c}
 #vduckieAuthScreen .vda-message{font-size:12px;line-height:1.5;padding:11px 12px;border-radius:10px;border:1px solid #ffd1d1;background:#fff5f5;color:#993d3d}
 #vduckieAuthScreen .vda-message[data-type="success"]{background:#f0faf5;border-color:#b6e0c5;color:#207347}
 #vduckieAuthScreen .vda-bottom{text-align:center;margin:24px 0 0;font-size:12px;color:#7b8da3}
