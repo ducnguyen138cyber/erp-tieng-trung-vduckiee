@@ -70,3 +70,13 @@ body.vda-auth-open{overflow:hidden!important}
 }
 @media(max-width:420px){#vduckieAuthScreen .vda-main{padding:22px 18px 35px}#vduckieAuthScreen .vda-mobile-brand{margin-bottom:26px}#vduckieAuthScreen .vda-mobile-tabs{margin-bottom:24px}}
 @media(prefers-reduced-motion:reduce){#vduckieAuthScreen *{transition:none!important}}
+
+/* Compact top-right auth actions without squeezing the mobile logo. */
+#vdaHeaderRegister{box-shadow:none!important}
+@media(max-width:980px){
+ html body .top #vdaHeaderRegister{font-size:11px!important;padding:9px 8px!important;white-space:nowrap}
+ html body .top .cloud-auth{gap:4px!important}
+}
+@media(max-width:400px){
+ html body .top #vdaHeaderRegister,html body .top #cloudLogin{font-size:10px!important;padding:8px 6px!important}
+}
