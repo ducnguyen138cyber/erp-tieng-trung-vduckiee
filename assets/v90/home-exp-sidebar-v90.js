@@ -295,8 +295,19 @@
     scheduleLayout();
     core.onSession(function (session) {
       scheduleLayout();
-      if (session && session.user) core.syncProfile().then(function () { return Promise.all([refreshAccount(), refreshMissions(), refreshMini()]); });
-      else {
+      if (session && session.user) {
+        // Draw the account and right column immediately. Cloud writes must
+        // never be a prerequisite for local layout or independent reads.
+        renderAccount(currentTotal);
+        renderMissions(currentMissions);
+        Promise.all([refreshAccount(), refreshMissions(), refreshMini()]).catch(function(error){
+          console.warn("VDuckie home sidebar refresh failed",error);
+        });
+        // Profile upsert remains reliable but is not on the critical paint path.
+        core.syncProfile().then(function(){return refreshAccount();}).catch(function(error){
+          console.warn("VDuckie profile refresh failed",error);
+        });
+      } else {
         currentTotal = 0;
         currentMissions = [];
         renderAccount(0);
