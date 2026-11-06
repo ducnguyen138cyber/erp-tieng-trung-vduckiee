@@ -13,12 +13,12 @@ Supabase Auth/đồng bộ dữ liệu theo tài khoản.
   hard-code hostname production hoặc prefix `/erp-tieng-trung-vduckiee/`.
 - Supabase project URL và publishable/anon key là credential công khai phía
   trình duyệt; tuyệt đối không đưa `service_role` key vào repository.
-- Ứng dụng là PWA cài đặt được. Manifest, service worker và toàn bộ URL cache
+- Vào mục **Cài ứng dụng** ở menu/trang chủ, hoặc mở `./install.html`. Android dùng Chrome và nút Cài VDuckie khi được trình duyệt hỗ trợ; iPhone dùng Safari → Chia sẻ → Thêm vào MH chính. Ứng dụng là PWA cài đặt được. Manifest, service worker và toàn bộ URL cache
   dùng đường dẫn tương đối theo scope hiện tại, nên chạy được ở domain gốc và
   GitHub Pages subpath.
 - Service worker ưu tiên mạng cho navigation, ưu tiên mạng cho mã HTML/CSS/JS/JSON, giữ đúng phiên bản khi ngoại tuyến và dùng stale-while-revalidate cho
   ảnh/tài nguyên tĩnh khác, xóa cache PWA phiên bản cũ khi activate và có trang fallback
-  ngoại tuyến. Supabase Auth/sync, OAuth callback, Functions/API và request
+  ngoại tuyến (không cam kết học offline hoàn toàn). Bản cập nhật chờ người dùng chọn **Cập nhật VDuckie** hoặc đóng hết cửa sổ ứng dụng; không tự tải lại giữa bài học. File bắt buộc cho offline được cache riêng; thiếu một học liệu cũ không làm hỏng cài đặt PWA. Supabase Auth/sync, OAuth callback, Functions/API và request
   không phải GET luôn đi thẳng qua mạng, không được cache.
 
 ## Giao diện v73+

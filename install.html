@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#eff6ff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="VDuckie">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Cài VDuckie lên màn hình chính iPhone và Android để học tiếng Trung mỗi ngày.">
+  <title>Cài ứng dụng VDuckie</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/mascot/duckie-reader-icon-180.png?v=2.0">
+  <link rel="icon" type="image/png" href="./assets/mascot/duckie-reader-icon-32.png?v=4.0">
+  <link rel="stylesheet" href="./assets/pwa/mobile-pwa.css?v=1">
+  <script defer src="./pwa-register.js?v=3"></script>
+</head>
+<body class="pwa-install-page">
+  <main class="pwa-install-main">
+    <a class="pwa-back" href="./">← Về trang học</a>
+    <section class="pwa-install-hero" aria-labelledby="installTitle">
+      <img class="pwa-app-icon" src="./assets/mascot/duckie-reader-icon-192.png" width="112" height="112" alt="Duckie đọc sách">
+      <span class="pwa-eyebrow">VDUCKIE TRÊN ĐIỆN THOẠI</span>
+      <h1 id="installTitle">Góc học nhỏ.<br>Luôn bên bạn.</h1>
+      <p>Thêm VDuckie vào màn hình chính, chạm biểu tượng là mở thẳng trang học trong cửa sổ ứng dụng.</p>
+      <button class="pwa-primary" type="button" data-pwa-install hidden>Cài VDuckie</button>
+      <p class="pwa-install-status" data-pwa-status role="status" aria-live="polite">Chọn hướng dẫn cho điện thoại của bạn bên dưới.</p>
+      <a class="pwa-open-app" href="./" data-pwa-open hidden>Tiếp tục học →</a>
+    </section>
+    <div class="pwa-guide-grid">
+      <section class="pwa-guide" id="iphone" aria-labelledby="iphoneTitle">
+        <span class="pwa-guide-label">iOS / iPadOS</span><h2 id="iphoneTitle">iPhone &amp; iPad</h2>
+        <ol><li>Mở trang này bằng <strong>Safari</strong>.</li><li>Nhấn <strong>Chia sẻ</strong> (ô vuông có mũi tên đi lên).</li><li>Chọn <strong>Thêm vào MH chính</strong> / <strong>Add to Home Screen</strong>. Bật <strong>Mở dưới dạng ứng dụng web</strong> nếu có.</li><li>Nhấn <strong>Thêm</strong>, rồi mở biểu tượng VDuckie trên màn hình chính.</li></ol>
+      </section>
+      <section class="pwa-guide" id="android" aria-labelledby="androidTitle">
+        <span class="pwa-guide-label">ANDROID</span><h2 id="androidTitle">Điện thoại Android</h2>
+        <ol><li>Mở trang này bằng <strong>Chrome</strong>.</li><li>Nhấn <strong>Cài VDuckie</strong> phía trên nếu nút xuất hiện.</li><li>Hoặc mở menu <strong>⋮</strong> → <strong>Cài đặt ứng dụng</strong> / <strong>Thêm vào màn hình chính</strong>.</li><li>Xác nhận cài đặt và mở VDuckie từ màn hình chính.</li></ol>
+      </section>
+    </div>
+    <aside class="pwa-note"><h2>Học mỗi ngày, trên cùng tài khoản</h2><p>Cài miễn phí trực tiếp từ web. Đăng nhập tài khoản của bạn trong ứng dụng để tiếp tục đồng bộ tiến độ.</p><p>Cần Internet để đăng nhập, tải bài mới, dùng AI và đồng bộ. Một số tài nguyên đã mở có thể được lưu tạm; ứng dụng chưa hỗ trợ học hoàn toàn ngoại tuyến.</p><p>Nếu đang mở trong Zalo, Facebook hoặc ứng dụng khác, hãy chọn mở bằng Safari / Chrome trước khi cài.</p></aside>
+    <button class="pwa-primary" type="button" data-pwa-update hidden>Cập nhật VDuckie</button>
+  </main>
+</body>
+</html>

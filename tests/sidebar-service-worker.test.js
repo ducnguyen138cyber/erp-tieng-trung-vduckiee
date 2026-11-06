@@ -70,7 +70,7 @@ test('no-store HTML shell fetch is not replaced by stale cached shell', async ()
 
 test('offline versioned shell loads the precached unversioned shell without relaxing JS cache keys', async () => {
   const w = worker(false);
-  const cache = await w.caches.open('vduckie-pwa-v47-shell');
+  const cache = await w.caches.open('vduckie-pwa-v48-shell');
   await cache.put('https://example.test/app/app-shell-v88.html', w.response('offline-shell'));
   assert.equal((await w.load('app-shell-v88.html?v=mobile-pwa-full-home-v6')).body, 'offline-shell');
   await assert.rejects(w.load('assets/daily-learning-v2.js?v=999'), /offline/);
@@ -83,10 +83,29 @@ test('Supabase, OAuth and non-GET requests bypass cache; activation removes only
   }
   await w.caches.open('unrelated-user-cache');
   await w.caches.open('vduckie-pwa-v12-static');
-  await w.caches.open('vduckie-pwa-v47-static');
+  await w.caches.open('vduckie-pwa-v48-static');
   let pending;
   w.handlers.activate({ waitUntil(value) { pending = value; } });
   await pending;
-  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v47-static']);
+  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v48-static']);
   assert.deepEqual(w.requests, []);
+});
+
+test('OAuth query tokens, explicit auth screens and Authorization requests never enter caches', async () => {
+  const w = worker();
+  for (const url of ['?code=secret', '?access_token=secret', '?refresh_token=secret', '?token_hash=secret', '?auth=login', '?error=access_denied']) {
+    assert.equal(await w.load(url), undefined);
+  }
+  assert.equal(await w.load('data/private.json', { headers: { has: key => key === 'Authorization' } }), undefined);
+  assert.deepEqual(w.requests, []);
+});
+
+test('offline launch shows the complete offline page instead of an incomplete app loader', async () => {
+  const w = worker(false);
+  await w.seed('https://example.test/app/index.html', 'half-cached-app');
+  await w.seed('https://example.test/app/offline.html', 'offline-page');
+  await w.seed('https://example.test/app/install.html', 'install-guide');
+  assert.equal((await w.load('?screen=home', { mode: 'navigate' })).body, 'offline-page');
+  assert.equal((await w.load('install.html', { mode: 'navigate' })).body, 'install-guide');
+  assert.equal((await w.load('install', { mode: 'navigate' })).body, 'install-guide');
 });

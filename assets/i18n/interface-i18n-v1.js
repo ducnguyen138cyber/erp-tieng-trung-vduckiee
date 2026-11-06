@@ -5,6 +5,8 @@
   var KEY="vduckie-ui-language-v1";
   var supported={vi:true,zh:true,en:true};
   var strings={
+    "Cài ứng dụng":["安装应用","Install app"],
+    "Cập nhật VDuckie":["更新 VDuckie","Update VDuckie"],
     "Đồng bộ khi đăng nhập":["登录后同步","Sync when signed in"],
     "Học tiếp trên mọi thiết bị":["在其他设备上继续学习","Continue on any device"],
     "Chọn cấp độ phù hợp, học từng bài và luyện đề khi bạn đã sẵn sàng.":["选择合适的级别，逐课学习，准备好后练习试题。","Choose your level, learn lesson by lesson, and try practice tests when you are ready."],

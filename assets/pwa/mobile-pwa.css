@@ -1,0 +1,27 @@
+[data-pwa-install][hidden],[data-pwa-update][hidden],[data-pwa-open][hidden],[data-pwa-install-link][hidden]{display:none!important}
+.pwa-install-page{margin:0;background:#f6faff;color:#111827;font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+.pwa-install-page *{box-sizing:border-box}
+.pwa-install-main{width:min(900px,100%);margin:auto;padding:28px max(20px,env(safe-area-inset-right)) max(32px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}
+.pwa-back{color:#334155;text-decoration:none;font-size:14px;font-weight:650}
+.pwa-install-hero{text-align:center;max-width:580px;margin:36px auto}
+.pwa-app-icon{display:block;margin:0 auto 22px;border-radius:28px;box-shadow:0 12px 30px #bfdbfe66}
+.pwa-eyebrow,.pwa-guide-label{color:#2563eb;font-size:12px;letter-spacing:.09em;font-weight:750}
+.pwa-install-hero h1{font-size:clamp(36px,7vw,52px);line-height:1.12;letter-spacing:-.035em;margin:14px 0 20px}
+.pwa-install-hero p{color:#475569}
+.pwa-primary{border:0;border-radius:14px;background:#2563eb;color:#fff;font:700 16px system-ui;padding:15px 24px;min-height:48px;cursor:pointer}
+.pwa-primary:disabled{opacity:.65;cursor:wait}
+.pwa-install-status{font-size:14px;min-height:23px}
+.pwa-open-app{color:#1d4ed8;font-weight:700}
+.pwa-guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pwa-guide{padding:26px;background:#fff;border:1px solid #dbeafe;border-radius:22px}
+.pwa-guide h2,.pwa-note h2{font-size:21px;line-height:1.4;margin:8px 0 18px}
+.pwa-guide ol{margin:0;padding-left:22px;color:#475569}
+.pwa-guide li+li{margin-top:14px}
+.pwa-note{margin:24px 0;background:#eaf3ff;border-radius:20px;padding:24px;color:#475569}
+.pwa-note h2{color:#111827;margin-top:0}
+.pwa-note p:last-child{margin-bottom:0}
+.pwa-install-page :focus-visible{outline:3px solid #1d4ed8;outline-offset:4px}
+#studySidebar .pwa-menu-link{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-top:8px;border:1px solid #dbeafe;border-radius:14px;background:#eff6ff;color:#111827;text-decoration:none;font:600 14px system-ui;min-height:44px}
+#studySidebar [data-pwa-update]{margin-top:10px;width:100%;font-size:13px}
+@media(max-width:600px){.pwa-guide-grid{grid-template-columns:1fr}.pwa-install-hero{margin:30px auto}.pwa-guide{padding:22px}}
+@media(display-mode:standalone){html{min-height:100%}body:not(.pwa-install-page){padding-top:env(safe-area-inset-top)}}

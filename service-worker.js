@@ -1,12 +1,15 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v47";
+const CACHE_VERSION = "vduckie-pwa-v48";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
+  "./install.html",
+  "./assets/pwa/mobile-pwa.css?v=1",
+  "./pwa-register.js?v=3",
   "./community.js?v=factory1",
   "./assets/v75/home-welcome-v75.1.js?v=factory1",
   "./assets/v90/exp-board-v90.js?v=public1",
@@ -121,7 +124,9 @@ function isDynamicOrPrivate(request, url) {
   if (url.protocol !== "http:" && url.protocol !== "https:") return true;
   if (url.origin !== SCOPE_URL.origin) return true;
   const path = url.pathname.toLowerCase();
-  return url.hostname.endsWith(".supabase.co") ||
+  return request.headers?.has("Authorization") ||
+    ["code", "access_token", "refresh_token", "error", "error_description", "token_hash", "auth"].some((key) => url.searchParams.has(key)) ||
+    url.hostname.endsWith(".supabase.co") ||
     path.includes("/auth/") ||
     path.includes("/oauth") ||
     path.includes("/callback") ||
@@ -135,7 +140,22 @@ function isStaticAsset(url) {
 }
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
+  // Only the offline/install pages are mandatory. A missing old learning asset
+  // must not prevent mobile installation. Keep optional requests bounded.
+  event.waitUntil((async () => {
+    const cache = await caches.open(SHELL_CACHE);
+    const required = ["./offline.html", "./install.html", "./assets/pwa/mobile-pwa.css?v=1", "./pwa-register.js?v=3", "./assets/mascot/duckie-reader-icon-192.png"].map(scoped);
+    await cache.addAll(required);
+    const optional = APP_SHELL.filter((url) => !required.includes(url));
+    let next = 0;
+    await Promise.all(Array.from({ length: 4 }, async () => {
+      while (next < optional.length) {
+        const url = optional[next++];
+        try { await cache.addAll([url]); } catch (_) { /* Warm on demand instead. */ }
+      }
+    }));
+    // New installs activate naturally. Updates wait until a safe user action.
+  })());
 });
 
 self.addEventListener("activate", (event) => {
@@ -158,7 +178,7 @@ self.addEventListener("fetch", (event) => {
           if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(request, response.clone()));
           return response;
         })
-        .catch(async () => (await caches.match(request, { ignoreSearch: true })) || (await caches.match(scoped("./index.html"))) || caches.match(scoped("./offline.html")))
+        .catch(async () => (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html")))
     );
     return;
   }
