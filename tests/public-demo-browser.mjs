@@ -25,6 +25,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  if(mobile){
   await toggle.click();await page.locator('body.vd-menu-open').waitFor();
   assert.equal(await page.locator('#studySidebar').getAttribute('aria-modal'),'true');
+  await page.waitForFunction(()=>document.getElementById('studySidebar').getBoundingClientRect().x>=-1);
   assert.ok((await page.locator('#studySidebar').boundingBox()).x>=-1);
   await page.screenshot({path:path.join(out,name+'-menu.png')});
   await page.keyboard.press('Escape');assert.equal(await toggle.getAttribute('aria-expanded'),'false');assert.equal(await toggle.evaluate(n=>document.activeElement===n),true);

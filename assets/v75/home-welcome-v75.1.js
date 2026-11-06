@@ -9,11 +9,11 @@
     var erpButton=card.querySelector(".home-secondary-action");
 
     if(description){
-      description.textContent="Bạn là một người mới chưa biết bắt đầu học tiếng Trung từ đâu? Hãy chọn “Bắt đầu học HSK” để học từ số 0; nếu cần tiếng Trung cho công việc, chọn “Học từ vựng ERP”.";
+      description.textContent="Mới bắt đầu? Học HSK từ nền tảng, hoặc luyện tiếng Trung công xưởng để dùng trong công việc.";
     }
 
     if(erpButton){
-      erpButton.textContent="Học từ vựng ERP";
+      erpButton.textContent="Học tiếng Trung công xưởng";
     }
 
     if(!document.getElementById("home-welcome-v75-1-style")){

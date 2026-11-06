@@ -7,6 +7,8 @@ const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
+  "./community.js?v=factory1",
+  "./assets/v75/home-welcome-v75.1.js?v=factory1",
   "./assets/v90/exp-board-v90.js?v=public1",
   "./app-shell-v88.html?v=public-factory-games1",
   "./erp-content-v74.js?v=factory1",
@@ -60,8 +62,8 @@ const APP_SHELL = [
   "./assets/hsk-content/hsk-study-journey-v1.js?v=phase2.3",
   "./assets/hsk-content/hsk-study-flow-v1.js?v=word-float1",
   "./assets/hsk-content/hsk-study-journey-v1.css?v=phase2.3",
-  "./assets/hsk-content/hsk-professional-runtime.js?v=phase2.4",
-  "./assets/hsk-content/hsk-content-feature-flags.js?v=phase2.1",
+  "./assets/hsk-content/hsk-professional-runtime.js?v=public1",
+  "./assets/hsk-content/hsk-content-feature-flags.js?v=public1",
   "./assets/curriculum/graded-hsk-entry.js?v=public1",
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
   "./assets/hsk-content/hsk-practice-ui-v1.js?v=2",

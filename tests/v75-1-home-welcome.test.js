@@ -6,9 +6,9 @@ const path = require('node:path');
 const source = fs.readFileSync(path.join(__dirname, '..', 'assets', 'v75', 'home-welcome-v75.1.js'), 'utf8');
 
 test('home guidance tells beginners where to start', () => {
-  assert.match(source, /Bạn là một người mới chưa biết bắt đầu học tiếng Trung từ đâu\?/);
-  assert.match(source, /Bắt đầu học HSK/);
-  assert.match(source, /Học từ vựng ERP/);
+  assert.match(source, /Mới bắt đầu\? Học HSK từ nền tảng/);
+  assert.match(source, /Học HSK từ nền tảng/);
+  assert.match(source, /Học tiếng Trung công xưởng/);
 });
 
 test('welcome heading uses a consistent sans-serif type scale', () => {

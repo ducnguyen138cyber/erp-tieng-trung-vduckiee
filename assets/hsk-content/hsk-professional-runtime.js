@@ -7,12 +7,12 @@
   'use strict';
 
   var COURSE_CONFIG = Object.freeze({
-    1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài · C2' }),
-    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài · C3' }),
-    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài · C4' }),
-    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 unit · 48 bài · C5' }),
-    5: Object.freeze({ base: './data/hsk/hsk5/', phase: 'C6', label: '20 unit · 60 bài · C6' }),
-    6: Object.freeze({ base: './data/hsk/hsk6/', phase: 'C7', label: '24 unit · 72 bài · C7' })
+    1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài' }),
+    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài' }),
+    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài' }),
+    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 unit · 48 bài' }),
+    5: Object.freeze({ base: './data/hsk/hsk5/', phase: 'C6', label: '20 unit · 60 bài' }),
+    6: Object.freeze({ base: './data/hsk/hsk6/', phase: 'C7', label: '24 unit · 72 bài' })
   });
   var SUPPORT_GLOSSES = Object.freeze({
     '不喜欢': 'không thích',
@@ -310,7 +310,7 @@
   function renderListening(section) {
     var content = section.content || {};
     var key = array(content.answerKey);
-    var body = '<div class="hsk-pro-audio-state"><b>Audio chuẩn:</b> ' + esc(content.audioStatus || 'pending') + '<span> · Có thể dùng TTS hỗ trợ và transcript trong lúc chờ audio đã kiểm duyệt.</span></div>' +
+    var body = '<div class="hsk-pro-audio-state">Nghe câu bằng giọng đọc tự động; mở bản chữ để đọc cùng.</div>' +
       speakButton(content.scriptZh, 'Phát transcript bằng TTS') +
       '<button type="button" class="hsk-pro-inline-button" data-pro-toggle-transcript>Hiện/ẩn transcript</button><pre class="hsk-pro-transcript hidden" lang="zh-CN">' + esc(content.scriptZh) + '</pre>' +
       '<ol class="hsk-pro-questions">' + array(content.questionsVi).map(function (q, index) {

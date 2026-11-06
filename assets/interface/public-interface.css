@@ -24,7 +24,7 @@ html body #studySidebar #erpNav{display:grid!important}
  html body #studySidebar #erpNav{display:grid!important}
  html body #sidebarBackdrop{display:none!important}
  html body.vd-menu-open #sidebarBackdrop{display:block!important;position:fixed!important;inset:0!important;width:100%!important;height:100dvh!important;z-index:4000!important;background:#071c3899!important;border:0!important}
- html body.vd-menu-open .duckie-chat-launch,html body.vd-menu-open #mobileLearningDock{visibility:hidden!important}
+ html body.vd-menu-open .duckie-chat-panel,html body.vd-menu-open .duckie-chat-launch,html body.vd-menu-open #mobileLearningDock{visibility:hidden!important}
 }
 @media(max-width:360px){html body .top .brand-logo{display:none!important}html body .top #brandTitle{font-size:11px!important}}
 @media(prefers-reduced-motion:reduce){html body #studySidebar{transition:none!important}}

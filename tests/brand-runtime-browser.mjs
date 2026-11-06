@@ -93,7 +93,7 @@ try{for(const width of (observe?[1440]:[1440,390])){
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
    await page.waitForFunction(()=>document.querySelector('.graded-hsk-card p')?.textContent.includes('课'));
-   assert.match(await page.locator('.hsk-entry-note').textContent(),/HSK 补充资源/);
+   assert.match(await page.locator('.hsk-entry-note').textContent(),/选择合适的级别/);
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
  }
  await check('curriculum');

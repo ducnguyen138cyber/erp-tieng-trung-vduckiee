@@ -5,6 +5,9 @@
   var KEY="vduckie-ui-language-v1";
   var supported={vi:true,zh:true,en:true};
   var strings={
+    "Chọn cấp độ phù hợp, học từng bài và luyện đề khi bạn đã sẵn sàng.":["选择合适的级别，逐课学习，准备好后练习试题。","Choose your level, learn lesson by lesson, and try practice tests when you are ready."],
+    "Mới bắt đầu? Học HSK từ nền tảng, hoặc luyện tiếng Trung công xưởng để dùng trong công việc.":["初学者？从 HSK 基础开始，或练习工作中实用的工厂汉语。","New to Chinese? Start with HSK basics or practice factory Chinese for work."],
+    "Học tiếng Trung công xưởng":["学习工厂汉语","Learn factory Chinese"],
     "Chọn một bài vừa sức và học tiếng Trung theo cách của bạn — từ giao tiếp công xưởng đến lộ trình HSK.":["选择适合的课程，从工厂沟通到 HSK，按自己的节奏学习汉语。","Choose a suitable lesson, from factory communication to HSK, and learn at your own pace."],
     "10 từ công xưởng mỗi ngày":["每天 10 个工厂词汇","10 factory words a day"],
     "Luyện giao tiếp trong xưởng":["练习工厂沟通","Practice factory conversations"],
