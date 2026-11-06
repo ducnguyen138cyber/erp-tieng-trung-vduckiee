@@ -46,6 +46,6 @@ node --test tests/vietnamese-ui.test.cjs
 node tests/vietnamese-browser.mjs
 ```
 
-At the first preview checkpoint: 13 content/storage/cloud/audio tests and five DOM interaction scenarios passed. The existing 121-test sidebar/auth/HSK/ERP/EXP/PWA unit regression command passed. Browser CI and manual Cloudflare preview inspection are recorded separately in the PR; do not treat a pending CI job as passed.
+At the first preview checkpoint: 13 content/storage/cloud/audio tests and six DOM interaction scenarios passed. The existing 121-test sidebar/auth/HSK/ERP/EXP/PWA unit regression command passed. Manual preview verified the lesson screen, correct audio playback, listening grading, Chinese explanations, route isolation and center scroll. The browser CI also mocks the unrelated legacy community API to avoid a cross-origin failure in its test environment. Chromium/WebKit final results are recorded separately in the PR; do not treat a pending job as passed.
 
 Limits: no live personal-account sign-in was performed; browser auth scenarios use test fixtures. Real iOS/Android installation, hardware playback, and native pronunciation-teacher review remain device/editorial checks. No main merge is authorized until the owner approves this preview.

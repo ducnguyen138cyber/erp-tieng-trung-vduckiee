@@ -11,7 +11,7 @@ async function boot({saved={},user='',search='?screen=vietnamese',network=true}=
  const requests=[];w.fetch=async url=>{requests.push(url);if(!network)throw Error('offline');return {ok:true,json:async()=>JSON.parse(fs.readFileSync(String(url).replace('./','').split('?')[0],'utf8'))};};
  w.eval(fs.readFileSync('assets/vietnamese/course.js','utf8'));await w.VDuckieVICourse.open();await wait();await wait();
  const click=(action,attr='')=>{const button=w.document.querySelector('[data-vi-action="'+action+'"]'+attr);assert.ok(button,'missing '+action+' '+attr);button.click();};
- return {dom,w,click,requests,writes,async settle(){await wait();await wait();},saved(){return Object.fromEntries(Array.from({length:w.localStorage.length},(_,i)=>{const k=w.localStorage.key(i);return[k,w.localStorage.getItem(k)];}));}};
+ return {dom,w,click,requests,writes,remote,async settle(){await wait();await wait();},saved(){return Object.fromEntries(Array.from({length:w.localStorage.length},(_,i)=>{const k=w.localStorage.key(i);return[k,w.localStorage.getItem(k)];}));}};
 }
 const lesson=JSON.parse(fs.readFileSync('data/vietnamese/lessons/l01.json','utf8'));
 function answer(h,q,wrong=false){
@@ -67,4 +67,11 @@ test('a successful real playback is not mislabeled as a reading alternative afte
  assert.match(h.w.document.querySelector('.vi-feedback').textContent,/答对/);
  assert.match(h.w.document.querySelector('.vi-listen small').textContent,/作答后显示原文/);
  assert.doesNotMatch(h.w.document.querySelector('.vi-listen small').textContent,/文字替代/);h.dom.window.close();
+});
+
+test('cloud hydration refreshes course completion and Continue resumes the last lesson step',async()=>{
+ const h=await boot({user:'alice'});h.remote.alice={position:{updatedAt:2000,unit:'l03',tab:'dialogue'},l01:{updatedAt:2000,best:100,sections:{words:true,grammar:true,dialogue:true,practice:true}}};
+ h.click('sync');await h.settle();await h.settle();assert.match(h.w.document.querySelector('[data-vi-progress]').textContent,/1 \/ 14/);
+ const resume=h.w.document.querySelector('.vi-hero [data-vi-action="unit"]');assert.equal(resume.dataset.unit,'l03');resume.click();await h.settle();
+ assert.equal(h.w.document.querySelector('#vi-tab-dialogue').getAttribute('aria-selected'),'true');h.dom.window.close();
 });

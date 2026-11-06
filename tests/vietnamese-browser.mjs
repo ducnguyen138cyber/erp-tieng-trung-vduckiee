@@ -19,6 +19,8 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
  try{for(const width of [1440,390,320]){
   const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));await page.route('https://*.supabase.co/**',r=>r.abort());
+  // Legacy community service is outside this module; keep its cross-origin fetch deterministic.
+  await page.route('**/api/community-terms**',r=>r.fulfill({contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify({terms:[]})}));
   if(width===390)await page.addInitScript(()=>{const original=window.matchMedia.bind(window);window.matchMedia=q=>q==='(display-mode: standalone)'?{matches:true,media:q,addEventListener(){},removeEventListener(){},addListener(){},removeListener(){},dispatchEvent(){return true;}}:original(q);Object.defineProperty(navigator,'standalone',{get:()=>true,configurable:true});});
   const start=Date.now();await page.goto(base);await page.locator('.vi-home-invite button').waitFor({state:'visible'});const initialMs=Date.now()-start;
   assert.equal(requests.some(u=>u.includes('/data/vietnamese/')),false,'no Vietnamese content on initial Chinese home');
