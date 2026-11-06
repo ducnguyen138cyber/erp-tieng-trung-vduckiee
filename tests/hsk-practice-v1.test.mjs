@@ -114,7 +114,7 @@ test('the exam UI shows entire listening/reading/writing sections and grades onl
   assert.match(css,/\.hsk-exam-question-list/);
   assert.match(css,/\.hsk-exam-section-nav/);
 });
-test('the full-length exam entry is bundled in PWA v36',()=>{
+test('the full-length exam entry is bundled in current PWA',()=>{
   const graded=read('assets/curriculum/graded-hsk-entry.js');
   const html=read('index.html'),worker=read('service-worker.js');
   assert.match(graded,/data-practice-open/);
@@ -122,7 +122,7 @@ test('the full-length exam entry is bundled in PWA v36',()=>{
   assert.match(html,/hsk-practice-bank-v1\.js\?v=2/);
   assert.match(html,/hsk-practice-ui-v1\.js\?v=2/);
   assert.match(html,/hsk-practice-ui-v1\.css\?v=2/);
-  assert.match(html,/graded-hsk-entry\.js\?v=practice2/);
+  assert.match(html,/graded-hsk-entry\.js\?v=public1/);
   assert.match(worker,/vduckie-pwa-v42/);
   assert.match(worker,/hsk-practice-bank-v1\.js\?v=2/);
 });
