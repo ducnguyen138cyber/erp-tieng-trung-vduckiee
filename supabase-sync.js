@@ -676,9 +676,11 @@
     var nextUserId = nextSession && nextSession.user ? nextSession.user.id : "";
     session = nextSession || null;
     renderAuth();
-    document.dispatchEvent(new CustomEvent("vduckie:auth-state", {
-      detail: { event: authEvent || "SESSION", signedIn: !!nextUserId, userId: nextUserId }
-    }));
+    if (typeof CustomEvent === "function" && document.dispatchEvent) {
+      document.dispatchEvent(new CustomEvent("vduckie:auth-state", {
+        detail: { event: authEvent || "SESSION", signedIn: !!nextUserId, userId: nextUserId }
+      }));
+    }
 
     if (session && nextUserId) {
       if (wasSignedOut) restoreReturnUrl();
