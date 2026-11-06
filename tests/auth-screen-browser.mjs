@@ -55,9 +55,9 @@ try {
     assert.equal(await auth.locator('h1').textContent(),'Mừng bạn trở lại!');
     assert.equal(await page.locator('.vda-hero').isVisible(),true);
     assert.equal(await page.locator('.vda-mobile-tabs').isVisible(),true);
-    const layout=await page.evaluate(()=>{const h=document.querySelector('.vda-hero').getBoundingClientRect(),c=document.querySelector('.vda-content').getBoundingClientRect();return{heroWidth:h.width,cardCenter:c.x+c.width/2,cardTop:c.top,heroBottom:h.bottom}});
-    assert.ok(layout.heroWidth>=viewport.width-1,'welcome banner spans full width');
-    assert.ok(Math.abs(layout.cardCenter-viewport.width/2)<4,'form card is centered');
+    const layout=await page.evaluate(()=>{const h=document.querySelector('.vda-hero').getBoundingClientRect(),c=document.querySelector('.vda-content').getBoundingClientRect();return{heroWidth:h.width,scrollPort:document.getElementById('vduckieAuthScreen').clientWidth,cardCenter:c.x+c.width/2,cardTop:c.top,heroBottom:h.bottom}});
+    assert.ok(Math.abs(layout.heroWidth-layout.scrollPort)<2,'welcome banner fills available scrollport width');
+    assert.ok(Math.abs(layout.cardCenter-layout.scrollPort/2)<4,'form card is centered');
     assert.ok(layout.cardTop<layout.heroBottom,'form overlaps welcome banner');
     await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-login.png'),fullPage:true});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'horizontal overflow');
