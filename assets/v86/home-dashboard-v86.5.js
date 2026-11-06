@@ -169,6 +169,15 @@ function updateSidebarCard(sidebar,selector,markup){
   if(current&&current.outerHTML===next.outerHTML)return;
   if(current)current.replaceWith(next);else sidebar.appendChild(next);
 }
+// The continue card belongs to the progress row, including after async dashboard refreshes.
+function placeContinue(){
+  var home=document.getElementById("homeHub"),row=document.querySelector("#v85PersonalDashboard .v85-top");
+  if(!home||!row)return false;
+  var current=home.querySelector(".v865-continue-card");
+  if(current&&current.parentNode!==row)row.appendChild(current);
+  updateSidebarCard(row,".v865-continue-card",continueMarkup(continueData()));
+  return true;
+}
 function render(){
   if(rendering)return false;
   rendering=true;
@@ -193,7 +202,7 @@ function render(){
     moveAdvancedSections(main);
     updateSidebarCard(sidebar,".v865-streak-card",streakMarkup(streak));
     updateSidebarCard(sidebar,".v865-weekly-card",weeklyMarkup(weeklyData(streak)));
-    updateSidebarCard(sidebar,".v865-continue-card",continueMarkup(continueData()));
+    placeContinue();
     shell.setAttribute("data-layout-version",VERSION);
     return true;
   }finally{rendering=false}
@@ -226,7 +235,7 @@ function install(){
   }
 }
 
-root.VDuckieHomeDashboardV865={version:VERSION,render:render,lastSevenDays:lastSevenDays,streakCount:streakCount,roadmapData:roadmapData};
+root.VDuckieHomeDashboardV865={version:VERSION,render:render,placeContinue:placeContinue,lastSevenDays:lastSevenDays,streakCount:streakCount,roadmapData:roadmapData};
 if(typeof document==="undefined")return;
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",install,{once:true});else install();
 })(typeof window!=="undefined"?window:globalThis);
