@@ -40,6 +40,18 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  for(const index of [8,9,10,11]){await page.locator('.erp-module-link').nth(index).click();assert.equal(await page.locator('.erp-lesson-word').count(),10);}
  await page.screenshot({path:path.join(out,name+'-factory.png')});
  if(mobile)await toggle.click();await page.locator('#studySidebar [data-daily-nav=games]').click();await page.locator('[data-game-action=sentences]').waitFor();
+ const cards=page.locator('.games-grid .games-card');assert.equal(await cards.count(),2);
+ const boxes=await cards.evaluateAll(ns=>ns.map(n=>({x:n.getBoundingClientRect().x,y:n.getBoundingClientRect().y,width:n.getBoundingClientRect().width})));
+ if(viewport.width>650){assert.ok(Math.abs(boxes[0].y-boxes[1].y)<2,'desktop game tiles share a row');assert.ok(boxes[1].x>boxes[0].x+boxes[0].width);}else{assert.ok(boxes[1].y>boxes[0].y);assert.ok(Math.abs(boxes[0].x-boxes[1].x)<2);}
+ assert.equal(await page.locator('.games-hub .games-card-copy p').evaluateAll(ns=>ns.every(n=>n.textContent.length<45)),true);
+ assert.equal(await page.locator('.gh-scene').count(),2);assert.equal(await page.locator('.gh-scene').evaluateAll(ns=>ns.every(n=>n.getAttribute('aria-hidden')==='true')),true);
+ assert.equal(await page.locator('.gh-plane img').getAttribute('src'),'./assets/games/airplane.svg');
+ assert.ok(await page.locator('.gh-plane').evaluate(n=>n.getAnimations().length)>0,'catalog has lightweight native motion');
+ await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.gh-plane,.gh-shot,.gh-typed-word').evaluateAll(ns=>ns.every(n=>n.getAnimations().length===0)),true);await page.emulateMedia({reducedMotion:'no-preference'});
+ assert.equal(await page.locator('html').evaluate(n=>n.scrollWidth<=n.clientWidth+1),true);
+ await page.screenshot({path:path.join(out,name+'-games-grid.png')});
+
+
  await page.evaluate(()=>{window.__demoAwards=0;const a=async()=>{window.__demoAwards++;return {awarded:true}};window.VDuckieEXP={...window.VDuckieEXP,awardWordMastery:a,awardEXP:a,recordLearningEvent:a};});
  for(const prompt of ['guided','hanzi','vietnamese']){
   await page.locator('[data-game-action=choose]').click();await page.locator('[data-level="1"]').click();await page.locator('[data-mode=hard]').click();await page.locator('[data-prompt='+prompt+']').click();await page.locator('[data-game-action=start]').click();
@@ -85,7 +97,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await page.locator('[data-sentence-action=choices]').click();
  }
  await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),2);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
- results.push({viewport,passed:true,checks:['mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
+ results.push({viewport,passed:true,checks:['two_column_catalog_responsive','concise_animated_game_scenes','catalog_reduced_motion','mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
 }
 await writeFile(path.join(out,'results.json'),JSON.stringify(results,null,2));
 }finally{server.closeAllConnections();await new Promise(r=>server.close(r));await browser.close();}
