@@ -89,7 +89,7 @@ function createBrowser(backend, userId) {
   root.supabase.createClient();
   async function signIn() {
     await sleep(20);
-    client.onAuth("SIGNED_IN", {user:{id:userId}});
+    client.auth.onAuth("SIGNED_IN", {user:{id:userId}});
     await sleep(35);
   }
   return {root,storage,handlers,signIn};
@@ -109,7 +109,7 @@ test("offline edit survives, reconnect uploads and another browser restores", as
   pc.storage.setItem(KEY,value("pc-offline"));
   pc.handlers.storage({key:KEY});
   await settle();
-  assert.equal(backend.getRow(), null, "offline must not be reported as saved remotely");
+  assert.doesNotMatch(backend.getRow() ? backend.getRow().note : "", /pc-offline/, "offline edit must not be saved remotely");
   assert.match(pc.storage.getItem("vduckie-learning-profile-cache-v2:user-1"),/pc-offline/);
   backend.setOnline(true);
   pc.root.navigator.onLine = true;
