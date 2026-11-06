@@ -60,6 +60,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
    const prompt=await page.locator('.sg-prompt').innerText(),s=bank.find(s=>s.vi===prompt);assert.ok(s);assert.equal(await page.locator('.sg-answer').textContent(),'');assert.equal(await page.locator('.sg-hanzi').count(),0);
    const input=page.locator('#sentencePinyin'),answer=T.normalize(s.answers.at(-1).pinyin);await input.pressSequentially(answer[0]);await input.pressSequentially('zz');assert.equal(await input.inputValue(),answer[0]);await input.press('Backspace');assert.equal(await input.inputValue(),'');
    if(i===1){await page.locator('[data-sentence-action=skip]').click();}else{await input.fill(answer);assert.equal(await page.locator('.sg-hanzi').textContent(),s.answers.at(-1).hanzi);assert.equal(await input.getAttribute('readonly'),'');}
+   if(i===0)assert.equal(await page.locator('[data-sg-summary]').textContent(),'Đúng 1 câu · 100 điểm');
    assert.ok(await page.locator('.sg-pinyin').isVisible());assert.equal(await page.locator('.duckie-chat-launch').isVisible(),false);
    if(i===0){if(viewport.width===390)await page.setViewportSize({width:390,height:480});await input.scrollIntoViewIfNeeded();const box=await input.boundingBox();assert.ok(box.y>=0&&box.y+box.height<=(viewport.width===390?480:viewport.height));await page.screenshot({path:path.join(out,name+'-'+topic+'-sentence.png')});if(viewport.width===390)await page.setViewportSize(viewport);}
    await page.locator('[data-sentence-action=next]').click();

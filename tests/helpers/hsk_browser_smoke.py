@@ -45,7 +45,7 @@ def run(level):
           assert state['readOnly'] is True and state['progressWritesEnabled'] is False,state
           if level>=5:
             assert state['selectedLevel']!=level,state
-            assert page.locator(f'[data-pro-level="{level}"]').is_disabled()
+            assert page.get_by_role('button',name=f'HSK {level} · Sắp mở',exact=True).is_disabled()
             # Public query flags must not unlock editorial-only courses.
             page.goto(f'{base}?screen=hsk&area=hsk&hskLevel={level}&developer=1&canonical=1&writes=1',wait_until='domcontentloaded')
             state=ready(page)
