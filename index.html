@@ -33,7 +33,7 @@
       var shellUrl="./app-shell-v88.html?v=fast-auth-home1";
       var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Duckie đọc sách tiếng Trung">';
       try{
-        var response=await fetch(shellUrl,{cache:"no-store"});
+        var response=await fetch(shellUrl,{cache:"default"});
         if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
         var source=await response.text();
         var animatedMascot=/<svg class="home-welcome-mascot vduckie-mascot"[\s\S]*?<\/svg>/;
