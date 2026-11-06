@@ -674,7 +674,9 @@
     else writeProfileCache("anonymous", current);
 
     var cached = readProfileCache(nextUserId);
-    if (!profileHasFields(cached) && !previousUserId) cached = readProfileCache("anonymous");
+    // Guest progress stays in the anonymous cache. Never silently import it into
+    // a different identity: this could attach one person's learning history to another.
+    // Explicit migration requires a user-controlled review/import flow.
     removeSyncableValues();
     applyProfile(cached, nextUserId);
     return cached;
