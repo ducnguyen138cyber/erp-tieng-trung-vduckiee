@@ -32,3 +32,42 @@ test("crawler rules and sitemap expose the canonical VDuckie URL", () => {
   assert.match(read("sitemap.xml"), /<loc>https:\/\/vduckie\.pages\.dev\/<\/loc>/);
   assert.doesNotMatch(read("sitemap.xml"), /[a-z0-9]{8}\.vduckie\.pages\.dev/);
 });
+
+
+test("static learning guides are indexable, linked, and have distinct canonical URLs", () => {
+  const sitemap = read("sitemap.xml");
+  const entry = read("index.html");
+  const pages = [
+    ["hoc-tieng-trung-hsk.html", "luyen-go-pinyin.html"],
+    ["luyen-go-pinyin.html", "hoc-tieng-trung-hsk.html"],
+  ];
+  for (const [file, other] of pages) {
+    const html = read(file);
+    const canonical = home + file;
+    assert.ok(sitemap.includes("<loc>" + canonical + "</loc>"), "Sitemap must list " + file);
+    assert.ok(entry.includes('href="./' + file + '"'), "Homepage fallback should link to " + file);
+    assert.match(html, /<html lang="vi">/);
+    assert.ok(html.includes('<link rel="canonical" href="' + canonical + '">'));
+    assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large">/);
+    assert.match(html, /<h1>[^<]{25,}<\/h1>/);
+    assert.ok(html.includes('href="./' + other + '"'), "Related guide needs crawlable internal link");
+    assert.ok(html.includes('href="./?screen='), "Guide should open the real application");
+    const ld = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(ld, "Missing WebPage schema: " + file);
+    const schema = JSON.parse(ld[1]);
+    assert.equal(schema["@type"], "WebPage");
+    assert.equal(schema.url, canonical);
+    assert.ok(html.replace(/<[^>]*>/g, " ").split(/\s+/).length > 400, file + " is too short to be a useful guide");
+  }
+  assert.equal([...sitemap.matchAll(/<loc>/g)].length, 3);
+  assert.doesNotMatch(sitemap, /\?screen=|\.pages\.dev\/preview/);
+});
+
+test("visible home shell links guide pages as real anchors", () => {
+  const shell = read("app-shell-v88.html");
+  assert.match(shell, /<nav class="vd-seo-guides" aria-label="Cẩm nang học tiếng Trung">/);
+  for (const file of ["hoc-tieng-trung-hsk.html", "luyen-go-pinyin.html"]) {
+    assert.match(shell, new RegExp('href="\\./' + file.replace(".", "\\.") + '"'));
+  }
+  assert.match(shell, /href="\.\/assets\/seo\/home-guides\.css\?v=1"/);
+});
