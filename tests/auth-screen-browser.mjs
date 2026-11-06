@@ -74,6 +74,12 @@ try {
     // On very short mobile viewports, the full-screen auth panel is the scroll container.
     await auth.evaluate(node => { node.scrollTop = node.scrollHeight; });
     await auth.locator('#vdaTerms').scrollIntoViewIfNeeded();
+    console.log('AUTH_TERMS_GEOMETRY',viewport.width,JSON.stringify(await page.evaluate(()=>{
+      const screen=document.getElementById('vduckieAuthScreen'),checkbox=document.getElementById('vdaTerms');
+      const rect=checkbox.getBoundingClientRect(), srect=screen.getBoundingClientRect();
+      const x=rect.x+rect.width/2,y=rect.y+rect.height/2,el=document.elementFromPoint(x,y);
+      return {rect:{x,y,width:rect.width,height:rect.height},hit:el&&el.tagName+'#'+el.id+'.'+el.className,screen:{top:srect.top,bottom:srect.bottom,scrollTop:screen.scrollTop,scrollHeight:screen.scrollHeight,clientHeight:screen.clientHeight,position:getComputedStyle(screen).position,zIndex:getComputedStyle(screen).zIndex},scrollY:window.scrollY,htmlClass:document.documentElement.className};
+    })));
     await auth.locator('#vdaTerms').check();
     await auth.locator('#vdaSubmit').click();
     await auth.locator('#vdaMessage[data-type="success"]').waitFor();
