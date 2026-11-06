@@ -669,13 +669,16 @@
     } catch (error) {}
   }
 
-  function handleSession(nextSession) {
+  function handleSession(nextSession, authEvent) {
     var previousSession = session;
     var wasSignedOut = !previousSession;
     var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
     var nextUserId = nextSession && nextSession.user ? nextSession.user.id : "";
     session = nextSession || null;
     renderAuth();
+    document.dispatchEvent(new CustomEvent("vduckie:auth-state", {
+      detail: { event: authEvent || "SESSION", signedIn: !!nextUserId, userId: nextUserId }
+    }));
 
     if (session && nextUserId) {
       if (wasSignedOut) restoreReturnUrl();
@@ -735,12 +738,12 @@
         console.error("Unable to restore Supabase session", current.error);
         setStatus("Lỗi phiên đăng nhập", "bad");
       } else {
-        handleSession(current.data.session);
+        handleSession(current.data.session, "INITIAL_SESSION");
       }
     });
-    client.auth.onAuthStateChange(function (_event, nextSession) {
+    client.auth.onAuthStateChange(function (authEvent, nextSession) {
       window.setTimeout(function () {
-        handleSession(nextSession);
+        handleSession(nextSession, authEvent);
       }, 0);
     });
   }
@@ -758,6 +761,18 @@
     sync: synchronize,
     signIn: signIn,
     signOut: signOut,
+    signInWithPassword: function (email, password) {
+      return client ? client.auth.signInWithPassword({ email: email, password: password }) : Promise.reject(new Error("Đăng nhập chưa sẵn sàng."));
+    },
+    signUpWithPassword: function (name, email, password) {
+      return client ? client.auth.signUp({ email: email, password: password, options: { data: { full_name: name }, emailRedirectTo: redirectUrl() } }) : Promise.reject(new Error("Đăng ký chưa sẵn sàng."));
+    },
+    resetPassword: function (email) {
+      return client ? client.auth.resetPasswordForEmail(email, { redirectTo: redirectUrl() }) : Promise.reject(new Error("Khôi phục mật khẩu chưa sẵn sàng."));
+    },
+    updatePassword: function (password) {
+      return client ? client.auth.updateUser({ password: password }) : Promise.reject(new Error("Đổi mật khẩu chưa sẵn sàng."));
+    },
     loadDailyLearning: loadDailyLearning,
     saveDailyLearning: saveDailyLearning,
     syncProgress: function () {
