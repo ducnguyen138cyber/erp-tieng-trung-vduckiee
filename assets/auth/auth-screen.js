@@ -9,34 +9,44 @@
 
   function markup() {
     return '<div class="vda-shell">' +
-      '<aside class="vda-hero" aria-label="Giới thiệu VDuckie">' +
-        '<div class="vda-brand"><img src="./assets/mascot/duckie-reader-2d-v2.webp" alt=""><span>VDuckie<small>CHINESE LEARNING</small></span></div>' +
-        '<div class="vda-hero-body"><div class="vda-art"><img src="./assets/mascot/duckie-writing-2d-v3.webp" alt="Duckie đang học tiếng Trung"></div>' +
-          '<h2>Học tiếng Trung mỗi ngày, tiến bộ theo cách của bạn.</h2>' +
-          '<p>Học từ căn bản đến HSK, luyện phản xạ và ghi lại từng bước tiến bộ cùng VDuckie.</p>' +
-          '<ul class="vda-features">' +
-            '<li><i aria-hidden="true">课</i> Lộ trình HSK theo cấp độ, dễ theo dõi</li>' +
-            '<li><i aria-hidden="true">✦</i> Từ vựng, trò chơi và đề luyện tập</li>' +
-            '<li><i aria-hidden="true">↗</i> Đồng bộ tiến độ và theo dõi thành tích</li>' +
-          '</ul></div><div class="vda-hero-footer"><button type="button" data-vda-close>← Về trang chủ</button></div></aside>' +
+      '<section class="vda-hero" aria-label="Chào mừng đến với VDuckie">' +
+        '<div class="vda-topbar">' +
+          '<div class="vda-brand"><img src="./assets/mascot/duckie-reader-2d-v2.webp" alt=""><span>VDuckie<small>TIẾNG TRUNG CÙNG DUCKIE</small></span></div>' +
+          '<button class="vda-back" type="button" data-vda-close>← Về trang học</button>' +
+        '</div>' +
+        '<div class="vda-hero-body">' +
+          '<div class="vda-hero-copy">' +
+            '<span class="vda-eyebrow">MỘT CHÚT MỖI NGÀY</span>' +
+            '<h2>Mỗi chữ Hán một bước tiến. Cùng Duckie học theo cách của bạn!</h2>' +
+            '<p>Tạo góc học tập để lưu từ đã nhớ, luyện bài mới và tiếp tục đúng nơi bạn dừng lại.</p>' +
+            '<ul class="vda-features">' +
+              '<li><i aria-hidden="true">汉</i> Học theo HSK</li>' +
+              '<li><i aria-hidden="true">✦</i> Chơi để nhớ từ</li>' +
+              '<li><i aria-hidden="true">↗</i> Giữ lại tiến độ</li>' +
+            '</ul>' +
+          '</div>' +
+          '<div class="vda-art"><img src="./assets/mascot/duckie-reader-2d-v2.webp" alt="Duckie đồng hành học tiếng Trung"></div>' +
+        '</div>' +
+      '</section>' +
       '<main class="vda-main" role="dialog" aria-modal="true" aria-labelledby="vdaTitle">' +
-        '<button class="vda-close" type="button" data-vda-close aria-label="Đóng trang tài khoản">×</button>' +
         '<div class="vda-content">' +
-          '<div class="vda-mobile-brand"><img src="./assets/mascot/duckie-reader-2d-v2.webp" alt="">VDuckie Chinese</div>' +
-          '<div class="vda-mobile-tabs" role="tablist" aria-label="Chọn đăng nhập hoặc đăng ký"><button id="vdaTabLogin" role="tab" type="button" aria-selected="true" data-vda-mode="login">Đăng nhập</button><button id="vdaTabRegister" role="tab" type="button" aria-selected="false" data-vda-mode="register">Đăng ký miễn phí</button></div>' +
-          '<span class="vda-kicker">HỌC CÙNG DUCKIE</span>' +
-          '<h1 id="vdaTitle">Đăng nhập vào VDuckie</h1><p class="vda-subtitle" id="vdaSubtitle">Chào mừng trở lại! Tiếp tục hành trình học của bạn.</p>' +
-          '<button class="vda-google" type="button" id="vdaGoogle"><span aria-hidden="true">G</span> Tiếp tục với Google</button>' +
-          '<div class="vda-divider" id="vdaDivider">hoặc</div>' +
+          '<div class="vda-mobile-tabs" role="tablist" aria-label="Chọn đăng nhập hoặc tạo tài khoản"><button id="vdaTabLogin" role="tab" type="button" aria-selected="true" data-vda-mode="login">Mình đã có tài khoản</button><button id="vdaTabRegister" role="tab" type="button" aria-selected="false" data-vda-mode="register">Tạo tài khoản mới</button></div>' +
+          '<span class="vda-kicker">GÓC HỌC TẬP CỦA BẠN</span>' +
+          '<h1 id="vdaTitle">Mừng bạn trở lại!</h1><p class="vda-subtitle" id="vdaSubtitle">Đăng nhập để tiếp tục hành trình học của riêng bạn.</p>' +
+          '<button class="vda-google" type="button" id="vdaGoogle"><span aria-hidden="true">G</span> Sử dụng tài khoản Google</button>' +
+          '<div class="vda-divider" id="vdaDivider">hoặc dùng email</div>' +
           '<form class="vda-form" id="vdaForm" novalidate>' +
-            '<div class="vda-field" id="vdaNameField" hidden><label for="vdaName">Tên hiển thị</label><input class="vda-input" type="text" id="vdaName" autocomplete="name" maxlength="60" placeholder="Ví dụ: Minh Anh"></div>' +
-            '<div class="vda-field" id="vdaEmailField"><label for="vdaEmail">Email</label><input class="vda-input" type="email" id="vdaEmail" autocomplete="email" inputmode="email" maxlength="254" required placeholder="ten@gmail.com"></div>' +
-            '<div class="vda-field" id="vdaPasswordField"><div class="vda-field-head"><label for="vdaPassword" id="vdaPasswordLabel">Mật khẩu</label><button type="button" class="vda-link" id="vdaForgot">Quên mật khẩu?</button></div><div class="vda-password-wrap"><input class="vda-input" type="password" id="vdaPassword" autocomplete="current-password" required placeholder="Nhập mật khẩu"><button type="button" class="vda-eye" id="vdaEye" aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button></div><p class="vda-hint" id="vdaPasswordHint" hidden>Ít nhất 8 ký tự để bảo vệ tài khoản.</p></div>' +
-            '<label class="vda-terms" id="vdaTermsField" hidden><input type="checkbox" id="vdaTerms"><span>Tôi đồng ý tạo tài khoản và lưu thông tin, tiến độ học của mình để đồng bộ giữa các thiết bị.</span></label>' +
+            '<div class="vda-field" id="vdaNameField" hidden><label for="vdaName">Bạn muốn được gọi là gì?</label><input class="vda-input" type="text" id="vdaName" autocomplete="name" maxlength="60" placeholder="Ví dụ: Duckie chăm học"></div>' +
+            '<div class="vda-field" id="vdaEmailField"><label for="vdaEmail">Email của bạn</label><input class="vda-input" type="email" id="vdaEmail" autocomplete="email" inputmode="email" maxlength="254" required placeholder="Nhập địa chỉ email"></div>' +
+            '<div class="vda-field" id="vdaPasswordField"><div class="vda-field-head"><label for="vdaPassword" id="vdaPasswordLabel">Mật khẩu</label><button type="button" class="vda-link" id="vdaForgot">Quên mật khẩu?</button></div><div class="vda-password-wrap"><input class="vda-input" type="password" id="vdaPassword" autocomplete="current-password" required placeholder="Nhập mật khẩu của bạn"><button type="button" class="vda-eye" id="vdaEye" aria-label="Hiện mật khẩu" aria-pressed="false">Hiện</button></div><p class="vda-hint" id="vdaPasswordHint" hidden>Chọn mật khẩu gồm ít nhất 8 ký tự.</p></div>' +
+            '<label class="vda-terms" id="vdaTermsField" hidden><input type="checkbox" id="vdaTerms"><span>Tôi đồng ý tạo tài khoản và lưu tiến độ học để tiếp tục trên thiết bị khác.</span></label>' +
             '<div id="vdaMessage" class="vda-message" role="status" aria-live="polite" hidden></div>' +
-            '<button type="submit" id="vdaSubmit" class="vda-submit">Đăng nhập</button>' +
-          '</form><p class="vda-bottom"><span id="vdaSwitchCopy">Chưa có tài khoản?</span> <button type="button" class="vda-link" id="vdaSwitch" data-vda-mode="register">Đăng ký miễn phí</button></p>' +
-        '</div></main></div>';
+            '<button type="submit" id="vdaSubmit" class="vda-submit">Tiếp tục học</button>' +
+          '</form><p class="vda-bottom"><span id="vdaSwitchCopy">Chưa có tài khoản?</span> <button type="button" class="vda-link" id="vdaSwitch" data-vda-mode="register">Tạo miễn phí</button></p>' +
+        '</div>' +
+        '<p class="vda-under-card">Chưa muốn đăng nhập? <button type="button" data-vda-close>Khám phá bài học trước</button></p>' +
+      '</main>' +
+    '</div>';
   }
 
   function message(text, success) {
@@ -55,8 +65,8 @@
   }
 
   function submitLabel() {
-    return mode === "register" ? "Tạo tài khoản" : mode === "forgot" ? "Gửi liên kết đặt lại" :
-      mode === "recover" ? "Lưu mật khẩu mới" : "Đăng nhập";
+    return mode === "register" ? "Tạo góc học tập" : mode === "forgot" ? "Gửi liên kết đặt lại" :
+      mode === "recover" ? "Lưu mật khẩu mới" : "Tiếp tục học";
   }
 
   function setMode(next) {
@@ -83,16 +93,16 @@
     $("vdaPassword").type = "password";
     $("vdaEye").textContent = "Hiện";
     $("vdaEye").setAttribute("aria-pressed", "false");
-    $("vdaTitle").textContent = isRegister ? "Tạo tài khoản VDuckie" :
-      isForgot ? "Quên mật khẩu?" : isRecover ? "Đặt lại mật khẩu" : "Đăng nhập vào VDuckie";
-    $("vdaSubtitle").textContent = isRegister ? "Miễn phí, bắt đầu học chỉ trong một phút." :
+    $("vdaTitle").textContent = isRegister ? "Tạo góc học tập của riêng bạn" :
+      isForgot ? "Lấy lại mật khẩu" : isRecover ? "Đặt lại mật khẩu" : "Mừng bạn trở lại!";
+    $("vdaSubtitle").textContent = isRegister ? "Đặt một cái tên thật vui để Duckie ghi nhớ bạn nhé." :
       isForgot ? "Nhập email của bạn để nhận liên kết đặt lại mật khẩu." :
       isRecover ? "Tạo mật khẩu mới để tiếp tục học cùng Duckie." :
-      "Chào mừng trở lại! Tiếp tục hành trình học của bạn.";
+      "Đăng nhập để tiếp tục hành trình học của riêng bạn.";
     $("vdaSubmit").textContent = submitLabel();
-    $("vdaSwitchCopy").textContent = isRegister ? "Đã có tài khoản?" :
-      isForgot || isRecover ? "Quay lại trang đăng nhập?" : "Chưa có tài khoản?";
-    $("vdaSwitch").textContent = isRegister || isForgot || isRecover ? "Đăng nhập" : "Đăng ký miễn phí";
+    $("vdaSwitchCopy").textContent = isRegister ? "Đã đồng hành cùng Duckie rồi?" :
+      isForgot || isRecover ? "Đã nhớ mật khẩu?" : "Lần đầu đến đây?";
+    $("vdaSwitch").textContent = isRegister || isForgot || isRecover ? "Đăng nhập ngay" : "Tạo miễn phí";
     $("vdaSwitch").dataset.vdaMode = isRegister || isForgot || isRecover ? "login" : "register";
     message("");
   }
