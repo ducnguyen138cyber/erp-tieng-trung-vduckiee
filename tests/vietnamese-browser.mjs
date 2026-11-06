@@ -21,7 +21,7 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));await page.route('https://*.supabase.co/**',r=>r.abort());
   const start=Date.now();await page.goto(base);await page.locator('.vi-home-invite button').waitFor({state:'visible'});const initialMs=Date.now()-start;
   assert.equal(requests.some(u=>u.includes('/data/vietnamese/')),false,'no Vietnamese content on initial Chinese home');
-  await page.locator('.vi-home-invite button').click();await page.locator('#vietnameseScreen .vi-catalog').waitFor();assert.equal(await page.locator('#homeHub').isVisible(),false);
+  await page.locator('.vi-home-invite button').click();await page.locator('#vietnameseScreen .vi-catalog').first().waitFor();assert.equal(await page.locator('#homeHub').isVisible(),false);
   assert.equal(await page.locator('#vietnameseScreen').getAttribute('lang'),'zh-CN');assert.equal(await page.locator('html').getAttribute('lang'),'vi');
   await page.locator('#vietnameseScreen [data-unit="l01"]').first().click();await page.locator('.vi-flash h2').waitFor();
   assert.equal(await page.locator('.vi-flash h2').textContent(),'xin chào');await page.locator('[data-vi-action="reveal"]').click();assert.match(await page.locator('.vi-word-meaning').textContent(),/你好/);

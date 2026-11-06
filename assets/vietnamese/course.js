@@ -18,6 +18,7 @@ function shell(content){
  host.innerHTML='<div class="vi-topline">'+b('← 返回课程','overview','class="vi-text-button"')+'<span>学越南语 · 零基础</span>'+b('学中文 →','chinese','class="vi-text-button"')+'</div><div class="vi-layout"><div class="vi-main">'+content+'</div><aside class="vi-side" aria-label="学习进度"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" width="112" height="112" alt="Duckie 陪你学越南语"><h2>每天一点，慢慢会说。</h2><p data-vi-progress>'+s.done+' / 14 单元 · '+s.known+' 个已学词</p><progress max="14" value="'+s.done+'" aria-label="课程完成进度">'+s.done+'/14</progress><p>已完成：'+s.done+' / 14</p>'+b('复习到期词（'+s.due+'）','review','class="vi-button"')+b('复习收藏词','bookmarks','class="vi-text-button"')+'<div class="vi-sync"><strong>'+(snap().account==='guest'?'游客模式':'已登录 · 共用账户')+'</strong><p data-vi-sync-status role="status" aria-live="polite"></p>'+(snap().account==='guest'?b('登录并同步','login','class="vi-button"'):b('重试同步','sync','class="vi-text-button"'))+'</div><p class="vi-small">本课程暂不计入 EXP 或排行榜。测验需作答后才显示结果。</p></aside></div>';
  status();
 }
+function focusAction(action){var node=host.querySelector('[data-vi-action="'+action+'"]:not([disabled])');if(node)node.focus({preventScroll:true});}
 function focusHeading(){var heading=host.querySelector('h1');if(heading){heading.tabIndex=-1;heading.focus({preventScroll:true});}}
 function setURL(id,nextTab,push){var url=new URL(root.location.href);url.searchParams.set('screen','vietnamese');if(id){url.searchParams.set('viUnit',id);url.searchParams.set('viTab',nextTab||'words');}else{url.searchParams.delete('viUnit');url.searchParams.delete('viTab');}root.history[push?'pushState':'replaceState']({vduckieScreen:'vietnamese'},'',url.pathname+url.search+url.hash);}
 function overview(push){mode='overview';current=null;Audio.stop();if(push)setURL(null,null,true);var s=stats(),pos=store.get('position'),next=catalog.units.find(function(u){return u.id===pos.unit&&!store.get(u.id).completed;})||catalog.units.find(function(u){return !store.get(u.id).completed;})||catalog.units[0];
@@ -78,7 +79,7 @@ function check(){var list=questions(),q=list[questionIndex],a=attempt(),d=questi
  if(q.type==='listen'&&!d.heard&&!d.revealed){host.querySelector('.vi-feedback').textContent='请先播放录音；无法播放时可选择文字替代。';return;}
  var correct=grade(q,d);a.answers[questionIndex]={correct:correct,readingAlternative:q.type==='listen'&&d.revealed};
  if(!correct){var ids=q.type==='match'?q.pairs.filter(function(_,i){return d.pairs[i]!==i;}).map(function(p){return p.wordId;}):q.wordIds||[];ids.forEach(function(id){store.change(id,function(r){Object.assign(r,Progress.review(r,false,Date.now()));});});}
- exercise(host.querySelector('#viLessonPanel'));
+ exercise(host.querySelector('#viLessonPanel'));focusAction('next-question');
 }
 function finishExercise(){var a=attempt(),list=questions();if(Object.keys(a.answers).length!==list.length)return;
  a.finished=true;a.score=Math.round(Object.values(a.answers).filter(function(x){return x.correct;}).length/list.length*100);
@@ -105,20 +106,20 @@ function bind(){host.addEventListener('click',function(event){var target=event.t
  if(action==='sync'){store.sync();return;}
  if(action==='speak'||action==='slow'){speak(target.dataset.text,action==='slow');return;}
  if(action==='device'){var listening=mode==='lesson'&&['practice','quiz'].includes(tab)&&questions()[questionIndex].type==='listen';var word=mode==='review'&&reviewQueue[reviewIndex]?reviewQueue[reviewIndex].word:current&&current.words[card];if(listening){var draft=questionState();Audio.device(questions()[questionIndex].vi,false,audioStatus).then(function(ok){if(ok)draft.heard=true;});}else if(word)Audio.device(word.vi,false,audioStatus);return;}
- if(action==='review-reveal'){reviewReveal=true;reviewCard();return;}
- if(action==='review-wrong'||action==='review-correct'){Audio.stop();var item=reviewQueue[reviewIndex];store.change(item.word.id,function(r){Object.assign(r,Progress.review(r,action==='review-correct',Date.now()));});reviewIndex++;reviewReveal=false;reviewCard();return;}
+ if(action==='review-reveal'){reviewReveal=true;reviewCard();focusAction('review-wrong');return;}
+ if(action==='review-wrong'||action==='review-correct'){Audio.stop();var item=reviewQueue[reviewIndex];store.change(item.word.id,function(r){Object.assign(r,Progress.review(r,action==='review-correct',Date.now()));});reviewIndex++;reviewReveal=false;reviewCard();focusAction('review-reveal');return;}
  if(!current)return;
  if(action==='tab'){nextTab(target.dataset.tab);return;}
- if(action==='reveal'){revealed=true;words(host.querySelector('#viLessonPanel'));return;}
- if(action==='prev-word'||action==='next-word'||action==='word-index'){Audio.stop();if(action==='next-word'&&card===current.words.length-1){nextTab('grammar');return;}card=action==='word-index'?Number(target.dataset.index):card+(action==='next-word'?1:-1);revealed=false;words(host.querySelector('#viLessonPanel'));return;}
- if(action==='bookmark'){store.change(current.words[card].id,function(r){r.bookmarked=!r.bookmarked;if(r.bookmarked&&!r.nextReview)r.nextReview=Date.now();});words(host.querySelector('#viLessonPanel'));return;}
+ if(action==='reveal'){revealed=true;words(host.querySelector('#viLessonPanel'));var meaning=host.querySelector('.vi-word-meaning');meaning.tabIndex=-1;meaning.focus({preventScroll:true});return;}
+ if(action==='prev-word'||action==='next-word'||action==='word-index'){Audio.stop();if(action==='next-word'&&card===current.words.length-1){nextTab('grammar');return;}card=action==='word-index'?Number(target.dataset.index):card+(action==='next-word'?1:-1);revealed=false;words(host.querySelector('#viLessonPanel'));focusAction('next-word');return;}
+ if(action==='bookmark'){store.change(current.words[card].id,function(r){r.bookmarked=!r.bookmarked;if(r.bookmarked&&!r.nextReview)r.nextReview=Date.now();});words(host.querySelector('#viLessonPanel'));focusAction('bookmark');return;}
  if(action==='known'){store.change(current.words[card].id,function(r){r.known=true;if(!r.nextReview)r.nextReview=Date.now()+86400000;});target.textContent='已记录 ✓';return;}
  if(action==='grammar-done'){markSection('grammar');nextTab('dialogue');return;}
  if(action==='dialogue-done'){markSection('dialogue');nextTab('practice');return;}
  if(action==='quiz-start'){nextTab('quiz');return;}
  if(action==='retry-exercise'){delete attempts[attemptKey()];questionIndex=0;exercise(host.querySelector('#viLessonPanel'));return;}
  if(action==='check'){check();return;}
- if(action==='next-question'){Audio.stop();if(questionIndex===questions().length-1)finishExercise();else {questionIndex++;exercise(host.querySelector('#viLessonPanel'));}return;}
+ if(action==='next-question'){Audio.stop();if(questionIndex===questions().length-1)finishExercise();else {questionIndex++;exercise(host.querySelector('#viLessonPanel'));var panel=host.querySelector('#viLessonPanel');panel.tabIndex=-1;panel.focus({preventScroll:true});}return;}
  var d=questionState(),q=questions()[questionIndex];
  if(action==='listen'||action==='listen-slow'){Audio.play(current.id,q.vi,action==='listen-slow',audioStatus).then(function(ok){if(ok)d.heard=true;});return;}
  if(action==='listen-text'){d.revealed=true;exercise(host.querySelector('#viLessonPanel'));return;}
@@ -129,6 +130,7 @@ function bind(){host.addEventListener('click',function(event){var target=event.t
  if(action==='match-right'){if(d.left===null){audioStatus('请先选择左侧的越南语词。');return;}var right=Number(target.dataset.index);Object.keys(d.pairs).forEach(function(k){if(d.pairs[k]===right)delete d.pairs[k];});d.pairs[d.left]=right;d.left=null;}
  if(action==='match-clear'){d.pairs={};d.left=null;}
  exercise(host.querySelector('#viLessonPanel'));
+ if(action==='match-left')focusAction('match-right');else if(action.startsWith('match'))focusAction('match-left');else if(action.startsWith('order'))focusAction('order-add');
  });
  host.addEventListener('keydown',function(event){var button=event.target.closest('[role="tab"]');if(!button)return;var names=Object.keys(tabs),i=names.indexOf(button.dataset.tab);if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();var n=event.key==='Home'?0:event.key==='End'?names.length-1:(i+(event.key==='ArrowRight'?1:-1)+names.length)%names.length;nextTab(names[n]);}});
 }

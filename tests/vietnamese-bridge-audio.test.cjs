@@ -20,7 +20,6 @@ test('signed-out and offline saves reject truthfully instead of claiming cloud s
 });
 function audioRuntime(voices){const spoken=[],messages=[];const window={location:{href:'https://example.test/'},speechSynthesis:{getVoices:()=>voices,cancel(){},speak(utterance){spoken.push(utterance);queueMicrotask(()=>utterance.onend());}},SpeechSynthesisUtterance:class{constructor(text){this.text=text;}}};vm.runInNewContext(fs.readFileSync('assets/vietnamese/audio.js','utf8'),{window,URL,setTimeout,clearTimeout,fetch:async()=>{throw Error('missing manifest');}});return {api:window.VDuckieVIAudio,spoken,messages};}
 test('audio failure uses an installed Vietnamese voice and never reads Vietnamese in Chinese or English',async()=>{
- const no=audioto(audioRuntime([{lang:'en-US'},{lang:'zh-CN'}]));assert.equal(await no.api.play('l01','xin chào',false,m=>no.messages.push(m)),false);assert.equal(no.spoken.length,0);assert.match(no.messages.join(''),/没有越南语语音/);
+ const no=audioRuntime([{lang:'en-US'},{lang:'zh-CN'}]);assert.equal(await no.api.play('l01','xin chào',false,m=>no.messages.push(m)),false);assert.equal(no.spoken.length,0);assert.match(no.messages.join(''),/没有越南语语音/);
  const yes=audioRuntime([{lang:'zh-CN'},{lang:'vi-VN',name:'Vietnamese'}]);assert.equal(await yes.api.device('xin chào',true,m=>yes.messages.push(m)),true);assert.equal(yes.spoken[0].voice.lang,'vi-VN');assert.ok(yes.spoken[0].rate<1);
 });
-function audioto(x){return x;}
