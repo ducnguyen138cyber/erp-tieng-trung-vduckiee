@@ -71,6 +71,7 @@ try {
     await auth.locator('#vdaPassword').fill('password123');
     await auth.locator('#vdaSubmit').click();
     await auth.locator('#vdaMessage').getByText('Hãy xác nhận điều khoản trước khi tạo tài khoản.').waitFor();
+    assert.equal(await page.evaluate(()=>document.documentElement.classList.contains('v867-menu-open')),false,'signup action must not open the mobile study menu');
     // On very short mobile viewports, the full-screen auth panel is the scroll container.
     await auth.evaluate(node => { node.scrollTop = node.scrollHeight; });
     await auth.locator('#vdaTerms').scrollIntoViewIfNeeded();
