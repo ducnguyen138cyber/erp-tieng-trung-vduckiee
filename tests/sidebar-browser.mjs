@@ -140,6 +140,8 @@ try {
     // Google initiation and EXP contract only; this is not a live OAuth login.
     if (!authenticated) {
       await page.locator('#expLoginButton').click();
+      await page.locator('#vduckieAuthScreen').waitFor({state:'visible'});
+      await page.locator('#vdaGoogle').click();
       await page.waitForFunction(() => window.__sidebarTest.oauth.length > 0);
       const oauth = await page.evaluate(() => window.__sidebarTest.oauth[0]);
       assert.equal(oauth.provider, 'google');
