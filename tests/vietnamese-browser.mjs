@@ -17,7 +17,7 @@ const reports=[];await mkdir('artifacts/vietnamese',{recursive:true});
 try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
  const browser=await engine.launch({headless:true});
  try{for(const width of [1440,390,320]){
-  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
+  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));page.on('request',r=>requests.push(r.url()));
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));await page.route('https://*.supabase.co/**',r=>r.abort());
   // Legacy community service is outside this module; keep its cross-origin fetch deterministic.
   await page.route('**/api/community-terms**',r=>r.fulfill({contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify({terms:[]})}));
