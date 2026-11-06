@@ -187,351 +187,668 @@
                 <span class="home-course-label">听 Luyện nghe</span><span class="home-course-art course-listening"><img src="./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" alt=""></span><span class="home-course-copy"><strong>Hội thoại thực tế</strong><small>Luyện giao tiếp trong xưởng</small><i>Học ngay →</i></span>
               </button>
               <button class="home-course-card" type="button" data-home-area="erp" data-home-view="dialogue">
-                <span class="home-course-label">说 Luyện nói</span><span class="home-course-art course-speaking"><img src="./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0" alt=""></span><span class="home-course-copy"><strong>Phản xạ và phát âm</strong><small>Mic chấm câu bạn đọc</small><i>Học ngay →</i></span>
-              </button>
-            </div>
-          </section>
-        </section>
+                <span class="home-course-label">说 Luyện nói</span><span class="home-course-art course-speaking"><img src="./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0" alt=""></span><span class="home-course-copy"><strong>Phản xạ và phát âm</strong><small>Mic chấm câu bạn đọc</…12971 tokens truncated…ase\.|supabase-|vduckie-auth-|vduckie-cloud-|vduckie-learning-profile-)/i.test(key)) return false;
+    if (EXPLICIT_KEYS[key]) return true;
+    return /^(vduckie|erp)-(?:hsk-section|erp-study|lesson|course|module|quiz|exercise|result|weak|review|srs|streak|activity|goal|setting|preference|personal|custom|note|history|achievement|roast)/i.test(key);
+  }
 
-        <section class="hero hidden" id="erpHero">
-          <div><p class="eyebrow">TIẾNG TRUNG CÔNG XƯỞNG · MỖI NGÀY 10 PHÚT</p><h1>Học đúng từ bạn gặp trong xưởng.</h1><p class="copy">Từ vựng và tình huống giao tiếp về sản xuất, kho, giao ca, an toàn, chất lượng và thiết bị.</p></div>
-        </section>
-        <section class="hero hsk-hero hidden" id="hskHero">
-          <div><p class="eyebrow">LỘ TRÌNH HSK 1 → 9</p><h1>Học để đọc, viết và thi HSK.</h1><p class="copy">Bắt đầu từ nền tảng rồi học tuần tự qua từng cấp độ. Chọn chặng và bài học ở cột lộ trình bên phải.</p></div>
-        </section>
-
-        <main>
-      <section id="lessons" class="panel hidden">
-        <div id="erpLessonApp"></div>
-      </section>
-
-      <section id="cards" class="panel hidden">
-        <div class="section-head"><div><span class="step" id="cardStep">THẺ 1 / 10</span><h2>Nhấn vào thẻ để xem nghĩa</h2></div></div>
-        <article class="flashcard" id="flashcard">
-          <div class="card-top"><span class="chip" id="cardCategory">Kho</span><span id="cardStatus">Nhấn để lật</span></div>
-          <div class="card-center" id="cardFront"><p class="hanzi" id="cardHanzi"></p><p class="pinyin" id="cardPinyin"></p><p class="near-lite" hidden><strong id="cardNearVi"></strong></p><button class="speaker" id="speakCard">♪ Nghe phát âm</button></div>
-          <div class="card-center answer hidden" id="cardBack"><div><span class="answer-label" id="answerLabel">NGHĨA TIẾNG VIỆT</span><h3 id="cardVi"></h3><p id="cardNote"></p><div class="example"><strong id="cardExample"></strong><span id="cardExampleVi"></span><button class="speaker" id="speakExample">♪ Nghe câu mẫu</button></div></div></div>
-        </article>
-        <div class="controls"><button class="muted" id="prevCard">← Trước</button><button class="muted" id="againCard">Học lại</button><button class="accent" id="knowCard">Đã nhớ →</button><button class="muted" id="nextCard">Tiếp →</button><button class="accent hidden" id="moreCards">+ Học thêm 10 từ</button><button class="muted" id="toggleMode">Chế độ: Trung → Việt</button><button class="muted" id="speedCard">Tốc độ: Chậm</button></div>
-      </section>
-
-      <section id="quiz" class="panel hidden">
-        <div class="section-head"><div><span class="step" id="quizStep">CÂU 1 / 5</span><h2>Chọn nghĩa đúng</h2></div><button class="speaker" id="speakQuiz">♪ Nghe phát âm</button></div>
-        <div class="quiz-word"><strong id="quizHanzi"></strong><span id="quizPinyin"></span></div>
-        <div class="options" id="quizOptions"></div>
-        <div class="quiz-actions"><button class="accent hidden" id="nextQuiz">Câu tiếp theo →</button><button class="accent hidden" id="restartQuiz">Làm lại</button></div>
-      </section>
-
-      <section id="glossary" class="panel hidden">
-        <div class="section-head"><div><span class="step"><span id="termCount">0</span> THUẬT NGỮ</span><h2>Từ điển công xưởng</h2></div></div>
-        <div class="tools"><input class="search" id="search" placeholder="Tìm tiếng Trung, Pinyin hoặc nghĩa tiếng Việt"><div class="filter" id="filters"><button class="active" data-category="Tất cả">Tất cả</button><button data-category="Kho">Kho</button><button data-category="Sản xuất">Sản xuất</button><button data-category="Chứng từ">Chứng từ</button><button data-category="Kiểm tra">Kiểm tra</button><button data-category="Giao ca và phối hợp">Giao ca và phối hợp</button><button data-category="An toàn và bảo hộ">An toàn và bảo hộ</button><button data-category="Chất lượng và kiểm tra">Chất lượng và kiểm tra</button><button data-category="Thiết bị và báo sự cố">Thiết bị và báo sự cố</button></div></div>
-        <div class="terms" id="terms"></div>
-      </section>
-
-      <section id="personal" class="panel hidden">
-        <div class="section-head"><div><span class="step"><span id="personalCount">0</span> TỪ ĐÃ LƯU</span><h2>Sổ từ cá nhân</h2></div></div>
-        <div class="personal-grid">
-          <div class="personal-box">
-            <h3>Tra bằng tiếng Việt</h3>
-            <p class="help">Nếu từ đã có trong bộ 154 thuật ngữ, chữ Hán, Pinyin và nghĩa tiếng Việt sẽ hiện ngay để bạn lưu.</p>
-            <input class="field" id="viLookup" placeholder="Ví dụ: mã vật tư, nhập kho, sản lượng thực tế">
-            <div class="suggestions" id="suggestions"></div>
-          </div>
-          <div class="personal-box">
-            <h3>Thêm thuật ngữ mới</h3>
-            <p class="help">Nhập nghĩa Việt và chữ Trung; Pinyin được tạo tự động. Từ đã lưu được gộp vào từ điển và hàng chờ thẻ học.</p>
-            <div class="form-grid">
-              <input class="field" id="newVi" placeholder="Nghĩa tiếng Việt *">
-              <input class="field" id="newHanzi" placeholder="Tiếng Trung *">
-              <input class="field" id="newPinyin" placeholder="Pinyin (tự động)">
-              <input class="field" id="newNear" type="hidden" aria-hidden="true">
-              <input class="field span-2" id="newExample" placeholder="Câu ví dụ tiếng Trung">
-              <p class="help span-2" id="pronunciationStatus">Nhập chữ Trung để tự tạo Pinyin. Có thể sửa lại trước khi lưu.</p>
-              <button class="accent span-2" id="saveNew" type="button">Lưu vào sổ từ</button>
-            </div>
-          </div>
-        </div>
-        <div class="section-head" style="margin-top:24px"><div><h2>Từ của bạn</h2></div></div>
-        <div class="terms" id="personalTerms"></div>
-      </section>
-
-      <section id="community" class="panel hidden">
-        <div class="section-head"><div><span class="step"><span id="communityCount">0</span> TỪ CỘNG ĐỒNG</span><h2>Kho từ dùng chung</h2></div></div>
-        <div class="community-top"><span class="community-connection" id="communityConnection">Đang kết nối kho chung…</span><button class="muted" id="refreshCommunity">↻ Làm mới</button></div>
-        <div class="community-layout">
-          <div class="community-box">
-            <h3>Đóng góp thuật ngữ</h3><p>Ai mở link cũng có thể thêm và nhìn thấy từ đã gửi. Pinyin được tạo tự động từ chữ Trung.</p>
-            <div class="community-form">
-              <input class="field" id="communityVi" placeholder="Nghĩa tiếng Việt *">
-              <input class="field" id="communityHanzi" placeholder="Tiếng Trung *">
-              <input class="field" id="communityPinyin" placeholder="Pinyin (tự động)">
-              <input class="field" id="communityNear" type="hidden" aria-hidden="true">
-              <input class="field span-2" id="communityContributor" placeholder="Tên người đóng góp (không bắt buộc)">
-              <input class="field span-2" id="communityExample" placeholder="Câu ví dụ tiếng Trung">
-              <p class="help span-2" id="communityFormStatus">Từ mới được lưu công khai, tự xác minh và gộp vào kho học chung.</p>
-              <button class="accent span-2" id="submitCommunity" type="button">Đăng lên kho chung</button>
-            </div>
-          </div>
-          <aside class="community-box"><h3>Kho công khai</h3><ul class="community-rules"><li>Ai mở web cũng thêm và xem được từ.</li><li>Từ mới được xác minh ngay và gộp vào từ điển cùng hàng chờ học.</li><li>Mỗi thiết bị gửi tối đa 100 từ trong 24 giờ để hạn chế spam.</li><li>Từ trùng sẽ bị từ chối tự động.</li></ul></aside>
-        </div>
-        <div class="section-head"><div><h2>Từ mọi người đã lưu</h2></div></div>
-        <div class="terms" id="communityTerms"><div class="empty span-2">Đang tải dữ liệu…</div></div>
-      </section>
-
-      <section id="hsk" class="panel hidden">
-        <div class="section-head"><div><span class="step">LỘ TRÌNH HSK 1 → 9</span><h2>Học từ nền tảng chữ Hán đến đọc hiểu và làm bài</h2></div></div>
-        <div class="hsk-intro"><div><strong>12 bài nhập môn + HSK 1–4 đang học được</strong><p>Đây là bộ bài thử nghiệm đang được biên soạn và kiểm tra dần, chưa thay thế giáo trình chính thức. HSK 1–3 được ưu tiên hoàn thiện; HSK 4 giữ bộ bài hiện có. HSK 5–9 vẫn hiển thị đầy đủ ở trạng thái sắp mở.</p></div><span class="hsk-standard">BETA · Cập nhật dần</span></div>
-        <div class="hsk-layout">
-          <article class="hsk-lesson" id="hskLesson"></article>
-        </div>
-      </section>
-
-      <section id="dialogue" class="panel hidden">
-        <div class="section-head"><div><span class="step">LUYỆN PHẢN XẠ & TỰ NGHE LẠI</span><h2>Hội thoại công xưởng</h2></div></div>
-        <div class="dialogue-toolbar"><label>Kiểu bài<select id="dialogueMode"><option value="conversation">Hội thoại theo tình huống</option><option value="translate">Dịch nhanh Việt → Trung</option><option value="shadow">Nghe và nhại</option><option value="reaction">Phản xạ trong 8 giây</option></select></label><label>Tình huống<select id="dialogueScenario"></select></label><strong id="dialogueProgress"></strong></div>
-        <p id="dialogueRole"></p><p id="dialogueModeNote"></p>
-        <article class="dialogue-bubble">
-          <span class="bubble-label" id="dialoguePromptLabel">HỆ THỐNG NÓI</span><strong class="dialogue-zh" id="dialoguePromptZh"></strong><span class="dialogue-pinyin" id="dialoguePromptPinyin"></span><span class="dialogue-near" id="dialoguePromptNear"></span><p id="dialoguePromptVi"></p><button class="speaker" id="listenPrompt">♪ Nghe câu hỏi</button>
-        </article>
-        <div class="dialogue-workspace">
-          <div>
-            <label for="dialogueAnswer">Câu trả lời tiếng Trung của bạn</label><textarea id="dialogueAnswer" class="dialogue-textarea" placeholder="Nhập câu tiếng Trung hoặc dùng microphone"></textarea>
-            <div class="answer-reading"><span id="dialogueAnswerPinyin"></span><span id="dialogueAnswerNear"></span></div>
-            <div class="dialogue-actions"><button class="muted hidden" id="startReaction">⏱ Bắt đầu 8 giây</button><button class="accent" id="assessSpeech">🎙 Bắt đầu đọc</button><button class="muted" id="checkDialogue">Chấm nội dung</button><button class="muted" id="showDialogueHint">Xem câu mẫu</button><button class="muted" id="recordDialogue">● Ghi âm để nghe lại</button></div>
-            <audio id="recordedAudio" class="recorded-audio hidden" controls></audio><div id="dialogueFeedback" class="dialogue-feedback hidden"></div><div id="pronunciationFeedback" class="dialogue-feedback hidden"></div>
-          </div>
-          <aside class="dialogue-hint hidden" id="dialogueHint">
-            <span class="bubble-label">CÂU MẪU TRẢ LỜI</span><strong class="dialogue-zh" id="dialogueTargetZh"></strong><span class="dialogue-pinyin" id="dialogueTargetPinyin"></span><span class="dialogue-near" id="dialogueTargetNear"></span><p id="dialogueTargetVi"></p>
-            <div class="dialogue-actions"><button class="speaker" id="listenTarget">♪ Nghe câu mẫu</button><button class="muted" id="useDialogueHint">Dùng câu này</button></div>
-          </aside>
-        </div>
-        <div id="recognizedBlock" class="recognized hidden"><span class="bubble-label">MÁY NGHE THÀNH</span><strong id="recognizedZh"></strong><span id="recognizedPinyin"></span><span id="recognizedNear"></span></div>
-        <div class="dialogue-actions next-row"><button class="accent hidden" id="nextDialogue">Lượt tiếp theo →</button></div>
-        <p class="dialogue-disclaimer">Kết quả chỉ đo mức độ khớp giữa chữ trình duyệt nghe được và câu mẫu; không chấm thanh điệu, âm đầu hay vận mẫu. Hãy nghe lại bản ghi để tự đối chiếu. Micro hoặc dịch vụ nhận dạng kém có thể làm kết quả sai lệch. Bản ghi được giữ riêng trên thiết bị của bạn.</p>
-      </section>
-        </main>
-        
-      </div>
-
-      <aside class="study-rail" id="studyRail" aria-label="Lộ trình học">
-        <section class="journey-card home-journey-card" id="homeJourney">
-          <span class="journey-kicker">LỘ TRÌNH ĐẾN KHI THÀNH THẠO</span>
-          <h2 data-vd-i18n-key="Đi từng chặng, không học mò">Đi từng chặng, không học mò</h2>
-          <p class="home-journey-intro">Bắt đầu từ phát âm và chữ Hán, sau đó tiến dần qua từng cấp HSK.</p>
-          <div class="home-route-list" aria-label="Các chặng học HSK">
-            <span class="home-route-step current"><b>基</b><span><strong>Nền tảng</strong><small>Phát âm · chữ Hán</small></span></span>
-            <span class="home-route-step"><b>壹</b><span><strong>HSK 1</strong><small>Nhập môn</small></span></span>
-            <span class="home-route-step"><b>贰</b><span><strong>HSK 2</strong><small>Sơ cấp</small></span></span>
-            <span class="home-route-step"><b>叁</b><span><strong>HSK 3–4</strong><small>Tiền trung cấp → trung cấp</small></span></span>
-            <span class="home-route-step locked"><b>锁</b><span><strong>HSK 5–9</strong><small>Sắp mở</small></span></span>
-          </div>
-          <button class="home-route-action" type="button" data-home-area="hsk">Mở lộ trình HSK →</button>
-        </section>
-
-        <section class="journey-card hidden" id="erpJourney">
-          <span class="journey-kicker">LỘ TRÌNH HÔM NAY</span>
-          <h2>Học theo từng bước</h2>
-          <div class="journey-score"><strong><span id="doneCount">0</span>/<span id="targetCount">10</span></strong><span>từ đã nhớ</span></div>
-          <div class="bar"><span id="progressBar"></span></div>
-          <div class="journey-list">
-            <button class="journey-step active" type="button" data-journey-view="lessons"><span class="journey-number">1</span><span><strong>Bài nghiệp vụ</strong><small>12 bài · 6 nhóm chủ đề</small></span></button>
-            <button class="journey-step" type="button" data-journey-view="cards"><span class="journey-number">2</span><span><strong>Học thẻ từ</strong><small>10 từ theo chủ đề</small></span></button>
-            <button class="journey-step" type="button" data-journey-view="quiz"><span class="journey-number">3</span><span><strong>Kiểm tra nhanh</strong><small>5 câu củng cố</small></span></button>
-            <button class="journey-step" type="button" data-journey-view="dialogue"><span class="journey-number">4</span><span><strong>Luyện phản xạ</strong><small>24 tình huống · Luyện phản xạ</small></span></button>
-          </div>
-        </section>
-
-        <section class="journey-card hidden" id="hskJourney">
-          <span class="journey-kicker">LỘ TRÌNH ĐẾN KHI THÀNH THẠO</span>
-          <h2>Chọn cấp độ HSK</h2>
-          <div class="hsk-levels" id="hskLevels"></div>
-          <div class="hsk-sidebar"><div id="hskProgress"></div><div class="hsk-lesson-list" id="hskLessonList"></div></div>
-        </section>
-      </aside>
-    </div>
-    <button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Đóng menu học tập"></button>
-  </div>
-
-  <script src="./lite-terms.js?v=74.0"></script>
-  <script src="./erp-content-v74.js?v=factory1"></script>
-  <script src="./assets/factory/workshop-content.js?v=1"></script>
-  <script src="./assets/boot/pinyin-parts-boot-v1.js?v=1"></script>
-  <script src="./pinyin-pro.loader.js"></script>
-  <script src="./pronunciation.js"></script>
-  <script>
-  (function(){
-    var builtinTerms=[
-      ["领料","lǐng liào","Lĩnh liệu / nhận nguyên vật liệu để sản xuất","Kho","Thao tác xuất vật tư cho lệnh sản xuất.","请先检查库存，再进行领料。","Hãy kiểm tra tồn kho trước, sau đó mới lĩnh liệu."],
-      ["发料","fā liào","Cấp phát nguyên vật liệu","Kho","Góc nhìn của kho:kho phát vật tư cho xưởng.","工单已下达，请仓库发料。","Lệnh sản xuất đã được ban hành, đề nghị kho cấp vật tư."],
-      ["补领料","bǔ lǐng liào","Bổ lĩnh liệu / bổ sung xuất kho nguyên vật liệu","Kho","Dùng khi còn thiếu nghiệp vụ lĩnh liệu.","生产已入库，但还需要补领料。","Sản xuất đã nhập kho nhưng vẫn cần bổ lĩnh liệu."],
-      ["入库","rù kù","Nhập kho","Kho","Ghi tăng số lượng tồn trong kho.","这批成品今天可以入库。","Lô thành phẩm này hôm nay có thể nhập kho."],
-      ["出库","chū kù","Xuất kho","Kho","Ghi giảm số lượng tồn trong kho.","出库前要核对物料编码。","Trước khi xuất kho phải đối chiếu mã vật tư."],
-      ["生产入库","shēng chǎn rù kù","Nhập kho sản xuất","Sản xuất","Nhập thành phẩm hoặc bán thành phẩm sau sản xuất.","车间负责生产入库。","Xưởng chịu trách nhiệm nhập kho sản xuất."],
-      ["完工入库","wán gōng rù kù","Nhập kho hoàn thành","Sản xuất","Xác nhận số lượng hoàn thành và nhập kho.","完工后请及时办理入库。","Sau khi hoàn thành hãy làm thủ tục nhập kho kịp thời."],
-      ["库存","kù cún","Tồn kho","Kho","Số lượng vật tư hoặc hàng hóa hiện còn.","系统显示还有库存。","Hệ thống hiển thị vẫn còn tồn kho."],
-      ["期初库存","qī chū kù cún","Tồn kho đầu kỳ","Kho","Số dư tồn tại thời điểm bắt đầu kỳ báo cáo.","请核对期初库存。","Vui lòng đối chiếu tồn kho đầu kỳ."],
-      ["库存不足","kù cún bù zú","Không đủ tồn kho","Kiểm tra","Cảnh báo lượng tồn không đáp ứng số lượng cần xuất.","领料时系统提示库存不足。","Khi lĩnh liệu, hệ thống báo không đủ tồn kho."],
-      ["有库存","yǒu kù cún","Có tồn kho","Kiểm tra","Dùng khi xác nhận hệ thống hoặc thực tế vẫn còn hàng.","仓库里有库存，但系统不能保存。","Trong kho có tồn nhưng hệ thống không thể lưu."],
-      ["结存","jié cún","Tồn cuối kỳ / số dư tồn","Kho","Tồn còn lại sau nhập và xuất trong kỳ.","报表结存与系统结存不一致。","Tồn cuối kỳ theo báo cáo không khớp với hệ thống."],
-      ["理论结存","lǐ lùn jié cún","Tồn lý thuyết","Kiểm tra","Tồn đầu cộng nhập trừ xuất.","理论结存等于期初加上入库减去出库。","Tồn lý thuyết bằng tồn đầu cộng nhập kho trừ xuất kho."],
-      ["差异","chā yì","Chênh lệch","Kiểm tra","Khoảng lệch giữa hai nguồn số liệu.","请确认差异原因。","Vui lòng xác nhận nguyên nhân chênh lệch."],
-      ["用量差异","yòng liàng chā yì","Chênh lệch lượng sử dụng","Kiểm tra","So sánh lượng dùng thực tế với định mức.","需要分析实际用量差异。","Cần phân tích chênh lệch lượng sử dụng thực tế."],
-      ["领料检查","lǐng liào jiǎn chá","Kiểm tra lĩnh liệu","Kiểm tra","Kiểm tra tình trạng xuất vật tư theo lệnh.","今天先做领料检查。","Hôm nay trước tiên kiểm tra việc lĩnh liệu."],
-      ["未领料","wèi lǐng liào","Chưa lĩnh liệu","Kiểm tra","Chưa ghi nhận nghiệp vụ xuất vật tư.","生产已完成，但系统显示未领料。","Sản xuất đã hoàn thành nhưng hệ thống hiển thị chưa lĩnh liệu."],
-      ["未入库","wèi rù kù","Chưa nhập kho","Kiểm tra","Chưa ghi nhận thành phẩm vào kho.","工单开工一周后仍未入库。","Lệnh đã bắt đầu một tuần nhưng vẫn chưa nhập kho."],
-      ["调拨","diào bō","Điều chuyển kho","Kho","Chuyển vật tư giữa các kho.","物料需要先调拨到生产仓。","Vật tư cần được điều chuyển sang kho sản xuất trước."],
-      ["补调拨","bǔ diào bō","Bổ sung điều chuyển kho","Kho","Bù nghiệp vụ điều chuyển còn thiếu.","请补调拨后再领料。","Vui lòng bổ sung điều chuyển rồi mới lĩnh liệu."],
-      ["工单","gōng dān","Lệnh sản xuất / công lệnh","Chứng từ","Chứng từ giao nhiệm vụ sản xuất.","工单已经下达到生产部门。","Lệnh sản xuất đã được chuyển xuống bộ phận sản xuất."],
-      ["生产指令","shēng chǎn zhǐ lìng","Chỉ lệnh sản xuất","Chứng từ","Yêu cầu chính thức để triển khai sản xuất.","我正在学习生产指令流程。","Tôi đang học quy trình chỉ lệnh sản xuất."],
-      ["客户订单","kè hù dìng dān","Đơn đặt hàng của khách hàng","Chứng từ","Nguồn nhu cầu dẫn đến kế hoạch sản xuất.","流程从客户订单开始。","Quy trình bắt đầu từ đơn đặt hàng của khách."],
-      ["物料清单","wù liào qīng dān","Định mức nguyên vật liệu / BOM","Chứng từ","Danh sách vật tư và định mức để sản xuất.","物料清单现在用Excel管理。","BOM hiện đang được quản lý bằng Excel."],
-      ["物料编码","wù liào biān mǎ","Mã vật tư","Chứng từ","Mã định danh duy nhất của vật tư trong ERP.","请核对物料编码和数量。","Vui lòng đối chiếu mã vật tư và số lượng."],
-      ["物料名称","wù liào míng chēng","Tên vật tư","Chứng từ","Tên mô tả vật tư tương ứng với mã.","这个物料名称不完整。","Tên vật tư này chưa đầy đủ."],
-      ["计划数量","jì huà shù liàng","Số lượng kế hoạch","Sản xuất","Số lượng dự kiến phải sản xuất theo lệnh.","计划数量是一千件。","Số lượng kế hoạch là một nghìn chiếc."],
-      ["实际产量","shí jì chǎn liàng","Sản lượng thực tế","Sản xuất","Số lượng thực tế đã hoàn thành.","实际产量目前还是零。","Sản lượng thực tế hiện vẫn bằng không."],
-      ["实际开工期","shí jì kāi gōng qī","Ngày bắt đầu thực tế","Sản xuất","Ngày lệnh sản xuất thực sự bắt đầu.","请检查实际开工期。","Vui lòng kiểm tra ngày bắt đầu thực tế."],
-      ["车间","chē jiān","Xưởng sản xuất","Sản xuất","Khu vực trực tiếp sản xuất.","我现在去车间学习。","Bây giờ tôi xuống xưởng để học."],
-      ["组装车间","zǔ zhuāng chē jiān","Xưởng lắp ráp","Sản xuất","Khu vực thực hiện công đoạn lắp ráp.","下午去组装车间学习领料。","Buổi chiều xuống xưởng lắp ráp học lĩnh liệu."],
-      ["焊接车间","hàn jiē chē jiān","Xưởng hàn","Sản xuất","Khu vực thực hiện công đoạn hàn.","他负责焊接车间的入库和领料。","Anh ấy phụ trách nhập kho và lĩnh liệu của xưởng hàn."]
-    ];
-    for(var z=0;z<builtinTerms.length;z++){if(builtinTerms[z].length===7)builtinTerms[z].splice(2,0,"")}
-    var baseTerms=window.ERP_TERMS||builtinTerms;
-    var personalTerms=[],sharedTerms=[],terms=[],daily=[],learningOrder=[],cardIndex=0,revealed=false,known={},quizIndex=0,answered=false,category="Tất cả",reverse=false,speechRate=.68;
-    var $=function(id){return document.getElementById(id)};
-    function esc(value){return String(value||"").replace(/[&<>\"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]})}
-    try{known=JSON.parse(localStorage.getItem("erp-lite-known")||"{}")}catch(e){known={}}
-    try{personalTerms=JSON.parse(localStorage.getItem("erp-lite-personal")||"[]");if(!(personalTerms instanceof Array))personalTerms=[]}catch(e){personalTerms=[]}
-    var learningMeta={};
-    try{learningMeta=JSON.parse(localStorage.getItem("erp-lite-sync-meta-v1")||"{}");if(!learningMeta||typeof learningMeta!=="object"||learningMeta instanceof Array)learningMeta={}}catch(e){learningMeta={}}
-    function saveLearningMeta(){try{localStorage.setItem("erp-lite-sync-meta-v1",JSON.stringify(learningMeta))}catch(e){}}
-    function metaFor(word){if(!learningMeta[word])learningMeta[word]={known_updated_at:null,saved_updated_at:null};return learningMeta[word]}
-    function findPersonalIndex(word){for(var i=0;i<personalTerms.length;i++)if(personalTerms[i][0]===word)return i;return-1}
-    function findTermByWord(word){for(var i=0;i<terms.length;i++)if(terms[i][0]===word)return terms[i];for(var j=0;j<baseTerms.length;j++)if(baseTerms[j][0]===word)return baseTerms[j];return null}
-    function cloudRowFor(word,term){var t=term||findTermByWord(word)||[word,"","","","","","",""];var meta=metaFor(word);return{word_key:word,hanzi:t[0]||word,pinyin:t[1]||"",near_vi:t[2]||"",meaning_vi:t[3]||"",category:t[4]||"",note:t[5]||"",example_zh:t[6]||"",example_vi:t[7]||"",is_known:!!known[word],is_saved:findPersonalIndex(word)!==-1,known_updated_at:meta.known_updated_at||null,saved_updated_at:meta.saved_updated_at||null}}
-    function markLearningChange(word,flag,term){metaFor(word)[flag+"_updated_at"]=new Date().toISOString();saveLearningMeta();document.dispatchEvent(new CustomEvent("vduckie:learning-change",{detail:cloudRowFor(word,term)}))}
-    function rebuildTerms(){terms=baseTerms.slice(0);var additions=personalTerms.concat(sharedTerms);for(var i=0;i<additions.length;i++){var exists=false;for(var j=0;j<terms.length;j++)if(terms[j][0]===additions[i][0]){exists=true;break}if(!exists)terms.push(additions[i])}}
-    function buildDaily(){daily=[];learningOrder=[];var start=(new Date().getDate()*7)%terms.length;for(var i=0;i<terms.length;i++)learningOrder.push(terms[(start+i*37)%terms.length]);var unseen=[],seen=[];for(var j=0;j<learningOrder.length;j++)(known[learningOrder[j][0]]?seen:unseen).push(learningOrder[j]);learningOrder=unseen.concat(seen);for(var k=0;k<10&&k<learningOrder.length;k++)daily.push(learningOrder[k])}
-    rebuildTerms();buildDaily();
-    function saveKnown(){try{localStorage.setItem("erp-lite-known",JSON.stringify(known))}catch(e){}}
-    function savePersonal(){try{localStorage.setItem("erp-lite-personal",JSON.stringify(personalTerms))}catch(e){}rebuildTerms();var insertAt=daily.length;for(var i=0;i<terms.length;i++){var queued=false;for(var j=0;j<learningOrder.length;j++)if(learningOrder[j][0]===terms[i][0]){queued=true;break}if(!queued){learningOrder.splice(insertAt,0,terms[i]);insertAt++}}renderTerms();renderPersonal()}
-    window.ERPCommunityLearning={merge:function(rows){sharedTerms=[];for(var i=0;i<rows.length;i++){var row=rows[i];if(row.status&&row.status!=="approved")continue;sharedTerms.push([row.hanzi,row.pinyin,row.near_vi||"",row.vi,"Chứng từ","Từ trong kho chung",row.example||"",""])}rebuildTerms();var insertAt=daily.length;for(var j=0;j<terms.length;j++){var queued=false;for(var k=0;k<learningOrder.length;k++)if(learningOrder[k][0]===terms[j][0]){queued=true;break}if(!queued){learningOrder.splice(insertAt,0,terms[j]);insertAt++}}renderTerms()}};
-    function cloudTime(value){var time=Date.parse(value||"");return isNaN(time)?0:time}
-    function termFromCloud(row){return[row.hanzi||row.word_key,row.pinyin||"",row.near_vi||"",row.meaning_vi||"",row.category||"Chứng từ",row.note||"Từ đã đồng bộ",row.example_zh||"",row.example_vi||""]}
-    window.VDuckieLocalLearning={
-      mergeRemote:function(rows){
-        for(var i=0;i<rows.length;i++){
-          var row=rows[i],word=row.word_key||row.hanzi;if(!word)continue;var meta=metaFor(word),personalIndex=findPersonalIndex(word);
-          if(row.known_updated_at&&cloudTime(row.known_updated_at)>=cloudTime(meta.known_updated_at)){if(row.is_known)known[word]=true;else delete known[word];meta.known_updated_at=row.known_updated_at}
-          if(row.saved_updated_at&&cloudTime(row.saved_updated_at)>=cloudTime(meta.saved_updated_at)){if(row.is_saved){var remoteTerm=termFromCloud(row);if(personalIndex===-1)personalTerms.push(remoteTerm);else personalTerms[personalIndex]=remoteTerm}else if(personalIndex!==-1)personalTerms.splice(personalIndex,1);meta.saved_updated_at=row.saved_updated_at}
-        }
-        saveKnown();saveLearningMeta();savePersonal();buildDaily();if(cardIndex>=daily.length)cardIndex=0;renderCard();renderSuggestions()
-      },
-      prepareForCloud:function(){
-        var keys={},now=new Date().toISOString(),changed=false,i;
-        for(var word in known)if(Object.prototype.hasOwnProperty.call(known,word)&&known[word])keys[word]=true;
-        for(i=0;i<personalTerms.length;i++)keys[personalTerms[i][0]]=true;
-        for(var metaWord in learningMeta)if(Object.prototype.hasOwnProperty.call(learningMeta,metaWord))keys[metaWord]=true;
-        var rows=[];for(var key in keys)if(Object.prototype.hasOwnProperty.call(keys,key)){var meta=metaFor(key);if(known[key]&&!meta.known_updated_at){meta.known_updated_at=now;changed=true}if(findPersonalIndex(key)!==-1&&!meta.saved_updated_at){meta.saved_updated_at=now;changed=true}rows.push(cloudRowFor(key))}
-        if(changed)saveLearningMeta();return rows
-      }
+  function normalizeField(field) {
+    if (!field || typeof field !== "object") return { value: null, updatedAt: 0 };
+    return {
+      value: field.value === null ? null : text(field.value),
+      updatedAt: Math.max(0, Number(field.updatedAt) || 0)
     };
-    function speakText(value){if(!value||!window.speechSynthesis)return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(value);u.lang="zh-CN";u.rate=speechRate;var voices=window.speechSynthesis.getVoices(),chosen=null;for(var i=0;i<voices.length;i++){if(/google/i.test(voices[i].name)&&/^zh/i.test(voices[i].lang)){chosen=voices[i];break}if(!chosen&&/^zh/i.test(voices[i].lang))chosen=voices[i]}if(chosen)u.voice=chosen;window.speechSynthesis.speak(u)}
-    function renderCard(){var t=daily[cardIndex];$("cardStep").textContent="THẺ "+(cardIndex+1)+" / "+daily.length;$("cardCategory").textContent=t[4];$("cardHanzi").textContent=reverse?t[3]:t[0];$("cardHanzi").className=reverse?"hanzi reverse":"hanzi";$("cardPinyin").textContent=reverse?"":t[1];$("cardNearVi").parentNode.style.display="none";$("cardNearVi").textContent="";$("speakCard").style.display=reverse?"none":"inline-block";$("answerLabel").textContent=reverse?"ĐÁP ÁN TIẾNG TRUNG":"NGHĨA TIẾNG VIỆT";$("cardVi").innerHTML=reverse?esc(t[0])+"<br><small>"+esc(t[1])+"</small>":esc(t[3]);$("cardNote").textContent=t[5]||"";$("cardExample").textContent=t[6]||"";$("cardExampleVi").textContent=t[7]||"";$("speakExample").parentNode.style.display=t[6]?"block":"none";$("cardFront").className=revealed?"card-center hidden":"card-center";$("cardBack").className=revealed?"card-center answer":"card-center answer hidden";$("cardStatus").textContent=known[t[0]]?"✓ Đã nhớ":(revealed?"Đáp án":"Nhấn để lật");var n=0;for(var i=0;i<daily.length;i++)if(known[daily[i][0]])n++;$("doneCount").textContent=n;$("targetCount").textContent=daily.length;$("progressBar").style.width=(daily.length?Math.round(n*100/daily.length):0)+"%";$("moreCards").className=n===daily.length&&daily.length<terms.length?"accent":"accent hidden"}
-    function move(n){cardIndex=(cardIndex+n+daily.length)%daily.length;revealed=false;renderCard()}
-    $("flashcard").onclick=function(){revealed=!revealed;renderCard()};$("speakCard").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][0])};$("speakExample").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][6])};$("prevCard").onclick=function(){move(-1)};$("nextCard").onclick=function(){move(1)};$("againCard").onclick=function(){var t=daily[cardIndex];delete known[t[0]];saveKnown();markLearningChange(t[0],"known",t);move(1)};
-    $("knowCard").onclick=function(){var t=daily[cardIndex];known[t[0]]=true;saveKnown();markLearningChange(t[0],"known",t);move(1)};
-    $("moreCards").onclick=function(){var oldLength=daily.length,target=Math.min(oldLength+10,learningOrder.length);for(var i=oldLength;i<target;i++)daily.push(learningOrder[i]);if(daily.length>oldLength){cardIndex=oldLength;revealed=false;renderCard()}else window.alert("Bạn đã học hết toàn bộ thuật ngữ hiện có.")};
-    $("toggleMode").onclick=function(){reverse=!reverse;revealed=false;this.textContent=reverse?"Chế độ: Việt → Trung":"Chế độ: Trung → Việt";renderCard()};
-    $("speedCard").onclick=function(){speechRate=speechRate<.8?.92:.68;this.textContent=speechRate<.8?"Tốc độ: Chậm":"Tốc độ: Bình thường"};
-    function optionsFor(index){var correct=daily[index],out=[correct,terms[(index*5+3)%terms.length],terms[(index*7+11)%terms.length],terms[(index*9+17)%terms.length]];out.sort(function(a,b){return a[0].charCodeAt(0)-b[0].charCodeAt(0)});return out}
-    function renderQuiz(){if(quizIndex>=5){$("quizStep").innerHTML="HOÀN THÀNH";$("quizHanzi").innerHTML="完成";$("quizPinyin").innerHTML="Đã hoàn thành 5 câu";$("quizOptions").innerHTML="";$("nextQuiz").className="accent hidden";$("restartQuiz").className="accent";return}var t=daily[quizIndex];$("quizStep").innerHTML="CÂU "+(quizIndex+1)+" / 5";$("quizHanzi").innerHTML=t[0];$("quizPinyin").textContent=t[1]||"";$("restartQuiz").className="accent hidden";$("nextQuiz").className="accent hidden";answered=false;var list=optionsFor(quizIndex),html="";for(var i=0;i<list.length;i++)html+='<button class="option" data-word="'+list[i][0]+'">'+list[i][3]+'</button>';$("quizOptions").innerHTML=html;var buttons=$("quizOptions").getElementsByTagName("button");for(var j=0;j<buttons.length;j++)buttons[j].onclick=answerQuiz}
-    function answerQuiz(){if(answered)return;answered=true;var right=daily[quizIndex][0],buttons=$("quizOptions").getElementsByTagName("button");for(var i=0;i<buttons.length;i++){if(buttons[i].getAttribute("data-word")==right)buttons[i].className="option correct";else if(buttons[i]===this)buttons[i].className="option wrong"}$("nextQuiz").className="accent"}
-    $("nextQuiz").onclick=function(){quizIndex++;renderQuiz()};$("restartQuiz").onclick=function(){quizIndex=0;renderQuiz()};$("speakQuiz").onclick=function(){if(quizIndex<5)speakText(daily[quizIndex][0])};
-    function renderTerms(){var q=$("search").value.toLowerCase(),html="",count=0;for(var i=0;i<terms.length;i++){var t=terms[i],hay=(t[0]+" "+t[1]+" "+t[3]).toLowerCase();if((category==="Tất cả"||t[4]===category||(window.VDuckieFactoryContent&&window.VDuckieFactoryContent.lessons.some(function(l){return l.title===category&&l.words.indexOf(t[0])!==-1})))&&hay.indexOf(q)!==-1){count++;html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted speak-term" data-word="'+esc(t[0])+'">♪ Nghe</button></div></article>'}}$("termCount").textContent=count;$("terms").innerHTML=html;var buttons=document.querySelectorAll(".speak-term");for(var j=0;j<buttons.length;j++)buttons[j].onclick=function(){speakText(this.getAttribute("data-word"))}}
-    $("search").oninput=renderTerms;var filters=$("filters").getElementsByTagName("button");for(var f=0;f<filters.length;f++)filters[f].onclick=function(){category=this.getAttribute("data-category");for(var j=0;j<filters.length;j++)filters[j].className="";this.className="active";renderTerms()};
-    function addPersonal(t){for(var i=0;i<personalTerms.length;i++)if(personalTerms[i][0]===t[0])return;personalTerms.push(t.slice(0));savePersonal();markLearningChange(t[0],"saved",t);$("viLookup").value="";renderSuggestions()}
-    function renderSuggestions(){var q=$("viLookup").value.toLowerCase().trim(),html="",shown=0;if(q){for(var i=0;i<baseTerms.length&&shown<8;i++){var t=baseTerms[i];if((t[3]+" "+t[0]).toLowerCase().indexOf(q)!==-1){html+='<div class="suggestion"><span><strong>'+esc(t[3])+'</strong><small>'+esc(t[0])+' · '+esc(t[1])+'</small></span><button class="accent add-suggestion" data-index="'+i+'">+ Lưu</button></div>';shown++}}}$("suggestions").innerHTML=html;var buttons=document.querySelectorAll(".add-suggestion");for(var j=0;j<buttons.length;j++)buttons[j].onclick=function(){addPersonal(baseTerms[Number(this.getAttribute("data-index"))])}}
-    function renderPersonal(){var html="";$("personalCount").textContent=personalTerms.length;for(var i=0;i<personalTerms.length;i++){var t=personalTerms[i];html+='<article class="term"><strong>'+esc(t[0])+'</strong><b>'+esc(t[1])+'</b><p>'+esc(t[3])+'</p><div class="term-actions"><button class="muted personal-speak" data-index="'+i+'">♪ Nghe</button><button class="muted personal-delete" data-index="'+i+'">Xóa</button></div></article>'}$("personalTerms").innerHTML=html||'<div class="empty span-2">Chưa có từ nào được lưu.</div>';var speakButtons=document.querySelectorAll(".personal-speak"),deleteButtons=document.querySelectorAll(".personal-delete");for(var j=0;j<speakButtons.length;j++)speakButtons[j].onclick=function(){speakText(personalTerms[Number(this.getAttribute("data-index"))][0])};for(var k=0;k<deleteButtons.length;k++)deleteButtons[k].onclick=function(){var index=Number(this.getAttribute("data-index")),t=personalTerms[index];personalTerms.splice(index,1);savePersonal();markLearningChange(t[0],"saved",t)}}
-    $("viLookup").oninput=renderSuggestions;
-    function fillPronunciation(value){var generated=window.ERPPronunciation&&window.ERPPronunciation.generate(value);if(generated&&generated.pinyin){$("newPinyin").value=generated.pinyin;$("newNear").value="";$("pronunciationStatus").textContent="Đã tạo tự động. Hãy sửa tay nếu đây là từ đa âm hoặc cách đọc nội bộ của công ty."}else $("pronunciationStatus").textContent="Không nhận diện được chữ Trung này; bạn cần nhập Pinyin thủ công."}
-    $("newHanzi").oninput=function(){var value=this.value.trim();if(!value){$("newPinyin").value="";$("newNear").value="";$("pronunciationStatus").textContent="Nhập chữ Trung để tự tạo Pinyin. Có thể sửa lại trước khi lưu.";return}if(window.PinyinEngineReady&&!window.pinyinPro){$("pronunciationStatus").textContent="Đang nạp bộ phát âm…";window.PinyinEngineReady.then(function(){if($("newHanzi").value.trim()===value)fillPronunciation(value)});return}fillPronunciation(value)};
-    $("saveNew").onclick=function(){var vi=$("newVi").value.trim(),hanzi=$("newHanzi").value.trim();if(!vi||!hanzi){window.alert("Cần nhập ít nhất nghĩa tiếng Việt và tiếng Trung.");return}addPersonal([hanzi,$("newPinyin").value.trim(),$("newNear").value.trim(),vi,"Chứng từ","Từ do bạn bổ sung",$("newExample").value.trim(),""]);$("newVi").value="";$("newHanzi").value="";$("newPinyin").value="";$("newNear").value="";$("newExample").value="";$("pronunciationStatus").textContent="Đã lưu và đưa vào từ điển cùng hàng chờ học tiếp theo."};
-    window.VDuckieERPStudy={startWords:function(words){var selected=[];for(var i=0;i<words.length;i++){var term=findTermByWord(words[i]);if(term)selected.push(term)}if(!selected.length)return;daily=selected;learningOrder=selected.concat(learningOrder);cardIndex=0;quizIndex=0;revealed=false;renderCard();renderQuiz();var target=document.querySelector('#erpNav [data-view="cards"]');if(target)target.click()}};
-    var nav=document.querySelectorAll("[data-view]"),areaButtons=document.querySelectorAll("[data-area]"),homeButtons=document.querySelectorAll("[data-home]"),homeAreaButtons=document.querySelectorAll("[data-home-area]"),journeyButtons=document.querySelectorAll("[data-journey-view]"),views=["lessons","cards","dialogue","quiz","glossary","personal","community"],lastErpView="lessons";
-    function areaUrl(area){var params=new URLSearchParams(window.location.search);params.set("area",area);return window.location.pathname+"?"+params.toString()+(area==="hsk"?"#hsk":"")}
-    function homeUrl(){var params=new URLSearchParams(window.location.search);params.delete("area");var query=params.toString();return window.location.pathname+(query?"?"+query:"")}
-    function closeSidebar(){document.body.classList.remove("sidebar-open");if($("mobileMenu"))$("mobileMenu").setAttribute("aria-expanded","false")}
-    function syncJourney(view){for(var i=0;i<journeyButtons.length;i++)journeyButtons[i].className=journeyButtons[i].getAttribute("data-journey-view")===view?"journey-step active":"journey-step"}
-    function selectHome(updateUrl){
-      for(var a=0;a<areaButtons.length;a++)areaButtons[a].className="";
-      for(var b=0;b<homeButtons.length;b++)homeButtons[b].className="active";
-      for(var n=0;n<nav.length;n++)nav[n].className="";
-      $('homeHub').className="home-hub";
-      $('erpHero').className="hero hidden";
-      $('hskHero').className="hero hsk-hero hidden";
-      $('erpNav').className="nav erp-nav";
-      $('homeJourney').className="journey-card home-journey-card";
-      $('erpJourney').className="journey-card hidden";
-      $('hskJourney').className="journey-card hidden";
-      for(var k=0;k<views.length;k++)$(views[k]).className="panel hidden";
-      $('hsk').className="panel hidden";
-      document.body.setAttribute("data-current-area","home");
-      document.title="VDuckie – Tự học tiếng Trung HSK và tiếng Trung công xưởng";
-      if(updateUrl!==false)history.replaceState(null,"",homeUrl());
-      closeSidebar();
+  }
+
+  function normalizeProfile(profile) {
+    profile = profile && typeof profile === "object" ? profile : {};
+    var output = { version: 2, fields: {}, updatedAt: Math.max(0, Number(profile.updatedAt) || 0) };
+    var fields = profile.fields && typeof profile.fields === "object" ? profile.fields : {};
+    var keys = Object.keys(fields);
+    for (var i = 0; i < keys.length; i++) {
+      if (isSyncableKey(keys[i])) {
+        output.fields[keys[i]] = normalizeField(fields[keys[i]]);
+        output.updatedAt = Math.max(output.updatedAt, output.fields[keys[i]].updatedAt);
+      }
     }
-    function selectArea(area,updateUrl){
-      if(area!=="erp"&&area!=="hsk")return;
-      for(var h=0;h<homeButtons.length;h++)homeButtons[h].className="";
-      for(var a=0;a<areaButtons.length;a++)areaButtons[a].className=areaButtons[a].getAttribute("data-area")===area?"active":"";
-      for(var n=0;n<nav.length;n++)nav[n].className=area==="erp"&&nav[n].getAttribute("data-view")===lastErpView?"active":"";
-      $('homeHub').className="home-hub hidden";
-      $('erpHero').className=area==="erp"?"hero":"hero hidden";
-      $('hskHero').className=area==="hsk"?"hero hsk-hero":"hero hsk-hero hidden";
-      $('erpNav').className=area==="erp"?"nav erp-nav":"nav erp-nav hidden";
-      $('homeJourney').className="journey-card home-journey-card hidden";
-      $('erpJourney').className=area==="erp"?"journey-card":"journey-card hidden";
-      $('hskJourney').className=area==="hsk"?"journey-card":"journey-card hidden";
-      for(var k=0;k<views.length;k++)$(views[k]).className=area==="erp"&&views[k]===lastErpView?"panel":"panel hidden";
-      $('hsk').className=area==="hsk"?"panel":"panel hidden";
-      document.body.setAttribute("data-current-area",area);
-      document.title=(area==="erp"?"Tiếng Trung công xưởng":"Lộ trình HSK")+" — VDuckie";
-      if(updateUrl!==false)history.replaceState(null,"",areaUrl(area));
-      closeSidebar();
+    return output;
+  }
+
+  function mergeJsonValues(leftText, rightText) {
+    var left = parseJson(leftText, null);
+    var right = parseJson(rightText, null);
+    if (left === null || right === null) return rightText;
+    if (Array.isArray(left) && Array.isArray(right)) {
+      var seen = {};
+      var output = [];
+      var joined = left.concat(right);
+      for (var i = 0; i < joined.length; i++) {
+        var signature = stableStringify(joined[i]);
+        if (!seen[signature]) {
+          seen[signature] = true;
+          output.push(joined[i]);
+        }
+      }
+      return JSON.stringify(output);
     }
-    for(var n=0;n<nav.length;n++)nav[n].onclick=function(){lastErpView=this.getAttribute("data-view");for(var j=0;j<nav.length;j++)nav[j].className="";this.className="active";syncJourney(lastErpView);selectArea("erp")};
-    for(var q=0;q<areaButtons.length;q++)areaButtons[q].onclick=function(){selectArea(this.getAttribute("data-area"))};
-    for(var h=0;h<homeButtons.length;h++)homeButtons[h].onclick=function(){selectHome()};
-    if($("brandHome"))$("brandHome").onclick=function(){selectHome()};
-    for(var p=0;p<homeAreaButtons.length;p++)homeAreaButtons[p].onclick=function(){var area=this.getAttribute("data-home-area"),view=this.getAttribute("data-home-view");if(area==="erp"&&view)lastErpView=view;syncJourney(lastErpView);selectArea(area)};
-    for(var r=0;r<journeyButtons.length;r++)journeyButtons[r].onclick=function(){var view=this.getAttribute("data-journey-view"),target=document.querySelector('[data-view="'+view+'"]');if(target)target.click()};
-    if($("mobileMenu"))$("mobileMenu").onclick=function(){var open=document.body.classList.toggle("sidebar-open");this.setAttribute("aria-expanded",open?"true":"false")};
-    if($("sidebarClose"))$("sidebarClose").onclick=closeSidebar;
-    if($("sidebarBackdrop"))$("sidebarBackdrop").onclick=closeSidebar;
-    document.addEventListener("keydown",function(event){if(event.key==="Escape")closeSidebar()});
-    var requestedArea=new URLSearchParams(window.location.search).get("area");if(window.location.hash==="#hsk")requestedArea="hsk";syncJourney(lastErpView);if(requestedArea==="erp"||requestedArea==="hsk")selectArea(requestedArea,false);else selectHome(false);window.ERPAreaNavigation={select:function(area){if(document.body.getAttribute("data-current-area")==="home"&&!new URLSearchParams(window.location.search).has("area"))return;selectArea(area)},home:selectHome};
-    renderCard();renderQuiz();renderTerms();renderSuggestions();renderPersonal();
-  })();
-  </script>
-  <script src="./supabase-config.js?v=71.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7/dist/umd/supabase.min.js"></script>
-    <script src="./assets/v82/account-learning-sync-v82.js?v=hsk-journey1"></script>
-<script src="./supabase-sync.js?v=82.1"></script>
-  <script src="./vendor/hanzi-writer.min.js?v=1"></script>
-  <script src="./vendor/hsk-char-data.js?v=1"></script>
-  <script src="./hsk-lessons.js?v=2b4.2"></script>
-  <script src="./dialogue.js?v=factory1"></script>
-  <script src="./erp-lessons-v74.js?v=factory1"></script>
-  <script src="./community.js?v=factory1"></script>
-  <script src="./assets/v86/experience-suite-loader-v86.js?v=progress-row1"></script>
-  <script src="./assets/home/home-layout-stability-v87.3.js?v=87.3"></script>
-  <script src="./assets/v79/hsk-dictionary-v79.js?v=79.0"></script>
-  <script src="./assets/v79/unified-dictionary-v79.js?v=79.1"></script>
-  <script src="./assets/msutong-hsk1-v2.js?v=2.1"></script>
-  <script src="./assets/curriculum/content-v1.js?v=1.0"></script>
-  <script src="./assets/curriculum/progress-v1.js?v=1.0"></script>
-  <script src="./assets/daily-learning-v2.js?v=factory1"></script>
-  <script src="./assets/curriculum/workspace-v1.js?v=1.0"></script>
-</body>
-</html>
-<!-- GitHub Pages deployment trigger: v74.0 · 2026-07-17 -->
+    if (isPlainObject(left) && isPlainObject(right)) {
+      var merged = clone(left) || {};
+      var keys = Object.keys(right);
+      for (var j = 0; j < keys.length; j++) {
+        var key = keys[j];
+        if (isPlainObject(merged[key]) && isPlainObject(right[key])) {
+          merged[key] = parseJson(mergeJsonValues(JSON.stringify(merged[key]), JSON.stringify(right[key])), right[key]);
+        } else if (Array.isArray(merged[key]) && Array.isArray(right[key])) {
+          merged[key] = parseJson(mergeJsonValues(JSON.stringify(merged[key]), JSON.stringify(right[key])), right[key]);
+        } else if (typeof merged[key] === "undefined") {
+          merged[key] = right[key];
+        } else if (/completed|done|known|saved/i.test(key) && typeof merged[key] === "boolean" && typeof right[key] === "boolean") {
+          merged[key] = merged[key] || right[key];
+        } else if (/best|highest|max/i.test(key) && typeof merged[key] === "number" && typeof right[key] === "number") {
+          merged[key] = Math.max(merged[key], right[key]);
+        } else {
+          merged[key] = right[key];
+        }
+      }
+      return JSON.stringify(merged);
+    }
+    return rightText;
+  }
+
+  function shouldUnionKey(key) {
+    return /progress|lesson|course|module|exercise|result|weak|review|srs|streak|activity|personal|custom|note|history|achievement/i.test(key) && !/state|setting|preference/i.test(key);
+  }
+
+  function mergeProfiles(localValue, remoteValue) {
+    var local = normalizeProfile(localValue);
+    var remote = normalizeProfile(remoteValue);
+    var merged = { version: 2, fields: {}, updatedAt: 0 };
+    var keys = Object.keys(local.fields).concat(Object.keys(remote.fields));
+    var seen = {};
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      if (seen[key]) continue;
+      seen[key] = true;
+      var left = local.fields[key];
+      var right = remote.fields[key];
+      if (!left) merged.fields[key] = right;
+      else if (!right) merged.fields[key] = left;
+      else if (right.updatedAt > left.updatedAt) merged.fields[key] = right;
+      else if (left.updatedAt > right.updatedAt) merged.fields[key] = left;
+      else if (left.value === right.value) merged.fields[key] = left;
+      else if (shouldUnionKey(key) && left.value !== null && right.value !== null) {
+        merged.fields[key] = { value: mergeJsonValues(left.value, right.value), updatedAt: left.updatedAt };
+      } else {
+        merged.fields[key] = right;
+      }
+      merged.updatedAt = Math.max(merged.updatedAt, merged.fields[key].updatedAt);
+    }
+    return merged;
+  }
+
+  function cacheKey(userId) {
+    return CACHE_PREFIX + (userId || "anonymous");
+  }
+
+  function readProfileCache(userId) {
+    try {
+      return normalizeProfile(parseJson(root.localStorage.getItem(cacheKey(userId)), {}));
+    } catch (error) {
+      return normalizeProfile({});
+    }
+  }
+
+  function writeProfileCache(userId, profile) {
+    try {
+      root.localStorage.setItem(cacheKey(userId), JSON.stringify(normalizeProfile(profile)));
+    } catch (error) {}
+  }
+
+  function captureProfile(userId, previous) {
+    previous = normalizeProfile(previous || readProfileCache(userId));
+    var profile = { version: 2, fields: {}, updatedAt: previous.updatedAt };
+    var seen = {};
+    var currentTime = now();
+    try {
+      for (var i = 0; i < root.localStorage.length; i++) {
+        var key = root.localStorage.key(i);
+        if (!isSyncableKey(key)) continue;
+        seen[key] = true;
+        var value = root.localStorage.getItem(key);
+        var oldField = previous.fields[key];
+        var updatedAt = oldField && oldField.value === value ? oldField.updatedAt : currentTime;
+        profile.fields[key] = { value: value, updatedAt: updatedAt || currentTime };
+        profile.updatedAt = Math.max(profile.updatedAt, profile.fields[key].updatedAt);
+      }
+    } catch (error) {}
+    var oldKeys = Object.keys(previous.fields);
+    for (var j = 0; j < oldKeys.length; j++) {
+      if (!seen[oldKeys[j]]) {
+        profile.fields[oldKeys[j]] = previous.fields[oldKeys[j]].value === null
+          ? previous.fields[oldKeys[j]]
+          : { value: null, updatedAt: currentTime };
+        profile.updatedAt = Math.max(profile.updatedAt, profile.fields[oldKeys[j]].updatedAt);
+      }
+    }
+    return normalizeProfile(profile);
+  }
+
+  function profileRow(profile, userId) {
+    profile = normalizeProfile(profile);
+    var iso = profile.updatedAt ? new Date(profile.updatedAt).toISOString() : null;
+    return {
+      user_id: userId,
+      word_key: PROFILE_WORD_KEY,
+      hanzi: "LEARNING_PROFILE",
+      pinyin: "",
+      near_vi: "",
+      meaning_vi: "Hồ sơ học tập đồng bộ theo tài khoản",
+      category: PROFILE_CATEGORY,
+      note: JSON.stringify(profile),
+      example_zh: "",
+      example_vi: "",
+      is_known: false,
+      is_saved: false,
+      known_updated_at: iso,
+      saved_updated_at: iso
+    };
+  }
+
+  function parseProfileRow(row) {
+    if (!row || row.word_key !== PROFILE_WORD_KEY) return normalizeProfile({});
+    return normalizeProfile(parseJson(row.note, {}));
+  }
+
+  function setStatus(message, kind) {
+    if (!root.document) return;
+    var element = root.document.getElementById("cloudSyncStatus");
+    if (!element) return;
+    element.textContent = message;
+    element.className = "cloud-sync-status" + (kind ? " " + kind : "");
+  }
+
+  function applyProfile(profile, userId) {
+    profile = normalizeProfile(profile);
+    var changed = [];
+    applying = true;
+    try {
+      var keys = Object.keys(profile.fields);
+      for (var i = 0; i < keys.length; i++) {
+        var key = keys[i];
+        var field = profile.fields[key];
+        var current = root.localStorage.getItem(key);
+        if (field.value === null) {
+          if (current !== null) {
+            root.localStorage.removeItem(key);
+            changed.push(key);
+          }
+        } else if (current !== field.value) {
+          root.localStorage.setItem(key, field.value);
+          changed.push(key);
+        }
+      }
+      writeProfileCache(userId, profile);
+      root.localStorage.setItem(ACTIVE_USER_KEY, userId || "");
+    } catch (error) {}
+    applying = false;
+    lastLocalProfile = profile;
+    if (root.document) {
+      try {
+        root.document.dispatchEvent(new CustomEvent("vduckie:account-learning-synced", {
+          detail: { version: VERSION, userId: userId, changedKeys: changed.slice(), profile: profile }
+        }));
+      } catch (error) {}
+    }
+    return changed;
+  }
+
+  function remoteWinningKeys(localValue, remoteValue) {
+    var local = normalizeProfile(localValue);
+    var remote = normalizeProfile(remoteValue);
+    var output = [];
+    var keys = Object.keys(remote.fields);
+    for (var i = 0; i < keys.length; i++) {
+      var left = local.fields[keys[i]];
+      if (!left || remote.fields[keys[i]].updatedAt > left.updatedAt) output.push(keys[i]);
+    }
+    return output;
+  }
+
+  function maybeReload(userId, profile, changed, winning) {
+    if (!changed.length || !winning.length || !root.location || typeof root.location.reload !== "function") return;
+    var important = false;
+    for (var i = 0; i < changed.length; i++) {
+      if (/progress|lesson|course|module|section|setting|preference|roast/i.test(changed[i])) important = true;
+    }
+    if (!important) return;
+    var signature = hash(stableStringify(profile));
+    var key = RELOAD_GUARD_PREFIX + userId;
+    try {
+      if (root.sessionStorage.getItem(key) === signature) return;
+      root.sessionStorage.setItem(key, signature);
+    } catch (error) {}
+    var generation = sessionGeneration;
+    root.setTimeout(function () {
+      if (generation === sessionGeneration && session && session.user && session.user.id === userId) root.location.reload();
+    }, 250);
+  }
+
+  function upsertProfile(profile, generation) {
+    if (generation !== sessionGeneration || !client || !session || !session.user || !root.navigator || !root.navigator.onLine) return Promise.resolve();
+    return client.from("user_words").upsert([profileRow(profile, session.user.id)], {
+      onConflict: "user_id,word_key"
+    }).then(function (result) {
+      if (result.error) throw result.error;
+    });
+  }
+
+  function fetchRemoteProfile() {
+    if (!client || !session || !session.user) return Promise.resolve(null);
+    return client.from("user_words")
+      .select("word_key,note,category,known_updated_at,saved_updated_at")
+      .eq("word_key", PROFILE_WORD_KEY)
+      .then(function (result) {
+        if (result.error) throw result.error;
+        return result.data && result.data.length ? result.data[0] : null;
+      });
+  }
+
+  function synchronizeProfile() {
+    if (!client || !session || !session.user) return Promise.resolve();
+    var userId = session.user.id;
+    var generation = sessionGeneration;
+    var cached = readProfileCache(userId);
+    var local = captureProfile(userId, cached);
+    setStatus("Đang đồng bộ toàn bộ dữ liệu học…", "waiting");
+    return fetchRemoteProfile().then(function (row) {
+      if (generation !== sessionGeneration) return;
+      var remote = parseProfileRow(row);
+      var winning = remoteWinningKeys(local, remote);
+      var merged = mergeProfiles(local, remote);
+      var changed = applyProfile(merged, userId);
+      return upsertProfile(merged, generation).then(function () {
+        if (generation !== sessionGeneration) return;
+        setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
+        maybeReload(userId, merged, changed, winning);
+      });
+    }).catch(function (error) {
+      if (generation !== sessionGeneration) return;
+      console.error("VDuckie full learning profile sync failed", error);
+      setStatus(root.navigator && root.navigator.onLine ? "Lỗi đồng bộ dữ liệu học" : "Chờ có mạng", root.navigator && root.navigator.onLine ? "bad" : "waiting");
+    });
+  }
+
+  function scheduleUpload() {
+    if (!session || !session.user || applying) return;
+    root.clearTimeout(uploadTimer);
+    var userId = session.user.id;
+    var generation = sessionGeneration;
+    uploadTimer = root.setTimeout(function () {
+      if (generation !== sessionGeneration || !session || !session.user || session.user.id !== userId) return;
+      var next = captureProfile(userId, lastLocalProfile || readProfileCache(userId));
+      if (stableStringify(next) === stableStringify(lastLocalProfile || {})) return;
+      lastLocalProfile = next;
+      writeProfileCache(userId, next);
+      upsertProfile(next, generation).then(function () {
+        if (generation !== sessionGeneration) return;
+        setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
+      }).catch(function (error) {
+        if (generation !== sessionGeneration) return;
+        console.error("VDuckie profile upload failed", error);
+        setStatus("Lỗi đồng bộ dữ liệu học", "bad");
+      });
+    }, 600);
+  }
+
+  function updateJsonKey(key, updater) {
+    var current = parseJson(root.localStorage.getItem(key), {});
+    var next = updater(isPlainObject(current) ? current : {}) || current;
+    root.localStorage.setItem(key, JSON.stringify(next));
+    scheduleUpload();
+    return next;
+  }
+
+  function dateKey(value) {
+    var date = value || new Date();
+    var year = date.getFullYear();
+    var month = String(date.getMonth() + 1).padStart ? String(date.getMonth() + 1).padStart(2, "0") : (date.getMonth() + 1 < 10 ? "0" : "") + (date.getMonth() + 1);
+    var day = String(date.getDate()).padStart ? String(date.getDate()).padStart(2, "0") : (date.getDate() < 10 ? "0" : "") + date.getDate();
+    return year + "-" + month + "-" + day;
+  }
+
+  function calculateStreak(dates, today) {
+    var streak = 0;
+    var cursor = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    while (dates[dateKey(cursor)]) {
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+    return streak;
+  }
+
+  function touchActivity(kind) {
+    var currentTime = now();
+    updateJsonKey("vduckie-study-activity-v1", function (activity) {
+      activity.version = 1;
+      activity.dates = isPlainObject(activity.dates) ? activity.dates : {};
+      var today = dateKey(new Date(currentTime));
+      activity.dates[today] = Number(activity.dates[today] || 0) + 1;
+      activity.lastStudyAt = currentTime;
+      activity.lastActivity = kind || "study";
+      activity.totalActions = Number(activity.totalActions || 0) + 1;
+      activity.currentStreak = calculateStreak(activity.dates, new Date(currentTime));
+      activity.longestStreak = Math.max(Number(activity.longestStreak || 0), activity.currentStreak);
+      return activity;
+    });
+  }
+
+  function ensureDefaults() {
+    if (!root.localStorage.getItem("vduckie-study-goals-v1")) {
+      root.localStorage.setItem("vduckie-study-goals-v1", JSON.stringify({ version: 1, dailyWords: 10, dailyMinutes: 15, dailyLessons: 1, updatedAt: now() }));
+    }
+    updateJsonKey("vduckie-learning-settings-v1", function (settings) {
+      settings.version = 1;
+      settings.roastErp = root.localStorage.getItem("vduckie-roast-enabled") !== "0";
+      settings.roastHsk = root.localStorage.getItem("vduckie-hsk-roast-enabled") !== "0";
+      settings.updatedAt = now();
+      return settings;
+    });
+  }
+
+  function activeHskLessonId() {
+    var state = parseJson(root.localStorage.getItem("erp-hsk-state-v2"), { level: 0, lesson: 0 });
+    var curriculum = root.HSKCurriculum;
+    if (curriculum && curriculum.levels && curriculum.levels[state.level] && curriculum.levels[state.level][state.lesson]) {
+      var lesson = curriculum.levels[state.level][state.lesson];
+      return text(lesson.id || ("hsk" + state.level + "-" + state.lesson));
+    }
+    return "hsk" + Number(state.level || 0) + "-" + Number(state.lesson || 0);
+  }
+
+  function sectionName(button) {
+    if (!button) return "lesson";
+    var action = button.getAttribute("data-hsk-action") || "";
+    if (action.indexOf("dictation") !== -1) return "dictation";
+    if (button.hasAttribute("data-hsk-option")) return "quiz";
+    if (button.hasAttribute("data-hsk-reading-option")) return "reading";
+    if (button.hasAttribute("data-v62-speaking-start") || button.hasAttribute("data-v62-speaking-listen")) return "speaking";
+    if (button.hasAttribute("data-v62-order-check")) return "grammar";
+    var section = button.closest && button.closest(".hsk-section");
+    var heading = section && section.querySelector("h4");
+    var label = text(heading && heading.textContent).toLowerCase();
+    if (/hán tự|nét|viết/.test(label)) return "hanzi";
+    if (/từ mới|từ vựng/.test(label)) return "vocabulary";
+    if (/nghe/.test(label)) return "listening";
+    if (/đọc/.test(label)) return "reading";
+    if (/nói|hskk/.test(label)) return "speaking";
+    if (/ngữ pháp/.test(label)) return "grammar";
+    return "lesson";
+  }
+
+  function hskPreviewReadOnly() {
+    return !!(
+      (root.HSKCurriculum && root.HSKCurriculum.previewMode === "canonical") ||
+      (root.document && root.document.body && root.document.body.getAttribute("data-hsk-curriculum-preview") === "canonical")
+    );
+  }
+
+  function recordHskSection(section, completed) {
+    var lessonId = activeHskLessonId();
+    var currentTime = now();
+    updateJsonKey("vduckie-hsk-section-progress-v1", function (all) {
+      all.version = 1;
+      all.lessons = isPlainObject(all.lessons) ? all.lessons : {};
+      var lesson = isPlainObject(all.lessons[lessonId]) ? all.lessons[lessonId] : { sections: {} };
+      lesson.sections = isPlainObject(lesson.sections) ? lesson.sections : {};
+      var item = isPlainObject(lesson.sections[section]) ? lesson.sections[section] : {};
+      item.visits = Number(item.visits || 0) + 1;
+      item.lastVisitedAt = currentTime;
+      if (completed) item.completedAt = currentTime;
+      lesson.sections[section] = item;
+      lesson.lastSection = section;
+      lesson.updatedAt = currentTime;
+      all.lessons[lessonId] = lesson;
+      all.updatedAt = currentTime;
+      return all;
+    });
+    touchActivity("hsk:" + section);
+  }
+
+  function recordExercise(context, type, correct, word, score) {
+    var currentTime = now();
+    var key = context + ":" + activeHskLessonId() + ":" + type;
+    updateJsonKey("vduckie-exercise-results-v1", function (all) {
+      all.version = 1;
+      all.items = isPlainObject(all.items) ? all.items : {};
+      var item = isPlainObject(all.items[key]) ? all.items[key] : {};
+      item.attempts = Number(item.attempts || 0) + 1;
+      item.correct = Number(item.correct || 0) + (correct ? 1 : 0);
+      item.wrong = Number(item.wrong || 0) + (correct ? 0 : 1);
+      item.lastResult = correct ? "correct" : "wrong";
+      item.lastAt = currentTime;
+      if (typeof score === "number") item.bestScore = Math.max(Number(item.bestScore || 0), score);
+      all.items[key] = item;
+      all.updatedAt = currentTime;
+      return all;
+    });
+    if (word) recordReviewWord(word, correct, context);
+    touchActivity(context + ":" + type);
+  }
+
+  function recordReviewWord(word, correct, source) {
+    word = text(word).trim();
+    if (!word) return;
+    var currentTime = now();
+    updateJsonKey("vduckie-review-srs-v1", function (all) {
+      all.version = 1;
+      all.words = isPlainObject(all.words) ? all.words : {};
+      var item = isPlainObject(all.words[word]) ? all.words[word] : { intervalDays: 0, correctCount: 0, wrongCount: 0 };
+      if (correct) {
+        item.correctCount = Number(item.correctCount || 0) + 1;
+        item.intervalDays = Math.max(1, Number(item.intervalDays || 0) * 2 || 1);
+        item.difficulty = Math.max(0, Number(item.difficulty || 0) - 1);
+      } else {
+        item.wrongCount = Number(item.wrongCount || 0) + 1;
+        item.intervalDays = 1;
+        item.difficulty = Number(item.difficulty || 0) + 1;
+      }
+      item.source = source;
+      item.lastReviewedAt = currentTime;
+      item.nextReviewAt = currentTime + item.intervalDays * 86400000;
+      all.words[word] = item;
+      all.updatedAt = currentTime;
+      return all;
+    });
+  }
+
+  function handleStudyClick(event) {
+    var button = event.target && event.target.closest ? event.target.closest("button") : null;
+    if (!button) return;
+    if (button.closest && button.closest("#hskLesson")) {
+      if (hskPreviewReadOnly()) return;
+      var section = sectionName(button);
+      recordHskSection(section, false);
+      if (button.hasAttribute("data-hsk-option")) {
+        root.setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
+          var card = button.closest(".hsk-quiz");
+          var correct = button.classList.contains("correct");
+          var wordNode = card && card.querySelector(".hsk-quiz-prompt strong");
+          recordExercise("hsk", "quiz", correct, wordNode && wordNode.textContent);
+          if (correct) recordHskSection("quiz", true);
+        }, 220);
+      } else if (button.getAttribute("data-hsk-action") === "dictation-check") {
+        root.setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
+          var feedback = root.document.getElementById("hskDictationFeedback");
+          var answer = button.getAttribute("data-answer") || "";
+          var correct = feedback && /good|chính xác|đúng/i.test((feedback.className || "") + " " + (feedback.textContent || "")) && !/bad|sai|chưa đúng/i.test((feedback.className || "") + " " + (feedback.textContent || ""));
+          recordExercise("hsk", "dictation", correct, answer);
+          if (correct) recordHskSection("dictation", true);
+        }, 300);
+      } else if (button.hasAttribute("data-hsk-reading-option")) {
+        var readingCorrect = button.getAttribute("data-correct") === "1";
+        recordExercise("hsk", "reading", readingCorrect, "");
+        if (readingCorrect) recordHskSection("reading", true);
+      } else if (button.hasAttribute("data-v62-order-check")) {
+        root.setTimeout(function () {
+          if (hskPreviewReadOnly()) return;
+          var card = button.closest("[data-v62-grammar-trap]");
+          var feedback = card && card.querySelector("[data-v62-order-feedback]");
+          var correct = feedback && /good|chính xác|đúng/i.test((feedback.className || "") + " " + (feedback.textContent || "")) && !/bad|sai|chưa đúng/i.test((feedback.className || "") + " " + (feedback.textContent || ""));
+          recordExercise("hsk", "grammar", correct, "");
+          if (correct) recordHskSection("grammar", true);
+        }, 300);
+      }
+      return;
+    }
+    if (button.closest && button.closest("#erpLessonApp")) {
+      touchActivity("erp:lesson");
+      if (button.classList.contains("erp-module-option")) {
+        root.setTimeout(function () {
+          var card = button.closest(".erp-module-quiz");
+          var wordNode = card && card.querySelector(".erp-module-question strong");
+          recordExercise("erp", "quiz", button.classList.contains("correct"), wordNode && wordNode.textContent);
+        }, 220);
+      }
+    }
+  }
+
+  function handleLearningChange(event) {
+    var detail = event && event.detail ? event.detail : {};
+    var word = detail.word_key || detail.hanzi || "";
+    if (word) recordReviewWord(word, !!detail.is_known, "dictionary");
+    touchActivity("dictionary");
+  }
+
+  function startTracking() {
+    ensureDefaults();
+    if (root.document) {
+      root.document.addEventListener("click", handleStudyClick, true);
+      root.document.addEventListener("vduckie:learning-change", handleLearningChange);
+      root.document.addEventListener("vduckie:erp-lesson-progress", function (event) {
+        root.localStorage.setItem("vduckie-erp-study-progress-v1", JSON.stringify({ version: 1, lessons: event.detail || {}, updatedAt: now() }));
+        touchActivity("erp:completed");
+      });
+      root.document.addEventListener("vduckie:hsk-progress-synced", scheduleUpload);
+    }
+    root.addEventListener("storage", function (event) {
+      if (event && isSyncableKey(event.key)) scheduleUpload();
+    });
+    root.addEventListener("online", synchronizeProfile);
+    root.addEventListener("beforeunload", function () {
+      if (session && session.user) {
+        var profile = captureProfile(session.user.id, lastLocalProfile || readProfileCache(session.user.id));
+        writeProfileCache(session.user.id, profile);
+      }
+    });
+    pollTimer = root.setInterval(function () {
+      if (!session || !session.user || applying) return;
+      var next = captureProfile(session.user.id, lastLocalProfile || readProfileCache(session.user.id));
+      if (stableStringify(next) !== stableStringify(lastLocalProfile || {})) scheduleUpload();
+    }, 800);
+  }
+
+  function profileHasFields(profile) {
+    return Object.keys(normalizeProfile(profile).fields).length > 0;
+  }
+
+  function removeSyncableValues() {
+    var keys = [];
+    try {
+      for (var i = 0; i < root.localStorage.length; i++) {
+        var key = root.localStorage.key(i);
+        if (isSyncableKey(key)) keys.push(key);
+      }
+      for (var j = 0; j < keys.length; j++) root.localStorage.removeItem(keys[j]);
+    } catch (error) {}
+  }
+
+  function switchLocalProfile(nextUserId) {
+    var previousUserId = "";
+    try { previousUserId = root.localStorage.getItem(ACTIVE_USER_KEY) || ""; } catch (error) {}
+    var current = captureProfile(previousUserId || "anonymous", readProfileCache(previousUserId || "anonymous"));
+    if (previousUserId) writeProfileCache(previousUserId, current);
+    else writeProfileCache("anonymous", current);
+
+    var cached = readProfileCache(nextUserId);
+    if (!profileHasFields(cached) && !previousUserId) cached = readProfileCache("anonymous");
+    removeSyncableValues();
+    applyProfile(cached, nextUserId);
+    return cached;
+  }
+
+  function handleSession(nextSession) {
+    var previousSession = session;
+    var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
+    sessionGeneration++;
+    root.clearTimeout(uploadTimer);
+    uploadTimer = null;
+    session = nextSession || null;
+    if (!session || !session.user) {
+      if (previousUserId) writeProfileCache(previousUserId, captureProfile(previousUserId, lastLocalProfile || readProfileCache(previousUserId)));
+      var anonymous = readProfileCache("anonymous");
+      removeSyncableValues();
+      applyProfile(anonymous, "");
+      lastLocalProfile = anonymous;
+      return;
+    }
+    var userId = session.user.id;
+    var activeUser = "";
+    try { activeUser = root.localStorage.getItem(ACTIVE_USER_KEY) || ""; } catch (error) {}
+    var selected = activeUser === userId
+      ? readProfileCache(userId)
+      : switchLocalProfile(userId);
+    lastLocalProfile = captureProfile(userId, selected);
+    writeProfileCache(userId, lastLocalProfile);
+    synchronizeProfile();
+  }
+
+  function attachClient(nextClient) {
+    if (!nextClient || started) return;
+    started = true;
+    client = nextClient;
+    startTracking();
+    client.auth.getSession().then(function (result) {
+      if (!result.error) handleSession(result.data.session);
+    });
+    client.auth.onAuthStateChange(function (_event, nextSession) {
+      root.setTimeout(function () { handleSession(nextSession); }, 0);
+    });
+  }
+
+  function wrapSupabaseFactory() {
+    if (!root.supabase || typeof root.supabase.createClient !== "function") return false;
+    if (root.supabase.__vduckieAccountSyncWrapped) return true;
+    var original = root.supabase.createClient;
+    root.supabase.createClient = function () {
+      var created = original.apply(this, arguments);
+      root.setTimeout(function () { attachClient(created); }, 0);
+      return created;
+    };
+    root.supabase.__vduckieAccountSyncWrapped = true;
+    return true;
+  }
+
+  root.VDuckieAccountSyncUtils = {
+    version: VERSION,
+    profileWordKey: PROFILE_WORD_KEY,
+    isSyncableKey: isSyncableKey,
+    normalize: normalizeProfile,
+    merge: mergeProfiles,
+    mergeJsonValues: mergeJsonValues,
+    profileRow: profileRow,
+    parseProfileRow: parseProfileRow,
+    calculateStreak: calculateStreak,
+    stableString: stableStringify
+  };
+
+  if (!root.document) return;
+  if (!wrapSupabaseFactory()) {
+    var attempts = 0;
+    var wait = root.setInterval(function () {
+      attempts++;
+      if (wrapSupabaseFactory() || attempts > 100) root.clearInterval(wait);
+    }, 25);
+  }
+})(typeof window !== "undefined" ? window : globalThis);

@@ -38,7 +38,8 @@ test('syncs durable learning data and rejects local-only browser state', () => {
     'erp-hsk-state-v2',
     'vduckie-hsk-progress-meta-v1',
     'search-query',
-    'sidebar-open'
+    'sidebar-open',
+    'vduckie-vietnamese-v1:alice'
   ];
   for (const key of rejected) assert.equal(utils.isSyncableKey(key), false, key);
 });
@@ -126,4 +127,77 @@ test('deployment patch isolates accounts and installs v82.1', () => {
   assert.match(patch, /readProfileCache\("anonymous"\)/);
   assert.match(patch, /\^__vduckie_/);
   assert.match(patch, /\^__system_/);
+});
+
+
+function accountRuntime() {
+  const values = new Map();
+  const timers = new Map();
+  let timerId = 0;
+  const reads = [];
+  const writes = [];
+  const ctx = {
+    console,
+    navigator: { onLine: true },
+    localStorage: {
+      get length() { return values.size; },
+      key: (index) => Array.from(values.keys())[index] || null,
+      getItem: (key) => values.has(key) ? values.get(key) : null,
+      setItem: (key, value) => values.set(key, String(value)),
+      removeItem: (key) => values.delete(key)
+    },
+    setTimeout: (fn) => { timers.set(++timerId, fn); return timerId; },
+    clearTimeout: (id) => timers.delete(id)
+  };
+  ctx.globalThis = ctx;
+  vm.createContext(ctx);
+  // Instrument private lifecycle functions only in this VM, never in production.
+  vm.runInContext(source.replace('  root.VDuckieAccountSyncUtils = {', `
+    root.testLifecycle = {
+      attach: function(value) { client = value; },
+      session: handleSession,
+      schedule: scheduleUpload
+    };
+    root.VDuckieAccountSyncUtils = {`), ctx);
+  ctx.testLifecycle.attach({ from() { return {
+    select() { return this; }, eq() { return this; },
+    then(resolve) { return new Promise(done => reads.push(row => done(resolve({data: row ? [row] : [], error:null})))); },
+    upsert(rows) { writes.push(...rows); return Promise.resolve({error:null}); }
+  }; } });
+  return { ctx, values, timers, reads, writes, api: ctx.testLifecycle };
+}
+
+test('logout cancels a queued learning upload even if its callback was already queued', async () => {
+  const r = accountRuntime();
+  r.api.session({user:{id:'alice'}});
+  r.values.set('vduckie-study-goals-v1', '{"dailyWords":12}');
+  r.api.schedule();
+  const staleCallback = Array.from(r.timers.values())[0];
+  assert.equal(typeof staleCallback, 'function');
+  r.api.session(null);
+  assert.equal(r.timers.size, 0);
+  assert.doesNotThrow(() => staleCallback());
+  r.reads[0](null);
+  await new Promise(setImmediate);
+  assert.equal(r.writes.length, 0);
+});
+
+test('late profile fetch and queued upload cannot apply Alice data after switching to Bob', async () => {
+  const r = accountRuntime();
+  r.api.session({user:{id:'alice'}});
+  r.values.set('vduckie-study-goals-v1', '{"dailyWords":12}');
+  r.api.schedule();
+  const staleCallback = Array.from(r.timers.values())[0];
+  r.api.session({user:{id:'bob'}});
+  staleCallback();
+  const remote = utils.profileRow({fields:{'vduckie-study-goals-v1':{value:'{"dailyWords":99}',updatedAt:Date.now()+10000}}}, 'alice');
+  r.reads[0](remote);
+  await new Promise(setImmediate);
+  assert.notEqual(r.values.get('vduckie-study-goals-v1'), '{"dailyWords":99}');
+  assert.equal(r.writes.length, 0);
+  r.reads[1](null);
+  await new Promise(setImmediate);
+  assert.equal(r.writes.length, 1);
+  assert.equal(r.writes[0].user_id, 'bob');
+  assert.doesNotMatch(r.writes[0].note, /dailyWords/);
 });
