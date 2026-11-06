@@ -29,7 +29,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   assert.ok((await page.locator('#studySidebar').boundingBox()).x>=-1);
   await page.screenshot({path:path.join(out,name+'-menu.png')});
   await page.keyboard.press('Escape');assert.equal(await toggle.getAttribute('aria-expanded'),'false');assert.equal(await toggle.evaluate(n=>document.activeElement===n),true);
-  await toggle.click();await page.locator('#sidebarBackdrop').click({position:{x:viewport.width-10,y:40}});assert.equal(await toggle.getAttribute('aria-expanded'),'false');
+  await toggle.click();await page.mouse.click(await page.evaluate(()=>document.documentElement.clientWidth-5),40);assert.equal(await toggle.getAttribute('aria-expanded'),'false');
   await toggle.click();const close=page.locator('#sidebarClose');await close.focus();await page.keyboard.press('Shift+Tab');assert.equal(await page.locator('#studySidebar').evaluate(n=>n.contains(document.activeElement)),true);
  }else assert.equal(await toggle.isVisible(),false);
  await page.locator('#studySidebar [data-view=lessons]').click();

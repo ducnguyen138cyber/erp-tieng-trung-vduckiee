@@ -5,6 +5,8 @@
   var KEY="vduckie-ui-language-v1";
   var supported={vi:true,zh:true,en:true};
   var strings={
+    "Đồng bộ khi đăng nhập":["登录后同步","Sync when signed in"],
+    "Học tiếp trên mọi thiết bị":["在其他设备上继续学习","Continue on any device"],
     "Chọn cấp độ phù hợp, học từng bài và luyện đề khi bạn đã sẵn sàng.":["选择合适的级别，逐课学习，准备好后练习试题。","Choose your level, learn lesson by lesson, and try practice tests when you are ready."],
     "Mới bắt đầu? Học HSK từ nền tảng, hoặc luyện tiếng Trung công xưởng để dùng trong công việc.":["初学者？从 HSK 基础开始，或练习工作中实用的工厂汉语。","New to Chinese? Start with HSK basics or practice factory Chinese for work."],
     "Học tiếng Trung công xưởng":["学习工厂汉语","Learn factory Chinese"],
@@ -2633,6 +2635,7 @@
         [/^([\u3400-\u9fff]+)\s*nghĩa là gì\?$/i,["$1是什么意思？","What does $1 mean?"]],
         [/^(\d+)\s*kết quả\s*[·•]\s*đang hiện\s*(\d+)\s*kết quả đầu$/i,["找到 $1 条结果 · 显示前 $2 条","$1 results · showing first $2"]],
         [/^(\d+)\s*kết quả$/i,["找到 $1 条结果","$1 results"]],
+        [/^(\d+)\s*từ công xưởng đã thuộc$/i,["已掌握 $1 个工厂词汇","$1 factory words mastered"]],
         [/^(\d+)\s*từ ERP đã thuộc$/i,["已掌握 $1 个 ERP 词汇","$1 ERP words mastered"]],
         [/^(\d+)\s*\/\s*(\d+)\s*bài giáo trình hoàn thành$/i,["已完成 $1/$2 节课程","$1/$2 curriculum lessons completed"]],
         [/^(\d+)\s*\/\s*(\d+)\s*bài giáo trình$/i,["$1/$2 节课程","$1/$2 curriculum lessons"]],

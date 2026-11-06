@@ -314,6 +314,8 @@ test('screenshot audit: review, ranking, dictionary, HSK tabs, and profile use C
     ['HỒ SƠ HỌC TẬP','学习档案'],
     ['VDuckie của bạn','我的 VDuckie'],
     ['0 từ ERP đã thuộc','已掌握 0 个 ERP 词汇'],
+    ['0 từ công xưởng đã thuộc','已掌握 0 个工厂词汇'],
+    ['Đồng bộ khi đăng nhập','登录后同步'],
     ['2/20 bài giáo trình hoàn thành','已完成 2/20 节课程'],
     ['Supabase sync khi đăng nhập','登录后通过 Supabase 同步'],
     ['PWA dùng chung tiến độ','PWA 共享学习进度'],
