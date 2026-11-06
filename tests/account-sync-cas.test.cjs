@@ -56,7 +56,7 @@ function createFakeBackend() {
       return {
         auth: {
           getSession: async () => ({ data: { session: null } }),
-          onAuthStateChange: fn => { this.onAuth = fn; }
+          onAuthStateChange(fn) { this.onAuth = fn; }
         },
         from() {
           return {
