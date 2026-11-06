@@ -178,7 +178,7 @@ self.addEventListener("fetch", (event) => {
           if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(request, response.clone()));
           return response;
         })
-        .catch(async () => (url.pathname === new URL("./install.html", SCOPE_URL).pathname ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html")))
+        .catch(async () => (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html")))
     );
     return;
   }

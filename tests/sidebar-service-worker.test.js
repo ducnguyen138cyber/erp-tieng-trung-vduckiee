@@ -107,4 +107,5 @@ test('offline launch shows the complete offline page instead of an incomplete ap
   await w.seed('https://example.test/app/install.html', 'install-guide');
   assert.equal((await w.load('?screen=home', { mode: 'navigate' })).body, 'offline-page');
   assert.equal((await w.load('install.html', { mode: 'navigate' })).body, 'install-guide');
+  assert.equal((await w.load('install', { mode: 'navigate' })).body, 'install-guide');
 });
