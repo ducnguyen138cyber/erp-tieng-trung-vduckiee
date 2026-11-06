@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="google-site-verification" content="989kb0RollPC8M-Q6H5_ozsYmR1MEvZKVMIJHDs6kK0">
   <meta name="color-scheme" content="light">
   <link rel="icon" type="image/png" href="./assets/mascot/duckie-reader-icon-32.png?v=4.0">
@@ -87,8 +87,12 @@
   <link rel="stylesheet" href="./assets/daily-learning-v2.css?v=2.9">
   <link rel="stylesheet" href="./assets/curriculum/workspace-v1.css?v=1.0">
   <meta name="theme-color" content="#F8FAFC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="VDuckie">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="stylesheet" href="./assets/pwa/mobile-pwa.css?v=1">
   <link rel="manifest" href="./manifest.webmanifest">
-  <script defer src="./pwa-register.js?v=2"></script>
+  <script defer src="./pwa-register.js?v=3"></script>
 </head>
 <body>
   <div class="shell" id="appShell">
@@ -133,7 +137,8 @@
         <nav class="home-switch" aria-label="Tài khoản và thống kê">
           <button data-daily-nav="profile"><img class="menu-signature" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt=""><span>VDuckie &amp; thống kê</span></button>
         </nav>
-        
+        <a class="pwa-menu-link" data-pwa-install-link href="./install.html"><span aria-hidden="true">↓</span> Cài ứng dụng</a>
+        <button type="button" class="pwa-primary" data-pwa-update hidden>Cập nhật VDuckie</button>
       </aside>
 
       <div class="study-center">
@@ -147,6 +152,7 @@
                 <div class="home-welcome-actions">
                   <button class="home-primary-action" type="button" data-daily-nav="msutong">Bắt đầu học HSK <span aria-hidden="true">→</span></button>
                   <button class="home-secondary-action" type="button" data-home-area="erp" data-home-view="cards">Từ vựng công xưởng</button>
+                  <a class="home-secondary-action" data-pwa-install-link href="./install.html">Cài ứng dụng</a>
                 </div>
               </div>
               <img class="home-welcome-mascot" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Duckie đọc sách tiếng Trung">
