@@ -65,7 +65,7 @@
   }
 
   function submitLabel() {
-    return mode === "register" ? "Tạo góc học tập" : mode === "forgot" ? "Gửi liên kết đặt lại" :
+    return mode === "register" ? "Tạo tài khoản VDuckie" : mode === "forgot" ? "Gửi liên kết đặt lại" :
       mode === "recover" ? "Lưu mật khẩu mới" : "Tiếp tục học";
   }
 
