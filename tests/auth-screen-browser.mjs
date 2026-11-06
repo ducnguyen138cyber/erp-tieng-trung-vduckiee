@@ -30,7 +30,10 @@ const sdk = `(() => {
      onAuthStateChange:(fn)=>{data.listener=fn;return {data:{subscription:{unsubscribe(){}}}}},
      signInWithOAuth:async(options)=>{data.calls.push(['google',options]);return {data:{},error:null}},
      signInWithPassword:async(options)=>{data.calls.push(['login',options]);return {data:{session:{user:{id:'mock-user',email:options.email,user_metadata:{}}}},error:null}},
-     signUp:async(options)=>{data.calls.push(['register',options]);return {data:{user:{id:'mock-new'},session:null},error:null}},
+     signUp:async(options)=>{data.calls.push(['register',options]);
+       if(data.signupMode==='duplicate')return {data:{user:{id:'masked-existing',identities:[]},session:null},error:null};
+       if(data.signupMode==='smtp-error')return {data:{},error:{code:'email_address_not_authorized',message:'Email address not authorized'}};
+       return {data:{user:{id:'mock-new',identities:[{provider:'email'}]},session:null},error:null}},
      resetPasswordForEmail:async(email,options)=>{data.calls.push(['reset',email,options]);return {data:{},error:null}},
      updateUser:async(options)=>{data.calls.push(['update',options]);return {data:{user:{}},error:null}},
      signOut:async()=>({error:null})
@@ -83,8 +86,24 @@ try {
     })));
     await auth.locator('#vdaTerms').check();
     await auth.locator('#vdaSubmit').click();
-    await auth.locator('#vdaMessage[data-type="success"]').waitFor();
+    await auth.locator('#vdaMessage[data-type="info"]').waitFor();
+    const firstNotice=await auth.locator('#vdaMessage').innerText();
+    assert.match(firstNotice,/Nếu đây là email mới/);
+    assert.match(firstNotice,/đăng nhập bằng Google/);
+    assert.doesNotMatch(firstNotice,/Đã gửi (email|yêu cầu)/);
     assert.equal(await page.evaluate(()=>window.__authFixture.calls.filter(x=>x[0]==='register').length),1);
+
+    // Supabase may return an obfuscated success when an email already belongs
+    // to a confirmed Google account: never tell the visitor an email was sent.
+    await page.evaluate(()=>{window.__authFixture.signupMode='duplicate';});
+    await auth.locator('#vdaSubmit').click();
+    assert.equal(await auth.locator('#vdaMessage').innerText(),firstNotice);
+    assert.equal(await auth.locator('#vdaGoogle').isVisible(),true);
+
+    // Built-in SMTP rejects non-team addresses; display an actionable error.
+    await page.evaluate(()=>{window.__authFixture.signupMode='smtp-error';});
+    await auth.locator('#vdaSubmit').click();
+    await auth.locator('#vdaMessage[data-type="error"]').getByText(/chưa hỗ trợ địa chỉ này/).waitFor();
 
     await auth.locator('#vdaSwitch').click();
     await auth.locator('#vdaEmail').fill('test@example.com');
