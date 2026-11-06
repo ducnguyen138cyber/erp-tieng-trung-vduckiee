@@ -45,17 +45,26 @@
     "./assets/v79/hsk-dictionary-v79.js?v=79.0",
     "./assets/v79/unified-dictionary-v79.js?v=79.0"
   ];
+  // Keep the source list above as an auditable fallback manifest; executing
+  // one generated bundle avoids 15 parser-blocking network round trips.
+  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=1";
+  function loadFallback(index) {
+    if (index >= files.length) return;
+    var fallback = document.createElement("script");
+    fallback.async = false;
+    fallback.src = files[index];
+    fallback.onload = function () { loadFallback(index + 1); };
+    fallback.onerror = function () { console.error("Không nạp được gói dữ liệu ERP/HSK/Từ điển:", files[index]); loadFallback(index + 1); };
+    document.head.appendChild(fallback);
+  }
   if (document.readyState === "loading") {
-    for (var i = 0; i < files.length; i++) document.write('<script src="' + files[i] + '"></script>');
+    // A parser-inserted script preserves the original dependency/order contract.
+    window.VDuckieERPBootFallback = function () { loadFallback(0); };
+    document.write('<script src="' + bootBundle + '" onerror="window.VDuckieERPBootFallback()"><\\/script>'.replace("<\\/script>", "<\/script>"));
     return;
   }
-  function load(index) {
-    if (index >= files.length) return;
-    var script = document.createElement("script");
-    script.src = files[index];
-    script.onload = function () { load(index + 1); };
-    script.onerror = function () { console.error("Không nạp được gói dữ liệu ERP/HSK/Từ điển:", files[index]); load(index + 1); };
-    document.head.appendChild(script);
-  }
-  load(0);
+  var bundled = document.createElement("script");
+  bundled.src = bootBundle;
+  bundled.onerror = function () { loadFallback(0); };
+  document.head.appendChild(bundled);
 })();
