@@ -21,7 +21,7 @@ const APP_SHELL = [
   "./assets/navigation/screen-router.js?v=drawer1",
   "./assets/v90/home-exp-sidebar-v90.js?v=factory1",
 
-  "./assets/auth/auth-screen.css?v=3",
+  "./assets/auth/auth-screen.css?v=4",
   "./assets/auth/auth-screen.js?v=3",
   "./assets/interface/public-interface.css?v=3",
   "./assets/interface/mobile-navigation.js?v=1",
