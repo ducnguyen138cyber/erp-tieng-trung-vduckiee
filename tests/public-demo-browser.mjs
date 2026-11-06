@@ -58,7 +58,22 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   const limit=topic==='basic'?10:2;
   for(let i=0;i<limit;i++){
    const prompt=await page.locator('.sg-prompt').innerText(),s=bank.find(s=>s.vi===prompt);assert.ok(s);assert.equal(await page.locator('.sg-answer').textContent(),'');assert.equal(await page.locator('.sg-hanzi').count(),0);
-   const input=page.locator('#sentencePinyin'),answer=T.normalize(s.answers.at(-1).pinyin);await input.pressSequentially(answer[0]);await input.pressSequentially('zz');assert.equal(await input.inputValue(),answer[0]);await input.press('Backspace');assert.equal(await input.inputValue(),'');
+   const input=page.locator('#sentencePinyin'),answer=T.normalize(s.answers.at(-1).pinyin),mask=page.locator('.sg-mask');
+   assert.equal(await page.locator('.sg-slot.is-correct').count(),0);assert.equal(await page.locator('.sg-caret').count(),1);assert.doesNotMatch(await mask.innerText(),/[a-z]/i);
+   assert.deepEqual(await page.locator('.sg-syllable').allTextContents(),s.answers[0].pinyin.trim().split(/\s+/).map(p=>'*'.repeat(T.normalize(p).length)));
+   assert.equal(await mask.getAttribute('aria-hidden'),'true');assert.equal(await input.evaluate(n=>getComputedStyle(n).color),'rgba(0, 0, 0, 0)');
+   await input.pressSequentially(answer[0]);assert.equal(await page.locator('.sg-slot.is-correct').textContent(),answer[0]);assert.equal(await page.locator('.sg-slot.is-correct').evaluate(n=>getComputedStyle(n).color),'rgb(21, 148, 85)');
+   // Freeze the finite error animation to verify both feedback color and movement.
+   await input.pressSequentially('#');assert.equal(await input.inputValue(),answer[0]);
+   const error=await page.locator('.sg-slot.is-current').evaluate(n=>{const a=n.getAnimations()[0];if(!a)return null;a.pause();a.currentTime=100;return {duration:a.effect.getTiming().duration,color:getComputedStyle(n).color,frames:a.effect.getKeyframes()};});
+   assert.ok(error,'wrong character animates current star');assert.equal(error.duration,420);assert.equal(error.color,'rgb(220, 38, 38)');assert.ok(error.frames.some(f=>f.transform==='translateX(-3px)'));
+   await input.pressSequentially('#');assert.equal(await input.inputValue(),answer[0]);assert.doesNotMatch(await mask.innerText(),/#/);
+   await input.press('Backspace');assert.equal(await input.inputValue(),'');assert.equal(await page.locator('.sg-slot.is-correct').count(),0);assert.equal(await page.locator('.sg-slot.is-current').evaluate(n=>n.getAnimations().length),0);
+   const layout=await mask.evaluate(n=>({width:n.clientWidth,scroll:n.scrollWidth,font:parseFloat(getComputedStyle(n).fontSize),box:n.parentElement.getBoundingClientRect().height}));assert.ok(layout.scroll<=layout.width+1);assert.ok(layout.font<=(viewport.width<=650?28:42));assert.ok(layout.box>=90);
+   if(i===0){await input.pressSequentially(answer.slice(0,Math.min(6,answer.length-1)));await input.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(out,name+'-'+topic+'-masked.png')});}
+   if(i===0&&topic==='factory'){
+    await page.emulateMedia({reducedMotion:'reduce'});await input.pressSequentially('#');const frames=await page.locator('.sg-slot.is-current').evaluate(n=>n.getAnimations()[0].effect.getKeyframes());assert.ok(frames.every(f=>f.transform==='none'||f.transform==='translateX(0)'));await page.emulateMedia({reducedMotion:'no-preference'});
+   }
    if(i===1){await page.locator('[data-sentence-action=skip]').click();}else{await input.fill(answer);assert.equal(await page.locator('.sg-hanzi').textContent(),s.answers.at(-1).hanzi);assert.equal(await input.getAttribute('readonly'),'');}
    if(i===0)assert.equal(await page.locator('[data-sg-summary]').textContent(),'Đúng 1 câu · 100 điểm');
    assert.ok(await page.locator('.sg-pinyin').isVisible());assert.equal(await page.locator('.duckie-chat-launch').isVisible(),false);
@@ -69,7 +84,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await page.locator('[data-sentence-action=choices]').click();
  }
  await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),2);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
- results.push({viewport,passed:true,checks:['mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
+ results.push({viewport,passed:true,checks:['mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
 }
 await writeFile(path.join(out,'results.json'),JSON.stringify(results,null,2));
 }finally{server.closeAllConnections();await new Promise(r=>server.close(r));await browser.close();}

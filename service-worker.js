@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v42";
+const CACHE_VERSION = "vduckie-pwa-v43";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -24,9 +24,9 @@ const APP_SHELL = [
   "./assets/interface/public-interface.css?v=1",
   "./assets/interface/mobile-navigation.js?v=1",
   "./assets/factory/workshop-content.js?v=1",
-  "./assets/games/sentence-engine.js?v=1",
-  "./assets/games/sentence-game.js?v=1",
-  "./assets/games/sentence-game.css?v=1",
+  "./assets/games/sentence-engine.js?v=2",
+  "./assets/games/sentence-game.js?v=2",
+  "./assets/games/sentence-game.css?v=2",
   "./data/games/sentences.json?v=1",
   "./assets/games/typing-game.css?v=5",
   "./assets/games/typing-engine.js?v=2",

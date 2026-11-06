@@ -13,4 +13,7 @@ return {accepted:accepted,rejected:rejected};};
 Round.prototype.skip=function(){if(this.ended||this.revealed)return;this.missed.push(this.current());this.answer=this.current().answers[0];this.revealed=true;};
 Round.prototype.next=function(){if(!this.revealed||this.ended)return false;this.index++;this.input='';this.solved=false;this.revealed=false;this.answer=null;if(this.index>=this.items.length)this.ended=true;return true;};
 Round.prototype.result=function(){return {score:this.score,completed:this.completed,total:this.items.length,accuracy:this.attempts?Math.round(100*this.correct/this.attempts):0,missed:this.missed.slice()};};
-return {Round:Round};});
+// Choose a curated alternative only from the accepted prefix. Never expose hidden letters.
+Round.prototype.mask=function(){var input=this.input,answer=(this.solved?this.answer:null)||this.current().answers.find(function(a){return T.normalize(a.pinyin).indexOf(input)===0;})||this.current().answers[0];return mask(answer,input);};
+function mask(answer,input){var cursor=0,groups=answer.pinyin.trim().split(/\s+/).map(function(syllable){return Array.from(T.normalize(syllable)).map(function(char){var index=cursor++;return {index:index,text:index<input.length?char:'*',done:index<input.length,active:index===input.length};});});var end=answer.hanzi.match(/[。！？!?]+$/);return {groups:groups,total:cursor,typed:input.length,punctuation:end?end[0].replace(/。/g,'.').replace(/！/g,'!').replace(/？/g,'?'):''};}
+return {Round:Round,mask:mask};});
