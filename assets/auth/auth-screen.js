@@ -25,7 +25,7 @@
               '<li><i aria-hidden="true">↗</i> Giữ lại tiến độ</li>' +
             '</ul>' +
           '</div>' +
-          '<div class="vda-art"><img src="./assets/mascot/duckie-reader-2d-v2.webp" alt="Duckie đồng hành học tiếng Trung"></div>' +
+          '<div class="vda-art"><img src="./assets/mascot/duckie-speaking-2d-v5.webp" alt="Duckie chào người học mới"></div>' +
         '</div>' +
       '</section>' +
       '<main class="vda-main" role="dialog" aria-modal="true" aria-labelledby="vdaTitle">' +
