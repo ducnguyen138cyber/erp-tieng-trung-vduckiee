@@ -1,15 +1,34 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v41";
+const CACHE_VERSION = "vduckie-pwa-v42";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
-  "./assets/games/typing-game.css?v=4",
+  "./assets/v90/exp-board-v90.js?v=public1",
+  "./app-shell-v88.html?v=public-factory-games1",
+  "./erp-content-v74.js?v=factory1",
+  "./erp-lessons-v74.js?v=factory1",
+  "./dialogue.js?v=factory1",
+  "./assets/v86/experience-suite-loader-v86.js?v=public1",
+  "./assets/v86/home-dashboard-v86.5.js?v=factory1",
+  "./assets/v85/personal-dashboard-v85.js?v=public1",
+  "./assets/v86/premium-learning-v86.js?v=public1",
+  "./assets/navigation/screen-router.js?v=drawer1",
+  "./assets/v90/home-exp-sidebar-v90.js?v=factory1",
+
+  "./assets/interface/public-interface.css?v=1",
+  "./assets/interface/mobile-navigation.js?v=1",
+  "./assets/factory/workshop-content.js?v=1",
+  "./assets/games/sentence-engine.js?v=1",
+  "./assets/games/sentence-game.js?v=1",
+  "./assets/games/sentence-game.css?v=1",
+  "./data/games/sentences.json?v=1",
+  "./assets/games/typing-game.css?v=5",
   "./assets/games/typing-engine.js?v=2",
-  "./assets/games/typing-game.js?v=4",
+  "./assets/games/typing-game.js?v=5",
   "./assets/games/airplane.svg?v=2",
   "./",
   "./index.html",
@@ -29,7 +48,7 @@ const APP_SHELL = [
   "./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0",
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
-  "./assets/i18n/interface-i18n-v1.js?v=3h1",
+  "./assets/i18n/interface-i18n-v1.js?v=factory1",
   "./assets/v90/exp-core-v90.js?v=word-float1",
   "./assets/v89/exp-learning-hooks-v89.js?v=word-float1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
@@ -43,7 +62,7 @@ const APP_SHELL = [
   "./assets/hsk-content/hsk-study-journey-v1.css?v=phase2.3",
   "./assets/hsk-content/hsk-professional-runtime.js?v=phase2.4",
   "./assets/hsk-content/hsk-content-feature-flags.js?v=phase2.1",
-  "./assets/curriculum/graded-hsk-entry.js?v=practice2",
+  "./assets/curriculum/graded-hsk-entry.js?v=public1",
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
   "./assets/hsk-content/hsk-practice-ui-v1.js?v=2",
   "./assets/hsk-content/hsk-practice-ui-v1.css?v=2",
@@ -65,7 +84,7 @@ const APP_SHELL = [
   "./hsk-lessons.js",
   "./dialogue.js",
   "./assets/daily-learning-v2.css?v=2.9",
-  "./assets/daily-learning-v2.js?v=3.1",
+  "./assets/daily-learning-v2.js?v=factory1",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",
   "./assets/curriculum/progress-v1.js",

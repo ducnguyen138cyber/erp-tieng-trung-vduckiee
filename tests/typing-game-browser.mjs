@@ -31,7 +31,7 @@ try{
       };
     });
     await page.goto(base+'?screen=games&area=hsk&hskLevel=1');
-    await page.locator('#gamesScreen .games-card').waitFor();
+    await page.locator('#gamesScreen .games-card').first().waitFor();
     assert.equal(await page.locator('#hsk').isVisible(),false);
     assert.equal(await page.locator('#studySidebar button.active').count(),1);
     await page.screenshot({path:path.join(out,name+'-catalog.png')});

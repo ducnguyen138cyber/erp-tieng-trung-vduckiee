@@ -44,3 +44,21 @@ jobs:
         with:
           name: typing-game-performance-evidence
           path: artifacts/typing-performance/
+
+  public-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test tests/sentence-workshop.test.cjs tests/interface-i18n-v1.test.mjs
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - run: node tests/public-demo-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-demo-browser-evidence
+          path: artifacts/public-demo/

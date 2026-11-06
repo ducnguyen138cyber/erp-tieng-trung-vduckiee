@@ -123,6 +123,6 @@ test('the full-length exam entry is bundled in PWA v36',()=>{
   assert.match(html,/hsk-practice-ui-v1\.js\?v=2/);
   assert.match(html,/hsk-practice-ui-v1\.css\?v=2/);
   assert.match(html,/graded-hsk-entry\.js\?v=practice2/);
-  assert.match(worker,/vduckie-pwa-v41/);
+  assert.match(worker,/vduckie-pwa-v42/);
   assert.match(worker,/hsk-practice-bank-v1\.js\?v=2/);
 });

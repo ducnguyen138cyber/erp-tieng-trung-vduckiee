@@ -9,7 +9,7 @@ const home = "https://vduckie.pages.dev/";
 test("the public entry and JS shell have matching search metadata", () => {
   for (const file of ["index.html", "app-shell-v88.html"]) {
     const html = read(file);
-    assert.match(html, /<title>VDuckie – Tự học tiếng Trung HSK, từ điển và ERP<\/title>/);
+    assert.match(html, /<title>VDuckie – Tự học tiếng Trung HSK và tiếng Trung công xưởng<\/title>/);
     assert.match(html, /<meta name="description" content="[^"]{40,200}">/);
     assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large">/);
     assert.match(html, /<link rel="canonical" href="https:\/\/vduckie\.pages\.dev\/">/);

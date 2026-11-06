@@ -32,8 +32,8 @@ test("Home is compact and every primary function opens a dedicated screen", () =
 
 test("hamburger drawer groups daily, lookup, ERP and profile navigation", () => {
   assert.match(shell, /id="mobileMenu"[^>]*aria-label="Mở menu"/);
-  for (const group of ["HỌC HÔM NAY", "TRA CỨU", "ERP CÔNG VIỆC", "KHÁC"]) assert.ok(shell.includes(group), group);
-  for (const label of ["Hôm nay", "Giáo trình HSK", "Daily ERP +5", "Ôn tập", "Từ điển", "Bài học ERP", "Hội thoại ERP", "Sổ từ cá nhân"]) assert.ok(shell.includes(label), label);
+  for (const group of ["HỌC HÔM NAY", "TRA CỨU", "TIẾNG TRUNG CÔNG XƯỞNG", "KHÁC"]) assert.ok(shell.includes(group), group);
+  for (const label of ["Hôm nay", "Giáo trình HSK", "5 từ công xưởng", "Ôn tập", "Từ điển", "Bài học công xưởng", "Hội thoại công xưởng", "Sổ từ cá nhân"]) assert.ok(shell.includes(label), label);
   assert.match(css, /body\.sidebar-open \.study-sidebar/);
 });
 
@@ -96,7 +96,7 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=3\.1/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=factory1/);
   assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.9/);
 });
 

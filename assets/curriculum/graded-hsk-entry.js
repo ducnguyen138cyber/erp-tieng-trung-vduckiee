@@ -36,7 +36,7 @@
     host.innerHTML='<section class="graded-hsk-page"><header class="graded-hsk-head"><span class="graded-hsk-eyebrow">GIÁO TRÌNH CHÍNH · HSK 1–4</span><h1>Học tiếng Trung theo từng bài</h1>'+intro+
       '<div class="hsk-entry-mastery"><span><b>'+studied+'</b> từ đã luyện</span><span><b>'+weak+'</b> từ cần ôn</span><span><b>'+esc(accuracy)+'</b></span></div>'+
       '<div class="hsk-entry-quick"><button type="button" data-graded-continue>'+(summary.totalCompleted?'Tiếp tục HSK '+current.level+' →':'Bắt đầu HSK 1 →')+'</button><button type="button" data-graded-review'+(summary.due?'':' disabled')+'>↻ Ôn từ đến hạn ('+summary.due+')</button></div>'+
-      '<p class="hsk-entry-note">Kho HSK bổ trợ ở menu là nơi tra cứu sâu, không phải giáo trình chính. Kết quả tự học được lưu riêng với điểm thi và EXP.</p></header>'+
+      '<p class="hsk-entry-note">Chọn cấp độ phù hợp, học từng bài và luyện đề khi bạn đã sẵn sàng.</p></header>'+
       '<div class="graded-hsk-levels">'+counts.map(function(count,i){
         var level=i+1,available=level<=MAX_LEARNER_HSK,done=journey?journey.levelCount(level):0;
         return '<article class="graded-hsk-card'+(available?'':' is-locked')+'"><span class="graded-hsk-level">CẤP ĐỘ '+level+'</span><h2>HSK '+level+'</h2>'+

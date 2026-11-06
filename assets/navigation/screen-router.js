@@ -72,6 +72,7 @@
     return true;
   }
   function show(screen, historyMode) {
+    if(root.VDuckieMobileMenu)root.VDuckieMobileMenu.close();
     if (!valid(screen)) screen = "home";
     if (screen === current && historyMode === "push") {
       // Recover an initially empty or reset curriculum panel on a repeat click.
