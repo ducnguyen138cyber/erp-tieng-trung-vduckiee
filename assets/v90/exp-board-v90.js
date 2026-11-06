@@ -38,7 +38,7 @@
     var host = byId("expLeaderboardList"); if (!host) return;
     if (!rowsData.length) { host.innerHTML = '<div class="exp-state"><strong>Chưa có dữ liệu EXP</strong>Hãy hoàn thành bài học đầu tiên để xuất hiện ở đây.</div>'; return; }
     var noEXP=rowsData.every(function(row){return row.total_exp===0;});
-    var note=noEXP?'<div class="exp-state exp-zero-explained"><strong>Chưa ai nhận EXP</strong>Có hồ sơ người học không đồng nghĩa với đã hoàn thành bài được thưởng EXP. Hãy đăng nhập, hoàn thành một bài HSK rồi kiểm tra lại mục Tổng EXP.</div>':'';
+    var note=noEXP?'<div class="exp-state exp-zero-explained"><strong>Chưa ai nhận EXP</strong>Đăng nhập để xem EXP và theo dõi tiến độ học của bạn.</div>':'';
     host.innerHTML = note+rowsData.map(function (row) {
       var mine = myRank && Number(row.rank) === Number(myRank.rank);
       return '<div class="exp-row' + (mine ? " is-me" : "") + '"><span class="exp-rank">#' + core.escapeHtml(row.rank) + '</span>' + avatar(row.display_name, row.avatar_url) + '<span class="exp-person"><span class="exp-name">' + core.escapeHtml(row.display_name) + '</span><small>' + levelText(row.total_exp) + '</small></span><span class="exp-points">' + core.escapeHtml(core.formatEXP(row.period_exp)) + '</span></div>';
@@ -56,7 +56,7 @@
     var host = byId("expLeaderboardList"), client = core.client(), session = core.session();
     if (host) host.innerHTML = '<div class="exp-state">Đang tải bảng xếp hạng…</div>';
     var requestId = ++requestNumber;
-    if (!client) { podium([]); if (host) host.innerHTML = '<div class="exp-state"><strong>Chưa kết nối Supabase</strong>Không thể tải bảng xếp hạng.</div>'; return Promise.resolve([]); }
+    if (!client) { podium([]); if (host) host.innerHTML = '<div class="exp-state"><strong>Chưa kết nối được bảng xếp hạng</strong>Không thể tải bảng xếp hạng.</div>'; return Promise.resolve([]); }
     return Promise.all([
       client.rpc("get_leaderboard", { p_period: period, p_limit: 100 }),
       session && session.user ? client.rpc("get_my_rank", { p_period: period }) : Promise.resolve({ data: null, error: null })
@@ -73,7 +73,7 @@
     }).catch(function (error) {
       if (requestId !== requestNumber) return [];
       console.error("Leaderboard failed", error); podium([]);
-      if (host) host.innerHTML = '<div class="exp-state"><strong>Không tải được bảng xếp hạng</strong>' + (/migration v90|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error)) ? "Cần chạy migration Supabase v90 trước." : "Hãy kiểm tra kết nối và thử lại.") + '<button type="button" data-exp-retry-board>Thử lại</button></div>';
+      if (host) host.innerHTML = '<div class="exp-state"><strong>Không tải được bảng xếp hạng</strong>' + (/migration v90|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error)) ? "Hãy thử lại sau ít phút." : "Hãy kiểm tra kết nối và thử lại.") + '<button type="button" data-exp-retry-board>Thử lại</button></div>';
       return [];
     });
   }

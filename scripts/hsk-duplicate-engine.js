@@ -19,12 +19,14 @@ function ngrams(value, size = 3) {
   return output;
 }
 function jaccard(left, right) {
-  const union = new Set([...left, ...right]);
-  if (!union.size) return 1;
+  if (!left.size && !right.size) return 1;
   let intersection = 0;
-  for (const item of left) if (right.has(item)) intersection += 1;
-  return intersection / union.size;
+  const smaller = left.size <= right.size ? left : right;
+  const larger = smaller === left ? right : left;
+  for (const item of smaller) if (larger.has(item)) intersection += 1;
+  return intersection / (left.size + right.size - intersection);
 }
+
 function isIntentionalReview(left, right) {
   return [[left, right], [right, left]].some(([candidate, prior]) => {
     const metadata = candidate.record.reviewMetadata;
@@ -66,6 +68,12 @@ function checkDuplicates(rootDirectory, options = {}) {
   const repository = validation.repository;
   const findings = [];
   const candidates = collectDuplicateCandidates(repository);
+  // Signatures are immutable for this audit. Avoid repeating Unicode normalization
+  // and allocating trigram/union sets for every candidate pair.
+  const signatures = new Map(candidates.map(candidate => [candidate, {
+    exact: String(candidate.text).trim(), normalized: normalizeText(candidate.text),
+    skeleton: skeletonText(candidate.text), grams: ngrams(candidate.text)
+  }]));
   const byKind = new Map();
   for (const candidate of candidates) {
     const scope = candidate.record.contentStatus === 'fixture' ? 'fixture' : 'canonical';
@@ -80,15 +88,21 @@ function checkDuplicates(rootDirectory, options = {}) {
         const left = items[leftIndex], right = items[rightIndex];
         if (left.id === right.id) continue;
         const intentional = left.record.recordType === 'exercise' && right.record.recordType === 'exercise' && isIntentionalReview(left, right);
-        const exact = String(left.text).trim() === String(right.text).trim();
-        const normalizedEqual = normalizeText(left.text) === normalizeText(right.text);
-        const skeletonEqual = skeletonText(left.text) === skeletonText(right.text);
-        const similarity = jaccard(ngrams(left.text), ngrams(right.text));
+        const a = signatures.get(left), b = signatures.get(right);
+        const exact = a.exact === b.exact;
+        const normalizedEqual = a.normalized === b.normalized;
+        const skeletonEqual = a.skeleton === b.skeleton;
+        const threshold = kind === 'sentence' ? (options.sentenceNearThreshold || 0.92) : (options.nearThreshold || 0.82);
+        // Even a complete intersection cannot reach this threshold. Exact,
+        // normalized and skeleton matches still need their original report entry.
+        const maximumSimilarity = Math.max(a.grams.size,b.grams.size) ? Math.min(a.grams.size,b.grams.size)/Math.max(a.grams.size,b.grams.size) : 1;
+        if (!exact && !normalizedEqual && !skeletonEqual && maximumSimilarity < threshold) continue;
+        const similarity = normalizedEqual ? 1 : jaccard(a.grams,b.grams);
         let rule = null, severity = null;
         if (exact) { rule = 'exact-duplicate'; severity = intentional ? 'info' : 'critical'; }
         else if (normalizedEqual) { rule = 'normalized-duplicate'; severity = intentional ? 'info' : 'serious'; }
-        else if (skeletonEqual && normalizeText(left.text) !== normalizeText(right.text)) { rule = 'name-or-number-mutation'; severity = intentional ? 'info' : 'review'; }
-        else if (similarity >= (kind === 'sentence' ? (options.sentenceNearThreshold || 0.92) : (options.nearThreshold || 0.82))) { rule = 'near-duplicate'; severity = intentional ? 'info' : 'review'; }
+        else if (skeletonEqual && !normalizedEqual) { rule = 'name-or-number-mutation'; severity = intentional ? 'info' : 'review'; }
+        else if (similarity >= threshold) { rule = 'near-duplicate'; severity = intentional ? 'info' : 'review'; }
         if (rule) findings.push({ rule, severity, kind, leftId: left.id, rightId: right.id, leftFile: left.file, rightFile: right.file, similarity: Number(similarity.toFixed(4)), intentionalReview: intentional, reviewReason: intentional ? ((left.record.reviewMetadata || right.record.reviewMetadata).reviewReason) : null });
       }
     }

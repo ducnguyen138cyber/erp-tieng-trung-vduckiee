@@ -1,0 +1,429 @@
+{
+  "version": 1,
+  "sentences": [
+    {
+      "id": "factory-shift-1",
+      "topic": "factory",
+      "vi": "Bây giờ chúng ta bàn giao ca.",
+      "answers": [
+        {
+          "hanzi": "我们现在交接班。",
+          "pinyin": "wǒ men xiàn zài jiāo jiē bān"
+        }
+      ]
+    },
+    {
+      "id": "factory-shift-2",
+      "topic": "factory",
+      "vi": "Hãy đưa cho tôi ghi chép công việc hôm nay.",
+      "answers": [
+        {
+          "hanzi": "请把今天的工作记录给我。",
+          "pinyin": "qǐng bǎ jīn tiān de gōng zuò jì lù gěi wǒ"
+        }
+      ]
+    },
+    {
+      "id": "factory-shift-3",
+      "topic": "factory",
+      "vi": "Nhiệm vụ này vẫn chưa hoàn thành.",
+      "answers": [
+        {
+          "hanzi": "这个任务还没有完成。",
+          "pinyin": "zhè ge rèn wù hái méi yǒu wán chéng"
+        }
+      ]
+    },
+    {
+      "id": "factory-shift-4",
+      "topic": "factory",
+      "vi": "Có vấn đề hãy báo kịp thời cho tổ trưởng.",
+      "answers": [
+        {
+          "hanzi": "有问题请及时告诉组长。",
+          "pinyin": "yǒu wèn tí qǐng jí shí gào su zǔ zhǎng"
+        }
+      ]
+    },
+    {
+      "id": "factory-safety-1",
+      "topic": "factory",
+      "vi": "Khi làm việc hãy chú ý an toàn.",
+      "answers": [
+        {
+          "hanzi": "工作时请注意安全。",
+          "pinyin": "gōng zuò shí qǐng zhù yì ān quán"
+        }
+      ]
+    },
+    {
+      "id": "factory-safety-2",
+      "topic": "factory",
+      "vi": "Vào xưởng hãy đội mũ bảo hộ đúng cách.",
+      "answers": [
+        {
+          "hanzi": "进入车间请戴好安全帽。",
+          "pinyin": "jìn rù chē jiān qǐng dài hǎo ān quán mào"
+        }
+      ]
+    },
+    {
+      "id": "factory-safety-3",
+      "topic": "factory",
+      "vi": "Xin đừng chặn lối đi.",
+      "answers": [
+        {
+          "hanzi": "请不要堵住通道。",
+          "pinyin": "qǐng bú yào dǔ zhù tōng dào"
+        }
+      ]
+    },
+    {
+      "id": "factory-safety-4",
+      "topic": "factory",
+      "vi": "Nhân viên mới cần tham gia đào tạo.",
+      "answers": [
+        {
+          "hanzi": "新员工需要参加培训。",
+          "pinyin": "xīn yuán gōng xū yào cān jiā péi xùn"
+        }
+      ]
+    },
+    {
+      "id": "factory-quality-1",
+      "topic": "factory",
+      "vi": "Lô sản phẩm này cần được kiểm tra.",
+      "answers": [
+        {
+          "hanzi": "这批产品需要检查。",
+          "pinyin": "zhè pī chǎn pǐn xū yào jiǎn chá"
+        }
+      ]
+    },
+    {
+      "id": "factory-quality-2",
+      "topic": "factory",
+      "vi": "Kích thước của sản phẩm này không đúng.",
+      "answers": [
+        {
+          "hanzi": "这个产品的尺寸不对。",
+          "pinyin": "zhè ge chǎn pǐn de chǐ cùn bú duì"
+        }
+      ]
+    },
+    {
+      "id": "factory-quality-3",
+      "topic": "factory",
+      "vi": "Hãy đặt sản phẩm lỗi ở đây.",
+      "answers": [
+        {
+          "hanzi": "请把不良品放在这里。",
+          "pinyin": "qǐng bǎ bù liáng pǐn fàng zài zhè lǐ"
+        }
+      ]
+    },
+    {
+      "id": "factory-quality-4",
+      "topic": "factory",
+      "vi": "Chúng ta xác nhận nguyên nhân trước rồi sắp xếp làm lại.",
+      "answers": [
+        {
+          "hanzi": "我们先确认原因，再安排返工。",
+          "pinyin": "wǒ men xiān què rèn yuán yīn zài ān pái fǎn gōng"
+        }
+      ]
+    },
+    {
+      "id": "factory-equipment-1",
+      "topic": "factory",
+      "vi": "Máy này có sự cố.",
+      "answers": [
+        {
+          "hanzi": "这台机器有故障。",
+          "pinyin": "zhè tái jī qì yǒu gù zhàng"
+        }
+      ]
+    },
+    {
+      "id": "factory-equipment-2",
+      "topic": "factory",
+      "vi": "Hãy liên hệ nhân viên sửa chữa.",
+      "answers": [
+        {
+          "hanzi": "请联系维修人员。",
+          "pinyin": "qǐng lián xì wéi xiū rén yuán"
+        }
+      ]
+    },
+    {
+      "id": "factory-equipment-3",
+      "topic": "factory",
+      "vi": "Âm thanh của máy không bình thường.",
+      "answers": [
+        {
+          "hanzi": "机器的声音不正常。",
+          "pinyin": "jī qì de shēng yīn bù zhèng cháng"
+        }
+      ]
+    },
+    {
+      "id": "factory-equipment-4",
+      "topic": "factory",
+      "vi": "Nhân viên sửa chữa đang kiểm tra thiết bị.",
+      "answers": [
+        {
+          "hanzi": "维修人员正在检查设备。",
+          "pinyin": "wéi xiū rén yuán zhèng zài jiǎn chá shè bèi"
+        }
+      ]
+    },
+    {
+      "id": "basic-1",
+      "topic": "basic",
+      "vi": "Tôi muốn uống nước.",
+      "answers": [
+        {
+          "hanzi": "我想喝水。",
+          "pinyin": "wǒ xiǎng hē shuǐ"
+        },
+        {
+          "hanzi": "我要喝水。",
+          "pinyin": "wǒ yào hē shuǐ"
+        }
+      ]
+    },
+    {
+      "id": "basic-2",
+      "topic": "basic",
+      "vi": "Bạn tên là gì?",
+      "answers": [
+        {
+          "hanzi": "你叫什么名字？",
+          "pinyin": "nǐ jiào shén me míng zi"
+        }
+      ]
+    },
+    {
+      "id": "basic-3",
+      "topic": "basic",
+      "vi": "Tôi là người Việt Nam.",
+      "answers": [
+        {
+          "hanzi": "我是越南人。",
+          "pinyin": "wǒ shì yuè nán rén"
+        }
+      ]
+    },
+    {
+      "id": "basic-4",
+      "topic": "basic",
+      "vi": "Hôm nay trời rất nóng.",
+      "answers": [
+        {
+          "hanzi": "今天天气很热。",
+          "pinyin": "jīn tiān tiān qì hěn rè"
+        }
+      ]
+    },
+    {
+      "id": "basic-5",
+      "topic": "basic",
+      "vi": "Tôi đang học tiếng Trung.",
+      "answers": [
+        {
+          "hanzi": "我正在学中文。",
+          "pinyin": "wǒ zhèng zài xué zhōng wén"
+        },
+        {
+          "hanzi": "我在学汉语。",
+          "pinyin": "wǒ zài xué hàn yǔ"
+        }
+      ]
+    },
+    {
+      "id": "basic-6",
+      "topic": "basic",
+      "vi": "Bây giờ là mấy giờ?",
+      "answers": [
+        {
+          "hanzi": "现在几点？",
+          "pinyin": "xiàn zài jǐ diǎn"
+        },
+        {
+          "hanzi": "现在几点了？",
+          "pinyin": "xiàn zài jǐ diǎn le"
+        }
+      ]
+    },
+    {
+      "id": "basic-7",
+      "topic": "basic",
+      "vi": "Tôi thích ăn cơm.",
+      "answers": [
+        {
+          "hanzi": "我喜欢吃米饭。",
+          "pinyin": "wǒ xǐ huan chī mǐ fàn"
+        }
+      ]
+    },
+    {
+      "id": "basic-8",
+      "topic": "basic",
+      "vi": "Bạn có bận không?",
+      "answers": [
+        {
+          "hanzi": "你忙吗？",
+          "pinyin": "nǐ máng ma"
+        }
+      ]
+    },
+    {
+      "id": "basic-9",
+      "topic": "basic",
+      "vi": "Tôi muốn về nhà.",
+      "answers": [
+        {
+          "hanzi": "我想回家。",
+          "pinyin": "wǒ xiǎng huí jiā"
+        }
+      ]
+    },
+    {
+      "id": "basic-10",
+      "topic": "basic",
+      "vi": "Ngày mai gặp nhé.",
+      "answers": [
+        {
+          "hanzi": "明天见。",
+          "pinyin": "míng tiān jiàn"
+        }
+      ]
+    },
+    {
+      "id": "daily-11",
+      "topic": "daily",
+      "vi": "Tôi đã làm xong bài tập rồi.",
+      "answers": [
+        {
+          "hanzi": "我已经做完作业了。",
+          "pinyin": "wǒ yǐ jīng zuò wán zuò yè le"
+        }
+      ]
+    },
+    {
+      "id": "daily-12",
+      "topic": "daily",
+      "vi": "Tôi nghĩ thời tiết ngày mai sẽ đẹp.",
+      "answers": [
+        {
+          "hanzi": "我觉得明天天气会很好。",
+          "pinyin": "wǒ jué de míng tiān tiān qì huì hěn hǎo"
+        }
+      ]
+    },
+    {
+      "id": "daily-13",
+      "topic": "daily",
+      "vi": "Xin hãy nói chậm một chút.",
+      "answers": [
+        {
+          "hanzi": "请说慢一点。",
+          "pinyin": "qǐng shuō màn yì diǎn"
+        },
+        {
+          "hanzi": "请说得慢一点。",
+          "pinyin": "qǐng shuō de màn yì diǎn"
+        }
+      ]
+    },
+    {
+      "id": "daily-14",
+      "topic": "daily",
+      "vi": "Tôi chưa từng đến Trung Quốc.",
+      "answers": [
+        {
+          "hanzi": "我没去过中国。",
+          "pinyin": "wǒ méi qù guo zhōng guó"
+        },
+        {
+          "hanzi": "我没有去过中国。",
+          "pinyin": "wǒ méi yǒu qù guo zhōng guó"
+        }
+      ]
+    },
+    {
+      "id": "daily-15",
+      "topic": "daily",
+      "vi": "Nếu có thời gian, tôi sẽ đi cùng bạn.",
+      "answers": [
+        {
+          "hanzi": "如果有时间，我就和你一起去。",
+          "pinyin": "rú guǒ yǒu shí jiān wǒ jiù hé nǐ yì qǐ qù"
+        }
+      ]
+    },
+    {
+      "id": "daily-16",
+      "topic": "daily",
+      "vi": "Cuốn sách này đắt hơn cuốn kia.",
+      "answers": [
+        {
+          "hanzi": "这本书比那本贵。",
+          "pinyin": "zhè běn shū bǐ nà běn guì"
+        }
+      ]
+    },
+    {
+      "id": "daily-17",
+      "topic": "daily",
+      "vi": "Tôi vừa ăn xong cơm.",
+      "answers": [
+        {
+          "hanzi": "我刚吃完饭。",
+          "pinyin": "wǒ gāng chī wán fàn"
+        }
+      ]
+    },
+    {
+      "id": "daily-18",
+      "topic": "daily",
+      "vi": "Bạn có thể giúp tôi một chút không?",
+      "answers": [
+        {
+          "hanzi": "你能帮我一下吗？",
+          "pinyin": "nǐ néng bāng wǒ yí xià ma"
+        },
+        {
+          "hanzi": "你可以帮我一下吗？",
+          "pinyin": "nǐ kě yǐ bāng wǒ yí xià ma"
+        }
+      ]
+    },
+    {
+      "id": "daily-19",
+      "topic": "daily",
+      "vi": "Tôi quên mang điện thoại rồi.",
+      "answers": [
+        {
+          "hanzi": "我忘记带手机了。",
+          "pinyin": "wǒ wàng jì dài shǒu jī le"
+        },
+        {
+          "hanzi": "我忘了带手机。",
+          "pinyin": "wǒ wàng le dài shǒu jī"
+        }
+      ]
+    },
+    {
+      "id": "daily-20",
+      "topic": "daily",
+      "vi": "Càng học tôi càng thích tiếng Trung.",
+      "answers": [
+        {
+          "hanzi": "我越学越喜欢中文。",
+          "pinyin": "wǒ yuè xué yuè xǐ huan zhōng wén"
+        }
+      ]
+    }
+  ]
+}

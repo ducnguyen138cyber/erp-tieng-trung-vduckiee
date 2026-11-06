@@ -17,10 +17,10 @@ const communitySource = fs.readFileSync(path.join(root, 'community.js'), 'utf8')
 const loaderSource = fs.readFileSync(path.join(root, 'assets', 'v86', 'experience-suite-loader-v86.js'), 'utf8');
 
 test('welcome mascot bootstrap restores the current WebP artwork', () => {
-  assert.match(snapshot.shellSource, /<svg class="home-welcome-mascot vduckie-mascot"/);
-  assert.match(snapshot.indexSource, /staticMascot='<img class="home-welcome-mascot" src="\.\/assets\/home\/vduckie-welcome\.webp\?v=[^"]+"/);
+  assert.match(snapshot.shellSource, /<img class="home-welcome-mascot"/);
+  assert.match(snapshot.indexSource, /staticMascot='<img class="home-welcome-mascot" src="\.\/assets\/mascot\/duckie-reader-2d-v2\.webp\?v=[^"]+"/);
   assert.match(snapshot.indexSource, /source=source\.replace\(animatedMascot,staticMascot\)/);
-  assertAssetLoaded(assert, 'vduckie-welcome.webp', { snapshot });
+  assertAssetLoaded(assert, 'duckie-reader-2d-v2.webp', { snapshot });
   assert.match(cssSource, /img\.home-welcome-mascot/);
 });
 

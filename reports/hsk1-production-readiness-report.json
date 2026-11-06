@@ -382,13 +382,15 @@
       "name": "Cache/deployment safety",
       "status": "pass",
       "evidence": [
-        "No service worker is registered; modified shell, HSK, auth lifecycle, V75 loader and write-boundary dependencies use 2b4.0 cache versions; partial loader cache is purged."
+        "PWA registration is explicit, auth/private/non-GET requests bypass caches, executable assets use network-first exact-version caching, and modified entry dependencies are cache-busted; partial content-loader cache is purged."
       ],
       "files": [
         "index.html",
         "app-shell-v88.html",
         "community.js",
-        "assets/v75/hsk1-v75-loader.js"
+        "assets/v75/hsk1-v75-loader.js",
+        "service-worker.js",
+        "pwa-register.js"
       ],
       "tests": [
         "tests/v90.4-cloudflare-origin.test.js",
@@ -451,7 +453,7 @@
       "name": "Supabase isolation",
       "status": "pass",
       "evidence": [
-        "Canonical preview has no Supabase client reference; guarded legacy listeners produce zero upsert/RPC calls. Existing migrations remain: create_exp_leaderboard.sql, upgrade_exp_level_weekly_v90.sql."
+        "Canonical preview has no Supabase client reference; guarded legacy listeners produce zero upsert/RPC calls. Existing migrations remain: 20261104_award_hsk_word_mastery_exp.sql, 20261104_word_mastery_3exp_50_words_daily.sql, add_user_words_memory_status.sql, create_exp_leaderboard.sql, leaderboard_include_zero_exp_profiles.sql, upgrade_exp_level_weekly_v90.sql."
       ],
       "files": [
         "assets/hsk-content/hsk-developer-preview.js",
@@ -598,7 +600,7 @@
     "supabaseSchemaChanged": false,
     "reviewAppliedToMapping": false,
     "productionBlocked": true,
-    "serviceWorkerPresent": false,
+    "serviceWorkerPresent": true,
     "legacyV75BundlesParse": true
   }
 }

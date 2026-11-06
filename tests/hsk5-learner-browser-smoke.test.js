@@ -6,7 +6,7 @@ const path = require("node:path");
 const test = require("node:test");
 const { spawnSync } = require("node:child_process");
 
-test("HSK5 learner browser smoke passes at all required viewports", { timeout: 360000 }, () => {
+test("HSK5 stays locked in public UI at all required viewports", { timeout: 360000 }, () => {
   const script = path.join(__dirname, "hsk5-learner-browser-smoke.py");
   const favicon = path.join(__dirname, "..", "favicon.ico");
   const existed = fs.existsSync(favicon);
@@ -19,7 +19,8 @@ test("HSK5 learner browser smoke passes at all required viewports", { timeout: 3
     const payload = JSON.parse(result.stdout.trim());
     assert.deepEqual(Object.keys(payload.viewports).sort(), ["desktop-1024","desktop-1440","mobile-320","mobile-390"]);
     for (const viewport of Object.values(payload.viewports)) {
-      assert.equal(viewport.state.selectedLevel, 5);
+      assert.equal(viewport.requestedLevel, 5);
+      assert.notEqual(viewport.state.selectedLevel, 5);
       assert.equal(viewport.state.readOnly, true);
       assert.equal(viewport.state.progressWritesEnabled, false);
       assert.ok(viewport.metrics.overflow <= 2);

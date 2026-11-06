@@ -1,0 +1,29 @@
+name: HSK current learner browser contracts
+on:
+  pull_request:
+    paths: ['assets/hsk-content/**','assets/navigation/**','assets/interface/**','tests/hsk*-learner-browser-smoke*','tests/helpers/hsk_browser_smoke.py','tests/runtime-readiness-recovery.test.cjs','scripts/hsk1-production-readiness-audit.js','index.html','app-shell-v88.html','.github/workflows/hsk-recovery-browser.yml']
+  workflow_dispatch:
+concurrency:
+  group: hsk-learner-${{ github.ref }}
+  cancel-in-progress: true
+permissions:
+  contents: read
+jobs:
+  learner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: node --test tests/runtime-readiness-recovery.test.cjs tests/hsk-phase2b1-integration.test.js tests/hsk-phase2b4-production-readiness.test.js
+      - run: python -m pip install --disable-pip-version-check playwright==1.58.0
+      - run: python -m playwright install --with-deps chromium
+      - name: HSK 3–4 lessons, tabs, exercises and assessments; HSK 5–6 public locks
+        run: node --test --test-concurrency=1 tests/hsk3-learner-browser-smoke.test.js tests/hsk4-learner-browser-smoke.test.js tests/hsk5-learner-browser-smoke.test.js tests/hsk6-learner-browser-smoke.test.js
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hsk-recovery-browser-evidence
+          path: artifacts/hsk-recovery/

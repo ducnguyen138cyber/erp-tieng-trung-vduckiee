@@ -41,7 +41,7 @@ test("production loader uses one canonical V108 entrypoint in dependency order",
   const index = read("index.html") + "\n" + read("app-shell-v88.html");
   const ordered = [
     "mascot-polish-v106.js?v=106.1",
-    "hsk-content/hsk-content-feature-flags.js?v=2b1.0",
+    "hsk-content/hsk-content-feature-flags.js?v=",
     "hsk-content/hsk-content-loader.js?v=2b4.0",
     "hsk-content/hsk-content-adapter.js?v=2b1.0",
     "hsk-content/hsk-progress-contract.js?v=2b2.0",

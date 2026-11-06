@@ -213,7 +213,7 @@
   root.ERPScenariosV74 = [
     {
       title: "Điều chuyển sai kho",
-      role: "Bạn là nhân viên ERP, đang sửa một phiếu điều chuyển chọn nhầm kho.",
+      role: "Bạn là nhân viên công xưởng, đang sửa một phiếu điều chuyển chọn nhầm kho.",
       steps: [
         { prompt: "这张调拨单的调入库选错了。", promptVi: "Phiếu điều chuyển này đã chọn sai kho nhận.", target: "我先停止审核，再核对正确的生产库别。", targetVi: "Tôi sẽ dừng duyệt trước rồi đối chiếu đúng kho sản xuất.", required: [["停止", "取消"], ["审核"], ["生产库别", "库别"]] },
         { prompt: "物料已经到了正确的仓库。", promptVi: "Vật tư thực tế đã tới đúng kho.", target: "我会修改调拨单，不会重复搬动物料。", targetVi: "Tôi sẽ sửa phiếu điều chuyển, không di chuyển vật tư lặp lại.", required: [["修改", "调整"], ["调拨单"], ["物料"]] },
@@ -222,7 +222,7 @@
     },
     {
       title: "Phiếu nhập kho bị từ chối",
-      role: "Bạn là nhân viên ERP, hỗ trợ xưởng sửa phiếu nhập kho sản xuất.",
+      role: "Bạn là nhân viên công xưởng, hỗ trợ xưởng sửa phiếu nhập kho sản xuất.",
       steps: [
         { prompt: "生产入库单被退回了。", promptVi: "Phiếu nhập kho sản xuất đã bị trả lại.", target: "我先查看退回原因和审核意见。", targetVi: "Tôi xem nguyên nhân trả lại và ý kiến duyệt trước.", required: [["查看", "检查"], ["原因"], ["审核"]] },
         { prompt: "实际产量填写错了。", promptVi: "Sản lượng thực tế đã điền sai.", target: "我会核对完工数量，再修改实际产量。", targetVi: "Tôi sẽ đối chiếu số lượng hoàn công rồi sửa sản lượng thực tế.", required: [["核对"], ["完工", "数量"], ["修改", "实际产量"]] },
@@ -231,7 +231,7 @@
     },
     {
       title: "Công lệnh quá hạn",
-      role: "Bạn là nhân viên ERP, đang rà soát tiến độ công lệnh.",
+      role: "Bạn là nhân viên công xưởng, đang rà soát tiến độ công lệnh.",
       steps: [
         { prompt: "这个工单已经超过计划入库日期。", promptVi: "Công lệnh này đã quá ngày nhập kho kế hoạch.", target: "我先检查工单状态和实际产量。", targetVi: "Tôi kiểm tra trạng thái công lệnh và sản lượng thực tế trước.", required: [["检查"], ["工单", "状态"], ["实际产量"]] },
         { prompt: "车间说材料还没有到齐。", promptVi: "Xưởng nói vật liệu vẫn chưa về đủ.", target: "我会确认缺料明细，并通知采购和仓库。", targetVi: "Tôi sẽ xác nhận chi tiết thiếu liệu và báo mua hàng cùng kho.", required: [["确认"], ["缺料", "材料"], ["采购"], ["仓库"]] },
@@ -240,7 +240,7 @@
     },
     {
       title: "Bổ lĩnh liệu do hao hụt",
-      role: "Bạn là nhân viên ERP, xử lý yêu cầu bổ sung vật tư từ xưởng.",
+      role: "Bạn là nhân viên công xưởng, xử lý yêu cầu bổ sung vật tư từ xưởng.",
       steps: [
         { prompt: "车间申请补领料，说生产中有损耗。", promptVi: "Xưởng xin bổ lĩnh liệu vì có hao hụt trong sản xuất.", target: "我先核对标准用量、实际用量和损耗数量。", targetVi: "Tôi đối chiếu lượng tiêu chuẩn, lượng thực tế và số lượng hao hụt trước.", required: [["核对"], ["标准用量"], ["实际用量"], ["损耗", "数量"]] },
         { prompt: "损耗超过了规定比例。", promptVi: "Hao hụt đã vượt tỷ lệ quy định.", target: "需要填写差异原因，并由负责人审批。", targetVi: "Cần điền nguyên nhân chênh lệch và để người phụ trách phê duyệt.", required: [["差异原因"], ["负责人"], ["审批"]] },
@@ -249,7 +249,7 @@
     },
     {
       title: "Sản lượng thực tế bằng 0",
-      role: "Bạn là nhân viên ERP, kiểm tra lệnh đã chạy nhưng chưa ghi nhận sản lượng.",
+      role: "Bạn là nhân viên công xưởng, kiểm tra lệnh đã chạy nhưng chưa ghi nhận sản lượng.",
       steps: [
         { prompt: "工单已经开工三天，实际产量还是零。", promptVi: "Công lệnh đã chạy ba ngày nhưng sản lượng thực tế vẫn bằng 0.", target: "我先联系车间确认实际生产进度。", targetVi: "Tôi liên hệ xưởng để xác nhận tiến độ sản xuất thực tế trước.", required: [["联系"], ["车间"], ["确认", "生产", "进度"]] },
         { prompt: "车间已经完成了一部分产品。", promptVi: "Xưởng đã hoàn thành một phần sản phẩm.", target: "请补录完工数量和实际完工日期。", targetVi: "Vui lòng bổ sung số lượng hoàn công và ngày hoàn thành thực tế.", required: [["补录", "填写"], ["完工", "数量"], ["实际完工日期", "实际完工期"]] },
@@ -258,7 +258,7 @@
     },
     {
       title: "BOM thay đổi giữa kỳ",
-      role: "Bạn là nhân viên ERP, xử lý thay đổi BOM khi công lệnh đang sản xuất.",
+      role: "Bạn là nhân viên công xưởng, xử lý thay đổi BOM khi công lệnh đang sản xuất.",
       steps: [
         { prompt: "产品结构已经变更，但是工单还在用旧BOM。", promptVi: "Cấu trúc sản phẩm đã thay đổi nhưng công lệnh vẫn dùng BOM cũ.", target: "我先确认变更生效日期和受影响的工单。", targetVi: "Tôi xác nhận ngày thay đổi có hiệu lực và các công lệnh bị ảnh hưởng trước.", required: [["确认"], ["变更", "生效", "日期"], ["工单"]] },
         { prompt: "这个工单需要使用新的材料。", promptVi: "Công lệnh này cần sử dụng vật liệu mới.", target: "我会申请变更物料清单，并重新计算需求。", targetVi: "Tôi sẽ đề nghị thay đổi BOM và tính lại nhu cầu.", required: [["申请", "变更"], ["物料清单"], ["重新", "计算", "需求"]] },
@@ -267,7 +267,7 @@
     },
     {
       title: "Kho âm trên hệ thống",
-      role: "Bạn là nhân viên ERP, điều tra số tồn âm sau khi xuất kho.",
+      role: "Bạn là nhân viên công xưởng, điều tra số tồn âm sau khi xuất kho.",
       steps: [
         { prompt: "系统库存变成负数了。", promptVi: "Tồn kho trên hệ thống đã thành số âm.", target: "我先停止继续出库，再检查最近的单据。", targetVi: "Tôi sẽ dừng xuất tiếp rồi kiểm tra các chứng từ gần nhất.", required: [["停止"], ["出库"], ["检查", "单据"]] },
         { prompt: "发现一张入库单还没有审核。", promptVi: "Phát hiện một phiếu nhập kho chưa được duyệt.", target: "我会核对实际到货数量，并尽快完成审核。", targetVi: "Tôi sẽ đối chiếu số lượng hàng thực tế và hoàn thành duyệt sớm nhất.", required: [["核对"], ["实际", "数量"], ["审核"]] },
@@ -276,7 +276,7 @@
     },
     {
       title: "Đối chiếu cuối tháng",
-      role: "Bạn là nhân viên ERP, đối chiếu số liệu kho trước khi khóa kỳ.",
+      role: "Bạn là nhân viên công xưởng, đối chiếu số liệu kho trước khi khóa kỳ.",
       steps: [
         { prompt: "月底结账前要核对哪些数据？", promptVi: "Trước khi khóa sổ cuối tháng cần đối chiếu dữ liệu nào?", target: "要核对期初、入库、出库和期末结存。", targetVi: "Cần đối chiếu tồn đầu, nhập, xuất và tồn cuối kỳ.", required: [["期初"], ["入库"], ["出库"], ["结存"]] },
         { prompt: "报表结存和系统结存不同。", promptVi: "Tồn cuối báo cáo và hệ thống khác nhau.", target: "我会按日期和品号查找差异明细。", targetVi: "Tôi sẽ tìm chi tiết chênh lệch theo ngày và mã hàng.", required: [["日期"], ["品号"], ["差异", "明细"]] },
@@ -285,7 +285,7 @@
     },
     {
       title: "Đóng công lệnh",
-      role: "Bạn là nhân viên ERP, kiểm tra điều kiện trước khi kết thúc công lệnh.",
+      role: "Bạn là nhân viên công xưởng, kiểm tra điều kiện trước khi kết thúc công lệnh.",
       steps: [
         { prompt: "这张工单可以关闭了吗？", promptVi: "Công lệnh này có thể đóng chưa?", target: "我先检查领料、完工和生产入库记录。", targetVi: "Tôi kiểm tra lịch sử lĩnh liệu, hoàn công và nhập kho sản xuất trước.", required: [["检查"], ["领料"], ["完工"], ["生产入库", "入库"]] },
         { prompt: "还有一笔材料没有处理。", promptVi: "Vẫn còn một khoản vật liệu chưa được xử lý.", target: "需要确认是退料、补领料还是废料。", targetVi: "Cần xác nhận đó là trả liệu, bổ lĩnh hay phế liệu.", required: [["确认"], ["退料", "补领料", "废料"]] },
@@ -294,7 +294,7 @@
     },
     {
       title: "Phế liệu vượt định mức",
-      role: "Bạn là nhân viên ERP, phân tích phế liệu bất thường của một công lệnh.",
+      role: "Bạn là nhân viên công xưởng, phân tích phế liệu bất thường của một công lệnh.",
       steps: [
         { prompt: "这个工单的废料超过定额。", promptVi: "Phế liệu của công lệnh này vượt định mức.", target: "我先核对投料、实际产量和废料重量。", targetVi: "Tôi đối chiếu lượng cấp vào, sản lượng thực tế và trọng lượng phế liệu trước.", required: [["核对"], ["投料"], ["实际产量"], ["废料", "重量"]] },
         { prompt: "车间说是设备故障造成的。", promptVi: "Xưởng nói nguyên nhân là sự cố thiết bị.", target: "请车间填写异常原因和处理方案。", targetVi: "Đề nghị xưởng điền nguyên nhân bất thường và phương án xử lý.", required: [["车间"], ["异常", "原因"], ["处理方案"]] },
@@ -303,7 +303,7 @@
     },
     {
       title: "Gia công ngoài chậm tiến độ",
-      role: "Bạn là nhân viên ERP, theo dõi lô hàng đang gia công ngoài.",
+      role: "Bạn là nhân viên công xưởng, theo dõi lô hàng đang gia công ngoài.",
       steps: [
         { prompt: "外协厂商还没有完成加工。", promptVi: "Nhà gia công ngoài vẫn chưa hoàn thành gia công.", target: "我先确认外协订单和预计完成日期。", targetVi: "Tôi xác nhận đơn gia công ngoài và ngày dự kiến hoàn thành trước.", required: [["确认"], ["外协", "订单"], ["预计", "完成", "日期"]] },
         { prompt: "厂商说还要延迟两天。", promptVi: "Nhà cung cấp nói cần chậm thêm hai ngày.", target: "我会更新进度，并通知生产计划人员。", targetVi: "Tôi sẽ cập nhật tiến độ và báo nhân viên kế hoạch sản xuất.", required: [["更新", "进度"], ["通知"], ["生产", "计划"]] },
@@ -312,7 +312,7 @@
     },
     {
       title: "Báo cáo sản xuất sai số liệu",
-      role: "Bạn là nhân viên ERP, kiểm tra báo cáo sản xuất trước khi gửi quản lý.",
+      role: "Bạn là nhân viên công xưởng, kiểm tra báo cáo sản xuất trước khi gửi quản lý.",
       steps: [
         { prompt: "生产报表的实际产量不正确。", promptVi: "Sản lượng thực tế trong báo cáo sản xuất không đúng.", target: "我先核对工单、完工记录和入库数量。", targetVi: "Tôi đối chiếu công lệnh, lịch sử hoàn công và số lượng nhập kho trước.", required: [["核对"], ["工单"], ["完工"], ["入库数量"]] },
         { prompt: "发现昨天的数据没有导入。", promptVi: "Phát hiện dữ liệu hôm qua chưa được nhập vào.", target: "我会检查文件格式，然后重新导入数据。", targetVi: "Tôi sẽ kiểm tra định dạng tệp rồi nhập lại dữ liệu.", required: [["检查"], ["格式"], ["重新", "导入", "数据"]] },

@@ -65,5 +65,6 @@ test("V98 production patches load after V97 using only relative paths", () => {
   assert.match(index, /vduckie-mascot-v97\.js\?v=100\.0[^\n]+vduckie-mascot-v98\.js\?v=100\.0[^\n]+customization-store-v94\.js/);
   assert.match(index, /vduckie-lv5-lv6-v98\.css\?v=98\.0/);
   assert.match(index, /developer-control-center\.js\?v=2b4\.0/);
-  assert.doesNotMatch(manifestSource + renderer + index, /https:\/\/vduckie\.pages\.dev/);
+  // Canonical SEO metadata may name production; executable asset paths stay relative.
+ assert.doesNotMatch(manifestSource + renderer, /(?:src|url)\s*[:=]\s*["']https?:\/\/vduckie\.pages\.dev/);
 });

@@ -21,6 +21,10 @@ on:
       - 'reports/hsk-*'
       - '.github/workflows/hsk-content-quality.yml'
 
+concurrency:
+  group: hsk-quality-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -52,7 +56,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js > /tmp/regression.log 2>&1
+          node --test --test-concurrency=1 --test-reporter=dot tests/*.test.js tests/*.test.cjs tests/*.test.mjs > /tmp/regression.log 2>&1
           status=$?
           if [ "$status" -ne 0 ]; then
             echo '=== FAILED TEST NAMES ==='

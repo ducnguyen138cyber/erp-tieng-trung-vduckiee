@@ -30,7 +30,7 @@ test('Supabase OAuth callback follows the deployment that opened the app', () =>
 });
 
 test('entry loader cache-busts deployment-aware shell, auth and mascot assets', () => {
-  for (const asset of ['app-shell-v88.html', 'supabase-config.js', 'supabase-sync.js', 'vduckie-welcome.webp']) {
+  for (const asset of ['app-shell-v88.html', 'supabase-config.js', 'supabase-sync.js', 'duckie-reader-2d-v2.webp']) {
     assertAssetLoaded(assert, asset, { snapshot });
   }
 });

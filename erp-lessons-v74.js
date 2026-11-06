@@ -73,7 +73,7 @@
     for (var i = 0; i < lesson.words.length; i++) {
       var term = map[lesson.words[i]];
       if (!term) continue;
-      html += '<article class="erp-lesson-word"><div><strong>' + esc(term[0]) + '</strong><b>' + esc(term[1]) + '</b><i>Gần âm: ' + esc(term[2] || "—") + "</i></div>";
+      html += '<article class="erp-lesson-word"><div><strong>' + esc(term[0]) + '</strong><b>' + esc(term[1]) + '</b></div>';
       html += "<p>" + esc(term[3]) + "</p>";
       html += '<button type="button" class="erp-word-speak" data-speak="' + esc(term[0]) + '" aria-label="Nghe ' + esc(term[0]) + '">♪</button></article>';
     }
@@ -114,12 +114,12 @@
   function quizMarkup(lesson, map) {
     if (quizIndex >= 5) {
       var passed = quizScore >= 4;
-      return '<div class="erp-module-result ' + (passed ? "pass" : "retry") + '"><span>' + (passed ? "✓" : "↻") + "</span><strong>" + quizScore + "/5 câu đúng</strong><p>" + (passed ? "Đã hoàn thành bài nghiệp vụ này. Tiến độ được lưu trên thiết bị." : "Cần đúng ít nhất 4 câu. Xem lại từ trọng tâm rồi thử lại nhé.") + '</p><button type="button" class="' + (passed ? "muted" : "accent") + '" data-erp-retry> Làm lại bài kiểm tra</button></div>';
+      return '<div class="erp-module-result ' + (passed ? "pass" : "retry") + '"><span>' + (passed ? "✓" : "↻") + "</span><strong>" + quizScore + "/5 câu đúng</strong><p>" + (passed ? "Bạn đã hoàn thành bài này. Tiếp tục với chủ đề tiếp theo nhé." : "Cần đúng ít nhất 4 câu. Xem lại từ trọng tâm rồi thử lại nhé.") + '</p><button type="button" class="' + (passed ? "muted" : "accent") + '" data-erp-retry> Làm lại bài kiểm tra</button></div>';
     }
     var quiz = quizOptions(lesson, map);
     var term = map[quiz.word];
     return '<div class="erp-module-quiz-head"><span>CÂU ' + (quizIndex + 1) + '/5</span><strong>' + quizScore + " điểm</strong></div>" +
-      '<div class="erp-module-question"><strong>' + esc(term[0]) + '</strong><span>' + esc(term[1]) + "</span><p>Chọn nghĩa đúng trong nghiệp vụ ERP.</p></div>" +
+      '<div class="erp-module-question"><strong>' + esc(term[0]) + '</strong><span>' + esc(term[1]) + "</span><p>Chọn nghĩa đúng trong công xưởng.</p></div>" +
       '<div class="erp-module-options" data-right="' + esc(term[0]) + '">' + quiz.html + "</div>" +
       '<div class="erp-module-feedback hidden" id="erpModuleFeedback"></div><button type="button" class="accent erp-module-next hidden" id="erpModuleNext">Câu tiếp theo →</button>';
   }
@@ -128,8 +128,9 @@
     if (!lessons.length) return;
     var lesson = lessons[lessonIndex];
     var map = termMap();
+    if(lesson.id.indexOf("factory-")===0&&root.VDuckieFactoryContent)root.VDuckieFactoryContent.terms.forEach(function(t){map[t[0]]=t;});
     var done = completedCount();
-    host.innerHTML = '<div class="erp-curriculum-summary"><div><span>CONTENT PACK V74 · KHO & SẢN XUẤT</span><h2>Học theo đúng luồng nghiệp vụ</h2><p>8 bài · 80 từ trọng tâm · 20 tình huống hội thoại. Toàn bộ 154 thuật ngữ hiện đã có câu ví dụ.</p></div><div class="erp-curriculum-score"><strong>' + done + "/" + lessons.length + '</strong><span>bài hoàn thành</span><div class="bar"><i style="width:' + Math.round(done * 100 / lessons.length) + '%"></i></div></div></div>' +
+    host.innerHTML = '<div class="erp-curriculum-summary"><div><span>TIẾNG TRUNG CÔNG XƯỞNG</span><h2>Học để trao đổi trong công xưởng</h2><p>Kho, sản xuất, giao ca, an toàn, chất lượng và thiết bị — học từ vựng rồi luyện theo tình huống thực tế.</p></div><div class="erp-curriculum-score"><strong>' + done + "/" + lessons.length + '</strong><span>bài hoàn thành</span><div class="bar"><i style="width:' + Math.round(done * 100 / lessons.length) + '%"></i></div></div></div>' +
       '<div class="erp-curriculum-layout"><aside class="erp-module-list">' + lessonNavigation() + '</aside><article class="erp-module-detail">' +
       '<header class="erp-module-head"><div><span>BÀI ' + esc(lesson.number) + "</span><h2>" + esc(lesson.title) + "</h2><p>" + esc(lesson.subtitle) + '</p></div><span class="erp-module-status">' + (progress[lesson.id] ? "✓ Đã hoàn thành" : "Đang học") + "</span></header>" +
       '<div class="erp-module-goal"><strong>Mục tiêu</strong><p>' + esc(lesson.goal) + "</p><small><b>Tình huống:</b> " + esc(lesson.scenario) + "</small></div>" +

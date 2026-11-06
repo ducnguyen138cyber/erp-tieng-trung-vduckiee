@@ -93,10 +93,10 @@ test('bootstrap and PWA load the new study components before the HSK content fla
   const index = read('index.html');
   const worker = read('service-worker.js');
   const loader = read('assets/hsk-content/hsk-content-feature-flags.js');
-  assert.ok(index.indexOf("hsk-study-flow-v1.js?v=word-float1") < index.indexOf("hsk-content-feature-flags.js?v=phase2.1"));
+  assert.ok(index.indexOf("hsk-study-flow-v1.js?v=word-float1") < index.indexOf("hsk-content-feature-flags.js?v=public1"));
   assert.match(index,/hsk-study-journey-v1\.css\?v=phase2.3/);
-  assert.match(worker,/vduckie-pwa-v41/);
-  assert.match(loader,/hsk-professional-runtime\.js\?v=phase2.4/);
+  assert.match(worker,/vduckie-pwa-v43/);
+  assert.match(loader,/hsk-professional-runtime\.js\?v=public1/);
   for(const file of ['assets/hsk-content/hsk-study-journey-v1.js',
     'assets/hsk-content/hsk-study-flow-v1.js','assets/curriculum/graded-hsk-entry.js',
     'assets/hsk-content/hsk-professional-runtime.js','assets/v86/home-dashboard-v86.5.js']){

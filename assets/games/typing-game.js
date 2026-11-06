@@ -3,7 +3,8 @@
   'use strict';
   var Engine=root.VDuckieTypingEngine,host,level=0,mode='',words=[],session=null,loadId=0;
   var catalog=[],cache=new Map(),indexes=new Map(),stylePromise=null,gameStyles=null;
-  var STYLE_URL="./assets/games/typing-game.css?v=4";
+  var STYLE_URL="./assets/games/typing-game.css?v=5";
+  var wordPrompt='guided',promptNames={guided:'Hán tự + Pinyin',hanzi:'Chỉ chữ Hán',vietnamese:'Chỉ nghĩa tiếng Việt'};
   var mascot='./assets/mascot/duckie-reader-2d-v2.webp?v=2.0';
   function esc(value){return String(value==null?'':value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
   function button(text,action,extra){return '<button type="button" data-game-action="'+action+'" '+(extra||'')+'>'+text+'</button>';}
@@ -16,6 +17,8 @@
       var target=event.target.closest('[data-game-action]');if(!target||target.disabled)return;
       var action=target.dataset.gameAction;
       if(action==='choose')choose();
+      if(action==='sentences'){close();wSentence();}
+      if(action==='prompt'){wordPrompt=target.dataset.prompt;difficulty();}
       if(action==='catalog')open();
       if(action==='level')selectLevel(Number(target.dataset.level));
       if(action==='levels'){loadId++;choose();}
@@ -23,11 +26,12 @@
       if(action==='start'&&level&&mode&&words.length)start();
     });
   }
+  function wSentence(){loadId++;if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.open(host);}
   function heading(step,title,copy){return '<header class="games-heading"><span class="games-eyebrow">TRÒ CHƠI · '+step+'</span><h1>'+title+'</h1><p>'+copy+'</p></header>';}
   function open(){
-    mount();close();loadId++;host.classList.remove('hidden');
+    mount();close();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();loadId++;host.classList.remove('hidden');
     host.innerHTML=heading('HỌC QUA TỪNG LƯỢT CHƠI','Một chút thử thách.<br>Thêm một từ nhớ lâu.','Chơi cùng Duckie, luyện phản xạ chữ Hán và Pinyin mỗi ngày.')+
-      '<article class="games-card"><div class="games-card-art"><span class="games-orbit"></span><img src="'+mascot+'" alt="Mascot VDuckie"><span class="games-art-word">你好<small>nǐ hǎo</small></span><span class="games-art-star">✦</span></div><div class="games-card-copy"><span class="games-eyebrow">01 / PINYIN</span><h2>Luyện gõ</h2><p>Đọc chữ, gõ Pinyin, phá thiên thạch.<br>Giữ nhịp tay và đưa Duckie qua bầu trời sao.</p><div class="games-tags"><span>HSK 1–4</span><span>3 phút / ván</span><span>Điểm &amp; combo</span></div>'+button('Chơi Luyện gõ <span aria-hidden="true">↗</span>','choose','class="games-primary"')+'</div></article><p class="games-footnote">Luyện phản xạ Pinyin, tích điểm và giữ combo. Trò chơi không cộng EXP tài khoản.</p>';
+      '<article class="games-card"><div class="games-card-art"><span class="games-orbit"></span><img src="'+mascot+'" alt="Mascot VDuckie"><span class="games-art-word">你好<small>nǐ hǎo</small></span><span class="games-art-star">✦</span></div><div class="games-card-copy"><span class="games-eyebrow">01 / PINYIN</span><h2>Luyện gõ</h2><p>Đọc chữ, gõ Pinyin, phá thiên thạch.<br>Giữ nhịp tay và đưa Duckie qua bầu trời sao.</p><div class="games-tags"><span>HSK 1–4</span><span>3 phút / ván</span><span>Điểm &amp; combo</span></div>'+button('Chơi Luyện gõ <span aria-hidden="true">↗</span>','choose','class="games-primary"')+'</div></article><article class="games-card games-card-sentences"><div class="games-card-art"><img src="./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" alt="Duckie luyện viết"><span class="games-art-word">我想喝水<small>Tôi muốn uống nước.</small></span></div><div class="games-card-copy"><span class="games-eyebrow">02 / LUYỆN DỊCH CÂU</span><h2>Dịch câu Pinyin</h2><p>Đọc một câu tiếng Việt, tự gõ câu tiếng Trung bằng Pinyin. Gõ đúng để mở đáp án và luyện diễn đạt.</p><div class="games-tags"><span>10 câu / lượt</span><span>Đời sống &amp; công xưởng</span></div>'+button('Chơi Dịch câu →','sentences','class="games-primary"')+'</div></article><p class="games-footnote">Luyện phản xạ Pinyin, tích điểm và giữ combo. Trò chơi không cộng EXP tài khoản.</p>';
     document.title='Trò chơi — VDuckie';
   }
   async function availability(){
@@ -42,7 +46,7 @@
     }));
   }
   async function choose(){
-    close();level=0;mode='';words=[];var request=++loadId;
+    close();level=0;mode='';wordPrompt='guided';words=[];var request=++loadId;
     host.innerHTML=heading('BƯỚC 1 / 2','Chọn trình độ HSK','Dùng chính kho từ đang có trên VDuckie.')+'<p role="status">Đang kiểm tra kho từ…</p>';
     await availability();if(request!==loadId)return;
     host.innerHTML=heading('BƯỚC 1 / 2','Bạn muốn luyện cấp độ nào?','Chọn trình độ trước, sau đó chọn độ khó của lượt chơi.')+
@@ -73,6 +77,7 @@
   function difficulty(){
     host.innerHTML=heading('BƯỚC 2 / 2 · HSK '+level,'Chọn nhịp chơi của bạn','Gõ Pinyin không dấu. Đủ từ là bắn vỡ, không cần Enter.')+
       '<div class="games-modes">'+Object.keys(Engine.MODES).map(function(key){var config=Engine.MODES[key];return button('<span class="games-mode-mark">'+({easy:'✧',medium:'✦',hard:'✷'}[key])+'</span><strong>'+config.label+'</strong><small>'+config.fall+' giây / thiên thạch</small>','mode','data-mode="'+key+'" aria-pressed="'+(mode===key)+'"');}).join('')+'</div>'+
+      '<section class="games-prompt-section"><h2>Cách hiện từ</h2><p>Chọn gợi ý phù hợp với khả năng của bạn.</p><div class="games-prompts">'+Object.keys(promptNames).map(function(k){return button('<strong>'+promptNames[k]+'</strong><small>'+({guided:'Làm quen với âm và mặt chữ',hanzi:'Nhận mặt chữ, tự nhớ cách đọc',vietnamese:'Nhớ nghĩa, tự tìm từ và cách đọc'}[k])+'</small>','prompt','data-prompt="'+k+'" aria-pressed="'+(wordPrompt===k)+'"');}).join('')+'</div></section>'+
       '<div class="games-rules"><b>Sẵn sàng cất cánh?</b><p>3 tim ban đầu · Phá đá ♥ để hồi tim (tối đa 4 tim) · Tối đa 2 thiên thạch cùng lúc.</p><p>Gõ <b>shuohua</b> cho <b>shuōhuà</b>. Mỗi phím đúng bắn một viên đạn. Phím sai được bỏ qua, không cần xóa; Backspace vẫn dùng được. Chấp nhận ü / v / u: / u.</p><p>100 điểm mỗi từ; mỗi 5 combo tăng hệ số điểm (tối đa ×5). Trò chơi chỉ tính điểm game, không cộng EXP tài khoản.</p></div><div class="games-setup-actions">'+button('← Đổi HSK','levels','class="games-back"')+button('Bắt đầu →','start','class="games-primary" '+(mode?'':'disabled'))+'</div>';
   }
   function prepareStyles(){
@@ -88,7 +93,7 @@
     if(startButton)startButton.disabled=true;
     try{
       var css=await prepareStyles();if(request!==loadId)return;
-      close();session=new View(words,mode,level,css);session.start();
+      close();session=new View(words,mode,level,css,wordPrompt);session.start();
     }catch(error){
       if(request!==loadId)return;
       var message=host.querySelector('[data-game-start-error]');if(!message){message=document.createElement('p');message.dataset.gameStartError='';message.setAttribute('role','status');host.appendChild(message);}
@@ -96,13 +101,14 @@
     }finally{if(startButton)startButton.disabled=false;}
   }
   function close(){if(session){session.dispose();session=null;}}
-  function View(vocabulary,difficultyKey,hsk,css){
+  function View(vocabulary,difficultyKey,hsk,css,prompt){
+    this.prompt=prompt||'guided';
     this.game=new Engine.Game({words:vocabulary,mode:difficultyKey});this.hsk=hsk;
     this.alive=true;this.frame=0;this.last=0;this.audio=null;this.animations=new Set();this.activeSources=new Set();this.meteorNodes=new Map();this.uiDirty=true;this.lastSecond=-1;this.shotSerial=0;
     try{this.muted=localStorage.getItem('vduckie:typing-muted')==='1';}catch(error){this.muted=false;}
     this.previousFocus=document.activeElement;this.appShell=document.getElementById('appShell');if(this.appShell)this.appShell.inert=true;
     this.root=document.createElement('div');this.root.className='tg-overlay';this.root.setAttribute('role','dialog');this.root.setAttribute('aria-label','Luyện gõ HSK '+hsk);this.root.setAttribute('aria-modal','true');
-    this.root.innerHTML='<div class="tg-window"><header class="tg-header"><div><img src="'+mascot+'" alt="Mascot VDuckie"><b>VDuckie</b><span>Luyện gõ</span></div>'+button('×','exit','aria-label="Thoát trò chơi"')+'</header><div class="tg-space"><div class="tg-stars" aria-hidden="true"></div><div class="tg-hud"><div class="tg-score-group"><span class="tg-pill">HSK '+hsk+'</span><span class="tg-pill">Điểm <b data-score>0</b></span><span class="tg-timer" data-time>3:00</span></div><div class="tg-controls"><small>'+Engine.MODES[difficultyKey].label+'</small><span class="tg-hearts" data-hearts aria-label="3 tim">♥♥♥</span>'+button('♪','sound','aria-label="Tắt âm" aria-pressed="false"')+button('Ⅱ','pause','aria-label="Tạm dừng"')+'</div></div><div class="tg-arena" aria-label="Vùng thiên thạch"><div class="tg-rocks"></div><div class="tg-effects" aria-hidden="true"></div><div class="tg-plane"><img src="./assets/games/airplane.svg?v=2" alt="Máy bay xanh trắng"><i class="tg-propeller"></i></div><div class="tg-floor"></div></div><div class="tg-feedback" role="status" aria-live="polite"></div><div class="tg-combo" data-combo></div></div><form class="tg-inputbar"><label for="typingPinyin">Gõ Pinyin</label><div class="tg-input-wrap"><div class="tg-input-mirror" aria-hidden="true"></div><input id="typingPinyin" aria-label="Gõ Pinyin không dấu" placeholder="Gõ để bắn…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" enterkeyhint="done"></div>'+button('↶','focus','aria-label="Đặt con trỏ vào ô gõ"')+'</form><div class="tg-cover" hidden></div></div>';
+    this.root.innerHTML='<div class="tg-window"><header class="tg-header"><div><img src="'+mascot+'" alt="Mascot VDuckie"><b>VDuckie</b><span>Luyện gõ</span></div>'+button('×','exit','aria-label="Thoát trò chơi"')+'</header><div class="tg-space"><div class="tg-stars" aria-hidden="true"></div><div class="tg-hud"><div class="tg-score-group"><span class="tg-pill">HSK '+hsk+'</span><span class="tg-pill">Điểm <b data-score>0</b></span><span class="tg-timer" data-time>3:00</span></div><div class="tg-controls"><small>'+Engine.MODES[difficultyKey].label+'</small><small class="tg-prompt-label">'+({guided:'Có Pinyin',hanzi:'Chữ Hán',vietnamese:'Nghĩa Việt'}[this.prompt])+'</small><span class="tg-hearts" data-hearts aria-label="3 tim">♥♥♥</span>'+button('♪','sound','aria-label="Tắt âm" aria-pressed="false"')+button('Ⅱ','pause','aria-label="Tạm dừng"')+'</div></div><div class="tg-arena" aria-label="Vùng thiên thạch"><div class="tg-rocks"></div><div class="tg-effects" aria-hidden="true"></div><div class="tg-plane"><img src="./assets/games/airplane.svg?v=2" alt="Máy bay xanh trắng"><i class="tg-propeller"></i></div><div class="tg-floor"></div></div><div class="tg-feedback" role="status" aria-live="polite"></div><div class="tg-combo" data-combo></div></div><form class="tg-inputbar"><label for="typingPinyin">Gõ Pinyin</label><div class="tg-input-wrap"><div class="tg-input-mirror" aria-hidden="true"></div><input id="typingPinyin" aria-label="Gõ Pinyin không dấu" placeholder="Gõ để bắn…" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text" enterkeyhint="done"></div>'+button('↶','focus','aria-label="Đặt con trỏ vào ô gõ"')+'</form><div class="tg-cover" hidden></div></div>';
     // Shadow DOM prevents gameplay mutations from waking page-wide translation,
     // roadmap and mascot observers. The hub/navigation remain in the document.
     this.stage=document.createElement('div');this.stage.className='tg-stage-host';
@@ -222,7 +228,7 @@
           {duration:480,delay:(launchAt-self.game.time)*1000,easing:'linear'},event);
       }
       if(event.type==='destroy'){
-        self.tone(true);var p=self.position(meteor);self.retireMeteor(meteor);
+        self.tone(true);if(self.prompt!=='guided')self.flash(meteor.word.hanzi+' · '+meteor.word.pinyin+' · '+meteor.word.meaning);var p=self.position(meteor);self.retireMeteor(meteor);
         self.effect('tg-burst','✦',p.x,p.y);self.effect('tg-points','+'+event.points+(meteor.heart?' ♥':''),p.x,p.y-22);
         if(self.input.value)self.input.value='';
       }
@@ -242,13 +248,13 @@
     var result=this.game.result(),missed=Array.from(new Map(result.missed.map(function(w){return [w.hanzi,w];})).values());
     this.cover.hidden=false;this.cover.innerHTML='<div class="tg-dialog tg-results"><span class="games-eyebrow">'+(reason==='time'?'HOÀN THÀNH 3 PHÚT':'HẾT TIM')+'</span><h2>Một chuyến bay đáng nhớ</h2><div class="tg-result-score">'+result.score+' <small>điểm</small></div><div class="tg-result-stats"><span><b>'+result.accuracy+'%</b>Chính xác</span><span><b>'+result.bestCombo+'</b>Combo tốt nhất</span><span><b>'+result.completed+'</b>Từ hoàn thành</span></div><p>Điểm game không quy đổi thành EXP.</p><h3>Từ bỏ lỡ · Ôn lại</h3><div class="tg-missed">'+(missed.length?missed.map(function(w){return '<div><b lang="zh">'+esc(w.hanzi)+'</b><span>'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></div>';}).join(''):'<p>Bạn không bỏ lỡ từ nào. Tiếp tục giữ nhịp nhé!</p>')+'</div><div class="tg-result-actions">'+button('Chơi lại →','restart','class="games-primary"')+button('Đổi HSK / độ khó','choices')+button('Về Trò chơi','exit')+'</div></div>';this.cover.querySelector('button').focus();
   };
-  View.prototype.position=function(m){return {x:this.arenaWidth*m.x,y:-44+(this.arenaHeight+44)*m.progress};};
+  View.prototype.position=function(m){var x=this.arenaWidth*m.x;if(this.prompt==='vietnamese')x=Math.max(94,Math.min(this.arenaWidth-94,x));return {x:x,y:-44+(this.arenaHeight+44)*m.progress};};
   View.prototype.meteorTransform=function(y){return 'translate3d(-50%,'+y+'px,0) translateY(-50%)';};
   View.prototype.cancelFlight=function(record){
     if(!record.flight)return;this.animations.delete(record.flight);record.flight.cancel();record.flight=null;
   };
   View.prototype.flyMeteor=function(record,meteor){
-    this.cancelFlight(record);
+    this.cancelFlight(record);record.node.style.left=this.position(meteor).x+'px';
     var from=this.meteorTransform(this.position(meteor).y),to=this.meteorTransform(this.arenaHeight);
     // The compositor owns the entire fall. Typing, rewards and page JS cannot
     // interrupt it, and speed still follows the engine's 12/9/6 active seconds.
@@ -264,9 +270,11 @@
     game.meteors.forEach(function(m){
       var record=self.meteorNodes.get(m.id);
       if(!record){
-        var node=document.createElement('div');node.className='tg-meteor';node.dataset.id=m.id;node.style.left=(m.x*100)+'%';
-        node.innerHTML=(m.heart?'<span class="tg-heart-gift">♥</span>':'')+'<div class="tg-stone"></div><div class="tg-word"><strong lang="zh">'+esc(m.word.hanzi)+'</strong><span>'+Engine.glyphs(m.word.pinyin).map(function(g){return '<i>'+esc(g.char)+'</i>';}).join('')+'</span></div>';
-        record={node:node,glyphs:Engine.glyphs(m.word.pinyin),letters:Array.from(node.querySelectorAll('.tg-word i')),length:Engine.normalize(m.word.pinyin).length,signature:null};
+        var node=document.createElement('div');node.className='tg-meteor';node.dataset.id=m.id;node.dataset.prompt=self.prompt;node.classList.toggle('has-long-word',m.word.hanzi.length>3);node.style.left=self.position(m).x+'px';
+        var glyphs=self.prompt==='guided'?Engine.glyphs(m.word.pinyin):[];
+        var label=self.prompt==='vietnamese'?'<span class="tg-meaning">'+esc(m.word.meaning.split(/[;；]/)[0])+'</span>':'<strong lang="zh">'+esc(m.word.hanzi)+'</strong>'+(self.prompt==='guided'?'<span>'+glyphs.map(function(g){return '<i>'+esc(g.char)+'</i>';}).join('')+'</span>':'');
+        node.innerHTML=(m.heart?'<span class="tg-heart-gift">♥</span>':'')+'<div class="tg-stone"></div><div class="tg-word">'+label+'</div>';
+        record={node:node,glyphs:glyphs,letters:Array.from(node.querySelectorAll('.tg-word i')),length:Engine.normalize(m.word.pinyin).length,signature:null};
         self.meteorNodes.set(m.id,record);self.rocks.appendChild(node);self.uiDirty=true;self.flyMeteor(record,m);
       }
       else if(self.geometryDirty)self.flyMeteor(record,m);
@@ -299,5 +307,5 @@
     if(this.audio&&this.audio.state!=='closed')this.audio.close().catch(function(){});this.audio=null;this.stage.remove();if(this.appShell)this.appShell.inert=false;document.body.classList.remove('typing-game-open');document.documentElement.classList.remove('typing-game-open');
     var back=host&&host.querySelector('button');if(back)back.focus({preventScroll:true});
   };
-  root.VDuckieGames={open:open,leave:function(){loadId++;close();if(host)host.classList.add('hidden');}};
+  root.VDuckieGames={open:open,leave:function(){loadId++;close();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();if(host)host.classList.add('hidden');}};
 })(window,document);

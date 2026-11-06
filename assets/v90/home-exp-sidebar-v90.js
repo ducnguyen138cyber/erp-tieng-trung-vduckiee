@@ -132,7 +132,7 @@
     var host = byId("expWeeklyMissions");
     if (!host) return;
     if (error) {
-      setMarkup(host, '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-side-state is-error">Không tải được nhiệm vụ tuần.<small>Cần chạy migration Supabase v90.</small></div>');
+      setMarkup(host, '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-side-state is-error">Không tải được nhiệm vụ tuần.<small>Hãy thử lại sau ít phút.</small></div>');
       return;
     }
     var session = core.session();
@@ -171,7 +171,7 @@
     if (!host) return;
     if (error) {
       var needsMigration = /migration|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error));
-      host.innerHTML = '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Cần kiểm tra migration Supabase v90.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>';
+      host.innerHTML = '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Hãy thử lại sau ít phút.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>';
       return;
     }
     if (!rows.length) {

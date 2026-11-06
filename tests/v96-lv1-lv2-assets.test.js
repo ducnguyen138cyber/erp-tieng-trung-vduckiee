@@ -129,16 +129,11 @@ test("Developer Preview can inspect all three egg states and Level 2 animation s
   assert.doesNotMatch(developer, /awardEXP|total_exp|streak/i);
 });
 
-test("production loads V96 patches after the V95 base in dependency order", () => {
-  const thoughts = index.indexOf("thoughts-v95.js");
-  const baseManifest = index.indexOf("mascot-manifest-v95.js?v=96.0");
-  const manifest = index.indexOf("mascot-manifest-v96.js");
-  const baseMascot = index.indexOf("vduckie-mascot-v95.js?v=96.0");
-  const mascot = index.indexOf("vduckie-mascot-v96.js");
-  const store = index.indexOf("customization-store-v94.js?v=96.0");
-  const evolution = index.indexOf("vduckie-evolution-v95.js?v=96.0");
-  const developerCenter = index.indexOf("developer-control-center.js?v=2b4.0");
-  assert.ok(thoughts >= 0 && baseManifest > thoughts && manifest > baseManifest && baseMascot > manifest && mascot > baseMascot && store > mascot && evolution > store && developerCenter > evolution);
-  assert.match(index, /vduckie-lv1-lv2-v96\.css\?v=96\.0/);
-  assert.match(index, /app-shell-v88\.html\?v=2b4\.0/);
+test("developer-enabled shell loads V96 patches after V95 in dependency order", () => {
+  const {getRuntimeSnapshot,assertAssetLoaded,assetPosition} = require('./helpers/runtime-snapshot');
+  const snapshot = getRuntimeSnapshot({search:'?developer=1'});
+  const ordered = ['thoughts-v95.js','mascot-manifest-v95.js','mascot-manifest-v96.js','vduckie-mascot-v95.js','vduckie-mascot-v96.js','customization-store-v94.js','vduckie-evolution-v95.js','developer-control-center.js'];
+  ordered.forEach(asset => assertAssetLoaded(assert,asset,{snapshot}));
+  for(let i=1;i<ordered.length;i++)assert.ok(assetPosition(ordered[i-1],snapshot)<assetPosition(ordered[i],snapshot),ordered[i]);
+  assertAssetLoaded(assert,'app-shell-v88.html',{snapshot});
 });

@@ -117,9 +117,9 @@
     var lesson = currentLesson(), due = dueTerms().length, done = completedToday(), lessonDone = Object.keys(state.msutong.completed).length;
     var todayMarkup = '<section class="daily-today app-screen" aria-label="Nhiệm vụ hôm nay"><header class="daily-heading"><div><span class="daily-task-kicker">HÔM NAY</span><h1>Mở, học, hoàn thành.</h1><p>Chỉ ba việc cần tập trung hôm nay.</p></div><span class="daily-date">' + new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit" }) + '</span></header><div class="daily-grid">' +
       task("primary", "GIÁO TRÌNH · " + (lesson && lesson.book === "beginner-2" ? "SƠ CẤP 2" : "SƠ CẤP 1"), lesson ? lesson.title : "Bài đầu tiên", lesson ? lesson.goal : "Bắt đầu lộ trình", lessonDone + "/" + lessons().length + " bài", lessons().length ? lessonDone / lessons().length * 100 : 0, "Tiếp tục", "msutong") +
-      task("", "ERP · 5 TỪ MỚI", done + " / 5 hôm nay", "Dạy trước, luyện chữ, ghép cụm rồi mới kiểm tra.", done + "/5 từ", done * 20, "Học ngay", "daily") +
+      task("", "CÔNG XƯỞNG · 5 TỪ MỚI", done + " / 5 hôm nay", "Dạy trước, luyện chữ, ghép cụm rồi mới kiểm tra.", done + "/5 từ", done * 20, "Học ngay", "daily") +
       task("", "ÔN TẬP", due + " từ đến hạn", due ? "VDuckie ưu tiên đúng loại lỗi bạn từng mắc." : "Hiện chưa có từ nào đến hạn.", due ? due + " từ" : "Đã xong", due ? 18 : 100, due ? "Ôn ngay" : "Xem", "review") +
-      '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ ERP đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
+      '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ công xưởng đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
     // Never replace #homeHub: the complete home dashboard must remain accessible on phones/PWA.
     // Repaint only the optional daily summary so home links and events survive sync.
     if (existingToday) existingToday.outerHTML = todayMarkup;
@@ -196,8 +196,8 @@
       plan.push({ type: "intro", term: term, label: "Làm quen từ " + (index + 1) });
       plan.push({ type: "writing", term: term, label: "Cách viết " + (index + 1) });
       if (index > 0) plan.push({ type: "quiz", term: selected[index - 1], mode: index % 2 ? "meaning" : "pinyin", label: "Gọi lại từ " + index });
-      plan.push({ type: "phrase", term: term, label: "Ghép cụm ERP" });
-      plan.push({ type: "sentence", term: term, label: "Đặt vào câu ERP" });
+      plan.push({ type: "phrase", term: term, label: "Ghép cụm công xưởng" });
+      plan.push({ type: "sentence", term: term, label: "Đặt vào câu giao tiếp" });
     });
     selected.forEach(function (term, index) { plan.push({ type: "quiz", term: term, mode: ["meaning", "pinyin", "write"][index % 3], final: true, label: "Kiểm tra cuối" }); });
     plan.push({ type: "result", label: "Kết quả" });
@@ -225,7 +225,7 @@
     if (step.type === "result") return renderDailyResult();
     var term = step.term, ctx = contextFor(term), body = "", canNext = step.type !== "quiz" && step.type !== "sentence";
     if (step.type === "intro") {
-      body = '<div class="focus-word"><span class="focus-kicker">GẶP TỪ MỚI</span><strong>' + esc(term[0]) + '</strong><b>' + esc(term[1]) + '</b><p>' + esc(term[3]) + '</p><button type="button" class="audio-action" data-speak="' + esc(term[0]) + '">♪ Nghe phát âm</button><small>' + esc(term[5] || "Từ dùng trong nghiệp vụ ERP.") + '</small></div>';
+      body = '<div class="focus-word"><span class="focus-kicker">GẶP TỪ MỚI</span><strong>' + esc(term[0]) + '</strong><b>' + esc(term[1]) + '</b><p>' + esc(term[3]) + '</p><button type="button" class="audio-action" data-speak="' + esc(term[0]) + '">♪ Nghe phát âm</button><small>' + esc(term[5] || "Từ dùng trong công việc trong xưởng.") + '</small></div>';
     } else if (step.type === "writing") {
       var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [];
       if ((active.charIndex || 0) >= chars.length) active.charIndex = 0;
@@ -235,11 +235,11 @@
       body = '<div class="context-focus"><span class="focus-kicker">KHÔNG HỌC TỪ CÔ LẬP</span><span class="context-source">' + esc(term[0]) + '</span><span class="context-arrow">＋</span><strong>' + esc(ctx.phrase) + '</strong><b>' + esc(reading(ctx.phrase, term[1])) + '</b><p>' + esc(ctx.phraseVi) + '</p><button type="button" class="audio-action" data-speak="' + esc(ctx.phrase) + '">♪ Nghe cụm từ</button></div>';
     } else if (step.type === "sentence") {
       var blank = ctx.sentence.replace(term[0], "____");
-      body = '<div class="question-focus"><span class="focus-kicker">ĐIỀN TỪ VÀO CÂU ERP</span><h2>' + esc(blank) + '</h2><p>' + esc(ctx.sentenceVi) + '</p><div class="daily-options">' + optionTerms(term, active.terms).map(function (item) { return '<button type="button" data-answer="' + esc(item[0]) + '">' + esc(item[0]) + '<small>' + esc(item[1]) + '</small></button>'; }).join("") + '</div><div class="daily-feedback" id="dailyFeedback"></div></div>';
+      body = '<div class="question-focus"><span class="focus-kicker">ĐIỀN TỪ VÀO CÂU</span><h2>' + esc(blank) + '</h2><p>' + esc(ctx.sentenceVi) + '</p><div class="daily-options">' + optionTerms(term, active.terms).map(function (item) { return '<button type="button" data-answer="' + esc(item[0]) + '">' + esc(item[0]) + '<small>' + esc(item[1]) + '</small></button>'; }).join("") + '</div><div class="daily-feedback" id="dailyFeedback"></div></div>';
     } else {
       body = renderDailyQuestion(step, term);
     }
-    panel().innerHTML = '<div class="learning-session app-screen">' + sessionHeader(active.review ? "Ôn tập thích ứng" : "Daily ERP +5", active.index, active.plan.length) + '<main class="learning-step">' + body + '</main>' + sessionNav(canNext, step.type === "intro" ? "Tao đã xem" : "Tiếp") + '</div>';
+    panel().innerHTML = '<div class="learning-session app-screen">' + sessionHeader(active.review ? "Ôn tập thích ứng" : "5 từ công xưởng", active.index, active.plan.length) + '<main class="learning-step">' + body + '</main>' + sessionNav(canNext, step.type === "intro" ? "Tao đã xem" : "Tiếp") + '</div>';
     bindSessionNavigation(renderDailyStep); bindSpeak();
     if (step.type === "writing") setupDailyWriting(term);
     if (step.type === "quiz" || step.type === "sentence") bindDailyAnswers(step, term);
@@ -274,7 +274,7 @@
   }
   function renderDailyResult() {
     var weak = Object.keys(active.weak).length, learned = active.terms.length;
-    panel().innerHTML = '<div class="learning-result app-screen"><span class="result-mark">✓</span><span class="focus-kicker">HOÀN THÀNH PHIÊN</span><h1>' + (active.review ? "Ôn tập xong!" : learned + " từ ERP hôm nay") + '</h1><div class="result-stats"><div><strong>' + active.correct + '</strong><span>Lượt đúng</span></div><div><strong>' + active.wrong + '</strong><span>Lượt sai</span></div><div><strong>' + weak + '</strong><span>Từ cần ôn thêm</span></div></div><p>Một câu đúng chưa được tính là đã thuộc. Từ yếu đã được hẹn quay lại sớm hơn.</p><div class="result-actions">' + (weak ? '<button type="button" data-review-weak>Ôn từ yếu</button>' : "") + '<button type="button" class="primary" data-session-exit>Về Hôm nay</button></div></div>';
+    panel().innerHTML = '<div class="learning-result app-screen"><span class="result-mark">✓</span><span class="focus-kicker">HOÀN THÀNH PHIÊN</span><h1>' + (active.review ? "Ôn tập xong!" : learned + " từ công xưởng hôm nay") + '</h1><div class="result-stats"><div><strong>' + active.correct + '</strong><span>Lượt đúng</span></div><div><strong>' + active.wrong + '</strong><span>Lượt sai</span></div><div><strong>' + weak + '</strong><span>Từ cần ôn thêm</span></div></div><p>Một câu đúng chưa được tính là đã thuộc. Từ yếu đã được hẹn quay lại sớm hơn.</p><div class="result-actions">' + (weak ? '<button type="button" data-review-weak>Ôn từ yếu</button>' : "") + '<button type="button" class="primary" data-session-exit>Về Hôm nay</button></div></div>';
     var exit = panel().querySelector("[data-session-exit]"); if (exit) exit.onclick = closePanel;
     var retry = panel().querySelector("[data-review-weak]"); if (retry) retry.onclick = function () { var selected = active.terms.filter(function (term) { return active.weak[wordId(term)]; }); active = { kind: "daily", review: true, terms: selected, plan: dailyPlan(selected, true), index: 0, answered: false, correct: 0, wrong: 0, weak: {} }; renderDailyStep(); };
   }
@@ -426,7 +426,7 @@
   }
 
   function renderProfile() {
-    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><div><strong>' + totalMastered() + ' từ ERP đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Supabase sync khi đăng nhập</span><span class="daily-pill">PWA dùng chung tiến độ</span></div></div>';
+    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><div><strong>' + totalMastered() + ' từ công xưởng đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Đồng bộ khi đăng nhập</span><span class="daily-pill">Học tiếp trên mọi thiết bị</span></div></div>';
     panel().querySelector("[data-session-exit]").onclick = closePanel;
   }
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
@@ -454,11 +454,11 @@
   function installDock() {
     if (document.getElementById("mobileLearningDock")) return;
     var dock = document.createElement("nav"); dock.id = "mobileLearningDock"; dock.className = "mobile-learning-dock"; dock.setAttribute("aria-label", "Điều hướng học hằng ngày");
-    dock.innerHTML = '<button data-daily-home><b>⌂</b><span>Hôm nay</span></button><button data-daily-nav="msutong"><b>路</b><span>Giáo trình HSK</span></button><button class="daily-five" data-daily-nav="daily"><b>+5</b><span class="dock-five-progress">0/5 ERP</span></button><button data-daily-nav="review"><b>↻</b><span>Ôn tập</span><i class="dock-badge">0</i></button><button data-daily-nav="profile" class="signature-dock"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><span>VDuckie</span></button>';
+    dock.innerHTML = '<button data-daily-home><b>⌂</b><span>Hôm nay</span></button><button data-daily-nav="msutong"><b>路</b><span>Giáo trình HSK</span></button><button class="daily-five" data-daily-nav="daily"><b>+5</b><span class="dock-five-progress">0/5 từ</span></button><button data-daily-nav="review"><b>↻</b><span>Ôn tập</span><i class="dock-badge">0</i></button><button data-daily-nav="profile" class="signature-dock"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><span>VDuckie</span></button>';
     document.body.appendChild(dock); bindNav(dock); dock.querySelector("[data-daily-home]").onclick = closePanel;
     var offline = document.createElement("div"); offline.className = "daily-offline"; offline.textContent = "Đang ngoại tuyến · tiến độ chưa đồng bộ cloud"; document.body.appendChild(offline);
   }
-  function updateDock() { var badge = document.querySelector(".dock-badge"), due = dueTerms().length; if (badge) { badge.textContent = due; badge.style.display = due ? "block" : "none"; } var progress = document.querySelector(".dock-five-progress"); if (progress) progress.textContent = completedToday() + "/5 ERP"; }
+  function updateDock() { var badge = document.querySelector(".dock-badge"), due = dueTerms().length; if (badge) { badge.textContent = due; badge.style.display = due ? "block" : "none"; } var progress = document.querySelector(".dock-five-progress"); if (progress) progress.textContent = completedToday() + "/5 từ"; }
   function networkState() { document.body.classList.toggle("vduckie-offline", !navigator.onLine); }
   function init() {
     renderToday(); installDock(); bindNav(document); bindLegacyClose(); updateDock(); networkState();

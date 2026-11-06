@@ -14,7 +14,7 @@ const sql = fs.readFileSync(path.join(root, 'supabase/migrations/create_exp_lead
 const frontend = [core, board, ui, hooks].join('\n');
 
 test('entry loads the current cache-busted EXP system without restoring retired v89 core assets', () => {
-  for (const asset of ['app-shell-v88.html', 'vduckie-welcome.webp', 'exp-system-v90.css', 'exp-core-v90.js', 'exp-board-v90.js', 'exp-leaderboard-v90.js', 'exp-learning-hooks-v89.js']) {
+  for (const asset of ['app-shell-v88.html', 'duckie-reader-2d-v2.webp', 'exp-system-v90.css', 'exp-core-v90.js', 'exp-board-v90.js', 'exp-leaderboard-v90.js', 'exp-learning-hooks-v89.js']) {
     assertAssetLoaded(assert, asset, { snapshot });
   }
   assertAssetNotLoaded(assert, 'exp-core-v89.js', { snapshot });

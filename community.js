@@ -22,7 +22,7 @@
   }
   function loadHomeWelcomeV751(){
     var script=document.createElement("script");
-    script.src="./assets/v75/home-welcome-v75.1.js?v=75.1";
+    script.src="./assets/v75/home-welcome-v75.1.js?v=factory1";
     script.onerror=function(){console.error("Không nạp được phần hướng dẫn trang chủ v75.1.");};
     document.head.appendChild(script);
   }

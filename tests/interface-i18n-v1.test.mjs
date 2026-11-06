@@ -65,10 +65,10 @@ test('signed-in selector is inside the account dropdown under profile details, g
 });
 test('app bootstrap and PWA install the two localized assets',()=>{
   const html=read('index.html'),worker=read('service-worker.js'),css=read('assets/i18n/interface-language-menu-v1.css');
-  assert.match(html,/interface-i18n-v1\.js\?v=3h1/);
+  assert.match(html,/interface-i18n-v1\.js\?v=factory1/);
   assert.match(html,/interface-language-menu-v1\.css\?v=3b1/);
-  assert.match(worker,/vduckie-pwa-v41/);
-  assert.match(worker,/interface-i18n-v1\.js\?v=3h1/);
+  assert.match(worker,/vduckie-pwa-v43/);
+  assert.match(worker,/interface-i18n-v1\.js\?v=factory1/);
   assert.match(css,/#vdI18nChoices/);
   assert.match(css,/\.vd-i18n-guest/);
 });
@@ -314,6 +314,8 @@ test('screenshot audit: review, ranking, dictionary, HSK tabs, and profile use C
     ['HỒ SƠ HỌC TẬP','学习档案'],
     ['VDuckie của bạn','我的 VDuckie'],
     ['0 từ ERP đã thuộc','已掌握 0 个 ERP 词汇'],
+    ['0 từ công xưởng đã thuộc','已掌握 0 个工厂词汇'],
+    ['Đồng bộ khi đăng nhập','登录后同步'],
     ['2/20 bài giáo trình hoàn thành','已完成 2/20 节课程'],
     ['Supabase sync khi đăng nhập','登录后通过 Supabase 同步'],
     ['PWA dùng chung tiến độ','PWA 共享学习进度'],

@@ -4,7 +4,7 @@
   var scenarios = [
     {
       title: "Kho thiếu vật tư",
-      role: "Bạn là nhân viên ERP, đang phối hợp với kho.",
+      role: "Bạn là nhân viên công xưởng, đang phối hợp với kho.",
       steps: [
         {
           prompt: "这个工单的材料库存不足，你先检查一下。",
@@ -31,7 +31,7 @@
     },
     {
       title: "Thành phẩm chưa nhập kho",
-      role: "Bạn là nhân viên ERP, đang kiểm tra tiến độ nhập kho.",
+      role: "Bạn là nhân viên công xưởng, đang kiểm tra tiến độ nhập kho.",
       steps: [
         {
           prompt: "这批成品已经完工，为什么还没有入库？",
@@ -58,7 +58,7 @@
     },
     {
       title: "Chênh lệch nhập – xuất – tồn",
-      role: "Bạn là nhân viên ERP, đang đối chiếu báo cáo kho.",
+      role: "Bạn là nhân viên công xưởng, đang đối chiếu báo cáo kho.",
       steps: [
         {
           prompt: "报表结存和系统结存有差异，请检查。",
@@ -85,7 +85,7 @@
     },
     {
       title: "Công lệnh chưa lĩnh liệu",
-      role: "Bạn là nhân viên ERP, đang theo dõi công lệnh sản xuất.",
+      role: "Bạn là nhân viên công xưởng, đang theo dõi công lệnh sản xuất.",
       steps: [
         {
           prompt: "这个生产订单已经开工，但是还没有领料。",
@@ -112,7 +112,7 @@
     },
     {
       title: "Sai định mức BOM",
-      role: "Bạn là nhân viên ERP, đang xử lý sai lệch định mức vật tư.",
+      role: "Bạn là nhân viên công xưởng, đang xử lý sai lệch định mức vật tư.",
       steps: [
         {
           prompt: "这个工单的实际用量超过了标准用量。",
@@ -139,7 +139,7 @@
     },
     {
       title: "Kiểm kê kho",
-      role: "Bạn là nhân viên ERP, đang phối hợp kiểm kê cuối tháng.",
+      role: "Bạn là nhân viên công xưởng, đang phối hợp kiểm kê cuối tháng.",
       steps: [
         {
           prompt: "今天要盘点，请先冻结仓库数据。",
@@ -166,7 +166,7 @@
     },
     {
       title: "Trả hàng nhà cung cấp",
-      role: "Bạn là nhân viên ERP, xử lý lô nguyên liệu không đạt.",
+      role: "Bạn là nhân viên công xưởng, xử lý lô nguyên liệu không đạt.",
       steps: [
         {
           prompt: "这批原材料检验不合格，需要退货。",
@@ -193,7 +193,7 @@
     },
     {
       title: "Đơn mua hàng chậm giao",
-      role: "Bạn là nhân viên ERP, đang theo dõi tiến độ mua hàng.",
+      role: "Bạn là nhân viên công xưởng, đang theo dõi tiến độ mua hàng.",
       steps: [
         {
           prompt: "采购订单已经到期，但是供应商还没交货。",
