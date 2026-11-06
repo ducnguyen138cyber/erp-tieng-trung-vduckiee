@@ -4,7 +4,7 @@ const Progress=require('../assets/vietnamese/progress.js');
 const wait=()=>new Promise(r=>setImmediate(r));
 async function boot({saved={},user='',search='?screen=vietnamese',network=true}={}){
  const dom=new JSDOM('<!doctype html><html lang="vi"><head></head><body><button id="cloudLogin">登录</button><div class="study-center"><section id="vietnameseScreen" lang="zh-CN" translate="no"></section></div></body></html>',{url:'https://example.test/'+search,runScripts:'outside-only'});
- const w=dom.window;for(const[k,v]of Object.entries(saved))w.localStorage.setItem(k,v);
+ const w=dom.window;w.scrollTo=function(){};for(const[k,v]of Object.entries(saved))w.localStorage.setItem(k,v);
  w.VDuckieVIProgress=Progress;w.VDuckieScreenRouter={navigate:s=>w.__screen=s};
  w.VDuckieVIAudio={stop(){},play:async(_u,_t,_s,notify)=>{notify('播放完毕');return true;},device:async()=>false};
  const remote={},writes=[];w.__identity=user;w.VDuckieCloud={vietnameseIdentity:()=>({userId:w.__identity}),loadVietnameseProgress:async()=>remote[w.__identity]||{},saveVietnameseRecords:async rows=>{writes.push({user:w.__identity,rows});for(const r of rows)(remote[w.__identity]||= {})[r.key]=r.value;}};
@@ -59,4 +59,12 @@ test('only manifest and selected lesson data are fetched, tab keyboard navigatio
  assert.equal(h.w.document.querySelector('#vietnameseScreen').getAttribute('lang'),'zh-CN');assert.equal(h.w.document.documentElement.lang,'vi'); // Mount lang is owned by entry, content never changes whole-site language.
  h.dom.window.close();
  const error=await boot({network:false});assert.match(error.w.document.body.textContent,/暂时无法打开/);assert.ok(error.w.document.querySelector('button[data-vi-action="reload"]'));error.dom.window.close();
+});
+
+test('a successful real playback is not mislabeled as a reading alternative after grading',async()=>{
+ const h=await boot({search:'?screen=vietnamese&viUnit=l01&viTab=practice'});await h.settle();
+ h.click('listen');await h.settle();h.w.document.querySelector('input[value="0"]').click();h.click('check');
+ assert.match(h.w.document.querySelector('.vi-feedback').textContent,/答对/);
+ assert.match(h.w.document.querySelector('.vi-listen small').textContent,/作答后显示原文/);
+ assert.doesNotMatch(h.w.document.querySelector('.vi-listen small').textContent,/文字替代/);h.dom.window.close();
 });

@@ -19,6 +19,7 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
  try{for(const width of [1440,390,320]){
   const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];page.on('pageerror',e=>errors.push(e.message));page.on('request',r=>requests.push(r.url()));
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));await page.route('https://*.supabase.co/**',r=>r.abort());
+  if(width===390)await page.addInitScript(()=>{const original=window.matchMedia.bind(window);window.matchMedia=q=>q==='(display-mode: standalone)'?{matches:true,media:q,addEventListener(){},removeEventListener(){},addListener(){},removeListener(){},dispatchEvent(){return true;}}:original(q);Object.defineProperty(navigator,'standalone',{get:()=>true,configurable:true});});
   const start=Date.now();await page.goto(base);await page.locator('.vi-home-invite button').waitFor({state:'visible'});const initialMs=Date.now()-start;
   assert.equal(requests.some(u=>u.includes('/data/vietnamese/')),false,'no Vietnamese content on initial Chinese home');
   await page.locator('.vi-home-invite button').click();await page.locator('#vietnameseScreen .vi-catalog').first().waitFor();assert.equal(await page.locator('#homeHub').isVisible(),false);
@@ -29,13 +30,13 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
   await page.locator('.vi-flash [data-vi-action="speak"]').first().click();await page.locator('[data-vi-audio-status]').filter({hasText:'播放完毕'}).waitFor({timeout:30000});
   await page.locator('#vi-tab-words').focus();await page.keyboard.press('ArrowRight');assert.equal(await page.locator('#vi-tab-grammar').getAttribute('aria-selected'),'true');
   await page.locator('#vi-tab-dialogue').click();assert.equal(await page.locator('.vi-dialogue-line').count(),6);
-  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'responsive overflow');
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+2),'responsive overflow');assert.equal(await page.locator('#vietnameseScreen .vi-primary').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(37, 99, 235)','primary button keeps branded accessible blue');
   await page.screenshot({path:`artifacts/vietnamese/${name}-${width}-dialogue.png`,fullPage:false});
   if(name==='chromium'&&width===1440){
    await page.locator('#vi-tab-words').click();for(let i=0;i<lesson.words.length;i++)await page.locator('[data-vi-action="next-word"]').click();await page.locator('[data-vi-action="grammar-done"]').click();await page.locator('[data-vi-action="dialogue-done"]').click();
    async function answer(q){if(q.options){if(q.type==='listen')await page.locator('[data-vi-action="listen-text"]').click();await page.locator('input[name="vi-choice"][value="'+q.answer+'"]').check();}else if(q.type==='fill')await page.locator('[data-vi-fill]').fill(q.answers[0]);else if(q.type==='order'){for(let i=0;i<q.tokens.length;i++)await page.locator('[data-vi-action="order-add"][data-token="'+i+'"]').click();}else for(let i=0;i<q.pairs.length;i++){await page.locator('[data-vi-action="match-left"][data-index="'+i+'"]').click();await page.locator('[data-vi-action="match-right"][data-index="'+i+'"]').click();}await page.locator('[data-vi-action="check"]').click();await page.locator('[data-vi-action="next-question"]').click();}
    for(const q of lesson.practice)await answer(q);await page.locator('[data-vi-action="quiz-start"]').click();for(const q of lesson.quiz)await answer(q);
-   assert.match(await page.locator('.vi-result').textContent(),/本单元已完成/);await page.reload();await page.locator('#vietnameseScreen .vi-lesson-head').waitFor();assert.match(await page.locator('.vi-lesson-head').textContent(),/已完成/);
+   assert.match(await page.locator('.vi-result').textContent(),/本单元已完成/);await page.reload();await page.locator('#vietnameseScreen .vi-lesson-head').waitFor();assert.match(await page.locator('.vi-lesson-head').textContent(),/已完成/);assert.equal(await page.locator('#hsk').isVisible(),false,'deep-linked Vietnamese must exclude HSK');assert.equal(new URL(page.url()).searchParams.has('area'),false);
    await page.locator('[data-vi-action="login"]').click();await page.locator('#vdaEmail').fill('alice@example.invalid');await page.locator('#vdaPassword').fill('fixture-password');await page.locator('#vdaSubmit').click();await page.locator('#vduckieAuthScreen').waitFor({state:'hidden'});await page.locator('.vi-sync').filter({hasText:'已登录'}).waitFor();
    assert.match(await page.locator('[data-vi-progress]').textContent(),/0 \/ 14/,'guest progress is not attached silently to a new account');
    await page.locator('#vi-tab-words').click();await page.locator('[data-vi-action="known"]').click();await page.locator('[data-vi-action="sync"]').click();await page.locator('[data-vi-sync-status]').filter({hasText:'已同步'}).waitFor();
@@ -44,7 +45,7 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
    assert.ok(await page.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-vietnamese-v1:alice'))['l01-w01'].known));
   }
   await page.locator('[data-vi-action="chinese"]').click();await page.locator('#homeHub').waitFor({state:'visible'});assert.equal(await page.locator('#vietnameseScreen').isVisible(),false);
-  assert.deepEqual(errors,[],'page errors');reports.push({engine:name,width,initialMs,errors,vietnameseInitialDataRequests:0});await context.close();
+  assert.deepEqual(errors,[],'page errors');reports.push({engine:name,width,initialMs,errors,standaloneEmulated:width===390,vietnameseInitialDataRequests:0});await context.close();
  }}finally{await browser.close();}
 }}finally{server.close();}
 await import('node:fs/promises').then(fs=>fs.writeFile('artifacts/vietnamese/browser-results.json',JSON.stringify(reports,null,2)));

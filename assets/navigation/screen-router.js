@@ -41,7 +41,7 @@
     url.searchParams.delete("area");
     url.searchParams.set("screen", screen);
     if (screen !== "vietnamese") ["viUnit","viTab"].forEach(function(key){url.searchParams.delete(key);});
-    if (screen === "games") ["hskLevel","hskLesson","hskView","hskTab"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen === "games" || screen === "vietnamese") ["hskLevel","hskLesson","hskView","hskTab"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
     return url.pathname + url.search + url.hash;
   }
@@ -211,6 +211,10 @@
         scheduled = false;
         if (current === "vietnamese") {
           viewIds.forEach(function(id){if(id!=="vietnameseScreen")hide(id);});
+          if (document.body.getAttribute("data-current-area") !== "vietnamese") document.body.setAttribute("data-current-area", "vietnamese");
+          if (document.title !== "学越南语 — VDuckie") document.title = "学越南语 — VDuckie";
+          var params = new URLSearchParams(root.location.search);
+          if (["area","hskLevel","hskLesson","hskView","hskTab"].some(function(key){return params.has(key);}) || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor("vietnamese"));
           return;
         }
         if (current === "games") {

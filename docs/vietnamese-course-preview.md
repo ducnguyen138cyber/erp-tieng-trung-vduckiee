@@ -30,7 +30,7 @@ Rebuild: Python with `edge-tts==7.3.1` and ffmpeg, then `python scripts/build-vi
 
 Reuse existing owner-only `public.user_words`, with category `__system_vietnamese__`, keys `__vduckie_vi_v1__:<record>`, and `is_known/is_saved=false`. Each lesson, word and last position has its own row. Existing Chinese merge already excludes system rows. No migration, RLS change, new table, credentials or production user record modification is needed.
 
-The cloud bridge reuses the existing authenticated Supabase client and rejects signed-out/offline writes. Loads explicitly filter `user_id` and module category; late responses after account switches are rejected. Separate local keys `vduckie-vietnamese-v1:<user id or guest>` prevent progress sharing between accounts. Guest progress is deliberately not silently assigned to the next person who signs in. Cloud status distinguishes local saving from successful synchronization. Failed reads never trigger stale uploads.
+The cloud bridge reuses the existing authenticated Supabase client and rejects signed-out/offline writes. Loads explicitly filter `user_id` and module category; late responses after account switches are rejected. Separate local keys `vduckie-vietnamese-v1:<user id or guest>` prevent progress sharing between accounts. Guest progress is deliberately not silently assigned to the next person who signs in. An early scoped isolation rule and the router guard prevent late legacy HSK initialization from exposing a second screen or rewriting Vietnamese deep links. Center-scroll and keyboard focus reset only at screen/step transitions, not on every word. Cloud status distinguishes local saving from successful synchronization. Failed reads never trigger stale uploads.
 
 Live RLS was inspected and tested in one transaction with two generated test identities. Own-row reads/writes passed, a new user saw zero foreign rows, cross-user insertion was denied, reselecting the first identity restored its own lesson, and HSK/ERP sentinel rows remained unchanged. The entire test transaction was rolled back. Auth trigger was inspected first and performs only profile SQL. This is database authorization verification, not a real Google/password login.
 
@@ -46,6 +46,6 @@ node --test tests/vietnamese-ui.test.cjs
 node tests/vietnamese-browser.mjs
 ```
 
-At the first preview checkpoint: 13 content/storage/cloud/audio tests and four DOM interaction scenarios passed. The existing 121-test sidebar/auth/HSK/ERP/EXP/PWA unit regression command passed. Browser CI and manual Cloudflare preview inspection are recorded separately in the PR; do not treat a pending CI job as passed.
+At the first preview checkpoint: 13 content/storage/cloud/audio tests and five DOM interaction scenarios passed. The existing 121-test sidebar/auth/HSK/ERP/EXP/PWA unit regression command passed. Browser CI and manual Cloudflare preview inspection are recorded separately in the PR; do not treat a pending CI job as passed.
 
 Limits: no live personal-account sign-in was performed; browser auth scenarios use test fixtures. Real iOS/Android installation, hardware playback, and native pronunciation-teacher review remain device/editorial checks. No main merge is authorized until the owner approves this preview.
