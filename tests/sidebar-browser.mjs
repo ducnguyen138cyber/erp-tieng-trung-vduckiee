@@ -146,6 +146,10 @@ try {
       const oauth = await page.evaluate(() => window.__sidebarTest.oauth[0]);
       assert.equal(oauth.provider, 'google');
       assert.equal(oauth.options.redirectTo, base);
+      // The mocked OAuth call stays on-page, so leave the shared auth dialog
+      // through its real control before testing the learning assistant.
+      await page.locator('#vduckieAuthScreen [data-vda-close]').first().click();
+      await page.locator('#vduckieAuthScreen').waitFor({state:'hidden'});
     } else {
       const award = await page.evaluate(() => window.VDuckieEXP.awardEXP('quiz_pass','test:quiz'));
       assert.equal(award.awarded, false); // mock returns no award; no fabricated success
