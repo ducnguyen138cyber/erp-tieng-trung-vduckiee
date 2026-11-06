@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "language": "vi-VN",
+  "interfaceLanguage": "zh-CN",
+  "title": "零基础越南语",
+  "wordCount": 168,
+  "lessonCount": 12,
+  "pronunciationCount": 2,
+  "units": [
+    {
+      "id": "p01",
+      "kind": "pronunciation",
+      "title": "越南语字母与常用音",
+      "titleVi": "Chữ cái và âm cơ bản",
+      "goal": "认识 29 个字母，区分字母名与发音，练习特殊元音和词尾。",
+      "minutes": 20,
+      "wordCount": 29,
+      "file": "lessons/p01.json"
+    },
+    {
+      "id": "p02",
+      "kind": "pronunciation",
+      "title": "六个声调与易混音",
+      "titleVi": "Sáu thanh điệu",
+      "goal": "认识六个声调的符号与意义变化，听辨 hỏi/ngã、元音和词尾。",
+      "minutes": 20,
+      "wordCount": 6,
+      "file": "lessons/p02.json"
+    },
+    {
+      "id": "l01",
+      "kind": "lesson",
+      "title": "打招呼与告别",
+      "titleVi": "Chào hỏi và tạm biệt",
+      "goal": "能根据对象打招呼、道谢、道歉并礼貌告别。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l01.json"
+    },
+    {
+      "id": "l02",
+      "kind": "lesson",
+      "title": "姓名与国籍",
+      "titleVi": "Tên và quốc tịch",
+      "goal": "能说明姓名、国籍与语言，并询问对方身份。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l02.json"
+    },
+    {
+      "id": "l03",
+      "kind": "lesson",
+      "title": "称呼与人称",
+      "titleVi": "Xưng hô",
+      "goal": "能按年龄、关系与场景选择基本称呼，不把“你”固定翻成一个词。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l03.json"
+    },
+    {
+      "id": "l04",
+      "kind": "lesson",
+      "title": "数字与越南盾",
+      "titleVi": "Số đếm và số tiền",
+      "goal": "能读常用数字和价格，理解越南盾以及 mốt/lăm 的变化。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l04.json"
+    },
+    {
+      "id": "l05",
+      "kind": "lesson",
+      "title": "日期与时间",
+      "titleVi": "Ngày tháng và giờ giấc",
+      "goal": "能约定星期、日期与时间，区分 thứ（日序）和 số（数字）。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l05.json"
+    },
+    {
+      "id": "l06",
+      "kind": "lesson",
+      "title": "家庭与关系",
+      "titleVi": "Gia đình và các mối quan hệ",
+      "goal": "能介绍家人，表达所属关系和家庭人数。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l06.json"
+    },
+    {
+      "id": "l07",
+      "kind": "lesson",
+      "title": "吃饭与点餐",
+      "titleVi": "Ăn uống và gọi món",
+      "goal": "能点餐、说明口味与饮食限制，并请求结账。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l07.json"
+    },
+    {
+      "id": "l08",
+      "kind": "lesson",
+      "title": "购物与问价",
+      "titleVi": "Mua sắm và hỏi giá",
+      "goal": "能问价、说明数量、选择商品并询问付款方式。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l08.json"
+    },
+    {
+      "id": "l09",
+      "kind": "lesson",
+      "title": "问路与出行",
+      "titleVi": "Hỏi đường và đi lại",
+      "goal": "能询问地点、理解简单方向并选择交通方式。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l09.json"
+    },
+    {
+      "id": "l10",
+      "kind": "lesson",
+      "title": "日常生活与工作",
+      "titleVi": "Sinh hoạt hằng ngày",
+      "goal": "能描述一天的安排，表达正在做、已经做和将要做。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l10.json"
+    },
+    {
+      "id": "l11",
+      "kind": "lesson",
+      "title": "公司与工厂沟通",
+      "titleVi": "Giao tiếp ở công ty và nhà máy",
+      "goal": "能询问工作、报告问题、请求重复并表达基本安全需求。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l11.json"
+    },
+    {
+      "id": "l12",
+      "kind": "lesson",
+      "title": "综合交流与复习",
+      "titleVi": "Hội thoại tổng hợp và ôn tập",
+      "goal": "能串联自我介绍、约时间、问价、求助与确认信息。",
+      "minutes": 25,
+      "wordCount": 14,
+      "file": "lessons/l12.json"
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "id": "p02",
+  "kind": "pronunciation",
+  "title": "六个声调与易混音",
+  "titleVi": "Sáu thanh điệu",
+  "goal": "认识六个声调的符号与意义变化，听辨 hỏi/ngã、元音和词尾。",
+  "words": [
+    {
+      "id": "p02-w01",
+      "vi": "ma",
+      "zh": "鬼",
+      "example": "Con ma trong câu chuyện không có thật.",
+      "exampleZh": "故事里的鬼不是真实的。"
+    },
+    {
+      "id": "p02-w02",
+      "vi": "má",
+      "zh": "脸颊",
+      "example": "Má của bé hơi đỏ.",
+      "exampleZh": "宝宝的脸颊有点红。"
+    },
+    {
+      "id": "p02-w03",
+      "vi": "mà",
+      "zh": "但是／而（连词，依语境）",
+      "example": "Tôi muốn đi mà chưa có thời gian.",
+      "exampleZh": "我想去，但是还没有时间。"
+    },
+    {
+      "id": "p02-w04",
+      "vi": "mả",
+      "zh": "坟墓",
+      "example": "Đây là ngôi mả cũ.",
+      "exampleZh": "这是一座旧坟。"
+    },
+    {
+      "id": "p02-w05",
+      "vi": "mã",
+      "zh": "代码；编码",
+      "example": "Mã sản phẩm ở trên hộp.",
+      "exampleZh": "产品编码在盒子上。"
+    },
+    {
+      "id": "p02-w06",
+      "vi": "mạ",
+      "zh": "秧苗",
+      "example": "Người nông dân đang cấy mạ.",
+      "exampleZh": "农民正在插秧。"
+    }
+  ],
+  "tones": [
+    {
+      "vi": "ma",
+      "name": "ngang",
+      "zh": "鬼",
+      "note": "无声调符号；中平、自然持续，不刻意升降。"
+    },
+    {
+      "vi": "má",
+      "name": "sắc",
+      "zh": "脸颊",
+      "note": "通常升高，不能机械等同普通话第二声。"
+    },
+    {
+      "vi": "mà",
+      "name": "huyền",
+      "zh": "但是／而（连词，依语境）",
+      "note": "通常向低处落，比平声低，不等于汉语第四声。"
+    },
+    {
+      "vi": "mả",
+      "name": "hỏi",
+      "zh": "坟墓",
+      "note": "北部常有下降、低处变化；依语境可能稍回升。不要用力压喉咙。"
+    },
+    {
+      "vi": "mã",
+      "name": "ngã",
+      "zh": "代码；编码",
+      "note": "北部常带喉化或中断感后上扬；先听辨，不要强行挤压喉咙。"
+    },
+    {
+      "vi": "mạ",
+      "name": "nặng",
+      "zh": "秧苗",
+      "note": "通常低、短、收紧；具体表现随词尾变化。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "六声调不是汉语四声的对应表",
+      "body": "北部越南语通常区分 ngang、sắc、huyền、hỏi、ngã、nặng 六调；声高走势和发声方式共同作用。先听一组相同声韵母的词，别把普通话调值直接搬来。",
+      "vi": "ma, má, mà, mả, mã, mạ",
+      "zh": "相同音节，声调改变意义。"
+    },
+    {
+      "title": "声调符号与字母符号分开看",
+      "body": "ă/â/ê/ô/ơ/ư 上的符号区分元音，á/à/ả/ã/ạ 的符号区分声调；如 ắ 同时含 ă 和 sắc。辅音不承载声调符号。",
+      "vi": "a, ă, â; á, ắ, ấ",
+      "zh": "先认元音字母，再认声调。"
+    },
+    {
+      "title": "标调与拼写",
+      "body": "声调写在音节的主元音上。ê/ơ 等有自己的拼写规则；部分组合有新旧标调习惯，如 hòa/hoà。先按词典与课程给出的标准拼写记忆，不凭视觉把调号随意移动。",
+      "vi": "tiếng Việt, cảm ơn, xin lỗi",
+      "zh": "输入时保留所有字母符号与声调符号。"
+    },
+    {
+      "title": "容易混淆的对比",
+      "body": "hỏi/ngã 在北部标准练习中分开；南部许多口音合流，不能据此判北部练习错误。再比较 a/ă、ơ/â、u/ư、-n/-ng、-t/-c。短促塞音尾音节通常只出现 sắc 或 nặng。",
+      "vi": "bàn, bán, bạn; an, ăn; mắt, mắc",
+      "zh": "本课只做听辨与跟读，没有自动发音评分。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Bạn nói lại chậm hơn được không?",
+      "zh": "你可以再说慢一点吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Được. Bạn nghe rồi đọc lại nhé.",
+      "zh": "可以，你先听，再跟读吧。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "má",
+      "options": [
+        "脸颊",
+        "鬼",
+        "但是／而（连词，依语境）",
+        "坟墓"
+      ],
+      "answer": 0,
+      "explanation": "má：脸颊。",
+      "wordIds": [
+        "p02-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "mà",
+      "options": [
+        "但是／而（连词，依语境）",
+        "鬼",
+        "脸颊",
+        "坟墓"
+      ],
+      "answer": 0,
+      "explanation": "mà：但是／而（连词，依语境）。",
+      "wordIds": [
+        "p02-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Con ____ trong câu chuyện không có thật.",
+      "answers": [
+        "ma"
+      ],
+      "zh": "故事里的鬼不是真实的。",
+      "explanation": "完整句子：Con ma trong câu chuyện không có thật.",
+      "wordIds": [
+        "p02-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "đang",
+        "học",
+        "tiếng",
+        "Việt"
+      ],
+      "answer": "Tôi đang học tiếng Việt",
+      "zh": "我正在学越南语。",
+      "explanation": "正确语序：Tôi đang học tiếng Việt.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "ma",
+          "zh": "鬼",
+          "wordId": "p02-w01"
+        },
+        {
+          "vi": "má",
+          "zh": "脸颊",
+          "wordId": "p02-w02"
+        },
+        {
+          "vi": "mà",
+          "zh": "但是／而（连词，依语境）",
+          "wordId": "p02-w03"
+        },
+        {
+          "vi": "mả",
+          "zh": "坟墓",
+          "wordId": "p02-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "p02-w01",
+        "p02-w02",
+        "p02-w03",
+        "p02-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "mã",
+      "options": [
+        "代码；编码",
+        "鬼",
+        "脸颊",
+        "但是／而（连词，依语境）"
+      ],
+      "answer": 0,
+      "explanation": "mã：代码；编码。",
+      "wordIds": [
+        "p02-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "mạ",
+      "options": [
+        "秧苗",
+        "鬼",
+        "脸颊",
+        "但是／而（连词，依语境）"
+      ],
+      "answer": 0,
+      "explanation": "mạ：秧苗。",
+      "wordIds": [
+        "p02-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Con ____ trong câu chuyện không có thật.",
+      "answers": [
+        "ma"
+      ],
+      "zh": "故事里的鬼不是真实的。",
+      "explanation": "完整句子：Con ma trong câu chuyện không có thật.",
+      "wordIds": [
+        "p02-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "đang",
+        "học",
+        "tiếng",
+        "Việt"
+      ],
+      "answer": "Tôi đang học tiếng Việt",
+      "zh": "我正在学越南语。",
+      "explanation": "正确语序：Tôi đang học tiếng Việt.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "关于 hỏi 与 ngã，哪个说法准确？",
+      "options": [
+        "北部练习中分开；南部不少口音会合流。",
+        "所有越南口音都完全相同。",
+        "它们都等于普通话第三声。"
+      ],
+      "answer": 0,
+      "explanation": "声调系统有地域差异；本课按北部口音练习，不能用普通话声调硬套。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 20
+}

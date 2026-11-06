@@ -1,0 +1,574 @@
+{
+  "id": "p01",
+  "kind": "pronunciation",
+  "title": "越南语字母与常用音",
+  "titleVi": "Chữ cái và âm cơ bản",
+  "goal": "认识 29 个字母，区分字母名与发音，练习特殊元音和词尾。",
+  "words": [
+    {
+      "id": "p01-w01",
+      "vi": "an toàn",
+      "zh": "安全",
+      "example": "an toàn",
+      "exampleZh": "安全"
+    },
+    {
+      "id": "p01-w02",
+      "vi": "ăn",
+      "zh": "吃",
+      "example": "ăn",
+      "exampleZh": "吃"
+    },
+    {
+      "id": "p01-w03",
+      "vi": "ân cần",
+      "zh": "殷勤；关切",
+      "example": "ân cần",
+      "exampleZh": "殷勤；关切"
+    },
+    {
+      "id": "p01-w04",
+      "vi": "ba",
+      "zh": "三",
+      "example": "ba",
+      "exampleZh": "三"
+    },
+    {
+      "id": "p01-w05",
+      "vi": "cá",
+      "zh": "鱼",
+      "example": "cá",
+      "exampleZh": "鱼"
+    },
+    {
+      "id": "p01-w06",
+      "vi": "da",
+      "zh": "皮肤",
+      "example": "da",
+      "exampleZh": "皮肤"
+    },
+    {
+      "id": "p01-w07",
+      "vi": "đi",
+      "zh": "去",
+      "example": "đi",
+      "exampleZh": "去"
+    },
+    {
+      "id": "p01-w08",
+      "vi": "em",
+      "zh": "弟妹／晚辈",
+      "example": "em",
+      "exampleZh": "弟妹／晚辈"
+    },
+    {
+      "id": "p01-w09",
+      "vi": "êm",
+      "zh": "柔和；平静",
+      "example": "êm",
+      "exampleZh": "柔和；平静"
+    },
+    {
+      "id": "p01-w10",
+      "vi": "gà",
+      "zh": "鸡",
+      "example": "gà",
+      "exampleZh": "鸡"
+    },
+    {
+      "id": "p01-w11",
+      "vi": "hoa",
+      "zh": "花",
+      "example": "hoa",
+      "exampleZh": "花"
+    },
+    {
+      "id": "p01-w12",
+      "vi": "in",
+      "zh": "印刷",
+      "example": "in",
+      "exampleZh": "印刷"
+    },
+    {
+      "id": "p01-w13",
+      "vi": "kê",
+      "zh": " kê（垫／列）",
+      "example": "kê",
+      "exampleZh": " kê（垫／列）"
+    },
+    {
+      "id": "p01-w14",
+      "vi": "lá",
+      "zh": "叶子",
+      "example": "lá",
+      "exampleZh": "叶子"
+    },
+    {
+      "id": "p01-w15",
+      "vi": "mẹ",
+      "zh": "妈妈",
+      "example": "mẹ",
+      "exampleZh": "妈妈"
+    },
+    {
+      "id": "p01-w16",
+      "vi": "no",
+      "zh": "饱",
+      "example": "no",
+      "exampleZh": "饱"
+    },
+    {
+      "id": "p01-w17",
+      "vi": "ong",
+      "zh": "蜜蜂",
+      "example": "ong",
+      "exampleZh": "蜜蜂"
+    },
+    {
+      "id": "p01-w18",
+      "vi": "ô",
+      "zh": "雨伞",
+      "example": "ô",
+      "exampleZh": "雨伞"
+    },
+    {
+      "id": "p01-w19",
+      "vi": "ơn",
+      "zh": "恩情",
+      "example": "ơn",
+      "exampleZh": "恩情"
+    },
+    {
+      "id": "p01-w20",
+      "vi": "pin",
+      "zh": "电池",
+      "example": "pin",
+      "exampleZh": "电池"
+    },
+    {
+      "id": "p01-w21",
+      "vi": "quà",
+      "zh": "礼物",
+      "example": "quà",
+      "exampleZh": "礼物"
+    },
+    {
+      "id": "p01-w22",
+      "vi": "rau",
+      "zh": "蔬菜",
+      "example": "rau",
+      "exampleZh": "蔬菜"
+    },
+    {
+      "id": "p01-w23",
+      "vi": "số",
+      "zh": "数字",
+      "example": "số",
+      "exampleZh": "数字"
+    },
+    {
+      "id": "p01-w24",
+      "vi": "ta",
+      "zh": "我们（某些语境）",
+      "example": "ta",
+      "exampleZh": "我们（某些语境）"
+    },
+    {
+      "id": "p01-w25",
+      "vi": "uống",
+      "zh": "喝",
+      "example": "uống",
+      "exampleZh": "喝"
+    },
+    {
+      "id": "p01-w26",
+      "vi": "ưa",
+      "zh": "喜欢",
+      "example": "ưa",
+      "exampleZh": "喜欢"
+    },
+    {
+      "id": "p01-w27",
+      "vi": "về",
+      "zh": "回去",
+      "example": "về",
+      "exampleZh": "回去"
+    },
+    {
+      "id": "p01-w28",
+      "vi": "xe",
+      "zh": "车",
+      "example": "xe",
+      "exampleZh": "车"
+    },
+    {
+      "id": "p01-w29",
+      "vi": "y tá",
+      "zh": "护士",
+      "example": "y tá",
+      "exampleZh": "护士"
+    }
+  ],
+  "alphabet": [
+    {
+      "letter": "a",
+      "name": "a",
+      "sample": "an toàn"
+    },
+    {
+      "letter": "ă",
+      "name": "á",
+      "sample": "ăn"
+    },
+    {
+      "letter": "â",
+      "name": "ớ",
+      "sample": "ân cần"
+    },
+    {
+      "letter": "b",
+      "name": "bê",
+      "sample": "ba"
+    },
+    {
+      "letter": "c",
+      "name": "xê",
+      "sample": "cá"
+    },
+    {
+      "letter": "d",
+      "name": "dê",
+      "sample": "da"
+    },
+    {
+      "letter": "đ",
+      "name": "đê",
+      "sample": "đi"
+    },
+    {
+      "letter": "e",
+      "name": "e",
+      "sample": "em"
+    },
+    {
+      "letter": "ê",
+      "name": "ê",
+      "sample": "êm"
+    },
+    {
+      "letter": "g",
+      "name": "giê",
+      "sample": "gà"
+    },
+    {
+      "letter": "h",
+      "name": "hát",
+      "sample": "hoa"
+    },
+    {
+      "letter": "i",
+      "name": "i",
+      "sample": "in"
+    },
+    {
+      "letter": "k",
+      "name": "ca",
+      "sample": "kê"
+    },
+    {
+      "letter": "l",
+      "name": "e-lờ",
+      "sample": "lá"
+    },
+    {
+      "letter": "m",
+      "name": "em-mờ",
+      "sample": "mẹ"
+    },
+    {
+      "letter": "n",
+      "name": "en-nờ",
+      "sample": "no"
+    },
+    {
+      "letter": "o",
+      "name": "o",
+      "sample": "ong"
+    },
+    {
+      "letter": "ô",
+      "name": "ô",
+      "sample": "ô"
+    },
+    {
+      "letter": "ơ",
+      "name": "ơ",
+      "sample": "ơn"
+    },
+    {
+      "letter": "p",
+      "name": "pê",
+      "sample": "pin"
+    },
+    {
+      "letter": "q",
+      "name": "cu",
+      "sample": "quà"
+    },
+    {
+      "letter": "r",
+      "name": "e-rờ",
+      "sample": "rau"
+    },
+    {
+      "letter": "s",
+      "name": "ét",
+      "sample": "số"
+    },
+    {
+      "letter": "t",
+      "name": "tê",
+      "sample": "ta"
+    },
+    {
+      "letter": "u",
+      "name": "u",
+      "sample": "uống"
+    },
+    {
+      "letter": "ư",
+      "name": "ư",
+      "sample": "ưa"
+    },
+    {
+      "letter": "v",
+      "name": "vê",
+      "sample": "về"
+    },
+    {
+      "letter": "x",
+      "name": "ích",
+      "sample": "xe"
+    },
+    {
+      "letter": "y",
+      "name": "i-dài",
+      "sample": "y tá"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "29 个字母，不照英语字母念",
+      "body": "本表给出越南语字母名和例词。字母名用于拼读，例词用于听实际音；一个字母名不等于它在所有词里的声音。标准字母表没有 f、j、w、z，外来词中可能出现。",
+      "vi": "a, ă, â; d, đ",
+      "zh": "比较不同字母，不把附加符号当成装饰。"
+    },
+    {
+      "title": "特殊元音",
+      "body": "a / ă 常有长短差别；â 与 ơ 也须区分。ê 不同于 e，ô 不同于 o；ư 发音时嘴唇不圆，不等于普通话 ü。i/y 常表示同一元音。这里按书写介绍 12 个元音字母，不等同于 12 个独立单元音。",
+      "vi": "an, ăn; ơn, ân; ô, ong; ưa, uống",
+      "zh": "对照听，先分清元音，再加声调。"
+    },
+    {
+      "title": "声母组合与词尾",
+      "body": "常见声母组合有 ch、tr、th、ph、nh、ng/ngh、kh、gh、gi。ng/ngh 的鼻音可在词首，普通话没有同样的常用词首。-p/-t/-c/-ch 等塞音词尾轻收住，不加额外元音。",
+      "vi": "nhà, nghe, phim, không; an, ang; mắt, mắc",
+      "zh": "先听完整词，不用汉字近似音替代。"
+    },
+    {
+      "title": "拼写区别与北部实际口音",
+      "body": "现代河内口音中 d/gi/r、s/x、tr/ch 常有合流或接近，具体说话者有差异；拼写仍要分清。đ 是浊塞音，不等于普通话拼音 d。c/k/q、g/gh、ng/ngh 的选写与后续字母有关。",
+      "vi": "da, gia, ra; đi; nghe",
+      "zh": "不要靠人为夸张每一对声音来记拼写。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Tôi đang học tiếng Việt.",
+      "zh": "我正在学越南语。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Bạn nghe rồi đọc lại nhé.",
+      "zh": "你先听，然后跟读吧。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "ăn",
+      "options": [
+        "吃",
+        "安全",
+        "殷勤；关切",
+        "三"
+      ],
+      "answer": 0,
+      "explanation": "ăn：吃。",
+      "wordIds": [
+        "p01-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "ân cần",
+      "options": [
+        "殷勤；关切",
+        "安全",
+        "吃",
+        "三"
+      ],
+      "answer": 0,
+      "explanation": "ân cần：殷勤；关切。",
+      "wordIds": [
+        "p01-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____",
+      "answers": [
+        "an toàn"
+      ],
+      "zh": "安全",
+      "explanation": "完整句子：an toàn",
+      "wordIds": [
+        "p01-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "đang",
+        "học",
+        "tiếng",
+        "Việt"
+      ],
+      "answer": "Tôi đang học tiếng Việt",
+      "zh": "我正在学越南语。",
+      "explanation": "正确语序：Tôi đang học tiếng Việt.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "an toàn",
+          "zh": "安全",
+          "wordId": "p01-w01"
+        },
+        {
+          "vi": "ăn",
+          "zh": "吃",
+          "wordId": "p01-w02"
+        },
+        {
+          "vi": "ân cần",
+          "zh": "殷勤；关切",
+          "wordId": "p01-w03"
+        },
+        {
+          "vi": "ba",
+          "zh": "三",
+          "wordId": "p01-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "p01-w01",
+        "p01-w02",
+        "p01-w03",
+        "p01-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "cá",
+      "options": [
+        "鱼",
+        "安全",
+        "吃",
+        "殷勤；关切"
+      ],
+      "answer": 0,
+      "explanation": "cá：鱼。",
+      "wordIds": [
+        "p01-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "da",
+      "options": [
+        "皮肤",
+        "安全",
+        "吃",
+        "殷勤；关切"
+      ],
+      "answer": 0,
+      "explanation": "da：皮肤。",
+      "wordIds": [
+        "p01-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____",
+      "answers": [
+        "an toàn"
+      ],
+      "zh": "安全",
+      "explanation": "完整句子：an toàn",
+      "wordIds": [
+        "p01-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "đang",
+        "học",
+        "tiếng",
+        "Việt"
+      ],
+      "answer": "Tôi đang học tiếng Việt",
+      "zh": "我正在学越南语。",
+      "explanation": "正确语序：Tôi đang học tiếng Việt.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "哪个说法正确？",
+      "options": [
+        "字母名和字母在词里的发音不一定相同。",
+        "ư 就是普通话的 ü。",
+        "越南语没有拼写规则。"
+      ],
+      "answer": 0,
+      "explanation": "字母名用于拼读，例词才展示词内的声音。ư 不等于普通话 ü。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 20
+}

@@ -1,0 +1,330 @@
+{
+  "id": "l12",
+  "title": "综合交流与复习",
+  "titleVi": "Hội thoại tổng hợp và ôn tập",
+  "kind": "lesson",
+  "goal": "能串联自我介绍、约时间、问价、求助与确认信息。",
+  "words": [
+    {
+      "id": "l12-w01",
+      "vi": "làm quen",
+      "zh": "认识；结识",
+      "example": "Tôi rất vui được làm quen với anh.",
+      "exampleZh": "我很高兴认识您。"
+    },
+    {
+      "id": "l12-w02",
+      "vi": "lần đầu",
+      "zh": "第一次",
+      "example": "Đây là lần đầu tôi đến Việt Nam.",
+      "exampleZh": "这是我第一次来越南。"
+    },
+    {
+      "id": "l12-w03",
+      "vi": "chưa hiểu",
+      "zh": "还不明白；还没听懂",
+      "example": "Xin lỗi, tôi chưa hiểu.",
+      "exampleZh": "不好意思，我还没听懂。"
+    },
+    {
+      "id": "l12-w04",
+      "vi": "chậm hơn",
+      "zh": "更慢一些",
+      "example": "Chị nói chậm hơn một chút nhé.",
+      "exampleZh": "请您说慢一点。"
+    },
+    {
+      "id": "l12-w05",
+      "vi": "đúng không",
+      "zh": "对吗",
+      "example": "Chúng ta gặp lúc hai giờ, đúng không?",
+      "exampleZh": "我们两点见，对吗？"
+    },
+    {
+      "id": "l12-w06",
+      "vi": "được không",
+      "zh": "可以吗",
+      "example": "Tôi ngồi đây được không?",
+      "exampleZh": "我可以坐这里吗？"
+    },
+    {
+      "id": "l12-w07",
+      "vi": "có thể",
+      "zh": "可以；能够",
+      "example": "Anh có thể giúp tôi không?",
+      "exampleZh": "您可以帮我吗？"
+    },
+    {
+      "id": "l12-w08",
+      "vi": "cần",
+      "zh": "需要",
+      "example": "Tôi cần hỏi đường.",
+      "exampleZh": "我需要问路。"
+    },
+    {
+      "id": "l12-w09",
+      "vi": "muốn",
+      "zh": "想要",
+      "example": "Tôi muốn học thêm tiếng Việt.",
+      "exampleZh": "我想多学一些越南语。"
+    },
+    {
+      "id": "l12-w10",
+      "vi": "biết",
+      "zh": "知道；会（技能）",
+      "example": "Tôi chưa biết đường đến công ty.",
+      "exampleZh": "我还不知道去公司的路。"
+    },
+    {
+      "id": "l12-w11",
+      "vi": "hiểu",
+      "zh": "理解；听懂",
+      "example": "Bây giờ tôi hiểu rồi.",
+      "exampleZh": "现在我明白了。"
+    },
+    {
+      "id": "l12-w12",
+      "vi": "chờ một chút",
+      "zh": "等一下",
+      "example": "Anh chờ một chút nhé.",
+      "exampleZh": "请您等一下。"
+    },
+    {
+      "id": "l12-w13",
+      "vi": "không sao",
+      "zh": "没关系；没事",
+      "example": "Không sao, chúng ta còn thời gian.",
+      "exampleZh": "没关系，我们还有时间。"
+    },
+    {
+      "id": "l12-w14",
+      "vi": "cùng nhau",
+      "zh": "一起",
+      "example": "Chúng ta cùng nhau luyện tập nhé.",
+      "exampleZh": "我们一起练习吧。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "确认与请求许可",
+      "body": "…đúng không？确认信息是否正确；…được không？请求许可。có thể…không？询问能力或可能性，语气通常更客气。",
+      "vi": "Tôi ngồi đây được không?",
+      "zh": "我可以坐这里吗？"
+    },
+    {
+      "title": "把已学内容连接起来",
+      "body": "rồi 可接“然后”；và 表示“和/并且”；nhưng 表示“但是”。先用短句说明，再提问题，不必把整句中文逐字翻译。",
+      "vi": "Tôi là người Trung Quốc nhưng tôi hiểu một chút tiếng Việt.",
+      "zh": "我是中国人，不过我懂一点越南语。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Chào chị, tôi là Lý. Đây là lần đầu tôi đến công ty.",
+      "zh": "您好，我姓李。这是我第一次来公司。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Chào anh Lý. Anh cần gặp ai ạ?",
+      "zh": "李先生您好，您要见谁？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi cần gặp quản lý lúc hai giờ.",
+      "zh": "我需要两点见负责人。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Anh chờ một chút. Anh nói được tiếng Việt không?",
+      "zh": "请稍等。您会说越南语吗？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi hiểu một chút. Chị nói chậm hơn giúp tôi nhé.",
+      "zh": "我懂一点。请您说慢一点。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Vâng. Chúng ta cùng vào phòng nhé.",
+      "zh": "好的。我们一起进办公室吧。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "lần đầu",
+      "options": [
+        "第一次",
+        "认识；结识",
+        "还不明白；还没听懂",
+        "更慢一些"
+      ],
+      "answer": 0,
+      "explanation": "lần đầu：第一次。",
+      "wordIds": [
+        "l12-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "chưa hiểu",
+      "options": [
+        "还不明白；还没听懂",
+        "认识；结识",
+        "第一次",
+        "更慢一些"
+      ],
+      "answer": 0,
+      "explanation": "chưa hiểu：还不明白；还没听懂。",
+      "wordIds": [
+        "l12-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi rất vui được ____ với anh.",
+      "answers": [
+        "làm quen"
+      ],
+      "zh": "我很高兴认识您。",
+      "explanation": "完整句子：Tôi rất vui được làm quen với anh.",
+      "wordIds": [
+        "l12-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "ngồi",
+        "đây",
+        "được",
+        "không"
+      ],
+      "answer": "Tôi ngồi đây được không",
+      "zh": "我可以坐这里吗？",
+      "explanation": "正确语序：Tôi ngồi đây được không?",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "làm quen",
+          "zh": "认识；结识",
+          "wordId": "l12-w01"
+        },
+        {
+          "vi": "lần đầu",
+          "zh": "第一次",
+          "wordId": "l12-w02"
+        },
+        {
+          "vi": "chưa hiểu",
+          "zh": "还不明白；还没听懂",
+          "wordId": "l12-w03"
+        },
+        {
+          "vi": "chậm hơn",
+          "zh": "更慢一些",
+          "wordId": "l12-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l12-w01",
+        "l12-w02",
+        "l12-w03",
+        "l12-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "đúng không",
+      "options": [
+        "对吗",
+        "认识；结识",
+        "第一次",
+        "还不明白；还没听懂"
+      ],
+      "answer": 0,
+      "explanation": "đúng không：对吗。",
+      "wordIds": [
+        "l12-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "được không",
+      "options": [
+        "可以吗",
+        "认识；结识",
+        "第一次",
+        "还不明白；还没听懂"
+      ],
+      "answer": 0,
+      "explanation": "được không：可以吗。",
+      "wordIds": [
+        "l12-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi rất vui được ____ với anh.",
+      "answers": [
+        "làm quen"
+      ],
+      "zh": "我很高兴认识您。",
+      "explanation": "完整句子：Tôi rất vui được làm quen với anh.",
+      "wordIds": [
+        "l12-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "ngồi",
+        "đây",
+        "được",
+        "không"
+      ],
+      "answer": "Tôi ngồi đây được không",
+      "zh": "我可以坐这里吗？",
+      "explanation": "正确语序：Tôi ngồi đây được không?",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "想请求坐在这里，而不是确认一条信息，应说什么？",
+      "options": [
+        "Tôi ngồi đây được không?",
+        "Tôi ngồi đây đúng không?",
+        "Tôi ngồi đây là gì?"
+      ],
+      "answer": 0,
+      "explanation": "được không 用于请求许可；đúng không 通常用于核实信息。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

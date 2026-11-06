@@ -1,12 +1,15 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v48";
+const CACHE_VERSION = "vduckie-pwa-v49";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
+  "./assets/vietnamese/entry.js?v=1",
+  "./assets/navigation/screen-router.js?v=vi1",
+  "./supabase-sync.js?v=vi1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
   "./pwa-register.js?v=3",
@@ -170,6 +173,8 @@ self.addEventListener("fetch", (event) => {
   const request = event.request;
   const url = new URL(request.url);
   if (isDynamicOrPrivate(request, url)) return;
+  // Media byte-range responses (206) cannot be stored with Cache.put.
+  if (request.headers?.has("Range")) return;
 
   if (request.mode === "navigate") {
     event.respondWith(

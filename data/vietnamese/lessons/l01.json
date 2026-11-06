@@ -1,0 +1,328 @@
+{
+  "id": "l01",
+  "title": "打招呼与告别",
+  "titleVi": "Chào hỏi và tạm biệt",
+  "kind": "lesson",
+  "goal": "能根据对象打招呼、道谢、道歉并礼貌告别。",
+  "words": [
+    {
+      "id": "l01-w01",
+      "vi": "xin chào",
+      "zh": "你好（较中性、正式）",
+      "example": "Xin chào mọi người!",
+      "exampleZh": "大家好！"
+    },
+    {
+      "id": "l01-w02",
+      "vi": "chào buổi sáng",
+      "zh": "早上好",
+      "example": "Chào buổi sáng, cô Lan!",
+      "exampleZh": "兰老师，早上好！"
+    },
+    {
+      "id": "l01-w03",
+      "vi": "tạm biệt",
+      "zh": "再见",
+      "example": "Tạm biệt, hẹn gặp lại!",
+      "exampleZh": "再见，下次见！"
+    },
+    {
+      "id": "l01-w04",
+      "vi": "hẹn gặp lại",
+      "zh": "回头见；下次见",
+      "example": "Hẹn gặp lại bạn ngày mai.",
+      "exampleZh": "明天再见。"
+    },
+    {
+      "id": "l01-w05",
+      "vi": "cảm ơn",
+      "zh": "谢谢",
+      "example": "Cảm ơn anh đã giúp tôi.",
+      "exampleZh": "谢谢你帮我。"
+    },
+    {
+      "id": "l01-w06",
+      "vi": "xin lỗi",
+      "zh": "对不起；不好意思",
+      "example": "Xin lỗi, tôi đến muộn.",
+      "exampleZh": "对不起，我迟到了。"
+    },
+    {
+      "id": "l01-w07",
+      "vi": "không có gì",
+      "zh": "不客气；没什么",
+      "example": "Không có gì, bạn ạ.",
+      "exampleZh": "不客气。"
+    },
+    {
+      "id": "l01-w08",
+      "vi": "vâng",
+      "zh": "好的；是的（礼貌）",
+      "example": "Vâng, tôi hiểu rồi.",
+      "exampleZh": "好的，我明白了。"
+    },
+    {
+      "id": "l01-w09",
+      "vi": "dạ",
+      "zh": "应答词（表示尊敬）",
+      "example": "Dạ, cháu chào bác ạ.",
+      "exampleZh": "您好。（晚辈向长辈问好）"
+    },
+    {
+      "id": "l01-w10",
+      "vi": "ạ",
+      "zh": "礼貌语气词",
+      "example": "Em cảm ơn cô ạ.",
+      "exampleZh": "谢谢老师。"
+    },
+    {
+      "id": "l01-w11",
+      "vi": "khỏe",
+      "zh": "身体好；健康",
+      "example": "Hôm nay bạn có khỏe không?",
+      "exampleZh": "你今天身体好吗？"
+    },
+    {
+      "id": "l01-w12",
+      "vi": "rất vui",
+      "zh": "很高兴",
+      "example": "Tôi rất vui được gặp bạn.",
+      "exampleZh": "我很高兴见到你。"
+    },
+    {
+      "id": "l01-w13",
+      "vi": "chúc ngủ ngon",
+      "zh": "祝你晚安",
+      "example": "Chúc bạn ngủ ngon!",
+      "exampleZh": "祝你晚安！"
+    },
+    {
+      "id": "l01-w14",
+      "vi": "ngày mai",
+      "zh": "明天",
+      "example": "Ngày mai mình gặp nhau nhé.",
+      "exampleZh": "我们明天见吧。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "称呼放进问候里",
+      "body": "日常常用 Chào + 称呼。面对年长男性可说 Chào anh；对老师可说 Em chào cô ạ。xin chào 适合中性场合，但不必每次都说。",
+      "vi": "Em chào cô ạ.",
+      "zh": "老师好。"
+    },
+    {
+      "title": "礼貌不是逐字翻译",
+      "body": "ạ 常放在句末；vâng/dạ 是礼貌应答。北部常用 vâng，dạ 在越南各地也使用。不要把 ạ 当成普通话的“啊”。",
+      "vi": "Vâng, em cảm ơn cô ạ.",
+      "zh": "好的，谢谢老师。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Chào anh! Anh có khỏe không?",
+      "zh": "你好！你身体好吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi khỏe, cảm ơn bạn. Còn bạn?",
+      "zh": "我很好，谢谢你。你呢？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi cũng khỏe. Rất vui được gặp anh.",
+      "zh": "我也很好。很高兴见到你。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi cũng vậy.",
+      "zh": "我也是。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tạm biệt anh. Hẹn gặp lại ngày mai!",
+      "zh": "再见，明天见！"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tạm biệt!",
+      "zh": "再见！"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "chào buổi sáng",
+      "options": [
+        "早上好",
+        "你好（较中性、正式）",
+        "再见",
+        "回头见；下次见"
+      ],
+      "answer": 0,
+      "explanation": "chào buổi sáng：早上好。",
+      "wordIds": [
+        "l01-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "tạm biệt",
+      "options": [
+        "再见",
+        "你好（较中性、正式）",
+        "早上好",
+        "回头见；下次见"
+      ],
+      "answer": 0,
+      "explanation": "tạm biệt：再见。",
+      "wordIds": [
+        "l01-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ mọi người!",
+      "answers": [
+        "Xin chào"
+      ],
+      "zh": "大家好！",
+      "explanation": "完整句子：Xin chào mọi người!",
+      "wordIds": [
+        "l01-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Em",
+        "chào",
+        "cô",
+        "ạ"
+      ],
+      "answer": "Em chào cô ạ",
+      "zh": "老师好。",
+      "explanation": "正确语序：Em chào cô ạ.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "xin chào",
+          "zh": "你好（较中性、正式）",
+          "wordId": "l01-w01"
+        },
+        {
+          "vi": "chào buổi sáng",
+          "zh": "早上好",
+          "wordId": "l01-w02"
+        },
+        {
+          "vi": "tạm biệt",
+          "zh": "再见",
+          "wordId": "l01-w03"
+        },
+        {
+          "vi": "hẹn gặp lại",
+          "zh": "回头见；下次见",
+          "wordId": "l01-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l01-w01",
+        "l01-w02",
+        "l01-w03",
+        "l01-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "cảm ơn",
+      "options": [
+        "谢谢",
+        "你好（较中性、正式）",
+        "早上好",
+        "再见"
+      ],
+      "answer": 0,
+      "explanation": "cảm ơn：谢谢。",
+      "wordIds": [
+        "l01-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "xin lỗi",
+      "options": [
+        "对不起；不好意思",
+        "你好（较中性、正式）",
+        "早上好",
+        "再见"
+      ],
+      "answer": 0,
+      "explanation": "xin lỗi：对不起；不好意思。",
+      "wordIds": [
+        "l01-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ mọi người!",
+      "answers": [
+        "Xin chào"
+      ],
+      "zh": "大家好！",
+      "explanation": "完整句子：Xin chào mọi người!",
+      "wordIds": [
+        "l01-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Em",
+        "chào",
+        "cô",
+        "ạ"
+      ],
+      "answer": "Em chào cô ạ",
+      "zh": "老师好。",
+      "explanation": "正确语序：Em chào cô ạ.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "学生向女老师问好，哪句更合适？",
+      "options": [
+        "Em chào cô ạ.",
+        "Chào mày!",
+        "Tôi là cô."
+      ],
+      "answer": 0,
+      "explanation": "学生可自称 em，称女老师 cô，句末加 ạ 表示尊敬。mày 不能用于这种场合。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

@@ -1,0 +1,332 @@
+{
+  "id": "l06",
+  "title": "家庭与关系",
+  "titleVi": "Gia đình và các mối quan hệ",
+  "kind": "lesson",
+  "goal": "能介绍家人，表达所属关系和家庭人数。",
+  "words": [
+    {
+      "id": "l06-w01",
+      "vi": "gia đình",
+      "zh": "家庭",
+      "example": "Gia đình tôi có bốn người.",
+      "exampleZh": "我家有四口人。"
+    },
+    {
+      "id": "l06-w02",
+      "vi": "bố",
+      "zh": "爸爸（北部常用）",
+      "example": "Bố tôi là kỹ sư.",
+      "exampleZh": "我爸爸是工程师。"
+    },
+    {
+      "id": "l06-w03",
+      "vi": "mẹ",
+      "zh": "妈妈",
+      "example": "Mẹ tôi nấu ăn rất ngon.",
+      "exampleZh": "我妈妈做饭很好吃。"
+    },
+    {
+      "id": "l06-w04",
+      "vi": "ông",
+      "zh": "爷爷；外公；对老年男性的称呼",
+      "example": "Ông tôi sống ở quê.",
+      "exampleZh": "我爷爷住在老家。"
+    },
+    {
+      "id": "l06-w05",
+      "vi": "bà",
+      "zh": "奶奶；外婆；对老年女性的称呼",
+      "example": "Bà tôi thích uống trà.",
+      "exampleZh": "我奶奶喜欢喝茶。"
+    },
+    {
+      "id": "l06-w06",
+      "vi": "anh trai",
+      "zh": "哥哥",
+      "example": "Anh trai tôi làm ở Hà Nội.",
+      "exampleZh": "我哥哥在河内工作。"
+    },
+    {
+      "id": "l06-w07",
+      "vi": "chị gái",
+      "zh": "姐姐",
+      "example": "Chị gái tôi là giáo viên.",
+      "exampleZh": "我姐姐是老师。"
+    },
+    {
+      "id": "l06-w08",
+      "vi": "em trai",
+      "zh": "弟弟",
+      "example": "Em trai tôi còn đi học.",
+      "exampleZh": "我弟弟还在上学。"
+    },
+    {
+      "id": "l06-w09",
+      "vi": "em gái",
+      "zh": "妹妹",
+      "example": "Em gái tôi mười tuổi.",
+      "exampleZh": "我妹妹十岁。"
+    },
+    {
+      "id": "l06-w10",
+      "vi": "con",
+      "zh": "孩子；子女",
+      "example": "Tôi có một con gái.",
+      "exampleZh": "我有一个女儿。"
+    },
+    {
+      "id": "l06-w11",
+      "vi": "vợ",
+      "zh": "妻子",
+      "example": "Vợ tôi là người Việt Nam.",
+      "exampleZh": "我妻子是越南人。"
+    },
+    {
+      "id": "l06-w12",
+      "vi": "chồng",
+      "zh": "丈夫",
+      "example": "Chồng chị làm nghề gì?",
+      "exampleZh": "您丈夫做什么工作？"
+    },
+    {
+      "id": "l06-w13",
+      "vi": "người thân",
+      "zh": "亲人",
+      "example": "Cuối tuần tôi gọi cho người thân.",
+      "exampleZh": "我周末给亲人打电话。"
+    },
+    {
+      "id": "l06-w14",
+      "vi": "bạn bè",
+      "zh": "朋友们；朋友关系",
+      "example": "Tôi thường đi chơi với bạn bè.",
+      "exampleZh": "我常和朋友出去玩。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "有、没有与人数",
+      "body": "có 表示有，không có 表示没有。家庭有几个人常说 Gia đình + 人 + có + 数量 + người。",
+      "vi": "Gia đình tôi có bốn người.",
+      "zh": "我家有四口人。"
+    },
+    {
+      "title": "修饰语通常在名词后",
+      "body": "anh trai、chị gái、con gái 中，后面的词限定前面的名词。所属结构可用 của；亲属词后直接接 tôi 也自然，如 mẹ tôi。",
+      "vi": "Đây là em gái của tôi.",
+      "zh": "这是我的妹妹。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Gia đình anh có mấy người?",
+      "zh": "您家有几口人？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Gia đình tôi có bốn người.",
+      "zh": "我家有四口人。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Anh có anh chị em không?",
+      "zh": "您有兄弟姐妹吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi có một em gái. Còn chị?",
+      "zh": "我有一个妹妹。您呢？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi có một anh trai.",
+      "zh": "我有一个哥哥。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Anh trai chị làm nghề gì?",
+      "zh": "您哥哥做什么工作？"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "bố",
+      "options": [
+        "爸爸（北部常用）",
+        "家庭",
+        "妈妈",
+        "爷爷；外公；对老年男性的称呼"
+      ],
+      "answer": 0,
+      "explanation": "bố：爸爸（北部常用）。",
+      "wordIds": [
+        "l06-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "mẹ",
+      "options": [
+        "妈妈",
+        "家庭",
+        "爸爸（北部常用）",
+        "爷爷；外公；对老年男性的称呼"
+      ],
+      "answer": 0,
+      "explanation": "mẹ：妈妈。",
+      "wordIds": [
+        "l06-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ tôi có bốn người.",
+      "answers": [
+        "Gia đình"
+      ],
+      "zh": "我家有四口人。",
+      "explanation": "完整句子：Gia đình tôi có bốn người.",
+      "wordIds": [
+        "l06-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Gia",
+        "đình",
+        "tôi",
+        "có",
+        "bốn",
+        "người"
+      ],
+      "answer": "Gia đình tôi có bốn người",
+      "zh": "我家有四口人。",
+      "explanation": "正确语序：Gia đình tôi có bốn người.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "gia đình",
+          "zh": "家庭",
+          "wordId": "l06-w01"
+        },
+        {
+          "vi": "bố",
+          "zh": "爸爸（北部常用）",
+          "wordId": "l06-w02"
+        },
+        {
+          "vi": "mẹ",
+          "zh": "妈妈",
+          "wordId": "l06-w03"
+        },
+        {
+          "vi": "ông",
+          "zh": "爷爷；外公；对老年男性的称呼",
+          "wordId": "l06-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l06-w01",
+        "l06-w02",
+        "l06-w03",
+        "l06-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "bà",
+      "options": [
+        "奶奶；外婆；对老年女性的称呼",
+        "家庭",
+        "爸爸（北部常用）",
+        "妈妈"
+      ],
+      "answer": 0,
+      "explanation": "bà：奶奶；外婆；对老年女性的称呼。",
+      "wordIds": [
+        "l06-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "anh trai",
+      "options": [
+        "哥哥",
+        "家庭",
+        "爸爸（北部常用）",
+        "妈妈"
+      ],
+      "answer": 0,
+      "explanation": "anh trai：哥哥。",
+      "wordIds": [
+        "l06-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ tôi có bốn người.",
+      "answers": [
+        "Gia đình"
+      ],
+      "zh": "我家有四口人。",
+      "explanation": "完整句子：Gia đình tôi có bốn người.",
+      "wordIds": [
+        "l06-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Gia",
+        "đình",
+        "tôi",
+        "có",
+        "bốn",
+        "người"
+      ],
+      "answer": "Gia đình tôi có bốn người",
+      "zh": "我家有四口人。",
+      "explanation": "正确语序：Gia đình tôi có bốn người.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "“我没有弟弟”哪句正确？",
+      "options": [
+        "Tôi không có em trai.",
+        "Tôi có không em trai.",
+        "Tôi là không em trai."
+      ],
+      "answer": 0,
+      "explanation": "否定“有”用 không có，放在宾语 em trai 前。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

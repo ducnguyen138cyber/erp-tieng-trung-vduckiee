@@ -1,0 +1,92 @@
+/* Scoped learning surface; existing Chinese courses retain their styles. */
+body[data-screen-route="vietnamese"] .study-center{grid-column:2 / -1!important;min-width:0!important}
+body[data-screen-route="vietnamese"] .study-rail{display:none!important}
+body[data-screen-route="vietnamese"] #mobileLearningDock{display:none!important}
+body[data-screen-route="vietnamese"] .duckie-chat-launch,body[data-screen-route="vietnamese"] .duckie-chat-panel{display:none!important}
+#vietnameseScreen{font:16px/1.7 system-ui,-apple-system,"Segoe UI","Noto Sans SC",sans-serif;color:#111827;min-width:0;padding-bottom:max(40px,env(safe-area-inset-bottom))}
+#vietnameseScreen.hidden{display:none!important}
+#vietnameseScreen *{box-sizing:border-box}
+#vietnameseScreen h1,#vietnameseScreen h2,#vietnameseScreen h3,#vietnameseScreen p{overflow-wrap:anywhere}
+#vietnameseScreen h1{font-size:clamp(25px,3vw,36px);line-height:1.3;letter-spacing:-.025em;margin:12px 0}
+#vietnameseScreen h2{font-size:21px;line-height:1.4;margin:12px 0}
+#vietnameseScreen h3{font-size:18px;margin:0 0 6px}
+#vietnameseScreen p{margin:8px 0 14px;color:#475569}
+#vietnameseScreen button{font-family:inherit;font-size:14px;line-height:1.45;font-weight:600;cursor:pointer;border:1px solid #dbeafe;border-radius:12px;background:#fff;color:#111827;min-height:44px;padding:10px 15px;white-space:normal}
+#vietnameseScreen button:disabled{cursor:default;opacity:.48}
+#vietnameseScreen :focus-visible{outline:3px solid #2563eb;outline-offset:3px}
+#vietnameseScreen [hidden]{display:none!important}
+#vietnameseScreen .vi-primary{background:#2563eb;color:#fff;border-color:#2563eb;font-weight:700}
+#vietnameseScreen .vi-button{background:#eff6ff;color:#1e40af;border-color:#bfdbfe}
+#vietnameseScreen .vi-text-button{border-color:transparent;background:transparent;color:#1d4ed8;padding-left:4px;padding-right:4px}
+.vi-topline{display:flex;align-items:center;gap:12px;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;font-size:13px;color:#475569}
+.vi-layout{display:grid;grid-template-columns:minmax(0,1fr)230px;gap:24px;align-items:start}
+.vi-main{min-width:0}
+.vi-hero{padding:30px;background:linear-gradient(135deg,#eff6ff,#fff);border:1px solid #dbeafe;border-radius:24px;margin-bottom:28px}
+.vi-eyebrow{font-size:12px;letter-spacing:.08em;font-weight:750;color:#1d4ed8}
+.vi-hero-meta{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 22px;font-size:13px}
+.vi-hero-meta span{padding:4px 10px;background:#fff;border:1px solid #dbeafe;border-radius:99px}
+.vi-side{position:sticky;top:20px;background:#fff;border:1px solid #dbeafe;border-radius:22px;padding:22px;min-width:0}
+.vi-side img{max-width:100%;height:auto;display:block;margin:0 auto 12px;object-fit:contain}
+#vietnameseScreen .vi-side h2{font-size:18px}
+.vi-side progress{width:100%;height:8px;accent-color:#2563eb}
+.vi-side>.vi-button,.vi-side>.vi-text-button{width:100%;margin-top:8px}
+.vi-sync{border-top:1px solid #e2e8f0;margin-top:18px;padding-top:18px;font-size:13px}
+#vietnameseScreen .vi-small{font-size:12px;color:#64748b;line-height:1.7}
+.vi-catalog{margin-bottom:28px}
+.vi-unit-row{display:grid;grid-template-columns:42px minmax(0,1fr)auto;align-items:center;gap:14px;padding:20px 0;border-bottom:1px solid #e2e8f0}
+.vi-unit-number{display:grid;place-items:center;width:40px;height:40px;background:#eff6ff;border-radius:12px;font-weight:750;color:#1d4ed8;font-size:13px}
+#vietnameseScreen .vi-unit-row p{font-size:14px;margin:3px 0}
+.vi-unit-row small{font-size:12px;color:#64748b}
+.vi-lesson-head{margin-bottom:20px}
+#vietnameseScreen .vi-title-vietnamese{font-size:15px;color:#64748b}
+.vi-tabs{display:flex;overflow-x:auto;gap:6px;max-width:100%;border-bottom:1px solid #dbeafe;padding-bottom:10px;margin-bottom:24px}
+#vietnameseScreen .vi-tabs button{white-space:nowrap;flex-shrink:0;border:0}
+#vietnameseScreen .vi-tabs [aria-selected="true"]{background:#dbeafe;color:#1e3a8a}
+.vi-flash-head,.vi-flash-nav,.vi-exercise-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:12px 0;color:#475569;font-size:13px}
+.vi-flash{padding:34px 26px;border:1px solid #dbeafe;border-radius:22px;background:#fff;text-align:center;min-height:240px}
+#vietnameseScreen .vi-flash h2{font-size:clamp(30px,5vw,45px);line-height:1.4;font-weight:650;margin:8px 0 22px}
+.vi-audio-controls{display:inline-flex;gap:6px;flex-wrap:wrap;align-items:center;margin:4px 0 12px}
+#vietnameseScreen .vi-audio-controls button{font-size:12px;padding:7px 10px;background:#eff6ff;border-color:#dbeafe;color:#1e40af}
+.vi-word-meaning{margin-top:24px;border-top:1px solid #e2e8f0;padding-top:22px}
+#vietnameseScreen .vi-word-meaning p[lang="vi"]{font-size:21px;color:#111827}
+.vi-word-index{margin:24px 0}
+#vietnameseScreen summary{cursor:pointer;min-height:44px;padding:10px 0;color:#1e40af;font-weight:600}
+.vi-word-index>div{display:flex;flex-wrap:wrap;gap:8px}
+#vietnameseScreen .vi-word-index [aria-pressed="true"]{background:#dbeafe;border-color:#60a5fa}
+.vi-audio-note{margin-top:28px;padding:16px 0;border-top:1px solid #e2e8f0;font-size:13px;min-height:68px}
+.vi-explanation{padding:0 0 24px;margin-bottom:20px;border-bottom:1px solid #e2e8f0}
+.vi-example{padding:14px 18px;border-radius:14px;background:#eff6ff}
+#vietnameseScreen .vi-example p[lang="vi"]{font-size:20px;color:#111827}
+.vi-table-scroll{overflow-x:auto;margin:16px 0 28px;max-width:100%}
+#vietnameseScreen table{border-collapse:collapse;width:100%;font-size:14px;text-align:left}
+#vietnameseScreen th,#vietnameseScreen td{padding:12px 10px;border-bottom:1px solid #e2e8f0;vertical-align:top}
+#vietnameseScreen th{background:#eff6ff;white-space:nowrap}
+#vietnameseScreen td[lang="vi"]{font-size:22px}
+#vietnameseScreen table .vi-audio-controls{display:flex;margin:6px 0 0}
+#vietnameseScreen table .vi-audio-controls button{font-size:11px;padding:5px 8px}
+.vi-dialogue{margin:24px 0}
+.vi-dialogue-line{display:flex;gap:14px;margin-bottom:20px;align-items:flex-start}
+.vi-speaker{padding:6px 12px;background:#dbeafe;color:#1e40af;border-radius:12px;font-weight:700}
+.vi-dialogue-line>div{background:#fff;border:1px solid #dbeafe;border-radius:18px;padding:18px;flex:1;min-width:0}
+#vietnameseScreen .vi-dialogue-line p[lang="vi"]{color:#111827;font-size:20px;margin-top:0}
+.vi-options{padding:0;margin:22px 0;border:0;display:grid;gap:12px;min-width:0}
+.vi-options legend{font-size:13px;color:#475569;margin-bottom:12px}
+.vi-options label{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #dbeafe;padding:15px 18px;border-radius:14px;cursor:pointer;min-height:52px}
+#vietnameseScreen input[type="radio"]{width:20px;height:20px;accent-color:#2563eb;flex-shrink:0}
+#vietnameseScreen .vi-question-word{font-size:25px;color:#111827}
+.vi-listen{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.vi-listen p,.vi-listen small{flex-basis:100%}
+.vi-input-label{display:grid;gap:9px;font-size:14px;margin:24px 0}
+.vi-input-label input{width:100%;border:1px solid #94a3b8;border-radius:12px;background:#fff;padding:14px;color:#111827;font:20px system-ui}
+.vi-order-answer{min-height:78px;border:2px dashed #bfdbfe;border-radius:16px;background:#f8fbff;margin:20px 0;padding:12px;display:flex;flex-wrap:wrap;gap:8px}
+.vi-order-pool{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.vi-match{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.vi-match>div{display:grid;gap:10px}
+#vietnameseScreen .vi-match [aria-pressed="true"]{background:#dbeafe;border:2px solid #2563eb}
+.vi-feedback{background:#eff6ff;border-radius:14px;padding:16px;margin:18px 0;min-height:55px}
+.vi-result{padding:26px;background:#fff;border:1px solid #dbeafe;border-radius:22px}
+#vietnameseScreen .vi-result h2{font-size:36px;color:#1d4ed8}
+@media(max-width:1200px){.vi-layout{grid-template-columns:minmax(0,1fr)210px;gap:18px}.vi-side{padding:18px}}
+@media(max-width:980px){body[data-screen-route="vietnamese"] .study-center{grid-column:auto!important}.vi-layout{grid-template-columns:1fr}.vi-side{position:static;display:grid;grid-template-columns:1fr 1fr;gap:8px 18px}.vi-side img{display:none}.vi-side h2,.vi-side>.vi-small,.vi-side .vi-sync{grid-column:1/-1}.vi-hero{padding:24px}.vi-unit-row{grid-template-columns:36px minmax(0,1fr)auto;gap:10px}.vi-unit-row .vi-button{padding:8px 10px}}
+@media(max-width:480px){.vi-unit-row{grid-template-columns:32px minmax(0,1fr)}.vi-unit-row>button{grid-column:2;justify-self:start}.vi-unit-number{width:32px;height:32px;font-size:11px}.vi-flash{padding:24px 16px}.vi-flash-nav .vi-primary{flex-grow:1}.vi-topline{font-size:11px}.vi-side{display:block}.vi-hero h1{font-size:27px}}
+@media(prefers-reduced-motion:reduce){#vietnameseScreen *{scroll-behavior:auto!important}}

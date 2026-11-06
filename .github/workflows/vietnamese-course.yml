@@ -1,0 +1,36 @@
+name: Vietnamese learning module
+on:
+  pull_request:
+    paths:
+      - 'assets/vietnamese/**'
+      - 'data/vietnamese/**'
+      - 'tests/vietnamese-*'
+      - 'supabase-sync.js'
+      - 'assets/navigation/screen-router.js'
+      - '.github/workflows/vietnamese-course.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: vietnamese-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  course-and-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false jsdom@26.1.0 playwright@1.58.2
+      - name: Content, storage, auth boundary and audio fallback tests
+        run: node --test tests/vietnamese-course.test.cjs tests/vietnamese-ui.test.cjs tests/vietnamese-bridge-audio.test.cjs
+      - run: npx playwright install --with-deps chromium webkit
+      - name: Chromium and WebKit responsive learning scenarios
+        run: node tests/vietnamese-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: vietnamese-learning-evidence
+          path: artifacts/vietnamese/

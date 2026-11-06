@@ -1,0 +1,330 @@
+{
+  "id": "l02",
+  "title": "姓名与国籍",
+  "titleVi": "Tên và quốc tịch",
+  "kind": "lesson",
+  "goal": "能说明姓名、国籍与语言，并询问对方身份。",
+  "words": [
+    {
+      "id": "l02-w01",
+      "vi": "tên",
+      "zh": "名字",
+      "example": "Tên bạn là gì?",
+      "exampleZh": "你叫什么名字？"
+    },
+    {
+      "id": "l02-w02",
+      "vi": "tôi tên là",
+      "zh": "我叫……",
+      "example": "Tôi tên là Minh.",
+      "exampleZh": "我叫明。"
+    },
+    {
+      "id": "l02-w03",
+      "vi": "bạn",
+      "zh": "你；朋友（视语境）",
+      "example": "Bạn là người nước nào?",
+      "exampleZh": "你是哪国人？"
+    },
+    {
+      "id": "l02-w04",
+      "vi": "người Việt Nam",
+      "zh": "越南人",
+      "example": "Tôi là người Việt Nam.",
+      "exampleZh": "我是越南人。"
+    },
+    {
+      "id": "l02-w05",
+      "vi": "người Trung Quốc",
+      "zh": "中国人",
+      "example": "Anh ấy là người Trung Quốc.",
+      "exampleZh": "他是中国人。"
+    },
+    {
+      "id": "l02-w06",
+      "vi": "tiếng Việt",
+      "zh": "越南语",
+      "example": "Tôi đang học tiếng Việt.",
+      "exampleZh": "我正在学越南语。"
+    },
+    {
+      "id": "l02-w07",
+      "vi": "tiếng Trung",
+      "zh": "中文；汉语",
+      "example": "Bạn có nói tiếng Trung không?",
+      "exampleZh": "你会说中文吗？"
+    },
+    {
+      "id": "l02-w08",
+      "vi": "nước nào",
+      "zh": "哪个国家",
+      "example": "Chị là người nước nào?",
+      "exampleZh": "您是哪国人？"
+    },
+    {
+      "id": "l02-w09",
+      "vi": "ở đâu",
+      "zh": "在哪里",
+      "example": "Bạn sống ở đâu?",
+      "exampleZh": "你住在哪里？"
+    },
+    {
+      "id": "l02-w10",
+      "vi": "sống",
+      "zh": "生活；居住",
+      "example": "Tôi sống ở Hải Dương.",
+      "exampleZh": "我住在海阳。"
+    },
+    {
+      "id": "l02-w11",
+      "vi": "học",
+      "zh": "学习",
+      "example": "Tôi học tiếng Việt mỗi ngày.",
+      "exampleZh": "我每天学越南语。"
+    },
+    {
+      "id": "l02-w12",
+      "vi": "nói",
+      "zh": "说",
+      "example": "Tôi nói tiếng Việt một chút.",
+      "exampleZh": "我会说一点越南语。"
+    },
+    {
+      "id": "l02-w13",
+      "vi": "một chút",
+      "zh": "一点儿",
+      "example": "Tôi hiểu một chút.",
+      "exampleZh": "我懂一点儿。"
+    },
+    {
+      "id": "l02-w14",
+      "vi": "rất hân hạnh",
+      "zh": "很荣幸（较正式）",
+      "example": "Rất hân hạnh được làm quen với anh.",
+      "exampleZh": "很荣幸认识您。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "A là B",
+      "body": "là 用于身份、姓名等名词性判断；描述“好、忙、饿”时一般不加 là。",
+      "vi": "Tôi là người Trung Quốc.",
+      "zh": "我是中国人。"
+    },
+    {
+      "title": "疑问词留在所问的位置",
+      "body": "gì（什么）、ở đâu（在哪里）、nước nào（哪个国家）通常留在句中原本的位置，不必搬到句首。",
+      "vi": "Bạn tên là gì?",
+      "zh": "你叫什么名字？"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Xin chào, tôi tên là Lý.",
+      "zh": "你好，我姓李。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Chào anh Lý, tôi tên là Lan.",
+      "zh": "李先生你好，我叫兰。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Chị là người nước nào?",
+      "zh": "您是哪国人？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Tôi là người Việt Nam. Còn anh?",
+      "zh": "我是越南人。您呢？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi là người Trung Quốc. Tôi đang học tiếng Việt.",
+      "zh": "我是中国人。我正在学越南语。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Rất vui được làm quen với anh.",
+      "zh": "很高兴认识您。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "tôi tên là",
+      "options": [
+        "我叫……",
+        "名字",
+        "你；朋友（视语境）",
+        "越南人"
+      ],
+      "answer": 0,
+      "explanation": "tôi tên là：我叫……。",
+      "wordIds": [
+        "l02-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "bạn",
+      "options": [
+        "你；朋友（视语境）",
+        "名字",
+        "我叫……",
+        "越南人"
+      ],
+      "answer": 0,
+      "explanation": "bạn：你；朋友（视语境）。",
+      "wordIds": [
+        "l02-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ bạn là gì?",
+      "answers": [
+        "Tên"
+      ],
+      "zh": "你叫什么名字？",
+      "explanation": "完整句子：Tên bạn là gì?",
+      "wordIds": [
+        "l02-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "là",
+        "người",
+        "Trung",
+        "Quốc"
+      ],
+      "answer": "Tôi là người Trung Quốc",
+      "zh": "我是中国人。",
+      "explanation": "正确语序：Tôi là người Trung Quốc.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "tên",
+          "zh": "名字",
+          "wordId": "l02-w01"
+        },
+        {
+          "vi": "tôi tên là",
+          "zh": "我叫……",
+          "wordId": "l02-w02"
+        },
+        {
+          "vi": "bạn",
+          "zh": "你；朋友（视语境）",
+          "wordId": "l02-w03"
+        },
+        {
+          "vi": "người Việt Nam",
+          "zh": "越南人",
+          "wordId": "l02-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l02-w01",
+        "l02-w02",
+        "l02-w03",
+        "l02-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "người Trung Quốc",
+      "options": [
+        "中国人",
+        "名字",
+        "我叫……",
+        "你；朋友（视语境）"
+      ],
+      "answer": 0,
+      "explanation": "người Trung Quốc：中国人。",
+      "wordIds": [
+        "l02-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "tiếng Việt",
+      "options": [
+        "越南语",
+        "名字",
+        "我叫……",
+        "你；朋友（视语境）"
+      ],
+      "answer": 0,
+      "explanation": "tiếng Việt：越南语。",
+      "wordIds": [
+        "l02-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "____ bạn là gì?",
+      "answers": [
+        "Tên"
+      ],
+      "zh": "你叫什么名字？",
+      "explanation": "完整句子：Tên bạn là gì?",
+      "wordIds": [
+        "l02-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "là",
+        "người",
+        "Trung",
+        "Quốc"
+      ],
+      "answer": "Tôi là người Trung Quốc",
+      "zh": "我是中国人。",
+      "explanation": "正确语序：Tôi là người Trung Quốc.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "“我是中国人”应该怎么说？",
+      "options": [
+        "Tôi là người Trung Quốc.",
+        "Tôi người là Trung Quốc.",
+        "Tôi là tiếng Trung."
+      ],
+      "answer": 0,
+      "explanation": "国籍用 người + 国家；tiếng Trung 是中文，不是中国人。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

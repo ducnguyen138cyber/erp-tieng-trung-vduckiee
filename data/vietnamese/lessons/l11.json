@@ -1,0 +1,336 @@
+{
+  "id": "l11",
+  "title": "公司与工厂沟通",
+  "titleVi": "Giao tiếp ở công ty và nhà máy",
+  "kind": "lesson",
+  "goal": "能询问工作、报告问题、请求重复并表达基本安全需求。",
+  "words": [
+    {
+      "id": "l11-w01",
+      "vi": "công ty",
+      "zh": "公司",
+      "example": "Tôi làm việc ở công ty này.",
+      "exampleZh": "我在这家公司工作。"
+    },
+    {
+      "id": "l11-w02",
+      "vi": "nhà máy",
+      "zh": "工厂",
+      "example": "Nhà máy ở gần đây.",
+      "exampleZh": "工厂在这附近。"
+    },
+    {
+      "id": "l11-w03",
+      "vi": "nhân viên",
+      "zh": "员工",
+      "example": "Tôi là nhân viên mới.",
+      "exampleZh": "我是新员工。"
+    },
+    {
+      "id": "l11-w04",
+      "vi": "quản lý",
+      "zh": "管理人员；管理",
+      "example": "Tôi cần gặp quản lý.",
+      "exampleZh": "我需要见负责人。"
+    },
+    {
+      "id": "l11-w05",
+      "vi": "bộ phận",
+      "zh": "部门；部件（视语境）",
+      "example": "Anh làm ở bộ phận nào?",
+      "exampleZh": "您在哪个部门工作？"
+    },
+    {
+      "id": "l11-w06",
+      "vi": "kho",
+      "zh": "仓库",
+      "example": "Hàng đang ở trong kho.",
+      "exampleZh": "货物在仓库里。"
+    },
+    {
+      "id": "l11-w07",
+      "vi": "hàng hóa",
+      "zh": "货物",
+      "example": "Hàng hóa đã đến rồi.",
+      "exampleZh": "货物已经到了。"
+    },
+    {
+      "id": "l11-w08",
+      "vi": "sản phẩm",
+      "zh": "产品",
+      "example": "Sản phẩm này cần kiểm tra.",
+      "exampleZh": "这个产品需要检查。"
+    },
+    {
+      "id": "l11-w09",
+      "vi": "số lượng",
+      "zh": "数量",
+      "example": "Số lượng là một trăm cái.",
+      "exampleZh": "数量是一百个。"
+    },
+    {
+      "id": "l11-w10",
+      "vi": "kiểm tra",
+      "zh": "检查",
+      "example": "Anh kiểm tra giúp tôi nhé.",
+      "exampleZh": "请您帮我检查一下。"
+    },
+    {
+      "id": "l11-w11",
+      "vi": "bị lỗi",
+      "zh": "有故障；存在缺陷",
+      "example": "Máy này bị lỗi.",
+      "exampleZh": "这台机器出故障了。"
+    },
+    {
+      "id": "l11-w12",
+      "vi": "an toàn",
+      "zh": "安全",
+      "example": "Chúng ta phải làm việc an toàn.",
+      "exampleZh": "我们必须安全作业。"
+    },
+    {
+      "id": "l11-w13",
+      "vi": "giúp tôi",
+      "zh": "帮我",
+      "example": "Chị giúp tôi kiểm tra nhé.",
+      "exampleZh": "请您帮我检查一下。"
+    },
+    {
+      "id": "l11-w14",
+      "vi": "nói lại",
+      "zh": "再说一遍",
+      "example": "Anh nói lại chậm hơn giúp tôi nhé.",
+      "exampleZh": "请您再慢一点说一遍。"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "请求帮助，不假装听懂",
+      "body": "…giúp tôi nhé 是礼貌请求；nói lại chậm hơn 表示再慢一点说。不明白工作指令时说 Tôi chưa hiểu，尤其安全事项必须确认。",
+      "vi": "Anh nói lại chậm hơn giúp tôi nhé.",
+      "zh": "请您再慢一点说一遍。"
+    },
+    {
+      "title": "cần、phải 与被动状态",
+      "body": "cần + 动词=需要；phải + 动词=必须。bị 常引出不利状态，如 bị lỗi。它不是所有被动句都必须用的词。",
+      "vi": "Sản phẩm này cần kiểm tra.",
+      "zh": "这个产品需要检查。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Anh ơi, sản phẩm này bị lỗi.",
+      "zh": "您好，这个产品有缺陷。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Số lượng là bao nhiêu?",
+      "zh": "数量是多少？"
+    },
+    {
+      "speaker": "A",
+      "vi": "Có mười sản phẩm cần kiểm tra.",
+      "zh": "有十件产品需要检查。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Em để riêng và báo cho quản lý nhé.",
+      "zh": "请单独放好，并报告负责人。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Em chưa hiểu. Anh nói lại chậm hơn giúp em ạ.",
+      "zh": "我还没听懂，请您再慢一点说一遍。"
+    },
+    {
+      "speaker": "B",
+      "vi": "Em để riêng mười sản phẩm này nhé.",
+      "zh": "请把这十件产品单独放好。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "nhà máy",
+      "options": [
+        "工厂",
+        "公司",
+        "员工",
+        "管理人员；管理"
+      ],
+      "answer": 0,
+      "explanation": "nhà máy：工厂。",
+      "wordIds": [
+        "l11-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "nhân viên",
+      "options": [
+        "员工",
+        "公司",
+        "工厂",
+        "管理人员；管理"
+      ],
+      "answer": 0,
+      "explanation": "nhân viên：员工。",
+      "wordIds": [
+        "l11-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi làm việc ở ____ này.",
+      "answers": [
+        "công ty"
+      ],
+      "zh": "我在这家公司工作。",
+      "explanation": "完整句子：Tôi làm việc ở công ty này.",
+      "wordIds": [
+        "l11-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Anh",
+        "nói",
+        "lại",
+        "chậm",
+        "hơn",
+        "giúp",
+        "tôi",
+        "nhé"
+      ],
+      "answer": "Anh nói lại chậm hơn giúp tôi nhé",
+      "zh": "请您再慢一点说一遍。",
+      "explanation": "正确语序：Anh nói lại chậm hơn giúp tôi nhé.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "công ty",
+          "zh": "公司",
+          "wordId": "l11-w01"
+        },
+        {
+          "vi": "nhà máy",
+          "zh": "工厂",
+          "wordId": "l11-w02"
+        },
+        {
+          "vi": "nhân viên",
+          "zh": "员工",
+          "wordId": "l11-w03"
+        },
+        {
+          "vi": "quản lý",
+          "zh": "管理人员；管理",
+          "wordId": "l11-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l11-w01",
+        "l11-w02",
+        "l11-w03",
+        "l11-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "bộ phận",
+      "options": [
+        "部门；部件（视语境）",
+        "公司",
+        "工厂",
+        "员工"
+      ],
+      "answer": 0,
+      "explanation": "bộ phận：部门；部件（视语境）。",
+      "wordIds": [
+        "l11-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "kho",
+      "options": [
+        "仓库",
+        "公司",
+        "工厂",
+        "员工"
+      ],
+      "answer": 0,
+      "explanation": "kho：仓库。",
+      "wordIds": [
+        "l11-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi làm việc ở ____ này.",
+      "answers": [
+        "công ty"
+      ],
+      "zh": "我在这家公司工作。",
+      "explanation": "完整句子：Tôi làm việc ở công ty này.",
+      "wordIds": [
+        "l11-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Anh",
+        "nói",
+        "lại",
+        "chậm",
+        "hơn",
+        "giúp",
+        "tôi",
+        "nhé"
+      ],
+      "answer": "Anh nói lại chậm hơn giúp tôi nhé",
+      "zh": "请您再慢一点说一遍。",
+      "explanation": "正确语序：Anh nói lại chậm hơn giúp tôi nhé.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "没听懂安全操作指令时，哪句最合适？",
+      "options": [
+        "Tôi chưa hiểu. Anh nói lại giúp tôi nhé.",
+        "Vâng, tôi hiểu rồi.",
+        "Không có gì."
+      ],
+      "answer": 0,
+      "explanation": "不要假装理解；明确说 chưa hiểu 并请求重复，再确认指令。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}

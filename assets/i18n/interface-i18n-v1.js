@@ -5,6 +5,7 @@
   var KEY="vduckie-ui-language-v1";
   var supported={vi:true,zh:true,en:true};
   var strings={
+    "Học tiếng Việt / 学越南语":["学越南语","Learn Vietnamese"],
     "Cài ứng dụng":["安装应用","Install app"],
     "Cập nhật VDuckie":["更新 VDuckie","Update VDuckie"],
     "Đồng bộ khi đăng nhập":["登录后同步","Sync when signed in"],
@@ -2709,7 +2710,7 @@
   }
   function isProtected(element){
     if(!element||!element.closest)return true;
-    if(element.closest("script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
+    if(element.closest("#vietnameseScreen,.vi-home-invite,[translate='no'],script,style,noscript,textarea,option,[contenteditable='true'],.vd-i18n-slot,.vd-i18n-guest"))return true;
     // Never localize Vietnamese glosses, learner answers or Chinese examples, even inside UI-permitted elements.
     if(element.closest(".hsk-focus-example,.hsk-focus-meaning,[data-focus-quiz-choices],.hsk-pro-note,.v86-option,.duckie-chat-messages,.daily-options,.dictionary-word,.dictionary-meta small,.dictionary-example,.focus-word>p,.focus-word>small,.context-focus>p,.question-focus>p,.hsk-pro-lesson-head h3 small"))return true;
     // The practice runtime directly localizes chrome; never change quiz answers or shown HSK words.

@@ -1,0 +1,332 @@
+{
+  "id": "l08",
+  "title": "购物与问价",
+  "titleVi": "Mua sắm và hỏi giá",
+  "kind": "lesson",
+  "goal": "能问价、说明数量、选择商品并询问付款方式。",
+  "words": [
+    {
+      "id": "l08-w01",
+      "vi": "mua",
+      "zh": "买",
+      "example": "Tôi muốn mua áo này.",
+      "exampleZh": "我想买这件上衣。"
+    },
+    {
+      "id": "l08-w02",
+      "vi": "bán",
+      "zh": "卖",
+      "example": "Ở đây có bán nước không?",
+      "exampleZh": "这里卖水吗？"
+    },
+    {
+      "id": "l08-w03",
+      "vi": "bao nhiêu tiền",
+      "zh": "多少钱",
+      "example": "Cái này bao nhiêu tiền?",
+      "exampleZh": "这个多少钱？"
+    },
+    {
+      "id": "l08-w04",
+      "vi": "đắt",
+      "zh": "贵",
+      "example": "Áo này hơi đắt.",
+      "exampleZh": "这件衣服有点贵。"
+    },
+    {
+      "id": "l08-w05",
+      "vi": "rẻ",
+      "zh": "便宜",
+      "example": "Cái kia rẻ hơn.",
+      "exampleZh": "那个更便宜。"
+    },
+    {
+      "id": "l08-w06",
+      "vi": "giảm giá",
+      "zh": "降价；打折",
+      "example": "Chị có thể giảm giá một chút không?",
+      "exampleZh": "您能便宜一点吗？"
+    },
+    {
+      "id": "l08-w07",
+      "vi": "cái này",
+      "zh": "这个（常用于物品）",
+      "example": "Tôi lấy cái này.",
+      "exampleZh": "我要这个。"
+    },
+    {
+      "id": "l08-w08",
+      "vi": "cái kia",
+      "zh": "那个（常用于物品）",
+      "example": "Cho tôi xem cái kia.",
+      "exampleZh": "请给我看看那个。"
+    },
+    {
+      "id": "l08-w09",
+      "vi": "lấy",
+      "zh": "拿；选购",
+      "example": "Tôi lấy hai cái.",
+      "exampleZh": "我要两个。"
+    },
+    {
+      "id": "l08-w10",
+      "vi": "bao nhiêu",
+      "zh": "多少",
+      "example": "Anh cần bao nhiêu cái?",
+      "exampleZh": "您需要几个？"
+    },
+    {
+      "id": "l08-w11",
+      "vi": "tiền mặt",
+      "zh": "现金",
+      "example": "Tôi trả bằng tiền mặt.",
+      "exampleZh": "我用现金付款。"
+    },
+    {
+      "id": "l08-w12",
+      "vi": "chuyển khoản",
+      "zh": "转账",
+      "example": "Tôi có thể chuyển khoản không?",
+      "exampleZh": "我可以转账吗？"
+    },
+    {
+      "id": "l08-w13",
+      "vi": "hóa đơn",
+      "zh": "发票；账单（视语境）",
+      "example": "Cho tôi xin hóa đơn.",
+      "exampleZh": "请给我账单／发票。"
+    },
+    {
+      "id": "l08-w14",
+      "vi": "kích cỡ",
+      "zh": "尺码；尺寸",
+      "example": "Chị cần kích cỡ nào?",
+      "exampleZh": "您需要什么尺码？"
+    }
+  ],
+  "grammar": [
+    {
+      "title": "này、kia 跟在名词后",
+      "body": "cái này/cái kia 常用于物品；具体商品可说 áo này。数量通常在量词前：hai cái áo。不是所有名词都用 cái。",
+      "vi": "Tôi lấy hai cái áo này.",
+      "zh": "我要这两件上衣。"
+    },
+    {
+      "title": "比较和询问可能性",
+      "body": "形容词 + hơn 表示“更……”。礼貌询问用 có thể + 动词 + không？转账前仍需核对收款人、币种与金额。",
+      "vi": "Cái này rẻ hơn.",
+      "zh": "这个更便宜。"
+    }
+  ],
+  "dialogue": [
+    {
+      "speaker": "A",
+      "vi": "Chị ơi, áo này bao nhiêu tiền?",
+      "zh": "您好，这件上衣多少钱？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Một trăm nghìn đồng.",
+      "zh": "十万越南盾。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Có kích cỡ lớn hơn không?",
+      "zh": "有更大尺码的吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Có. Anh thử cái này nhé.",
+      "zh": "有，您试试这一件。"
+    },
+    {
+      "speaker": "A",
+      "vi": "Tôi lấy cái này. Tôi chuyển khoản được không?",
+      "zh": "我要这件。我可以转账吗？"
+    },
+    {
+      "speaker": "B",
+      "vi": "Được ạ.",
+      "zh": "可以。"
+    }
+  ],
+  "practice": [
+    {
+      "type": "listen",
+      "prompt": "听录音，选择意思。",
+      "vi": "bán",
+      "options": [
+        "卖",
+        "买",
+        "多少钱",
+        "贵"
+      ],
+      "answer": 0,
+      "explanation": "bán：卖。",
+      "wordIds": [
+        "l08-w02"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "bao nhiêu tiền",
+      "options": [
+        "多少钱",
+        "买",
+        "卖",
+        "贵"
+      ],
+      "answer": 0,
+      "explanation": "bao nhiêu tiền：多少钱。",
+      "wordIds": [
+        "l08-w03"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi muốn ____ áo này.",
+      "answers": [
+        "mua"
+      ],
+      "zh": "我想买这件上衣。",
+      "explanation": "完整句子：Tôi muốn mua áo này.",
+      "wordIds": [
+        "l08-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "lấy",
+        "hai",
+        "cái",
+        "áo",
+        "này"
+      ],
+      "answer": "Tôi lấy hai cái áo này",
+      "zh": "我要这两件上衣。",
+      "explanation": "正确语序：Tôi lấy hai cái áo này.",
+      "wordIds": []
+    },
+    {
+      "type": "match",
+      "prompt": "先选越南语，再选对应中文。全部配对后提交。",
+      "pairs": [
+        {
+          "vi": "mua",
+          "zh": "买",
+          "wordId": "l08-w01"
+        },
+        {
+          "vi": "bán",
+          "zh": "卖",
+          "wordId": "l08-w02"
+        },
+        {
+          "vi": "bao nhiêu tiền",
+          "zh": "多少钱",
+          "wordId": "l08-w03"
+        },
+        {
+          "vi": "đắt",
+          "zh": "贵",
+          "wordId": "l08-w04"
+        }
+      ],
+      "explanation": "对照词义，不要只凭选项位置配对。",
+      "wordIds": [
+        "l08-w01",
+        "l08-w02",
+        "l08-w03",
+        "l08-w04"
+      ]
+    }
+  ],
+  "quiz": [
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "rẻ",
+      "options": [
+        "便宜",
+        "买",
+        "卖",
+        "多少钱"
+      ],
+      "answer": 0,
+      "explanation": "rẻ：便宜。",
+      "wordIds": [
+        "l08-w05"
+      ]
+    },
+    {
+      "type": "choice",
+      "prompt": "选择正确的意思。",
+      "vi": "giảm giá",
+      "options": [
+        "降价；打折",
+        "买",
+        "卖",
+        "多少钱"
+      ],
+      "answer": 0,
+      "explanation": "giảm giá：降价；打折。",
+      "wordIds": [
+        "l08-w06"
+      ]
+    },
+    {
+      "type": "fill",
+      "prompt": "填写缺少的词，保留越南语声调符号。",
+      "sentence": "Tôi muốn ____ áo này.",
+      "answers": [
+        "mua"
+      ],
+      "zh": "我想买这件上衣。",
+      "explanation": "完整句子：Tôi muốn mua áo này.",
+      "wordIds": [
+        "l08-w01"
+      ]
+    },
+    {
+      "type": "order",
+      "prompt": "依次选择词块，组成句子。",
+      "tokens": [
+        "Tôi",
+        "lấy",
+        "hai",
+        "cái",
+        "áo",
+        "này"
+      ],
+      "answer": "Tôi lấy hai cái áo này",
+      "zh": "我要这两件上衣。",
+      "explanation": "正确语序：Tôi lấy hai cái áo này.",
+      "wordIds": []
+    },
+    {
+      "type": "choice",
+      "prompt": "“这个更便宜”哪个词序正确？",
+      "options": [
+        "Cái này rẻ hơn.",
+        "Hơn rẻ này cái.",
+        "Cái rẻ này hơn là."
+      ],
+      "answer": 0,
+      "explanation": "指示词 này 在名词后；比较词 hơn 在形容词 rẻ 后。",
+      "wordIds": []
+    }
+  ],
+  "sections": [
+    "words",
+    "grammar",
+    "dialogue",
+    "practice",
+    "quiz"
+  ],
+  "minutes": 25
+}
