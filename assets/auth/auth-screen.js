@@ -153,6 +153,7 @@
     if (mode === "register" && !$("vdaTerms").checked) {
       message("Hãy xác nhận điều khoản trước khi tạo tài khoản."); $("vdaTerms").focus(); return;
     }
+    var shouldClose = false;
     setBusy(true); message("");
     try {
       var result;
@@ -177,12 +178,13 @@
         recovery = false;
         message("Đã đổi mật khẩu thành công. Bạn có thể tiếp tục học.", true);
         setTimeout(function () { if (screen && !screen.hidden && !busy) close(); }, 1200);
-      } else close();
+      } else shouldClose = true;
     } catch (error) {
       message(friendlyError(error));
     } finally {
       setBusy(false);
     }
+    if (shouldClose) close();
   }
 
   async function google() {
