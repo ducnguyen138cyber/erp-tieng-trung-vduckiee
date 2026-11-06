@@ -91,7 +91,7 @@
         source=source.replace("</body>",'<script src="./assets/hsk-content/hsk-practice-bank-v1.js?v=2"><\/script><script src="./assets/hsk-content/hsk-practice-ui-v1.js?v=2"><\/script></body>');
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/games/typing-game.css?v=5"><link rel="stylesheet" href="./assets/games/games-hub.css?v=1"></head>');
         source=source.replace("</body>",'<script src="./assets/games/typing-engine.js?v=2"><\/script><script src="./assets/games/typing-game.js?v=6"><\/script></body>');
-        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/interface/public-interface.css?v=2"><link rel="stylesheet" href="./assets/games/sentence-game.css?v=2"></head>');
+        source=source.replace("</head>",'<link rel="stylesheet" href="./assets/interface/public-interface.css?v=3"><link rel="stylesheet" href="./assets/games/sentence-game.css?v=2"></head>');
         source=source.replace("</body>",'<script src="./assets/interface/mobile-navigation.js?v=1"><\/script><script src="./assets/games/sentence-engine.js?v=2"><\/script><script src="./assets/games/sentence-game.js?v=2"><\/script></body>');
         if(new URLSearchParams(location.search).get("developer")!=="1")source=source.replace(/<script\b[^>]*src=["']\.\/assets\/developer[^"']+["'][^>]*><\/script>/g,"");
         document.open();document.write(source);document.close();

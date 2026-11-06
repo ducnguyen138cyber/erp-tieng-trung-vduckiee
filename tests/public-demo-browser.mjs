@@ -16,18 +16,26 @@ try{
 for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390,height:844},{width:844,height:390}]){
  const name=viewport.width+'x'+viewport.height,context=await browser.newContext({viewport,serviceWorkers:'block',recordVideo:{dir:out,size:viewport}}),page=await context.newPage();page.setDefaultTimeout(15000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',route=>route.fulfill({contentType:'text/javascript',body:`window.supabase={createClient(){const q=()=>new Proxy({}, {get(o,k){if(k==='then')return ok=>Promise.resolve({data:[],error:null}).then(ok);return ()=>q()}});return {auth:{getSession:async()=>({data:{session:null},error:null}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}};`}));
- await page.route('https://*.supabase.co/**',route=>route.abort());await page.addInitScript(()=>{Math.random=()=>.05;});
+ await page.route('https://*.supabase.co/**',route=>route.abort());await page.addInitScript(()=>{Math.random=()=>.05;localStorage.setItem('vduckie-hsk-study-journey-v1',JSON.stringify({version:1,current:{level:1,lessonId:'hsk1-lesson-01'},lessons:{},reviews:{'1:你好':{level:1,lessonId:'hsk1-lesson-01',hanzi:'你好',pinyin:'nǐ hǎo',meaningVi:'xin chào',stage:0,nextAt:Date.now()-1000}}}));});
  await page.goto(base);await page.waitForFunction(()=>window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieMobileMenu);
  assert.equal(await page.locator('.v85-profile').count(),0);
- // Removing the old profile must not reserve a blank second column beside progress.
+ // Progress and Continue must share the main row, with one live continue card after refresh.
  async function checkHomeStats(){
-  await page.locator('#v85PersonalDashboard .v85-stats').waitFor();
-  const layout=await page.locator('#v85PersonalDashboard').evaluate(n=>{const top=n.querySelector('.v85-top'),stats=n.querySelector('.v85-stats'),grid=n.querySelector('.v85-stat-grid'),a=top.getBoundingClientRect(),b=stats.getBoundingClientRect();return {parent:a.width,stats:b.width,left:b.x-a.x,columns:getComputedStyle(grid).gridTemplateColumns.split(' ').length,content:stats.clientWidth-parseFloat(getComputedStyle(stats).paddingLeft)-parseFloat(getComputedStyle(stats).paddingRight),count:grid.children.length,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};});
-  assert.ok(Math.abs(layout.parent-layout.stats)<2,'progress fills the full row after profile removal');assert.ok(Math.abs(layout.left)<2);assert.equal(layout.count,4);assert.equal(layout.columns,layout.content>=640?4:2);assert.ok(layout.overflow<=1,'home never overflows horizontally');
+  await page.locator('#v85PersonalDashboard .v85-top>.v865-continue-card').waitFor();
+  const layout=await page.locator('#v85PersonalDashboard').evaluate(n=>{const top=n.querySelector('.v85-top'),stats=n.querySelector('.v85-stats'),next=top.querySelector('.v865-continue-card'),grid=n.querySelector('.v85-stat-grid'),a=top.getBoundingClientRect(),b=stats.getBoundingClientRect(),c=next.getBoundingClientRect();return {parent:a.width,stats:b.width,next:c.width,left:b.x-a.x,nextLeft:c.x-a.x,dy:c.y-b.y,bottom:b.bottom,top:c.top,columns:getComputedStyle(grid).gridTemplateColumns.split(' ').length,content:stats.clientWidth-parseFloat(getComputedStyle(stats).paddingLeft)-parseFloat(getComputedStyle(stats).paddingRight),count:grid.children.length,copies:document.querySelectorAll('.v865-continue-card').length,sidebarCopies:document.querySelectorAll('#v865HomeSidebar .v865-continue-card').length,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};});
+  assert.equal(layout.copies,1);assert.equal(layout.sidebarCopies,0);assert.ok(Math.abs(layout.left)<2);assert.equal(layout.count,4);assert.equal(layout.columns,layout.content>=640?4:2);assert.ok(layout.overflow<=1,'home never overflows horizontally');
+  if(layout.parent>=620){assert.ok(Math.abs(layout.dy)<2,'Continue aligns with Progress');assert.ok(layout.nextLeft>layout.stats);assert.ok(Math.abs(layout.stats+layout.next+14-layout.parent)<2);}else{assert.ok(Math.abs(layout.stats-layout.parent)<2);assert.ok(Math.abs(layout.next-layout.parent)<2);assert.ok(layout.top>=layout.bottom,'mobile Continue follows Progress');}
  }
  await checkHomeStats();
+ // Both independent renderers refresh on account/learning changes; neither may move or duplicate the card.
+ await page.evaluate(()=>{window.VDuckieHomeDashboardV865.render();document.dispatchEvent(new CustomEvent('vduckie:learning-change'));});await page.waitForTimeout(250);await checkHomeStats();
  if(viewport.width===1440){for(const width of [1787,1280,1024]){await page.setViewportSize({width,height:900});await checkHomeStats();}await page.setViewportSize(viewport);await checkHomeStats();}
- await page.locator('#v85PersonalDashboard .v85-stats').screenshot({path:path.join(out,name+'-home-stats.png')});
+ await page.locator('#v85PersonalDashboard .v85-top').screenshot({path:path.join(out,name+'-home-progress-continue.png')});
+ await page.locator('#v85PersonalDashboard [data-v865-action=continue]').click();await page.locator('#hskLesson .hsk-pro-lesson-head').waitFor();
+ if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
+ await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();assert.match(await page.locator('[data-hsk-review-drawer]').innerText(),/你好/);await page.locator('[data-hsk-review-close]').click();
+ if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
+
 
  assert.doesNotMatch(await page.locator('body').innerText(),/CÁ NHÂN HÓA · V85|CONTENT PACK V74|Supabase sync|PWA dùng chung|Cần chạy migration/);
  assert.equal(await page.locator('script[src*="/developer"]').count(),0);
@@ -107,7 +115,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await page.locator('[data-sentence-action=choices]').click();
  }
  await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),2);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
- results.push({viewport,passed:true,checks:['home_progress_full_width_no_reserved_profile_column','adaptive_two_or_four_statistics_columns','two_column_catalog_responsive','concise_animated_game_scenes','catalog_reduced_motion','mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
+ results.push({viewport,passed:true,checks:['home_progress_continue_same_row_after_refresh','continue_and_due_review_buttons_work_in_new_row','adaptive_two_or_four_statistics_columns','two_column_catalog_responsive','concise_animated_game_scenes','catalog_reduced_motion','mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
 }
 await writeFile(path.join(out,'results.json'),JSON.stringify(results,null,2));
 }finally{server.closeAllConnections();await new Promise(r=>server.close(r));await browser.close();}

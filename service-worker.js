@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v45";
+const CACHE_VERSION = "vduckie-pwa-v46";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -14,14 +14,14 @@ const APP_SHELL = [
   "./erp-content-v74.js?v=factory1",
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
-  "./assets/v86/experience-suite-loader-v86.js?v=public1",
-  "./assets/v86/home-dashboard-v86.5.js?v=factory1",
-  "./assets/v85/personal-dashboard-v85.js?v=public1",
+  "./assets/v86/experience-suite-loader-v86.js?v=progress-row1",
+  "./assets/v86/home-dashboard-v86.5.js?v=progress-row1",
+  "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=public1",
   "./assets/navigation/screen-router.js?v=drawer1",
   "./assets/v90/home-exp-sidebar-v90.js?v=factory1",
 
-  "./assets/interface/public-interface.css?v=2",
+  "./assets/interface/public-interface.css?v=3",
   "./assets/interface/mobile-navigation.js?v=1",
   "./assets/factory/workshop-content.js?v=1",
   "./assets/games/sentence-engine.js?v=2",

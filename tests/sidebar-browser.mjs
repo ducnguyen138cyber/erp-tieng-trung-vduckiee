@@ -100,7 +100,7 @@ try {
     ]) {
       console.log('Testing', authenticated ? 'mock authenticated' : 'guest', selector);
       await home();
-      await page.locator('#v865HomeSidebar ' + selector).click({ delay: 150 });
+      await page.locator((selector==='[data-v865-action="continue"]'?'#v85PersonalDashboard ':'#v865HomeSidebar ') + selector).click({ delay: 150 });
       if (target === '.daily-panel') {
         // Daily Learning mounts its destination as a sibling of the home hub.
         if (selector.includes('review_10')) await page.getByRole('heading', {name:'Không có từ đến hạn',exact:true}).waitFor();
