@@ -60,7 +60,7 @@
   if (document.readyState === "loading") {
     // A parser-inserted script preserves the original dependency/order contract.
     window.VDuckieERPBootFallback = function () { loadFallback(0); };
-    document.write('<script src="' + bootBundle + '" onerror="window.VDuckieERPBootFallback()"><\\/script>'.replace("<\\/script>", "<\/script>"));
+    document.write('<script src="' + bootBundle + '" onerror="window.VDuckieERPBootFallback()"><' + '/script>');
     return;
   }
   var bundled = document.createElement("script");
