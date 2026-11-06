@@ -39,7 +39,13 @@
   }
   function updateAuth(session) {
     var callout = byId("expLoginCallout"); if (callout) callout.classList.toggle("hidden", !!(session && session.user));
-    if (session && session.user) core.syncProfile().then(root.VDuckieEXP.getCurrentUserEXP).then(function (total) { document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: total } })); });
+    if (session && session.user) {
+      // EXP read is independent of profile upsert; do not block first paint.
+      core.syncProfile().catch(function () {});
+      root.VDuckieEXP.getCurrentUserEXP().then(function (total) {
+        document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: total } }));
+      });
+    }
     else document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: 0, guest: true } }));
     if (isOpen()) root.VDuckieEXPBoard.refresh();
   }
