@@ -37,8 +37,7 @@ test('feedback rotates five contextual lines before repeating', () => {
   assert.equal(api.nextLine('quizWrong', data), lines[0]);
 });
 
-test('community loader starts HSK contextual roast from the legacy runtime onload hook', () => {
-  assert.match(loader, /runtime-v70\.2\.js\?v=70\.2/);
-  assert.match(loader, /hsk-roast-context-v80\.1\.js\?v=80\.1/);
-  assert.match(loader, /script\.onload=function\(\)\{loadFeedbackContext\(\);loadHskRoastContextV801\(\);\}/);
+test('public community loader keeps contextual roast retired', () => {
+  assert.match(loader, /runtime-v70\.2\.js\?v=no-roast-1/);
+  assert.doesNotMatch(loader, /hsk-roast-context-v80\.1\.js|loadFeedbackContext\(\)|loadHskRoastContextV801\(\)/);
 });

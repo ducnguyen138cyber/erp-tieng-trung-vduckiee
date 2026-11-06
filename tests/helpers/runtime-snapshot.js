@@ -2,6 +2,7 @@
 
 const fs = require('node:fs');
 const path = require('node:path');
+const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..', '..');
 
@@ -45,15 +46,24 @@ function unique(values) {
   return [...new Set(values)];
 }
 
-function getRuntimeSnapshot() {
+function getRuntimeSnapshot(options = {}) {
   const indexSource = read('index.html');
   const shellSource = read('app-shell-v88.html');
-  const effectiveHtml = `${shellSource}\n${indexSource}`;
-  const assets = unique([
-    ...collectAttributeReferences(shellSource),
-    ...collectBootstrapReferences(indexSource)
-  ]);
-  return { indexSource, shellSource, effectiveHtml, assets };
+  const bootstrap = [...indexSource.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)]
+    .map(match => match[1]).find(code => code.includes('async function restoreStaticVDuckie'));
+  if (!bootstrap) throw new Error('Missing static app bootstrap');
+  let effectiveHtml = '';
+  const context = vm.createContext({
+    __shell: shellSource, location: {search: options.search || ''}, URLSearchParams,
+    console, document: {open() {}, write(html) {effectiveHtml = html;}, close() {},
+      addEventListener() {throw new Error('Bootstrap failed before writing the app shell');}}
+  }, {microtaskMode: 'afterEvaluate'});
+  vm.runInContext('function fetch(){return Promise.resolve({ok:true,text(){return Promise.resolve(__shell)}})}', context);
+  vm.runInContext(bootstrap, context, {timeout: 1000});
+  if (!effectiveHtml) throw new Error('Bootstrap did not write an app shell');
+  const shell = indexSource.match(/\bshellUrl\s*=\s*["']([^"']+)["']/);
+  const assets = unique([...collectAttributeReferences(effectiveHtml), ...(shell ? [shell[1]] : [])]);
+  return {indexSource, shellSource, effectiveHtml, assets};
 }
 
 function stripQuery(reference) {

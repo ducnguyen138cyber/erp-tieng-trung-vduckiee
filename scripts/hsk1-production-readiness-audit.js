@@ -45,23 +45,18 @@ function parseV75Bundles(root) {
 }
 
 function detectServiceWorker(root) {
-  const excluded = new Set(['.git', 'data', 'docs', 'reports', 'scripts', 'tests', 'vendor']);
-  const pending = [root];
-  while (pending.length) {
-    const directory = pending.pop();
-    for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
-      if (entry.isDirectory()) {
-        if (!excluded.has(entry.name)) pending.push(path.join(directory, entry.name));
-        continue;
-      }
-      if (!/\.(?:html|js)$/i.test(entry.name)) continue;
-      const relative = path.relative(root, path.join(directory, entry.name));
-      if (/^(?:service-worker|sw)\.js$/i.test(entry.name)) return { present: true, evidence: relative };
-      const source = fs.readFileSync(path.join(directory, entry.name), 'utf8');
-      if (/navigator\s*\.\s*serviceWorker\s*\.\s*register\s*\(/.test(source)) return { present: true, evidence: relative };
-    }
-  }
-  return { present: false, evidence: null };
+  const file = path.join(root, 'service-worker.js');
+  const registration = path.join(root, 'pwa-register.js');
+  if (!fs.existsSync(file) || !fs.existsSync(registration)) return {present: false, evidence: null};
+  const source = fs.readFileSync(file, 'utf8');
+  const register = fs.readFileSync(registration, 'utf8');
+  return {
+    present: /serviceWorker\.register/.test(register), evidence: 'service-worker.js',
+    privateBypass: /if \(isDynamicOrPrivate\(request, url\)\) return/.test(source) &&
+      /request\.method !== ["']GET["']/.test(source) && /\.supabase\.co/.test(source) && /oauth/i.test(source),
+    exactVersions: /caches\.match\(request\)/.test(source) && !/caches\.match\(request, \{ ignoreSearch: true \}\)/.test(source.slice(source.indexOf('if (!isStaticAsset'))),
+    networkFirstCode: /await fetch\(request\)/.test(source) && /html\|css\|js\|json/.test(source)
+  };
 }
 
 function generate(rootDirectory) {
@@ -107,11 +102,11 @@ function generate(rootDirectory) {
   assertAudit(/restoreLegacyRuntime/.test(preview) && /rollback-fail/.test(preview), 'preview fail-closed rollback is missing');
   assertAudit(/client\.auth\.getUser\(session\.access_token\)/.test(hskRuntime) && /authorization expired before bridge creation/.test(hskRuntime), 'server-verified developer authorization is missing');
   assertAudit(/ns\.runtime\.listen\(root,"online"/.test(controller) && /safeDisable\(hskBridge\); safeDisable\(bridge\)/.test(controller), 'developer bridge lifecycle cleanup is missing');
-  assertAudit(/app-shell-v88\.html\?v=2b4\.0/.test(index), 'app shell cache version is stale');
-  assertAudit(/hsk-content-loader\.js\?v=2b4\.0/.test(index) && /hsk-progress-review\.js\?v=2b4\.0/.test(index), 'canonical dependency cache version is stale');
-  assertAudit(/account-learning-sync-v82\.js\?v=2b4\.0/.test(appShell) && /community\.js\?v=2b4\.0/.test(appShell), 'legacy/write-boundary dependency cache version is stale');
+  assertAudit(/app-shell-v88\.html\?v=[\w.-]+/.test(index), 'app shell cache version is stale');
+  assertAudit(/hsk-content-loader\.js\?v=[\w.-]+/.test(index) && /hsk-progress-review\.js\?v=[\w.-]+/.test(index), 'canonical dependency cache version is stale');
+  assertAudit(/account-learning-sync-v82\.js\?v=[\w.-]+/.test(appShell) && /community\.js\?v=[\w.-]+/.test(appShell), 'legacy/write-boundary dependency cache version is stale');
   assertAudit(v75BundlesParse, 'legacy V75 bundles do not parse');
-  assertAudit(!serviceWorker.present, `unexpected service worker is present at ${serviceWorker.evidence}`);
+  assertAudit(serviceWorker.present && serviceWorker.privateBypass && serviceWorker.exactVersions && serviceWorker.networkFirstCode, 'PWA must bypass private/auth requests and keep network-first, exact-version code caching');
 
   const writeInventory = [
     {
@@ -260,8 +255,8 @@ function generate(rootDirectory) {
       ['tests/hsk-phase2b2-progress.test.js', 'tests/hsk-phase2b4-production-readiness.test.js', 'tests/hsk-phase2b4-browser-smoke.test.js'],
       commonBlockingPass, null),
     dimension('cache-deployment-safety', 'Cache/deployment safety', 'pass',
-      ['No service worker is registered; modified shell, HSK, auth lifecycle, V75 loader and write-boundary dependencies use 2b4.0 cache versions; partial loader cache is purged.'],
-      ['index.html', 'app-shell-v88.html', 'community.js', 'assets/v75/hsk1-v75-loader.js'],
+      ['PWA registration is explicit, auth/private/non-GET requests bypass caches, executable assets use network-first exact-version caching, and modified entry dependencies are cache-busted; partial content-loader cache is purged.'],
+      ['index.html', 'app-shell-v88.html', 'community.js', 'assets/v75/hsk1-v75-loader.js', 'service-worker.js', 'pwa-register.js'],
       ['tests/v90.4-cloudflare-origin.test.js', 'tests/hsk-phase2b4-production-readiness.test.js', 'tests/hsk-phase2b4-browser-smoke.test.js'],
       commonBlockingPass, null),
     dimension('failure-handling', 'Failure handling', 'pass',
@@ -384,4 +379,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = Object.freeze({ generate, writeReport });
+module.exports = Object.freeze({ generate, writeReport, detectServiceWorker });

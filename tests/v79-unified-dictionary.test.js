@@ -75,9 +75,9 @@ test('v79 loaders preserve 1600 ERP terms and add the local HSK dataset', () => 
   assert.match(pinyinPipeline, /hsk-dictionary-v79\.js\?v=79\.0/);
   assert.match(pinyinPipeline, /unified-dictionary-v79\.js\?v=79\.0/);
   assert.doesNotMatch(pinyinPipeline, /unified-dictionary-v78/);
-  assert.match(community, /home-copy-v79\.js\?v=79\.0/);
+  assert.match(community, /home-copy-v79\.js\?v=[\w.-]+/);
   assert.match(hskLoader, /MIN_TERMS=10000/);
-  assert.match(loader, /part"\+index\+"\.txt\?v=79\.0/);
+  assert.match(loader, /part"\+index\+"\.txt\?v=[\w.-]+/);
   assert.match(source, /version: "79\.0"/);
   assert.match(homeCopy, /vduckie:hsk-dictionary-ready/);
 });

@@ -71,5 +71,6 @@ test("V97 patches load in dependency order using relative URLs", () => {
   assert.match(index, /vduckie-mascot-v97\.js\?v=100\.0[^\n]+customization-store-v94\.js\?v=96\.0/);
   assert.match(index, /developer-control-center\.js\?v=2b4\.0/);
   assert.match(index, /vduckie-lv3-lv4-v97\.css\?v=97\.0/);
-  assert.doesNotMatch(manifestSource + renderer + index, /https:\/\/vduckie\.pages\.dev/);
+  // Canonical SEO metadata may name production; executable asset paths stay relative.
+ assert.doesNotMatch(manifestSource + renderer, /(?:src|url)\s*[:=]\s*["']https?:\/\/vduckie\.pages\.dev/);
 });

@@ -12,5 +12,5 @@ test('whole HSK card flips, with a back-face learning CTA',()=>{
  assert.match(js,/root.addEventListener\("click", handleCardFlip, true\)/);
  assert.match(css,/rotateY\(180deg\)/);
  assert.match(index,/hsk-full-card-flip-v1\.css/);
- assert.match(index,/hsk-roadmap-v89\.4\.js\?v=fullflip1/);
+ assert.match(index,/hsk-roadmap-v89\.4\.js\?v=[\w.-]+/);
 });

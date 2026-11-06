@@ -7,18 +7,18 @@ const root = path.join(__dirname, '..');
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const svg = fs.readFileSync(path.join(root, 'assets', 'favicon-vduckie.svg'), 'utf8');
 
-test('browser tab uses the VDuckie title and versioned relative favicon paths', () => {
-  assert.match(index, /<title>VDuckie – Học tiếng Trung<\/title>/);
-  assert.match(index, /href="\.\/assets\/favicon-vduckie\.svg\?v=2"/);
-  assert.match(index, /href="\.\/assets\/favicon-vduckie-32\.png\?v=2"/);
-  assert.match(index, /href="\.\/assets\/vduckie-app-icon\.png\?v=2"/);
-  assert.doesNotMatch(index, /href="\/assets\//);
+const {getRuntimeSnapshot, assertAssetLoaded} = require('./helpers/runtime-snapshot');
+const snapshot = getRuntimeSnapshot();
+test('browser tab uses the public VDuckie title and deployment-relative icons', () => {
+  assert.match(index, /<title>VDuckie – Tự học tiếng Trung HSK và tiếng Trung công xưởng<\/title>/);
+  for (const file of ['duckie-reader-icon-32.png','duckie-reader-icon-180.png']) assertAssetLoaded(assert, file, {snapshot});
+  assert.doesNotMatch(snapshot.effectiveHtml, /href="\/assets\//);
 });
-
-test('document-written app shell receives the same title and favicon set', () => {
-  assert.match(index, /source=source\.replace\(\/<title>\[\\s\\S\]\*\?<\\\/title>\/i,'<title>VDuckie – Học tiếng Trung<\/title>'\)/);
-  assert.match(index, /source=source\.replace\("<\/head>"/);
-  assert.match(index, /vduckie-logo\\\.png\\\?v=1/);
+test('document-written shell receives the same title and current icon set', () => {
+  const title = html => html.match(/<title>([^<]+)<\/title>/)[1];
+  assert.equal(title(snapshot.effectiveHtml), title(index));
+  assert.match(snapshot.effectiveHtml, /rel="icon"[^>]*duckie-reader-icon-32/);
+  assert.match(snapshot.effectiveHtml, /rel="apple-touch-icon"[^>]*duckie-reader-icon-180/);
 });
 
 test('favicon SVG is a simple high-contrast duck head mark', () => {

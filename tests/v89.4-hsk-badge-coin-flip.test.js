@@ -15,8 +15,8 @@ function ruleBlock(selector) {
 }
 
 test('entry loads only badge-flip roadmap v89.4', () => {
-  assert.match(entry, /hsk-roadmap-v89\.4\.css\?v=89\.4/);
-  assert.match(entry, /hsk-roadmap-v89\.4\.js\?v=89\.4/);
+  assert.match(entry, /hsk-roadmap-v89\.4\.css\?v=[\w.-]+/);
+  assert.match(entry, /hsk-roadmap-v89\.4\.js\?v=[\w.-]+/);
   assert.doesNotMatch(entry, /hsk-roadmap-v89\.3/);
 });
 

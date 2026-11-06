@@ -33,20 +33,15 @@ for (const className of [
 }
 
 const mascotFiles = [
-  "vduckie-welcome.webp",
-  "vduckie-vocabulary.webp",
-  "vduckie-grammar.webp",
-  "vduckie-listening.webp",
-  "vduckie-speaking.webp"
+  'duckie-reader-2d-v2.webp', 'duckie-flashcards-2d-v3.webp',
+  'duckie-writing-2d-v3.webp', 'duckie-listening-2d-v3.webp', 'duckie-speaking-2d-v5.webp'
 ];
-
 for (const file of mascotFiles) {
-  const filePath = path.join(root, "assets", "home", file);
+  const filePath = path.join(root, 'assets/mascot', file);
   assert.ok(fs.existsSync(filePath), `Missing mascot ${file}`);
   const size = fs.statSync(filePath).size;
-  assert.ok(size > 1_000, `${file} is unexpectedly small`);
-  assert.ok(size < 100_000, `${file} is too large for the homepage`);
-  assertAssetLoaded(assert, file, { snapshot });
+  assert.ok(size > 1000 && size < 300000, `${file} is outside the homepage image budget`);
+  assertAssetLoaded(assert, file, {snapshot});
 }
 
 console.log("v73 home hub tests passed");

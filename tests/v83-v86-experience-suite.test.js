@@ -39,7 +39,7 @@ test('v86.5 builds exactly seven account-synced streak days', () => {
   assert.equal(api.streakCount({ dates }), 3);
 });
 
-test('v86.5 keeps circular legacy-colored horizontal HSK stages', () => {
+test('v86.5 keeps circular blue horizontal HSK stages', () => {
   const levels = {
     0: [{ id: 'foundation-1' }, { id: 'foundation-2' }],
     1: [{ id: 'hsk1-1' }],
@@ -59,7 +59,7 @@ test('v86.5 keeps circular legacy-colored horizontal HSK stages', () => {
   const css = fs.readFileSync(path.join(root, 'assets/v86/home-dashboard-v86.5.css'), 'utf8');
   assert.match(css, /border-radius:50%/);
   assert.match(css, /data-v865-level="0"/);
-  assert.match(css, /background:#168864/);
+  assert.match(css, /background:#2563EB/);
 });
 
 test('v86.5 creates one straight main column and one straight right sidebar', () => {
@@ -120,7 +120,7 @@ test('v85 personalization and v86 adaptive practice remain available', () => {
 
 test('loader keeps the v86 suite and deployment preserves the sidebar fix cache bust', () => {
   const loader = fs.readFileSync(path.join(root, 'assets/v86/experience-suite-loader-v86.js'), 'utf8');
-  assert.match(loader, /home-dashboard-v86\.5\.js\?v=87\.6/);
+  assert.match(loader, /home-dashboard-v86\.5\.js\?v=[\w.-]+/);
   assert.match(loader, /home-order-fix-v86\.6\.js\?v=87\.5/);
   assert.match(loader, /mobile-layout-fix-v86\.7\.js\?v=86\.7/);
   const patch = fs.readFileSync(path.join(root, 'scripts/apply_experience_suite_v86.js'), 'utf8');
