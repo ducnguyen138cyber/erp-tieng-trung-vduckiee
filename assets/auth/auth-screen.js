@@ -53,7 +53,7 @@
     var item = $("vdaMessage");
     item.textContent = text || "";
     item.hidden = !text;
-    item.dataset.type = success ? "success" : "error";
+    item.dataset.type = success === "info" ? "info" : success ? "success" : "error";
   }
 
   function setBusy(value) {
@@ -95,7 +95,7 @@
     $("vdaEye").setAttribute("aria-pressed", "false");
     $("vdaTitle").textContent = isRegister ? "Tạo góc học tập của riêng bạn" :
       isForgot ? "Lấy lại mật khẩu" : isRecover ? "Đặt lại mật khẩu" : "Mừng bạn trở lại!";
-    $("vdaSubtitle").textContent = isRegister ? "Đặt một cái tên thật vui để Duckie ghi nhớ bạn nhé." :
+    $("vdaSubtitle").textContent = isRegister ? "Nếu đã từng học bằng Google, hãy đăng nhập bằng Google để giữ tài khoản và tiến độ cũ." :
       isForgot ? "Nhập email của bạn để nhận liên kết đặt lại mật khẩu." :
       isRecover ? "Tạo mật khẩu mới để tiếp tục học cùng Duckie." :
       "Đăng nhập để tiếp tục hành trình học của riêng bạn.";
@@ -139,7 +139,8 @@
     if (/email not confirmed/i.test(raw)) return "Bạn cần xác minh email trước khi đăng nhập.";
     if (/user already registered/i.test(raw)) return "Email này đã có tài khoản. Hãy đăng nhập.";
     if (/password should|weak password|at least/i.test(raw)) return "Mật khẩu chưa đáp ứng yêu cầu bảo mật.";
-    if (/email rate limit|rate limit|over_email_send_rate_limit/i.test(raw)) return "Bạn thao tác quá nhanh. Vui lòng thử lại sau.";
+    if (/email.address.not.authorized|email address not authorized/i.test(raw)) return "Hệ thống gửi email xác minh chưa hỗ trợ địa chỉ này. Hãy thử đăng nhập Google hoặc liên hệ quản trị VDuckie.";
+    if (/email rate limit|rate limit|over_email_send_rate_limit/i.test(raw)) return "Đã vượt giới hạn gửi email xác minh. Vui lòng thử lại sau.";
     if (/email provider is disabled|email signups are disabled|signup is disabled/i.test(raw)) return "Đăng ký bằng email chưa được bật. Hãy dùng Google.";
     if (/network|fetch failed|failed to fetch/i.test(raw)) return "Không có kết nối mạng. Vui lòng thử lại.";
     return raw && raw.length < 120 ? raw : "Không thể xử lý yêu cầu. Vui lòng thử lại.";
@@ -188,7 +189,10 @@
       if (result && result.error) throw result.error;
       if (mode === "forgot") message("Nếu email đã đăng ký, bạn sẽ nhận được liên kết đặt lại mật khẩu.", true);
       else if (mode === "register" && !(result && result.data && result.data.session))
-        message("Đã gửi yêu cầu. Hãy kiểm tra email để xác minh tài khoản trước khi đăng nhập.", true);
+        // Supabase deliberately returns a masked successful signup for an existing confirmed
+        // account. A null session therefore cannot prove that an email was dispatched.
+        // Do not reveal whether an email is registered; provide the same neutral guidance.
+        message("Nếu đây là email mới, hãy kiểm tra Hộp thư đến/Spam để xác minh. Nếu đã từng dùng Google với email này, hãy đăng nhập bằng Google — đăng ký lại sẽ không gửi email mới.", "info");
       else if (mode === "recover") {
         recovery = false;
         message("Đã đổi mật khẩu thành công. Bạn có thể tiếp tục học.", true);
