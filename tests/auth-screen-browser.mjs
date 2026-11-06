@@ -1,7 +1,7 @@
 // Isolated auth UI browser regression: no production logins or real Supabase writes.
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
@@ -18,6 +18,7 @@ const server = createServer(async (req,res) => {
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base = 'http://127.0.0.1:'+server.address().port+'/';
 const browser = await chromium.launch({headless:true});
+await mkdir(path.join(root,'artifacts/auth-screen'),{recursive:true});
 
 const sdk = `(() => {
  const data={calls:[],session:null,listener:null};
@@ -40,7 +41,7 @@ const sdk = `(() => {
 })();`;
 
 try {
-  for (const viewport of [{width:1440,height:900},{width:390,height:844}]) {
+  for (const viewport of [{width:1440,height:900},{width:390,height:844},{width:320,height:740}]) {
     const ctx=await browser.newContext({viewport,serviceWorkers:'block'});
     const page=await ctx.newPage();
     page.setDefaultTimeout(18000);
@@ -51,15 +52,21 @@ try {
     await page.locator('#cloudLogin').click();
     const auth=page.locator('#vduckieAuthScreen');
     await auth.waitFor({state:'visible'});
-    assert.equal(await auth.locator('h1').textContent(),'Đăng nhập vào VDuckie');
-    const isMobile=viewport.width<850;
-    assert.equal(await page.locator('.vda-hero').isVisible(),!isMobile);
-    assert.equal(await page.locator('.vda-mobile-tabs').isVisible(),isMobile);
+    assert.equal(await auth.locator('h1').textContent(),'Mừng bạn trở lại!');
+    assert.equal(await page.locator('.vda-hero').isVisible(),true);
+    assert.equal(await page.locator('.vda-mobile-tabs').isVisible(),true);
+    const layout=await page.evaluate(()=>{const h=document.querySelector('.vda-hero').getBoundingClientRect(),c=document.querySelector('.vda-content').getBoundingClientRect();return{heroWidth:h.width,cardCenter:c.x+c.width/2,cardTop:c.top,heroBottom:h.bottom}});
+    assert.ok(layout.heroWidth>=viewport.width-1,'welcome banner spans full width');
+    assert.ok(Math.abs(layout.cardCenter-viewport.width/2)<4,'form card is centered');
+    assert.ok(layout.cardTop<layout.heroBottom,'form overlaps welcome banner');
+    await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-login.png'),fullPage:true});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'horizontal overflow');
 
     await page.locator('#vdaSwitch').click();
-    assert.equal(await auth.locator('h1').textContent(),'Tạo tài khoản VDuckie');
-    await auth.locator('#vdaName').fill('Minh Anh');
+    assert.equal(await auth.locator('h1').textContent(),'Tạo góc học tập của riêng bạn');
+    assert.equal(await auth.locator('#vdaName').getAttribute('placeholder'),'Ví dụ: Duckie chăm học');
+    await page.screenshot({path:path.join(root,'artifacts/auth-screen',viewport.width+'-register.png'),fullPage:true});
+    await auth.locator('#vdaName').fill('Duckie chăm học');
     await auth.locator('#vdaEmail').fill('test@example.com');
     await auth.locator('#vdaPassword').fill('password123');
     await auth.locator('#vdaSubmit').click();
