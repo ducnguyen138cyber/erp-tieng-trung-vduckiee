@@ -185,6 +185,16 @@ function render(){
     applyHomeMode();
     if(!homeVisible())return false;
     var home=document.getElementById("homeHub");if(!home)return false;
+    var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-primary-action');
+    if(journal&&hero){
+      var summary=journal.summary(),started=summary.totalCompleted||summary.studied||Object.keys(journal.lesson(summary.current.lessonId)).length;
+      hero.textContent=started?'Học tiếp HSK '+summary.current.level+' →':'Bắt đầu học HSK →';
+      if(started){hero.removeAttribute('data-daily-nav');hero.setAttribute('data-v865-action','continue');}
+      else{hero.removeAttribute('data-v865-action');hero.setAttribute('data-daily-nav','msutong');}
+      var review=home.querySelector('[data-hsk-home-due]');
+      if(!review){review=document.createElement('button');review.type='button';review.className='home-secondary-action';review.setAttribute('data-hsk-home-due','');review.setAttribute('data-v865-action','review-hsk');hero.insertAdjacentElement('afterend',review);}
+      review.textContent='↻ Ôn từ đến hạn ('+summary.due+')';review.disabled=!summary.due;
+    }
     var overview=home.querySelector(".home-overview-grid"),recommended=home.querySelector(".home-recommended");
     if(!overview||!recommended)return false;
     removeOldDashboard(home);
