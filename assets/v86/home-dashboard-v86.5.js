@@ -86,8 +86,8 @@ function continueData(){
   var journey=root.VDuckieHskStudyJourney;
   if(journey){
     var sum=journey.summary(),current=sum.current,level=Number(current.level)||1;
-    return {level:level,title:sum.totalCompleted?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
-      subtitle:sum.totalCompleted?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
+    return {level:level,title:current.lessonId?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
+      subtitle:current.lessonId?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
       done:sum.totalCompleted,reviewDue:sum.due,lessonId:current.lessonId||""};
   }
   var state=read(HSK_STATE_KEY,{level:0,lesson:0}),level=Number(state.level||0),lessonIndex=Number(state.lesson||0),curriculum=root.HSKCurriculum,item=curriculum&&curriculum.levels&&curriculum.levels[level]&&curriculum.levels[level][lessonIndex],done=completedCount(read(HSK_PROGRESS_KEY,{}));
@@ -121,7 +121,7 @@ function weeklyMarkup(data){
   return'<article class="v865-side-card v865-weekly-card"><div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v865-mission-list">'+missions+'</div><p class="v865-weekly-note">Hoàn thành cả ba để nhận huy hiệu <strong>Vịt bền bỉ</strong>.</p></article>';
 }
 function continueMarkup(data){
-  return'<article class="v865-side-card v865-continue-card"><span class="v865-kicker">TIẾP TỤC HỌC</span><h3>'+esc(data.title)+'</h3><p>'+esc(data.subtitle)+'</p><div class="v865-continue-meta"><span>'+data.done+' bài đã hoàn thành</span><span>'+(data.level?"HSK "+data.level:"Nền tảng")+'</span></div><button data-v865-action="continue">Học tiếp →</button>'+(data.reviewDue?'<button class="v865-review-action" data-v865-action="review-hsk">↻ Ôn '+data.reviewDue+' từ HSK đến hạn</button>':'')+'</article>';
+  return'<article class="v865-side-card v865-continue-card"><span class="v865-kicker">TIẾP TỤC HỌC</span><h3>'+esc(data.title)+'</h3><p>'+esc(data.subtitle)+'</p><div class="v865-continue-meta"><span>'+data.done+' bài đã hoàn thành</span><span>'+(data.level?"HSK "+data.level:"Nền tảng")+'</span></div><button data-v865-action="continue">Học tiếp →</button>'+'<button class="v865-review-action" data-v865-action="review-hsk"'+(data.reviewDue?'':' disabled')+'>↻ Ôn từ đến hạn ('+(data.reviewDue||0)+')</button>'+'</article>';
 }
 function roadmapMarkup(stages){
   var cards=stages.map(function(stage){var detail=stage.active?(stage.progress.total?stage.progress.done+"/"+stage.progress.total+" bài":"Sẵn sàng học"):"Sắp mở";return'<button class="v865-road-stage '+(stage.current?"current ":"")+(stage.active?"":"locked")+'" data-v865-level="'+stage.level+'" '+(stage.active?"":"disabled")+'><span class="v865-road-icon">'+stage.icon+'</span><strong>'+stage.label+'</strong><small>'+detail+'</small><div class="v865-road-track"><i style="width:'+stage.progress.percent+'%"></i></div></button>'}).join("");
@@ -185,6 +185,16 @@ function render(){
     applyHomeMode();
     if(!homeVisible())return false;
     var home=document.getElementById("homeHub");if(!home)return false;
+    var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-welcome-actions .home-primary-action');
+    if(journal&&hero){
+      var summary=journal.summary(),started=summary.totalCompleted||summary.studied||Object.keys(journal.lesson(summary.current.lessonId)).length;
+      hero.textContent=started?'Học tiếp HSK '+summary.current.level+' →':'Bắt đầu học HSK →';
+      if(started){hero.removeAttribute('data-daily-nav');hero.setAttribute('data-v865-action','continue');}
+      else{hero.removeAttribute('data-v865-action');hero.setAttribute('data-daily-nav','msutong');}
+      var review=home.querySelector('[data-hsk-home-due]');
+      if(!review){review=document.createElement('button');review.type='button';review.className='home-secondary-action';review.setAttribute('data-hsk-home-due','');review.setAttribute('data-v865-action','review-hsk');hero.insertAdjacentElement('afterend',review);}
+      review.textContent='↻ Ôn từ đến hạn ('+summary.due+')';review.disabled=!summary.due;
+    }
     var overview=home.querySelector(".home-overview-grid"),recommended=home.querySelector(".home-recommended");
     if(!overview||!recommended)return false;
     removeOldDashboard(home);

@@ -94,3 +94,20 @@
 .exp-award-guide{font-size:13px;line-height:1.65;color:#475569;margin:8px 0 0}
 .exp-zero-explained{padding:14px 16px!important;background:#f8fbff;color:#475569;border-radius:12px;border:1px solid #dbeafe}
 @media(max-width:640px){.hsk-entry-mastery{display:grid;grid-template-columns:1fr}.hsk-entry-mastery span{width:100%;box-sizing:border-box}}
+
+/* Keep learning actions readable and above floating chat on narrow screens. */
+#hskLesson .hsk-study-content-done{margin:16px 0;padding:11px 14px;min-height:44px;border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff;color:#1e40af;cursor:pointer}
+#hskLesson .hsk-study-finish,#hskLesson .hsk-study-review-drawer{min-width:0;overflow-wrap:anywhere;scroll-margin-block:90px}
+#hskLesson .hsk-study-finish ul{padding-left:20px;line-height:1.6}
+#hskLesson .hsk-study-actions button{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.v865-review-action:disabled{opacity:.55;cursor:not-allowed}
+@media(max-width:640px){
+  body[data-hsk-prof-ready="true"] #hskLesson{padding-bottom:240px!important}
+  body[data-hsk-prof-ready="true"] #hsk #hskLesson .hsk-pro-bottom-nav{bottom:calc(144px + env(safe-area-inset-bottom,0px))!important;gap:6px;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr)}
+  #hsk #hskLesson .hsk-pro-bottom-nav button:first-child{grid-column:1;grid-row:1}
+  #hsk #hskLesson .hsk-pro-bottom-nav button:last-child{grid-column:3;grid-row:1}
+  #hsk #hskLesson .hsk-pro-bottom-nav span{grid-column:2;grid-row:1}
+  #hskLesson .hsk-focus-tabs{flex-wrap:wrap}
+  #hskLesson .hsk-study-content-done{width:100%}
+  #hskLesson .hsk-study-actions{padding-bottom:12px}
+}
