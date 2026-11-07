@@ -1,7 +1,9 @@
-# VDuckiee Chinese
+# VDuckie – Tự học tiếng Trung HSK miễn phí
 
-Website học tiếng Trung ERP và HSK, production chính trên Cloudflare Pages tại
-`https://vduckie.pages.dev`, đồng thời vẫn tương thích với GitHub Pages và
+[VDuckie – Học tiếng Trung HSK và giao tiếp](https://vduckie.pages.dev/) là nền tảng tự học tiếng Trung miễn phí, có giáo trình HSK, Pinyin, flashcard, luyện nghe và từ vựng công xưởng.
+
+Website chính vận hành trên Cloudflare Pages tại
+[https://vduckie.pages.dev/](https://vduckie.pages.dev/), đồng thời vẫn tương thích với GitHub Pages và
 Supabase Auth/đồng bộ dữ liệu theo tài khoản.
 
 ## Triển khai đa domain
