@@ -689,6 +689,13 @@
     session = nextSession || null;
     if (!session || !session.user) {
       if (previousUserId) writeProfileCache(previousUserId, captureProfile(previousUserId, lastLocalProfile || readProfileCache(previousUserId)));
+      else {
+        // Initial anonymous session: back up guest work before clearing active keys.
+        // Do not capture a signed-in account's persisted state as guest on cold start.
+        var activeStored = "";
+        try { activeStored = root.localStorage.getItem(ACTIVE_USER_KEY) || ""; } catch (_) {}
+        if (!activeStored) writeProfileCache("anonymous", captureProfile("anonymous", readProfileCache("anonymous")));
+      }
       var anonymous = readProfileCache("anonymous");
       removeSyncableValues();
       applyProfile(anonymous, "");

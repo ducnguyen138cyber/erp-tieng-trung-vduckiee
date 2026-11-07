@@ -167,6 +167,27 @@ function accountRuntime() {
   return { ctx, values, timers, reads, writes, api: ctx.testLifecycle };
 }
 
+test('anonymous bootstrap retains HSK mastery, SRS and resume position across repeated session initialization', () => {
+  const r = accountRuntime();
+  const key = 'vduckie-hsk-study-journey-v1';
+  const progress = JSON.stringify({current:{level:3,lessonId:'hsk3-lesson-01'},lessons:{'hsk3-lesson-01':{position:{stage:'words',cards:{0:3}},masteryAnswers:{q1:{correct:false,verified:true}}}},reviews:{'3:努力':{weak:true,nextAt:1}}});
+  r.values.set(key, progress);
+  r.api.session(null);
+  assert.equal(r.values.get(key), progress);
+  r.api.session(null);
+  assert.equal(r.values.get(key), progress);
+  assert.equal(r.writes.length, 0);
+});
+
+test('cold-start expired account data is never captured as guest progress', () => {
+  const r = accountRuntime();
+  r.values.set('vduckie-learning-profile-active-user-v2', 'alice');
+  r.values.set('vduckie-hsk-study-journey-v1', '{"privateAccountProgress":true}');
+  r.api.session(null);
+  assert.equal(r.values.has('vduckie-hsk-study-journey-v1'), false);
+  assert.doesNotMatch(r.values.get('vduckie-learning-profile-cache-v2:anonymous') || '', /privateAccountProgress/);
+});
+
 test('logout cancels a queued learning upload even if its callback was already queued', async () => {
   const r = accountRuntime();
   r.api.session({user:{id:'alice'}});
