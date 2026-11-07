@@ -70,7 +70,7 @@ try{for(const width of (observe?[1440]:[1440,390])){
   }
  }
  if(!observe)await checkLanguages();
- if(!observe){assert.equal(await page.locator('link[rel="icon"]').count(),1);assert((await page.locator('link[rel="icon"]').getAttribute('href')).includes('duckie-reader-icon-32.png'));if(width>980)assert.equal(new Set(await page.locator('.home-resource-tile img').evaluateAll(es=>es.map(e=>e.getAttribute('src')))).size,4);}
+ if(!observe){assert.equal(await page.locator('link[rel="icon"]').count(),1);assert((await page.locator('link[rel="icon"]').getAttribute('href')).includes('duckie-reader-icon-192.png'));if(width>980)assert.equal(new Set(await page.locator('.home-resource-tile img').evaluateAll(es=>es.map(e=>e.getAttribute('src')))).size,4);}
  if(!observe&&width>980){assert.equal(await page.locator('.v86-adaptive').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(239, 246, 255)');assert.equal(await page.locator('.v86-adaptive').evaluate(e=>getComputedStyle(e).backgroundImage),'none');}
  if(!observe)assert.equal(await page.locator('.duckie-chat-launch').evaluate(e=>getComputedStyle(e).backgroundColor),'rgb(219, 234, 254)');
  if(!observe){await open('erp:lessons');await page.locator('.erp-module-goal').waitFor();
