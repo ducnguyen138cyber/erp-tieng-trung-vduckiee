@@ -18,11 +18,17 @@
     });
     return list;
   }
+  function eligibleExercise(exercise,level){
+    var statuses=['verified','linguistic-reviewed'];if(level===2||level===3)statuses.push('approved');
+    var runtime=root.VDuckieHskProfessionalRuntime;
+    return statuses.indexOf(exercise.reviewStatus)>=0&&(runtime&&runtime.canGradeExercise?runtime.canGradeExercise(exercise):typeof exercise.answer==='string');
+  }
+  function insufficient(info){return (info.level===2||info.level===3)&&!info.verifiedIds.length;}
   function lessonStats(info){return journal.stats(info.lesson.id,info.exercises,info.verifiedIds);}
   function missingContent(info){var content=journal.lesson(info.lesson.id).content||{};return info.content.filter(function(stage){return !content[stage];});}
   function progressHtml(info){
     var stats=lessonStats(info);
-    var status=stats.mastered?'✓ Đã nắm vững':stats.completed?'✓ Đã học · Chưa nắm vững':stats.checked+'/'+stats.total+' câu đã kiểm tra';
+    var status=insufficient(info)?(stats.completed?'✓ Đã học · ':'')+'Chưa đủ dữ liệu đánh giá':stats.mastered?'✓ Đã nắm vững':stats.completed?'✓ Đã học · Chưa nắm vững':stats.checked+'/'+stats.total+' câu đã kiểm tra';
     return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>Đã học: hoàn thành nội dung và bài tập. Nắm vững: đúng ít nhất 80% toàn bộ câu có đáp án xác thực, tính lần trả lời đầu mỗi lượt.</small></div><span class="hsk-study-chip'+(stats.mastered?' hsk-study-complete':'')+'">'+status+'</span></div>';
   }
   function finishHtml(info){
@@ -34,8 +40,8 @@
     var result=stats.verifiedTotal?stats.verifiedCorrect+'/'+stats.verifiedTotal+' câu xác thực đúng ('+stats.verifiedChecked+' câu đã làm; '+Math.round(stats.verifiedCorrect*100/stats.verifiedTotal)+'%)':'Chưa có câu đủ điều kiện đánh giá nắm vững';
     var needs=weak.length?'<p>Kiến thức cần ôn (câu đã trả lời sai):</p><ul>'+weak.map(function(id){var e=info.data.exerciseById[id];return '<li>'+esc(e.skill)+': '+esc(e.prompt)+'</li>';}).join('')+'</ul>':'';
     var weakText=words.length?'<p>Từ cần ôn: '+words.map(function(w){return esc(w.hanzi)+' ('+esc(w.meaningVi)+')';}).join(', ')+'.</p>':'';
-    var heading=stats.mastered?'✓ Đã nắm vững bài học':stats.completed?'✓ Đã học · Chưa nắm vững':'Kết thúc bài học';
-    var next=stats.mastered?'Bạn có thể học bài tiếp hoặc ôn từ đến hạn.':'Ôn lại kiến thức dưới đây, sau đó làm một lượt kiểm tra mới. Xem đáp án không tính là nắm vững.';
+    var heading=insufficient(info)?(stats.completed?'✓ Đã học · ':'')+'Chưa đủ dữ liệu đánh giá':stats.mastered?'✓ Đã nắm vững bài học':stats.completed?'✓ Đã học · Chưa nắm vững':'Kết thúc bài học';
+    var next=insufficient(info)?'Bài đang chờ kiểm duyệt đáp án. Bạn có thể ôn từ yếu hoặc học bài tiếp; làm lại không thể thay thế việc kiểm duyệt.':stats.mastered?'Bạn có thể học bài tiếp hoặc ôn từ đến hạn.':'Ôn lại kiến thức dưới đây, sau đó làm một lượt kiểm tra mới. Xem đáp án không tính là nắm vững.';
     return '<div class="hsk-study-finish'+(stats.completed?' is-done':'')+'" data-hsk-finish-panel><h4>'+heading+'</h4><p>'+result+'.</p>'+needs+weakText+'<p>'+(stats.completed?next:missing.length?'Cần xác nhận đã học: '+missing.map(function(x){return {words:'Từ mới',examples:'Nghe & đọc',extra:'Kiến thức thêm'}[x];}).join(', ')+'.':remaining?'Còn '+remaining+' câu chưa kiểm tra.':'Đủ điều kiện lưu hoàn thành nội dung và bài tập.')+'</p><div class="hsk-study-actions">'+
       (!stats.completed?'<button type="button" data-hsk-finish'+(remaining||missing.length?' disabled':'')+'>✓ Hoàn thành & lưu tiến độ</button>':'')+
       '<button type="button" data-hsk-review-open>Ôn từ đến hạn</button><button type="button" data-hsk-retry>Làm lại lượt kiểm tra</button>'+
@@ -92,7 +98,7 @@
     var host=q("#hskLesson");if(!host)return;
     current={level:Number(info.level),lesson:info.lesson,data:info.data,
       exercises:(info.lesson.practiceRefs||[]).filter(function(id){return !!info.data.exerciseById[id];})};
-    current.verifiedIds=current.exercises.filter(function(id){var e=current.data.exerciseById[id];return ['verified','linguistic-reviewed'].indexOf(e.reviewStatus)!==-1&&typeof e.answer==='string';});
+    current.verifiedIds=current.exercises.filter(function(id){return eligibleExercise(current.data.exerciseById[id],current.level);});
     current.content=['words','examples','extra'].filter(function(stage){var panel=host.querySelector('[data-focus-panel="'+stage+'"]');return panel&&!!panel.querySelector('.hsk-pro-section');});
     var saved=journal.lesson(current.lesson.id),position=saved.position||{};
     journal.visit(current.level,current.lesson.id);
@@ -147,9 +153,21 @@
       if(JSON.stringify(Object.assign({},previous,value))!==JSON.stringify(previous))journal.position(current.level,current.lesson.id,value);
     },0);
   }
-  function onChecked(exerciseId,correct){
+  function onChecked(exerciseId,correct,details){
     if(!current||current.exercises.indexOf(exerciseId)<0)return false;
+    var entry=journal.lesson(current.lesson.id),previous=(entry.answers||{})[exerciseId];
+    var fresh=!previous||(entry.attemptAt&&Number(previous.at)<Number(entry.attemptAt));
     if(!journal.recordAnswer(current.level,current.lesson.id,exerciseId,correct,current.verifiedIds.indexOf(exerciseId)>=0,current.verifiedIds))return false;
+    var savedStatus=q('[data-pro-exercise="'+exerciseId+'"] .hsk-study-answer-status');
+    if(savedStatus)savedStatus.textContent='Đã kiểm tra: '+(correct===true?'đúng':correct===false?'cần ôn lại':'đã tự đối chiếu rubric')+'.';
+    if(fresh&&details&&Array.isArray(details.words)){
+      var words=wordsFromLesson(current),seen={};
+      details.words.forEach(function(result){
+        var word=words.find(function(item){return item.hanzi===result.hanzi;});
+        if(!word||seen[word.hanzi])return;seen[word.hanzi]=true;
+        journal.recordWord(current.level,current.lesson.id,word.hanzi,result.correct,word.pinyin,word.meaningVi);
+      });
+    }
     update();return true;
   }
   function moveLesson(next){
@@ -170,6 +188,7 @@
     }
     if(button.hasAttribute('data-hsk-retry')&&current){
       if(!journal.retry(current.lesson.id))return;
+      journal.position(current.level,current.lesson.id,{stage:'practice',exerciseId:current.exercises[0]||''});
       root.VDuckieHskProfessionalRuntime.selectLesson(current.lesson.id,false);
       var practice=q('[data-focus-stage="practice"]');if(practice)practice.click();
       update();return;
@@ -205,9 +224,9 @@
       var result=journal.complete(current.level,current.lesson.id,current.exercises,wordsFromLesson(current),{content:current.content,verifiedIds:current.verifiedIds});
       update();
       if(result.ok&&!alreadyCompleted){
-        var answers=journal.lesson(current.lesson.id).answers||{};
+        var answers=journal.lesson(current.lesson.id).masteryAnswers||{};
         var verified=current.exercises.map(function(id){return current.data.exerciseById[id];}).filter(function(exercise){
-          return exercise&&['linguistic-reviewed','verified'].indexOf(exercise.reviewStatus)!==-1&&
+          return exercise&&eligibleExercise(exercise,current.level)&&
             answers[exercise.id]&&typeof answers[exercise.id].correct==="boolean";
         });
         doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-learner-completed",{detail:{

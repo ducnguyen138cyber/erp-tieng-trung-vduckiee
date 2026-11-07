@@ -1,0 +1,185 @@
+{
+  "baseline": "7f20c1e02b333b67f659d27ac87fe2669b8d1578",
+  "scope": "Metadata inventory of HSK2–3 lesson practice only; content sample of 6 lessons / 39 exercises. No vocabulary or whole-corpus linguistic audit.",
+  "levels": {
+    "hsk2": {
+      "lessons": 28,
+      "affectedBefore": 28,
+      "affectedAfter": 28,
+      "eligibleLessonsAfter": 0,
+      "affectedLessonIds": [
+        "hsk2-lesson-01",
+        "hsk2-lesson-02",
+        "hsk2-lesson-03",
+        "hsk2-lesson-04",
+        "hsk2-lesson-05",
+        "hsk2-lesson-06",
+        "hsk2-lesson-07",
+        "hsk2-lesson-08",
+        "hsk2-lesson-09",
+        "hsk2-lesson-10",
+        "hsk2-lesson-11",
+        "hsk2-lesson-12",
+        "hsk2-lesson-13",
+        "hsk2-lesson-14",
+        "hsk2-lesson-15",
+        "hsk2-lesson-16",
+        "hsk2-lesson-17",
+        "hsk2-lesson-18",
+        "hsk2-lesson-19",
+        "hsk2-lesson-20",
+        "hsk2-lesson-21",
+        "hsk2-lesson-22",
+        "hsk2-lesson-23",
+        "hsk2-lesson-24",
+        "hsk2-lesson-25",
+        "hsk2-lesson-26",
+        "hsk2-lesson-27",
+        "hsk2-lesson-28"
+      ],
+      "reviewStatuses": {
+        "unreviewed": 168
+      }
+    },
+    "hsk3": {
+      "lessons": 36,
+      "affectedBefore": 36,
+      "affectedAfter": 36,
+      "eligibleLessonsAfter": 0,
+      "affectedLessonIds": [
+        "hsk3-lesson-01",
+        "hsk3-lesson-02",
+        "hsk3-lesson-03",
+        "hsk3-lesson-04",
+        "hsk3-lesson-05",
+        "hsk3-lesson-06",
+        "hsk3-lesson-07",
+        "hsk3-lesson-08",
+        "hsk3-lesson-09",
+        "hsk3-lesson-10",
+        "hsk3-lesson-11",
+        "hsk3-lesson-12",
+        "hsk3-lesson-13",
+        "hsk3-lesson-14",
+        "hsk3-lesson-15",
+        "hsk3-lesson-16",
+        "hsk3-lesson-17",
+        "hsk3-lesson-18",
+        "hsk3-lesson-19",
+        "hsk3-lesson-20",
+        "hsk3-lesson-21",
+        "hsk3-lesson-22",
+        "hsk3-lesson-23",
+        "hsk3-lesson-24",
+        "hsk3-lesson-25",
+        "hsk3-lesson-26",
+        "hsk3-lesson-27",
+        "hsk3-lesson-28",
+        "hsk3-lesson-29",
+        "hsk3-lesson-30",
+        "hsk3-lesson-31",
+        "hsk3-lesson-32",
+        "hsk3-lesson-33",
+        "hsk3-lesson-34",
+        "hsk3-lesson-35",
+        "hsk3-lesson-36"
+      ],
+      "reviewStatuses": {
+        "unreviewed": 252
+      }
+    }
+  },
+  "sampledLessonIds": [
+    "hsk2-lesson-01",
+    "hsk2-lesson-15",
+    "hsk2-lesson-28",
+    "hsk3-lesson-01",
+    "hsk3-lesson-19",
+    "hsk3-lesson-36"
+  ],
+  "metadataPromotions": 0,
+  "reviewEvidence": [
+    "data/hsk/hsk2/editorial-c3.json: humanSignoffRequired=true; humanVietnameseSignoff=false; humanChinesePedagogySignoff=false",
+    "data/hsk/hsk3/editorial-c4.json: humanSignoffRequired=true; independent human signoff still required"
+  ],
+  "correctedSampleQuestions": {
+    "hsk2-lesson-01-exercise-1": "Accept 李老师, an exact phrase in its transcript, in addition to 李; status remains unreviewed.",
+    "hsk2-lesson-15-exercise-1": "Replace unrelated distractors with before/after/during-meal choices; correct answer unchanged.",
+    "hsk3-lesson-01-exercise-2": "Source is open-ended; a single 把 sentence cannot grade all correct rewrites. Self-review, not exact-match.",
+    "hsk3-lesson-19-exercise-2": "Source discusses interpreting an unanswered message; old answer discusses confirming a number then paying. Teacher review required.",
+    "hsk3-lesson-36-exercise-1": "Prompt requests a NEW sentence and forbids copying; old grader accepts only one exemplar. Self-review.",
+    "hsk3-lesson-36-exercise-2": "Source discusses changes after moving; old answer discusses studying Chinese for two years. Teacher review required."
+  },
+  "runtimeFindings": [
+    "Nine HSK2 matching exercises previously required serialization of hidden word/pattern mappings; now render selects and grade all pairs independent of answer-array order.",
+    "Stimulus cloze/source/incorrect/dialogue-context fields were missing from the exercise view.",
+    "HSK3 after-answer transcripts were rendered before answering.",
+    "Vocabulary/matching exercise errors were not connected to word-level SRS; now record first submission per attempt only.",
+    "Zero eligible questions previously appeared as learner failure; now explicitly Chưa đủ dữ liệu đánh giá and still allow next lesson.",
+    "approved is a valid schema status but was excluded by HSK2–3 eligibility; recognized without changing content metadata.",
+    "Text rubric labels previously received a percent suffix.",
+    "Public selectLevel/Học tiếp could render before gated mount bound click listeners, leaving Check buttons inert after reload/retry; entry now binds events idempotently.",
+    "Retry was restoring the previous last exercise instead of starting at the first; explicit retry now resets only the exercise position, preserving completion.",
+    "Saved answer-status badges did not refresh after a corrected answer; they now show the current result.",
+    "At mobile 390px the fixed previous/next toolbar covered matching inputs; for HSK2–3 mobile only, it now stays in lesson flow above the existing bottom padding."
+  ],
+  "teacherReviewQueue": {
+    "lessonRanges": [
+      "hsk2-lesson-01..28",
+      "hsk3-lesson-01..36"
+    ],
+    "exerciseCounts": {
+      "hsk2": 168,
+      "hsk3": 252
+    },
+    "priorityQuestionIds": [
+      "hsk3-lesson-01-exercise-2",
+      "hsk3-lesson-19-exercise-2",
+      "hsk3-lesson-36-exercise-1",
+      "hsk3-lesson-36-exercise-2"
+    ],
+    "instruction": "Review answer correctness, legitimate variants, alignment and pedagogy independently before changing reviewStatus; these fixes do not constitute linguistic signoff.",
+    "questionEvidence": [
+      {
+        "id": "hsk3-lesson-01-exercise-2",
+        "prompt": "Viết lại câu theo mẫu “Câu 把 với nơi chốn” để phù hợp mục tiêu “Kể một việc quen thuộc bằng đoạn ngắn có mở đầu, trình tự và kết quả.”.",
+        "originalAnswer": "我把文件放到桌上了。",
+        "source": {
+          "sourceZh": "我出门以后才发现忘了笔记本。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        },
+        "reason": "Source is open-ended; a single 把 sentence cannot grade all correct rewrites. Self-review, not exact-match."
+      },
+      {
+        "id": "hsk3-lesson-19-exercise-2",
+        "prompt": "Viết lại câu theo mẫu “Trình tự trước–sau” để phù hợp mục tiêu “Diễn đạt suy đoán và hỏi lại mà không kết luận vội.”.",
+        "originalAnswer": "先确认号码，然后再付款。",
+        "source": {
+          "sourceZh": "她可能没看到，别先觉得她生气了。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        },
+        "reason": "Source discusses interpreting an unanswered message; old answer discusses confirming a number then paying. Teacher review required."
+      },
+      {
+        "id": "hsk3-lesson-36-exercise-1",
+        "prompt": "Viết một câu mới về “Tác phẩm HSK3 của tôi” với từ 不见; không chép câu mẫu.",
+        "originalAnswer": "我的信用卡怎么不见了？",
+        "source": null,
+        "reason": "Prompt requests a NEW sentence and forbids copying; old grader accepts only one exemplar. Self-review."
+      },
+      {
+        "id": "hsk3-lesson-36-exercise-2",
+        "prompt": "Viết một cách diễn đạt khác cho phát ngôn dưới đây bằng “Lặp động từ khi có tân ngữ và bổ ngữ”, giữ nguyên ý chính.",
+        "originalAnswer": "我学汉语学了两年。",
+        "source": {
+          "sourceZh": "我想讲搬家以后生活习惯的变化。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        },
+        "reason": "Source discusses changes after moving; old answer discusses studying Chinese for two years. Teacher review required."
+      }
+    ]
+  },
+  "acceptanceLimits": [
+    "Production HSK2 mastery-positive scenario is BLOCKED by lack of reviewed questions. Positive mastery/retry is tested only with explicitly isolated approved fixtures; never counted as reviewed live lessons."
+  ]
+}

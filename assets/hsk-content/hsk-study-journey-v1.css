@@ -111,3 +111,13 @@
   #hskLesson .hsk-study-content-done{width:100%}
   #hskLesson .hsk-study-actions{padding-bottom:12px}
 }
+
+/* HSK2 matching exercises keep each prompt attached to its answer on mobile. */
+#hskLesson .hsk-pro-match{display:grid;gap:12px}
+#hskLesson .hsk-pro-match label{display:grid;gap:7px;min-width:0;overflow-wrap:anywhere}
+#hskLesson .hsk-pro-match select{width:100%;min-width:0;max-width:100%;min-height:44px;padding:10px;border:1px solid #bfdbfe;border-radius:10px;background:#fff;color:#111827}
+#hskLesson [data-pro-transcript][hidden]{display:none!important}
+@media(max-width:640px){
+  body[data-hsk-course-level="2"] #hsk #hskLesson .hsk-pro-bottom-nav,
+  body[data-hsk-course-level="3"] #hsk #hskLesson .hsk-pro-bottom-nav{position:static!important;transform:none;left:auto;bottom:auto!important;width:100%}
+}

@@ -48,12 +48,17 @@
       "format": "grammar-transformation",
       "prompt": "Viết lại câu theo mẫu “Câu 把 với nơi chốn” để phù hợp mục tiêu “Kể một việc quen thuộc bằng đoạn ngắn có mở đầu, trình tự và kết quả.”.",
       "options": [],
-      "answer": "我把文件放到桌上了。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+          "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+          "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+        }
+      },
       "acceptedAnswers": [
-        "我把文件放到桌上了。",
-        "我把文件放到桌上了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 把字句：放到/放在.",
+      "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
       "difficulty": 3,
       "topic": "Từ một câu đến một đoạn",
       "grammarFocus": [
@@ -75,7 +80,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "sourceZh": "我出门以后才发现忘了笔记本。",
         "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
@@ -5559,12 +5564,17 @@
       "format": "grammar-transformation",
       "prompt": "Viết lại câu theo mẫu “Trình tự trước–sau” để phù hợp mục tiêu “Diễn đạt suy đoán và hỏi lại mà không kết luận vội.”.",
       "options": [],
-      "answer": "先确认号码，然后再付款。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+          "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+          "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+        }
+      },
       "acceptedAnswers": [
-        "先确认号码，然后再付款。",
-        "先确认号码，然后再付款"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 先……再/然后…….",
+      "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
       "difficulty": 4,
       "topic": "Một tin nhắn chưa trả lời",
       "grammarFocus": [
@@ -5585,7 +5595,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "sourceZh": "她可能没看到，别先觉得她生气了。",
         "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
@@ -10693,12 +10703,17 @@
       "format": "vocabulary-sentence",
       "prompt": "Viết một câu mới về “Tác phẩm HSK3 của tôi” với từ 不见; không chép câu mẫu.",
       "options": [],
-      "answer": "我的信用卡怎么不见了？",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+          "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+          "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+        }
+      },
       "acceptedAnswers": [
-        "我的信用卡怎么不见了？",
-        "我的信用卡怎么不见了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Đối chiếu 不见 (bújiàn) với nghĩa, từ loại và ngữ cảnh trước khi tự sửa.",
+      "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
       "difficulty": 5,
       "topic": "Tác phẩm HSK3 của tôi",
       "grammarFocus": [],
@@ -10718,7 +10733,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1
+      "contentVersion": 2
     },
     {
       "recordType": "exercise",
@@ -10729,12 +10744,17 @@
       "format": "controlled-rewrite",
       "prompt": "Viết một cách diễn đạt khác cho phát ngôn dưới đây bằng “Lặp động từ khi có tân ngữ và bổ ngữ”, giữ nguyên ý chính.",
       "options": [],
-      "answer": "我学汉语学了两年。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+          "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+          "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+        }
+      },
       "acceptedAnswers": [
-        "我学汉语学了两年。",
-        "我学汉语学了两年"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 重动句.",
+      "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
       "difficulty": 5,
       "topic": "Tác phẩm HSK3 của tôi",
       "grammarFocus": [
@@ -10755,7 +10775,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "sourceZh": "我想讲搬家以后生活习惯的变化。",
         "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
