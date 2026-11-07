@@ -1,0 +1,18 @@
+name: Account synchronization safety
+on:
+  pull_request:
+    paths:
+      - 'assets/v82/account-learning-sync-v82.js'
+      - 'tests/account-*'
+      - '.github/workflows/account-sync-safety.yml'
+  workflow_dispatch:
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Browser-independent account and offline synchronization regression
+        run: node --test tests/account-guest-isolation.test.cjs tests/account-sync-cas.test.cjs

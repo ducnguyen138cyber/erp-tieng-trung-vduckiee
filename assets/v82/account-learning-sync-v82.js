@@ -15,6 +15,8 @@
   var pollTimer = null;
   var uploadTimer = null;
   var lastLocalProfile = null;
+  var uploadInFlight = null;
+  var uploadPending = false;
 
   var EXPLICIT_KEYS = {
     "vduckie-erp-v74-progress": true,
@@ -335,70 +337,128 @@
     }, 250);
   }
 
-  function upsertProfile(profile, generation) {
-    if (generation !== sessionGeneration || !client || !session || !session.user || !root.navigator || !root.navigator.onLine) return Promise.resolve();
-    return client.from("user_words").upsert([profileRow(profile, session.user.id)], {
-      onConflict: "user_id,word_key"
-    }).then(function (result) {
-      if (result.error) throw result.error;
-    });
+  function sessionMatches(userId, generation) {
+    return generation === sessionGeneration && !!(session && session.user && session.user.id === userId);
   }
 
-  function fetchRemoteProfile() {
-    if (!client || !session || !session.user) return Promise.resolve(null);
+  function fetchRemoteProfile(userId, generation) {
+    if (!sessionMatches(userId, generation)) return Promise.reject(new Error("Session changed"));
     return client.from("user_words")
-      .select("word_key,note,category,known_updated_at,saved_updated_at")
+      .select("word_key,note,category")
+      .eq("user_id", userId)
       .eq("word_key", PROFILE_WORD_KEY)
-      .then(function (result) {
+      .maybeSingle().then(function (result) {
         if (result.error) throw result.error;
-        return result.data && result.data.length ? result.data[0] : null;
+        if (!sessionMatches(userId, generation)) throw new Error("Session changed");
+        return result.data || null;
       });
+  }
+
+  // Compare-and-swap on the exact note content. Unlike an unconditional upsert,
+  // this cannot overwrite a profile another device has written since our read.
+  // The existing unique (user_id, word_key) key protects first-time inserts.
+  function compareAndSwapProfile(userId, remoteRow, merged, generation) {
+    if (!sessionMatches(userId, generation)) return Promise.reject(new Error("Session changed"));
+    if (!root.navigator || !root.navigator.onLine) return Promise.reject(new Error("Offline"));
+    var row = profileRow(merged, userId);
+    if (!remoteRow) {
+      return client.from("user_words")
+        .upsert([row], { onConflict: "user_id,word_key", ignoreDuplicates: true })
+        .select("word_key").then(function (result) {
+          if (result.error) throw result.error;
+          return !!(result.data && result.data.length);
+        });
+    }
+    if (remoteRow.note === row.note) return Promise.resolve(true);
+    return client.from("user_words")
+      .update(row)
+      .eq("user_id", userId)
+      .eq("word_key", PROFILE_WORD_KEY)
+      .eq("note", remoteRow.note)
+      .select("word_key").then(function (result) {
+        if (result.error) throw result.error;
+        return !!(result.data && result.data.length);
+      });
+  }
+
+  function storePendingProfile(userId, profile) {
+    // Keep unsent work locally even after offline transitions or failed writes.
+    writeProfileCache(userId, profile);
+    lastLocalProfile = profile;
   }
 
   function synchronizeProfile() {
     if (!client || !session || !session.user) return Promise.resolve();
-    var userId = session.user.id;
-    var generation = sessionGeneration;
-    var cached = readProfileCache(userId);
-    var local = captureProfile(userId, cached);
-    setStatus("Đang đồng bộ toàn bộ dữ liệu học…", "waiting");
-    return fetchRemoteProfile().then(function (row) {
-      if (generation !== sessionGeneration) return;
-      var remote = parseProfileRow(row);
-      var winning = remoteWinningKeys(local, remote);
-      var merged = mergeProfiles(local, remote);
-      var changed = applyProfile(merged, userId);
-      return upsertProfile(merged, generation).then(function () {
-        if (generation !== sessionGeneration) return;
-        setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
+    var userId = session.user.id, generation = sessionGeneration;
+    if (uploadInFlight) {
+      uploadPending = true;
+      return uploadInFlight;
+    }
+    var local = captureProfile(userId, readProfileCache(userId));
+    storePendingProfile(userId, local);
+    if (!root.navigator || !root.navigator.onLine) {
+      setStatus("Ngoại tuyến: đã lưu trên thiết bị, chờ đồng bộ", "waiting");
+      return Promise.resolve();
+    }
+    setStatus("Đang đồng bộ dữ liệu học…", "waiting");
+    var task = (async function () {
+      // The read/compare/write cycle must be serialized within one tab.
+      // Other devices are coordinated by the conditional UPDATE on the server.
+      for (var attempt = 0; attempt < 8; attempt++) {
+        if (!sessionMatches(userId, generation)) return;
+        var remoteRow = await fetchRemoteProfile(userId, generation);
+        var remote = parseProfileRow(remoteRow);
+        var fresh = captureProfile(userId, readProfileCache(userId));
+        var winning = remoteWinningKeys(fresh, remote);
+        var merged = mergeProfiles(fresh, remote);
+        if (!sessionMatches(userId, generation)) return;
+        var saved = await compareAndSwapProfile(userId, remoteRow, merged, generation);
+        if (!saved) continue; // Another device committed first; retry with fresh cloud data.
+        if (!sessionMatches(userId, generation)) return;
+        // Capture changes made while the request was in flight before applying cloud.
+        var latest = captureProfile(userId, readProfileCache(userId));
+        if (stableStringify(latest) !== stableStringify(fresh)) {
+          storePendingProfile(userId, mergeProfiles(latest, merged));
+          uploadPending = true;
+          return;
+        }
+        var changed = applyProfile(merged, userId);
+        setStatus("Đã đồng bộ dữ liệu học", "good");
         maybeReload(userId, merged, changed, winning);
-      });
-    }).catch(function (error) {
-      if (generation !== sessionGeneration) return;
-      console.error("VDuckie full learning profile sync failed", error);
-      setStatus(root.navigator && root.navigator.onLine ? "Lỗi đồng bộ dữ liệu học" : "Chờ có mạng", root.navigator && root.navigator.onLine ? "bad" : "waiting");
+        return;
+      }
+      throw new Error("Concurrent edits: retry needed");
+    })().catch(function (error) {
+      if (!sessionMatches(userId, generation)) return;
+      storePendingProfile(userId, captureProfile(userId, readProfileCache(userId)));
+      console.error("VDuckie learning profile sync pending", error);
+      setStatus("Chưa đồng bộ lên cloud; dữ liệu còn trên thiết bị", "waiting");
+    }).finally(function () {
+      if (uploadInFlight === task) uploadInFlight = null;
+      if (uploadPending && sessionMatches(userId, generation)) {
+        uploadPending = false;
+        scheduleUpload();
+      }
     });
+    uploadInFlight = task;
+    return task;
   }
 
   function scheduleUpload() {
     if (!session || !session.user || applying) return;
-    root.clearTimeout(uploadTimer);
     var userId = session.user.id;
-    var generation = sessionGeneration;
+    storePendingProfile(userId, captureProfile(userId, lastLocalProfile || readProfileCache(userId)));
+    root.clearTimeout(uploadTimer);
+    if (uploadInFlight) {
+      uploadPending = true;
+      return;
+    }
+    if (!root.navigator || !root.navigator.onLine) {
+      setStatus("Ngoại tuyến: đã lưu trên thiết bị, chờ đồng bộ", "waiting");
+      return;
+    }
     uploadTimer = root.setTimeout(function () {
-      if (generation !== sessionGeneration || !session || !session.user || session.user.id !== userId) return;
-      var next = captureProfile(userId, lastLocalProfile || readProfileCache(userId));
-      if (stableStringify(next) === stableStringify(lastLocalProfile || {})) return;
-      lastLocalProfile = next;
-      writeProfileCache(userId, next);
-      upsertProfile(next, generation).then(function () {
-        if (generation !== sessionGeneration) return;
-        setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
-      }).catch(function (error) {
-        if (generation !== sessionGeneration) return;
-        console.error("VDuckie profile upload failed", error);
-        setStatus("Lỗi đồng bộ dữ liệu học", "bad");
-      });
+      if (session && session.user && session.user.id === userId) synchronizeProfile();
     }, 600);
   }
 
@@ -674,7 +734,9 @@
     else writeProfileCache("anonymous", current);
 
     var cached = readProfileCache(nextUserId);
-    if (!profileHasFields(cached) && !previousUserId) cached = readProfileCache("anonymous");
+    // Guest progress stays in the anonymous cache. Never silently import it into
+    // a different identity: this could attach one person's learning history to another.
+    // Explicit migration requires a user-controlled review/import flow.
     removeSyncableValues();
     applyProfile(cached, nextUserId);
     return cached;
@@ -684,6 +746,9 @@
     var previousSession = session;
     var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
     sessionGeneration++;
+    uploadPending = false;
+    // In-flight writes are guarded by the session generation on every retry.
+    uploadInFlight = null;
     root.clearTimeout(uploadTimer);
     uploadTimer = null;
     session = nextSession || null;
