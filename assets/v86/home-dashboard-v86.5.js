@@ -185,7 +185,7 @@ function render(){
     applyHomeMode();
     if(!homeVisible())return false;
     var home=document.getElementById("homeHub");if(!home)return false;
-    var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-primary-action');
+    var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-welcome-actions .home-primary-action');
     if(journal&&hero){
       var summary=journal.summary(),started=summary.totalCompleted||summary.studied||Object.keys(journal.lesson(summary.current.lessonId)).length;
       hero.textContent=started?'Học tiếp HSK '+summary.current.level+' →':'Bắt đầu học HSK →';

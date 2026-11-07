@@ -118,7 +118,7 @@ test('learner UI restores stage/card, shows weak questions, and saves the positi
 test('homepage prioritizes resume and due review beside the main learning action',async()=>{
   const {createRequire}=await import('node:module');
   const {JSDOM}=createRequire(import.meta.url)('jsdom');
-  const dom=new JSDOM('<section id="homeHub"><button class="home-primary-action" data-daily-nav="msutong">Start</button><div class="home-overview-grid"></div><div class="home-recommended"></div></section>',{url:'https://example.test',runScripts:'outside-only'});
+  const dom=new JSDOM('<section id="homeHub"><div class="vi-home-invite"><button class="home-primary-action">学越南语</button></div><div class="home-welcome-actions"><button class="home-primary-action" data-daily-nav="msutong">Start</button></div><div class="home-overview-grid"></div><div class="home-recommended"></div></section>',{url:'https://example.test',runScripts:'outside-only'});
   try{
     const w=dom.window;w.eval(source);
     w.VDuckieHskStudyJourney.visit(3,'hsk3-lesson-02');
@@ -126,7 +126,8 @@ test('homepage prioritizes resume and due review beside the main learning action
     w.VDuckieHskStudyJourney.recordWord(3,'hsk3-lesson-02','努力',false,'nǔlì','nỗ lực');
     w.eval(fs.readFileSync('assets/v86/home-dashboard-v86.5.js','utf8'));
     w.VDuckieHomeDashboardV865.render();
-    const hero=w.document.querySelector('.home-primary-action');
+    const hero=w.document.querySelector('.home-welcome-actions .home-primary-action');
+    assert.equal(w.document.querySelector('.vi-home-invite button').textContent,'学越南语');
     assert.match(hero.textContent,/Học tiếp HSK 3/);
     assert.equal(hero.getAttribute('data-v865-action'),'continue');
     assert.equal(hero.hasAttribute('data-daily-nav'),false);
