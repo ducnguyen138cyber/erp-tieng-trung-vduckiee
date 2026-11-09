@@ -42,3 +42,27 @@ test('Qwen is opt-in only, not silently activated',async()=>{
  const r=await ask('Viết tiếng Trung là gì?','写 (xiě) — viết');
  assert.equal(r.calls[0].model,'@cf/meta/llama-3.1-8b-instruct-fast');
 });
+
+test('canonical vocabulary wrong tone is retried instead of being taught as correct',async()=>{
+ let calls=0;
+ const env={AI:{run:async()=>({response:++calls===1?'写 (xiè) — viết':'写 (xiě) — viết'})}};
+ const request=new Request('https://vduckie.pages.dev/api/duckie-chat',{method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({messages:[{role:'user',content:'Viết tiếng Trung là gì?'}]})});
+ const res=await onRequestPost({request,env});
+ assert.equal(res.status,200);
+ assert.equal(calls,2);
+ assert.match((await res.json()).reply,/xiě/);
+});
+test('persistently wrong verified Pinyin is refused after one retry',async()=>{
+ let calls=0;
+ const env={AI:{run:async()=>{calls++;return {response:'写 (xiè) — viết'};}}};
+ const req=new Request('https://vduckie.pages.dev/api/duckie-chat',{method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({messages:[{role:'user',content:'Viết tiếng Trung là gì?'}]})});
+ const res=await onRequestPost({request:req,env});
+ assert.equal(res.status,422);assert.equal(calls,2);
+ assert.equal((await res.json()).reason,'wrong-verified-pinyin');
+});
+test('unknown vocabulary may explicitly admit uncertainty without inventing Hanzi',async()=>{
+ const r=await ask('Từ abcxyz tiếng Trung là gì?','Mình chưa xác định được cách dịch đáng tin cậy cho từ này.');
+ assert.equal(r.status,200);assert.match(r.body.reply,/chưa xác định/);
+});
