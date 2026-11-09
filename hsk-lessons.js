@@ -781,11 +781,38 @@
     html += '<div class="hsk-section hsk-foundation-note"><strong>Cách học bài này</strong><p>Nghe từng mẫu ít nhất ba lần, đọc theo chậm rồi bình thường. Với bài nét chữ, xem hoạt ảnh, thử viết bằng tay trên màn hình rồi viết lại vào vở ô vuông.</p></div>';
     return html;
   }
+  // Large (~600 KB) bundled stroke paths are only needed after opening writing.
+  // Share one on-demand request across repeated HanziWriter callbacks. Do not
+  // replace these verified local paths with fabricated character metadata.
+  var strokeDataPromise = null;
+  function ensureStrokeData() {
+    if (root.HSK_HANZI_DATA) return Promise.resolve(root.HSK_HANZI_DATA);
+    if (strokeDataPromise) return strokeDataPromise;
+    strokeDataPromise = new Promise(function (resolve, reject) {
+      var script = document.createElement("script");
+      script.src = "./vendor/hsk-char-data.js?v=1";
+      script.async = true;
+      script.onload = function () {
+        if (root.HSK_HANZI_DATA) resolve(root.HSK_HANZI_DATA);
+        else reject(new Error("Stroke dataset did not initialize"));
+      };
+      script.onerror = function () { reject(new Error("Cannot load verified stroke dataset")); };
+      document.head.appendChild(script);
+    }).catch(function (error) { strokeDataPromise = null; throw error; });
+    return strokeDataPromise;
+  }
   function loadCharacterData(character, onComplete, onError) {
-    if (root.HSK_HANZI_DATA && root.HSK_HANZI_DATA[character]) { onComplete(root.HSK_HANZI_DATA[character]); return; }
-    root.fetch("./hanzi-data/" + encodeURIComponent(character) + ".json").then(function (response) {
-      if (!response.ok) throw new Error("missing character data");
-      return response.json();
+    function fallback() {
+      return root.fetch("./hanzi-data/" + encodeURIComponent(character) + ".json").then(function (response) {
+        if (!response.ok) throw new Error("missing character data");
+        return response.json();
+      });
+    }
+    if (root.HSK_HANZI_DATA && root.HSK_HANZI_DATA[character]) {
+      onComplete(root.HSK_HANZI_DATA[character]); return;
+    }
+    ensureStrokeData().then(function (data) {
+      return data[character] || fallback();
     }).then(onComplete).catch(onError);
   }
   function setupWritingTrainer(item, autoPlay) {
