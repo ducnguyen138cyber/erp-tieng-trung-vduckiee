@@ -1,0 +1,33 @@
+name: HSK 224 Exam Targeted Acceptance
+
+on:
+  pull_request:
+    paths:
+      - 'assets/hsk-content/hsk-practice-*'
+      - 'data/hsk/**'
+      - 'tests/hsk-exam-*'
+      - '.github/workflows/hsk-exam-224-acceptance.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hsk-224-targeted-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  targeted:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Check HSK engine and UI syntax
+        run: |
+          node --check assets/hsk-content/hsk-practice-bank-v1.js
+          node --check assets/hsk-content/hsk-practice-ui-v1.js
+      - name: Run phase 1–5 focused tests against real HSK JSON shards
+        run: node --test tests/hsk-exam-contract-phase1.test.mjs tests/hsk-exam-context-phase2.test.mjs tests/hsk-exam-ui-phase3.test.mjs tests/hsk-exam-grading-phase4.test.mjs tests/hsk-exam-real-data-phase5.test.mjs
