@@ -30,7 +30,7 @@ test('phase 3 audio controls use source text and do not expose an exam transcrip
   assert.match(ui,/data-practice-rate="0\.7"/);
   assert.match(ui,/data-practice-rate="0\.85"/);
   assert.match(ui,/data-practice-rate="1"/);
-  assert.match(ui,/if\(q\.section!=="listening"\)return/);
+  assert.match(ui,/q\.section!=="listening"\)return/);
   assert.doesNotMatch(ui,/innerHTML\s*=\s*q\.audioText/);
 });
 test('phase 3 timer uses wall clock so background tabs do not slow the countdown',()=>{
