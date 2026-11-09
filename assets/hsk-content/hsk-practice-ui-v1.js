@@ -135,7 +135,7 @@
   }
   function questionPrompt(q){
     if(q.type==="listening")return t("Nghe và chọn chữ Hán đúng.","听发音，选择正确的汉字。","Listen and select the matching Hanzi.");
-    if(q.type==="listening-sentence")return t("Nghe câu và chọn nghĩa đúng.","听句子，选择正确的词义。","Listen to the sentence and choose the meaning.");
+    if(q.type==="listening-sentence")return t("Nghe câu và chọn nghĩa của từ: ","听句子，选择这个词的意思：","Listen and choose the meaning of: ")+q.hanzi;
     if(q.type==="meaning")return t("Chọn nghĩa đúng.","选择正确的释义。","Choose the correct meaning.");
     if(q.type==="hanzi")return t("Chọn chữ Hán đúng.","选择正确的汉字。","Choose the correct Hanzi.");
     if(q.type==="pinyin")return t("Chọn Pinyin đúng.","选择正确的拼音。","Choose the correct Pinyin.");
