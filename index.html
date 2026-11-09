@@ -103,6 +103,17 @@
         source=source.replace("</head>",'<link rel="stylesheet" href="./assets/auth/auth-screen.css?v=6"></head>');
         source=source.replace("</body>",'<script src="./assets/auth/auth-screen.js?v=6"><\/script></body>');
         if(new URLSearchParams(location.search).get("developer")!=="1")source=source.replace(/<script\b[^>]*src=["']\.\/assets\/developer[^"']+["'][^>]*><\/script>/g,"");
+        // Parallelize the external scripts AFTER the legacy inline dictionary
+        // initializer. Keep the earlier scripts synchronous because that inline
+        // initializer may read their globals. `defer` retains ordered
+        // execution before DOMContentLoaded, including auth and progress modules.
+        var lastInlineBoundary=source.indexOf('<script src="./supabase-config.js');
+        if(lastInlineBoundary!==-1){
+          var orderedScripts=source.slice(lastInlineBoundary).replace(/<script\b(?=[^>]*\bsrc\s*=)(?![^>]*\b(?:defer|async)\b)[^>]*>/gi,function(tag){
+            return tag.replace(/<script\b/i,"<script defer");
+          });
+          source=source.slice(0,lastInlineBoundary)+orderedScripts;
+        }
         document.open();document.write(source);document.close();
       }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();
