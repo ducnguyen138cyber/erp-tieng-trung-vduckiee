@@ -124,9 +124,9 @@
       t("Kho đề luyện HSK · 224 mã đề","HSK 模拟练习 · 224 套","HSK practice · 224 paper variants"),
       t("Chọn cấp độ và mã đề để bắt đầu.","请选择考试等级与试卷。","Choose a level and a practice paper."))+
       '<p class="hsk-practice-disclaimer">'+esc(t(
-        "Đề mô phỏng theo số lượng câu HSK phổ biến, được tạo từ từ vựng VDuckie. Phần nghe dùng giọng đọc TTS, không phải audio hay đề thi chính thức. Làm đề không cộng EXP.",
-        "基于 VDuckie 词库、按常见 HSK 题量生成的模拟练习。听力为 TTS 朗读，并非官方试卷或录音。练习不奖励 EXP。",
-        "Original vocabulary practice using familiar HSK section lengths. Listening uses TTS, not official audio. Practice exams do not earn EXP."))+'</p>'+
+        "224 mã bài luyện từ vựng, dùng số câu theo cấu trúc HSK cũ nhưng dữ liệu từ vựng GF0025-2021. Chưa kiểm duyệt chuyên môn; không phải đề thi HSK 2.0/3.0 chính thức. Audio dùng TTS; không cộng EXP.",
+        "224 套词汇练习采用旧版 HSK 题量及 GF0025-2021 词汇，未经人工审校，并非官方 HSK 2.0/3.0 试卷。听力采用合成语音；不奖励经验值。",
+        "224 vocabulary practice variants combine legacy HSK section counts with GF0025-2021 vocabulary. Not human-reviewed or official HSK 2.0/3.0 exams. Listening uses TTS; no EXP rewards."))+'</p>'+
       '<div class="hsk-practice-catalog-meta">'+esc(t("Cấu trúc cấp này: ","本级结构：","This level: ")+
         plan.listening+" "+t("Nghe","听力","listening")+" · "+plan.reading+" "+t("Đọc","阅读","reading")+
         (plan.writing?" · "+plan.writing+" "+t("Viết","书写","writing"):"")+
