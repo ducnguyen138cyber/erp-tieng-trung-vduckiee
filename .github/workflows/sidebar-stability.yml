@@ -43,6 +43,9 @@ jobs:
       - name: Curriculum flow, persistence and responsive browser regressions
         run: node tests/curriculum-browser.mjs
 
+      - name: Shadowing HSK1–3 Chromium desktop/mobile smoke and screenshots
+        run: node tests/hsk-shadowing-browser.mjs
+
       - name: Upload browser navigation screenshots
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,4 +56,5 @@ jobs:
             artifacts/auth-screen/
             artifacts/blue-edtech/
             artifacts/brand-runtime/
+            artifacts/shadowing/
           if-no-files-found: ignore

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "level": 3,
+  "reviewStatus": "machine-assisted-unreviewed",
+  "description": "Source-backed HSK dialogue lines with supplemental Pinyin and Vietnamese draft; linguistic review pending.",
+  "records": [
+    {
+      "id": "shadow-hsk3-001",
+      "sourceSectionId": "hsk3-lesson-01-dialogue",
+      "hanzi": "你今天怎么迟到了？",
+      "pinyin": "Nǐ jīntiān zěnme chídào le?",
+      "vi": "Sao hôm nay bạn đến muộn vậy?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-002",
+      "sourceSectionId": "hsk3-lesson-01-dialogue",
+      "hanzi": "我出门以后才发现忘了笔记本。",
+      "pinyin": "Wǒ chūmén yǐhòu cái fāxiàn wàng le bǐjìběn.",
+      "vi": "Sau khi ra khỏi nhà tôi mới phát hiện mình quên sổ ghi chép.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-003",
+      "sourceSectionId": "hsk3-lesson-01-dialogue",
+      "hanzi": "后来怎么办？",
+      "pinyin": "Hòulái zěnme bàn?",
+      "vi": "Thế sau đó bạn làm thế nào?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-004",
+      "sourceSectionId": "hsk3-lesson-01-dialogue",
+      "hanzi": "我先回家拿，然后坐地铁来，所以晚了十分钟。",
+      "pinyin": "Wǒ xiān huí jiā ná, ránhòu zuò dìtiě lái, suǒyǐ wǎn le shí fēnzhōng.",
+      "vi": "Tôi về nhà lấy trước, sau đó đi tàu điện ngầm đến, nên bị muộn mười phút.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-005",
+      "sourceSectionId": "hsk3-lesson-02-dialogue",
+      "hanzi": "桌上的文件怎么不见了？",
+      "pinyin": "Zhuō shàng de wénjiàn zěnme bú jiàn le?",
+      "vi": "Sao tài liệu trên bàn lại biến mất rồi?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-006",
+      "sourceSectionId": "hsk3-lesson-02-dialogue",
+      "hanzi": "我把它放到经理办公室了。",
+      "pinyin": "Wǒ bǎ tā fàng dào jīnglǐ bàngōngshì le.",
+      "vi": "Tôi đã để nó vào văn phòng của giám đốc rồi.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-007",
+      "sourceSectionId": "hsk3-lesson-02-dialogue",
+      "hanzi": "你把名单也带走了吗？",
+      "pinyin": "Nǐ bǎ míngdān yě dài zǒu le ma?",
+      "vi": "Bạn cũng mang danh sách đi rồi à?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk3-008",
+      "sourceSectionId": "hsk3-lesson-02-dialogue",
+      "hanzi": "没有，我把名单留在这儿了。",
+      "pinyin": "Méiyǒu, wǒ bǎ míngdān liú zài zhèr le.",
+      "vi": "Không, tôi để danh sách lại đây rồi.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    }
+  ]
+}
