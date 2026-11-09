@@ -21,7 +21,17 @@ async function ask(prompt,reply,messages){
  return {status:res.status,body:await res.json(),calls};
 }
 test('ten request categories pass mock-response validation without invented network inference',async()=>{
- for(const [question,answer] of promptCases){const result=await ask(question,answer);assert.equal(result.status,200,question);assert.equal(result.body.reply,answer);assert.equal(result.calls[0].model,'@cf/meta/llama-3.1-8b-instruct-fast');}
+ for(const [question,answer] of promptCases){
+  const result=await ask(question,answer);assert.equal(result.status,200,question);
+  if(['Viết tiếng Trung là gì?','Mặc cả tiếng Trung là gì?'].includes(question)){
+   assert.equal(result.body.source,'verified-glossary');
+   assert.equal(result.calls.length,0,'exact verified lookups should not invoke generative AI');
+   assert.ok(result.body.reply.includes(question.startsWith('Viết')?'写':'讨价还价'));
+  }else{
+   assert.equal(result.body.reply,answer);
+   assert.equal(result.calls[0].model,'@cf/meta/llama-3.1-8b-instruct-fast');
+  }
+ }
 });
 test('multiturn retains user and assistant context with bounded history',async()=>{
  const messages=[{role:'user',content:'ăn tối tiếng Trung là gì?'},{role:'assistant',content:'吃晚饭 (chī wǎnfàn) — ăn tối'},{role:'user',content:'viết như thế nào?'}];
@@ -35,11 +45,11 @@ test('untrusted content never becomes a system message',async()=>{
 });
 test('failed model text retries once and refuses empty quoted Hanzi',async()=>{
  let i=0;const env={AI:{run:async()=>({response:++i===1?'"" (xiě)':'写 (xiě) — viết'})}};
- const req=new Request('https://vduckie.pages.dev/api/duckie-chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:'Viết tiếng Trung là gì?'}]})});
+ const req=new Request('https://vduckie.pages.dev/api/duckie-chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:'Cho một ví dụ khác với từ viết tiếng Trung'}]})});
  const response=await onRequestPost({request:req,env});assert.equal(response.status,200);assert.equal(i,2);assert.match((await response.json()).reply,/写/);
 });
 test('Qwen is opt-in only, not silently activated',async()=>{
- const r=await ask('Viết tiếng Trung là gì?','写 (xiě) — viết');
+ const r=await ask('Cho ví dụ khác với từ viết tiếng Trung','写 (xiě) — viết');
  assert.equal(r.calls[0].model,'@cf/meta/llama-3.1-8b-instruct-fast');
 });
 
@@ -47,7 +57,7 @@ test('canonical vocabulary wrong tone is retried instead of being taught as corr
  let calls=0;
  const env={AI:{run:async()=>({response:++calls===1?'写 (xiè) — viết':'写 (xiě) — viết'})}};
  const request=new Request('https://vduckie.pages.dev/api/duckie-chat',{method:'POST',headers:{'Content-Type':'application/json'},
-   body:JSON.stringify({messages:[{role:'user',content:'Viết tiếng Trung là gì?'}]})});
+   body:JSON.stringify({messages:[{role:'user',content:'Cho một ví dụ khác với từ viết tiếng Trung'}]})});
  const res=await onRequestPost({request,env});
  assert.equal(res.status,200);
  assert.equal(calls,2);
@@ -57,7 +67,7 @@ test('persistently wrong verified Pinyin is refused after one retry',async()=>{
  let calls=0;
  const env={AI:{run:async()=>{calls++;return {response:'写 (xiè) — viết'};}}};
  const req=new Request('https://vduckie.pages.dev/api/duckie-chat',{method:'POST',headers:{'Content-Type':'application/json'},
-   body:JSON.stringify({messages:[{role:'user',content:'Viết tiếng Trung là gì?'}]})});
+   body:JSON.stringify({messages:[{role:'user',content:'Cho một ví dụ khác với từ viết tiếng Trung'}]})});
  const res=await onRequestPost({request:req,env});
  assert.equal(res.status,422);assert.equal(calls,2);
  assert.equal((await res.json()).reason,'wrong-verified-pinyin');
@@ -76,7 +86,16 @@ test('grammar 越来越 prompt contains corrected adjective and state-verb usage
  assert.match(sys,/không.*chỉ dùng động từ/i);
 });
 test('eating vocabulary prompt forbids invented meal-time windows',async()=>{
- const r=await ask('Ăn tối tiếng Trung là gì?','吃晚饭 (chī wǎnfàn) — ăn tối.');
+ const r=await ask('Cho một ví dụ khác dùng từ ăn tối tiếng Trung','吃晚饭 (chī wǎnfàn) — ăn tối.');
  assert.equal(r.status,200);
  assert.match(r.calls[0].args.messages[0].content,/khung giờ/);
+});
+
+test('exact known vocabulary answers use checked text, not generative examples',async()=>{
+ for(const question of ['Viết tiếng Trung là gì?','Mặc cả tiếng Trung là gì?','Ăn tối tiếng Trung là gì?']){
+  const r=await ask(question,'AI should not be called');
+  assert.equal(r.status,200);assert.equal(r.body.source,'verified-glossary');
+  assert.equal(r.calls.length,0);
+  assert.match(r.body.reply,/Ví dụ:/);
+ }
 });
