@@ -116,7 +116,13 @@ function todayFocusData(){
   try{if(journey&&typeof journey.summary==="function")summary=journey.summary()}catch(error){}
   var now=summary&&summary.current||{},level=Math.max(1,Math.min(4,Number(now.level)||1));
   var lessonId=text(now.lessonId),due=Math.max(0,Number(summary&&summary.due)||0);
-  var hasStarted=!!(summary&&(Number(summary.totalCompleted)||Number(summary.studied)||lessonId));
+  // The runtime may preselect a lesson on first load. Selection is not learning.
+  var lessonEvidence={};
+  try{if(journey&&lessonId&&typeof journey.lesson==="function")lessonEvidence=journey.lesson(lessonId)||{}}catch(e){}
+  var hasStarted=!!(summary&&(Number(summary.totalCompleted)||Number(summary.studied)||
+    Object.keys(lessonEvidence.answers||{}).length||
+    Object.keys(lessonEvidence.content||{}).length||
+    Number(lessonEvidence.completedAt)||Number(lessonEvidence.attemptAt)));
   return{level:level,lessonId:lessonId,due:due,hasStarted:hasStarted,
     heading:due?"Hôm nay, ôn lại từ sắp quên":hasStarted?"Hôm nay, học tiếp đúng chỗ cũ":"Hôm nay, bắt đầu từ một bài HSK",
     detail:due?due+" từ đến hạn. Ôn trước để nhớ lâu hơn.":hasStarted?
