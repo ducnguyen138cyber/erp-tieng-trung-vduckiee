@@ -32,8 +32,8 @@
     var request=level===1?
       root.fetch("./data/hsk/hsk1/sentences/hsk1-s-0001-0100.json").then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
         .then(function(json){return (json.records||[]).filter(function(r){return r.chinese&&r.pinyin&&r.vietnamese;}).slice(0,40).map(function(r){return {id:r.id,hanzi:r.chinese,pinyin:r.pinyin,vi:r.vietnamese};});}):
-      root.fetch("./data/hsk/hsk"+level+"/lessons.json").then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
-        .then(function(json){return (json.records||[]).slice(0,8).flatMap(function(lesson){return (lesson.sections||[]).filter(function(s){return s.type==="dialogue";}).flatMap(function(s){return splitScript(s.content&&s.content.scriptZh,s.id);});});});
+      root.fetch("./data/shadowing/hsk"+level+"-v1.json").then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(json){return (json.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;});});
     request.then(function(items){if(my!==token)return;lines=items;index=Math.min(Math.max(0,Number((store()[level]||{}).index)||0),Math.max(0,lines.length-1));render();})
       .catch(function(err){if(my!==token)return;n.innerHTML='<section class="shadow-page"><h2>Không tải được bài Shadowing</h2><p>'+esc(err.message)+'</p><button type="button" data-shadow-back>Trở lại</button></section>';});
   }
