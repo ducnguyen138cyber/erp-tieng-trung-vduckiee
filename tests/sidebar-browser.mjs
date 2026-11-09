@@ -87,6 +87,15 @@ try {
     await showMore.click();
     assert.equal(await page.locator('#v865HomeRoadmap').isVisible(),false);
     await page.setViewportSize({width:390,height:844});
+    // Resizing a desktop session can leave the side drawer expanded; close it
+    // exactly as a mobile learner would, then capture the unobstructed page.
+    if(await page.locator('#sidebarClose').isVisible())await page.locator('#sidebarClose').click();
+    await page.locator('#v865TodayFocus').waitFor({state:'visible'});
+    const viewportFit=await page.locator('#v865TodayFocus').evaluate(node=>{
+      const rect=node.getBoundingClientRect();
+      return rect.left>=-1&&rect.right<=window.innerWidth+1;
+    });
+    assert.equal(viewportFit,true,'mobile daily action must fit without horizontal clipping');
     await page.screenshot({path:path.join(shotDir,(authenticated?'member':'guest')+'-mobile.png'),fullPage:true});
     await page.setViewportSize({width:1440,height:950});
     if (authenticated) await page.waitForFunction(() => document.querySelector('#expHeaderAccount')?.textContent.includes('350'));
