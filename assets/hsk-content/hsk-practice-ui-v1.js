@@ -124,10 +124,12 @@
   }
   function questionPrompt(q){
     if(q.type==="listening")return t("Nghe và chọn chữ Hán đúng.","听发音，选择正确的汉字。","Listen and select the matching Hanzi.");
+    if(q.type==="listening-sentence")return t("Nghe câu và chọn nghĩa đúng.","听句子，选择正确的词义。","Listen to the sentence and choose the meaning.");
     if(q.type==="meaning")return t("Chọn nghĩa đúng.","选择正确的释义。","Choose the correct meaning.");
     if(q.type==="hanzi")return t("Chọn chữ Hán đúng.","选择正确的汉字。","Choose the correct Hanzi.");
     if(q.type==="pinyin")return t("Chọn Pinyin đúng.","选择正确的拼音。","Choose the correct Pinyin.");
     if(q.type==="reading")return t("Đọc và chọn nghĩa đúng.","阅读并选择正确的释义。","Read and choose the correct meaning.");
+    if(q.type==="reading-cloze")return t("Điền từ thích hợp vào câu.","选择词语完成句子。","Choose the word to complete the sentence.");
     return t("Viết chữ Hán tương ứng.","填写正确的汉字。","Write the Hanzi.");
   }
   function answerOptions(q){
@@ -227,14 +229,14 @@
   }
   function play(index){
     if(!paper)return;
-    var q=paper.questions[index];if(!q||q.type!=="listening")return;
+    var q=paper.questions[index];if(!q||q.section!=="listening")return;
     if(!root.speechSynthesis||!root.SpeechSynthesisUtterance){
       var msg=el("hskPracticeSubmitWarning");
       if(msg)msg.textContent=t("Trình duyệt không hỗ trợ đọc tiếng Trung.","此浏览器不支持语音合成。","Speech synthesis is not supported here.");
       return;
     }
     root.speechSynthesis.cancel();
-    var voice=new root.SpeechSynthesisUtterance(q.hanzi);
+    var voice=new root.SpeechSynthesisUtterance(q.audioText||q.hanzi);
     voice.lang="zh-CN";voice.rate=.85;
     root.speechSynthesis.speak(voice);
   }
