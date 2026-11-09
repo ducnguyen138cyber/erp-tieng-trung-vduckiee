@@ -18,14 +18,14 @@ test('224 variants derive contextual exercises from sourced sentences without in
     assert.equal(bank.validatePaper(paper).ok,true,paper.id);
     assert.equal(paper.questions.length,[0,40,60,80,100][level]);
     ids.add(paper.id);
-    const contextual=paper.questions.filter(q=>q.type==='reading-cloze'||q.type==='listening-sentence');
+    const contextual=paper.questions.filter(q=>q.type==='reading-cloze'||q.type==='listening-sentence'||q.type==='writing-cloze');
     assert.ok(contextual.length>0,paper.id+' should include sourced contextual items');
     for(const q of contextual){
       assert.equal(q.reviewStatus,'unreviewed');
       assert.deepEqual(q.sourceIds,[q.wordId]);
       assert.ok(q.example.includes(q.hanzi));
       assert.equal(bank.grade(q,q.answer),true);
-      if(q.type==='reading-cloze'){
+      if(q.type==='reading-cloze'||q.type==='writing-cloze'){
         assert.ok(q.stimulus.includes('____'));
         assert.ok(!q.stimulus.includes(q.hanzi),'written answer must not leak');
         assert.equal(q.answer,q.hanzi);
@@ -55,7 +55,8 @@ test('context item corruption is rejected and UI can play full sourced sentence'
   const paper=bank.build(3,1,vocab);
   const listen=paper.questions.find(q=>q.type==='listening-sentence');
   const cloze=paper.questions.find(q=>q.type==='reading-cloze');
-  assert.ok(listen&&cloze);
+  const written=paper.questions.find(q=>q.type==='writing-cloze');
+  assert.ok(listen&&cloze&&written);
   const badAudio=JSON.parse(JSON.stringify(paper));
   badAudio.questions.find(q=>q.id===listen.id).audioText='đoạn không có trong học liệu';
   assert.equal(bank.validatePaper(badAudio).ok,false);
