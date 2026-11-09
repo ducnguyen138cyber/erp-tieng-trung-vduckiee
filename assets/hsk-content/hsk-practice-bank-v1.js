@@ -329,7 +329,7 @@
       case "reading-cloze":case "writing-cloze":
         return "Điền "+clean(q.hanzi)+" ("+clean(q.pinyin)+") vào chỗ trống. Câu gốc: "+clean(q.example)+". Nghĩa của từ: "+clean(q.meaning)+".";
       case "pinyin":
-        return "Pinyin của "+clean(q.hanzi)+" là "+clean(q.pinyin)+", gồm thanh điệu như đáp án.";
+        return "Pinyin của "+clean(q.hanzi)+" là "+clean(q.pinyin)+", nghĩa: "+clean(q.meaning)+". Hãy chú ý dấu thanh.";
       case "hanzi":case "writing":
         return "Chữ Hán tương ứng là "+clean(q.hanzi)+" ("+clean(q.pinyin)+"), nghĩa: "+clean(q.meaning)+".";
       case "reading":
