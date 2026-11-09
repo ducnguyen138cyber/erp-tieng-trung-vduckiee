@@ -84,6 +84,9 @@
       ]).then(function(responses){return Promise.all(responses.map(function(r){
         if(!r.ok)throw Error("HTTP "+r.status);return r.json();
       }));}).then(function(parts){
+        var lessonNames=new Map((parts[1].records||[]).map(function(lesson){
+          return [lesson.id,lesson.titleVi||lesson.topic||lesson.id];
+        }));
         var annotated=(parts[0].records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;});
         var annotationIndex=new Map(annotated.map(function(r){return [r.sourceSectionId+"|"+r.hanzi,r];}));
         var source=(parts[1].records||[]).flatMap(function(lesson){
@@ -102,7 +105,7 @@
           if(seen.has(identity))return;seen.add(identity);
           unique.push(Object.assign({},r,{group:r.sourceSectionId,
             groupLabel:"Bài "+(Number((r.sourceSectionId||"").match(/lesson-(\d+)/)?.[1])||1)+
-              " · Hội thoại",sourceStatus:r.reviewStatus||"unreviewed"}));
+              " · "+(lessonNames.get(String(r.sourceSectionId||"").replace(/-dialogue$/,""))||"Hội thoại"),sourceStatus:r.reviewStatus||"unreviewed"}));
         });
         return unique;
       });
