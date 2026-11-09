@@ -4,7 +4,7 @@ const ALLOWED=new Set([DEFAULT_MODEL,"@cf/qwen/qwen3-30b-a3b-fp8","@cf/qwen/qwen
 const HANZI=/[\u3400-\u9fff\uf900-\ufaff]/u;
 const TONE=/[āáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ]/i;
 const json=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store","X-Content-Type-Options":"nosniff"}});
-const SYSTEM="Bạn là Duckie, gia sư tiếng Trung giản thể HSK1–HSK6, giao tiếp tự nhiên và môi trường công xưởng/ERP. Trả lời tiếng Việt thân thiện, đúng trọng tâm. Trả lời trực tiếp trước; một từ đơn thì ghi chữ Hán (Pinyin có dấu) — nghĩa và ví dụ ngắn có ích, không lan man. Ngữ pháp: giải thích nghĩa, công thức, 2–3 ví dụ Hán/Pinyin/Việt và lỗi thường gặp nếu cần. Sửa câu: câu gốc, câu sửa nếu sai, Pinyin, nghĩa Việt; phân biệt lỗi ngữ pháp với cách nói kém tự nhiên. Dịch nhanh: tiếng Trung, Pinyin, dịch ngược, không giải thích. Hội thoại: trò chuyện trong vai phù hợp, không ép thành bài giảng. Mọi ví dụ tiếng Trung đều dùng chữ Hán giản thể Unicode thật, Pinyin có dấu và nghĩa Việt; không bao giờ đặt dấu nháy rỗng thay chữ Hán. Không bịa dữ liệu từ điển, Pinyin, ví dụ, thuật ngữ ERP. Nếu chưa chắc hãy nói rõ. Câu hỏi ngắn nối tiếp tham chiếu từ/câu trước đó. Câu hỏi không liên quan tiếng Trung vẫn có thể trả lời bình thường. Viết gọn, Markdown đơn giản, không HTML.";
+const SYSTEM="Bạn là Duckie, gia sư tiếng Trung giản thể HSK1–HSK6, giao tiếp tự nhiên và môi trường công xưởng/ERP. Trả lời tiếng Việt thân thiện, đúng trọng tâm. Trả lời trực tiếp trước; một từ đơn thì ghi chữ Hán (Pinyin có dấu) — nghĩa và ví dụ ngắn có ích, không lan man. Ngữ pháp: giải thích nghĩa, công thức, 2–3 ví dụ Hán/Pinyin/Việt và lỗi thường gặp nếu cần. Sửa câu: câu gốc, câu sửa nếu sai, Pinyin, nghĩa Việt; phân biệt lỗi ngữ pháp với cách nói kém tự nhiên. Dịch nhanh: tiếng Trung, Pinyin, dịch ngược, không giải thích. Hội thoại: trò chuyện trong vai phù hợp, không ép thành bài giảng. Mọi ví dụ tiếng Trung đều dùng chữ Hán giản thể Unicode thật, Pinyin có dấu và nghĩa Việt; không bao giờ đặt dấu nháy rỗng thay chữ Hán. Không bịa dữ liệu từ điển, Pinyin, ví dụ, thuật ngữ ERP. Không khẳng định quy định/phiên bản kỳ thi HSK hiện tại nếu không có dữ liệu được kiểm chứng; nói rõ giới hạn. Nếu chưa chắc hãy nói rõ. Câu hỏi ngắn nối tiếp tham chiếu từ/câu trước đó. Câu hỏi không liên quan tiếng Trung vẫn có thể trả lời bình thường. Viết gọn, Markdown đơn giản, không HTML.";
 const GLOSSARY=[
 {keys:["viết"],hanzi:"写",pinyin:"xiě",meaning:"viết",example:"写信 (xiě xìn) — viết thư"},
 {keys:["mặc cả","trả giá"],hanzi:"讨价还价",pinyin:"tǎo jià huán jià",meaning:"mặc cả, trả giá",example:"可以便宜一点吗？(Kěyǐ piányi yìdiǎn ma?) — Có thể rẻ hơn một chút không?"},
@@ -26,7 +26,15 @@ function unpack(r){return typeof r?.response==="string"?r.response:typeof r?.res
 function validate(reply,kind,fact){
  if(!reply||!reply.trim())return "empty";
  if(/["“”‘’]\s*["“”‘’]\s*\([^)]*[āǎīǐōǒūǔ]/iu.test(reply))return "empty-hanzi";
- if(fact&&kind==="vocab"&&!reply.includes(fact.hanzi)&&!/không chắc|chưa xác định/i.test(reply))return "wrong-word";
+ // A verified dictionary entry has an exact Hanzi/Pinyin pair. A generic
+ // accent check cannot catch wrong tones, e.g. 写 (xiè) instead of 写 (xiě).
+ if(fact&&kind==="vocab"){
+  if(!reply.includes(fact.hanzi))return "wrong-verified-word";
+  if(!reply.toLocaleLowerCase().includes(fact.pinyin.toLocaleLowerCase()))return "wrong-verified-pinyin";
+ }
+ // Admitting uncertainty is safer than forcing the model to fabricate Hanzi.
+ // This exception does not override the verified dictionary check above.
+ if(!HANZI.test(reply)&&/^(?:mình |tôi )?(?:chưa xác định|không thể xác định|chưa chắc)/i.test(reply))return null;
  if(["vocab","translate","grammar","correct"].includes(kind)){
   if(!HANZI.test(reply))return "missing-hanzi";
   if(["vocab","translate"].includes(kind)&&!TONE.test(reply)&&!/không chắc|chưa xác định/i.test(reply))return "missing-pinyin";
