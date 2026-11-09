@@ -53,11 +53,11 @@ test('all 224 HSK papers are fully populated, section-ordered and canonically gr
           i<plan.listening+plan.reading?'reading':'writing';
         assert.equal(q.section,section,q.id);
         if(section==='listening'){
-          assert.equal(q.type,'listening');
+          assert.ok(['listening','listening-sentence'].includes(q.type),q.id+' listening type');
           assert.equal(q.stimulus,'','Do not reveal the listening answer before submission');
         }
         if(section==='writing'){
-          assert.equal(q.type,'writing');
+          assert.ok(['writing','writing-cloze'].includes(q.type),q.id+' writing type');
           assert.equal(q.options.length,0);
         }else{
           assert.equal(q.options.length,4,q.id);
@@ -74,7 +74,7 @@ test('all 224 HSK papers are fully populated, section-ordered and canonically gr
     }
   }
   assert.equal(forms.size,224);
-  assert.deepEqual([...types].sort(),['hanzi','listening','meaning','pinyin','reading','writing']);
+  assert.deepEqual([...types].sort(),['hanzi','listening','listening-sentence','meaning','pinyin','reading','reading-cloze','writing','writing-cloze']);
 });
 test('paper generation rejects invalid levels and incomplete banks',()=>{
   const vocab=words(1);
@@ -90,7 +90,7 @@ test('practice exam is completely EXP-free; rewards remain in the learning flow'
   assert.match(ui,/function submit\(\)/);
   assert.match(ui,/function finish\(byTime\)/);
   assert.match(ui,/renderResults\(\)/);
-  assert.match(ui,/finished=true;review=false;confirmSubmit=false;stopTimer\(\)/);
+  assert.match(ui,/finished=true;review=false;confirmSubmit=false;stopTimer\(\);stopAudio\(\)/);
   assert.match(ui,/if\(missing>0&&!confirmSubmit\)/);
   assert.match(ui,/vduckie-hsk-practice-exams-v2/);
   assert.doesNotMatch(ui,/totalEXP\s*\+=/i);
