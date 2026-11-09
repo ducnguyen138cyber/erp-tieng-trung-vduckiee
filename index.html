@@ -116,7 +116,13 @@
           'home.insertBefore(shell,home.firstChild);' +
           'var main=shell.querySelector("#v865HomeMain");main.appendChild(overview);main.appendChild(recommended);' +
           '})();<\/script>';
-        source=source.replace('<script src="./supabase-config.js',earlyHomeLayout+'<script src="./supabase-config.js');
+        // Inject immediately after the original home cards exist, not after
+        // the large ERP/pinyin script chain at the end of the document. This
+        // lets the browser use the final mobile grid on its first useful paint.
+        var homeBoundary='          </section>\n        </section>\n\n        <section class="hero hidden" id="erpHero">';
+        if(source.indexOf(homeBoundary)!==-1){
+          source=source.replace(homeBoundary,'          </section>\n'+earlyHomeLayout+'\n        </section>\n\n        <section class="hero hidden" id="erpHero"');
+        }
         document.open();document.write(source);document.close();
       }catch(error){document.addEventListener("DOMContentLoaded",function(){document.body.innerHTML='<main class="vduckie-static-loading"><div><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Vịt VDuckie"><p>Không tải được giao diện. Hãy tải lại trang.</p></div></main>';console.error(error);});}
     })();
