@@ -121,3 +121,12 @@
  .hsk-exam-submit-bar{align-items:stretch;flex-direction:column}
  .hsk-exam-submit{width:100%}
 }
+
+/* Phase 3: accessible exam navigation and TTS speed controls. */
+.hsk-exam-tools{display:flex;align-items:center;flex-wrap:wrap;gap:9px;margin:2px 0 12px}
+.hsk-exam-tools span{font-size:12px;color:#475569}
+.hsk-exam-tools button{border:1px solid #bfdbfe;background:#fff;color:#1d4ed8;border-radius:9px;padding:9px 12px;min-height:40px;font-size:13px;font-weight:700}
+.hsk-exam-tools button:hover,.hsk-exam-tools button[aria-pressed="true"]{background:#dbeafe;border-color:#60a5fa}
+.hsk-exam-audio-status{font-size:12px;color:#475569;min-height:1em;margin:0 0 8px;line-height:1.5}
+.hsk-exam-status strong[role="timer"]{font-variant-numeric:tabular-nums}
+@media(max-width:620px){.hsk-exam-tools{gap:7px}.hsk-exam-tools button{flex:0 0 auto}.hsk-exam-tools span{flex:1 1 100%}}
