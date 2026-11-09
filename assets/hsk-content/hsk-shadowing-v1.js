@@ -21,7 +21,7 @@
       root.localStorage.setItem(key,JSON.stringify(data));
     }catch(e){}
     var available=visible();
-    if(!available.some(function(item){return item.id===selectedId;}))selectedId=available[0]?available[0].id:"";
+    if(!available.some(function(item){return item.id===selectedId;})){clearRecording();selectedId=available[0]?available[0].id:"";}
     index=Math.max(0,available.findIndex(function(item){return item.id===selectedId;}));
     render();
   }
@@ -65,7 +65,7 @@
         .then(function(manifest){
           if(!manifest.shards||!manifest.shards.length)throw Error("Thiếu danh mục câu HSK1");
           return Promise.all(manifest.shards.map(function(shard){
-            if(!/^[a-z0-9_-]+\\.json$/i.test(shard.file))throw Error("Sai tên tệp học liệu");
+            if(!/^[a-z0-9_-]+\.json$/i.test(shard.file))throw Error("Sai tên tệp học liệu");
             return root.fetch("./data/hsk/hsk1/sentences/"+shard.file)
               .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
               .then(function(data){return data.records||[];});
@@ -75,14 +75,14 @@
           return r.chinese&&r.pinyin&&r.vietnamese;
         }).map(function(r,i){var unit=Math.floor(i/25)+1;
           return {id:r.id,hanzi:r.chinese,pinyin:r.pinyin,vi:r.vietnamese,
-            group:"unit-"+unit,groupLabel:"Nhóm "+unit+" · Câu "+(i+1)+"–"+(Math.min(i+25,900)),
+            group:"unit-"+unit,groupLabel:"Nhóm "+unit+" · Câu "+((unit-1)*25+1)+"–"+(Math.min(unit*25,900)),
             sourceStatus:r.reviewStatus||"unreviewed"};
         });}):
       root.fetch("./data/shadowing/hsk"+level+"-v1.json")
         .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
         .then(function(json){return (json.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;})
           .map(function(r){return Object.assign({},r,{group:r.sourceSectionId,
-            groupLabel:"Bài "+(Number((r.sourceSectionId||"").match(/lesson-(\\d+)/)?.[1])||1)+
+            groupLabel:"Bài "+(Number((r.sourceSectionId||"").match(/lesson-(\d+)/)?.[1])||1)+
               " · Hội thoại",sourceStatus:r.reviewStatus||"unreviewed"});});});
     request.then(function(items){if(my!==token)return;
       lines=items;var saved=current();
