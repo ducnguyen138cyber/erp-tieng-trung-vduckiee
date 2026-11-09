@@ -22,6 +22,15 @@ function intent(s){
 }
 function followup(s){return s.trim().length<85&&/^(?:thế|vậy|còn|nó|từ này|câu này|từ đó|cái đó|đó)?[\s,!?]*(?:viết|đọc|phát âm|phiên âm|pinyin|nghĩa|dùng|ví dụ|đặt câu|cách viết|cách đọc)\b/i.test(s.trim())}
 function lookup(s){const q=plain(s);if(!/tieng trung|viet|dich|chu han/.test(q))return null;const matches=GLOSSARY.flatMap(entry=>entry.keys.map(key=>({entry,key:plain(key)}))).filter(item=>q.includes(item.key)).sort((a,b)=>b.key.length-a.key.length);return matches[0]?.entry||null}
+function exactGlossaryQuestion(text,entry){
+ if(!entry)return false;
+ const q=plain(text).replace(/[?？!！.。]+$/g,"").trim().replace(/\\s+/g," ");
+ return entry.keys.some(key=>{
+  const word=plain(key);
+  return q===word+" tieng trung la gi"||q==="tu "+word+" tieng trung la gi"||
+    q==="cum tu "+word+" tieng trung la gi";
+ });
+}
 function unpack(r){return typeof r?.response==="string"?r.response:typeof r?.result?.response==="string"?r.result.response:typeof r?.choices?.[0]?.message?.content==="string"?r.choices[0].message.content:""}
 function validate(reply,kind,fact){
  if(!reply||!reply.trim())return "empty";
@@ -54,6 +63,11 @@ export async function onRequestPost({request,env}){
  const isContinuation=followup(last)&&!!prev;
  const kind=isContinuation&&/viết|đọc|pinyin|phiên âm/i.test(last)?"vocab":intent(last);
  const fact=isContinuation?GLOSSARY.find(x=>x.keys.some(key=>plain(prev.content).includes(plain(key))))||null:lookup(last);
+ // Common exact word lookups can be answered directly from bounded verified
+ // source examples. This avoids AI inventing unverified Pinyin in extra sentences.
+ if(messages.length===1&&fact&&kind==="vocab"&&exactGlossaryQuestion(last,fact))
+  return json({reply:fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+".\\nVí dụ: "+fact.example+".",
+    source:"verified-glossary"});
  const hints=["Kiểu câu hỏi: "+kind+". Tùy loại câu hỏi chọn độ dài và bố cục phù hợp."];
  if(isContinuation)hints.push("Đây là câu hỏi TIẾP NỐI chủ đề trước: "+prev.content+". Không giải thích chữ 'viết' hoặc 'đọc' nếu người dùng đang hỏi cách viết/đọc từ trước.");
  if(fact)hints.push("Dữ liệu từ điển đã kiểm tra (chỉ dùng khi đúng ngữ cảnh): "+fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+"; "+fact.example+".");
