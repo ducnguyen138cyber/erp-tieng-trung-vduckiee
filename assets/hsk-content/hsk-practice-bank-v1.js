@@ -30,10 +30,12 @@
   var SECTION_ORDER = Object.freeze(["listening","reading","writing"]);
   var QUESTION_TYPES = Object.freeze({
     listening: Object.freeze({section:"listening",responseType:"single-choice"}),
+    "listening-sentence": Object.freeze({section:"listening",responseType:"single-choice"}),
     meaning: Object.freeze({section:"reading",responseType:"single-choice"}),
     hanzi: Object.freeze({section:"reading",responseType:"single-choice"}),
     pinyin: Object.freeze({section:"reading",responseType:"single-choice"}),
     reading: Object.freeze({section:"reading",responseType:"single-choice"}),
+    "reading-cloze": Object.freeze({section:"reading",responseType:"single-choice"}),
     writing: Object.freeze({section:"writing",responseType:"text"})
   });
   var REVIEW_STATUSES = Object.freeze(["unreviewed","linguistic-reviewed","pedagogy-reviewed","approved"]);
@@ -117,6 +119,12 @@
          q.sourceIds[0]!==q.wordId||q.contentStatus!=="machine-assisted")
         errors.push(path+": incomplete source provenance");
       reviewErrors(q,path,errors);
+      if(q.type==="reading-cloze" && (!clean(q.example)||!q.example.includes(q.hanzi)||
+         q.stimulus.indexOf("____")===-1||q.stimulus.includes(q.hanzi)||q.answer!==q.hanzi))
+        errors.push(path+": cloze requires a sourced example with the answer hidden");
+      if(q.type==="listening-sentence" && (!clean(q.example)||q.audioText!==q.example||
+         !q.audioText.includes(q.hanzi)||q.answer!==q.meaning||q.stimulus!==""))
+        errors.push(path+": listening sentence must use its source example without visible transcript");
       if(!Array.isArray(q.options)){errors.push(path+": options missing");return;}
       if(section==="writing"){
         if(q.options.length!==0||!clean(q.stimulus))
@@ -180,6 +188,16 @@
         example: Array.isArray(word.examples) && word.examples[0] && clean(word.examples[0].zh) || "" };
     });
   }
+  // Only transform an existing sourced sentence when the target appears exactly
+  // once. Otherwise fall back to the original vocabulary question: no invented
+  // dialogue, grammar, or fake review status.
+  function usableExample(word) {
+    var sentence=clean(word.example),term=clean(word.hanzi);
+    if(!sentence||!term||sentence.length<term.length+4)return "";
+    var first=sentence.indexOf(term);
+    if(first<0||sentence.indexOf(term,first+term.length)!==-1)return "";
+    return sentence;
+  }
   function optionsFor(word, pool, field, rng) {
     var truth = word[field], seen = new Set([normalize(truth)]);
     var distractors = [];
@@ -217,7 +235,20 @@
           responseType:section==="writing"?"text":"single-choice",
           sourceIds:[word.id],contentStatus:"machine-assisted",reviewStatus:"unreviewed",
           reviewMetadata:newReview()};
-        if(type==="meaning") {
+        var example=usableExample(word);
+        // Rotate contextual tasks without altering paper IDs or section counts.
+        // These remain machine-assisted drills, not reviewed HSK exam items.
+        if(type==="reading"&&example) {type="reading-cloze";question.type=type;}
+        if(type==="listening"&&example&&part%5===4) {type="listening-sentence";question.type=type;}
+        if(type==="reading-cloze") {
+          question.prompt="Đọc câu và chọn từ tiếng Trung còn thiếu.";
+          question.stimulus=example.replace(word.hanzi,"____");question.answer=word.hanzi;
+          question.options=optionsFor(word,pool,"hanzi",rng);
+        }else if(type==="listening-sentence") {
+          question.prompt="Nghe câu hoàn chỉnh và chọn nghĩa của từ được hỏi.";
+          question.stimulus="";question.audioText=example;question.answer=word.meaning;
+          question.options=optionsFor(word,pool,"meaning",rng);
+        }else if(type==="meaning") {
           question.prompt="Chọn nghĩa đúng của từ tiếng Trung.";
           question.stimulus=word.hanzi;question.answer=word.meaning;
           question.options=optionsFor(word,pool,"meaning",rng);
@@ -264,5 +295,6 @@
     SECTION_ORDER:SECTION_ORDER,QUESTION_TYPES:QUESTION_TYPES,REVIEW_STATUSES:REVIEW_STATUSES,
     EXAM_SCHEMA_VERSION:EXAM_SCHEMA_VERSION,PROGRESS_STORAGE_KEY:PROGRESS_STORAGE_KEY,
     paperId:paperId,validatePaper:validatePaper,assertValidPaper:assertValidPaper,
+    usableExample:usableExample,
     build:build,grade:grade,validWords:validWords,seed:seed});
 });
