@@ -295,11 +295,54 @@
     if (!question || !clean(answer)) return false;
     return normalize(answer) === normalize(question.answer);
   }
+  // Deterministic grading shared by all 224 variants. Only submitted answers
+  // count; metadata stays unreviewed until separate editorial verification.
+  function scorePaper(paper, responses) {
+    if(!paper||!Array.isArray(paper.questions))throw new TypeError("Missing HSK paper");
+    var answers=responses&&typeof responses==="object"?responses:{};
+    var sections={},correct=0,wrongIds=[],answered=0;
+    paper.sections.forEach(function(section){
+      var qs=paper.questions.filter(function(q){return q.section===section;});
+      var hits=0;
+      qs.forEach(function(q){
+        var value=Object.prototype.hasOwnProperty.call(answers,q.id)?answers[q.id]:"";
+        if(clean(value))answered++;
+        if(grade(q,value)){hits++;correct++;}
+        else wrongIds.push(q.id);
+      });
+      sections[section]={correct:hits,total:qs.length,points:qs.length?Math.round(100*hits/qs.length):0};
+    });
+    var max=paper.sections.length*100,score=paper.sections.reduce(function(sum,key){return sum+sections[key].points;},0);
+    return {totals:sections,sections:sections,max:max,score:score,
+      percent:max?Math.round(100*score/max):0,correct:correct,answered:answered,
+      incorrectIds:wrongIds,passed:max>0&&score>=max*0.6,
+      reviewStatus:paper.reviewStatus};
+  }
+  function explainQuestion(q) {
+    if(!q||!QUESTION_TYPES[q.type])return "";
+    // These are answer-based hints, not a human-reviewed grammar explanation.
+    switch(q.type){
+      case "listening-sentence":
+        return "Câu được đọc: "+clean(q.audioText||q.example)+". Từ cần nhận biết: "+clean(q.hanzi)+" ("+clean(q.pinyin)+") — "+clean(q.meaning)+".";
+      case "listening":
+        return "Giọng máy đọc "+clean(q.hanzi)+" ("+clean(q.pinyin)+"), nghĩa: "+clean(q.meaning)+".";
+      case "reading-cloze":case "writing-cloze":
+        return "Điền "+clean(q.hanzi)+" ("+clean(q.pinyin)+") vào chỗ trống. Câu gốc: "+clean(q.example)+". Nghĩa của từ: "+clean(q.meaning)+".";
+      case "pinyin":
+        return "Pinyin của "+clean(q.hanzi)+" là "+clean(q.pinyin)+", gồm thanh điệu như đáp án.";
+      case "hanzi":case "writing":
+        return "Chữ Hán tương ứng là "+clean(q.hanzi)+" ("+clean(q.pinyin)+"), nghĩa: "+clean(q.meaning)+".";
+      case "reading":
+        return "Từ "+clean(q.hanzi)+" ("+clean(q.pinyin)+") trong câu có nghĩa: "+clean(q.meaning)+".";
+      default:
+        return "Từ "+clean(q.hanzi)+" ("+clean(q.pinyin)+") có nghĩa: "+clean(q.meaning)+".";
+    }
+  }
   return Object.freeze({LEVELS:LEVELS,PAPERS_PER_LEVEL:PAPERS_PER_LEVEL,
     TOTAL_PAPERS:LEVELS*PAPERS_PER_LEVEL,BLUEPRINT:BLUEPRINT,
     SECTION_ORDER:SECTION_ORDER,QUESTION_TYPES:QUESTION_TYPES,REVIEW_STATUSES:REVIEW_STATUSES,
     EXAM_SCHEMA_VERSION:EXAM_SCHEMA_VERSION,PROGRESS_STORAGE_KEY:PROGRESS_STORAGE_KEY,
     paperId:paperId,validatePaper:validatePaper,assertValidPaper:assertValidPaper,
     usableExample:usableExample,
-    build:build,grade:grade,validWords:validWords,seed:seed});
+    build:build,grade:grade,scorePaper:scorePaper,explainQuestion:explainQuestion,validWords:validWords,seed:seed});
 });
