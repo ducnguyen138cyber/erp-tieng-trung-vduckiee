@@ -57,6 +57,8 @@ export async function onRequestPost({request,env}){
  const hints=["Kiểu câu hỏi: "+kind+". Tùy loại câu hỏi chọn độ dài và bố cục phù hợp."];
  if(isContinuation)hints.push("Đây là câu hỏi TIẾP NỐI chủ đề trước: "+prev.content+". Không giải thích chữ 'viết' hoặc 'đọc' nếu người dùng đang hỏi cách viết/đọc từ trước.");
  if(fact)hints.push("Dữ liệu từ điển đã kiểm tra (chỉ dùng khi đúng ngữ cảnh): "+fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+"; "+fact.example+".");
+ if(kind==="grammar"&&last.includes("越来越"))hints.push("Lưu ý ngữ pháp đã đối chiếu: 越来越 dùng diễn tả mức độ tăng dần, thường đi với tính từ như 越来越忙 (yuè lái yuè máng), 越来越好 (yuè lái yuè hǎo), cũng có thể dùng với động từ tâm lý như 越来越喜欢 (yuè lái yuè xǐhuan). Không dạy sai rằng sau 越来越 chỉ dùng động từ; giải thích cả cụm thay vì tách từng chữ để suy ra công thức.");
+ if(fact&&fact.hanzi==="吃晚饭")hints.push("Chỉ giải thích nghĩa và ví dụ đã kiểm tra. Không tự thêm khung giờ bắt đầu/kết thúc bữa tối hoặc quy tắc văn hóa nếu người dùng không hỏi.");
  if(body.context&&typeof body.context.hanzi==="string"&&body.context.hanzi.length<=24&&HANZI.test(body.context.hanzi))hints.push("Từ đang chọn trên giao diện: "+body.context.hanzi+". Chỉ tham chiếu khi người dùng nói 'từ này'.");
  const model=ALLOWED.has(env.DUCKIE_AI_MODEL)?env.DUCKIE_AI_MODEL:DEFAULT_MODEL;
  async function generate(retry){
