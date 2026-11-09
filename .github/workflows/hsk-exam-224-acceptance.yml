@@ -29,5 +29,7 @@ jobs:
         run: |
           node --check assets/hsk-content/hsk-practice-bank-v1.js
           node --check assets/hsk-content/hsk-practice-ui-v1.js
+      - name: Audit editorial readiness against real HSK vocabulary
+        run: node scripts/audit-hsk-exam-readiness.cjs
       - name: Run phase 1–5 focused tests against real HSK JSON shards
         run: node --test tests/hsk-exam-contract-phase1.test.mjs tests/hsk-exam-context-phase2.test.mjs tests/hsk-exam-ui-phase3.test.mjs tests/hsk-exam-grading-phase4.test.mjs tests/hsk-exam-real-data-phase5.test.mjs
