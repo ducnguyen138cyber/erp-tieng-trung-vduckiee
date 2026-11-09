@@ -120,7 +120,7 @@ function todayFocusData(){
   return{level:level,lessonId:lessonId,due:due,hasStarted:hasStarted,
     heading:due?"Hôm nay, ôn lại từ sắp quên":hasStarted?"Hôm nay, học tiếp đúng chỗ cũ":"Hôm nay, bắt đầu từ một bài HSK",
     detail:due?due+" từ đến hạn. Ôn trước để nhớ lâu hơn.":hasStarted?
-      "Tiếp tục HSK "+level+(lessonId?" · "+lessonId.replace(/^hsk\\d+-lesson-0*/, "Bài "):"")+". Không cần học lại từ đầu.":
+      "Tiếp tục HSK "+level+(lessonId?" · "+lessonId.replace(/^hsk\d+-lesson-0*/, "Bài "):"")+". Không cần học lại từ đầu.":
       "Chỉ cần bắt đầu HSK 1: học từ mới, nghe câu mẫu, rồi làm bài ngắn.",
     cta:due?"Ôn từ đến hạn →":hasStarted?"Tiếp tục HSK "+level+" →":"Bắt đầu HSK 1 →",
     action:due?"review-hsk":"continue"};
