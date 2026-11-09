@@ -35,7 +35,9 @@ try{
             sources:(item.sources||[]).slice(0,4).map(s=>{
               const node=s.node;
               return node?{tag:node.tagName||'',id:node.id||'',className:
-                typeof node.className==='string'?node.className.slice(0,100):''}:null;
+                typeof node.className==='string'?node.className.slice(0,100):'',
+                before:s.previousRect?[s.previousRect.x,s.previousRect.y,s.previousRect.width,s.previousRect.height].map(Math.round):null,
+                after:s.currentRect?[s.currentRect.x,s.currentRect.y,s.currentRect.width,s.currentRect.height].map(Math.round):null}:null;
             })
           });
         }}})
