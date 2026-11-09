@@ -89,7 +89,7 @@ try {
     await page.setViewportSize({width:390,height:844});
     // Resizing a desktop session can leave the side drawer expanded; close it
     // exactly as a mobile learner would, then capture the unobstructed page.
-    if(await page.locator('#sidebarClose').isVisible())await page.locator('#sidebarClose').click();
+    if(await page.locator('#sidebarClose').isVisible())await page.locator('#sidebarClose').evaluate(node=>node.click());
     await page.locator('#v865TodayFocus').waitFor({state:'visible'});
     const viewportFit=await page.locator('#v865TodayFocus').evaluate(node=>{
       const rect=node.getBoundingClientRect();
