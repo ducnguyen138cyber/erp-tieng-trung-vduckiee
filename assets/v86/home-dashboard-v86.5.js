@@ -111,6 +111,52 @@ function roadmapData(){
   return stages.map(function(stage){stage.current=stage.level===current;stage.progress=stage.active?levelProgress(stage.level):{done:0,total:0,percent:0};return stage});
 }
 
+function todayFocusData(){
+  var journey=root.VDuckieHskStudyJourney,summary=null;
+  try{if(journey&&typeof journey.summary==="function")summary=journey.summary()}catch(error){}
+  var now=summary&&summary.current||{},level=Math.max(1,Math.min(4,Number(now.level)||1));
+  var lessonId=text(now.lessonId),due=Math.max(0,Number(summary&&summary.due)||0);
+  // The runtime may preselect a lesson on first load. Selection is not learning.
+  var lessonEvidence={};
+  try{if(journey&&lessonId&&typeof journey.lesson==="function")lessonEvidence=journey.lesson(lessonId)||{}}catch(e){}
+  var hasStarted=!!(summary&&(Number(summary.totalCompleted)||Number(summary.studied)||
+    Object.keys(lessonEvidence.answers||{}).length||
+    Object.keys(lessonEvidence.content||{}).length||
+    Number(lessonEvidence.completedAt)||Number(lessonEvidence.attemptAt)));
+  return{level:level,lessonId:lessonId,due:due,hasStarted:hasStarted,
+    heading:due?"Hôm nay, ôn lại từ sắp quên":hasStarted?"Hôm nay, học tiếp đúng chỗ cũ":"Hôm nay, bắt đầu từ một bài HSK",
+    detail:due?due+" từ đến hạn. Ôn trước để nhớ lâu hơn.":hasStarted?
+      "Tiếp tục HSK "+level+(lessonId?" · "+lessonId.replace(/^hsk\d+-lesson-0*/, "Bài "):"")+". Không cần học lại từ đầu.":
+      "Chỉ cần bắt đầu HSK 1: học từ mới, nghe câu mẫu, rồi làm bài ngắn.",
+    cta:due?"Ôn từ đến hạn →":hasStarted?"Tiếp tục HSK "+level+" →":"Bắt đầu HSK 1 →",
+    action:due?"review-hsk":"continue"};
+}
+function getDiscoverExpanded(){
+  try{return root.localStorage.getItem("vduckie-home-discover-expanded-v1")==="1"}catch(e){return false}
+}
+function focusMarkup(data,expanded){
+  return'<section class="v865-today-focus" id="v865TodayFocus" aria-labelledby="v865TodayHeading">'+
+    '<div class="v865-today-main"><span class="v865-today-kicker">LỘ TRÌNH CỦA BẠN · 1 VIỆC CHÍNH</span>'+
+    '<h2 id="v865TodayHeading">'+esc(data.heading)+'</h2>'+
+    '<p>'+esc(data.detail)+'</p>'+
+    '<div class="v865-today-steps" aria-label="Các bước của buổi học"><span>1. Từ mới</span><span>2. Nghe & nói</span><span>3. Luyện tập</span></div></div>'+
+    '<div class="v865-today-actions"><button type="button" data-v865-action="'+data.action+'" class="v865-today-primary">'+
+      esc(data.cta)+'</button><button type="button" data-v865-action="toggle-discover" class="v865-today-discover" aria-expanded="'+expanded+'" aria-controls="v865HomeRoadmap">'+
+      (expanded?"Thu gọn tính năng":"Khám phá thêm tính năng")+'</button></div></section>';
+}
+function renderFocus(main,shell){
+  if(!main||!shell)return;
+  var data=todayFocusData(),expanded=getDiscoverExpanded();
+  shell.setAttribute("data-discover-expanded",String(expanded));
+  shell.setAttribute("data-first-visit",String(!data.hasStarted));
+  var current=document.getElementById("v865TodayFocus"),markup=focusMarkup(data,expanded);
+  var signature=[data.heading,data.detail,data.cta,data.action,expanded].join("|");
+  if(current&&current.getAttribute("data-focus-signature")===signature)return;
+  var holder=document.createElement("div");holder.innerHTML=markup;
+  var next=holder.firstElementChild;next.style.order="0";
+  next.setAttribute("data-focus-signature",signature);
+  if(current)current.replaceWith(next);else main.insertBefore(next,main.firstChild);
+}
 function streakMarkup(data){
   var days=data.days.map(function(day){return'<div class="v865-streak-day '+(day.done?"done ":"")+(day.today?"today":"")+'"><span>'+day.label+'</span><i>'+(day.done?"🔥":"")+'</i><small>'+day.date+'</small></div>'}).join("");
   var cta=data.current===0?"BẮT ĐẦU CHUỖI CỦA BẠN":data.todayDone?"TIẾP TỤC GIỮ LỬA":"GIỮ CHUỖI HÔM NAY";
@@ -199,6 +245,7 @@ function render(){
     if(!overview||!recommended)return false;
     removeOldDashboard(home);
     var shell=ensureShell(home),main=document.getElementById("v865HomeMain"),sidebar=document.getElementById("v865HomeSidebar"),streak=streakData();
+    renderFocus(main,shell);
     pinMainNode(main,overview,1);
     pinMainNode(main,recommended,2);
     var oldRoad=document.getElementById("v865HomeRoadmap"),roadWrap=document.createElement("div");
@@ -223,6 +270,15 @@ function bind(){
   document.addEventListener("click",function(event){
     var button=event.target&&event.target.closest&&event.target.closest("button");if(!button)return;
     var action=button.getAttribute("data-v865-action");
+    if(action==="toggle-discover"){
+      var expanded=!getDiscoverExpanded();
+      try{root.localStorage.setItem("vduckie-home-discover-expanded-v1",expanded?"1":"0")}catch(e){}
+      var shell=document.getElementById("v865HomeShell");
+      if(shell)shell.setAttribute("data-discover-expanded",String(expanded));
+      var control=document.querySelector("#v865TodayFocus [data-v865-action='toggle-discover']");
+      if(control){control.setAttribute("aria-expanded",String(expanded));control.textContent=expanded?"Thu gọn tính năng":"Khám phá thêm tính năng";}
+      return;
+    }
     if(action==="continue")resumePrimaryHsk(false);
     if(action==="review-hsk")resumePrimaryHsk(true);
     if(action==="start-streak"||action==="open-hsk"){
@@ -245,7 +301,7 @@ function install(){
   }
 }
 
-root.VDuckieHomeDashboardV865={version:VERSION,render:render,placeContinue:placeContinue,lastSevenDays:lastSevenDays,streakCount:streakCount,roadmapData:roadmapData};
+root.VDuckieHomeDashboardV865={version:VERSION,render:render,placeContinue:placeContinue,lastSevenDays:lastSevenDays,streakCount:streakCount,roadmapData:roadmapData,todayFocusData:todayFocusData};
 if(typeof document==="undefined")return;
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",install,{once:true});else install();
 })(typeof window!=="undefined"?window:globalThis);

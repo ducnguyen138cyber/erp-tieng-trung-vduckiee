@@ -2,7 +2,7 @@
 // No real Google session, production RPC write, or real learner data is used.
 import { chromium } from 'playwright';
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
@@ -73,6 +73,31 @@ try {
       await page.locator('#v865HomeSidebar [data-exp-mission]').first().waitFor({state:'visible'});
     };
     await home();
+    // Newcomer: only one obvious learning action; more features are opt-in.
+    await page.locator('#v865TodayFocus').waitFor({state:'visible'});
+    assert.match(await page.locator('#v865TodayHeading').innerText(), /Hôm nay/);
+    assert.equal(await page.locator('#v865HomeShell').getAttribute('data-first-visit'), 'true');
+    assert.equal(await page.locator('#v865HomeRoadmap').isVisible(), false);
+    const shotDir=path.join(root,'artifacts','onboarding');
+    await mkdir(shotDir,{recursive:true});
+    await page.screenshot({path:path.join(shotDir,(authenticated?'member':'guest')+'-desktop.png'),fullPage:true});
+    const showMore=page.locator('#v865TodayFocus [data-v865-action="toggle-discover"]');
+    await showMore.click();
+    assert.equal(await page.locator('#v865HomeRoadmap').isVisible(),true);
+    await showMore.click();
+    assert.equal(await page.locator('#v865HomeRoadmap').isVisible(),false);
+    await page.setViewportSize({width:390,height:844});
+    // Resizing a desktop session can leave the side drawer expanded; close it
+    // exactly as a mobile learner would, then capture the unobstructed page.
+    if(await page.locator('#sidebarClose').isVisible())await page.locator('#sidebarClose').evaluate(node=>node.click());
+    await page.locator('#v865TodayFocus').waitFor({state:'visible'});
+    const viewportFit=await page.locator('#v865TodayFocus').evaluate(node=>{
+      const rect=node.getBoundingClientRect();
+      return rect.left>=-1&&rect.right<=window.innerWidth+1;
+    });
+    assert.equal(viewportFit,true,'mobile daily action must fit without horizontal clipping');
+    await page.screenshot({path:path.join(shotDir,(authenticated?'member':'guest')+'-mobile.png'),fullPage:true});
+    await page.setViewportSize({width:1440,height:950});
     if (authenticated) await page.waitForFunction(() => document.querySelector('#expHeaderAccount')?.textContent.includes('350'));
     await page.waitForFunction(() => document.querySelector('#expMiniList')?.textContent.includes('Sidebar Test'));
 
