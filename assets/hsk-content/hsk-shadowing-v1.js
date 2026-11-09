@@ -96,39 +96,76 @@
       .catch(function(err){if(my!==token)return;n.innerHTML='<section class="shadow-page"><h2>Không tải được bài Shadowing</h2><p>'+esc(err.message)+'</p><button type="button" data-shadow-back>Trở lại</button></section>';});
   }
   function render(){
-    var n=host();if(!n)return;var item=lines[index];
+    var n=host();if(!n)return;
+    var options=visible(),item=options[index]||null,total=lines.length,meta=current();
     n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
-    var tabs=[1,2,3].map(function(l){return '<button type="button" data-shadow-level="'+l+'" aria-pressed="'+(l===level)+'">HSK '+l+'</button>';}).join("");
-    n.innerHTML='<section class="shadow-page"><header class="shadow-head"><div><small>VDUCKIE · TỰ LUYỆN NÓI</small><h2>Luyện nghe & Shadowing</h2><p>Nghe mẫu → nói theo → nghe lại giọng mình. Không chấm điểm phát âm.</p></div><button type="button" data-shadow-back>← Giáo trình HSK</button></header>'+
-      '<div class="shadow-levels">'+tabs+'</div>'+
-      (!item?'<p>Chưa có câu luyện phù hợp trong học liệu.</p>':
-      '<div class="shadow-counter">Câu '+(index+1)+' / '+lines.length+'</div>'+
+    var tabs=[1,2,3].map(function(l){return '<button type="button" data-shadow-level="'+l+
+      '" aria-pressed="'+(l===level)+'">HSK '+l+'</button>';}).join("");
+    var allGroups=groups(),selector='<label for="shadowGroup">Chọn bài / nhóm câu</label>'+
+      '<select id="shadowGroup" aria-label="Chọn bài hoặc nhóm câu"><option value="all">Tất cả bài ('+total+' câu)</option>'+
+      allGroups.map(function(g){return '<option value="'+esc(g.id)+'"'+(group===g.id?' selected':'')+'>'+
+        esc(g.label)+' · '+g.count+' câu</option>';}).join("")+'</select>';
+    var counts={starred:Object.keys(meta.starred||{}).filter(function(id){return !!meta.starred[id]&&lines.some(function(q){return q.id===id;});}).length,
+      weak:Object.keys(meta.weak||{}).filter(function(id){return !!meta.weak[id]&&lines.some(function(q){return q.id===id;});}).length};
+    var filters='<div class="shadow-filters" role="group" aria-label="Bộ lọc luyện tập">'+
+      [["all","Tất cả",total],["starred","Đã lưu",counts.starred],["weak","Cần luyện lại",counts.weak]]
+        .map(function(row){return '<button type="button" data-shadow-mode="'+row[0]+'" aria-pressed="'+(mode===row[0])+'">'+
+          row[1]+' <span>'+row[2]+'</span></button>';}).join("")+'</div>';
+    var card=!item?'<div class="shadow-empty"><h3>Không có câu trong bộ lọc này</h3>'+
+       '<p>Chọn “Tất cả” hoặc lưu câu cần luyện lại để thấy chúng tại đây.</p>'+
+       '<button type="button" data-shadow-mode="all">Xem tất cả</button></div>':
+      '<div class="shadow-counter">Câu '+(index+1)+' / '+options.length+' · HSK '+level+
+        ' · '+esc(item.groupLabel||"Luyện câu")+'</div>'+
       '<article class="shadow-card"><div class="shadow-hanzi">'+esc(item.hanzi)+'</div>'+
-      (showPinyin?'<p class="shadow-pinyin">'+esc(item.pinyin||"Chưa có Pinyin câu đầy đủ trong nguồn")+'</p>':"")+
-      (showVi?'<p class="shadow-meaning">'+esc(item.vi||"Chưa có bản dịch Việt cho câu này")+'</p>':"")+
-      '<div class="shadow-controls"><button type="button" data-shadow-play>🔊 Nghe mẫu</button><button type="button" data-shadow-rate>◷ '+rate+'×</button>'+
-      '<button type="button" data-shadow-record>● Ghi âm</button><button type="button" data-shadow-stop>Dừng</button></div>'+
-      '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"'+(recordUrl?' src="'+esc(recordUrl)+'"':'')+'></audio>'+
-      '<div class="shadow-toggles"><button type="button" data-shadow-pinyin>'+(showPinyin?"Ẩn":"Hiện")+' Pinyin</button>'+
-      '<button type="button" data-shadow-vi>'+(showVi?"Ẩn":"Hiện")+' nghĩa Việt</button><button type="button" data-shadow-clear>Xóa bản ghi</button></div>'+
-      '<div class="shadow-nav"><button type="button" data-shadow-prev '+(index===0?"disabled":"")+'>← Câu trước</button>'+
-      '<button type="button" data-shadow-next '+(index===lines.length-1?"disabled":"")+'>Câu tiếp →</button></div></article>')+
-      '<p id="shadowStatus" role="status" aria-live="polite">Giọng mẫu dùng TTS của thiết bị, chưa phải ghi âm bản xứ. Bản ghi chỉ lưu tạm trên thiết bị.</p></section>';
+      (showPinyin?'<p class="shadow-pinyin">'+esc(item.pinyin)+'</p>':"")+
+      (showVi?'<p class="shadow-meaning">'+esc(item.vi)+'</p>':"")+
+      '<div class="shadow-save-actions">'+
+      '<button type="button" data-shadow-star aria-pressed="'+!!(meta.starred||{})[item.id]+'">'+
+         ((meta.starred||{})[item.id]?'★ Đã lưu':'☆ Lưu câu')+'</button>'+
+      '<button type="button" data-shadow-weak aria-pressed="'+!!(meta.weak||{})[item.id]+'">'+
+         ((meta.weak||{})[item.id]?'✓ Đã đánh dấu cần ôn':'↻ Cần luyện lại')+'</button></div>'+
+      '<div class="shadow-controls"><button type="button" data-shadow-play>🔊 Nghe mẫu</button>'+
+      '<button type="button" data-shadow-rate>◷ '+rate+'×</button>'+
+      '<button type="button" data-shadow-record>● Ghi âm</button>'+
+      '<button type="button" data-shadow-stop>Dừng</button></div>'+
+      '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"'+
+        (recordUrl?' src="'+esc(recordUrl)+'"':'')+'></audio>'+
+      '<div class="shadow-toggles"><button type="button" data-shadow-pinyin>'+(showPinyin?"Ẩn":"Hiện")+
+      ' Pinyin</button><button type="button" data-shadow-vi>'+(showVi?"Ẩn":"Hiện")+
+      ' nghĩa Việt</button><button type="button" data-shadow-clear>Xóa bản ghi</button></div>'+
+      '<div class="shadow-nav"><button type="button" data-shadow-prev '+(index===0?"disabled":"")+
+      '>← Câu trước</button><button type="button" data-shadow-next '+(index===options.length-1?"disabled":"")+
+      '>Câu tiếp →</button></div></article>';
+    n.innerHTML='<section class="shadow-page"><header class="shadow-head"><div>'+
+      '<small>VDUCKIE · LUYỆN NGHE & NÓI</small><h2>Shadowing HSK1–3</h2>'+
+      '<p>Nghe → nói theo → ghi âm → nghe lại. Không chấm phát âm hoặc cộng EXP.</p></div>'+
+      '<button type="button" data-shadow-back>← Giáo trình HSK</button></header>'+
+      '<div class="shadow-levels">'+tabs+'</div>'+
+      '<div class="shadow-library">'+selector+filters+'</div>'+card+
+      '<p id="shadowStatus" role="status" aria-live="polite">'+
+      'Giọng mẫu dùng TTS thiết bị. Bản ghi chỉ lưu tạm trong phiên; dấu sao và câu cần ôn lưu trên trình duyệt.'+
+      (level>1?' Pinyin và bản dịch bổ sung chưa được giáo viên duyệt.':'')+'</p></section>';
+  }
+  function choose(nextGroup,nextMode){
+    if(nextGroup!==null)group=nextGroup;
+    if(nextMode!==null)mode=nextMode;
+    var candidates=visible();index=0;selectedId=candidates[0]?candidates[0].id:"";
+    stopSound();clearRecording();persist();render();
   }
   function play(){
-    if(!lines[index]||!root.speechSynthesis||!root.SpeechSynthesisUtterance){status("Không hỗ trợ phát tiếng Trung trên thiết bị này.");return;}
+    if(!selection()||!root.speechSynthesis||!root.SpeechSynthesisUtterance){status("Không hỗ trợ phát tiếng Trung trên thiết bị này.");return;}
     var voices=root.speechSynthesis.getVoices?root.speechSynthesis.getVoices():[],zh=voices.find(function(v){return /^zh([_-]|$)/i.test(v.lang||"");});
     if(voices.length&&!zh){status("Chưa có giọng tiếng Trung trên thiết bị.");return;}
-    stopSound();var u=new root.SpeechSynthesisUtterance(lines[index].hanzi);u.lang="zh-CN";u.rate=rate;if(zh)u.voice=zh;
+    stopSound();var u=new root.SpeechSynthesisUtterance(selection().hanzi);u.lang="zh-CN";u.rate=rate;if(zh)u.voice=zh;
     u.onerror=function(){status("Không phát được mẫu, hãy kiểm tra giọng đọc trên thiết bị.");};
     root.speechSynthesis.speak(u);status("Đang phát mẫu với tốc độ "+rate+"×.");
   }
   async function record(){
     if(!root.MediaRecorder||!root.navigator||!root.navigator.mediaDevices||!root.navigator.mediaDevices.getUserMedia){status("Trình duyệt này chưa hỗ trợ ghi âm.");return;}
-    clearRecording();var expectedToken=token,expectedIndex=index;
+    clearRecording();var expectedToken=token,expectedId=selectedId,expectedEpoch=recordEpoch;
     try{
       var acquired=await root.navigator.mediaDevices.getUserMedia({audio:true});
-      if(expectedToken!==token||expectedIndex!==index){acquired.getTracks().forEach(function(t){t.stop();});return;}
+      if(expectedToken!==token||expectedId!==selectedId||expectedEpoch!==recordEpoch){acquired.getTracks().forEach(function(t){t.stop();});return;}
       stream=acquired;
       recorder=new root.MediaRecorder(stream);chunks=[];var active=recorder;startedAt=Date.now();
       recorder.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
@@ -137,16 +174,19 @@
         if(data.length&&active===recorder){recordUrl=root.URL.createObjectURL(new root.Blob(data,{type:active.mimeType||"audio/webm"}));var a=el("shadowRecording");if(a)a.src=recordUrl;status("Đã ghi âm. Bấm ▶ để nghe lại giọng mình.");}
       };
       recorder.start();status("Đang ghi âm… Hãy nói theo câu mẫu.");
-    }catch(e){if(expectedToken===token&&expectedIndex===index)status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}
+    }catch(e){if(expectedToken===token&&expectedId===selectedId&&expectedEpoch===recordEpoch)status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}
   }
   function stopRecord(){if(recorder&&recorder.state==="recording")recorder.stop();else status("Chưa có bản ghi đang thực hiện.");}
-  function next(delta){if(!lines.length)return;index=Math.max(0,Math.min(lines.length-1,index+delta));persist();stopSound();clearRecording();render();}
+  function next(delta){var items=visible();if(!items.length)return;index=Math.max(0,Math.min(items.length-1,index+delta));selectedId=items[index].id;persist();stopSound();clearRecording();render();}
   document.addEventListener("click",function(ev){
     var b=ev.target&&ev.target.closest&&ev.target.closest("button");if(!b)return;
     if(b.hasAttribute("data-shadow-open")){ev.preventDefault();open();return;}
     var n=host();if(!n||!n.contains(b)||!n.classList.contains("hsk-shadow-screen"))return;
     if(b.hasAttribute("data-shadow-back")){++token;stopSound();clearRecording();if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
     if(b.hasAttribute("data-shadow-level")){load(Number(b.getAttribute("data-shadow-level")));return;}
+    if(b.hasAttribute("data-shadow-mode")){choose(null,b.getAttribute("data-shadow-mode"));return;}
+    if(b.hasAttribute("data-shadow-star")){mark("starred",selectedId);return;}
+    if(b.hasAttribute("data-shadow-weak")){mark("weak",selectedId);return;}
     if(b.hasAttribute("data-shadow-play")){play();return;}
     if(b.hasAttribute("data-shadow-rate")){rate=rate===0.85?0.7:rate===0.7?1:0.85;render();return;}
     if(b.hasAttribute("data-shadow-record")){record();return;}
@@ -156,6 +196,11 @@
     if(b.hasAttribute("data-shadow-vi")){showVi=!showVi;render();return;}
     if(b.hasAttribute("data-shadow-prev")){next(-1);return;}
     if(b.hasAttribute("data-shadow-next")){next(1);}
+  });
+  document.addEventListener("change",function(ev){
+    if(!ev.target||ev.target.id!=="shadowGroup")return;
+    var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    choose(ev.target.value,null);
   });
   function open(l){load([1,2,3].includes(Number(l))?Number(l):1);}
   root.VDuckieShadowing=Object.freeze({open:open});
