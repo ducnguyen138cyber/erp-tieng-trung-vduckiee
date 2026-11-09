@@ -14,7 +14,7 @@ const clone=value=>JSON.parse(JSON.stringify(value));
 
 test('phase 1 contract preserves HSK 1–4 plans and legacy result keys',()=>{
   assert.deepEqual(bank.SECTION_ORDER,['listening','reading','writing']);
-  assert.deepEqual(Object.keys(bank.QUESTION_TYPES).sort(),['hanzi','listening','listening-sentence','meaning','pinyin','reading','reading-cloze','writing']);
+  assert.deepEqual(Object.keys(bank.QUESTION_TYPES).sort(),['hanzi','listening','listening-sentence','meaning','pinyin','reading','reading-cloze','writing','writing-cloze']);
   assert.equal(bank.PROGRESS_STORAGE_KEY,'vduckie-hsk-practice-exams-v2');
   assert.equal(bank.PAPERS_PER_LEVEL,56);
   assert.equal(bank.TOTAL_PAPERS,224);
