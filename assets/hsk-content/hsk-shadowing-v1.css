@@ -21,3 +21,19 @@
 .hsk-shadow-screen .shadow-nav{justify-content:space-between;border-top:1px solid #e2e8f0;padding-top:18px;margin-top:18px}
 .hsk-shadow-screen button:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
 @media(max-width:620px){.hsk-shadow-screen .shadow-page{padding:14px}.hsk-shadow-screen .shadow-head{flex-direction:column}.hsk-shadow-screen .shadow-controls button{flex:1 1 40%}.hsk-shadow-screen .shadow-nav button{flex:1}.hsk-shadow-screen .shadow-hanzi{font-size:28px}}
+
+/* V2: lesson selection and optional self-assessment without EXP. */
+.hsk-shadow-screen .shadow-library{display:grid;grid-template-columns:minmax(220px,1fr) minmax(0,1.6fr);align-items:end;gap:14px;margin:0 0 22px;padding:15px;border:1px solid #dbeafe;border-radius:16px;background:#f8fbff}
+.hsk-shadow-screen .shadow-library label{display:block;margin-bottom:7px;font-size:12px;font-weight:750;color:#334155}
+.hsk-shadow-screen .shadow-library select{width:100%;min-height:44px;padding:10px 12px;border-radius:10px;border:1px solid #bfdbfe;background:white;color:#0f172a;font:inherit}
+.hsk-shadow-screen .shadow-filters{display:flex;gap:8px;flex-wrap:wrap}
+.hsk-shadow-screen .shadow-filters button{background:white;min-height:43px;flex:1;white-space:nowrap}
+.hsk-shadow-screen .shadow-filters button[aria-pressed=true]{background:#dbeafe;color:#1d4ed8;border-color:#60a5fa}
+.hsk-shadow-screen .shadow-filters span{font-size:11px;opacity:.8}
+.hsk-shadow-screen .shadow-save-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.hsk-shadow-screen .shadow-save-actions button{background:#fff}
+.hsk-shadow-screen .shadow-save-actions button[aria-pressed=true]{background:#eff6ff;color:#1d4ed8;border-color:#60a5fa}
+.hsk-shadow-screen .shadow-empty{padding:30px 18px;border:1px dashed #93c5fd;border-radius:15px;background:white;text-align:center}
+.hsk-shadow-screen .shadow-empty h3{margin:0 0 10px}
+.hsk-shadow-screen .shadow-empty p{color:#64748b;font-size:14px}
+@media(max-width:700px){.hsk-shadow-screen .shadow-library{grid-template-columns:1fr;gap:10px}.hsk-shadow-screen .shadow-filters{gap:5px}.hsk-shadow-screen .shadow-filters button{padding:8px 9px;min-height:41px;font-size:12px}.hsk-shadow-screen .shadow-save-actions button{flex:1}}
