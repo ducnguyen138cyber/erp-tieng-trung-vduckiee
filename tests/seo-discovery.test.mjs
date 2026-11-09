@@ -36,3 +36,38 @@ test("crawler rules and sitemap expose the canonical VDuckie URL", () => {
   assert.match(read("sitemap.xml"), /<loc>https:\/\/vduckie\.pages\.dev\/<\/loc>/);
   assert.doesNotMatch(read("sitemap.xml"), /[a-z0-9]{8}\.vduckie\.pages\.dev/);
 });
+
+
+test("two useful, static Vietnamese guides have canonical metadata and are discoverable", () => {
+  const sitemap = read("sitemap.xml");
+  const entry = read("index.html");
+  const shell = read("app-shell-v88.html");
+  const pages = [
+    ["hoc-tieng-trung-hsk.html", "luyen-go-pinyin.html"],
+    ["luyen-go-pinyin.html", "hoc-tieng-trung-hsk.html"],
+  ];
+  for (const [path, other] of pages) {
+    const source = read(path);
+    const canonical = home + path;
+    assert.ok(sitemap.includes("<loc>" + canonical + "</loc>"), "Missing sitemap URL: " + path);
+    assert.ok(entry.includes('href="./' + path + '"'), "Missing non-JS homepage link: " + path);
+    assert.ok(shell.includes('href="./' + path + '"'), "Missing rendered homepage link: " + path);
+    assert.match(source, /<html lang="vi">/);
+    assert.ok(source.includes('<link rel="canonical" href="' + canonical + '">'));
+    assert.match(source, /<meta name="robots" content="index,follow,max-image-preview:large">/);
+    assert.match(source, /<h1>[^<]{25,}<\/h1>/);
+    assert.ok(source.includes('href="./' + other + '"'));
+    assert.match(source, /duckie-reader-icon-192\.png/);
+    const ld = source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
+    assert.ok(ld, "Missing schema: " + path);
+    const json = JSON.parse(ld[1]);
+    assert.equal(json["@type"], "WebPage");
+    assert.equal(json.url, canonical);
+    assert.equal(json.isPartOf.name, "VDuckie");
+    assert.ok(source.replace(/<[^>]*>/g, " ").split(/\s+/).length > 400, path + " lacks substantive content");
+  }
+  assert.equal([...sitemap.matchAll(/<loc>/g)].length, 3);
+  assert.doesNotMatch(sitemap, /\?screen=|\.pages\.dev\/preview/);
+  assert.match(shell, /<nav class="vd-seo-guides" aria-label="Cẩm nang học tiếng Trung">/);
+  assert.match(shell, /href="\.\/assets\/seo\/home-guides\.css\?v=1"/);
+});
