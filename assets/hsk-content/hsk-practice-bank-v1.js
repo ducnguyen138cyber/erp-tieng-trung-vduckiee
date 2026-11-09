@@ -36,7 +36,8 @@
     pinyin: Object.freeze({section:"reading",responseType:"single-choice"}),
     reading: Object.freeze({section:"reading",responseType:"single-choice"}),
     "reading-cloze": Object.freeze({section:"reading",responseType:"single-choice"}),
-    writing: Object.freeze({section:"writing",responseType:"text"})
+    writing: Object.freeze({section:"writing",responseType:"text"}),
+    "writing-cloze": Object.freeze({section:"writing",responseType:"text"})
   });
   var REVIEW_STATUSES = Object.freeze(["unreviewed","linguistic-reviewed","pedagogy-reviewed","approved"]);
   function newReview() {
@@ -119,7 +120,7 @@
          q.sourceIds[0]!==q.wordId||q.contentStatus!=="machine-assisted")
         errors.push(path+": incomplete source provenance");
       reviewErrors(q,path,errors);
-      if(q.type==="reading-cloze" && (!clean(q.example)||!q.example.includes(q.hanzi)||
+      if((q.type==="reading-cloze"||q.type==="writing-cloze") && (!clean(q.example)||!q.example.includes(q.hanzi)||
          q.stimulus.indexOf("____")===-1||q.stimulus.includes(q.hanzi)||q.answer!==q.hanzi))
         errors.push(path+": cloze requires a sourced example with the answer hidden");
       if(q.type==="listening-sentence" && (!clean(q.example)||q.audioText!==q.example||
@@ -239,8 +240,12 @@
         // Rotate contextual tasks without altering paper IDs or section counts.
         // These remain machine-assisted drills, not reviewed HSK exam items.
         if(type==="reading"&&example) {type="reading-cloze";question.type=type;}
+        if(type==="writing"&&example&&part%2===1) {type="writing-cloze";question.type=type;}
         if(type==="listening"&&example&&part%5===4) {type="listening-sentence";question.type=type;}
-        if(type==="reading-cloze") {
+        if(type==="writing-cloze") {
+          question.prompt="Viết chữ Hán còn thiếu để hoàn thành câu.";
+          question.stimulus=example.replace(word.hanzi,"____");question.answer=word.hanzi;
+        }else if(type==="reading-cloze") {
           question.prompt="Đọc câu và chọn từ tiếng Trung còn thiếu.";
           question.stimulus=example.replace(word.hanzi,"____");question.answer=word.hanzi;
           question.options=optionsFor(word,pool,"hanzi",rng);
