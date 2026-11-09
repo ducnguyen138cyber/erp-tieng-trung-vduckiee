@@ -4,16 +4,16 @@ import { chromium } from 'playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 const target=process.env.PERF_BASE_URL||'https://vduckie.pages.dev/';
-const root=path.resolve('artifacts/performance');
+const root=path.resolve(process.env.PERF_ARTIFACT_DIR||'artifacts/performance');
 await mkdir(root,{recursive:true});
 const browser=await chromium.launch({headless:true});
 const profiles=[
  {name:'desktop-baseline',viewport:{width:1365,height:900},mobile:false,cpu:1,latency:0,down:0,up:0},
  {name:'mobile-4g-low-end',viewport:{width:390,height:844},mobile:true,cpu:4,latency:160,down:200000,up:50000}
 ];
-const output={capturedAt:new Date().toISOString(),target,mode:'guest-production-Chromium',limitations:[
+const output={capturedAt:new Date().toISOString(),target,mode:target.includes('127.0.0.1')?'guest-local-Chromium':'guest-production-Chromium',limitations:[
  'Chromium CPU and network throttling emulate a slower device; no physical mobile device was measured.',
- 'The real production site is loaded from GitHub Actions, not from a Vietnamese carrier network.',
+ 'CI localhost comparisons do not reproduce Cloudflare hosting or a Vietnamese mobile network; production audit runs originate in GitHub Actions.',
  'No real login/session/Google OAuth or private Supabase account data is accessed.',
  'One cold run per profile is diagnostic only; not an SLO nor a representative percentile.'
 ],profiles:[]};
@@ -24,11 +24,21 @@ try{
     const page=await context.newPage();page.setDefaultTimeout(90000);
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.addInitScript(()=>{
-      window.__perfLcp=0;window.__perfCls=0;
+      window.__perfLcp=0;window.__perfCls=0;window.__perfShifts=[];
       try{new PerformanceObserver(list=>{for(const item of list.getEntries())window.__perfLcp=item.startTime;})
         .observe({type:'largest-contentful-paint',buffered:true});}catch(e){}
       try{new PerformanceObserver(list=>{for(const item of list.getEntries()){
-        if(!item.hadRecentInput)window.__perfCls+=item.value;}})
+        if(!item.hadRecentInput){
+          window.__perfCls+=item.value;
+          if(window.__perfShifts.length<12)window.__perfShifts.push({
+            value:Math.round(item.value*1000)/1000,
+            sources:(item.sources||[]).slice(0,4).map(s=>{
+              const node=s.node;
+              return node?{tag:node.tagName||'',id:node.id||'',className:
+                typeof node.className==='string'?node.className.slice(0,100):''}:null;
+            })
+          });
+        }}})
         .observe({type:'layout-shift',buffered:true});}catch(e){}
     });
     const cdp=await context.newCDPSession(page);
@@ -64,7 +74,10 @@ try{
         cls:Math.round((window.__perfCls||0)*1000)/1000,
         domContentLoadedMs:n?Math.round(n.domContentLoadedEventEnd):null,
         loadEventMs:n?Math.round(n.loadEventEnd):null,resources:entries.length,
-        reportedTransferBytes:sum};
+        reportedTransferBytes:sum,
+        scriptResources:entries.filter(x=>/\.js(?:\?|$)/i.test(x.name)).length,
+        authSdkPresent:Boolean(window.supabase && window.VDuckieCloud),
+        layoutShifts:(window.__perfShifts||[]).slice(0,12)};
     }).catch(()=>({}));
     await page.screenshot({path:path.join(root,profile.name+'.png'),fullPage:true}).catch(()=>{});
     output.profiles.push({profile:profile.name,emulatedCpuSlowdown:profile.cpu,
