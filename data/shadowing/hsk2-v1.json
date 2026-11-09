@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "level": 2,
+  "reviewStatus": "machine-assisted-unreviewed",
+  "description": "Source-backed HSK dialogue lines with supplemental Pinyin and Vietnamese draft; linguistic review pending.",
+  "records": [
+    {
+      "id": "shadow-hsk2-001",
+      "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "hanzi": "不好意思，您能再说一次吗？",
+      "pinyin": "Bù hǎoyìsi, nín néng zài shuō yí cì ma?",
+      "vi": "Xin lỗi, thầy/cô có thể nói lại một lần nữa không?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-002",
+      "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "hanzi": "我姓王，是这个班的老师。",
+      "pinyin": "Wǒ xìng Wáng, shì zhège bān de lǎoshī.",
+      "vi": "Tôi họ Vương, là giáo viên của lớp này.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-003",
+      "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "hanzi": "啊，王老师。您能帮我写一下名字吗？",
+      "pinyin": "À, Wáng lǎoshī. Nín néng bāng wǒ xiě yíxià míngzi ma?",
+      "vi": "À, thầy/cô Vương. Thầy/cô có thể viết giúp em tên được không?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-004",
+      "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "hanzi": "可以，我告诉你怎么写。",
+      "pinyin": "Kěyǐ, wǒ gàosu nǐ zěnme xiě.",
+      "vi": "Được, tôi sẽ chỉ cho em cách viết.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-005",
+      "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "hanzi": "请打开本子，看第三题。",
+      "pinyin": "Qǐng dǎkāi běnzi, kàn dì sān tí.",
+      "vi": "Hãy mở vở ra và xem câu thứ ba.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-006",
+      "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "hanzi": "这个词我不懂，是什么意思？",
+      "pinyin": "Zhège cí wǒ bù dǒng, shì shénme yìsi?",
+      "vi": "Tôi không hiểu từ này, nó có nghĩa là gì?",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-007",
+      "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "hanzi": "你写错了一个字。用这支笔再写一次吧。",
+      "pinyin": "Nǐ xiě cuò le yí ge zì. Yòng zhè zhī bǐ zài xiě yí cì ba.",
+      "vi": "Bạn viết sai một chữ rồi. Dùng chiếc bút này viết lại một lần nhé.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "shadow-hsk2-008",
+      "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "hanzi": "现在我懂了。",
+      "pinyin": "Xiànzài wǒ dǒng le.",
+      "vi": "Bây giờ tôi hiểu rồi.",
+      "reviewStatus": "machine-assisted-unreviewed"
+    }
+  ]
+}
