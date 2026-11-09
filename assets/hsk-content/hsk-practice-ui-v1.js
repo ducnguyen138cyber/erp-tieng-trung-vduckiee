@@ -130,6 +130,7 @@
     if(q.type==="pinyin")return t("Chọn Pinyin đúng.","选择正确的拼音。","Choose the correct Pinyin.");
     if(q.type==="reading")return t("Đọc và chọn nghĩa đúng.","阅读并选择正确的释义。","Read and choose the correct meaning.");
     if(q.type==="reading-cloze")return t("Điền từ thích hợp vào câu.","选择词语完成句子。","Choose the word to complete the sentence.");
+    if(q.type==="writing-cloze")return t("Viết chữ Hán còn thiếu trong câu.","填写句子中缺少的汉字。","Write the missing Hanzi in the sentence.");
     return t("Viết chữ Hán tương ứng.","填写正确的汉字。","Write the Hanzi.");
   }
   function answerOptions(q){
