@@ -3,6 +3,10 @@ on:
   pull_request:
     paths:
       - 'index.html'
+      - 'app-shell-v88.html'
+      - 'hsk-lessons.js'
+      - 'service-worker.js'
+      - 'tests/hsk-stroke-lazy-load.test.mjs'
       - 'tests/performance-low-end-lab.mjs'
       - 'tests/performance-compare.mjs'
       - '.github/workflows/p1-load-lab.yml'
@@ -20,6 +24,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
+      - name: Verify lazy stroke loader without network or mock content in production
+        run: node --test tests/hsk-stroke-lazy-load.test.mjs
       - name: Install Playwright for isolated load audit
         run: npm install --no-save --package-lock=false playwright@1.58.2
       - name: Install Chromium
