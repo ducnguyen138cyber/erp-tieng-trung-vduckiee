@@ -1,0 +1,54 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+
+const read=file=>fs.readFileSync(file,'utf8');
+const js=read('assets/hsk-content/hsk-shadowing-v1.js');
+const css=read('assets/hsk-content/hsk-shadowing-v1.css');
+const entry=read('assets/curriculum/graded-hsk-entry.js');
+const html=read('index.html');
+
+test('Shadowing MVP script and app bootstrap remain parseable',()=>{
+  new vm.Script(js);
+  const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
+  assert.ok(scripts.some(s=>s.includes('restoreStaticVDuckie')&&new vm.Script(s)));
+  assert.match(html,/hsk-shadowing-v1\.css\?v=1/);
+  assert.match(html,/hsk-shadowing-v1\.js\?v=1/);
+  assert.match(entry,/data-shadow-open/);
+  assert.match(css,/\.shadow-hanzi/);
+});
+
+test('HSK1 source contains real full-sentence Pinyin and Vietnamese translation',()=>{
+  const data=JSON.parse(read('data/hsk/hsk1/sentences/hsk1-s-0001-0100.json'));
+  const valid=data.records.filter(r=>r.chinese&&r.pinyin&&r.vietnamese);
+  assert.ok(valid.length>=30);
+  assert.match(js,/\.slice\(0,40\)/);
+  assert.match(js,/r\.pinyin,vi:r\.vietnamese/);
+});
+
+test('HSK2/3 reuse existing dialogue scripts; no fake Pinyin or Vietnamese translation',()=>{
+  for(const level of [2,3]){
+    const lessons=JSON.parse(read(`data/hsk/hsk${level}/lessons.json`));
+    const dialogues=lessons.records.flatMap(l=>l.sections||[]).filter(s=>s.type==='dialogue'&&s.content?.scriptZh);
+    assert.ok(dialogues.length>=4);
+  }
+  assert.match(js,/pinyin:"",vi:""/);
+  assert.match(js,/Chưa có Pinyin câu đầy đủ trong nguồn/);
+  assert.match(js,/Chưa có bản dịch Việt cho câu này/);
+});
+
+test('browser permission, recording cleanup and no uploads',()=>{
+  assert.match(js,/getUserMedia\(\{audio:true\}\)/);
+  assert.match(js,/new root\.MediaRecorder\(stream\)/);
+  assert.match(js,/getTracks\(\)\.forEach/);
+  assert.match(js,/root\.URL\.revokeObjectURL/);
+  assert.match(js,/data-shadow-clear/);
+  assert.doesNotMatch(js,/\.rpc\s*\(|supabase\.storage|\.upload\s*\(/);
+});
+
+test('progress stored under isolated local key without marking mastery or awarding EXP',()=>{
+  assert.match(js,/vduckie-shadowing-v1/);
+  assert.match(js,/data\[level\]=\{index:index,updatedAt:Date\.now\(\)\}/);
+  assert.doesNotMatch(js,/awardEXP|awardWordMastery|mastered\s*=/);
+});
