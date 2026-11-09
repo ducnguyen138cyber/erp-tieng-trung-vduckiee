@@ -66,3 +66,17 @@ test('unknown vocabulary may explicitly admit uncertainty without inventing Hanz
  const r=await ask('Từ abcxyz tiếng Trung là gì?','Mình chưa xác định được cách dịch đáng tin cậy cho từ này.');
  assert.equal(r.status,200);assert.match(r.body.reply,/chưa xác định/);
 });
+
+test('grammar 越来越 prompt contains corrected adjective and state-verb usage',async()=>{
+ const r=await ask('Giải thích cấu trúc 越来越','越来越忙 (yuè lái yuè máng) — càng ngày càng bận.');
+ assert.equal(r.status,200);
+ const sys=r.calls[0].args.messages[0].content;
+ assert.match(sys,/越来越忙/);
+ assert.match(sys,/tính từ/);
+ assert.match(sys,/không.*chỉ dùng động từ/i);
+});
+test('eating vocabulary prompt forbids invented meal-time windows',async()=>{
+ const r=await ask('Ăn tối tiếng Trung là gì?','吃晚饭 (chī wǎnfàn) — ăn tối.');
+ assert.equal(r.status,200);
+ assert.match(r.calls[0].args.messages[0].content,/khung giờ/);
+});
