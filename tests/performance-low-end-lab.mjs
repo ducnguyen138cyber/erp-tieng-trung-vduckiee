@@ -40,8 +40,16 @@ try{
     const started=Date.now();let reachable=true,navigationError='';
     try{
       await page.goto(target,{waitUntil:'domcontentloaded',timeout:90000});
-      await page.waitForFunction(()=>Boolean(document.querySelector('#homeHub')||
-        document.querySelector('.home-welcome-card')),{timeout:90000});
+      // The bootstrap document already contains #homeHub while showing
+      // "Đang mở VDuckie". Wait for actual dashboard initialization/paint.
+      await page.waitForFunction(()=>{
+        const home=document.querySelector('#homeHub');
+        const shell=document.querySelector('#v865HomeShell');
+        return Boolean(window.__VDUCKIE_EXPERIENCE_V86_READY__ && home && shell &&
+          !home.classList.contains('hidden') && home.getBoundingClientRect().width>0 &&
+          shell.getBoundingClientRect().height>0);
+      },undefined,{timeout:90000});
+      await page.waitForTimeout(400);
     }catch(error){reachable=false;navigationError=String(error.message||error).slice(0,350);}
     const observed=Date.now()-started;
     const data=await page.evaluate(()=>{
@@ -49,7 +57,9 @@ try{
       const fcp=p.find(x=>x.name==='first-contentful-paint');
       const entries=performance.getEntriesByType('resource');
       const sum=entries.reduce((s,x)=>s+(x.transferSize||0),0);
-      return{title:document.title,homeVisible:!!document.querySelector('#homeHub'),
+      return{title:document.title,homeVisible:!!(document.querySelector('#homeHub')&&
+          !document.querySelector('#homeHub').classList.contains('hidden')&&
+          window.__VDUCKIE_EXPERIENCE_V86_READY__),
         fcpMs:fcp?Math.round(fcp.startTime):null,lcpMs:window.__perfLcp?Math.round(window.__perfLcp):null,
         cls:Math.round((window.__perfCls||0)*1000)/1000,
         domContentLoadedMs:n?Math.round(n.domContentLoadedEventEnd):null,
