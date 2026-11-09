@@ -80,6 +80,7 @@ try{
           .slice(0,12).map(x=>({path:new URL(x.name).pathname,bytes:x.transferSize,
             durationMs:Math.round(x.duration)})),
         authSdkPresent:Boolean(window.supabase && window.VDuckieCloud),
+        strokeDataEager:Boolean(window.HSK_HANZI_DATA),
         layoutShifts:(window.__perfShifts||[]).slice(0,12)};
     }).catch(()=>({}));
     await page.screenshot({path:path.join(root,profile.name+'.png'),fullPage:true}).catch(()=>{});
