@@ -27,15 +27,22 @@ test('HSK1 source contains real full-sentence Pinyin and Vietnamese translation'
   assert.match(js,/r\.pinyin,vi:r\.vietnamese/);
 });
 
-test('HSK2/3 reuse existing dialogue scripts; no fake Pinyin or Vietnamese translation',()=>{
+test('HSK2/3 annotated audio lines match source lessons, with full Pinyin and Vietnamese',()=>{
   for(const level of [2,3]){
     const lessons=JSON.parse(read(`data/hsk/hsk${level}/lessons.json`));
-    const dialogues=lessons.records.flatMap(l=>l.sections||[]).filter(s=>s.type==='dialogue'&&s.content?.scriptZh);
-    assert.ok(dialogues.length>=4);
+    const sources=new Map(lessons.records.flatMap(l=>l.sections||[])
+      .filter(s=>s.type==='dialogue'&&s.content?.scriptZh)
+      .map(s=>[s.id,s.content.scriptZh]));
+    const dataset=JSON.parse(read(`data/shadowing/hsk${level}-v1.json`));
+    assert.equal(dataset.reviewStatus,'machine-assisted-unreviewed');
+    assert.equal(dataset.records.length,8);
+    for(const line of dataset.records){
+      assert.ok(sources.get(line.sourceSectionId)?.includes(line.hanzi),line.id+' must match a real dialogue');
+      assert.ok(line.hanzi&&line.pinyin&&line.vi,line.id);
+      assert.equal(line.reviewStatus,'machine-assisted-unreviewed');
+    }
   }
-  assert.match(js,/pinyin:"",vi:""/);
-  assert.match(js,/Chưa có Pinyin câu đầy đủ trong nguồn/);
-  assert.match(js,/Chưa có bản dịch Việt cho câu này/);
+  assert.match(js,/data\/shadowing\/hsk/);
 });
 
 test('browser permission, recording cleanup and no uploads',()=>{
