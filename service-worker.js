@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v49";
+const CACHE_VERSION = "vduckie-pwa-v50";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -114,7 +114,6 @@ const APP_SHELL = [
   "./assets/v79/unified-dictionary-v79.part4.txt",
   "./assets/v79/unified-dictionary-v79.part5.txt",
   "./vendor/hanzi-writer.min.js",
-  "./vendor/hsk-char-data.js",
   "./pronunciation.js",
   "./supabase-config.js",
   "./supabase-sync.js",
