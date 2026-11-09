@@ -78,12 +78,34 @@
             group:"unit-"+unit,groupLabel:"Nhóm "+unit+" · Câu "+((unit-1)*25+1)+"–"+(Math.min(unit*25,900)),
             sourceStatus:r.reviewStatus||"unreviewed"};
         });}):
-      root.fetch("./data/shadowing/hsk"+level+"-v1.json")
-        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
-        .then(function(json){return (json.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;})
-          .map(function(r){return Object.assign({},r,{group:r.sourceSectionId,
+      Promise.all([
+        root.fetch("./data/shadowing/hsk"+level+"-v1.json"),
+        root.fetch("./data/hsk/hsk"+level+"/lessons.json")
+      ]).then(function(responses){return Promise.all(responses.map(function(r){
+        if(!r.ok)throw Error("HTTP "+r.status);return r.json();
+      }));}).then(function(parts){
+        var annotated=(parts[0].records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;});
+        var annotationIndex=new Map(annotated.map(function(r){return [r.sourceSectionId+"|"+r.hanzi,r];}));
+        var source=(parts[1].records||[]).flatMap(function(lesson){
+          return (lesson.sections||[]).filter(function(section){
+            return section.type==="dialogue"&&section.content&&section.content.scriptZh;
+          }).flatMap(function(section){
+            return splitScript(section.content.scriptZh,section.id).map(function(line){
+              return annotationIndex.get(section.id+"|"+line.hanzi)||
+                Object.assign({},line,{sourceSectionId:section.id,reviewStatus:"unreviewed"});
+            });
+          });
+        });
+        var seen=new Set(),unique=[];
+        annotated.concat(source).forEach(function(r){
+          var identity=r.sourceSectionId+"|"+r.hanzi;
+          if(seen.has(identity))return;seen.add(identity);
+          unique.push(Object.assign({},r,{group:r.sourceSectionId,
             groupLabel:"Bài "+(Number((r.sourceSectionId||"").match(/lesson-(\d+)/)?.[1])||1)+
-              " · Hội thoại",sourceStatus:r.reviewStatus||"unreviewed"});});});
+              " · Hội thoại",sourceStatus:r.reviewStatus||"unreviewed"}));
+        });
+        return unique;
+      });
     request.then(function(items){if(my!==token)return;
       lines=items;var saved=current();
       group=saved.group&&items.some(function(item){return item.group===saved.group;})?saved.group:"all";
@@ -117,8 +139,8 @@
       '<div class="shadow-counter">Câu '+(index+1)+' / '+options.length+' · HSK '+level+
         ' · '+esc(item.groupLabel||"Luyện câu")+'</div>'+
       '<article class="shadow-card"><div class="shadow-hanzi">'+esc(item.hanzi)+'</div>'+
-      (showPinyin?'<p class="shadow-pinyin">'+esc(item.pinyin)+'</p>':"")+
-      (showVi?'<p class="shadow-meaning">'+esc(item.vi)+'</p>':"")+
+      (showPinyin?'<p class="shadow-pinyin">'+esc(item.pinyin||"Pinyin đang bổ sung cho câu này")+'</p>':"")+
+      (showVi?'<p class="shadow-meaning">'+esc(item.vi||"Nghĩa tiếng Việt đang bổ sung")+'</p>':"")+
       '<div class="shadow-save-actions">'+
       '<button type="button" data-shadow-star aria-pressed="'+!!(meta.starred||{})[item.id]+'">'+
          ((meta.starred||{})[item.id]?'★ Đã lưu':'☆ Lưu câu')+'</button>'+
