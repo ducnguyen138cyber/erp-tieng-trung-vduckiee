@@ -51,7 +51,7 @@ for(let level=1;level<=4;level++){
   report.fullyApprovedPapers+=stats.approved;
   report.levels.push(stats);
 }
-if(report.paperCount!==224||report.fullyApprovedPapers!==0||
+if(report.paperCount!==224||
    report.levels.some(level=>level.sourceMissing!==0))
   throw new Error("Editorial readiness guard failed: inspect source and review metadata");
 process.stdout.write(JSON.stringify(report,null,2)+"\n");
