@@ -76,6 +76,9 @@ try{
         loadEventMs:n?Math.round(n.loadEventEnd):null,resources:entries.length,
         reportedTransferBytes:sum,
         scriptResources:entries.filter(x=>/\.js(?:\?|$)/i.test(x.name)).length,
+        largestResources:entries.filter(x=>x.transferSize>0).sort((a,b)=>b.transferSize-a.transferSize)
+          .slice(0,12).map(x=>({path:new URL(x.name).pathname,bytes:x.transferSize,
+            durationMs:Math.round(x.duration)})),
         authSdkPresent:Boolean(window.supabase && window.VDuckieCloud),
         layoutShifts:(window.__perfShifts||[]).slice(0,12)};
     }).catch(()=>({}));
