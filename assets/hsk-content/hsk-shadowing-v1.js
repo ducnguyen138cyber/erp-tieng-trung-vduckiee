@@ -3,13 +3,43 @@
   "use strict";
   if(!root||!document)return;
   var key="vduckie-shadowing-v1",level=1,lines=[],index=0,recorder=null,chunks=[],recordUrl="",stream=null,startedAt=0,elapsed=null;
-  var showPinyin=true,showVi=true,rate=0.85,token=0;
+  var showPinyin=true,showVi=true,rate=0.85,token=0,group="all",mode="all",selectedId="",recordEpoch=0;
   function el(id){return document.getElementById(id);}
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function store(){try{return JSON.parse(root.localStorage.getItem(key)||"{}")||{};}catch(e){return {};}}
-  function persist(){try{var data=store();data[level]={index:index,updatedAt:Date.now()};root.localStorage.setItem(key,JSON.stringify(data));}catch(e){}}
+  function current(){var data=store(),entry=data[level];return entry&&typeof entry==="object"?entry:{};}
+  function persist(){try{
+    var data=store(),entry=current();
+    data[level]=Object.assign({},entry,{index:index,id:selectedId,group:group,mode:mode,updatedAt:Date.now()});
+    root.localStorage.setItem(key,JSON.stringify(data));
+  }catch(e){}}
+  function mark(kind,id){
+    if(!id)return;
+    try{var data=store(),entry=current(),saved=Object.assign({},entry[kind]||{});
+      if(saved[id])delete saved[id];else saved[id]=true;
+      data[level]=Object.assign({},entry,{[kind]:saved,updatedAt:Date.now()});
+      root.localStorage.setItem(key,JSON.stringify(data));
+    }catch(e){}
+    var available=visible();
+    if(!available.some(function(item){return item.id===selectedId;}))selectedId=available[0]?available[0].id:"";
+    index=Math.max(0,available.findIndex(function(item){return item.id===selectedId;}));
+    render();
+  }
+  function visible(){
+    var saved=current(),set=saved[mode]||{};
+    return lines.filter(function(item){return (group==="all"||item.group===group)&&
+       (mode==="all"||!!set[item.id]);});
+  }
+  function selection(){return visible()[index]||null;}
+  function groups(){
+    var found=new Map();lines.forEach(function(item){
+      if(!found.has(item.group))found.set(item.group,{id:item.group,label:item.groupLabel||item.group,count:0});
+      found.get(item.group).count++;
+    });return [...found.values()];
+  }
   function clearRecording(){
-    if(recorder&&recorder.state==="recording")recorder.stop();
+    recordEpoch++;
+    if(recorder&&recorder.state==="recording"){recorder.onstop=null;recorder.stop();}
     recorder=null;chunks=[];
     if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
     if(recordUrl){root.URL.revokeObjectURL(recordUrl);recordUrl="";}
@@ -30,11 +60,39 @@
     n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
     n.innerHTML='<section class="shadow-page"><h2>Luyện nghe & Shadowing · HSK '+level+'</h2><p>Đang tải bài luyện…</p></section>';
     var request=level===1?
-      root.fetch("./data/hsk/hsk1/sentences/hsk1-s-0001-0100.json").then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
-        .then(function(json){return (json.records||[]).filter(function(r){return r.chinese&&r.pinyin&&r.vietnamese;}).slice(0,40).map(function(r){return {id:r.id,hanzi:r.chinese,pinyin:r.pinyin,vi:r.vietnamese};});}):
-      root.fetch("./data/shadowing/hsk"+level+"-v1.json").then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
-        .then(function(json){return (json.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;});});
-    request.then(function(items){if(my!==token)return;lines=items;index=Math.min(Math.max(0,Number((store()[level]||{}).index)||0),Math.max(0,lines.length-1));render();})
+      root.fetch("./data/hsk/hsk1/sentences/index.json")
+        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(manifest){
+          if(!manifest.shards||!manifest.shards.length)throw Error("Thiếu danh mục câu HSK1");
+          return Promise.all(manifest.shards.map(function(shard){
+            if(!/^[a-z0-9_-]+\\.json$/i.test(shard.file))throw Error("Sai tên tệp học liệu");
+            return root.fetch("./data/hsk/hsk1/sentences/"+shard.file)
+              .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+              .then(function(data){return data.records||[];});
+          }));
+        })
+        .then(function(chunks){return chunks.flat().filter(function(r){
+          return r.chinese&&r.pinyin&&r.vietnamese;
+        }).map(function(r,i){var unit=Math.floor(i/25)+1;
+          return {id:r.id,hanzi:r.chinese,pinyin:r.pinyin,vi:r.vietnamese,
+            group:"unit-"+unit,groupLabel:"Nhóm "+unit+" · Câu "+(i+1)+"–"+(Math.min(i+25,900)),
+            sourceStatus:r.reviewStatus||"unreviewed"};
+        });}):
+      root.fetch("./data/shadowing/hsk"+level+"-v1.json")
+        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(json){return (json.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;})
+          .map(function(r){return Object.assign({},r,{group:r.sourceSectionId,
+            groupLabel:"Bài "+(Number((r.sourceSectionId||"").match(/lesson-(\\d+)/)?.[1])||1)+
+              " · Hội thoại",sourceStatus:r.reviewStatus||"unreviewed"});});});
+    request.then(function(items){if(my!==token)return;
+      lines=items;var saved=current();
+      group=saved.group&&items.some(function(item){return item.group===saved.group;})?saved.group:"all";
+      mode=["all","starred","weak"].includes(saved.mode)?saved.mode:"all";
+      var options=visible();
+      index=options.findIndex(function(item){return item.id===saved.id;});
+      if(index<0)index=Math.max(0,Math.min(Number(saved.index)||0,options.length-1));
+      selectedId=options[index]?options[index].id:"";persist();render();
+    })
       .catch(function(err){if(my!==token)return;n.innerHTML='<section class="shadow-page"><h2>Không tải được bài Shadowing</h2><p>'+esc(err.message)+'</p><button type="button" data-shadow-back>Trở lại</button></section>';});
   }
   function render(){
