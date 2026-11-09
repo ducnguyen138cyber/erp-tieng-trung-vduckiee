@@ -69,11 +69,19 @@
       return value&&typeof value==="object"&&!Array.isArray(value)?value:{};
     }catch(e){return {};}
   }
-  function save(score){
+  function save(result,byTime){
     try{
       var data=progress(),old=data[paper.id]||{};
+      var score=result.percent,stamp=new Date().toISOString();
       data[paper.id]={attempts:Math.min(999,Number(old.attempts||0)+1),
-        best:Math.max(score,Number(old.best||0)),last:score,date:new Date().toISOString()};
+        best:Math.max(score,Number(old.best||0)),last:score,date:stamp,
+        lastDetail:{version:1,submittedAt:stamp,byTime:!!byTime,
+          answered:result.answered,total:paper.questionCount,
+          score:result.score,max:result.max,
+          sections:result.totals,incorrectIds:result.incorrectIds.slice(0,100),
+          reviewStatus:result.reviewStatus}};
+      // Preserve unrelated legacy fields and metadata from previous versions.
+      data[paper.id]=Object.assign({},old,data[paper.id]);
       root.localStorage.setItem("vduckie-hsk-practice-exams-v2",JSON.stringify(data));
     }catch(e){/* Browser may disable storage; no impact on examination. */}
   }
@@ -164,7 +172,8 @@
       reviewHtml='<div class="hsk-exam-review '+(correct?'is-correct':'is-incorrect')+'"><strong>'+
         esc(correct?t("✓ Đúng","✓ 正确","✓ Correct"):t("✗ Chưa đúng","✗ 错误","✗ Incorrect"))+
         '</strong><span>'+esc(t("Đáp án: ","正确答案：","Answer: "))+esc(q.answer)+
-        '</span><small>'+esc(q.hanzi+" · "+q.pinyin+" · "+q.meaning)+'</small></div>';
+        '</span><small>'+esc(bank.explainQuestion(q))+'</small>'+
+        '<small>'+esc(t("Gợi ý dựa trên học liệu, chưa kiểm duyệt chuyên môn.","依据学习资料生成，未经人工审校。","Study-data hint; not human reviewed."))+'</small></div>';
     }
     return '<article class="hsk-practice-question hsk-exam-question" id="hsk-exam-q'+(index+1)+
       '" data-practice-question="'+esc(q.id)+'"><div class="hsk-exam-q-head"><span>'+
@@ -264,19 +273,7 @@
     try{root.speechSynthesis.speak(speech);audioStatus(t("Đang phát câu "+q.sectionNumber,"正在播放第 "+q.sectionNumber+" 题","Playing item "+q.sectionNumber));}
     catch(e){audioStatus(t("Không phát được audio.","无法播放语音。","Could not play audio."));}
   }
-  function results(){
-    var totals={},all=0;
-    paper.sections.forEach(function(section){
-      var qs=paper.questions.filter(function(q){return q.section===section;});
-      var correct=qs.filter(function(q){return bank.grade(q,answers[q.id]||"");}).length;
-      totals[section]={correct:correct,total:qs.length,points:Math.round(100*correct/qs.length)};
-      all+=totals[section].points;
-    });
-    var max=paper.sections.length*100,score=all,passed=score>=max*.6;
-    return {totals:totals,max:max,score:score,percent:Math.round(100*score/max),
-      correct:paper.questions.filter(function(q){return bank.grade(q,answers[q.id]||"");}).length,
-      passed:passed};
-  }
+  function results(){return bank.scorePaper(paper,answers);}
   function renderResults(){
     if(!paper)return;
     var r=results();
@@ -294,7 +291,10 @@
       '<h3>'+esc(r.passed?t("Đạt mức luyện tập","达到练习目标","Practice target met"):
         t("Nên ôn thêm","建议继续复习","Keep reviewing"))+'</h3>'+
       '<p>'+r.correct+'/'+paper.questionCount+' '+esc(t("câu đúng","题正确","correct answers"))+
-      ' · '+r.percent+'%</p><table class="hsk-exam-score-table"><thead><tr><th>'+
+      ' · '+r.percent+'%</p><p>'+esc(t("Chưa trả lời: ","未作答：","Unanswered: "))+
+      (paper.questionCount-r.answered)+' · '+esc(t("Cần xem lại: ","需复习：","To review: "))+r.incorrectIds.length+
+      '</p><p>'+esc(t("Điểm luyện tập tính từ câu trả lời, nội dung chưa được giáo viên kiểm duyệt.","练习分数按答案计算，内容尚未经教师审校。","Practice grading is automatic; content has not been teacher-reviewed."))+
+      '</p><table class="hsk-exam-score-table"><thead><tr><th>'+
       esc(t("Phần thi","考试部分","Section"))+'</th><th>'+esc(t("Câu đúng","答对","Correct"))+
       '</th><th>'+esc(t("Điểm","分数","Score"))+'</th></tr></thead><tbody>'+lines+
       '</tbody></table><p>'+esc(t("Làm đề và đạt điểm cao không cộng EXP. Học từ mới và hoàn thành bài HSK trong giáo trình vẫn được thưởng như bình thường.",
@@ -309,7 +309,7 @@
   function finish(byTime){
     if(!paper||finished)return;
     finished=true;review=false;confirmSubmit=false;stopTimer();stopAudio();
-    var r=results();save(r.percent);
+    var r=results();save(r,byTime);
     // Exams are deliberately EXP-free: no awardWordMastery, awardEXP,
     // quiz_pass or dictation_complete RPC is called anywhere in this module.
     renderResults();
