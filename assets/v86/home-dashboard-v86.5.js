@@ -142,10 +142,13 @@ function renderFocus(main,shell){
   if(!main||!shell)return;
   var data=todayFocusData(),expanded=getDiscoverExpanded();
   shell.setAttribute("data-discover-expanded",String(expanded));
+  shell.setAttribute("data-first-visit",String(!data.hasStarted));
   var current=document.getElementById("v865TodayFocus"),markup=focusMarkup(data,expanded);
-  if(current&&current.outerHTML===markup)return;
+  var signature=[data.heading,data.detail,data.cta,data.action,expanded].join("|");
+  if(current&&current.getAttribute("data-focus-signature")===signature)return;
   var holder=document.createElement("div");holder.innerHTML=markup;
   var next=holder.firstElementChild;next.style.order="0";
+  next.setAttribute("data-focus-signature",signature);
   if(current)current.replaceWith(next);else main.insertBefore(next,main.firstChild);
 }
 function streakMarkup(data){
