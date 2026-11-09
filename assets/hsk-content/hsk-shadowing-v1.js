@@ -50,7 +50,7 @@
       (showVi?'<p class="shadow-meaning">'+esc(item.vi||"Chưa có bản dịch Việt cho câu này")+'</p>':"")+
       '<div class="shadow-controls"><button type="button" data-shadow-play>🔊 Nghe mẫu</button><button type="button" data-shadow-rate>◷ '+rate+'×</button>'+
       '<button type="button" data-shadow-record>● Ghi âm</button><button type="button" data-shadow-stop>Dừng</button></div>'+
-      '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"></audio>'+
+      '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"'+(recordUrl?' src="'+esc(recordUrl)+'"':'')+'></audio>'+
       '<div class="shadow-toggles"><button type="button" data-shadow-pinyin>'+(showPinyin?"Ẩn":"Hiện")+' Pinyin</button>'+
       '<button type="button" data-shadow-vi>'+(showVi?"Ẩn":"Hiện")+' nghĩa Việt</button><button type="button" data-shadow-clear>Xóa bản ghi</button></div>'+
       '<div class="shadow-nav"><button type="button" data-shadow-prev '+(index===0?"disabled":"")+'>← Câu trước</button>'+
@@ -67,9 +67,11 @@
   }
   async function record(){
     if(!root.MediaRecorder||!root.navigator||!root.navigator.mediaDevices||!root.navigator.mediaDevices.getUserMedia){status("Trình duyệt này chưa hỗ trợ ghi âm.");return;}
-    clearRecording();
+    clearRecording();var expectedToken=token,expectedIndex=index;
     try{
-      stream=await root.navigator.mediaDevices.getUserMedia({audio:true});
+      var acquired=await root.navigator.mediaDevices.getUserMedia({audio:true});
+      if(expectedToken!==token||expectedIndex!==index){acquired.getTracks().forEach(function(t){t.stop();});return;}
+      stream=acquired;
       recorder=new root.MediaRecorder(stream);chunks=[];var active=recorder;startedAt=Date.now();
       recorder.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
       recorder.onstop=function(){
@@ -77,7 +79,7 @@
         if(data.length&&active===recorder){recordUrl=root.URL.createObjectURL(new root.Blob(data,{type:active.mimeType||"audio/webm"}));var a=el("shadowRecording");if(a)a.src=recordUrl;status("Đã ghi âm. Bấm ▶ để nghe lại giọng mình.");}
       };
       recorder.start();status("Đang ghi âm… Hãy nói theo câu mẫu.");
-    }catch(e){status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}
+    }catch(e){if(expectedToken===token&&expectedIndex===index)status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}
   }
   function stopRecord(){if(recorder&&recorder.state==="recording")recorder.stop();else status("Chưa có bản ghi đang thực hiện.");}
   function next(delta){if(!lines.length)return;index=Math.max(0,Math.min(lines.length-1,index+delta));persist();stopSound();clearRecording();render();}
