@@ -23,7 +23,11 @@ test('HSK1 source contains real full-sentence Pinyin and Vietnamese translation'
   const data=JSON.parse(read('data/hsk/hsk1/sentences/hsk1-s-0001-0100.json'));
   const valid=data.records.filter(r=>r.chinese&&r.pinyin&&r.vietnamese);
   assert.ok(valid.length>=30);
-  assert.match(js,/\.slice\(0,40\)/);
+  const manifest=JSON.parse(read('data/hsk/hsk1/sentences/index.json'));
+  const all=manifest.shards.flatMap(shard=>JSON.parse(read('data/hsk/hsk1/sentences/'+shard.file)).records);
+  assert.equal(all.length,900);
+  assert.equal(all.filter(r=>r.chinese&&r.pinyin&&r.vietnamese).length,900);
+  assert.match(js,/Promise\.all\(manifest\.shards\.map/);
   assert.match(js,/r\.pinyin,vi:r\.vietnamese/);
 });
 
@@ -56,6 +60,11 @@ test('browser permission, recording cleanup and no uploads',()=>{
 
 test('progress stored under isolated local key without marking mastery or awarding EXP',()=>{
   assert.match(js,/vduckie-shadowing-v1/);
-  assert.match(js,/data\[level\]=\{index:index,updatedAt:Date\.now\(\)\}/);
+  assert.match(js,/data\[level\]=Object\.assign\(\{\},entry/);
+  assert.match(js,/vduckie-shadowing-v1/);
+  assert.match(js,/data-shadow-star/);
+  assert.match(js,/data-shadow-weak/);
+  assert.match(js,/data-shadow-mode/);
+  assert.match(js,/shadowGroup/);
   assert.doesNotMatch(js,/awardEXP|awardWordMastery|mastered\s*=/);
 });
