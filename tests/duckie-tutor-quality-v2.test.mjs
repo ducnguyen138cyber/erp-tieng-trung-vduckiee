@@ -23,7 +23,9 @@ async function ask(prompt,reply,messages){
 test('ten request categories pass mock-response validation without invented network inference',async()=>{
  for(const [question,answer] of promptCases){
   const result=await ask(question,answer);assert.equal(result.status,200,question);
-  if(['Viết tiếng Trung là gì?','Mặc cả tiếng Trung là gì?'].includes(question)){
+  if(question==='Giải thích ngữ pháp 越来越.'){
+   assert.equal(result.body.source,'grammar-reference');assert.equal(result.calls.length,0);assert.match(result.body.reply,/我越来越忙了/);
+  }else if(['Viết tiếng Trung là gì?','Mặc cả tiếng Trung là gì?'].includes(question)){
    assert.equal(result.body.source,'verified-glossary');
    assert.equal(result.calls.length,0,'exact verified lookups should not invoke generative AI');
    assert.ok(result.body.reply.includes(question.startsWith('Viết')?'写':'讨价还价'));
@@ -78,7 +80,7 @@ test('unknown vocabulary may explicitly admit uncertainty without inventing Hanz
 });
 
 test('grammar 越来越 prompt contains corrected adjective and state-verb usage',async()=>{
- const r=await ask('Giải thích cấu trúc 越来越','越来越忙 (yuè lái yuè máng) — càng ngày càng bận.');
+ const r=await ask('Giải thích cấu trúc 越来越 và cho ví dụ khác','越来越忙 (yuè lái yuè máng) — càng ngày càng bận.');
  assert.equal(r.status,200);
  const sys=r.calls[0].args.messages[0].content;
  assert.match(sys,/我越来越忙了/);
@@ -125,7 +127,7 @@ test('an explicit vocabulary question changes topic after a previous word',async
  assert.equal(r.status,200);assert.doesNotMatch(r.calls[0].args.messages[0].content,/TIẾP NỐI/);
 });
 test('grammar and correction responses retry missing Pinyin',async()=>{
- for(const prompt of ['Giải thích cấu trúc 越来越','我昨天去学校了 có đúng không?']){
+ for(const prompt of ['Giải thích cấu trúc 越来越 và cho ví dụ khác','我昨天去学校了 có đúng không?']){
   const r=await ask(prompt,'越来越忙 — càng ngày càng bận');
   assert.equal(r.status,422);assert.equal(r.calls.length,2);assert.equal(r.body.reason,'missing-pinyin');
  }
@@ -139,7 +141,7 @@ test('JSON null is a client error rather than an unhandled server exception',asy
 
 
 test('curated lookup remains available without AI while generation reports missing binding',async()=>{
- for(const [question,status] of [['Viết tiếng Trung là gì?',200],['Giải thích cấu trúc 越来越',503]]){
+ for(const [question,status] of [['Viết tiếng Trung là gì?',200],['Phân biệt 努力 và 加油 trong tiếng Trung',503]]){
   const request=new Request('https://duckie.test/api/duckie-chat',{method:'POST',
    headers:{'content-type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:question}]})});
   const response=await onRequestPost({request,env:{}});
@@ -152,7 +154,7 @@ test('curated lookup remains available without AI while generation reports missi
 
 
 test('grammar guidance supplies complete examples and avoids unrelated patterns',async()=>{
- const r=await ask('Giải thích cấu trúc 越来越','越来越 (yuè lái yuè) — ngày càng.');
+ const r=await ask('Giải thích cấu trúc 越来越 và cho ví dụ khác','越来越 (yuè lái yuè) — ngày càng.');
  assert.equal(r.status,200);
  const sys=r.calls[0].args.messages[0].content;
  assert.match(sys,/我越来越忙了/);
@@ -165,4 +167,13 @@ test('curated examples do not append a second terminal punctuation mark',async()
   const r=await ask(question,'must not generate');
   assert.equal(r.status,200);assert.doesNotMatch(r.body.reply,/[?.]\.$/);
  }
+});
+
+
+test('exact progressive explanation uses reference without fabricated component meanings',async()=>{
+ const r=await ask('Giải thích cấu trúc 越来越','must not generate');
+ assert.equal(r.status,200);assert.equal(r.calls.length,0);
+ assert.equal(r.body.source,'grammar-reference');
+ assert.match(r.body.reply,/Wǒ yuè lái yuè/);assert.match(r.body.reply,/Tôi ngày càng thích thành phố này/);
+ assert.doesNotMatch(r.body.reply,/phải|lên đến/);
 });

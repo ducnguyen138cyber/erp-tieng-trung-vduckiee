@@ -21,7 +21,7 @@ jobs:
           node-version: '24'
       - name: Unit tests for source-based vocabulary safeguards
         run: node --test tests/duckie-tutor-quality-v2.test.mjs tests/duckie-chat-followup-context.test.mjs tests/duckie-chat-hanzi-validation.test.mjs tests/duckie-chat.test.js tests/duckie-ai-audit-result.test.mjs
-      - name: Spot check exact PR preview (production only on manual dispatch)
+      - name: Check 4 reference replies and 1 generated comparison on exact preview
         env:
           GITHUB_TOKEN: ${{ github.token }}
           DUCKIE_REQUIRE_CANDIDATE: ${{ github.event_name == 'pull_request' && '1' || '0' }}

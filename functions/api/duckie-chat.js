@@ -49,6 +49,11 @@ function verifiedPair(reply,fact){
   .filter(match=>match[1]===fact.hanzi);
  return pairs.length>0&&pairs.every(match=>canonicalPinyin(match[2])===canonicalPinyin(fact.pinyin));
 }
+function exactProgressiveQuestion(s){
+ const q=plain(s).trim().replace(/[?？!！.。]+$/g,"").trim().replace(/\s+/g," ");
+ return /^(?:giai thich (?:cau truc |ngu phap )?|cau truc |ngu phap )越来越$/.test(q);
+}
+const PROGRESSIVE_REFERENCE="越来越 (yuè lái yuè) — ngày càng, càng ngày càng.\nMẫu thường dùng: 越来越 + tính từ hoặc động từ tâm lý/trạng thái.\n\n我越来越忙了。\nWǒ yuè lái yuè máng le.\nTôi ngày càng bận.\n\n我越来越喜欢这个城市。\nWǒ yuè lái yuè xǐhuan zhège chéngshì.\nTôi ngày càng thích thành phố này.";
 function unpack(r){return typeof r?.response==="string"?r.response:typeof r?.result?.response==="string"?r.result.response:typeof r?.choices?.[0]?.message?.content==="string"?r.choices[0].message.content:""}
 function validate(reply,kind,fact){
  if(!reply||!reply.trim())return "empty";
@@ -85,11 +90,13 @@ export async function onRequestPost({request,env}){
  if(messages.length===1&&fact&&kind==="vocab"&&exactGlossaryQuestion(last,fact))
   return json({reply:fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+".\nVí dụ: "+fact.example+(/[.!?。！？]$/.test(fact.example)?"":"."),
     source:"verified-glossary"});
+ if(messages.length===1&&kind==="grammar"&&exactProgressiveQuestion(last))
+  return json({reply:PROGRESSIVE_REFERENCE,source:"grammar-reference"});
  if(!env?.AI||typeof env.AI.run!=="function")return json({error:"AI chưa được kích hoạt."},503);
  const hints=["Kiểu câu hỏi: "+kind+". Tùy loại câu hỏi chọn độ dài và bố cục phù hợp."];
  if(isContinuation)hints.push("Đây là câu hỏi TIẾP NỐI chủ đề trước: "+prev.content+". Không giải thích chữ 'viết' hoặc 'đọc' nếu người dùng đang hỏi cách viết/đọc từ trước.");
  if(fact)hints.push("Dữ liệu từ điển đã kiểm tra (chỉ dùng khi đúng ngữ cảnh): "+fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+"; "+fact.example+".");
- if(kind==="grammar"&&last.includes("越来越"))hints.push("Tham chiếu để trả lời ngắn: 越来越 (yuè lái yuè) diễn tả mức độ tăng dần: 越来越 + tính từ hoặc động từ tâm lý/trạng thái. Hai câu ví dụ đầy đủ: 我越来越忙了。 (Wǒ yuè lái yuè máng le.) — Tôi ngày càng bận. 我越来越喜欢这个城市。 (Wǒ yuè lái yuè xǐhuan zhège chéngshì.) — Tôi ngày càng thích thành phố này. Giải thích bằng mẫu và hai ví dụ này, tối đa khoảng 120 từ. Chỉ giải thích cấu trúc người dùng hỏi; giữ từ thường khi nêu quy tắc, tránh phát biểu tuyệt đối. Không mở rộng sang cấu trúc 越…越… hoặc các ví dụ sai/lỗi thường gặp trừ khi người dùng hỏi rõ.");
+ if(kind==="grammar"&&last.includes("越来越"))hints.push("Tham chiếu để trả lời ngắn: 越来越 (yuè lái yuè) diễn tả mức độ tăng dần: 越来越 + tính từ hoặc động từ tâm lý/trạng thái. Hai câu ví dụ đầy đủ: 我越来越忙了。 (Wǒ yuè lái yuè máng le.) — Tôi ngày càng bận. 我越来越喜欢这个城市。 (Wǒ yuè lái yuè xǐhuan zhège chéngshì.) — Tôi ngày càng thích thành phố này. Giải thích bằng mẫu và hai ví dụ này, tối đa khoảng 120 từ. Giải thích cả cụm 越来越, không tách riêng từng chữ để suy ra nghĩa hoặc công thức. Chỉ giải thích cấu trúc người dùng hỏi; giữ từ thường khi nêu quy tắc, tránh phát biểu tuyệt đối. Không mở rộng sang cấu trúc 越…越… hoặc các ví dụ sai/lỗi thường gặp trừ khi người dùng hỏi rõ.");
  if(fact&&fact.hanzi==="吃晚饭")hints.push("Chỉ giải thích nghĩa và ví dụ đã kiểm tra. Không tự thêm khung giờ bắt đầu/kết thúc bữa tối hoặc quy tắc văn hóa nếu người dùng không hỏi.");
  if(body.context&&typeof body.context.hanzi==="string"&&body.context.hanzi.length<=24&&HANZI.test(body.context.hanzi))hints.push("Từ đang chọn trên giao diện: "+body.context.hanzi+". Chỉ tham chiếu khi người dùng nói 'từ này'.");
  const model=ALLOWED.has(env.DUCKIE_AI_MODEL)?env.DUCKIE_AI_MODEL:DEFAULT_MODEL;

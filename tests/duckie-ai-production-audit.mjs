@@ -28,12 +28,13 @@ const checks=[
  {id:'write',ask:'Viết tiếng Trung là gì?',expect:['写','xiě'],glossary:true},
  {id:'bargain',ask:'Mặc cả tiếng Trung là gì?',expect:['讨价还价','tǎo jià huán jià'],glossary:true},
  {id:'dinner',ask:'Ăn tối tiếng Trung là gì?',expect:['吃晚饭','chī wǎnfàn'],glossary:true},
- {id:'progressive',ask:'Giải thích cấu trúc 越来越',expect:['越来越']}
+ {id:'progressive',ask:'Giải thích cấu trúc 越来越',expect:['越来越','我越来越忙了'],referenceSource:'grammar-reference'},
+ {id:'compare',ask:'努力 và 加油 khác nhau như thế nào?',expect:['努力','加油'],generated:true}
 ];
 const report={timestamp:new Date().toISOString(),endpoint,headSha:process.env.DUCKIE_HEAD_SHA||null,
- target:candidate?'candidate-preview':'explicit-endpoint-or-production',scope:'4 bounded real guest requests',
+ target:candidate?'candidate-preview':'explicit-endpoint-or-production',scope:'5 bounded real guest prompts: 4 reference replies and 1 model comparison',
  limitations:['Spot checks do not certify grammar, every example, or all vocabulary.',
- 'Glossary answers validate curated lookup delivery, not generative model quality.',
+ 'Glossary and grammar reference answers validate curated delivery, not generative model quality.',
  '422/503, network errors and unavailable AI are not successful teaching checks.'],checks:[]};
 for(const item of checks){
  const result={id:item.id,query:item.ask,status:null,result:'unavailable',reply:'',source:null,reason:''};
@@ -55,7 +56,7 @@ for(const item of checks){
  }catch(error){result.reason=String(error.message||error).slice(0,180);}
  report.checks.push(result);console.log('DUCKIE_LIVE_QUALITY '+JSON.stringify(result));
 }
-report.passed=report.checks.filter(x=>x.result==='glossary-spot-check').length;
+report.passed=report.checks.filter(x=>['glossary-spot-check','reference-spot-check'].includes(x.result)).length;
 report.incorrect=report.checks.filter(x=>['incorrect-or-incomplete','wrong-deployment'].includes(x.result)).length;
 report.needsReview=report.checks.filter(x=>x.result==='pedagogy-review-needed').length;
 report.inconclusive=report.checks.length-report.passed-report.incorrect-report.needsReview;

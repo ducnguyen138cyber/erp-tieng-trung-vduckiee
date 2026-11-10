@@ -39,3 +39,12 @@ The follow-up allows the three exact curated lookups before the AI binding check
 - Model output correctly gave the adjective/state-verb pattern, but overgeneralized action verbs and proposed a correction that changed the meaning. Follow-up instructions explicitly forbid that generalization and distinguish 越跑越快 from 越来越喜欢跑; these are prompt safeguards, not a universal semantic validator. No specialist approval is claimed.
 - Curated replies no longer append duplicate punctuation. The audit records one bounded retry only for HTTP 404 during preview rollout; 422/503/model errors remain inconclusive/failing. Every attempt status remains in the evidence.
 - Follow-up local targeted tests: **30/30 PASS**. Final-head live and browser workflows must be checked separately.
+
+
+### Final quality boundary
+
+Repeated model probes still invented component meanings when explaining 越来越, despite prompt guidance. Exact common questions about this pattern now return a short **grammar-reference** response with the pattern and two complete Hanzi/Pinyin/Vietnamese examples. This is explicit curated delivery, not model-output verification or teacher approval. Open-ended follow-up questions continue through the model and are not universally certified.
+
+The final live audit uses **5 prompts**: 3 canonical glossary lookups, 1 grammar reference (source required), and 1 genuinely generated 努力/加油 comparison (a reference response is rejected for this check). The generated comparison remains `pedagogy-review-needed` for manual inspection; matching tokens cannot approve its teaching. The model is never presented as accurate merely because curated lookups pass.
+
+Final local targeted tests: **32/32 PASS**. Browser CI uses the official Playwright `v1.58.2-noble` image matching the pinned npm version, retaining every scenario/assertion while avoiding stalled Ubuntu mirror installs. Final-head CI and bounded live evidence are reported in the PR description after completion. No production merge is performed by this work.

@@ -5,5 +5,7 @@ export function classify(item,status,body,requireCandidate=false){
  const reply=String(body.reply||'').normalize('NFC').toLowerCase();
  if(!item.expect.every(token=>reply.includes(token.toLowerCase())))return 'incorrect-or-incomplete';
  if(requireCandidate&&item.glossary&&body.source!=='verified-glossary')return 'wrong-deployment';
- return item.glossary?'glossary-spot-check':'pedagogy-review-needed';
+ if(requireCandidate&&item.referenceSource&&body.source!==item.referenceSource)return 'wrong-deployment';
+ if(item.generated&&body.source)return 'wrong-deployment';
+ return item.glossary?'glossary-spot-check':item.referenceSource?'reference-spot-check':'pedagogy-review-needed';
 }
