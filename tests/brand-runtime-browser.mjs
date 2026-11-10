@@ -164,7 +164,26 @@ try{for(const width of (observe?[1440]:[1440,390])){
  await page.getByRole('button',{name:'Học HSK 1 →',exact:true}).click();await page.locator('.hsk-focus-tabs').waitFor();
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
-   await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '));
+   try {
+     await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '),null,{timeout:8000});
+   } catch(error) {
+     console.log('HSK_I18N_DIAGNOSTIC',JSON.stringify(await page.evaluate(()=>({
+       lang:document.documentElement.lang,selectedLang:window.VDuckieInterfaceI18n?.getLanguage(),
+       currentScreen:window.VDuckieScreenRouter?.current(),url:location.href,
+       titleText:document.querySelector('.hsk-focus-word-title > span')?.textContent,
+       titleCount:document.querySelectorAll('.hsk-focus-word-title > span').length,
+       intro:document.querySelector('.hsk-focus-intro')?.textContent,
+       tabTexts:[...document.querySelectorAll('.hsk-focus-tabs button')].map(e=>e.textContent),
+       hskState:window.VDuckieHskProfessionalRuntime?.getState(),
+       translations:{
+         title:window.VDuckieInterfaceI18n?.translateUI('TỪ 1 / 6'),
+         intro:window.VDuckieInterfaceI18n?.translateUI('Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.')
+       },
+       hskSample:document.getElementById('hskLesson')?.outerHTML.slice(0,1800)
+     }))));
+     await page.screenshot({path:`${outDir}/${width}-hsk-i18n-failure.png`});
+     throw error;
+   }
    assert.equal((await page.locator('.hsk-focus-intro').first().textContent()).trim(),'听发音 → 猜意思 → 看例句 → 回忆。');
    assert.deepEqual(await page.locator('.hsk-focus-tabs button').allTextContents(),['1 · 生词','2 · 听读','3 · 练习','4 · 补充知识']);
    const prePaint=await page.evaluate(async()=>{
