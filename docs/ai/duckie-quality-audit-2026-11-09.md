@@ -48,3 +48,10 @@ Repeated model probes still invented component meanings when explaining 越来�
 The final live audit uses **5 prompts**: 3 canonical glossary lookups, 1 grammar reference (source required), and 1 genuinely generated 努力/加油 comparison (a reference response is rejected for this check). The generated comparison remains `pedagogy-review-needed` for manual inspection; matching tokens cannot approve its teaching. The model is never presented as accurate merely because curated lookups pass.
 
 Final local targeted tests: **32/32 PASS**. Browser CI uses the official Playwright `v1.58.2-noble` image matching the pinned npm version, retaining every scenario/assertion while avoiding stalled Ubuntu mirror installs. Final-head CI and bounded live evidence are reported in the PR description after completion. No production merge is performed by this work.
+
+
+### Generated comparison follow-up
+
+Live head `36f4c69` correctly failed the comparison probe: the model omitted canonical Pinyin and invented meanings/examples. It was not editorially approved. Added source hints for 努力 (nǔlì) and 加油 (jiāyóu), both pronunciation-pair checks for comparisons, and one bounded retry followed by refusal if still invalid. The finite glossary now contains **5 entries**; only the original 3 are probed as direct lookups. The comparison remains genuinely generated and manually reviewable.
+
+The live audit accepts syllable spacing differences while preserving every tone mark. Structural guards cannot certify all meanings or example grammar. Final targeted tests: **34/34 PASS**; final live and browser results are recorded in the PR description. No default model switch or paid external API was introduced.

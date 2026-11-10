@@ -182,5 +182,16 @@ test('exact progressive explanation uses reference without fabricated component 
 test('word comparisons require pronunciation rather than accepting Vietnamese-only examples',async()=>{
  const r=await ask('努力 và 加油 khác nhau như thế nào?','努力 (nỗ lực) và 加油 (cố lên) khác nhau.');
  assert.equal(r.status,422);assert.equal(r.calls.length,2);
- assert.equal(r.body.reason,'missing-pinyin');
+ assert.equal(r.body.reason,'wrong-verified-pinyin');
+});
+
+
+test('comparisons bind both known words to their own reference pronunciations',async()=>{
+ for(const answer of ['努力 (nǔlì), 加油 (jiā yóu) — nỗ lực, cố lên.',
+  '努力 (nǔlì), 加油 (jiāyòu) — nỗ lực, cố lên.']){
+  const r=await ask('努力 và 加油 khác nhau như thế nào?',answer);
+  assert.equal(r.status,answer.includes('jiāyòu')?422:200);
+  assert.match(r.calls[0].args.messages[0].content,/我会努力学习/);
+  assert.match(r.calls[0].args.messages[0].content,/加油！你可以的/);
+ }
 });

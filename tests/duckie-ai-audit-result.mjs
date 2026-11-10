@@ -3,7 +3,7 @@ export function classify(item,status,body,requireCandidate=false){
  if(status===422)return 'safe-rejected';
  if(status!==200)return 'unavailable';
  const reply=String(body.reply||'').normalize('NFC').toLowerCase();
- if(!item.expect.every(token=>reply.includes(token.toLowerCase())))return 'incorrect-or-incomplete';
+ if(!item.expect.every(token=>reply.replace(/\s+/g,'').includes(token.normalize('NFC').toLowerCase().replace(/\s+/g,''))))return 'incorrect-or-incomplete';
  if(requireCandidate&&item.glossary&&body.source!=='verified-glossary')return 'wrong-deployment';
  if(requireCandidate&&item.referenceSource&&body.source!==item.referenceSource)return 'wrong-deployment';
  if(item.generated&&body.source)return 'wrong-deployment';
