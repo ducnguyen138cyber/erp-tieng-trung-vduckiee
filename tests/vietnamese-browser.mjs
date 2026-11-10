@@ -17,7 +17,26 @@ const reports=[];await mkdir('artifacts/vietnamese',{recursive:true});
 try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
  const browser=await engine.launch({headless:true});
  try{for(const width of [1440,390,320]){
-  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));page.on('request',r=>requests.push(r.url()));
+  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];
+  page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));
+  page.on('console',m=>{if(m.text().startsWith('VI_INSERT_BEFORE_FAILURE'))console.log(name,width,m.text());});
+  page.on('request',r=>requests.push(r.url()));
+  await page.addInitScript(()=>{
+    const insert=Node.prototype.insertBefore;
+    Node.prototype.insertBefore=function(child,reference){
+      try{return insert.call(this,child,reference);}
+      catch(error){
+        console.error('VI_INSERT_BEFORE_FAILURE '+JSON.stringify({
+          parent:this.nodeName,id:this.id,className:String(this.className||''),
+          child:child?.nodeName,childId:child?.id,
+          reference:reference?.nodeName,referenceId:reference?.id,
+          referenceParent:reference?.parentNode?.id,
+          stack:new Error('insertBefore failure').stack
+        }));
+        throw error;
+      }
+    };
+  });
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));await page.route('https://*.supabase.co/**',r=>r.abort());
   // Legacy community service is outside this module; keep its cross-origin fetch deterministic.
   await page.route('**/api/community-terms**',r=>r.fulfill({contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify({terms:[]})}));
