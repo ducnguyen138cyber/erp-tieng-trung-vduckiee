@@ -41,8 +41,9 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
   // Legacy community service is outside this module; keep its cross-origin fetch deterministic.
   await page.route('**/api/community-terms**',r=>r.fulfill({contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify({terms:[]})}));
   if(width===390)await page.addInitScript(()=>{const original=window.matchMedia.bind(window);window.matchMedia=q=>q==='(display-mode: standalone)'?{matches:true,media:q,addEventListener(){},removeEventListener(){},addListener(){},removeListener(){},dispatchEvent(){return true;}}:original(q);Object.defineProperty(navigator,'standalone',{get:()=>true,configurable:true});});
-  const start=Date.now();await page.goto(base);await page.locator('.vi-home-invite button').waitFor({state:'visible'});const initialMs=Date.now()-start;
+  const start=Date.now();await page.goto(base);await page.locator('#v865TodayFocus').waitFor({state:'visible'});const initialMs=Date.now()-start;
   assert.equal(requests.some(u=>u.includes('/data/vietnamese/')),false,'no Vietnamese content on initial Chinese home');
+  await page.locator('[data-v865-action="toggle-discover"]').click();
   await page.locator('.vi-home-invite button').click();await page.locator('#vietnameseScreen .vi-catalog').first().waitFor();assert.equal(await page.locator('#homeHub').isVisible(),false);
   assert.equal(await page.locator('#vietnameseScreen').getAttribute('lang'),'zh-CN');assert.equal(await page.locator('html').getAttribute('lang'),'vi');
   await page.locator('#vietnameseScreen [data-unit="l01"]').first().click();await page.locator('.vi-flash h2').waitFor();

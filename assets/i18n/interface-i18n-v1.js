@@ -2631,6 +2631,9 @@
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
       var variants=[
+        [/^CHƯƠNG\s*(\d+)$/i,["单元 $1","UNIT $1"]],
+        [/^Ôn tập chương\s*(\d+)$/i,["单元 $1 阶段测验","Unit $1 checkpoint"]],
+        [/^CHƯƠNG\s*(\d+)\s*[·•]\s*BÀI\s*(\d+)\s*\/\s*(\d+)$/i,["单元 $1 · 第 $2/$3 课","UNIT $1 · LESSON $2/$3"]],
         [/^Hạng của bạn:\s*#(\d+)$/i,["你的排名：#$1","Your rank: #$1"]],
         [/^UNIT\s*(\d+)$/i,["单元 $1","UNIT $1"]],
         [/^Checkpoint\s+Unit\s*(\d+)$/i,["单元 $1 阶段测验","Unit $1 checkpoint"]],
