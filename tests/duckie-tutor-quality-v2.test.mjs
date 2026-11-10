@@ -149,3 +149,19 @@ test('curated lookup remains available without AI while generation reports missi
   else assert.match(body.error,/AI chưa được kích hoạt/);
  }
 });
+
+
+test('grammar guidance avoids blanket verb bans and meaning-changing corrections',async()=>{
+ const r=await ask('Giải thích cấu trúc 越来越','越来越忙 (yuè lái yuè máng) — ngày càng bận.');
+ assert.equal(r.status,200);
+ const sys=r.calls[0].args.messages[0].content;
+ assert.match(sys,/Không đưa ra lệnh cấm tuyệt đối/);
+ assert.match(sys,/越跑越快/);
+ assert.match(sys,/không sửa thành 越来越喜欢跑 vì đổi nghĩa/);
+});
+test('curated examples do not append a second terminal punctuation mark',async()=>{
+ for(const question of ['Mặc cả tiếng Trung là gì?','Ăn tối tiếng Trung là gì?']){
+  const r=await ask(question,'must not generate');
+  assert.equal(r.status,200);assert.doesNotMatch(r.body.reply,/[?.]\.$/);
+ }
+});

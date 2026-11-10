@@ -30,3 +30,12 @@ Limit: this remains a three-entry canonical glossary safeguard, not validation o
 Real candidate preview `https://118449d0.vduckie.pages.dev/api/duckie-chat` at `3adb1aa` returned 503 `AI chưa được kích hoạt` for all four checks. [Live run 42763383686](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/42763383686) correctly failed with **inconclusive=4**. Production results were not substituted.
 
 The follow-up allows the three exact curated lookups before the AI binding check (they do not invoke a model), while generation still explicitly requires Workers AI. Targeted tests **28/28 PASS**. See `docs/duckie-chat-setup.md` for the Preview-only binding and redeploy procedure. **BLOCKED for generated-answer acceptance until Preview AI is configured**; no claim that generated teaching has passed. Keep PR unmerged.
+
+
+### Preview binding enabled and follow-up
+
+- Owner confirmed Preview Workers AI binding **AI**; empty commit `c224ae3` triggered a new deployment. The first runner audit hit transient 404s on three requests during rollout (not reported as pass).
+- A subsequent direct bounded probe of immutable candidate `https://73abd2ea.vduckie.pages.dev/api/duckie-chat` returned **200 on all four prompts**: three curated lookups and one generated 越来越 explanation. The binding blocker is resolved for that deployment.
+- Model output correctly gave the adjective/state-verb pattern, but overgeneralized action verbs and proposed a correction that changed the meaning. Follow-up instructions explicitly forbid that generalization and distinguish 越跑越快 from 越来越喜欢跑; these are prompt safeguards, not a universal semantic validator. No specialist approval is claimed.
+- Curated replies no longer append duplicate punctuation. The audit records one bounded retry only for HTTP 404 during preview rollout; 422/503/model errors remain inconclusive/failing. Every attempt status remains in the evidence.
+- Follow-up local targeted tests: **30/30 PASS**. Final-head live and browser workflows must be checked separately.

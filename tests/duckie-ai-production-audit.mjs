@@ -38,8 +38,16 @@ const report={timestamp:new Date().toISOString(),endpoint,headSha:process.env.DU
 for(const item of checks){
  const result={id:item.id,query:item.ask,status:null,result:'unavailable',reply:'',source:null,reason:''};
  try{
-  const response=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},
-   body:JSON.stringify({messages:[{role:'user',content:item.ask}]}),signal:AbortSignal.timeout(25000)});
+  let response;result.statusAttempts=[];
+  // A freshly published Pages preview can briefly return 404 at another edge.
+  // One bounded retry is recorded; 422/503/model errors are never hidden.
+  for(let attempt=0;attempt<2;attempt++){
+   response=await fetch(endpoint,{method:'POST',headers:{'content-type':'application/json'},
+    body:JSON.stringify({messages:[{role:'user',content:item.ask}]}),signal:AbortSignal.timeout(25000)});
+   result.statusAttempts.push(response.status);
+   if(response.status!==404||attempt===1)break;
+   await response.arrayBuffer();await new Promise(resolve=>setTimeout(resolve,1500));
+  }
   result.status=response.status;const body=await response.json().catch(()=>({}));
   result.reply=String(body.reply||'').slice(0,5000);result.source=body.source||null;
   result.reason=String(body.reason||body.error||'').slice(0,180);
