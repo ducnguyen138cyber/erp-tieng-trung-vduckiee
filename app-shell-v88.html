@@ -85,6 +85,13 @@
   <style>
     .cloud-auth{display:flex;align-items:center;gap:8px;padding:5px 6px 5px 11px;border:1px solid #E2E8F0;border-radius:16px;background:#fff}.cloud-auth-copy{min-width:0}.cloud-auth-copy strong,.cloud-auth-copy small{display:block;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cloud-auth-copy strong{font-size:12px}.cloud-auth-copy small{margin-top:2px;color:#64748B;font-size:10px}.cloud-sync-status.good{color:#2563EB}.cloud-sync-status.waiting{color:#2563EB}.cloud-sync-status.bad{color:#9a332d}.cloud-auth button{border:0;border-radius:12px;background:#0F172A;color:#fff;padding:9px 12px;font-weight:800;white-space:nowrap;cursor:pointer}.cloud-auth button#cloudLogout{background:#ffffff;color:#111827}.cloud-auth button:disabled{cursor:not-allowed;opacity:.6}@media(max-width:760px){.top-actions{width:100%;align-items:stretch;flex-direction:column}.area-switch{align-self:flex-start}.cloud-auth{justify-content:space-between}.cloud-auth-copy strong,.cloud-auth-copy small{max-width:55vw}}
   </style>
+  <!-- Reserve the final two-row mobile header before late UI/search styles load.
+       Its 78px -> ~118px growth was responsible for the remaining CLS. -->
+  <style id="vduckie-p1-mobile-header-reserve">
+    @media (max-width: 760px) {
+      html.v865-home-mode .top { min-height: 118px; }
+    }
+  </style>
   <link rel="stylesheet" href="./v72-layout.css?v=73.1">
   <link rel="stylesheet" href="./erp-lessons-v74.css?v=74.1">
   <link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=86.5">
