@@ -135,13 +135,13 @@
       node = document.createElement("section");
       node.id = "dailyLearningPanel";
       node.className = "panel daily-panel hidden";
-      // The home/dashboard renderer may reparent the central <main> after
-      // startup. Always mount the learning panel in the live study surface.
-      var main = document.querySelector(".study-center > main") ||
-        document.querySelector(".study-center main") ||
-        document.querySelector(".study-center");
-      if (main) main.insertBefore(node, main.firstChild);
     }
+    // The home renderer nests #v865HomeMain inside the hidden #homeHub.
+    // Never choose an arbitrary descendant <main>: doing so puts lessons
+    // inside the hidden home and produces a zero-sized HSK page.
+    var target = document.querySelector(".study-center > main") ||
+      document.querySelector(".study-center");
+    if (target && node.parentNode !== target) target.insertBefore(node, target.firstChild);
     return node;
   }
   function hideLegacy() {
