@@ -97,6 +97,17 @@ try{for(const width of (observe?[1440]:[1440,390])){
    gradedRuntime:!!window.VDuckieGradedHSK,
    dailyRuntime:!!window.VDuckieDailyLearning,
    panel:document.getElementById('dailyLearningPanel')?.outerHTML.slice(0,1800),
+   visibilityChain:(()=>{
+     const nodes=[],target=document.querySelector('.graded-hsk-page');let n=target;
+     while(n&&nodes.length<12){
+       const css=getComputedStyle(n),rect=n.getBoundingClientRect();
+       nodes.push({tag:n.tagName,id:n.id,cls:n.className,display:css.display,visibility:css.visibility,
+         opacity:css.opacity,position:css.position,width:Math.round(rect.width),height:Math.round(rect.height),
+         hidden:n.hidden,ariaHidden:n.getAttribute('aria-hidden')});
+       n=n.parentElement;
+     }
+     return nodes;
+   })(),
    homeClass:document.documentElement.className,
    bodyArea:document.body.getAttribute('data-current-area'),
    scripts:[...document.querySelectorAll('script[src]')].filter(s=>/graded-hsk-entry|screen-router|daily-learning/.test(s.src)).map(s=>s.src)
