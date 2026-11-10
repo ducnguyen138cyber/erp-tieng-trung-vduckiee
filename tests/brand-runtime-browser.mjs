@@ -179,7 +179,21 @@ try{for(const width of (observe?[1440]:[1440,390])){
          title:window.VDuckieInterfaceI18n?.translateUI('TỪ 1 / 6'),
          intro:window.VDuckieInterfaceI18n?.translateUI('Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.')
        },
-       hskSample:document.getElementById('hskLesson')?.outerHTML.slice(0,1800)
+       hskSample:document.getElementById('hskLesson')?.outerHTML.slice(0,1800),
+       wordAncestry:(()=>{const e=document.querySelector('.hsk-focus-word-title>span');return e&&{
+         underStudyCenter:!!e.closest('.study-center'),underHskLesson:!!e.closest('#hskLesson'),
+         underExcluded:!!e.closest('.tg-overlay,#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults'),
+         underNoTranslate:!!e.closest('[translate="no"]'),
+         outerAncestry:[...function*(){for(let n=e,i=0;n&&i<10;n=n.parentElement,i++)yield {name:n.tagName,id:n.id,cls:n.className};}()]
+       }})(),
+       manualRefreshResult:(()=>{
+         const before=document.querySelector('.hsk-focus-word-title>span')?.textContent;
+         window.VDuckieInterfaceI18n?.refresh();
+         const afterRefresh=document.querySelector('.hsk-focus-word-title>span')?.textContent;
+         window.VDuckieInterfaceI18n?.localizeSubtree(document.getElementById('hskLesson'));
+         const afterSubtree=document.querySelector('.hsk-focus-word-title>span')?.textContent;
+         return {before,afterRefresh,afterSubtree};
+       })()
      }))));
      await page.screenshot({path:`${outDir}/${width}-hsk-i18n-failure.png`});
      throw error;
