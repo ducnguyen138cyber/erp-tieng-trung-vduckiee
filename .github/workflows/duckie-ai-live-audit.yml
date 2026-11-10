@@ -1,0 +1,37 @@
+name: Duckie AI Quality Live Audit
+on:
+  pull_request:
+    paths:
+      - 'functions/api/duckie-chat.js'
+      - 'tests/duckie-ai*.mjs'
+      - 'tests/duckie-tutor-quality-v2.test.mjs'
+      - '.github/workflows/duckie-ai-live-audit.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+  issues: read
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Unit tests for source-based vocabulary safeguards
+        run: node --test tests/duckie-tutor-quality-v2.test.mjs tests/duckie-chat-followup-context.test.mjs tests/duckie-chat-hanzi-validation.test.mjs tests/duckie-chat.test.js tests/duckie-ai-audit-result.test.mjs
+      - name: Check 4 reference replies and 1 generated comparison on exact preview
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          DUCKIE_REQUIRE_CANDIDATE: ${{ github.event_name == 'pull_request' && '1' || '0' }}
+          DUCKIE_PR_NUMBER: ${{ github.event.pull_request.number }}
+          DUCKIE_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node tests/duckie-ai-production-audit.mjs
+      - name: Upload bounded raw answers and pass/inconclusive statuses
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: duckie-ai-live-quality
+          path: artifacts/ai-quality/
+          if-no-files-found: warn
