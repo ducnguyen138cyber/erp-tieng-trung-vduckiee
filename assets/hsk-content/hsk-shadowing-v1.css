@@ -37,3 +37,7 @@
 .hsk-shadow-screen .shadow-empty h3{margin:0 0 10px}
 .hsk-shadow-screen .shadow-empty p{color:#64748b;font-size:14px}
 @media(max-width:700px){.hsk-shadow-screen .shadow-library{grid-template-columns:1fr;gap:10px}.hsk-shadow-screen .shadow-filters{gap:5px}.hsk-shadow-screen .shadow-filters button{padding:8px 9px;min-height:41px;font-size:12px}.hsk-shadow-screen .shadow-save-actions button{flex:1}}
+
+.hsk-shadow-screen .shadow-coverage,.hsk-shadow-screen .shadow-speaker{color:#64748b;font-size:13px;line-height:1.6}
+.hsk-shadow-screen .shadow-pinyin{overflow-wrap:anywhere}
+.hsk-shadow-screen *{box-sizing:border-box}
