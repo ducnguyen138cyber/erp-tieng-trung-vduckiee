@@ -15,3 +15,10 @@ body[data-current-area="hsk-study"] #v865HomeShell{display:none!important}
 #studySidebar .sidebar-course-group>summary:focus-visible{outline:3px solid #93c5fd;outline-offset:2px;border-radius:8px}
 #studySidebar .sidebar-course-group>[data-daily-nav]{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:11px;border:0;border-radius:11px;background:transparent;color:#0f172a;text-align:left;font:inherit;font-size:13px;font-weight:650;cursor:pointer}
 #studySidebar .sidebar-course-group>[data-daily-nav].active{background:#dbeafe;color:#1d4ed8}
+/* Keep the lesson usable on small laptops as well as wide desktops. */
+@media(min-width:981px) and (max-width:1199px){
+ html body .study-layout{grid-template-columns:218px minmax(0,1fr) 230px!important;column-gap:14px!important}
+}
+@media(min-width:981px){
+ #hskLesson .hsk-pro-bottom-nav{position:sticky!important;bottom:0!important;left:auto!important;right:auto!important;transform:none!important;width:100%!important;max-width:100%!important;box-sizing:border-box;margin-top:18px}
+}

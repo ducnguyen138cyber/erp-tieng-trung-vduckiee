@@ -13,8 +13,8 @@ test('Shadowing MVP script and app bootstrap remain parseable',()=>{
   new vm.Script(js);
   const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
   assert.ok(scripts.some(s=>s.includes('restoreStaticVDuckie')&&new vm.Script(s)));
-  assert.match(html,/hsk-shadowing-v1\.css\?v=3/);
-  assert.match(html,/hsk-shadowing-v1\.js\?v=3/);
+  assert.match(html,/hsk-shadowing-v1\.css\?v=polish1/);
+  assert.match(html,/hsk-shadowing-v1\.js\?v=polish1/);
   assert.match(entry,/data-shadow-open/);
   assert.match(css,/\.shadow-hanzi/);
 });

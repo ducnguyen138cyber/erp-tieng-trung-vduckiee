@@ -14,11 +14,11 @@ const shell = read("app-shell-v88.html");
 const sync = read("supabase-sync.js");
 
 test("Home is compact and every primary function opens a dedicated screen", () => {
-  assert.match(source, /Chỉ ba việc cần tập trung hôm nay/);
+  assert.match(read("assets/v86/home-dashboard-v86.5.js"), /1 VIỆC CHÍNH/);
   assert.match(source, /function isAppLayout\(\)/);
   assert.match(source, /max-width: 980px/);
   assert.match(source, /display-mode: standalone/);
-  assert.match(source, /if \(!isAppLayout\(\)\) \{/);
+  assert.match(source, /querySelectorAll\("\.daily-today"\)\.forEach/);
   assert.match(css, /\.app-screen\{height:calc\(100svh/);
   assert.match(source, /showPanel\(kind\)/);
   assert.match(source, /renderRoadmap\(\)/);
@@ -96,7 +96,7 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=factory2/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=polish1/);
   assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.9/);
 });
 
@@ -110,5 +110,5 @@ test("desktop browser restores the wide legacy shell while MSUTONG uses the avai
   assert.match(css, /body\[data-current-area="home"\] #homeHub>\.daily-today\.app-screen/);
   assert.doesNotMatch(css, /#homeHub>:not\(\.daily-today\)\{display:none/);
   assert.doesNotMatch(source, /hub\.innerHTML = .<section class="daily-today/);
-  assert.match(source, /hub\.insertAdjacentHTML\("afterbegin", todayMarkup\)/);
+  assert.doesNotMatch(source, /hub\.insertAdjacentHTML\("afterbegin", todayMarkup\)/);
 });

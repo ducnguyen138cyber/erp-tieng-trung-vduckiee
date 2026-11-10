@@ -193,7 +193,7 @@
   }
   function renderExam(){
     if(!paper)return;
-    var heading=t("HSK "+level+" · Đề "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套","HSK "+level+" · Paper "+paper.number);
+    var heading=t("HSK "+level+" · Bài luyện "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套","HSK "+level+" · Paper "+paper.number);
     var nav='<nav class="hsk-exam-section-nav" aria-label="Exam sections">'+
       paper.sections.map(function(section){
         return '<button type="button" data-practice-go="'+section+'">'+esc(sectionTitle(section))+
@@ -283,7 +283,7 @@
         '</td><td>'+part.points+'/100</td></tr>';
     }).join("");
     mount('<section class="hsk-practice-container">'+header(
-      t("Kết quả HSK "+level+" · Đề "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套成绩",
+      t("Kết quả HSK "+level+" · Bài luyện "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套成绩",
         "HSK "+level+" · Paper "+paper.number+" results"),
       t("Điểm mô phỏng chỉ để luyện tập, không phải chứng chỉ hoặc điểm HSK chính thức.",
         "成绩仅供练习参考，不代表官方 HSK 成绩。","Practice score only; not an official HSK result."))+
