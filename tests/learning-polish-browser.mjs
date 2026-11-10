@@ -30,6 +30,14 @@ try{
    assert(geometry.overflow<2,'page overflow '+JSON.stringify(geometry));
    assert(geometry.lesson.width>=(width>980?450:width-65),'lesson collapsed: '+JSON.stringify(geometry));
    if(width>980){assert(geometry.lesson.x>=geometry.main.x-2);assert(geometry.lesson.right<=geometry.rail.x,'lesson overlaps rail');}
+   if(width>980){
+    const nav=await page.locator('.hsk-pro-bottom-nav').boundingBox();
+    assert(nav.x>=geometry.main.x-2&&nav.x+nav.width<=geometry.main.right+2,'lesson navigation escaped its column');
+   }
+   await page.locator('[data-pro-next]').click();
+   await page.waitForFunction(n=>window.VDuckieHskProfessionalRuntime.getState().selectedLessonId===`hsk${n}-lesson-02`,level);
+   await page.locator('[data-pro-prev]').click();
+   await page.waitForFunction(n=>window.VDuckieHskProfessionalRuntime.getState().selectedLessonId===`hsk${n}-lesson-01`,level);
    report.push({width,level,...geometry});
    await page.screenshot({path:`${out}/${width}-hsk${level}.png`});
   }

@@ -20,5 +20,5 @@ body[data-current-area="hsk-study"] #v865HomeShell{display:none!important}
  html body .study-layout{grid-template-columns:218px minmax(0,1fr) 230px!important;column-gap:14px!important}
 }
 @media(min-width:981px){
- #hskLesson .hsk-pro-bottom-nav{position:sticky!important;bottom:0!important;left:auto!important;right:auto!important;transform:none!important;width:100%!important;max-width:100%!important;box-sizing:border-box;margin-top:18px}
+ #hsk #hskLesson .hsk-pro-bottom-nav{position:sticky!important;bottom:0!important;left:auto!important;right:auto!important;transform:none!important;width:100%!important;max-width:100%!important;box-sizing:border-box;margin-top:18px}
 }
