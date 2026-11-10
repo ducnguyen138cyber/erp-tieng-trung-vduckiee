@@ -109,23 +109,11 @@
 
   function renderToday() {
     var hub = document.getElementById("homeHub"); if (!hub) return;
-    var existingToday = hub.querySelector(".daily-today");
-    if (!isAppLayout()) {
-      if (existingToday) existingToday.remove();
-      return;
-    }
-    var lesson = currentLesson(), due = dueTerms().length, done = completedToday(), lessonDone = Object.keys(state.msutong.completed).length;
-    var todayMarkup = '<section class="daily-today app-screen" aria-label="Nhiệm vụ hôm nay"><header class="daily-heading"><div><span class="daily-task-kicker">HÔM NAY</span><h1>Mở, học, hoàn thành.</h1><p>Chỉ ba việc cần tập trung hôm nay.</p></div><span class="daily-date">' + new Date().toLocaleDateString("vi-VN", { weekday: "long", day: "2-digit", month: "2-digit" }) + '</span></header><div class="daily-grid">' +
-      task("primary", "GIÁO TRÌNH · " + (lesson && lesson.book === "beginner-2" ? "SƠ CẤP 2" : "SƠ CẤP 1"), lesson ? lesson.title : "Bài đầu tiên", lesson ? lesson.goal : "Bắt đầu lộ trình", lessonDone + "/" + lessons().length + " bài", lessons().length ? lessonDone / lessons().length * 100 : 0, "Tiếp tục", "msutong") +
-      task("", "CÔNG XƯỞNG · 5 TỪ MỚI", done + " / 5 hôm nay", "Dạy trước, luyện chữ, ghép cụm rồi mới kiểm tra.", done + "/5 từ", done * 20, "Học ngay", "daily") +
-      task("", "ÔN TẬP", due + " từ đến hạn", due ? "VDuckie ưu tiên đúng loại lỗi bạn từng mắc." : "Hiện chưa có từ nào đến hạn.", due ? due + " từ" : "Đã xong", due ? 18 : 100, due ? "Ôn ngay" : "Xem", "review") +
-      '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ công xưởng đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
-    // Never replace #homeHub: the complete home dashboard must remain accessible on phones/PWA.
-    // Repaint only the optional daily summary so home links and events survive sync.
-    if (existingToday) existingToday.outerHTML = todayMarkup;
-    else hub.insertAdjacentHTML("afterbegin", todayMarkup);
-    bindNav(hub);
+    // HomeDashboard owns the same daily focus on desktop, phone and PWA.
+    // Remove every legacy copy, including ones inserted before account sync.
+    hub.querySelectorAll(".daily-today").forEach(function(node){node.remove();});
   }
+
   function task(classes, kicker, title, copy, progress, width, action, kind) {
     return '<article class="daily-task ' + classes + '"><span class="daily-task-kicker">' + esc(kicker) + '</span><h2>' + esc(title) + '</h2><p>' + esc(copy) + '</p><div class="daily-task-progress"><span><b>Tiến độ</b><b>' + esc(progress) + '</b></span><div class="daily-bar"><i style="width:' + Math.min(100, width) + '%"></i></div><button class="daily-action" type="button" data-daily-nav="' + kind + '">' + esc(action) + ' →</button></div></article>';
   }
@@ -421,8 +409,18 @@
     if (status) status.textContent = matches.length + " kết quả" + (matches.length > shown.length ? " · đang hiện 50 kết quả đầu" : "");
     results.innerHTML = shown.length ? shown.map(function (record) {
       var term = record.term, isSaved = !!saved[term[0]];
-      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + (term[6] ? '<div class="dictionary-example"><strong>' + esc(term[6]) + '</strong>' + (term[7] ? '<span>' + esc(term[7]) + '</span>' : "") + '</div>' : "") + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
+      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + '<div class="dictionary-example" data-dictionary-example></div>'  + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
     }).join("") : '<div class="dictionary-empty"><strong>Không tìm thấy từ phù hợp.</strong><span>Thử chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt khác.</span></div>';
+    if(root.VDuckieLearningExamples)Array.from(results.querySelectorAll(".dictionary-card")).forEach(function(card,index){
+      var record=shown[index],term=record.term;
+      root.VDuckieLearningExamples.enhance(card.querySelector('[data-dictionary-example]'),term[0],term[6]&&term[7]?{zh:term[6],vi:term[7]}:null,function(entry){
+        if(!record.sources.some(function(source){return /ERP/.test(source);})){
+          term[4]='HSK '+entry.level+' · GF0025-2021';
+          card.querySelector('.dictionary-meta>span').textContent=term[4];
+        }
+        term[6]=entry.example.zh;term[7]=entry.example.vi;
+      });
+    });
     bindSpeak();
     results.querySelectorAll("[data-dictionary-save]").forEach(function (button) { button.onclick = function () { var record = all.find(function (item) { return item.term[0] === button.dataset.dictionarySave; }); if (record) { saveDictionaryWord(record); renderDictionaryResults(document.getElementById("dailyDictionarySearch").value); } }; });
   }

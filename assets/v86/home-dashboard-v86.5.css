@@ -4,7 +4,7 @@ html.v865-home-mode .study-layout{grid-template-columns:230px minmax(0,1fr)!impo
 .v865-today-focus{order:0;display:flex;align-items:center;justify-content:space-between;gap:22px;min-width:0;padding:24px 26px;background:linear-gradient(125deg,#eff6ff 0%,#ffffff 75%);border:1px solid #bfdbfe;border-radius:20px;box-shadow:0 9px 24px rgba(30,64,175,.06)}
 .v865-today-main{min-width:0;flex:1}
 .v865-today-kicker{display:inline-block;color:#2563eb;font-size:11px;font-weight:850;letter-spacing:.055em}
-.v865-today-focus h2{margin:7px 0 8px;color:#0f172a;font-size:clamp(21px,2.1vw,29px);line-height:1.22;letter-spacing:-.025em}
+.v865-today-focus :is(h1,h2){margin:7px 0 8px;color:#0f172a;font-size:clamp(21px,2.1vw,29px);line-height:1.22;letter-spacing:-.025em}
 .v865-today-focus p{margin:0;color:#475569;font-size:14px;line-height:1.6}
 .v865-today-steps{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .v865-today-steps span{background:#fff;border:1px solid #dbeafe;border-radius:999px;padding:5px 10px;font-size:11px;color:#475569;font-weight:650}
@@ -19,4 +19,29 @@ html.v865-home-mode .study-layout{grid-template-columns:230px minmax(0,1fr)!impo
 .v865-home-shell[data-first-visit="true"][data-discover-expanded="false"] #v865HomeRoadmap,
 .v865-home-shell[data-first-visit="true"][data-discover-expanded="false"] #v86PremiumLearning{display:none!important}
 @media(max-width:900px){.v865-today-focus{padding:19px;gap:14px}.v865-today-actions{min-width:165px}}
-@media(max-width:640px){.v865-today-focus{flex-direction:column;align-items:stretch;padding:17px;gap:16px;border-radius:16px}.v865-today-focus h2{font-size:23px}.v865-today-actions{grid-template-columns:1fr;min-width:0}.v865-today-actions button{width:100%}.v865-today-steps{gap:6px}.v865-today-steps span{font-size:10px}}
+@media(max-width:640px){.v865-today-focus{flex-direction:column;align-items:stretch;padding:17px;gap:16px;border-radius:16px}.v865-today-focus :is(h1,h2){font-size:23px}.v865-today-actions{grid-template-columns:1fr;min-width:0}.v865-today-actions button{width:100%}.v865-today-steps{gap:6px}.v865-today-steps span{font-size:10px}}
+
+/* One daily focus across desktop/mobile; all discovery remains available. */
+#homeHub .home-welcome-card,#homeHub .v865-continue-card,#homeHub .daily-today{display:none!important}
+#v865HomeMain>.home-overview-grid{grid-template-columns:minmax(0,1fr)!important}
+#v865HomeShell[data-discover-expanded="false"]{grid-template-columns:minmax(0,1fr)!important}
+#v865HomeShell[data-discover-expanded="false"] :is(.home-overview-grid,.home-recommended,#v865HomeRoadmap,#v85PersonalDashboard,#v86PremiumLearning,.vi-home-invite,#v865HomeSidebar){display:none!important}
+#homeHub .v865-today-focus{box-shadow:none;min-height:230px}
+#homeHub .v865-today-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+#homeHub .v865-today-links button{font:inherit;font-size:13px;font-weight:650;padding:10px 12px;min-height:44px;border:1px solid #dbeafe;border-radius:10px;background:#fff;color:#1e40af;cursor:pointer}
+#homeHub .v865-today-links button:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+#homeHub .vi-home-invite{padding:16px!important;background:#fff!important;margin:0!important}
+#homeHub .vi-home-invite img{display:none}
+#homeHub .vi-home-invite h2{font-size:18px!important}
+#homeHub .vi-home-invite p{font-size:13px!important}
+#homeHub .v865-red-cta{display:none!important}
+@media(max-width:980px){
+ #v865HomeShell,#v865HomeMain{display:grid!important;grid-template-columns:minmax(0,1fr)!important;min-width:0!important}
+ #v865HomeMain>#v865TodayFocus{display:flex!important}
+ #homeHub .v865-today-focus{flex-direction:column;align-items:stretch;min-height:0;padding:20px!important}
+ #homeHub .v865-today-links{gap:6px}
+ #homeHub .v865-today-links button{font-size:12px}
+}
+
+#homeHub #v865TodayFocus .v865-today-primary{background:#2563eb!important;color:#fff!important;border:1px solid #2563eb!important}
+#homeHub #v865TodayFocus .v865-today-primary:hover{background:#1d4ed8!important}

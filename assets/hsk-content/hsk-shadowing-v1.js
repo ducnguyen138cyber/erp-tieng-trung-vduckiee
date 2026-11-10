@@ -3,6 +3,7 @@
   "use strict";
   if(!root||!document)return;
   var key="vduckie-shadowing-v1",level=1,lines=[],index=0,recorder=null,chunks=[],recordUrl="",stream=null,startedAt=0,elapsed=null;
+  var playing=false,recording=false,micPending=false;
   var showPinyin=true,showVi=true,rate=0.85,token=0,group="all",mode="all",selectedId="",recordEpoch=0,repeats=1,soundEpoch=0,soundTimer=null;
   function el(id){return document.getElementById(id);}
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
@@ -11,8 +12,10 @@
   function persist(){try{
     var data=store(),entry=current();
     data[level]=Object.assign({},entry,{index:index,id:selectedId,group:group,mode:mode,rate:rate,showPinyin:showPinyin,showVi:showVi,repeats:repeats,updatedAt:Date.now()});
-    root.localStorage.setItem(key,JSON.stringify(data));
-  }catch(e){}}
+    data.lastLevel=level;root.localStorage.setItem(key,JSON.stringify(data));
+  }catch(e){}
+    writeUrl();
+  }
   function mark(kind,id){
     if(!id)return;
     try{var data=store(),entry=current(),saved=Object.assign({},entry[kind]||{});
@@ -37,15 +40,25 @@
       found.get(item.group).count++;
     });return [...found.values()];
   }
+  function syncControls(){
+    var audio=el("shadowRecording"),n=host();
+    if(audio)audio.hidden=!recordUrl;
+    if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    var clear=n.querySelector("[data-shadow-clear]"),stop=n.querySelector("[data-shadow-stop]"),record=n.querySelector("[data-shadow-record]");
+    if(clear)clear.hidden=!recordUrl;
+    if(stop)stop.disabled=!playing&&!recording;
+    if(record){record.disabled=recording||micPending;record.textContent=recording?"● Đang ghi âm…":micPending?"Đang mở micro…":"● Ghi âm";}
+  }
   function clearRecording(){
     recordEpoch++;
     if(recorder&&recorder.state==="recording"){recorder.onstop=null;recorder.stop();}
-    recorder=null;chunks=[];
+    recorder=null;chunks=[];recording=false;micPending=false;
     if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
     if(recordUrl){root.URL.revokeObjectURL(recordUrl);recordUrl="";}
     if(el("shadowRecording"))el("shadowRecording").removeAttribute("src");
+    syncControls();
   }
-  function stopSound(){soundEpoch++;if(soundTimer!==null){root.clearTimeout(soundTimer);soundTimer=null;}if(root.speechSynthesis)root.speechSynthesis.cancel();}
+  function stopSound(){playing=false;syncControls();soundEpoch++;if(soundTimer!==null){root.clearTimeout(soundTimer);soundTimer=null;}if(root.speechSynthesis)root.speechSynthesis.cancel();}
   function host(){return el("dailyLearningPanel");}
   function status(message){var n=el("shadowStatus");if(n)n.textContent=message;}
   function restore(items){
@@ -59,7 +72,17 @@
     try{root.localStorage.setItem(key,JSON.stringify(data));}catch(e){}
     return entry;
   }
-  function load(levelChoice){
+  function writeUrl(){
+    if(!root.location||!root.history)return;
+    var url=new URL(root.location.href);
+    if(url.searchParams.get("screen")!=="shadowing")return;
+    url.searchParams.set("shadowLevel",level);
+    url.searchParams.set("shadowGroup",group);
+    url.searchParams.set("shadowMode",mode);
+    if(selectedId)url.searchParams.set("shadowLine",selectedId);else url.searchParams.delete("shadowLine");
+    root.history.replaceState(root.history.state,"",url.pathname+url.search+url.hash);
+  }
+  function load(levelChoice,route){
     level=levelChoice;var my=++token;clearRecording();stopSound();
     var n=host();if(!n)return;
     n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
@@ -100,6 +123,15 @@
       showPinyin=saved.showPinyin!==false;showVi=saved.showVi!==false;repeats=saved.repeats===3?3:1;
       group=saved.group&&items.some(function(item){return item.group===saved.group;})?saved.group:"all";
       mode=["all","starred","weak"].includes(saved.mode)?saved.mode:"all";
+      if(route){
+        if(route.group&&items.some(function(item){return item.group===route.group;}))group=route.group;
+        if(["all","starred","weak"].includes(route.mode))mode=route.mode;
+        if(route.lessonId){
+          var first=items.find(function(item){return item.sourceLessonId===route.lessonId;});
+          if(first){group=first.group;mode="all";saved.id=first.id;}
+        }
+        if(route.line&&items.some(function(item){return item.id===route.line;}))saved.id=route.line;
+      }
       var options=visible();
       index=options.findIndex(function(item){return item.id===saved.id;});
       if(index<0)index=Math.max(0,Math.min(Number(saved.index)||0,options.length-1));
@@ -140,12 +172,12 @@
       '<button type="button" data-shadow-rate>◷ '+rate+'×</button>'+
       '<button type="button" data-shadow-repeat>Lặp: '+repeats+' lần</button>'+
       '<button type="button" data-shadow-record>● Ghi âm</button>'+
-      '<button type="button" data-shadow-stop>Dừng</button></div>'+
+      '<button type="button" data-shadow-stop disabled>Dừng</button></div>'+
       '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"'+
-        (recordUrl?' src="'+esc(recordUrl)+'"':'')+'></audio>'+
+        (recordUrl?' src="'+esc(recordUrl)+'"':' hidden')+'></audio>'+
       '<div class="shadow-toggles"><button type="button" data-shadow-pinyin>'+(showPinyin?"Ẩn":"Hiện")+
       ' Pinyin</button><button type="button" data-shadow-vi>'+(showVi?"Ẩn":"Hiện")+
-      ' nghĩa Việt</button><button type="button" data-shadow-clear>Xóa bản ghi</button></div>'+
+      ' nghĩa Việt</button><button type="button" data-shadow-clear hidden>Xóa bản ghi</button></div>'+
       '<div class="shadow-nav"><button type="button" data-shadow-prev '+(index===0?"disabled":"")+
       '>← Câu trước</button><button type="button" data-shadow-next '+(index===options.length-1?"disabled":"")+
       '>Câu tiếp →</button></div></article>';
@@ -159,6 +191,7 @@
       '<p id="shadowStatus" role="status" aria-live="polite">'+
       'Giọng mẫu dùng TTS thiết bị. Bản ghi chỉ lưu tạm trong phiên; dấu sao và câu cần ôn lưu trên trình duyệt.'+
       (level>1?' Pinyin và bản dịch bổ sung chưa được giáo viên duyệt.':'')+'</p></section>';
+    syncControls();
   }
   function choose(nextGroup,nextMode){
     if(nextGroup!==null)group=nextGroup;
@@ -175,8 +208,8 @@
       if(epoch!==soundEpoch)return;
       var u=new root.SpeechSynthesisUtterance(hanzi);u.lang="zh-CN";u.rate=rate;if(zh)u.voice=zh;
       u.onerror=function(){if(epoch===soundEpoch){stopSound();status("Không phát được mẫu, hãy kiểm tra giọng đọc trên thiết bị.");}};
-      u.onend=function(){if(epoch!==soundEpoch)return;if(--left>0)soundTimer=root.setTimeout(speak,650);else status("Đã phát xong câu mẫu.");};
-      root.speechSynthesis.speak(u);status("Đang phát mẫu "+(repeats-left+1)+"/"+repeats+" với tốc độ "+rate+"×.");
+      u.onend=function(){if(epoch!==soundEpoch)return;if(--left>0)soundTimer=root.setTimeout(speak,650);else {playing=false;syncControls();status("Đã phát xong câu mẫu.");}};
+      playing=true;syncControls();root.speechSynthesis.speak(u);status("Đang phát mẫu "+(repeats-left+1)+"/"+repeats+" với tốc độ "+rate+"×.");
     }
     speak();
   }
@@ -184,6 +217,7 @@
   async function record(){
     if(!root.MediaRecorder||!root.navigator||!root.navigator.mediaDevices||!root.navigator.mediaDevices.getUserMedia){status("Trình duyệt này chưa hỗ trợ ghi âm.");return;}
     stopSound();clearRecording();var expectedToken=token,expectedId=selectedId,expectedEpoch=recordEpoch;
+    micPending=true;syncControls();
     try{
       var acquired=await root.navigator.mediaDevices.getUserMedia({audio:true});
       if(expectedToken!==token||expectedId!==selectedId||expectedEpoch!==recordEpoch){acquired.getTracks().forEach(function(t){t.stop();});return;}
@@ -191,19 +225,20 @@
       recorder=new root.MediaRecorder(stream);chunks=[];var active=recorder;startedAt=Date.now();
       recorder.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
       recorder.onstop=function(){
-        var data=chunks.slice();if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+        recording=false;var data=chunks.slice();if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
         if(data.length&&active===recorder){recordUrl=root.URL.createObjectURL(new root.Blob(data,{type:active.mimeType||"audio/webm"}));var a=el("shadowRecording");if(a)a.src=recordUrl;status("Đã ghi âm. Bấm ▶ để nghe lại giọng mình.");}
+        syncControls();
       };
-      recorder.start();status("Đang ghi âm… Hãy nói theo câu mẫu.");
+      micPending=false;recording=true;recorder.start();syncControls();status("Đang ghi âm… Hãy nói theo câu mẫu.");
     }catch(e){if(expectedToken===token&&expectedId===selectedId&&expectedEpoch===recordEpoch){clearRecording();status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}}
   }
   function stopRecord(){if(recorder&&recorder.state==="recording")recorder.stop();else status("Đã dừng phát mẫu.");}
   function next(delta){var items=visible();if(!items.length)return;index=Math.max(0,Math.min(items.length-1,index+delta));selectedId=items[index].id;persist();stopSound();clearRecording();render();}
   document.addEventListener("click",function(ev){
     var b=ev.target&&ev.target.closest&&ev.target.closest("button");if(!b)return;
-    if(b.hasAttribute("data-shadow-open")){ev.preventDefault();open();return;}
+    if(b.hasAttribute("data-shadow-open")){ev.preventDefault();if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("shadowing");else open();return;}
     var n=host();if(!n||!n.contains(b)||!n.classList.contains("hsk-shadow-screen"))return;
-    if(b.hasAttribute("data-shadow-back")){++token;stopSound();clearRecording();if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
+    if(b.hasAttribute("data-shadow-back")){leave();if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("msutong");else if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
     if(b.hasAttribute("data-shadow-level")){load(Number(b.getAttribute("data-shadow-level")));return;}
     if(b.hasAttribute("data-shadow-mode")){choose(null,b.getAttribute("data-shadow-mode"));return;}
     if(b.hasAttribute("data-shadow-star")){mark("starred",selectedId);return;}
@@ -226,6 +261,15 @@
   });
   document.addEventListener("visibilitychange",function(){if(document.hidden){stopSound();clearRecording();}});
   root.addEventListener("pagehide",function(){++token;stopSound();clearRecording();});
-  function open(l){load([1,2,3].includes(Number(l))?Number(l):1);}
-  root.VDuckieShadowing=Object.freeze({open:open});
+  function leave(){++token;stopSound();clearRecording();}
+  function open(options){
+    if(typeof options==="number")options={level:options};
+    var params=root.location?new URLSearchParams(root.location.search):new URLSearchParams();
+    var routed=params.get("screen")==="shadowing";
+    var route=options||{level:routed?Number(params.get("shadowLevel")):0,group:routed?params.get("shadowGroup"):null,
+      mode:routed?params.get("shadowMode"):null,line:routed?params.get("shadowLine"):null};
+    var choice=Number(route.level)||Number(store().lastLevel)||1;
+    load([1,2,3].includes(choice)?choice:1,route);
+  }
+  root.VDuckieShadowing=Object.freeze({open:open,leave:leave});
 })(window,document);

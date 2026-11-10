@@ -8,3 +8,10 @@ body[data-current-area="hsk-study"] #v865HomeShell{display:none!important}
 
 /* Mobile dock must stay interactive, even if legacy HSK toolbar mounts late. */
 @media(max-width:760px){#mobileLearningDock{z-index:1800!important}body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hsk .hsk-pro-bottom-nav{display:none!important}}
+
+/* Native disclosure keeps all factory tools keyboard-accessible. */
+#studySidebar .sidebar-course-group{border-top:1px solid #e2e8f0;margin-top:10px;padding-top:8px}
+#studySidebar .sidebar-course-group>summary{cursor:pointer;color:#2563eb;padding:12px 6px;font-size:11px;font-weight:750;letter-spacing:.045em;line-height:1.5}
+#studySidebar .sidebar-course-group>summary:focus-visible{outline:3px solid #93c5fd;outline-offset:2px;border-radius:8px}
+#studySidebar .sidebar-course-group>[data-daily-nav]{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;padding:11px;border:0;border-radius:11px;background:transparent;color:#0f172a;text-align:left;font:inherit;font-size:13px;font-weight:650;cursor:pointer}
+#studySidebar .sidebar-course-group>[data-daily-nav].active{background:#dbeafe;color:#1d4ed8}

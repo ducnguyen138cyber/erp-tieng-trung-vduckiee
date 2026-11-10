@@ -41,3 +41,9 @@
 .hsk-shadow-screen .shadow-coverage,.hsk-shadow-screen .shadow-speaker{color:#64748b;font-size:13px;line-height:1.6}
 .hsk-shadow-screen .shadow-pinyin{overflow-wrap:anywhere}
 .hsk-shadow-screen *{box-sizing:border-box}
+
+.hsk-shadow-screen #shadowRecording[hidden],.hsk-shadow-screen [data-shadow-clear][hidden]{display:none!important}
+@media(min-width:981px){
+ body[data-screen-route="shadowing"] .study-layout>.study-center{grid-column:2 / 4!important}
+ body[data-screen-route="shadowing"] #studyRail{display:none!important}
+}
