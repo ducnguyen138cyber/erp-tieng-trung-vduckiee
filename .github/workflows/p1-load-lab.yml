@@ -7,6 +7,7 @@ on:
       - 'hsk-lessons.js'
       - 'service-worker.js'
       - 'tests/hsk-stroke-lazy-load.test.mjs'
+      - 'tests/p1-mobile-layout-failsafe.test.mjs'
       - 'tests/performance-low-end-lab.mjs'
       - 'tests/performance-compare.mjs'
       - '.github/workflows/p1-load-lab.yml'
@@ -26,6 +27,8 @@ jobs:
           node-version: '24'
       - name: Verify lazy stroke loader without network or mock content in production
         run: node --test tests/hsk-stroke-lazy-load.test.mjs
+      - name: Verify slow mobile layout guard and bounded fallback
+        run: node --test tests/p1-mobile-layout-failsafe.test.mjs
       - name: Install Playwright for isolated load audit
         run: npm install --no-save --package-lock=false playwright@1.58.2
       - name: Install Chromium
