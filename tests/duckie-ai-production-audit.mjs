@@ -29,7 +29,7 @@ const checks=[
  {id:'bargain',ask:'Mặc cả tiếng Trung là gì?',expect:['讨价还价','tǎo jià huán jià'],glossary:true},
  {id:'dinner',ask:'Ăn tối tiếng Trung là gì?',expect:['吃晚饭','chī wǎnfàn'],glossary:true},
  {id:'progressive',ask:'Giải thích cấu trúc 越来越',expect:['越来越','我越来越忙了'],referenceSource:'grammar-reference'},
- {id:'compare',ask:'努力 và 加油 khác nhau như thế nào?',expect:['努力','加油'],generated:true}
+ {id:'compare',ask:'努力 và 加油 khác nhau như thế nào?',expect:['努力','加油','nǔlì','jiāyóu'],generated:true}
 ];
 const report={timestamp:new Date().toISOString(),endpoint,headSha:process.env.DUCKIE_HEAD_SHA||null,
  target:candidate?'candidate-preview':'explicit-endpoint-or-production',scope:'5 bounded real guest prompts: 4 reference replies and 1 model comparison',

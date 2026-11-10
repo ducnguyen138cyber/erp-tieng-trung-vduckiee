@@ -177,3 +177,10 @@ test('exact progressive explanation uses reference without fabricated component 
  assert.match(r.body.reply,/Wǒ yuè lái yuè/);assert.match(r.body.reply,/Tôi ngày càng thích thành phố này/);
  assert.doesNotMatch(r.body.reply,/phải|lên đến/);
 });
+
+
+test('word comparisons require pronunciation rather than accepting Vietnamese-only examples',async()=>{
+ const r=await ask('努力 và 加油 khác nhau như thế nào?','努力 (nỗ lực) và 加油 (cố lên) khác nhau.');
+ assert.equal(r.status,422);assert.equal(r.calls.length,2);
+ assert.equal(r.body.reason,'missing-pinyin');
+});

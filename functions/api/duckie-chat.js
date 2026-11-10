@@ -15,7 +15,7 @@ function intent(s){
  const q=plain(s.trim());
  if(/^(dich:|dich nhanh|translate:)|dich sang tieng trung/.test(q))return "translate";
  if(/sua cau|cau nay co dung|co dung khong|kiem tra cau/.test(q))return "correct";
- if(/ngu phap|cau truc|su dung nhu the nao/.test(q))return "grammar";
+ if(/ngu phap|cau truc|su dung nhu the nao|khac nhau|phan biet/.test(q))return "grammar";
  if(/hoi thoai|dong vai|luyen giao tiep/.test(q))return "roleplay";
  if(/tieng trung|chu han|viet nhu|viet the|pinyin|汉字|中文/.test(q))return "vocab";
  return "general";
