@@ -131,7 +131,17 @@
   }
   function panel() {
     var node = document.getElementById("dailyLearningPanel");
-    if (!node) { node = document.createElement("section"); node.id = "dailyLearningPanel"; node.className = "panel daily-panel hidden"; var main = document.querySelector(".study-center > main"); if (main) main.insertBefore(node, main.firstChild); }
+    if (!node) {
+      node = document.createElement("section");
+      node.id = "dailyLearningPanel";
+      node.className = "panel daily-panel hidden";
+    }
+    // The home renderer nests #v865HomeMain inside the hidden #homeHub.
+    // Never choose an arbitrary descendant <main>: doing so puts lessons
+    // inside the hidden home and produces a zero-sized HSK page.
+    var target = document.querySelector(".study-center > main") ||
+      document.querySelector(".study-center");
+    if (target && node.parentNode !== target) target.insertBefore(node, target.firstChild);
     return node;
   }
   function hideLegacy() {

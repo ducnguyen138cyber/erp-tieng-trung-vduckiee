@@ -1633,7 +1633,7 @@ root.__ERP_V77_CANDIDATE_META__={count:pool.length,version:"77.1"};
   root.__VDUCKIE_DICTIONARY_V79_LOADING__=true;
   var count=5,tasks=[];
   for(var i=1;i<=count;i++)(function(index){
-    tasks.push(fetch("./assets/v79/unified-dictionary-v79.part"+index+".txt?v=79.1",{cache:"force-cache"}).then(function(response){
+    tasks.push(fetch("./assets/v79/unified-dictionary-v79.part"+index+".txt?v=79.2",{cache:"force-cache"}).then(function(response){
       if(!response.ok)throw new Error("Thiếu gói Từ điển v79 phần "+index);
       return response.text();
     }));

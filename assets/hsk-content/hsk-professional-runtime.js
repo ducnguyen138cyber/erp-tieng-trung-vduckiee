@@ -499,8 +499,14 @@
   }
 
   function writeUrl() {
-    if (root.document && root.document.body && root.document.body.getAttribute('data-screen-route') === 'games') return;
+    // Only the HSK learner owns HSK URL parameters. On Home, games and the
+    // graded HSK catalogue this read-only runtime may pre-render offscreen,
+    // but must not hijack the active route or cause the sidebar to reset.
+    var route = root.document && root.document.body && root.document.body.getAttribute('data-screen-route');
+    if (route && route !== 'hsk' && route !== 'hsk-study') return;
     if (!root.history || !root.location) return;
+    var requested = new URLSearchParams(root.location.search).get('screen');
+    if (requested && requested !== 'hsk' && requested !== 'hsk-study') return;
     try {
       var url = new URL(root.location.href);
       url.searchParams.set('area', 'hsk');
