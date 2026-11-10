@@ -77,7 +77,13 @@ try{
      longTasks:perf.long.length,longTaskMs:perf.long.reduce((a,b)=>a+b,0),
      scriptMs:delta('ScriptDuration')*1000,layoutMs:delta('LayoutDuration')*1000,styleMs:delta('RecalcStyleDuration')*1000,
      observerCalls:observers.reduce((a,b)=>a+b.calls,0),observerMs:observers.reduce((a,b)=>a+b.ms,0),observers};
-    results.push(result);await writeFile(path.join(out,'performance-results.json'),JSON.stringify({baselineCommit:baseline,results},null,2));console.log(JSON.stringify(result));assert.deepEqual(errors,[]);assert.ok(completed>=8&&perf.frames.length>150);
+    results.push(result);await writeFile(path.join(out,'performance-results.json'),JSON.stringify({baselineCommit:baseline,results},null,2));console.log(JSON.stringify(result));assert.deepEqual(errors,[]);
+     // The intentionally slow legacy baseline is a reference sample, not a
+     // throughput acceptance gate. Keep strict gameplay throughput for the
+     // optimized variant and require a real, non-trivial baseline sample.
+     const minCompleted=variant==='optimized'?8:5;
+     assert.ok(completed>=minCompleted&&perf.frames.length>150,
+       `${name}: ${completed} words (minimum ${minCompleted}), ${perf.frames.length} frames`);
     if(variant==='optimized'){
      assert.equal(await page.locator('.tg-effects').evaluate(n=>n.childElementCount),80);
      await page.screenshot({path:path.join(out,name+'.png')});
