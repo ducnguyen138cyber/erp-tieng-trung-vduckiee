@@ -40,22 +40,34 @@ test('explicit HSK learner and legacy HSK URL continue to update lesson deep lin
  }
 });
 
-function mount(available){
+function mount(directMain=false, existingInHiddenHome=false){
  let inserted=null;
- const node={id:'',className:''};
- const parent={insertBefore(child){inserted=child;}};
+ const hiddenHome={};
+ const node=existingInHiddenHome?{id:'dailyLearningPanel',className:'panel',parentNode:hiddenHome}:{id:'',className:''};
+ const parent={insertBefore(child){inserted=child;child.parentNode=this;}};
  const doc={
-  getElementById(){return null;},
-  createElement(tag){assert.equal(tag,'section');return node;},
-  querySelector(selector){return selector===available?parent:null;}
+  getElementById(id){return existingInHiddenHome&&id==='dailyLearningPanel'?node:null;},
+  createElement(tag){assert.ok(!existingInHiddenHome,'existing panel must be reused');assert.equal(tag,'section');return node;},
+  querySelector(selector){
+   if(selector==='.study-center > main')return directMain?parent:null;
+   if(selector==='.study-center')return parent;
+   if(selector==='.study-center main')throw new Error('must never mount inside hidden Home main');
+   return null;
+  }
  };
  const result=runInNewContext(panelSource+';panel();',{document:doc});
- return{result,node,inserted};
+ return{result,node,inserted,parent};
 }
-test('daily HSK panel mounts in direct, nested, or fallback study container',()=>{
- for(const selector of ['.study-center > main','.study-center main','.study-center']){
-  const result=mount(selector);
-  assert.equal(result.inserted,result.node,selector);
+test('daily HSK panel mounts in direct main or safe study center, never hidden Home main',()=>{
+ for(const directMain of [true,false]){
+  const result=mount(directMain);
+  assert.equal(result.inserted,result.node);
   assert.equal(result.node.id,'dailyLearningPanel');
  }
+});
+test('existing panel is rescued from hidden home without losing DOM identity',()=>{
+ const result=mount(false,true);
+ assert.equal(result.result,result.node);
+ assert.equal(result.inserted,result.node);
+ assert.equal(result.node.parentNode,result.parent);
 });
