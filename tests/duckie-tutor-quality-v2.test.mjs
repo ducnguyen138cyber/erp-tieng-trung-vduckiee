@@ -81,9 +81,9 @@ test('grammar 越来越 prompt contains corrected adjective and state-verb usage
  const r=await ask('Giải thích cấu trúc 越来越','越来越忙 (yuè lái yuè máng) — càng ngày càng bận.');
  assert.equal(r.status,200);
  const sys=r.calls[0].args.messages[0].content;
- assert.match(sys,/越来越忙/);
+ assert.match(sys,/我越来越忙了/);
  assert.match(sys,/tính từ/);
- assert.match(sys,/không.*chỉ dùng động từ/i);
+ assert.match(sys,/tính từ hoặc động từ tâm lý/);
 });
 test('eating vocabulary prompt forbids invented meal-time windows',async()=>{
  const r=await ask('Cho một ví dụ khác dùng từ ăn tối tiếng Trung','吃晚饭 (chī wǎnfàn) — ăn tối.');
@@ -151,13 +151,14 @@ test('curated lookup remains available without AI while generation reports missi
 });
 
 
-test('grammar guidance avoids blanket verb bans and meaning-changing corrections',async()=>{
- const r=await ask('Giải thích cấu trúc 越来越','越来越忙 (yuè lái yuè máng) — ngày càng bận.');
+test('grammar guidance supplies complete examples and avoids unrelated patterns',async()=>{
+ const r=await ask('Giải thích cấu trúc 越来越','越来越 (yuè lái yuè) — ngày càng.');
  assert.equal(r.status,200);
  const sys=r.calls[0].args.messages[0].content;
- assert.match(sys,/Không đưa ra lệnh cấm tuyệt đối/);
- assert.match(sys,/越跑越快/);
- assert.match(sys,/không sửa thành 越来越喜欢跑 vì đổi nghĩa/);
+ assert.match(sys,/我越来越忙了/);
+ assert.match(sys,/我越来越喜欢这个城市/);
+ assert.match(sys,/tránh phát biểu tuyệt đối/);
+ assert.match(sys,/Không mở rộng sang cấu trúc/);
 });
 test('curated examples do not append a second terminal punctuation mark',async()=>{
  for(const question of ['Mặc cả tiếng Trung là gì?','Ăn tối tiếng Trung là gì?']){
