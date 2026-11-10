@@ -30,7 +30,7 @@ test('new Duckie artwork owns all legacy home fallback images and favicon', () =
   assert.match(shell, /duckie-reader-icon-192\.png/);
   assert.doesNotMatch(shell, /<svg class="home-welcome-mascot vduckie-mascot"/);
   assert.match(shell, /<img class="home-welcome-mascot" src="\.\/assets\/mascot\/duckie-reader-2d-v2\.webp\?v=2\.0"/);
-  assert.match(worker, /vduckie-pwa-v50/);
+  assert.match(worker, /vduckie-pwa-v51/);
   assert.match(worker, /hsk-rail-stability-v1\.css\?v=1/);
 });
 
