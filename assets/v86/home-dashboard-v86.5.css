@@ -15,17 +15,20 @@ html.v865-home-mode .study-layout{grid-template-columns:230px minmax(0,1fr)!impo
 .v865-today-discover{border:1px solid #cbd5e1;background:#fff;color:#475569}
 .v865-today-discover:hover{background:#eff6ff}
 .v865-today-focus button:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}
-.v865-home-shell[data-first-visit="true"][data-discover-expanded="false"] .home-recommended,
-.v865-home-shell[data-first-visit="true"][data-discover-expanded="false"] #v865HomeRoadmap,
-.v865-home-shell[data-first-visit="true"][data-discover-expanded="false"] #v86PremiumLearning{display:none!important}
 @media(max-width:900px){.v865-today-focus{padding:19px;gap:14px}.v865-today-actions{min-width:165px}}
 @media(max-width:640px){.v865-today-focus{flex-direction:column;align-items:stretch;padding:17px;gap:16px;border-radius:16px}.v865-today-focus :is(h1,h2){font-size:23px}.v865-today-actions{grid-template-columns:1fr;min-width:0}.v865-today-actions button{width:100%}.v865-today-steps{gap:6px}.v865-today-steps span{font-size:10px}}
 
 /* One daily focus across desktop/mobile; all discovery remains available. */
 #homeHub .home-welcome-card,#homeHub .v865-continue-card,#homeHub .daily-today{display:none!important}
 #v865HomeMain>.home-overview-grid{grid-template-columns:minmax(0,1fr)!important}
-#v865HomeShell[data-discover-expanded="false"]{grid-template-columns:minmax(0,1fr)!important}
-#v865HomeShell[data-discover-expanded="false"] :is(.home-overview-grid,.home-recommended,#v865HomeRoadmap,#v85PersonalDashboard,#v86PremiumLearning,.vi-home-invite,#v865HomeSidebar){display:none!important}
+/* Discovery controls supplementary tools, never the main dashboard or right rail. */
+#v865HomeShell[data-discover-expanded="false"] :is(#v865HomeRoadmap,#v86PremiumLearning,.vi-home-invite){display:none!important}
+#homeHub #v85PersonalDashboard .v85-top{grid-template-columns:minmax(0,1fr)!important}
+@media(min-width:981px){
+ html.v865-home-mode .study-center{grid-column:2 / 4!important;width:100%!important}
+ #homeHub #v865HomeShell{grid-template-columns:minmax(0,1fr) clamp(230px,20vw,336px)!important}
+ #homeHub #v865HomeSidebar{display:grid!important;grid-template-columns:minmax(0,1fr)!important}
+}
 #homeHub .v865-today-focus{box-shadow:none;min-height:230px}
 #homeHub .v865-today-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 #homeHub .v865-today-links button{font:inherit;font-size:13px;font-weight:650;padding:10px 12px;min-height:44px;border:1px solid #dbeafe;border-radius:10px;background:#fff;color:#1e40af;cursor:pointer}

@@ -10,10 +10,11 @@ await new Promise(done=>server.listen(0,'127.0.0.1',done));
 const base=`http://127.0.0.1:${server.address().port}/`,report=[],browser=await chromium.launch();
 await mkdir(out,{recursive:true});
 try{
- for(const width of [1440,1280,1024,390,320]){
+ for(const width of [1920,1440,1280,1024,390,320]){
   const context=await browser.newContext({viewport:{width,height:950},serviceWorkers:'block'}),page=await context.newPage(),errors=[];
   page.on('pageerror',error=>errors.push(error.message));
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:'window.supabase={createClient(){const q=()=>new Proxy({},{get(o,k){if(k==="then")return ok=>Promise.resolve({data:[],error:null}).then(ok);return()=>q()}});return{auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}}'}));
+  await page.addInitScript(()=>localStorage.setItem('vduckie-home-discover-expanded-v1','0'));
   await page.goto(base+'?screen=hsk-study&hskLevel=3&hskLesson=hsk3-lesson-01');
   await page.locator('#hskLesson .hsk-focus-tabs').waitFor();
   await page.waitForFunction(()=>window.VDuckieScreenRouter?.current()==='hsk-study'&&window.__VDUCKIE_EXPERIENCE_V86_READY__);
@@ -63,7 +64,11 @@ try{
   await page.locator('#v865TodayFocus').waitFor();
   assert.equal(await page.locator('.daily-today').count(),0,'duplicate legacy mobile Home');
   assert.equal(await page.locator('#homeHub .home-welcome-card').isVisible(),false);
-  assert.equal(await page.locator('#v865HomeSidebar').isVisible(),false);
+  for(const selector of ['#v865HomeSidebar','.home-library-card','.home-recommended','#v85PersonalDashboard .v85-stats'])assert.equal(await page.locator(selector).isVisible(),true,selector+' must remain visible with the old collapsed preference');
+  if(width>980){
+   const main=await page.locator('#v865HomeMain').boundingBox(),side=await page.locator('#v865HomeSidebar').boundingBox();
+   assert(side.x>=main.x+main.width-1&&Math.abs(side.y-main.y)<4,'desktop Home must keep its right column');
+  }
   assert.equal(await page.locator('#v865TodayFocus .v865-today-primary:visible').count(),1);
   const primary=await page.locator('.v865-today-primary').evaluate(e=>getComputedStyle(e).backgroundColor);
   assert.equal(primary,'rgb(37, 99, 235)','primary learning action must stand out');
@@ -74,6 +79,9 @@ try{
   assert.equal((await page.locator('.resource-speaking').innerText()).replace(/\s+/g,' ').trim(),'224 Bài luyện HSK');
   await page.screenshot({path:`${out}/${width}-home-discover.png`});
   await page.locator('[data-v865-action="toggle-discover"]').click();
+  for(const selector of ['#v865HomeSidebar','.home-library-card','.home-recommended','#v85PersonalDashboard .v85-stats'])assert.equal(await page.locator(selector).isVisible(),true,selector+' vanished after collapsing supplementary tools');
+  await page.reload();await page.locator('#v865TodayFocus').waitFor();
+  assert.equal(await page.locator('#v865HomeSidebar').isVisible(),true,'right rail must survive reload while collapsed');
   await page.locator('#v865TodayFocus [data-daily-nav="dictionary"]').click();
   await page.locator('#dailyDictionarySearch').fill('努力');
   await page.locator('.dictionary-example strong').filter({hasText:'只要继续努力'}).waitFor();

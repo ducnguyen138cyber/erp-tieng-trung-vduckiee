@@ -27,11 +27,8 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   assert.equal(await page.locator('.v865-continue-card').isVisible(),false);
   const fit=await page.locator('#v865TodayFocus').evaluate(n=>{const r=n.getBoundingClientRect();return {left:r.left,right:r.right,viewport:innerWidth,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};});
   assert(fit.left>=-1&&fit.right<=fit.viewport+1&&fit.overflow<=1,'daily focus fits the viewport');
-  const expand=page.locator('[data-v865-action="toggle-discover"]');
-  if(await expand.getAttribute('aria-expanded')!=='true')await expand.click();
-  await page.locator('#v85PersonalDashboard .v85-stats').waitFor();
+  for(const selector of ['#v865HomeSidebar','.home-library-card','.home-recommended','#v85PersonalDashboard .v85-stats'])await page.locator(selector).waitFor();
   assert.equal(await page.locator('.v85-stat-grid>div').count(),4);
-  await expand.click();
  }
  await checkHomeStats();
  // Both independent renderers refresh on account/learning changes; neither may move or duplicate the card.

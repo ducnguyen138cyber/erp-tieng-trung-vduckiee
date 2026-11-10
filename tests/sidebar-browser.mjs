@@ -78,6 +78,8 @@ try {
     assert.match(await page.locator('#v865TodayHeading').innerText(), /Hôm nay/);
     assert.equal(await page.locator('#v865HomeShell').getAttribute('data-first-visit'), 'true');
     assert.equal(await page.locator('#v865HomeRoadmap').isVisible(), false);
+    assert.equal(await page.locator('#v865HomeSidebar').isVisible(), true);
+    assert.equal(await page.locator('.home-library-card').isVisible(), true);
     const shotDir=path.join(root,'artifacts','onboarding');
     await mkdir(shotDir,{recursive:true});
     await page.screenshot({path:path.join(shotDir,(authenticated?'member':'guest')+'-desktop.png'),fullPage:true});
