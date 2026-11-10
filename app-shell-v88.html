@@ -27,9 +27,14 @@
       var isHome=area!=="erp"&&area!=="hsk"&&root.location.hash!=="#hsk";
       html.classList.add("vduckie-layout-booting");
       if(isHome)html.classList.add("v865-home-mode");
+      // Only unmask a failed bootstrap as a last resort: under throttled
+      // mobile networks the real dashboard can take longer than five seconds.
+      // home-layout-stability-v87.3.js removes this guard as soon as the
+      // actual layout is stable; extending the failsafe does NOT delay
+      // successful boots, but avoids exposing a shifting interim grid.
       root.__VDUCKIE_LAYOUT_FAILSAFE__=root.setTimeout(function(){
         html.classList.remove("vduckie-layout-booting");
-      },5000);
+      },30000);
     })(window);
   </script>
   <style>
