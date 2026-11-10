@@ -66,11 +66,6 @@
    home composition. Paint the real HSK surface directly, not just descendants
    of .study-layout. This does not change answer content or lesson state. */
 @layer vduckie-brand {
-  /* Route visibility must win over legacy #hsk display declarations. */
-  #hsk.hidden,
-  #hskJourney.hidden,
-  #hskHero.hidden { display:none!important; }
-
   /* Consistent navigation/chrome colors regardless of DOM reparenting. */
   .study-sidebar .menu-icon,
   #studySidebar .menu-icon,
