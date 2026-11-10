@@ -89,7 +89,22 @@ try{for(const width of (observe?[1440]:[1440,390])){
   if(screen==='quiz'&&!live)await page.locator('#quizOptions button').first().click();
   await check('erp-'+screen);
  }}
- await open('msutong');await page.locator('.graded-hsk-page').waitFor();
+ await open('msutong');
+ try{await page.locator('.graded-hsk-page').waitFor();}
+ catch(error){
+  const diagnostic=await page.evaluate(()=>({
+   url:location.href,screen:window.VDuckieScreenRouter?.current(),
+   gradedRuntime:!!window.VDuckieGradedHSK,
+   dailyRuntime:!!window.VDuckieDailyLearning,
+   panel:document.getElementById('dailyLearningPanel')?.outerHTML.slice(0,1800),
+   homeClass:document.documentElement.className,
+   bodyArea:document.body.getAttribute('data-current-area'),
+   scripts:[...document.querySelectorAll('script[src]')].filter(s=>/graded-hsk-entry|screen-router|daily-learning/.test(s.src)).map(s=>s.src)
+  }));
+  console.log('GRADED_HSK_ROUTE_DIAGNOSTIC',JSON.stringify({diagnostic,errors,failed}));
+  await page.screenshot({path:`${outDir}/${width}-graded-hsk-timeout.png`});
+  throw error;
+ }
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
    await page.waitForFunction(()=>document.querySelector('.graded-hsk-card p')?.textContent.includes('课'));
