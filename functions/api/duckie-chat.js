@@ -70,7 +70,6 @@ function validate(reply,kind,fact){
  return null;
 }
 export async function onRequestPost({request,env}){
- if(!env?.AI||typeof env.AI.run!=="function")return json({error:"AI chưa được kích hoạt."},503);
  if(!(request.headers.get("content-type")||"").includes("application/json"))return json({error:"Yêu cầu phải là JSON."},415);
  if(Number(request.headers.get("content-length")||0)>18000)return json({error:"Hội thoại quá dài."},413);
  let body;try{body=await request.json()}catch{return json({error:"JSON không hợp lệ."},400)}
@@ -86,6 +85,7 @@ export async function onRequestPost({request,env}){
  if(messages.length===1&&fact&&kind==="vocab"&&exactGlossaryQuestion(last,fact))
   return json({reply:fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+".\nVí dụ: "+fact.example+".",
     source:"verified-glossary"});
+ if(!env?.AI||typeof env.AI.run!=="function")return json({error:"AI chưa được kích hoạt."},503);
  const hints=["Kiểu câu hỏi: "+kind+". Tùy loại câu hỏi chọn độ dài và bố cục phù hợp."];
  if(isContinuation)hints.push("Đây là câu hỏi TIẾP NỐI chủ đề trước: "+prev.content+". Không giải thích chữ 'viết' hoặc 'đọc' nếu người dùng đang hỏi cách viết/đọc từ trước.");
  if(fact)hints.push("Dữ liệu từ điển đã kiểm tra (chỉ dùng khi đúng ngữ cảnh): "+fact.hanzi+" ("+fact.pinyin+") — "+fact.meaning+"; "+fact.example+".");

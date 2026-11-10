@@ -23,3 +23,10 @@ Automated live checks now explicitly label nuanced grammar/cultural responses `p
 - Local targeted tests: **27/27 PASS**; JavaScript syntax PASS. Preview, live responses and updated browser/regression CI are pending at the time of this commit. No production deployment/merge is claimed.
 
 Limit: this remains a three-entry canonical glossary safeguard, not validation of every word, generated example or grammar explanation. Current HSK rules are not certified by this PR.
+
+
+### Preview finding and readiness
+
+Real candidate preview `https://118449d0.vduckie.pages.dev/api/duckie-chat` at `3adb1aa` returned 503 `AI chưa được kích hoạt` for all four checks. [Live run 42763383686](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/42763383686) correctly failed with **inconclusive=4**. Production results were not substituted.
+
+The follow-up allows the three exact curated lookups before the AI binding check (they do not invoke a model), while generation still explicitly requires Workers AI. Targeted tests **28/28 PASS**. See `docs/duckie-chat-setup.md` for the Preview-only binding and redeploy procedure. **BLOCKED for generated-answer acceptance until Preview AI is configured**; no claim that generated teaching has passed. Keep PR unmerged.

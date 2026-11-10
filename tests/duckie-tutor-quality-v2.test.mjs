@@ -136,3 +136,16 @@ test('JSON null is a client error rather than an unhandled server exception',asy
  const response=await onRequestPost({request,env:{AI:{run:async()=>{throw Error('must not run')}}}});
  assert.equal(response.status,400);
 });
+
+
+test('curated lookup remains available without AI while generation reports missing binding',async()=>{
+ for(const [question,status] of [['Viết tiếng Trung là gì?',200],['Giải thích cấu trúc 越来越',503]]){
+  const request=new Request('https://duckie.test/api/duckie-chat',{method:'POST',
+   headers:{'content-type':'application/json'},body:JSON.stringify({messages:[{role:'user',content:question}]})});
+  const response=await onRequestPost({request,env:{}});
+  assert.equal(response.status,status);
+  const body=await response.json();
+  if(status===200){assert.equal(body.source,'verified-glossary');assert.match(body.reply,/写 \(xiě\)/)}
+  else assert.match(body.error,/AI chưa được kích hoạt/);
+ }
+});
