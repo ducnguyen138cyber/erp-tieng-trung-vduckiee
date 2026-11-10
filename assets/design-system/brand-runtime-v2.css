@@ -61,3 +61,82 @@
  .study-layout .v86-adaptive:after{color:#dbeafe!important}
  .study-layout :where(.v86-kicker,.erp-curriculum-summary>div>span,.erp-module-head>div>span){color:#2563eb!important}
 }
+
+/* P1 regression: the legacy HSK <main> may be outside .study-center after
+   home composition. Paint the real HSK surface directly, not just descendants
+   of .study-layout. This does not change answer content or lesson state. */
+@layer vduckie-brand {
+  /* Consistent navigation/chrome colors regardless of DOM reparenting. */
+  .study-sidebar .menu-icon,
+  #studySidebar .menu-icon,
+  .home-heading-icon,
+  .v90-mission-reward {
+    color:#1e40af!important;background:#eff6ff!important;
+    background-image:none!important;border-color:#dbeafe!important;
+  }
+  .vsearch-header :where(input,span),
+  .vsearch-header input,
+  .vsearch-header .vsearch-icon,
+  .home-resource-tile span,
+  .home-course-label,
+  .home-recommended-heading>span,
+  .home-library-link,
+  .home-library-link span,
+  .hsk-full-flip-back-title,
+  .hsk-full-flip-back-detail {color:#334155!important}
+  .hsk-full-flip-cta {background:#dbeafe!important;color:#1e40af!important}
+  .v865-fire-orb {background:#eff6ff!important;background-image:none!important}
+
+  #hsk,
+  #hsk :where(.hsk-pro-section,.hsk-pro-lesson-head,.hsk-pro-exercise,.hsk-pro-objectives,.hsk-focus-word,.hsk-focus-details),
+  #hsk .hsk-pro-reading,
+  #hsk .hsk-pro-script,
+  #hsk .hsk-pro-stimulus,
+  #hsk .hsk-pro-note,
+  #hsk .hsk-pro-warning {
+    background:#fff!important;color:#111827!important;border-color:#e2e8f0!important;
+  }
+  #hsk :where(.hsk-pro-help,.hsk-pro-note,.hsk-focus-intro,.hsk-pro-list,.hsk-pro-questions,.hsk-focus-details,
+                .hsk-focus-section-head span,.hsk-pro-lesson-head small,.hsk-pro-bottom-nav span,
+                .hsk-pro-exercise li,.hsk-pro-reading p,.hsk-pro-warning p) {
+    color:#475569!important;
+  }
+  #hsk :where(.hsk-pro-list li,.hsk-pro-questions li,.hsk-focus-details p,.hsk-pro-section p,
+              .hsk-pro-section b,.hsk-pro-section strong,.hsk-pro-section code) {color:#334155!important}
+  #hsk :where(.hsk-focus-tabs,.hsk-pro-audio-state,.hsk-pro-tokens span,.hsk-focus-start-quiz,
+              .hsk-pro-assessment-link,.hsk-pro-lesson-link>span,.hsk-level.locked,
+              .hsk-focus-section-head,.hsk-focus-word-title>span) {
+    background:#eff6ff!important;color:#334155!important;border-color:#dbeafe!important;
+    background-image:none!important;
+  }
+  #hsk :where(.hsk-pro-lesson-link,.hsk-level,.hsk-pro-inline-button,.hsk-pro-answer-input,
+              .hsk-focus-tabs button:not(.active),.hsk-pro-bottom-nav button) {
+    background:#fff!important;color:#111827!important;border-color:#dbeafe!important;
+  }
+  #hsk :where(.hsk-pro-lesson-link span,.hsk-pro-lesson-link b) {
+    color:#111827!important;background:#eff6ff!important;
+  }
+  #hsk :where(.hsk-focus-tabs button.active,.hsk-focus-reveal,.hsk-focus-start-quiz,
+              .hsk-pro-assessment-link.major,.hsk-level.locked,.hsk-pro-inline-button[data-pro-speak]) {
+    background:#dbeafe!important;background-image:none!important;
+    color:#1e40af!important;border-color:#bfdbfe!important;
+  }
+  #hsk :where(.hsk-pro-grammar code,.hsk-pro-script code) {background:#eff6ff!important;color:#1e40af!important}
+  #hsk :where(.hsk-pro-feedback.good,.hsk-pro-correct) {color:#047857!important;background:#ecfdf5!important}
+  #hsk :where(.hsk-pro-feedback.bad,.hsk-pro-incorrect) {color:#b91c1c!important;background:#fef2f2!important}
+
+  .study-rail :where(.hsk-pro-lesson-link,.hsk-level.locked,.hsk-pro-assessment-link.major) {
+    background:#eff6ff!important;color:#111827!important;border-color:#dbeafe!important;
+  }
+  .study-rail :where(.hsk-pro-lesson-link b,.hsk-pro-lesson-link span) {color:#111827!important;background:#eff6ff!important}
+  .study-rail .hsk-level.locked {background:#f1f5f9!important;color:#64748b!important}
+
+  .dictionary-screen :where(.dictionary-word strong,.dictionary-example strong,
+                           .dictionary-card strong,.dictionary-word p,.dictionary-example span) {
+    background:#eff6ff!important;color:#111827!important;
+  }
+  .duckie-chat-panel :where(.duckie-chat-messages,.dc-greeting,.duckie-chat-suggestions,
+                            .duckie-chat-form,.duckie-chat-utility,.duckie-chat-utility button,small) {
+    color:#334155!important;
+  }
+}

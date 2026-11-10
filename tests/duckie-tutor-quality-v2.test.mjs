@@ -99,3 +99,40 @@ test('exact known vocabulary answers use checked text, not generative examples',
   assert.match(r.body.reply,/Ví dụ:/);
  }
 });
+
+
+test('a correct syllable elsewhere cannot mask a wrong Hanzi/Pinyin pair',async()=>{
+ for(const answer of ['写 (xiè) — viết. 写信 (xiě xìn) — viết thư.',
+  '写 (xiě) — viết. Nhắc lại: 写 (xiè).', '写 là viết. 谢 (xiě).']){
+  const r=await ask('Cho ví dụ khác với từ viết tiếng Trung',answer);
+  assert.equal(r.status,422,answer);assert.equal(r.calls.length,2);
+  assert.equal(r.body.reason,'wrong-verified-pinyin');
+ }
+});
+test('canonical pairs accept markdown, fullwidth parentheses, spacing and decomposed accents',async()=>{
+ for(const answer of ['**写**（xiě）— viết', '写 (xiě) — viết'.normalize('NFD')]){
+  const r=await ask('Cho ví dụ khác với từ viết tiếng Trung',answer);
+  assert.equal(r.status,200);assert.equal(r.calls.length,1);
+ }
+ const r=await ask('Cho ví dụ với ăn tối tiếng Trung','吃晚饭 (chī wǎn fàn) — ăn tối');
+ assert.equal(r.status,200);assert.equal(r.calls.length,1);
+});
+test('an explicit vocabulary question changes topic after a previous word',async()=>{
+ const messages=[{role:'user',content:'Ăn tối tiếng Trung là gì?'},
+  {role:'assistant',content:'吃晚饭 (chī wǎnfàn) — ăn tối'},
+  {role:'user',content:'Viết tiếng Trung là gì?'}];
+ const r=await ask('', '写 (xiě) — viết',messages);
+ assert.equal(r.status,200);assert.doesNotMatch(r.calls[0].args.messages[0].content,/TIẾP NỐI/);
+});
+test('grammar and correction responses retry missing Pinyin',async()=>{
+ for(const prompt of ['Giải thích cấu trúc 越来越','我昨天去学校了 có đúng không?']){
+  const r=await ask(prompt,'越来越忙 — càng ngày càng bận');
+  assert.equal(r.status,422);assert.equal(r.calls.length,2);assert.equal(r.body.reason,'missing-pinyin');
+ }
+});
+test('JSON null is a client error rather than an unhandled server exception',async()=>{
+ const request=new Request('https://duckie.test/api/duckie-chat',{method:'POST',
+  headers:{'content-type':'application/json'},body:'null'});
+ const response=await onRequestPost({request,env:{AI:{run:async()=>{throw Error('must not run')}}}});
+ assert.equal(response.status,400);
+});

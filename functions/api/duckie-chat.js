@@ -20,7 +20,7 @@ function intent(s){
  if(/tieng trung|chu han|viet nhu|viet the|pinyin|汉字|中文/.test(q))return "vocab";
  return "general";
 }
-function followup(s){return s.trim().length<85&&/^(?:thế|vậy|còn|nó|từ này|câu này|từ đó|cái đó|đó)?[\s,!?]*(?:viết|đọc|phát âm|phiên âm|pinyin|nghĩa|dùng|ví dụ|đặt câu|cách viết|cách đọc)\b/i.test(s.trim())}
+function followup(s){return !/tiếng trung|中文|汉字|chữ hán/i.test(s)&&s.trim().length<85&&/^(?:thế|vậy|còn|nó|từ này|câu này|từ đó|cái đó|đó)?[\s,!?]*(?:viết|đọc|phát âm|phiên âm|pinyin|nghĩa|dùng|ví dụ|đặt câu|cách viết|cách đọc)\b/i.test(s.trim())}
 function lookup(s){const q=plain(s);if(!/tieng trung|viet|dich|chu han/.test(q))return null;const matches=GLOSSARY.flatMap(entry=>entry.keys.map(key=>({entry,key:plain(key)}))).filter(item=>q.includes(item.key)).sort((a,b)=>b.key.length-a.key.length);return matches[0]?.entry||null}
 function exactGlossaryQuestion(text,entry){
  if(!entry)return false;
@@ -31,6 +31,24 @@ function exactGlossaryQuestion(text,entry){
     q==="cum tu "+word+" tieng trung la gi";
  });
 }
+// Compare the pronunciation attached to the target word, not an unrelated
+// correct syllable elsewhere. NFC and syllable spacing are presentation details.
+function canonicalPinyin(s){return s.normalize("NFC").toLowerCase().replace(/[\s’'·]/g,"")}
+function hasPinyin(reply){
+ const text=reply.normalize("NFC").replace(/[*_`]/g,"");
+ // Vietnamese prose also contains á/à/è: inspect labelled or parenthesized
+ // pronunciation instead of accepting an accent anywhere in the answer.
+ return [...text.matchAll(/[（(]([^()（）\n]+)[）)]|(?:pinyin|phiên âm)\s*:\s*([^\n]+)/giu)]
+  .some(match=>{const value=(match[1]||match[2]).trim();
+   return /^[a-züāáǎàēéěèīíǐìōóǒòūúǔùǖǘǚǜ\s’'·,，.!?。！？;:—-]+$/iu.test(value)&&TONE.test(value);
+  });
+}
+function verifiedPair(reply,fact){
+ const text=reply.normalize("NFC").replace(/[*_`]/g,"");
+ const pairs=[...text.matchAll(/([\u3400-\u9fff]+)\s*[（(]([^()（）\n]+)[）)]/gu)]
+  .filter(match=>match[1]===fact.hanzi);
+ return pairs.length>0&&pairs.every(match=>canonicalPinyin(match[2])===canonicalPinyin(fact.pinyin));
+}
 function unpack(r){return typeof r?.response==="string"?r.response:typeof r?.result?.response==="string"?r.result.response:typeof r?.choices?.[0]?.message?.content==="string"?r.choices[0].message.content:""}
 function validate(reply,kind,fact){
  if(!reply||!reply.trim())return "empty";
@@ -39,14 +57,14 @@ function validate(reply,kind,fact){
  // accent check cannot catch wrong tones, e.g. 写 (xiè) instead of 写 (xiě).
  if(fact&&kind==="vocab"){
   if(!reply.includes(fact.hanzi))return "wrong-verified-word";
-  if(!reply.toLocaleLowerCase().includes(fact.pinyin.toLocaleLowerCase()))return "wrong-verified-pinyin";
+  if(!verifiedPair(reply,fact))return "wrong-verified-pinyin";
  }
  // Admitting uncertainty is safer than forcing the model to fabricate Hanzi.
  // This exception does not override the verified dictionary check above.
  if(!HANZI.test(reply)&&/^(?:mình |tôi )?(?:chưa xác định|không thể xác định|chưa chắc)/i.test(reply))return null;
  if(["vocab","translate","grammar","correct"].includes(kind)){
   if(!HANZI.test(reply))return "missing-hanzi";
-  if(["vocab","translate"].includes(kind)&&!TONE.test(reply)&&!/không chắc|chưa xác định/i.test(reply))return "missing-pinyin";
+  if(["vocab","translate","grammar","correct"].includes(kind)&&!hasPinyin(reply)&&!/không chắc|chưa xác định/i.test(reply))return "missing-pinyin";
  }
  if(/[,;，：:(（]\s*$/.test(reply))return "truncated";
  return null;
@@ -56,7 +74,7 @@ export async function onRequestPost({request,env}){
  if(!(request.headers.get("content-type")||"").includes("application/json"))return json({error:"Yêu cầu phải là JSON."},415);
  if(Number(request.headers.get("content-length")||0)>18000)return json({error:"Hội thoại quá dài."},413);
  let body;try{body=await request.json()}catch{return json({error:"JSON không hợp lệ."},400)}
- if(!Array.isArray(body.messages)||!body.messages.length||body.messages.length>12)return json({error:"Hội thoại phải có 1–12 tin."},400);
+ if(!body||!Array.isArray(body.messages)||!body.messages.length||body.messages.length>12)return json({error:"Hội thoại phải có 1–12 tin."},400);
  const messages=body.messages.map(x=>({role:x?.role,content:x?.content}));
  if(messages.some(x=>!["user","assistant"].includes(x.role)||typeof x.content!=="string"||!x.content.trim()||x.content.length>1600)||messages.at(-1).role!=="user")return json({error:"Tin nhắn không hợp lệ."},400);
  const last=messages.at(-1).content,prev=messages.slice(0,-1).reverse().find(x=>x.role==="user");

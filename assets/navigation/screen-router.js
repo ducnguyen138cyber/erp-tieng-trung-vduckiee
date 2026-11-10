@@ -224,6 +224,17 @@
           if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor("games"));
           return;
         }
+        if (current === "msutong") {
+          // A late legacy HSK mount can reselect the old area after the
+          // catalogue has mounted. The explicit screen route stays authoritative.
+          viewIds.forEach(function(id){if(id!=="dailyLearningPanel")hide(id);});
+          var gradedPanel=document.getElementById("dailyLearningPanel");
+          if(gradedPanel&&gradedPanel.classList.contains("hidden"))gradedPanel.classList.remove("hidden");
+          if(document.body.getAttribute("data-current-area")!=="msutong")document.body.setAttribute("data-current-area","msutong");
+          if(new URLSearchParams(root.location.search).has("area")||root.location.hash==="#hsk")
+            root.history.replaceState(root.history.state,"",urlFor("msutong"));
+          return;
+        }
         if (current.indexOf("erp:") !== 0) return;
         var destination = document.getElementById(current.slice(4));
         if (destination && destination.classList.contains("hidden")) destination.classList.remove("hidden");
@@ -232,6 +243,8 @@
       });
     });
     main.__vduckieScreenObserver.observe(main,{subtree:true,attributes:true,attributeFilter:["class"],childList:true});
+    // Legacy area switches also change the body without touching the main DOM.
+    main.__vduckieScreenObserver.observe(document.body,{attributes:true,attributeFilter:["data-current-area"]});
   }
   function init() {
     // Route after the legacy modules have mounted their dynamically inserted screens.

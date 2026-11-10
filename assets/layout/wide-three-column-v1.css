@@ -19,3 +19,7 @@
 @media(min-width:981px) and (max-width:1199px){
  html body .shell#appShell{width:calc(100% - 28px)!important;max-width:none!important}
 }
+
+/* Keep the legacy HSK panel truly hidden on non-HSK routes. This is
+   layout/visibility ownership, intentionally outside paint-only brand CSS. */
+#hsk.hidden,#hskJourney.hidden,#hskHero.hidden{display:none!important}

@@ -20,15 +20,21 @@
 
   function createPage() {
     var center = document.querySelector(".study-center");
-    var main = center && center.querySelector("main");
-    if (!center || !main) return;
+    if (!center) return;
 
     dictionaryHero = document.createElement("section");
     dictionaryHero.id = "dictionaryHero";
     dictionaryHero.className = "hero dictionary-hero hidden";
     dictionaryHero.innerHTML = '<div><p class="eyebrow">TỪ ĐIỂN CHUNG · HSK + ERP</p><h1>Hơn 10.000 từ để tra cứu.</h1><p class="copy">Tìm chữ Hán, phồn thể, Pinyin và nghĩa tiếng Việt. Từ trùng giữa HSK và ERP chỉ có một bản ghi nhưng vẫn giữ đủ nhãn nguồn.</p></div>';
     var hskHero = byId("hskHero");
-    center.insertBefore(dictionaryHero, hskHero ? hskHero.nextSibling : main);
+    // The home dashboard now includes its own nested <main>. A sibling from
+    // that subtree is not a valid insertBefore reference for .study-center.
+    // Use only a direct child of center; otherwise append the hero safely.
+    var directMain = Array.prototype.find.call(center.children, function(child) {
+      return child.tagName === "MAIN";
+    });
+    var anchor = hskHero && hskHero.parentNode === center ? hskHero.nextSibling : directMain || null;
+    center.insertBefore(dictionaryHero, anchor);
 
     dictionaryPage = document.createElement("section");
     dictionaryPage.id = "unifiedDictionary";
@@ -50,7 +56,9 @@
       '<div class="dictionary-results" id="dictionaryResults" aria-live="polite"></div>' +
       '<div class="dictionary-more-row"><button class="muted hidden" id="dictionaryMore" type="button">Hiển thị thêm</button></div>' +
       '<p class="dictionary-attribution">Từ vựng theo chuẩn GF0025-2021/HSK 3.0. Nghĩa tiếng Việt tham khảo từ CVDICT của Phong Phan, giấy phép CC BY-SA 4.0.</p>';
-    main.appendChild(dictionaryPage);
+    // The dictionary must be a live route sibling, never mounted inside the
+    // hidden Home main (which would yield a zero-sized page).
+    center.appendChild(dictionaryPage);
   }
 
   function createFilterButton(value, label, active, attribute) {

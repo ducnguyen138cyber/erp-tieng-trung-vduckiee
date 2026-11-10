@@ -89,7 +89,33 @@ try{for(const width of (observe?[1440]:[1440,390])){
   if(screen==='quiz'&&!live)await page.locator('#quizOptions button').first().click();
   await check('erp-'+screen);
  }}
- await open('msutong');await page.locator('.graded-hsk-page').waitFor();
+ await open('msutong');
+ try{await page.locator('.graded-hsk-page').waitFor();}
+ catch(error){
+  const diagnostic=await page.evaluate(()=>({
+   url:location.href,screen:window.VDuckieScreenRouter?.current(),
+   gradedRuntime:!!window.VDuckieGradedHSK,
+   dailyRuntime:!!window.VDuckieDailyLearning,
+   panel:document.getElementById('dailyLearningPanel')?.outerHTML.slice(0,1800),
+   visibilityChain:(()=>{
+     const nodes=[],target=document.querySelector('.graded-hsk-page');let n=target;
+     while(n&&nodes.length<12){
+       const css=getComputedStyle(n),rect=n.getBoundingClientRect();
+       nodes.push({tag:n.tagName,id:n.id,cls:n.className,display:css.display,visibility:css.visibility,
+         opacity:css.opacity,position:css.position,width:Math.round(rect.width),height:Math.round(rect.height),
+         hidden:n.hidden,ariaHidden:n.getAttribute('aria-hidden')});
+       n=n.parentElement;
+     }
+     return nodes;
+   })(),
+   homeClass:document.documentElement.className,
+   bodyArea:document.body.getAttribute('data-current-area'),
+   scripts:[...document.querySelectorAll('script[src]')].filter(s=>/graded-hsk-entry|screen-router|daily-learning/.test(s.src)).map(s=>s.src)
+  }));
+  console.log('GRADED_HSK_ROUTE_DIAGNOSTIC',JSON.stringify({diagnostic,errors,failed}));
+  await page.screenshot({path:`${outDir}/${width}-graded-hsk-timeout.png`});
+  throw error;
+ }
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
    await page.waitForFunction(()=>document.querySelector('.graded-hsk-card p')?.textContent.includes('课'));
@@ -138,7 +164,40 @@ try{for(const width of (observe?[1440]:[1440,390])){
  await page.getByRole('button',{name:'Học HSK 1 →',exact:true}).click();await page.locator('.hsk-focus-tabs').waitFor();
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
-   await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '));
+   try {
+     await page.waitForFunction(()=>document.querySelector('.hsk-focus-word-title > span')?.textContent.startsWith('单词 '),null,{timeout:8000});
+   } catch(error) {
+     console.log('HSK_I18N_DIAGNOSTIC',JSON.stringify(await page.evaluate(()=>({
+       lang:document.documentElement.lang,selectedLang:window.VDuckieInterfaceI18n?.getLanguage(),
+       currentScreen:window.VDuckieScreenRouter?.current(),url:location.href,
+       titleText:document.querySelector('.hsk-focus-word-title > span')?.textContent,
+       titleCount:document.querySelectorAll('.hsk-focus-word-title > span').length,
+       intro:document.querySelector('.hsk-focus-intro')?.textContent,
+       tabTexts:[...document.querySelectorAll('.hsk-focus-tabs button')].map(e=>e.textContent),
+       hskState:window.VDuckieHskProfessionalRuntime?.getState(),
+       translations:{
+         title:window.VDuckieInterfaceI18n?.translateUI('TỪ 1 / 6'),
+         intro:window.VDuckieInterfaceI18n?.translateUI('Nghe → đoán nghĩa → xem ví dụ → thử nhớ lại.')
+       },
+       hskSample:document.getElementById('hskLesson')?.outerHTML.slice(0,1800),
+       wordAncestry:(()=>{const e=document.querySelector('.hsk-focus-word-title>span');return e&&{
+         underStudyCenter:!!e.closest('.study-center'),underHskLesson:!!e.closest('#hskLesson'),
+         underExcluded:!!e.closest('.tg-overlay,#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults'),
+         underNoTranslate:!!e.closest('[translate="no"]'),
+         outerAncestry:[...function*(){for(let n=e,i=0;n&&i<10;n=n.parentElement,i++)yield {name:n.tagName,id:n.id,cls:n.className};}()]
+       }})(),
+       manualRefreshResult:(()=>{
+         const before=document.querySelector('.hsk-focus-word-title>span')?.textContent;
+         window.VDuckieInterfaceI18n?.refresh();
+         const afterRefresh=document.querySelector('.hsk-focus-word-title>span')?.textContent;
+         window.VDuckieInterfaceI18n?.localizeSubtree(document.getElementById('hskLesson'));
+         const afterSubtree=document.querySelector('.hsk-focus-word-title>span')?.textContent;
+         return {before,afterRefresh,afterSubtree};
+       })()
+     }))));
+     await page.screenshot({path:`${outDir}/${width}-hsk-i18n-failure.png`});
+     throw error;
+   }
    assert.equal((await page.locator('.hsk-focus-intro').first().textContent()).trim(),'听发音 → 猜意思 → 看例句 → 回忆。');
    assert.deepEqual(await page.locator('.hsk-focus-tabs button').allTextContents(),['1 · 生词','2 · 听读','3 · 练习','4 · 补充知识']);
    const prePaint=await page.evaluate(async()=>{
