@@ -26,7 +26,7 @@
     return null;
   }
   function valid(screen) {
-    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games","game-ranking","vietnamese","shadowing"].indexOf(screen) !== -1 ||
+    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games","game-ranking","matching","vietnamese","shadowing"].indexOf(screen) !== -1 ||
       (screen.indexOf("erp:") === 0 && erpViews.indexOf(screen.slice(4)) !== -1);
   }
   function fromLocation() {
@@ -51,9 +51,9 @@
       var gameFilters = root.VDuckieGameRanking.filters();
       Object.keys(gameFilters).forEach(function(key){url.searchParams.set("gr_"+key,gameFilters[key]);});
     }
-    if (screen !== "game-ranking") ["gr_game","gr_level","gr_mode","gr_prompt","gr_topic","gr_period"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen !== "game-ranking") ["gr_game","gr_level","gr_mode","gr_prompt","gr_topic","gr_period","gr_pool","gr_pairs","gr_hint"].forEach(function(key){url.searchParams.delete(key);});
     if (screen !== "vietnamese") ["viUnit","viTab"].forEach(function(key){url.searchParams.delete(key);});
-    if (screen === "games" || screen === "game-ranking" || screen === "vietnamese" || screen === "shadowing") ["hskLevel","hskLesson","hskView","hskTab","hskAssessment"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen === "games" || screen === "game-ranking" || screen === "matching" || screen === "vietnamese" || screen === "shadowing") ["hskLevel","hskLesson","hskView","hskTab","hskAssessment"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
     return url.pathname + url.search + url.hash;
   }
@@ -63,7 +63,7 @@
       button.classList.remove("active"); button.removeAttribute("aria-current");
     });
     var selector = screen === "home" ? "#studySidebar [data-home]" :
-      screen === "game-ranking" ? '#studySidebar [data-daily-nav="games"]' :
+      (screen === "game-ranking" || screen === "matching") ? '#studySidebar [data-daily-nav="games"]' :
       screen === "ranking" ? '#studySidebar [data-exp-nav="ranking"]' :
       screen === "roadmap" ? '#studySidebar [data-daily-nav="msutong"]' :
       screen === "hsk-study" ? '#studySidebar [data-daily-nav="msutong"]' :
@@ -102,6 +102,8 @@
     if (screen !== "games" && root.VDuckieGames) root.VDuckieGames.leave();
     if (screen === "vietnamese" && root.VDuckieVietnamese) {
       root.VDuckieVietnamese.open();
+    } else if (screen === "matching" && root.VDuckieGames) {
+      root.VDuckieGames.openMatching();
     } else if (screen === "game-ranking" && root.VDuckieGames) {
       root.VDuckieGames.openRanking();
     } else if (screen === "games" && root.VDuckieGames) {
@@ -136,7 +138,7 @@
     if (screen === "vietnamese") {
       viewIds.forEach(function (id) { if (id !== "vietnameseScreen") hide(id); });
       document.documentElement.classList.remove("v865-home-mode");
-    } else if (screen === "games" || screen === "game-ranking") {
+    } else if (screen === "games" || screen === "game-ranking" || screen === "matching") {
       viewIds.forEach(function (id) { if (id !== "gamesScreen") hide(id); });
       document.documentElement.classList.remove("v865-home-mode");
     } else if (screen === "roadmap") {
@@ -166,7 +168,7 @@
       if (node && !hskScreen) node.classList.add("hidden");
     });
     if (screen !== "roadmap") hide("hskRoadmapScreen");
-    if (screen !== "games" && screen !== "game-ranking") hide("gamesScreen");
+    if (screen !== "games" && screen !== "game-ranking" && screen !== "matching") hide("gamesScreen");
     if (screen.indexOf("erp:") === 0) {
       var erpPanel = document.getElementById(screen.slice(4));
       if (erpPanel) erpPanel.classList.remove("hidden");
@@ -214,7 +216,7 @@
         var pageButtons = sidebar.querySelectorAll('button[aria-current="page"]');
         var expected = one(
           current === "home" ? '#studySidebar [data-home]' :
-          current === "game-ranking" ? '#studySidebar [data-daily-nav="games"]' :
+          (current === "game-ranking" || current === "matching") ? '#studySidebar [data-daily-nav="games"]' :
           current === "ranking" ? '#studySidebar [data-exp-nav="ranking"]' :
           ["msutong","hsk-study","roadmap"].indexOf(current) !== -1 ? '#studySidebar [data-daily-nav="msutong"]' :
           current.indexOf("erp:") === 0 ? '#studySidebar [data-view="' + current.slice(4) + '"]' :
@@ -242,10 +244,10 @@
           if (["area","hskLevel","hskLesson","hskView","hskTab"].some(function(key){return params.has(key);}) || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor("vietnamese"));
           return;
         }
-        if (current === "games" || current === "game-ranking") {
+        if (current === "games" || current === "game-ranking" || current === "matching") {
           viewIds.forEach(function(id){if(id!=="gamesScreen")hide(id);});
           if (document.body.getAttribute("data-current-area") !== current) document.body.setAttribute("data-current-area", current);
-          var gameTitle = current === "game-ranking" ? "BXH trò chơi — VDuckie" : "Trò chơi — VDuckie";
+          var gameTitle = current === "matching" ? "Nối cặp Hán–Việt — VDuckie" : current === "game-ranking" ? "BXH trò chơi — VDuckie" : "Trò chơi — VDuckie";
           if (document.title !== gameTitle) document.title = gameTitle;
           if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor(current));
           return;

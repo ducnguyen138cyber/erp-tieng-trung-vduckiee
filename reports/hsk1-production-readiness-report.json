@@ -453,7 +453,7 @@
       "name": "Supabase isolation",
       "status": "pass",
       "evidence": [
-        "Canonical preview has no Supabase client reference; guarded legacy listeners produce zero upsert/RPC calls. Existing migrations remain: 20261104_award_hsk_word_mastery_exp.sql, 20261104_word_mastery_3exp_50_words_daily.sql, 20261112042941_game_rankings_and_exp_daily_lock.sql, add_user_words_memory_status.sql, create_exp_leaderboard.sql, leaderboard_include_zero_exp_profiles.sql, upgrade_exp_level_weekly_v90.sql."
+        "Canonical preview has no Supabase client reference; guarded legacy listeners produce zero upsert/RPC calls. Existing migrations remain: 20261104_award_hsk_word_mastery_exp.sql, 20261104_word_mastery_3exp_50_words_daily.sql, 20261112042941_game_rankings_and_exp_daily_lock.sql, 20261112065038_matching_game_rankings.sql, add_user_words_memory_status.sql, create_exp_leaderboard.sql, leaderboard_include_zero_exp_profiles.sql, upgrade_exp_level_weekly_v90.sql."
       ],
       "files": [
         "assets/hsk-content/hsk-developer-preview.js",
