@@ -90,7 +90,8 @@
       return setTotal(Number(total || 0), true, { source: eventSource, hydrated: true, sessionIdentity: identity });
     }).catch(function () {
       if (currentRequest !== requestId || identityOf(currentSession()) !== identity) return snapshot;
-      return setTotal(0, true, { source: eventSource, hydrated: true, sessionIdentity: identity });
+      // A failed read is not a zero EXP balance. Preserve the confirmed snapshot.
+      return snapshot;
     });
   }
 
@@ -115,7 +116,8 @@
           setTotal(0, false, { source: "session", hydrated: true, sessionIdentity: identity });
           return;
         }
-        publish(snapshot || buildSnapshot(0, true), { source: "session", hydrated: false, sessionIdentity: identity });
+        var boundary = progressMeta && progressMeta.sessionIdentity === identity ? snapshot : buildSnapshot(0, true);
+        publish(boundary || buildSnapshot(0, true), { source: "session", hydrated: false, sessionIdentity: identity });
         root.setTimeout(function () { refresh("hydrate", identity); }, 0);
       });
     }

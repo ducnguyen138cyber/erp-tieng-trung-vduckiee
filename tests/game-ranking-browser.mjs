@@ -48,7 +48,7 @@ try{
   // Real typing round + real result view, accelerated engine clock only; network
   // calls are mocked and assertions inspect the exact submission payload.
   await page.locator('[data-game-action=choose]').click();await page.locator('[data-level="1"]').click();await page.locator('[data-mode=easy]').click();
-  await page.evaluate(()=>{const Native=window.VDuckieTypingEngine.Game;window.VDuckieTypingEngine={...window.VDuckieTypingEngine,Game:function(o){const g=new Native(o);window.__rankingGame=g;return g;}};});
+  await page.evaluate(()=>{const step=window.VDuckieTypingEngine.Game.prototype.step;window.VDuckieTypingEngine.Game.prototype.step=function(n){window.__rankingGame=this;return step.call(this,n);};});
   await page.locator('[data-game-action=start]').click();await page.locator('#typingPinyin').waitFor();
   const answer=await page.evaluate(()=>window.VDuckieTypingEngine.normalize(window.__rankingGame.target().word.pinyin));await page.locator('#typingPinyin').fill(answer);await page.evaluate(()=>window.__rankingGame.step(180));
   await page.locator('[data-game-save]').filter({hasText:'Đã lưu 100 điểm'}).waitFor();

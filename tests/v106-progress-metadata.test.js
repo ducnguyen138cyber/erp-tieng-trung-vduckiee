@@ -17,19 +17,20 @@ async function settle() { await Promise.resolve(); await new Promise(resolve => 
 
 function harness() {
   const document = new EventTargetMock(); document.readyState = "complete"; document.hidden = false;
-  let session = { user: { id: "A", email: "a@example.com" } }; let total = 4000; const sessionCallbacks = []; const events = [];
+  let session = { user: { id: "A", email: "a@example.com" } }; let total = 4000; let offline = false; const sessionCallbacks = []; const events = [];
   const core = {
     session: () => session,
     onSession(callback) { sessionCallbacks.push(callback); callback(session); return () => {}; },
     calculateUserLevel(value) { const level = Math.max(1, Math.floor(Number(value || 0) / 1000) + 1); return { level, totalEXP: Number(value || 0), currentLevelEXP: Number(value || 0) % 1000, expRequired: 1000, progressPercent: (Number(value || 0) % 1000) / 10, expRemaining: 1000 - (Number(value || 0) % 1000) }; }
   };
-  const exp = { getCurrentUserEXP: () => Promise.resolve(total) };
+  const exp = { getCurrentUserEXP: () => offline ? Promise.reject(new Error("offline")) : Promise.resolve(total) };
   document.addEventListener("vduckie:progress-updated", event => events.push(event.detail));
   const window = { window: null, document, VDuckieEXPCore: core, VDuckieEXP: exp, setTimeout, clearTimeout, CustomEvent: CustomEventMock }; window.window = window;
   vm.runInContext(source, vm.createContext({ window, document, console, Object, Array, String, Number, Math, Promise, CustomEvent: CustomEventMock }), { filename: "progress-store-v92.js" });
   return {
     window, document, events,
     setTotal(value) { total = value; },
+    setOffline(value) { offline = value; },
     switchSession(next) { session = next; sessionCallbacks.forEach(callback => callback(session)); }
   };
 }
@@ -49,3 +50,12 @@ test("session switch emits an unhydrated boundary then hydrates the new identity
   await settle(); const hydrated = h.events.at(-1);
   assert.equal(hydrated.level, 3); assert.equal(hydrated.progressMeta.source, "hydrate"); assert.equal(hydrated.progressMeta.sessionIdentity, "B"); assert.equal(hydrated.progressMeta.hydrated, true);
 });
+
+ test("failed EXP reads preserve the confirmed total and do not hydrate another account with it", async () => {
+  const h = harness(); await settle(); h.setOffline(true);
+  h.document.dispatchEvent(new CustomEventMock("vduckie:exp-updated")); await settle();
+  assert.equal(h.events.at(-1).totalEXP, 4000);
+  h.switchSession({user:{id:"B"}}); await settle();
+  const boundary = h.events.at(-1); assert.equal(boundary.totalEXP, 0);
+  assert.equal(boundary.progressMeta.sessionIdentity, "B"); assert.equal(boundary.progressMeta.hydrated, false);
+ });
