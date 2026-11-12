@@ -153,7 +153,7 @@
   }
   function getCurrentUserEXP() {
     if (!client || !session || !session.user) return Promise.resolve(0);
-    return rpc("get_my_exp").then(function (value) { return Number(value || 0); }).catch(function () { return 0; });
+    return rpc("get_my_exp").then(function (value) { return Number(value || 0); });
   }
   function recordLearningEvent(eventCode, sourceId) {
     if (!session || !session.user || !client) return Promise.resolve({ recorded: false, reason: "not_authenticated" });

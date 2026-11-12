@@ -3,7 +3,7 @@
   'use strict';
   var Engine=root.VDuckieTypingEngine,host,level=0,mode='',words=[],session=null,loadId=0;
   var catalog=[],cache=new Map(),indexes=new Map(),stylePromise=null,gameStyles=null;
-  var STYLE_URL="./assets/games/typing-game.css?v=5";
+  var STYLE_URL="./assets/games/typing-game.css?v=ranking1";
   var wordPrompt='guided',promptNames={guided:'Hán tự + Pinyin',hanzi:'Chỉ chữ Hán',vietnamese:'Chỉ nghĩa tiếng Việt'};
   var mascot='./assets/mascot/duckie-reader-2d-v2.webp?v=2.0';
   function esc(value){return String(value==null?'':value).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -17,7 +17,9 @@
       var target=event.target.closest('[data-game-action]');if(!target||target.disabled)return;
       var action=target.dataset.gameAction;
       if(action==='choose')choose();
+      if(action==='rankings')root.VDuckieScreenRouter.navigate('game-ranking');
       if(action==='sentences'){close();wSentence();}
+      if(action==='matching')root.VDuckieScreenRouter.navigate('matching');
       if(action==='prompt'){wordPrompt=target.dataset.prompt;difficulty();}
       if(action==='catalog')open();
       if(action==='level')selectLevel(Number(target.dataset.level));
@@ -29,10 +31,11 @@
   function wSentence(){loadId++;if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.open(host);}
   function heading(step,title,copy){return '<header class="games-heading"><span class="games-eyebrow">TRÒ CHƠI · '+step+'</span><h1>'+title+'</h1><p>'+copy+'</p></header>';}
   function open(){
-    mount();close();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();loadId++;host.classList.remove('hidden');
-    host.innerHTML='<div class="games-hub"><header class="games-hub-head"><div><span class="games-eyebrow">VDUCKIE ARCADE</span><h1>Góc trò chơi</h1><p>Chọn một trò, thử tài Pinyin.</p></div><span class="games-hub-count">02 trò chơi</span></header>'+
-      '<div class="games-grid"><article class="games-card games-card-typing" aria-labelledby="typingCardTitle"><div class="gh-scene gh-space" aria-hidden="true"><div class="gh-stars"></div><div class="gh-planet"></div><span class="gh-spark gh-spark-one">✦</span><span class="gh-spark gh-spark-two">✧</span><div class="gh-meteor gh-meteor-main"><b>你好</b><small><em>nǐ</em> hǎo</small></div><div class="gh-meteor gh-meteor-small"><b>学</b><small>xué</small></div><i class="gh-shot gh-shot-one"></i><i class="gh-shot gh-shot-two"></i><i class="gh-shot gh-shot-three"></i><div class="gh-plane"><img src="./assets/games/airplane.svg" alt=""><i></i></div><span class="gh-key gh-space-key">n i h a o <i></i></span></div><div class="games-card-copy"><span class="games-eyebrow">01 / PHẢN XẠ</span><h2 id="typingCardTitle">Luyện gõ</h2><p>Gõ Pinyin, phá thiên thạch.</p><div class="games-tags"><span>HSK 1–4</span><span>3 phút</span></div>'+button('Chơi Luyện gõ <span aria-hidden="true">→</span>','choose','class="games-primary"')+'</div></article>'+
-      '<article class="games-card games-card-sentences" aria-labelledby="sentenceCardTitle"><div class="gh-scene gh-sentence" aria-hidden="true"><div class="gh-paper gh-paper-back"></div><div class="gh-paper"><span class="gh-paper-label">DỊCH CÂU NÀY</span><b>Bây giờ mấy giờ?</b><span class="gh-paper-rule"></span><div class="gh-answer"><span class="gh-reveal"><span class="gh-hidden-word">****</span><span class="gh-typed-word">xian</span></span> <span>*** ** ****?</span><i></i></div></div><span class="gh-key gh-key-x">x</span><span class="gh-key gh-key-i">i</span><span class="gh-key gh-key-a">a</span><img class="gh-writer" src="./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" alt=""><span class="gh-spark gh-sentence-spark">✦</span></div><div class="games-card-copy"><span class="games-eyebrow">02 / DIỄN ĐẠT</span><h2 id="sentenceCardTitle">Dịch câu Pinyin</h2><p>Từ câu Việt, mở câu Trung.</p><div class="games-tags"><span>10 câu</span><span>3 chủ đề</span></div>'+button('Chơi Dịch câu →','sentences','class="games-primary"')+'</div></article></div></div>';
+    mount();close();if(root.VDuckieMatchingGame)root.VDuckieMatchingGame.leave();if(root.VDuckieGameRanking)root.VDuckieGameRanking.leave();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();loadId++;host.classList.remove('hidden');
+    host.innerHTML='<div class="games-hub"><header class="games-hub-head"><div><span class="games-eyebrow">VDUCKIE ARCADE</span><h1>Góc trò chơi</h1><p>Nhớ mặt chữ, luyện Pinyin và ghép câu.</p></div><span class="games-hub-count">03 trò chơi</span></header>'+
+      '<section class="gr-hub-link"><div><strong>🏆 BXH trò chơi</strong><p>Thành tích tốt nhất · Theo tuần và mọi thời gian · Điểm game riêng</p></div>'+button('Xem BXH →','rankings')+'</section><div class="games-grid"><article class="games-card games-card-typing" aria-labelledby="typingCardTitle"><div class="gh-scene gh-space" aria-hidden="true"><div class="gh-stars"></div><div class="gh-planet"></div><span class="gh-spark gh-spark-one">✦</span><span class="gh-spark gh-spark-two">✧</span><div class="gh-meteor gh-meteor-main"><b>你好</b><small><em>nǐ</em> hǎo</small></div><div class="gh-meteor gh-meteor-small"><b>学</b><small>xué</small></div><i class="gh-shot gh-shot-one"></i><i class="gh-shot gh-shot-two"></i><i class="gh-shot gh-shot-three"></i><div class="gh-plane"><img src="./assets/games/airplane.svg" alt=""><i></i></div><span class="gh-key gh-space-key">n i h a o <i></i></span></div><div class="games-card-copy"><span class="games-eyebrow">01 / PHẢN XẠ</span><h2 id="typingCardTitle">Luyện gõ</h2><p>Gõ Pinyin, phá thiên thạch.</p><div class="games-tags"><span>HSK 1–4</span><span>3 phút</span></div>'+button('Chơi Luyện gõ <span aria-hidden="true">→</span>','choose','class="games-primary"')+'</div></article>'+
+      '<article class="games-card games-card-sentences" aria-labelledby="sentenceCardTitle"><div class="gh-scene gh-sentence" aria-hidden="true"><div class="gh-paper gh-paper-back"></div><div class="gh-paper"><span class="gh-paper-label">DỊCH CÂU NÀY</span><b>Bây giờ mấy giờ?</b><span class="gh-paper-rule"></span><div class="gh-answer"><span class="gh-reveal"><span class="gh-hidden-word">****</span><span class="gh-typed-word">xian</span></span> <span>*** ** ****?</span><i></i></div></div><span class="gh-key gh-key-x">x</span><span class="gh-key gh-key-i">i</span><span class="gh-key gh-key-a">a</span><img class="gh-writer" src="./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" alt=""><span class="gh-spark gh-sentence-spark">✦</span></div><div class="games-card-copy"><span class="games-eyebrow">02 / DIỄN ĐẠT</span><h2 id="sentenceCardTitle">Dịch câu Pinyin</h2><p>Từ câu Việt, mở câu Trung.</p><div class="games-tags"><span>10 câu</span><span>3 chủ đề</span></div>'+button('Chơi Dịch câu →','sentences','class="games-primary"')+'</div></article>'+
+      '<article class="games-card games-card-matching"><div class="gh-scene mg-hub-scene" aria-hidden="true"><img src="./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0" alt=""><div class="mg-hub-pair"><span>努力</span><span>Cố gắng</span></div></div><div class="games-card-copy"><span class="games-eyebrow">03 / NHỚ MẶT CHỮ</span><h2>Nối cặp Hán–Việt</h2><p>Ghép chữ với nghĩa. Từ mới qua từng lượt.</p><div class="games-tags"><span>6–12 cặp / lượt</span><span>Tùy chọn Pinyin</span><span>Kho từ HSK 1–9 & công xưởng</span></div>'+button('Chơi Nối cặp →','matching','class="games-primary"')+'</div></article></div></div>';
     document.title='Trò chơi — VDuckie';
   }
   async function availability(){
@@ -105,6 +108,7 @@
   function View(vocabulary,difficultyKey,hsk,css,prompt){
     this.prompt=prompt||'guided';
     this.game=new Engine.Game({words:vocabulary,mode:difficultyKey});this.hsk=hsk;
+    this.rankTicket=root.VDuckieGameRanking?root.VDuckieGameRanking.begin('typing',[hsk,difficultyKey,this.prompt].join(':')):null;this.rankCombos=[];
     this.alive=true;this.frame=0;this.last=0;this.audio=null;this.animations=new Set();this.activeSources=new Set();this.meteorNodes=new Map();this.uiDirty=true;this.lastSecond=-1;this.shotSerial=0;
     try{this.muted=localStorage.getItem('vduckie:typing-muted')==='1';}catch(error){this.muted=false;}
     this.previousFocus=document.activeElement;this.appShell=document.getElementById('appShell');if(this.appShell)this.appShell.inert=true;
@@ -175,6 +179,7 @@
     event.stopPropagation();var buttonNode=event.target.closest('[data-game-action]');if(!buttonNode)return;
     var action=buttonNode.dataset.gameAction;
     if(action==='exit'){close();open();return;}
+    if(action==='rankings'){close();root.VDuckieScreenRouter.navigate('game-ranking');return;}
     if(action==='choices'){close();choose();return;}
     if(action==='restart'){start();return;}
     if(action==='sound'){this.muted=!this.muted;try{localStorage.setItem('vduckie:typing-muted',this.muted?'1':'0');}catch(error){}if(this.muted&&this.audio)this.audio.suspend().catch(function(){});else this.unlockAudio();this.soundButton();}
@@ -228,7 +233,7 @@
           [{transform:'translate(0,0)'+rotate,opacity:1},{transform:'translate('+dx+'px,'+dy+'px)'+rotate,opacity:0}],
           {duration:480,delay:(launchAt-self.game.time)*1000,easing:'linear'},event);
       }
-      if(event.type==='destroy'){
+      if(event.type==='destroy'){self.rankCombos.push(event.combo);
         self.tone(true);if(self.prompt!=='guided')self.flash(meteor.word.hanzi+' · '+meteor.word.pinyin+' · '+meteor.word.meaning);var p=self.position(meteor);self.retireMeteor(meteor);
         self.effect('tg-burst','✦',p.x,p.y);self.effect('tg-points','+'+event.points+(meteor.heart?' ♥':''),p.x,p.y-22);
         if(self.input.value)self.input.value='';
@@ -247,7 +252,8 @@
   View.prototype.end=function(reason){
     cancelAnimationFrame(this.frame);this.frame=0;this.input.disabled=true;this.input.blur();this.root.classList.add('is-paused');this.pauseAnimations();if(this.audio)this.audio.suspend().catch(function(){});
     var result=this.game.result(),missed=Array.from(new Map(result.missed.map(function(w){return [w.hanzi,w];})).values());
-    this.cover.hidden=false;this.cover.innerHTML='<div class="tg-dialog tg-results"><span class="games-eyebrow">'+(reason==='time'?'HOÀN THÀNH 3 PHÚT':'HẾT TIM')+'</span><h2>Một chuyến bay đáng nhớ</h2><div class="tg-result-score">'+result.score+' <small>điểm</small></div><div class="tg-result-stats"><span><b>'+result.accuracy+'%</b>Chính xác</span><span><b>'+result.bestCombo+'</b>Combo tốt nhất</span><span><b>'+result.completed+'</b>Từ hoàn thành</span></div><p>Điểm game không quy đổi thành EXP.</p><h3>Từ bỏ lỡ · Ôn lại</h3><div class="tg-missed">'+(missed.length?missed.map(function(w){return '<div><b lang="zh">'+esc(w.hanzi)+'</b><span>'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></div>';}).join(''):'<p>Bạn không bỏ lỡ từ nào. Tiếp tục giữ nhịp nhé!</p>')+'</div><div class="tg-result-actions">'+button('Chơi lại →','restart','class="games-primary"')+button('Đổi HSK / độ khó','choices')+button('Về Trò chơi','exit')+'</div></div>';this.cover.querySelector('button').focus();
+    this.cover.hidden=false;this.cover.innerHTML='<div class="tg-dialog tg-results"><span class="games-eyebrow">'+(reason==='time'?'HOÀN THÀNH 3 PHÚT':'HẾT TIM')+'</span><h2>Một chuyến bay đáng nhớ</h2><div class="tg-result-score">'+result.score+' <small>điểm</small></div><div class="tg-result-stats"><span><b>'+result.accuracy+'%</b>Chính xác</span><span><b>'+result.bestCombo+'</b>Combo tốt nhất</span><span><b>'+result.completed+'</b>Từ hoàn thành</span></div><p>Điểm game không quy đổi thành EXP.</p><p class="gr-save-status" role="status" data-game-save></p><h3>Từ bỏ lỡ · Ôn lại</h3><div class="tg-missed">'+(missed.length?missed.map(function(w){return '<div><b lang="zh">'+esc(w.hanzi)+'</b><span>'+esc(w.pinyin)+'</span><small>'+esc(w.meaning)+'</small></div>';}).join(''):'<p>Bạn không bỏ lỡ từ nào. Tiếp tục giữ nhịp nhé!</p>')+'</div><div class="tg-result-actions">'+button('Chơi lại →','restart','class="games-primary"')+button('Đổi HSK / độ khó','choices')+button('BXH trò chơi','rankings')+button('Về Trò chơi','exit')+'</div></div>';this.cover.querySelector('button').focus();
+    if(root.VDuckieGameRanking)root.VDuckieGameRanking.submit(this.rankTicket,{completed:result.completed,attempts:this.game.attempts,correct:this.game.correct,active_ms:Math.round(this.game.time*1000),combos:this.rankCombos},this.cover.querySelector('[data-game-save]'));
   };
   View.prototype.position=function(m){var x=this.arenaWidth*m.x;if(this.prompt==='vietnamese')x=Math.max(94,Math.min(this.arenaWidth-94,x));return {x:x,y:-44+(this.arenaHeight+44)*m.progress};};
   View.prototype.meteorTransform=function(y){return 'translate3d(-50%,'+y+'px,0) translateY(-50%)';};
@@ -308,5 +314,5 @@
     if(this.audio&&this.audio.state!=='closed')this.audio.close().catch(function(){});this.audio=null;this.stage.remove();if(this.appShell)this.appShell.inert=false;document.body.classList.remove('typing-game-open');document.documentElement.classList.remove('typing-game-open');
     var back=host&&host.querySelector('button');if(back)back.focus({preventScroll:true});
   };
-  root.VDuckieGames={open:open,leave:function(){loadId++;close();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();if(host)host.classList.add('hidden');}};
+  root.VDuckieGames={open:open,openMatching:function(){mount();close();if(root.VDuckieGameRanking)root.VDuckieGameRanking.leave();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();host.classList.remove("hidden");root.VDuckieMatchingGame.open(host);},openRanking:function(){mount();close();if(root.VDuckieMatchingGame)root.VDuckieMatchingGame.leave();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();host.classList.remove('hidden');root.VDuckieGameRanking.open(host);},leave:function(){if(root.VDuckieMatchingGame)root.VDuckieMatchingGame.leave();if(root.VDuckieGameRanking)root.VDuckieGameRanking.leave();loadId++;close();if(root.VDuckieSentenceGame)root.VDuckieSentenceGame.leave();if(host)host.classList.add('hidden');}};
 })(window,document);

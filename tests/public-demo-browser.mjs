@@ -58,11 +58,11 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  for(const index of [8,9,10,11]){await page.locator('.erp-module-link').nth(index).click();assert.equal(await page.locator('.erp-lesson-word').count(),10);}
  await page.screenshot({path:path.join(out,name+'-factory.png')});
  if(mobile)await toggle.click();await page.locator('#studySidebar [data-daily-nav=games]').click();await page.locator('[data-game-action=sentences]').waitFor();
- const cards=page.locator('.games-grid .games-card');assert.equal(await cards.count(),2);
+ const cards=page.locator('.games-grid .games-card');assert.equal(await cards.count(),3);
  const boxes=await cards.evaluateAll(ns=>ns.map(n=>({x:n.getBoundingClientRect().x,y:n.getBoundingClientRect().y,width:n.getBoundingClientRect().width})));
  if(viewport.width>650){assert.ok(Math.abs(boxes[0].y-boxes[1].y)<2,'desktop game tiles share a row');assert.ok(boxes[1].x>boxes[0].x+boxes[0].width);}else{assert.ok(boxes[1].y>boxes[0].y);assert.ok(Math.abs(boxes[0].x-boxes[1].x)<2);}
  assert.equal(await page.locator('.games-hub .games-card-copy p').evaluateAll(ns=>ns.every(n=>n.textContent.length<45)),true);
- assert.equal(await page.locator('.gh-scene').count(),2);assert.equal(await page.locator('.gh-scene').evaluateAll(ns=>ns.every(n=>n.getAttribute('aria-hidden')==='true')),true);
+ assert.equal(await page.locator('.gh-scene').count(),3);assert.equal(await page.locator('.gh-scene').evaluateAll(ns=>ns.every(n=>n.getAttribute('aria-hidden')==='true')),true);
  assert.equal(await page.locator('.gh-plane img').getAttribute('src'),'./assets/games/airplane.svg');
  assert.ok(await page.locator('.gh-plane').evaluate(n=>n.getAnimations().length)>0,'catalog has lightweight native motion');
  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.gh-plane,.gh-shot,.gh-typed-word').evaluateAll(ns=>ns.every(n=>n.getAnimations().length===0)),true);await page.emulateMedia({reducedMotion:'no-preference'});
@@ -114,7 +114,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   if(topic==='basic'){await page.locator('.sg-results').waitFor();assert.match(await page.locator('.sg-results').innerText(),/900/);assert.equal(await page.locator('.sg-review').count(),1);await page.locator('[data-sentence-action=start]').click();assert.equal(await page.locator('[data-sg-score]').textContent(),'0');}
   await page.locator('[data-sentence-action=choices]').click();
  }
- await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),2);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
+ await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),3);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
  results.push({viewport,passed:true,checks:['home_progress_continue_same_row_after_refresh','continue_and_due_review_buttons_work_in_new_row','adaptive_two_or_four_statistics_columns','two_column_catalog_responsive','concise_animated_game_scenes','catalog_reduced_motion','mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
 }
 await writeFile(path.join(out,'results.json'),JSON.stringify(results,null,2));
