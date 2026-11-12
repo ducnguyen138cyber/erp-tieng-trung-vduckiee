@@ -77,9 +77,13 @@ jobs:
       - run: npm install --no-save --package-lock=false playwright@1.58.2
       - name: Shared HSK1–4 layout, Shadowing routes, Home and dictionary
         run: node tests/learning-polish-browser.mjs
+      - name: Static guides without JavaScript and failed app bootstrap
+        run: node tests/seo-guides-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: learning-experience-acceptance
-          path: artifacts/learning-polish/
+          path: |
+            artifacts/learning-polish/
+            artifacts/seo-guides/
           if-no-files-found: warn

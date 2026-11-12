@@ -5,6 +5,11 @@
   var KEY="vduckie-ui-language-v1";
   var supported={vi:true,zh:true,en:true};
   var strings={
+    "HƯỚNG DẪN HỌC":["学习指南","STUDY GUIDES"],
+    "Lộ trình tự học HSK":["HSK 自学路线","HSK study guide"],
+    "Pinyin và luyện gõ":["拼音与打字练习","Pinyin and typing"],
+    "Cách luyện Shadowing":["跟读练习指南","Shadowing guide"],
+    "Cẩm nang học tiếng Trung":["汉语学习指南","Chinese study guides"],
     "Học tiếng Việt / 学越南语":["学越南语","Learn Vietnamese"],
     "Cài ứng dụng":["安装应用","Install app"],
     "Cập nhật VDuckie":["更新 VDuckie","Update VDuckie"],
