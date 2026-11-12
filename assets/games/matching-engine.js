@@ -35,7 +35,8 @@
  function Round(words,random){this.words=words.slice();this.left=shuffle(words,random);this.right=shuffle(words,random);this.matched=new Set();this.selected=null;this.attempts=0;this.score=0;}
  Round.prototype.choose=function(side,id){
   if(!['left','right'].includes(side)||!this.words.some(function(w){return w.id===id;})||this.matched.has(id))return {ignored:true};
-  var before=this.selected;if(!before||before.side===side){this.selected={side:side,id:id};return {selected:true};}
+  var before=this.selected;if(before&&before.side===side&&before.id===id){this.selected=null;return {cancelled:true};}
+  if(!before||before.side===side){this.selected={side:side,id:id};return {selected:true};}
   this.selected=null;this.attempts++;var correct=before.id===id;
   if(correct){this.matched.add(id);this.score=this.matched.size*100;}
   return {matched:correct,wrong:!correct,picks:[before,{side:side,id:id}],ended:this.matched.size===this.words.length};
