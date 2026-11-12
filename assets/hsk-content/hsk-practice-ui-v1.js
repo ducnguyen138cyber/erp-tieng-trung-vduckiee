@@ -98,7 +98,7 @@
   }
   function header(title,subtitle){
     return '<header class="hsk-practice-header"><div><span class="hsk-practice-kicker">'+
-      esc(t("ĐỀ LUYỆN HSK · VDUCKIE","HSK 模拟试卷 · VDUCKIE","HSK PRACTICE PAPER · VDUCKIE"))+
+      esc(t("BÀI LUYỆN HSK · VDUCKIE","HSK 词汇练习 · VDUCKIE","HSK VOCABULARY PRACTICE · VDUCKIE"))+
       '</span><h2>'+esc(title)+'</h2><p>'+esc(subtitle)+'</p></div>'+
       '<button type="button" class="hsk-practice-back" data-practice-close>'+
       esc(t("← Giáo trình HSK","← 返回 HSK 课程","← HSK curriculum"))+'</button></header>';
@@ -115,14 +115,14 @@
     for(var n=1;n<=bank.PAPERS_PER_LEVEL;n++){
       var key="hsk"+level+"-practice-"+String(n).padStart(2,"0"),stat=saved[key];
       cards.push('<button type="button" class="hsk-practice-paper" data-practice-start="'+n+'"><b>'+
-        esc(t("Đề","第","Paper"))+' '+String(n).padStart(2,"0")+'</b><small>'+
+        esc(t("Bài luyện","练习","Practice"))+' '+String(n).padStart(2,"0")+'</b><small>'+
         (stat?esc(t("Cao nhất: ","最佳：","Best: "))+Math.round(stat.best)+'%':
         esc(t("Chưa làm","尚未作答","Not attempted")))+
-        '</small></button>');
+        '</small><span class="hsk-practice-paper-skills">'+esc(t("Nghe · Đọc","听力 · 阅读","Listening · Reading")+(plan.writing?t(" · Viết"," · 书写"," · Writing"):""))+'</span><span class="hsk-practice-paper-content">'+esc(t("Từ vựng · Chữ Hán · Pinyin","词汇 · 汉字 · 拼音","Vocabulary · Hanzi · Pinyin"))+'</span><span class="hsk-practice-paper-time">'+total+' '+esc(t("câu","题","questions"))+' · '+plan.minutes+' '+esc(t("phút","分钟","min"))+'</span></button>');
     }
     mount('<section class="hsk-practice-container">'+header(
-      t("Kho đề luyện HSK · 224 mã đề","HSK 模拟练习 · 224 套","HSK practice · 224 paper variants"),
-      t("Chọn cấp độ và mã đề để bắt đầu.","请选择考试等级与试卷。","Choose a level and a practice paper."))+
+      t("Bài luyện HSK · 224 mã bài","HSK 词汇练习 · 224 套","HSK vocabulary practice · 224 variants"),
+      t("Chọn cấp độ và bài luyện phù hợp.","选择级别和词汇练习。","Choose a level and a vocabulary practice variant."))+
       '<p class="hsk-practice-disclaimer">'+esc(t(
         "224 mã bài luyện từ vựng, dùng số câu theo cấu trúc HSK cũ nhưng dữ liệu từ vựng GF0025-2021. Chưa kiểm duyệt chuyên môn; không phải đề thi HSK 2.0/3.0 chính thức. Audio dùng TTS; không cộng EXP.",
         "224 套词汇练习采用旧版 HSK 题量及 GF0025-2021 词汇，未经人工审校，并非官方 HSK 2.0/3.0 试卷。听力采用合成语音；不奖励经验值。",
@@ -193,7 +193,7 @@
   }
   function renderExam(){
     if(!paper)return;
-    var heading=t("HSK "+level+" · Đề "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套","HSK "+level+" · Paper "+paper.number);
+    var heading=t("HSK "+level+" · Bài luyện "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套","HSK "+level+" · Paper "+paper.number);
     var nav='<nav class="hsk-exam-section-nav" aria-label="Exam sections">'+
       paper.sections.map(function(section){
         return '<button type="button" data-practice-go="'+section+'">'+esc(sectionTitle(section))+
@@ -214,7 +214,7 @@
       '<button type="button" class="hsk-exam-submit" data-practice-submit>'+esc(t("Nộp bài và chấm điểm","提交试卷并评分","Submit exam for grading"))+
       '</button></div><p id="hskPracticeSubmitWarning" class="hsk-exam-warning" role="status"></p>';
     mount('<section class="hsk-practice-container">'+header(heading,t(
-      "Đề mô phỏng. Mọi câu hỏi và các phần thi đều hiển thị; chỉ xem đáp án sau khi nộp. Không cộng EXP.",
+      "Bài luyện từ vựng theo cấu trúc HSK. Xem đáp án sau khi nộp; audio TTS, không cộng EXP.",
       "模拟试卷：全部题目可见，交卷后才显示答案，不奖励 EXP。",
       "All sections are visible; answers are revealed only after submission. No EXP."))+
       '<div class="hsk-exam-status"><div><span>'+esc(t("Đã trả lời","已作答","Answered"))+
@@ -283,7 +283,7 @@
         '</td><td>'+part.points+'/100</td></tr>';
     }).join("");
     mount('<section class="hsk-practice-container">'+header(
-      t("Kết quả HSK "+level+" · Đề "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套成绩",
+      t("Kết quả HSK "+level+" · Bài luyện "+paper.number,"HSK "+level+" · 第 "+paper.number+" 套成绩",
         "HSK "+level+" · Paper "+paper.number+" results"),
       t("Điểm mô phỏng chỉ để luyện tập, không phải chứng chỉ hoặc điểm HSK chính thức.",
         "成绩仅供练习参考，不代表官方 HSK 成绩。","Practice score only; not an official HSK result."))+

@@ -3,16 +3,19 @@
   "use strict";
   if(!root||!document)return;
   var key="vduckie-shadowing-v1",level=1,lines=[],index=0,recorder=null,chunks=[],recordUrl="",stream=null,startedAt=0,elapsed=null;
-  var showPinyin=true,showVi=true,rate=0.85,token=0,group="all",mode="all",selectedId="",recordEpoch=0;
+  var playing=false,recording=false,micPending=false;
+  var showPinyin=true,showVi=true,rate=0.85,token=0,group="all",mode="all",selectedId="",recordEpoch=0,repeats=1,soundEpoch=0,soundTimer=null;
   function el(id){return document.getElementById(id);}
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function store(){try{return JSON.parse(root.localStorage.getItem(key)||"{}")||{};}catch(e){return {};}}
   function current(){var data=store(),entry=data[level];return entry&&typeof entry==="object"?entry:{};}
   function persist(){try{
     var data=store(),entry=current();
-    data[level]=Object.assign({},entry,{index:index,id:selectedId,group:group,mode:mode,updatedAt:Date.now()});
-    root.localStorage.setItem(key,JSON.stringify(data));
-  }catch(e){}}
+    data[level]=Object.assign({},entry,{index:index,id:selectedId,group:group,mode:mode,rate:rate,showPinyin:showPinyin,showVi:showVi,repeats:repeats,updatedAt:Date.now()});
+    data.lastLevel=level;root.localStorage.setItem(key,JSON.stringify(data));
+  }catch(e){}
+    writeUrl();
+  }
   function mark(kind,id){
     if(!id)return;
     try{var data=store(),entry=current(),saved=Object.assign({},entry[kind]||{});
@@ -21,9 +24,9 @@
       root.localStorage.setItem(key,JSON.stringify(data));
     }catch(e){}
     var available=visible();
-    if(!available.some(function(item){return item.id===selectedId;})){clearRecording();selectedId=available[0]?available[0].id:"";}
+    if(!available.some(function(item){return item.id===selectedId;})){stopSound();clearRecording();selectedId=available[0]?available[0].id:"";}
     index=Math.max(0,available.findIndex(function(item){return item.id===selectedId;}));
-    render();
+    persist();render();
   }
   function visible(){
     var saved=current(),set=saved[mode]||{};
@@ -37,24 +40,49 @@
       found.get(item.group).count++;
     });return [...found.values()];
   }
+  function syncControls(){
+    var audio=el("shadowRecording"),n=host();
+    if(audio)audio.hidden=!recordUrl;
+    if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    var clear=n.querySelector("[data-shadow-clear]"),stop=n.querySelector("[data-shadow-stop]"),record=n.querySelector("[data-shadow-record]");
+    if(clear)clear.hidden=!recordUrl;
+    if(stop)stop.disabled=!playing&&!recording;
+    if(record){record.disabled=recording||micPending;record.textContent=recording?"● Đang ghi âm…":micPending?"Đang mở micro…":"● Ghi âm";}
+  }
   function clearRecording(){
     recordEpoch++;
     if(recorder&&recorder.state==="recording"){recorder.onstop=null;recorder.stop();}
-    recorder=null;chunks=[];
+    recorder=null;chunks=[];recording=false;micPending=false;
     if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
     if(recordUrl){root.URL.revokeObjectURL(recordUrl);recordUrl="";}
     if(el("shadowRecording"))el("shadowRecording").removeAttribute("src");
+    syncControls();
   }
-  function stopSound(){if(root.speechSynthesis)root.speechSynthesis.cancel();}
+  function stopSound(){playing=false;syncControls();soundEpoch++;if(soundTimer!==null){root.clearTimeout(soundTimer);soundTimer=null;}if(root.speechSynthesis)root.speechSynthesis.cancel();}
   function host(){return el("dailyLearningPanel");}
   function status(message){var n=el("shadowStatus");if(n)n.textContent=message;}
-  function splitScript(text,source){
-    return String(text||"").split(/\n|(?<=[。！？!?])/).map(function(s){return s.trim();})
-      .filter(function(s){return /[\u3400-\u9fff]/.test(s);})
-      .map(function(s,i){return {id:source+"-"+i,hanzi:s.replace(/^[^：:]{1,12}[：:]/,"").trim(),pinyin:"",vi:"",source:source};})
-      .filter(function(s){return s.hanzi.length>=2;});
+  function restore(items){
+    var saved=current(),aliases=new Map();
+    items.forEach(function(item){aliases.set(item.id,item.id);(item.legacyIds||[]).forEach(function(old){aliases.set(old,item.id);});});
+    var data=store(),entry=Object.assign({},saved);
+    ["starred","weak"].forEach(function(kind){
+      var flags={};Object.keys(saved[kind]||{}).forEach(function(id){if(saved[kind][id])flags[aliases.get(id)||id]=true;});entry[kind]=flags;
+    });
+    entry.id=aliases.get(saved.id)||saved.id;data[level]=entry;
+    try{root.localStorage.setItem(key,JSON.stringify(data));}catch(e){}
+    return entry;
   }
-  function load(levelChoice){
+  function writeUrl(){
+    if(!root.location||!root.history)return;
+    var url=new URL(root.location.href);
+    if(url.searchParams.get("screen")!=="shadowing")return;
+    url.searchParams.set("shadowLevel",level);
+    url.searchParams.set("shadowGroup",group);
+    url.searchParams.set("shadowMode",mode);
+    if(selectedId)url.searchParams.set("shadowLine",selectedId);else url.searchParams.delete("shadowLine");
+    root.history.replaceState(root.history.state,"",url.pathname+url.search+url.hash);
+  }
+  function load(levelChoice,route){
     level=levelChoice;var my=++token;clearRecording();stopSound();
     var n=host();if(!n)return;
     n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
@@ -78,41 +106,32 @@
             group:"unit-"+unit,groupLabel:"Nhóm "+unit+" · Câu "+((unit-1)*25+1)+"–"+(Math.min(unit*25,900)),
             sourceStatus:r.reviewStatus||"unreviewed"};
         });}):
-      Promise.all([
-        root.fetch("./data/shadowing/hsk"+level+"-v1.json"),
-        root.fetch("./data/hsk/hsk"+level+"/lessons.json")
-      ]).then(function(responses){return Promise.all(responses.map(function(r){
-        if(!r.ok)throw Error("HTTP "+r.status);return r.json();
-      }));}).then(function(parts){
-        var lessonNames=new Map((parts[1].records||[]).map(function(lesson){
-          return [lesson.id,lesson.titleVi||lesson.topic||lesson.id];
-        }));
-        var annotated=(parts[0].records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;});
-        var annotationIndex=new Map(annotated.map(function(r){return [r.sourceSectionId+"|"+r.hanzi,r];}));
-        var source=(parts[1].records||[]).flatMap(function(lesson){
-          return (lesson.sections||[]).filter(function(section){
-            return section.type==="dialogue"&&section.content&&section.content.scriptZh;
-          }).flatMap(function(section){
-            return splitScript(section.content.scriptZh,section.id).map(function(line){
-              return annotationIndex.get(section.id+"|"+line.hanzi)||
-                Object.assign({},line,{sourceSectionId:section.id,reviewStatus:"unreviewed"});
-            });
+      root.fetch("./data/shadowing/hsk"+level+"-v1.json?v=3")
+        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(data){
+          if(data.contentVersion!==3||data.level!==levelChoice)throw Error("Học liệu đã cập nhật, hãy tải lại trang.");
+          var lessonNames=new Map((data.lessons||[]).map(function(lesson){return [lesson.id,lesson.titleVi];}));
+          return (data.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;}).map(function(r){
+            return Object.assign({},r,{group:r.sourceSectionId,
+              groupLabel:"Bài "+(Number((r.sourceLessonId||"").match(/lesson-(\d+)/)?.[1])||1)+" · "+(lessonNames.get(r.sourceLessonId)||"Hội thoại"),
+              sourceStatus:r.reviewStatus||"unreviewed"});
           });
         });
-        var seen=new Set(),unique=[];
-        annotated.concat(source).forEach(function(r){
-          var identity=r.sourceSectionId+"|"+r.hanzi;
-          if(seen.has(identity))return;seen.add(identity);
-          unique.push(Object.assign({},r,{group:r.sourceSectionId,
-            groupLabel:"Bài "+(Number((r.sourceSectionId||"").match(/lesson-(\d+)/)?.[1])||1)+
-              " · "+(lessonNames.get(String(r.sourceSectionId||"").replace(/-dialogue$/,""))||"Hội thoại"),sourceStatus:r.reviewStatus||"unreviewed"}));
-        });
-        return unique;
-      });
     request.then(function(items){if(my!==token)return;
-      lines=items;var saved=current();
+      lines=items;var saved=restore(items);
+      rate=[0.7,0.85,1].includes(saved.rate)?saved.rate:0.85;
+      showPinyin=saved.showPinyin!==false;showVi=saved.showVi!==false;repeats=saved.repeats===3?3:1;
       group=saved.group&&items.some(function(item){return item.group===saved.group;})?saved.group:"all";
       mode=["all","starred","weak"].includes(saved.mode)?saved.mode:"all";
+      if(route){
+        if(route.group&&items.some(function(item){return item.group===route.group;}))group=route.group;
+        if(["all","starred","weak"].includes(route.mode))mode=route.mode;
+        if(route.lessonId){
+          var first=items.find(function(item){return item.sourceLessonId===route.lessonId;});
+          if(first){group=first.group;mode="all";saved.id=first.id;}
+        }
+        if(route.line&&items.some(function(item){return item.id===route.line;}))saved.id=route.line;
+      }
       var options=visible();
       index=options.findIndex(function(item){return item.id===saved.id;});
       if(index<0)index=Math.max(0,Math.min(Number(saved.index)||0,options.length-1));
@@ -141,7 +160,7 @@
        '<button type="button" data-shadow-mode="all">Xem tất cả</button></div>':
       '<div class="shadow-counter">Câu '+(index+1)+' / '+options.length+' · HSK '+level+
         ' · '+esc(item.groupLabel||"Luyện câu")+'</div>'+
-      '<article class="shadow-card"><div class="shadow-hanzi">'+esc(item.hanzi)+'</div>'+
+      '<article class="shadow-card">'+(item.speaker?'<p class="shadow-speaker">Người nói: '+esc(item.speaker)+'</p>':'')+'<div class="shadow-hanzi">'+esc(item.hanzi)+'</div>'+
       (showPinyin?'<p class="shadow-pinyin">'+esc(item.pinyin||"Pinyin đang bổ sung cho câu này")+'</p>':"")+
       (showVi?'<p class="shadow-meaning">'+esc(item.vi||"Nghĩa tiếng Việt đang bổ sung")+'</p>':"")+
       '<div class="shadow-save-actions">'+
@@ -151,13 +170,14 @@
          ((meta.weak||{})[item.id]?'✓ Đã đánh dấu cần ôn':'↻ Cần luyện lại')+'</button></div>'+
       '<div class="shadow-controls"><button type="button" data-shadow-play>🔊 Nghe mẫu</button>'+
       '<button type="button" data-shadow-rate>◷ '+rate+'×</button>'+
+      '<button type="button" data-shadow-repeat>Lặp: '+repeats+' lần</button>'+
       '<button type="button" data-shadow-record>● Ghi âm</button>'+
-      '<button type="button" data-shadow-stop>Dừng</button></div>'+
+      '<button type="button" data-shadow-stop disabled>Dừng</button></div>'+
       '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"'+
-        (recordUrl?' src="'+esc(recordUrl)+'"':'')+'></audio>'+
+        (recordUrl?' src="'+esc(recordUrl)+'"':' hidden')+'></audio>'+
       '<div class="shadow-toggles"><button type="button" data-shadow-pinyin>'+(showPinyin?"Ẩn":"Hiện")+
       ' Pinyin</button><button type="button" data-shadow-vi>'+(showVi?"Ẩn":"Hiện")+
-      ' nghĩa Việt</button><button type="button" data-shadow-clear>Xóa bản ghi</button></div>'+
+      ' nghĩa Việt</button><button type="button" data-shadow-clear hidden>Xóa bản ghi</button></div>'+
       '<div class="shadow-nav"><button type="button" data-shadow-prev '+(index===0?"disabled":"")+
       '>← Câu trước</button><button type="button" data-shadow-next '+(index===options.length-1?"disabled":"")+
       '>Câu tiếp →</button></div></article>';
@@ -166,10 +186,12 @@
       '<p>Nghe → nói theo → ghi âm → nghe lại. Không chấm phát âm hoặc cộng EXP.</p></div>'+
       '<button type="button" data-shadow-back>← Giáo trình HSK</button></header>'+
       '<div class="shadow-levels">'+tabs+'</div>'+
-      '<div class="shadow-library">'+selector+filters+'</div>'+card+
+      '<div class="shadow-library">'+selector+filters+'</div>'+
+      '<p class="shadow-coverage">'+allGroups.length+' '+(level===1?'nhóm câu':'bài')+' · '+lines.filter(function(q){return q.pinyin&&q.vi;}).length+'/'+total+' '+(level===1?'câu':'lượt thoại')+' có Pinyin và nghĩa Việt</p>'+card+
       '<p id="shadowStatus" role="status" aria-live="polite">'+
       'Giọng mẫu dùng TTS thiết bị. Bản ghi chỉ lưu tạm trong phiên; dấu sao và câu cần ôn lưu trên trình duyệt.'+
       (level>1?' Pinyin và bản dịch bổ sung chưa được giáo viên duyệt.':'')+'</p></section>';
+    syncControls();
   }
   function choose(nextGroup,nextMode){
     if(nextGroup!==null)group=nextGroup;
@@ -181,13 +203,21 @@
     if(!selection()||!root.speechSynthesis||!root.SpeechSynthesisUtterance){status("Không hỗ trợ phát tiếng Trung trên thiết bị này.");return;}
     var voices=root.speechSynthesis.getVoices?root.speechSynthesis.getVoices():[],zh=voices.find(function(v){return /^zh([_-]|$)/i.test(v.lang||"");});
     if(voices.length&&!zh){status("Chưa có giọng tiếng Trung trên thiết bị.");return;}
-    stopSound();var u=new root.SpeechSynthesisUtterance(selection().hanzi);u.lang="zh-CN";u.rate=rate;if(zh)u.voice=zh;
-    u.onerror=function(){status("Không phát được mẫu, hãy kiểm tra giọng đọc trên thiết bị.");};
-    root.speechSynthesis.speak(u);status("Đang phát mẫu với tốc độ "+rate+"×.");
+    stopSound();var epoch=soundEpoch,hanzi=selection().hanzi,left=repeats;
+    function speak(){
+      if(epoch!==soundEpoch)return;
+      var u=new root.SpeechSynthesisUtterance(hanzi);u.lang="zh-CN";u.rate=rate;if(zh)u.voice=zh;
+      u.onerror=function(){if(epoch===soundEpoch){stopSound();status("Không phát được mẫu, hãy kiểm tra giọng đọc trên thiết bị.");}};
+      u.onend=function(){if(epoch!==soundEpoch)return;if(--left>0)soundTimer=root.setTimeout(speak,650);else {playing=false;syncControls();status("Đã phát xong câu mẫu.");}};
+      playing=true;syncControls();root.speechSynthesis.speak(u);status("Đang phát mẫu "+(repeats-left+1)+"/"+repeats+" với tốc độ "+rate+"×.");
+    }
+    speak();
   }
+
   async function record(){
     if(!root.MediaRecorder||!root.navigator||!root.navigator.mediaDevices||!root.navigator.mediaDevices.getUserMedia){status("Trình duyệt này chưa hỗ trợ ghi âm.");return;}
-    clearRecording();var expectedToken=token,expectedId=selectedId,expectedEpoch=recordEpoch;
+    stopSound();clearRecording();var expectedToken=token,expectedId=selectedId,expectedEpoch=recordEpoch;
+    micPending=true;syncControls();
     try{
       var acquired=await root.navigator.mediaDevices.getUserMedia({audio:true});
       if(expectedToken!==token||expectedId!==selectedId||expectedEpoch!==recordEpoch){acquired.getTracks().forEach(function(t){t.stop();});return;}
@@ -195,30 +225,32 @@
       recorder=new root.MediaRecorder(stream);chunks=[];var active=recorder;startedAt=Date.now();
       recorder.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
       recorder.onstop=function(){
-        var data=chunks.slice();if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+        recording=false;var data=chunks.slice();if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
         if(data.length&&active===recorder){recordUrl=root.URL.createObjectURL(new root.Blob(data,{type:active.mimeType||"audio/webm"}));var a=el("shadowRecording");if(a)a.src=recordUrl;status("Đã ghi âm. Bấm ▶ để nghe lại giọng mình.");}
+        syncControls();
       };
-      recorder.start();status("Đang ghi âm… Hãy nói theo câu mẫu.");
-    }catch(e){if(expectedToken===token&&expectedId===selectedId&&expectedEpoch===recordEpoch)status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}
+      micPending=false;recording=true;recorder.start();syncControls();status("Đang ghi âm… Hãy nói theo câu mẫu.");
+    }catch(e){if(expectedToken===token&&expectedId===selectedId&&expectedEpoch===recordEpoch){clearRecording();status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}}
   }
-  function stopRecord(){if(recorder&&recorder.state==="recording")recorder.stop();else status("Chưa có bản ghi đang thực hiện.");}
+  function stopRecord(){if(recorder&&recorder.state==="recording")recorder.stop();else status("Đã dừng phát mẫu.");}
   function next(delta){var items=visible();if(!items.length)return;index=Math.max(0,Math.min(items.length-1,index+delta));selectedId=items[index].id;persist();stopSound();clearRecording();render();}
   document.addEventListener("click",function(ev){
     var b=ev.target&&ev.target.closest&&ev.target.closest("button");if(!b)return;
-    if(b.hasAttribute("data-shadow-open")){ev.preventDefault();open();return;}
+    if(b.hasAttribute("data-shadow-open")){ev.preventDefault();if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("shadowing");else open();return;}
     var n=host();if(!n||!n.contains(b)||!n.classList.contains("hsk-shadow-screen"))return;
-    if(b.hasAttribute("data-shadow-back")){++token;stopSound();clearRecording();if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
+    if(b.hasAttribute("data-shadow-back")){leave();if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("msutong");else if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
     if(b.hasAttribute("data-shadow-level")){load(Number(b.getAttribute("data-shadow-level")));return;}
     if(b.hasAttribute("data-shadow-mode")){choose(null,b.getAttribute("data-shadow-mode"));return;}
     if(b.hasAttribute("data-shadow-star")){mark("starred",selectedId);return;}
     if(b.hasAttribute("data-shadow-weak")){mark("weak",selectedId);return;}
     if(b.hasAttribute("data-shadow-play")){play();return;}
-    if(b.hasAttribute("data-shadow-rate")){rate=rate===0.85?0.7:rate===0.7?1:0.85;render();return;}
+    if(b.hasAttribute("data-shadow-rate")){stopSound();rate=rate===0.85?0.7:rate===0.7?1:0.85;persist();render();return;}
+    if(b.hasAttribute("data-shadow-repeat")){stopSound();repeats=repeats===1?3:1;persist();render();return;}
     if(b.hasAttribute("data-shadow-record")){record();return;}
-    if(b.hasAttribute("data-shadow-stop")){stopRecord();return;}
+    if(b.hasAttribute("data-shadow-stop")){stopSound();stopRecord();var audio=el("shadowRecording");if(audio)audio.pause();return;}
     if(b.hasAttribute("data-shadow-clear")){clearRecording();status("Đã xóa bản ghi khỏi phiên học.");return;}
-    if(b.hasAttribute("data-shadow-pinyin")){showPinyin=!showPinyin;render();return;}
-    if(b.hasAttribute("data-shadow-vi")){showVi=!showVi;render();return;}
+    if(b.hasAttribute("data-shadow-pinyin")){showPinyin=!showPinyin;persist();render();return;}
+    if(b.hasAttribute("data-shadow-vi")){showVi=!showVi;persist();render();return;}
     if(b.hasAttribute("data-shadow-prev")){next(-1);return;}
     if(b.hasAttribute("data-shadow-next")){next(1);}
   });
@@ -227,6 +259,17 @@
     var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
     choose(ev.target.value,null);
   });
-  function open(l){load([1,2,3].includes(Number(l))?Number(l):1);}
-  root.VDuckieShadowing=Object.freeze({open:open});
+  document.addEventListener("visibilitychange",function(){if(document.hidden){stopSound();clearRecording();}});
+  root.addEventListener("pagehide",function(){++token;stopSound();clearRecording();});
+  function leave(){++token;stopSound();clearRecording();}
+  function open(options){
+    if(typeof options==="number")options={level:options};
+    var params=root.location?new URLSearchParams(root.location.search):new URLSearchParams();
+    var routed=params.get("screen")==="shadowing";
+    var route=options||{level:routed?Number(params.get("shadowLevel")):0,group:routed?params.get("shadowGroup"):null,
+      mode:routed?params.get("shadowMode"):null,line:routed?params.get("shadowLine"):null};
+    var choice=Number(route.level)||Number(store().lastLevel)||1;
+    load([1,2,3].includes(choice)?choice:1,route);
+  }
+  root.VDuckieShadowing=Object.freeze({open:open,leave:leave});
 })(window,document);

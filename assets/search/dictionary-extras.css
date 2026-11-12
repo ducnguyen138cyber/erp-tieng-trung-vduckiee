@@ -27,3 +27,8 @@
 .vsearch-notebook header button{background:#eff6ff;color:#111827}
 .vsearch-notebook-filters input,.vsearch-notebook-filters select{background:#fff;color:#111827;border-color:#cbd5e1}
 .vsearch-saved-word{border-color:#e2e8f0}
+
+.dictionary-example,.vsearch-examples{display:grid;gap:7px;line-height:1.6}
+.dictionary-example-label{display:block;color:#64748b;font-size:12px}
+.dictionary-example-pinyin{display:block;color:#2563eb;font-size:14px;font-weight:500}
+[data-learning-example-speak]{justify-self:start;min-height:40px;border:1px solid #dbeafe;border-radius:9px;background:#fff;color:#1d4ed8;padding:8px 12px;font:inherit;font-size:13px;cursor:pointer}

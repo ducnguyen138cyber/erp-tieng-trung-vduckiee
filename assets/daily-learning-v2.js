@@ -131,7 +131,17 @@
   }
   function panel() {
     var node = document.getElementById("dailyLearningPanel");
-    if (!node) { node = document.createElement("section"); node.id = "dailyLearningPanel"; node.className = "panel daily-panel hidden"; var main = document.querySelector(".study-center > main"); if (main) main.insertBefore(node, main.firstChild); }
+    if (!node) {
+      node = document.createElement("section");
+      node.id = "dailyLearningPanel";
+      node.className = "panel daily-panel hidden";
+    }
+    // The home renderer nests #v865HomeMain inside the hidden #homeHub.
+    // Never choose an arbitrary descendant <main>: doing so puts lessons
+    // inside the hidden home and produces a zero-sized HSK page.
+    var target = document.querySelector(".study-center > main") ||
+      document.querySelector(".study-center");
+    if (target && node.parentNode !== target) target.insertBefore(node, target.firstChild);
     return node;
   }
   function hideLegacy() {
@@ -411,8 +421,18 @@
     if (status) status.textContent = matches.length + " kết quả" + (matches.length > shown.length ? " · đang hiện 50 kết quả đầu" : "");
     results.innerHTML = shown.length ? shown.map(function (record) {
       var term = record.term, isSaved = !!saved[term[0]];
-      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + (term[6] ? '<div class="dictionary-example"><strong>' + esc(term[6]) + '</strong>' + (term[7] ? '<span>' + esc(term[7]) + '</span>' : "") + '</div>' : "") + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
+      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + '<div class="dictionary-example" data-dictionary-example></div>'  + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
     }).join("") : '<div class="dictionary-empty"><strong>Không tìm thấy từ phù hợp.</strong><span>Thử chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt khác.</span></div>';
+    if(root.VDuckieLearningExamples)Array.from(results.querySelectorAll(".dictionary-card")).forEach(function(card,index){
+      var record=shown[index],term=record.term;
+      root.VDuckieLearningExamples.enhance(card.querySelector('[data-dictionary-example]'),term[0],term[6]&&term[7]?{zh:term[6],vi:term[7]}:null,function(entry){
+        if(!record.sources.some(function(source){return /ERP/.test(source);})){
+          term[4]='HSK '+entry.level+' · GF0025-2021';
+          card.querySelector('.dictionary-meta>span').textContent=term[4];
+        }
+        term[6]=entry.example.zh;term[7]=entry.example.vi;
+      });
+    });
     bindSpeak();
     results.querySelectorAll("[data-dictionary-save]").forEach(function (button) { button.onclick = function () { var record = all.find(function (item) { return item.term[0] === button.dataset.dictionarySave; }); if (record) { saveDictionaryWord(record); renderDictionaryResults(document.getElementById("dailyDictionarySearch").value); } }; });
   }

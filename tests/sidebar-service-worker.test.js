@@ -70,10 +70,10 @@ test('no-store HTML shell fetch is not replaced by stale cached shell', async ()
 
 test('offline versioned shell loads the precached unversioned shell without relaxing JS cache keys', async () => {
   const w = worker(false);
-  const cache = await w.caches.open('vduckie-pwa-v49-shell');
+  const cache = await w.caches.open('vduckie-pwa-v52-shell');
   await cache.put('https://example.test/app/app-shell-v88.html', w.response('offline-shell'));
   assert.equal((await w.load('app-shell-v88.html?v=mobile-pwa-full-home-v6')).body, 'offline-shell');
-  await assert.rejects(w.load('assets/daily-learning-v2.js?v=999'), /offline/);
+  await assert.rejects(w.load('assets/daily-learning-v2.js?v=polish1'), /offline/);
 });
 
 test('Supabase, OAuth and non-GET requests bypass cache; activation removes only old app caches', async () => {
@@ -83,11 +83,11 @@ test('Supabase, OAuth and non-GET requests bypass cache; activation removes only
   }
   await w.caches.open('unrelated-user-cache');
   await w.caches.open('vduckie-pwa-v12-static');
-  await w.caches.open('vduckie-pwa-v49-static');
+  await w.caches.open('vduckie-pwa-v52-static');
   let pending;
   w.handlers.activate({ waitUntil(value) { pending = value; } });
   await pending;
-  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v49-static']);
+  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v52-static']);
   assert.deepEqual(w.requests, []);
 });
 

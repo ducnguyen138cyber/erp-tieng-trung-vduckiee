@@ -29,7 +29,7 @@
   function progressHtml(info){
     var stats=lessonStats(info);
     var status=insufficient(info)?(stats.completed?'✓ Đã học · ':'')+'Chưa đủ dữ liệu đánh giá':stats.mastered?'✓ Đã nắm vững':stats.completed?'✓ Đã học · Chưa nắm vững':stats.checked+'/'+stats.total+' câu đã kiểm tra';
-    return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>Đã học: hoàn thành nội dung và bài tập. Nắm vững: đúng ít nhất 80% toàn bộ câu có đáp án xác thực, tính lần trả lời đầu mỗi lượt.</small></div><span class="hsk-study-chip'+(stats.mastered?' hsk-study-complete':'')+'">'+status+'</span></div>';
+    return '<div class="hsk-study-progress" role="status" aria-live="polite"><div><strong>Tiến độ bài học</strong><small>Học từng phần, rồi làm bài tập để xem mức độ ghi nhớ.</small></div><span class="hsk-study-chip'+(stats.mastered?' hsk-study-complete':'')+'">'+status+'</span></div>';
   }
   function finishHtml(info){
     var stats=lessonStats(info),missing=missingContent(info),remaining=Math.max(0,stats.total-stats.checked);

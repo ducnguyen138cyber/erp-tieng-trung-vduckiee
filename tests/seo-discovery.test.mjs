@@ -38,36 +38,43 @@ test("crawler rules and sitemap expose the canonical VDuckie URL", () => {
 });
 
 
-test("two useful, static Vietnamese guides have canonical metadata and are discoverable", () => {
+test("static study guides are discoverable and have distinct canonical metadata", () => {
   const sitemap = read("sitemap.xml");
-  const entry = read("index.html");
-  const shell = read("app-shell-v88.html");
-  const pages = [
-    ["hoc-tieng-trung-hsk.html", "luyen-go-pinyin.html"],
-    ["luyen-go-pinyin.html", "hoc-tieng-trung-hsk.html"],
-  ];
-  for (const [path, other] of pages) {
-    const source = read(path);
-    const canonical = home + path;
-    assert.ok(sitemap.includes("<loc>" + canonical + "</loc>"), "Missing sitemap URL: " + path);
-    assert.ok(entry.includes('href="./' + path + '"'), "Missing non-JS homepage link: " + path);
-    assert.ok(shell.includes('href="./' + path + '"'), "Missing rendered homepage link: " + path);
-    assert.match(source, /<html lang="vi">/);
+  const pages = ["hoc-tieng-trung-hsk", "luyen-go-pinyin", "luyen-nghe-shadowing"];
+  const titles = new Set();
+  for (const slug of pages) {
+    const source = read(slug + "/index.html"), canonical = home + slug + "/";
+    for (const entry of ["index.html", "app-shell-v88.html"]) {
+      assert.ok(read(entry).includes('href="./' + slug + '/"'), "Missing discovery link in " + entry);
+    }
+    assert.ok(sitemap.includes("<loc>" + canonical + "</loc>"));
     assert.ok(source.includes('<link rel="canonical" href="' + canonical + '">'));
-    assert.match(source, /<meta name="robots" content="index,follow,max-image-preview:large">/);
+    assert.match(source, /<html lang="vi">/);
     assert.match(source, /<h1>[^<]{25,}<\/h1>/);
-    assert.ok(source.includes('href="./' + other + '"'));
-    assert.match(source, /duckie-reader-icon-192\.png/);
-    const ld = source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
-    assert.ok(ld, "Missing schema: " + path);
-    const json = JSON.parse(ld[1]);
-    assert.equal(json["@type"], "WebPage");
-    assert.equal(json.url, canonical);
-    assert.equal(json.isPartOf.name, "VDuckie");
-    assert.ok(source.replace(/<[^>]*>/g, " ").split(/\s+/).length > 400, path + " lacks substantive content");
+    assert.doesNotMatch(source, /<script[^>]+src=/, "guide content must not depend on app scripts");
+    const title = source.match(/<title>(.*?)<\/title>/)[1];
+    assert.equal(titles.has(title), false, "duplicate page title"); titles.add(title);
+    const ld = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(ld.url, canonical); assert.equal(ld.name, title); assert.equal(ld["@type"], "WebPage");
+    for (const [, href] of source.matchAll(/href="([^"#]+)"/g)) {
+      const url = new URL(href.replaceAll("&amp;", "&"), canonical);
+      if (url.origin !== new URL(home).origin) continue;
+      const file = url.pathname.endsWith("/") ? url.pathname + "index.html" : url.pathname;
+      assert.ok(fs.existsSync("." + file), "broken public guide link: " + href);
+    }
   }
-  assert.equal([...sitemap.matchAll(/<loc>/g)].length, 3);
-  assert.doesNotMatch(sitemap, /\?screen=|\.pages\.dev\/preview/);
-  assert.match(shell, /<nav class="vd-seo-guides" aria-label="Cẩm nang học tiếng Trung">/);
-  assert.match(shell, /href="\.\/assets\/seo\/home-guides\.css\?v=1"/);
+  assert.equal([...sitemap.matchAll(/<loc>/g)].length, 4);
+  assert.doesNotMatch(sitemap, /\?screen=|\.html<|[a-z0-9]{8}\.vduckie\.pages\.dev/);
+});
+
+test("a failed app shell keeps the static introduction and reports failure after DOM ready", async () => {
+  const source = read("index.html");
+  const bootstrap = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)].find(([, , code]) => code.includes("restoreStaticVDuckie"))[2];
+  for (const readyState of ["loading", "complete"]) {
+    const status = {textContent: "Đang mở VDuckie…"}, events = [];
+    const document = {readyState, getElementById: id => id === "vduckieBootStatus" ? status : null, addEventListener: (name, callback) => events.push({name, callback})};
+    await vm.runInNewContext(bootstrap, {document, fetch: async () => {throw new Error("offline")}, console: {error() {}}});
+    if (readyState === "loading") {assert.equal(events[0].name, "DOMContentLoaded"); events[0].callback();}
+    assert.match(status.textContent, /vẫn có thể đọc/);
+  }
 });

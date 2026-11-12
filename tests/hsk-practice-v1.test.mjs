@@ -118,11 +118,12 @@ test('the full-length exam entry is bundled in current PWA',()=>{
   const graded=read('assets/curriculum/graded-hsk-entry.js');
   const html=read('index.html'),worker=read('service-worker.js');
   assert.match(graded,/data-practice-open/);
-  assert.match(graded,/HSK1: 40 câu/);
+  assert.match(graded,/Bài luyện HSK · 224 mã bài/);
+  assert.match(graded,/không phải đề thi HSK chính thức/);
   assert.match(html,/hsk-practice-bank-v1\.js\?v=2/);
-  assert.match(html,/hsk-practice-ui-v1\.js\?v=2/);
-  assert.match(html,/hsk-practice-ui-v1\.css\?v=2/);
-  assert.match(html,/graded-hsk-entry\.js\?v=public1/);
-  assert.match(worker,/vduckie-pwa-v49/);
+  assert.match(html,/hsk-practice-ui-v1\.js\?v=polish1/);
+  assert.match(html,/hsk-practice-ui-v1\.css\?v=polish1/);
+  assert.match(html,/graded-hsk-entry\.js\?v=polish1/);
+  assert.match(worker,/vduckie-pwa-v52/);
   assert.match(worker,/hsk-practice-bank-v1\.js\?v=2/);
 });

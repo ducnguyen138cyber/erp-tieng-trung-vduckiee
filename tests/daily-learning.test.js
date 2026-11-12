@@ -96,7 +96,7 @@ test("mobile dock stays daily-only and respects the safe area", () => {
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=factory1/);
+  assert.match(shell, /assets\/daily-learning-v2\.js\?v=polish1/);
   assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.9/);
 });
 

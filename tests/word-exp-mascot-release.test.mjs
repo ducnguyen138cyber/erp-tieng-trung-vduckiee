@@ -64,7 +64,7 @@ test('all new assets have cache-busted public entrypoints and current PWA cache'
   assert.match(index,/exp-floating-feedback-v91\.css\?v=1/);
   assert.match(index,/exp-core-v90\.js\?v=word-float1/);
   assert.match(index,/mascot-swap-v1\.js\?v=10/);
-  assert.match(worker,/vduckie-pwa-v49/);
+  assert.match(worker,/vduckie-pwa-v52/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
 });
 
@@ -77,5 +77,5 @@ test('EXP reward guide matches the deployed three-point, fifty-word rule in ever
   assert.match(i18n,/每天最多 50 个词/);
   assert.match(i18n,/up to 50 words\/day/);
   assert.match(index,/exp-leaderboard-v90\.js\?v=word3-50/);
-  assert.match(index,/interface-i18n-v1\.js\?v=factory1/);
+  assert.match(index,/interface-i18n-v1\.js\?v=polish1/);
 });

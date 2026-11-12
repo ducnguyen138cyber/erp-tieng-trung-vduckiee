@@ -9,6 +9,7 @@
   var erpViews = ["lessons","cards","dialogue","quiz","glossary","personal","community"];
   function one(selector) { return document.querySelector(selector); }
   function screenOf(button) {
+    if (button.hasAttribute("data-shadow-open")) return "shadowing";
     if (button.matches('[data-v865-action="open-hsk"]')) return "msutong";
     if (button.matches("[data-exp-open-all]")) return "ranking";
     if (button.hasAttribute("data-daily-home") || button.hasAttribute("data-home") || button.id === "brandHome") return "home";
@@ -25,7 +26,7 @@
     return null;
   }
   function valid(screen) {
-    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games","vietnamese"].indexOf(screen) !== -1 ||
+    return ["home","ranking","hsk","msutong","hsk-study","roadmap","daily","review","dictionary","profile","games","vietnamese","shadowing"].indexOf(screen) !== -1 ||
       (screen.indexOf("erp:") === 0 && erpViews.indexOf(screen.slice(4)) !== -1);
   }
   function fromLocation() {
@@ -36,12 +37,18 @@
     if (params.get("area") === "erp") return "erp:lessons";
     return "home";
   }
-  function urlFor(screen) {
+  function urlFor(screen, options) {
     var url = new URL(root.location.href);
     url.searchParams.delete("area");
     url.searchParams.set("screen", screen);
+    if (screen !== "shadowing") ["shadowLevel","shadowGroup","shadowMode","shadowLine"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen === "shadowing" && options) {
+      ["shadowLevel","shadowGroup","shadowMode","shadowLine"].forEach(function(key){url.searchParams.delete(key);});
+      if (options.level) url.searchParams.set("shadowLevel", options.level);
+      if (options.lessonId) url.searchParams.set("shadowGroup", options.lessonId + "-dialogue");
+    }
     if (screen !== "vietnamese") ["viUnit","viTab"].forEach(function(key){url.searchParams.delete(key);});
-    if (screen === "games" || screen === "vietnamese") ["hskLevel","hskLesson","hskView","hskTab"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen === "games" || screen === "vietnamese" || screen === "shadowing") ["hskLevel","hskLesson","hskView","hskTab","hskAssessment"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
     return url.pathname + url.search + url.hash;
   }
@@ -72,10 +79,10 @@
     try { target.click(); } finally { busy = false; }
     return true;
   }
-  function show(screen, historyMode) {
+  function show(screen, historyMode, options) {
     if(root.VDuckieMobileMenu)root.VDuckieMobileMenu.close();
     if (!valid(screen)) screen = "home";
-    if (screen === current && historyMode === "push") {
+    if (screen === current && historyMode === "push" && !options) {
       // Recover an initially empty or reset curriculum panel on a repeat click.
       var panel = document.getElementById("dailyLearningPanel");
       if (screen !== "msutong" || (panel && !panel.classList.contains("hidden") && panel.querySelector(".graded-hsk-page"))) return;
@@ -83,6 +90,7 @@
     }
     var priorURL = root.location.pathname + root.location.search + root.location.hash;
     var priorState = root.history.state;
+    if (screen !== "shadowing" && root.VDuckieShadowing && root.VDuckieShadowing.leave) root.VDuckieShadowing.leave();
     if (screen !== "vietnamese" && root.VDuckieVietnamese) root.VDuckieVietnamese.leave();
     if (screen !== "vietnamese") { hide("vietnameseScreen"); if (document.title === "学越南语 — VDuckie") document.title = "VDuckie – Tự học tiếng Trung HSK và tiếng Trung công xưởng"; }
     if (screen !== "games" && root.VDuckieGames) root.VDuckieGames.leave();
@@ -94,6 +102,9 @@
       root.VDuckieHSKRoadmap.open();
     } else if (screen === "ranking") {
       if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard(root.VDuckieEXPBoard && root.VDuckieEXPBoard.period() || "week");
+    } else if (screen === "shadowing" && root.VDuckieShadowing) {
+      if (root.VDuckieDailyLearning) root.VDuckieDailyLearning.show("msutong");
+      root.VDuckieShadowing.open(options);
     } else if (screen === "msutong" && root.VDuckieGradedHSK) {
       // Legacy Daily owns the panel mount and layout visibility. Prepare it first.
       if (root.VDuckieDailyLearning) root.VDuckieDailyLearning.show("msutong");
@@ -124,7 +135,7 @@
       viewIds.forEach(function (id) { if (id !== "hskRoadmapScreen") hide(id); });
     } else if (screen === "ranking") {
       viewIds.forEach(function (id) { if (id !== "leaderboard") hide(id); });
-    } else if (["msutong","roadmap","daily","review","dictionary","profile"].indexOf(screen) !== -1) {
+    } else if (["msutong","roadmap","daily","review","dictionary","profile","shadowing"].indexOf(screen) !== -1) {
       viewIds.forEach(function (id) { if (id !== "dailyLearningPanel") hide(id); });
     } else {
       hide("leaderboard");
@@ -159,8 +170,8 @@
     // Undo legacy replaceState calls before adding the new history entry.
     // Otherwise Back returns to a mutated version of the previous screen.
     root.history.replaceState(priorState, "", priorURL);
-    if (historyMode === "push") root.history.pushState({vduckieScreen:screen}, "", urlFor(screen));
-    else if (historyMode === "replace") root.history.replaceState({vduckieScreen:screen}, "", urlFor(screen));
+    if (historyMode === "push") root.history.pushState({vduckieScreen:screen}, "", urlFor(screen, options));
+    else if (historyMode === "replace") root.history.replaceState({vduckieScreen:screen}, "", urlFor(screen, options));
     document.body.classList.remove("sidebar-open");
     var toggle = document.getElementById("mobileMenu"); if (toggle) toggle.setAttribute("aria-expanded", "false");
     root.scrollTo(0, 0);
@@ -168,13 +179,18 @@
   // Window capture precedes the legacy document capture listener (Daily) and all bubble listeners.
   root.addEventListener("click", function (event) {
     if (busy || !event.target.closest) return;
-    var target = event.target.closest('[data-v865-action="open-hsk"],[data-exp-nav],[data-exp-open-all],[data-daily-nav],[data-daily-home],[data-home],[data-area],[data-view],[data-home-area],[data-journey-view],#brandHome');
+    var target = event.target.closest('[data-shadow-open],[data-v865-action="open-hsk"],[data-exp-nav],[data-exp-open-all],[data-daily-nav],[data-daily-home],[data-home],[data-area],[data-view],[data-home-area],[data-journey-view],#brandHome');
     if (!target || target.closest("[data-exp-period]")) return;
     var screen = screenOf(target);
     if (!screen || !valid(screen)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
-    show(screen, "push");
+    var options;
+    if (target.hasAttribute("data-shadow-open")) {
+      var level = Number(target.getAttribute("data-shadow-open-level"));
+      if ([1,2,3].indexOf(level) !== -1) options = {level:level, lessonId:target.getAttribute("data-shadow-open-lesson") || ""};
+    }
+    show(screen, "push", options);
   }, true);
   root.addEventListener("popstate", function () { show(fromLocation(), "none"); });
   function ensureExclusiveSidebar() {
@@ -224,6 +240,17 @@
           if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor("games"));
           return;
         }
+        if (current === "msutong" || current === "shadowing") {
+          // A late legacy HSK mount can reselect the old area after the
+          // catalogue has mounted. The explicit screen route stays authoritative.
+          viewIds.forEach(function(id){if(id!=="dailyLearningPanel")hide(id);});
+          var gradedPanel=document.getElementById("dailyLearningPanel");
+          if(gradedPanel&&gradedPanel.classList.contains("hidden"))gradedPanel.classList.remove("hidden");
+          if(document.body.getAttribute("data-current-area")!==current)document.body.setAttribute("data-current-area",current);
+          if(new URLSearchParams(root.location.search).has("area")||root.location.hash==="#hsk")
+            root.history.replaceState(root.history.state,"",urlFor(current));
+          return;
+        }
         if (current.indexOf("erp:") !== 0) return;
         var destination = document.getElementById(current.slice(4));
         if (destination && destination.classList.contains("hidden")) destination.classList.remove("hidden");
@@ -232,6 +259,8 @@
       });
     });
     main.__vduckieScreenObserver.observe(main,{subtree:true,attributes:true,attributeFilter:["class"],childList:true});
+    // Legacy area switches also change the body without touching the main DOM.
+    main.__vduckieScreenObserver.observe(document.body,{attributes:true,attributeFilter:["data-current-area"]});
   }
   function init() {
     // Route after the legacy modules have mounted their dynamically inserted screens.
@@ -239,6 +268,6 @@
     // Run the route after those synchronous initialization listeners complete.
     root.setTimeout(function () { show(fromLocation(), "replace"); ensureExclusiveSidebar(); ensureExclusiveScreens(); }, 0);
   }
-  root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen) { show(screen, "push"); }, current: function () { return current; } });
+  root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen, options) { show(screen, "push", options); }, current: function () { return current; } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true}); else init();
 })(window, document);
