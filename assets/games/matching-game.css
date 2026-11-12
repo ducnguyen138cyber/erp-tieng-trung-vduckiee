@@ -3,8 +3,10 @@
 body[data-current-area="matching"] .study-rail{display:none!important}body[data-current-area="matching"] .study-layout{grid-template-columns:var(--study-sidebar-width,220px) minmax(0,1fr)!important}body[data-current-area="matching"] .study-center{max-width:none!important}
 
 /* State feedback must remain visible through the legacy brand theme. */
+@layer vduckie-brand {
 #gamesScreen .mg-tile.is-selected{background:#dfecff!important;border-color:#2563eb!important;border-width:2px!important}
 #gamesScreen .mg-tile.is-matched{background:#e9fbef!important;border-color:#a8e0ba!important;color:#142d1e!important}
 #gamesScreen .mg-tile.is-wrong{background:#fff0f0!important;border-color:#ef8d8d!important}
 #gamesScreen .mg-check{color:#168444!important}
 #gamesScreen [data-match-action].games-primary{background:#2563eb!important;color:#fff!important;border-color:#2563eb!important}
+}
