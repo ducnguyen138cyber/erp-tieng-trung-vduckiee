@@ -1,6 +1,6 @@
 (function(w,d){
  'use strict';
- var E=w.VDuckieMatchingEngine,host,round,words,loading,erpCount=0,request=0,clock=null,started=0,elapsed=0,paused=false,ticket,finished=false;
+ var E=w.VDuckieMatchingEngine,host,round,words,loading,courseLoading,erpCount=0,request=0,clock=null,started=0,elapsed=0,paused=false,ticket,finished=false;
  var options={pool:'all',pairs:'12',hint:'pinyin'},settingsKey='vduckie:matching-settings:v1',historyKey='vduckie:matching-seen:v1',memoryHistory=null;
  var pools={all:'Tất cả từ',hsk1:'HSK 1',hsk2:'HSK 2',hsk3:'HSK 3',hsk4:'HSK 4',hsk5:'HSK 5',hsk6:'HSK 6',hsk79:'HSK 7–9',factory:'Công xưởng'};
  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
@@ -9,11 +9,14 @@
  function history(){var v=memoryHistory||read(historyKey,[]);return Array.isArray(v)?v.slice(-20000):[];}
  function json(url){return fetch(url,{cache:'force-cache'}).then(function(r){if(!r.ok)throw new Error('Chưa tải được kho từ.');return r.json();});}
  function erpRecords(){return (w.ERP_TERMS||[]).map(function(t){var p=t[1]||'';if(!p&&w.ERPPronunciation&&typeof w.ERPPronunciation.generate==='function'){var generated=w.ERPPronunciation.generate(t[0]);p=generated&&generated.pinyin||'';}return {hanzi:t[0],pinyin:p,meanings:[t[3]],sources:['erp'],levels:[]};});}
+ function courseWords(){
+  if(!courseLoading)courseLoading=Promise.all([1,2,3,4].map(function(level){var base='./data/hsk/hsk'+level+'/vocabulary/';return json(base+'index.json').then(function(index){return Promise.all(index.shards.map(function(shard){return json(base+shard.file);}));}).then(function(parts){return parts.flatMap(function(part){return (part.records||[]).map(function(r){return {hanzi:r.simplified,pinyin:r.pinyinTone||r.pinyin,meanings:[r.meaningVi],levels:[],sources:['hsk']};});});});})).then(function(parts){return parts.flat();}).catch(function(error){courseLoading=null;throw error;});return courseLoading;
+ }
  function load(){
   if(words){if(erpCount!==(w.ERP_TERMS||[]).length){words=E.prepare(words.concat(erpRecords()));erpCount=(w.ERP_TERMS||[]).length;}return Promise.resolve(words);}if(loading)return loading;
   var existing=w.VDuckieDictionary&&w.VDuckieDictionary.records;
-  if(existing&&existing.length>=10000){words=E.prepare(existing.concat(erpRecords()));erpCount=(w.ERP_TERMS||[]).length;return Promise.resolve(words);}
-  loading=(w.HSK_DICTIONARY_TERMS&&w.HSK_DICTIONARY_TERMS.length>=10000?Promise.resolve(w.HSK_DICTIONARY_TERMS):json('./assets/v79/hsk-dictionary/manifest.json').then(function(m){return Promise.all(m.chunks.map(function(c){return json('./assets/v79/hsk-dictionary/'+c);})).then(function(parts){return parts.flat();});})).then(function(hsk){words=E.prepare(hsk.concat(erpRecords()));erpCount=(w.ERP_TERMS||[]).length;loading=null;return words;}).catch(function(e){loading=null;throw e;});return loading;
+  var broad=existing&&existing.length>=10000?Promise.resolve(existing):w.HSK_DICTIONARY_TERMS&&w.HSK_DICTIONARY_TERMS.length>=10000?Promise.resolve(w.HSK_DICTIONARY_TERMS):json('./assets/v79/hsk-dictionary/manifest.json').then(function(m){return Promise.all(m.chunks.map(function(c){return json('./assets/v79/hsk-dictionary/'+c);})).then(function(parts){return parts.flat();});});
+  loading=Promise.all([courseWords(),broad]).then(function(parts){words=E.prepare(parts[0].concat(parts[1],erpRecords()));erpCount=(w.ERP_TERMS||[]).length;loading=null;return words;}).catch(function(e){loading=null;throw e;});return loading;
  }
  function button(label,action,extra){return '<button type="button" data-match-action="'+action+'" '+(extra||'')+'>'+label+'</button>';}
  function title(){return '<header class="mg-heading"><div><span class="games-eyebrow">VDUCKIE ARCADE / NHỚ MẶT CHỮ</span><h1>Nối cặp Hán–Việt</h1><p>Chọn một từ tiếng Trung, rồi chọn nghĩa tương ứng.</p></div>'+button('← Trò chơi','exit','class="games-back"')+'</header>';}

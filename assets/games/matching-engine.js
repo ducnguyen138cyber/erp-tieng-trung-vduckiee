@@ -4,7 +4,7 @@
  function key(s){return String(s||'').normalize('NFC').toLocaleLowerCase('vi').replace(/[\s.,;:!?()]+/g,' ').trim();}
  function meaning(values){
   for(var raw of values||[]){var s=String(raw||'').trim();
-   if(!s||/^(LT:|CL:|biến thể|cách viết khác|chưa có|đang cập nhật)/i.test(s))continue;
+   if(!s||/\[[^\]]*[1-5][^\]]*\]/.test(s)||/^(LT:|CL:|biến thể|cách viết khác|chưa có|đang cập nhật)/i.test(s))continue;
    s=s.split(/[;；]/)[0].trim();
    if(s.length>140||!/[a-zÀ-ỹĐđ]/i.test(s)||/[\u3400-\u9fff]/.test(s))continue;
    return s;
