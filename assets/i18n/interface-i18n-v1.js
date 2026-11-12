@@ -2616,6 +2616,7 @@
     ]
   });
   Object.assign(strings,{"Kho đề luyện HSK · 224 đề":["HSK 模拟练习题库 · 224 套","HSK practice bank · 224 papers"],"HSK1: 40 câu · HSK2: 60 · HSK3: 80 · HSK4: 100. Nghe, Đọc, Viết theo cấp độ; chỉ chấm khi nộp bài, không cộng EXP.":["HSK1：40 题 · HSK2：60 题 · HSK3：80 题 · HSK4：100 题。按级别设听力、阅读与书写部分；交卷后评分，不奖励 EXP。","HSK1: 40 · HSK2: 60 · HSK3: 80 · HSK4: 100 questions. Listening, reading and writing by level; graded on submission with no EXP."],"Mở kho đề HSK →":["打开 HSK 练习题库 →","Open HSK practice bank →"]});
+  Object.assign(strings,{"Bài luyện HSK":["HSK 词汇练习","HSK vocabulary practice"],"Bài luyện HSK · 224 mã bài":["HSK 词汇练习 · 224 套","HSK vocabulary practice · 224 variants"],"Cấp HSK đang mở":["已开放的 HSK 级别","Available HSK levels"],"Ghi âm và tự nghe lại":["录音并回听","Record and listen back"],"Luyện nghe & Shadowing":["听力与跟读","Listening & shadowing"],"Học theo nhu cầu":["按需学习","Choose your practice"],"Tra từ":["查词","Look up a word"],"Xem giáo trình":["查看课程","Browse lessons"],"Luyện nghe & Shadowing bài này →":["练习本课听力与跟读 →","Listen & shadow this lesson →"],"Luyện nghe & Shadowing HSK1 →":["HSK1 听力与跟读 →","HSK1 listening & shadowing →"],"Học từng phần, rồi làm bài tập để xem mức độ ghi nhớ.":["逐步学习，再练习检查记忆。","Study each section, then practise to check your recall."],"Luyện từ vựng, chữ Hán và Pinyin qua Nghe, Đọc, Viết theo cấp độ. Audio TTS; không phải đề thi HSK chính thức.":["按级别练习词汇、汉字和拼音，包含听力、阅读及书写。采用合成语音，并非官方 HSK 试卷。","Practise vocabulary, Hanzi and Pinyin through level-based listening, reading and writing. TTS audio; not official HSK exams."],"Chọn bài luyện HSK →":["选择 HSK 练习 →","Choose HSK practice →"],"Đánh giá giữa khóa":["期中评估","Mid-course assessment"],"Đánh giá cuối khóa":["结课评估","Final assessment"],"Ôn tập tổng hợp":["综合复习","Comprehensive review"],"Ôn tập chương":["单元复习","Unit review"],"Tiêu chí tự đối chiếu":["自评标准","Self-check criteria"],"Xem tiêu chí tự đối chiếu":["查看自评标准","Show self-check criteria"],"Bài tập của bài học":["本课练习","Lesson exercises"]});
   var rootsSelector="header.top,#studySidebar,.study-center,#hsk,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector=".tg-overlay,#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
@@ -2630,6 +2631,9 @@
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
       var variants=[
+        [/^CHƯƠNG\s*(\d+)$/i,["单元 $1","UNIT $1"]],
+        [/^Ôn tập chương\s*(\d+)$/i,["单元 $1 阶段测验","Unit $1 checkpoint"]],
+        [/^CHƯƠNG\s*(\d+)\s*[·•]\s*BÀI\s*(\d+)\s*\/\s*(\d+)$/i,["单元 $1 · 第 $2/$3 课","UNIT $1 · LESSON $2/$3"]],
         [/^Hạng của bạn:\s*#(\d+)$/i,["你的排名：#$1","Your rank: #$1"]],
         [/^UNIT\s*(\d+)$/i,["单元 $1","UNIT $1"]],
         [/^Checkpoint\s+Unit\s*(\d+)$/i,["单元 $1 阶段测验","Unit $1 checkpoint"]],

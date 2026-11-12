@@ -291,7 +291,7 @@ function bind(){
   document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsRender(event))scheduleRender()});
   ["vduckie:hsk-study-journey-change","vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
 }
-function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=86.5";document.head.appendChild(link)}
+function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=home-original1";document.head.appendChild(link)}
 function install(){
   css();bind();
   var tries=0,interval=root.setInterval(function(){tries++;if(render()||tries>55)root.clearInterval(interval)},170);

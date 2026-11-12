@@ -8,3 +8,11 @@ body[data-current-area="hsk-study"] #v865HomeShell{display:none!important}
 
 /* Mobile dock must stay interactive, even if legacy HSK toolbar mounts late. */
 @media(max-width:760px){#mobileLearningDock{z-index:1800!important}body:not([data-current-area="hsk"]):not([data-current-area="hsk-study"]) #hsk .hsk-pro-bottom-nav{display:none!important}}
+
+/* Keep the lesson usable on small laptops as well as wide desktops. */
+@media(min-width:981px) and (max-width:1199px){
+ body:is([data-screen-route="hsk"],[data-screen-route="hsk-study"]) .study-layout{grid-template-columns:218px minmax(0,1fr) 230px!important;column-gap:14px!important}
+}
+@media(min-width:981px){
+ #hsk #hskLesson .hsk-pro-bottom-nav{position:sticky!important;bottom:0!important;left:auto!important;right:auto!important;transform:none!important;width:100%!important;max-width:100%!important;box-sizing:border-box;margin-top:18px}
+}

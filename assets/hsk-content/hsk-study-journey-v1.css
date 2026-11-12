@@ -121,3 +121,10 @@
   body[data-hsk-course-level="2"] #hsk #hskLesson .hsk-pro-bottom-nav,
   body[data-hsk-course-level="3"] #hsk #hskLesson .hsk-pro-bottom-nav{position:static!important;transform:none;left:auto;bottom:auto!important;width:100%}
 }
+
+.hsk-shadow-lesson-entry{margin:0 0 18px}
+.hsk-shadow-lesson-entry button{border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:12px;padding:10px 14px;min-height:44px;font:inherit;font-weight:700;cursor:pointer}
+
+.hsk-study-progress>div{min-width:0;flex:1}
+.hsk-study-progress .hsk-study-chip{flex:0 1 auto;white-space:normal;max-width:100%;line-height:1.45}
+@media(max-width:600px){.hsk-study-progress{align-items:flex-start;flex-direction:column;gap:10px}}

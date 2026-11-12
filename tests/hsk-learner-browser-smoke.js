@@ -97,13 +97,13 @@ async function assertHsk2(page,state){
         await card.locator(`[data-pro-check="${first.id}"]`).click();
         await card.getByText("Đúng.",{exact:true}).waitFor();
         await page.locator('[data-pro-assessment="hsk2-assessment-unit-01"]').click();
-        await page.locator("#hskLesson").getByText(/Checkpoint Unit 1/).waitFor();
+        await page.locator("#hskLesson").getByText(/Ôn tập chương 1/).waitFor();
         await page.locator('[data-pro-assessment="hsk2-assessment-midpoint"]').click();
-        await page.locator("#hskLesson").getByText(/Midpoint/).waitFor();
+        await page.locator("#hskLesson").getByText(/Đánh giá giữa khóa/).waitFor();
         await page.locator('[data-pro-assessment="hsk2-assessment-final"]').click();
-        await page.locator("#hskLesson").getByText(/Final Assessment/).waitFor();
+        await page.locator("#hskLesson").getByText(/Đánh giá cuối khóa/).waitFor();
         await page.locator('[data-pro-assessment="hsk2-assessment-mastery"]').click();
-        await page.locator("#hskLesson").getByText(/Mastery Review/).waitFor();
+        await page.locator("#hskLesson").getByText(/Ôn tập tổng hợp/).waitFor();
         await page.locator('[data-pro-level="1"]').click();
         const hsk1=await waitReady(page,1);
         if(hsk1.counts.lessons!==24||hsk1.counts.vocabulary!==300)throw new Error("HSK1 regressed after switching back from HSK2.");

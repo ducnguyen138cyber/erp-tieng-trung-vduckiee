@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
   gameplay:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
@@ -27,7 +27,7 @@ jobs:
           name: typing-game-browser-evidence
           path: artifacts/typing-game/
   performance:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
           path: artifacts/typing-performance/
 
   public-demo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4

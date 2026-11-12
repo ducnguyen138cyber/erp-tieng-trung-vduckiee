@@ -7,12 +7,12 @@
   'use strict';
 
   var COURSE_CONFIG = Object.freeze({
-    1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 unit · 24 bài' }),
-    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 unit · 28 bài' }),
-    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 unit · 36 bài' }),
-    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 unit · 48 bài' }),
-    5: Object.freeze({ base: './data/hsk/hsk5/', phase: 'C6', label: '20 unit · 60 bài' }),
-    6: Object.freeze({ base: './data/hsk/hsk6/', phase: 'C7', label: '24 unit · 72 bài' })
+    1: Object.freeze({ base: './data/hsk/hsk1/', phase: 'C2', label: '10 chương · 24 bài' }),
+    2: Object.freeze({ base: './data/hsk/hsk2/', phase: 'C3', label: '10 chương · 28 bài' }),
+    3: Object.freeze({ base: './data/hsk/hsk3/', phase: 'C4', label: '12 chương · 36 bài' }),
+    4: Object.freeze({ base: './data/hsk/hsk4/', phase: 'C5', label: '16 chương · 48 bài' }),
+    5: Object.freeze({ base: './data/hsk/hsk5/', phase: 'C6', label: '20 chương · 60 bài' }),
+    6: Object.freeze({ base: './data/hsk/hsk6/', phase: 'C7', label: '24 chương · 72 bài' })
   });
   var SUPPORT_GLOSSES = Object.freeze({
     '不喜欢': 'không thích',
@@ -375,8 +375,8 @@
     } else {
       input = '<textarea class="hsk-pro-answer-input" data-pro-input-for="' + attr(exercise.id) + '" rows="3" placeholder="Tự làm nhiệm vụ rồi ghi câu/ý chính của bạn ở đây"></textarea>';
     }
-    var action = open ? 'Xem rubric tự đối chiếu' : 'Kiểm tra';
-    return '<article class="hsk-pro-exercise' + (compact ? ' compact' : '') + '" data-pro-exercise="' + attr(exercise.id) + '"><header><span>' + esc(exercise.skill) + ' · ' + esc(exercise.format) + '</span><b>Độ khó ' + esc(exercise.difficulty) + '</b></header><p class="hsk-pro-prompt">' + esc(exercise.prompt) + '</p>' + exerciseStimulus(exercise) + input +
+    var action = open ? 'Xem tiêu chí tự đối chiếu' : 'Kiểm tra';
+    return '<article class="hsk-pro-exercise' + (compact ? ' compact' : '') + '" data-pro-exercise="' + attr(exercise.id) + '"><header><span>' + esc(learnerLabel(exercise.skill)) + '' + '</span><b>Độ khó ' + esc(exercise.difficulty) + '</b></header><p class="hsk-pro-prompt">' + esc(exercise.prompt) + '</p>' + exerciseStimulus(exercise) + input +
       '<div class="hsk-pro-exercise-actions"><button type="button" class="accent" data-pro-check="' + attr(exercise.id) + '">' + action + '</button>' + (exercise.stimulus && exercise.stimulus.evidenceZh ? '<button type="button" class="muted" data-pro-show-evidence>Gợi ý bằng chứng</button>' : '') + '</div><div class="hsk-pro-feedback hidden" data-pro-feedback="' + attr(exercise.id) + '"></div></article>';
   }
 
@@ -384,7 +384,7 @@
     var exercises = array(lesson.practiceRefs).map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
     var needsReview = exercises.filter(function(exercise) { return !['linguistic-reviewed','verified'].concat(hsk23Exercise(exercise)?['approved']:[]).includes(exercise.reviewStatus); }).length;
     var qualityNotice = needsReview ? '<p class="hsk-pro-quality-note">Lưu ý: ' + needsReview + '/' + exercises.length + ' câu trong bài chưa được kiểm định ngôn ngữ đầy đủ. Hãy dùng đáp án để tự luyện, không coi là đề thi chuẩn.</p>' : '';
-    return sectionCard('Bài tập của lesson', '<p class="hsk-pro-help">Làm bài và bấm Kiểm tra từng câu. Nhật ký tự học được lưu riêng; đây không phải điểm thi HSK chính thức.</p>' + qualityNotice + '<div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
+    return sectionCard('Bài tập của bài học', '<p class="hsk-pro-help">Làm bài và bấm Kiểm tra từng câu. Nhật ký tự học được lưu riêng; đây không phải điểm thi HSK chính thức.</p>' + qualityNotice + '<div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
   }
 
   function lessonIndex(data, id) {
@@ -399,7 +399,7 @@
   function renderLesson(data, lesson) {
     var index = lessonIndex(data, lesson.id);
     var unit = unitForLesson(data, lesson);
-    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">UNIT ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3></div></div>' +
+    var body = '<div class="hsk-pro-lesson-head"><div><span class="step">CHƯƠNG ' + esc(unit && unit.order || '') + ' · BÀI ' + (index + 1) + ' / ' + data.lessons.length + '</span><h3><span lang="zh-CN">' + esc(lesson.titleZh) + '</span><small>' + esc(lesson.titleVi) + '</small></h3></div></div>' +
       '<nav class="hsk-focus-tabs" aria-label="Các bước học"><button type="button" class="active" data-focus-stage="words" aria-pressed="true">1 · Từ mới</button><button type="button" data-focus-stage="examples" aria-pressed="false">2 · Nghe & đọc</button><button type="button" data-focus-stage="practice" aria-pressed="false">3 · Luyện tập</button><button type="button" data-focus-stage="extra" aria-pressed="false">4 · Kiến thức thêm</button></nav>';
     var stages = {words:'',examples:'',extra:''};
     array(lesson.sections).forEach(function (section) {
@@ -414,6 +414,7 @@
       else html = renderGenericSection(section);
       stages[stage] += html;
     });
+    if (state.selectedLevel <= 3) body += '<div class="hsk-shadow-lesson-entry"><button type="button" data-shadow-open data-shadow-open-level="' + state.selectedLevel + '" data-shadow-open-lesson="' + (state.selectedLevel > 1 ? attr(lesson.id) : '') + '">' + (state.selectedLevel > 1 ? 'Luyện nghe & Shadowing bài này →' : 'Luyện nghe & Shadowing HSK1 →') + '</button></div>';
     body += '<div class="hsk-focus-stage" data-focus-panel="words">' + (stages.words || '<p>Bài này không có danh sách từ mới riêng. Hãy bắt đầu ở phần Nghe & đọc.</p>') + '</div>';
     body += '<div class="hsk-focus-stage hidden" data-focus-panel="examples">' + (stages.examples || '<p>Hãy mở ví dụ trên từng thẻ từ để luyện nghe và đọc.</p>') + '</div>';
     body += '<div class="hsk-focus-stage hidden" data-focus-panel="practice">' + renderPractice(data, lesson) + '</div>';
@@ -422,12 +423,16 @@
     return body;
   }
 
+  function learnerLabel(value) {
+    var labels={listening:'Nghe',reading:'Đọc',writing:'Viết',speaking:'Nói',grammar:'Ngữ pháp',lexis:'Từ vựng',vocabulary:'Từ vựng',integrated:'Tổng hợp',characters:'Chữ Hán',pronunciation:'Phát âm','mini-checkpoint':'Ôn tập chương',midpoint:'Đánh giá giữa khóa',final:'Đánh giá cuối khóa','mastery-review':'Ôn tập tổng hợp'};
+    return labels[value] || String(value||'').replace(/Checkpoint Unit\s*(\d+)/gi,'Ôn tập chương $1').replace(/Midpoint Assessment/gi,'Đánh giá giữa khóa').replace(/Final Assessment/gi,'Đánh giá cuối khóa').replace(/Mastery Review/gi,'Ôn tập tổng hợp').replace(/Midpoint:/gi,'Đánh giá giữa khóa:').replace(/\bUnit\b/gi,'Chương');
+  }
   function renderAssessment(data, assessment) {
     var refs = array(assessment.exerciseRefs);
     var exercises = refs.map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
     var sections = assessment.sections || {};
     var weights = assessment.skillWeights || {};
-    return '<div class="hsk-pro-lesson-head"><div><span class="step">' + esc(assessment.assessmentType) + '</span><h3><span lang="zh-CN">' + esc(assessment.titleZh) + '</span><small>' + esc(assessment.titleVi) + '</small></h3></div></div>' +
+    return '<div class="hsk-pro-lesson-head"><div><span class="step">' + esc(learnerLabel(assessment.assessmentType)) + '</span><h3><span lang="zh-CN">' + esc(assessment.titleZh) + '</span><small>' + esc(learnerLabel(assessment.titleVi)) + '</small></h3></div></div>' +
       '<section class="hsk-pro-objectives"><b>Cấu trúc đánh giá</b><div class="hsk-pro-metrics">' + Object.keys(sections).map(function (key) { return '<span><strong>' + esc(sections[key]) + '</strong>' + esc(key) + '</span>'; }).join('') + '</div><p>Điểm đạt: <b>' + esc(assessment.rubric && assessment.rubric.pass) + '%</b>. ' + esc(assessment.rubric && assessment.rubric.remediation) + '</p><p>Trọng số: ' + Object.keys(weights).map(function (key) { return esc(key) + ' ' + esc(weights[key]) + '%'; }).join(' · ') + '</p></section>' +
       '<section class="hsk-pro-section hsk-pro-practice"><h4>Làm assessment</h4><p class="hsk-pro-help">Không lưu điểm lên tài khoản. Các bài nói/viết mở dùng rubric để tự đối chiếu.</p><div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, true); }).join('') + '</div></section>';
   }
@@ -454,7 +459,7 @@
     var html = '';
     var midpointId = 'hsk' + state.selectedLevel + '-assessment-midpoint';
     data.units.forEach(function (unit) {
-      html += '<section class="hsk-pro-unit"><header><span>UNIT ' + esc(unit.order) + '</span><strong>' + esc(unit.titleVi) + '</strong><small lang="zh-CN">' + esc(unit.titleZh) + '</small></header>';
+      html += '<section class="hsk-pro-unit"><header><span>CHƯƠNG ' + esc(unit.order) + '</span><strong>' + esc(unit.titleVi) + '</strong><small lang="zh-CN">' + esc(unit.titleZh) + '</small></header>';
       array(unit.lessonRefs).forEach(function (ref) {
         var lesson = data.lessonById[ref.id];
         if (!lesson) return;
@@ -464,15 +469,15 @@
         html += '<button type="button" class="hsk-pro-lesson-link' + active + completed + '" data-pro-lesson="' + attr(lesson.id) + '"><span>' + esc(lesson.order) + '</span><b>' + esc(lesson.titleVi) + '</b><small lang="zh-CN">' + esc(lesson.titleZh) + '</small>' + (completed ? '<i class="hsk-study-done-icon" aria-label="Đã hoàn thành">✓</i>' : '') + '</button>';
       });
       var checkpoint = unit.checkpointRef && data.assessmentById[unit.checkpointRef.id];
-      if (checkpoint) html += '<button type="button" class="hsk-pro-assessment-link' + (state.selectedAssessmentId === checkpoint.id ? ' active' : '') + '" data-pro-assessment="' + attr(checkpoint.id) + '">✓ Checkpoint Unit ' + esc(unit.order) + '</button>';
+      if (checkpoint) html += '<button type="button" class="hsk-pro-assessment-link' + (state.selectedAssessmentId === checkpoint.id ? ' active' : '') + '" data-pro-assessment="' + attr(checkpoint.id) + '">✓ Ôn tập chương ' + esc(unit.order) + '</button>';
       html += '</section>';
-      if (Number(unit.order) === Math.ceil(data.units.length / 2) && data.assessmentById[midpointId]) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === midpointId ? ' active' : '') + '" data-pro-assessment="' + attr(midpointId) + '">◈ Midpoint Assessment</button>';
+      if (Number(unit.order) === Math.ceil(data.units.length / 2) && data.assessmentById[midpointId]) html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === midpointId ? ' active' : '') + '" data-pro-assessment="' + attr(midpointId) + '">◈ Đánh giá giữa khóa</button>';
     });
     data.assessments.filter(function (assessment) {
       return assessment.assessmentType !== 'mini-checkpoint' && assessment.id !== midpointId;
     }).forEach(function (assessment) {
       var id = assessment.id;
-      html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + esc(assessment.titleVi || assessment.titleZh || id) + '</button>';
+      html += '<button type="button" class="hsk-pro-assessment-link major' + (state.selectedAssessmentId === id ? ' active' : '') + '" data-pro-assessment="' + attr(id) + '">' + esc(learnerLabel(assessment.titleVi || assessment.titleZh || id)) + '</button>';
     });
     if (node.innerHTML !== html) node.innerHTML = html;
   }
@@ -531,11 +536,11 @@
     if (!node) return;
     if (state.selectedAssessmentId) {
       var assessment = state.data.assessmentById[state.selectedAssessmentId];
-      node.innerHTML = assessment ? renderAssessment(state.data, assessment) : '<div class="hsk-pro-error">Không tìm thấy assessment.</div>';
+      node.innerHTML = assessment ? renderAssessment(state.data, assessment) : '<div class="hsk-pro-error">Không tìm thấy bài đánh giá.</div>';
     } else {
       var lesson = state.data.lessonById[state.selectedLessonId] || state.data.lessons[0];
       state.selectedLessonId = lesson && lesson.id;
-      node.innerHTML = lesson ? renderLesson(state.data, lesson) : '<div class="hsk-pro-error">Không tìm thấy lesson.</div>';
+      node.innerHTML = lesson ? renderLesson(state.data, lesson) : '<div class="hsk-pro-error">Không tìm thấy bài học.</div>';
       if (lesson && root.VDuckieHskStudyFlow) root.VDuckieHskStudyFlow.decorate({level:state.selectedLevel,lesson:lesson,data:state.data});
     }
     if (root.document && root.document.body) {
@@ -606,12 +611,12 @@
       var selfAnswer = article.querySelector('[data-pro-input-for="' + id + '"]');
       if (!selfAnswer || !text(selfAnswer.value)) {
         feedback.className = 'hsk-pro-feedback bad';
-        feedback.textContent = 'Hãy viết câu trả lời trước khi tự đối chiếu rubric.';
+        feedback.textContent = 'Hãy viết câu trả lời trước khi tự đối chiếu tiêu chí.';
         return;
       }
       article.querySelectorAll('[data-pro-transcript]').forEach(function(node) { node.hidden = false; });
       feedback.className = 'hsk-pro-feedback';
-      feedback.innerHTML = '<b>Rubric tự đối chiếu</b><p>' + Object.keys(rubric).map(function (key) { return esc(key) + ': ' + esc(rubric[key]) + (typeof rubric[key] === 'number' ? '%' : ''); }).join(' · ') + '</p><p>' + esc(exercise.explanationVi) + '</p>';
+      feedback.innerHTML = '<b>Tiêu chí tự đối chiếu</b><p>' + Object.keys(rubric).map(function (key) { return esc(key) + ': ' + esc(rubric[key]) + (typeof rubric[key] === 'number' ? '%' : ''); }).join(' · ') + '</p><p>' + esc(exercise.explanationVi) + '</p>';
       if (state.selectedLessonId && root.VDuckieHskStudyFlow) root.VDuckieHskStudyFlow.onChecked(id,null);
       return;
     }
