@@ -7,6 +7,8 @@
   var currentMissions = [];
   var currentTotal = 0;
   var accountInitialized = false;
+  var accountRequest = 0;
+  var accountUser = null;
   var miniRequest = 0;
   var miniCard = null;
   var miniState = null;
@@ -119,7 +121,7 @@
     accountSignature = signature;
     host.innerHTML = avatarMarkup(meta.name, meta.avatar, "v90-header-avatar") +
       '<div class="v90-header-account-copy"><strong title="' + core.escapeHtml(meta.name) + '">' + core.escapeHtml(meta.name) + '</strong>' +
-      '<span>Level ' + level.level + ' · ' + core.formatEXP(level.totalEXP) + '</span>' +
+      '<span>Level ' + level.level + ' · ' + core.formatEXP(level.totalEXP) + ' tổng</span>' +
       '<div class="v90-header-progress" role="progressbar" aria-label="Tiến độ tới Level ' + (level.level + 1) + '" aria-valuemin="0" aria-valuemax="' + level.expRequired + '" aria-valuenow="' + level.currentLevelEXP + '"><i style="width:' + (accountInitialized ? level.progressPercent : 0) + '%" data-level-progress="' + level.progressPercent + '"></i></div></div>';
     requestAnimationFrame(function () {
       var bar = host.querySelector("[data-level-progress]");
@@ -152,6 +154,7 @@
     setMarkup(host, '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-mission-list">' + html + '</div><p class="v90-weekly-note">' + (session && session.user ? "Hoàn thành nhiệm vụ để nhận EXP và tăng Level." : "Đăng nhập để lưu tiến độ và nhận EXP nhiệm vụ.") + '</p>');
   }
   function refreshAccount() {
+    var request = ++accountRequest;
     var session = core.session();
     if (!session || !session.user) {
       currentTotal = 0;
@@ -159,8 +162,12 @@
       return Promise.resolve(0);
     }
     return root.VDuckieEXP.getCurrentUserEXP().then(function (total) {
+      if (request !== accountRequest || !core.session() || core.session().user.id !== session.user.id) return currentTotal;
       currentTotal = Number(total || 0);
       renderAccount(currentTotal);
+      return currentTotal;
+    }).catch(function(error) {
+      console.warn("EXP chưa tải lại được; giữ số đã xác nhận", error);
       return currentTotal;
     });
   }
@@ -182,7 +189,7 @@
       var rank = Number(row.rank || 0);
       var level = core.calculateUserLevel(row.total_exp);
       var isMe = mine && rank === Number(mine.rank);
-      return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.period_exp) + '<small> EXP</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
+      return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.period_exp) + '<small> EXP tuần</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
     }).join("");
   }
   function refreshMini() {
@@ -294,6 +301,10 @@
     bind();
     scheduleLayout();
     core.onSession(function (session) {
+      accountRequest++;
+      var nextUser = session && session.user && session.user.id || null;
+      if (accountUser !== nextUser) { currentTotal = 0; currentMissions = []; }
+      accountUser = nextUser;
       scheduleLayout();
       if (session && session.user) {
         // Draw the account and right column immediately. Cloud writes must

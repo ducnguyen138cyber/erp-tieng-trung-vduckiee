@@ -43,8 +43,9 @@
       // EXP read is independent of profile upsert; do not block first paint.
       core.syncProfile().catch(function () {});
       root.VDuckieEXP.getCurrentUserEXP().then(function (total) {
-        document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: total } }));
-      });
+        if (core.session() && core.session().user.id === session.user.id)
+          document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: total } }));
+      }).catch(function(error) { console.warn("Không tải được EXP", error); });
     }
     else document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: 0, guest: true } }));
     if (isOpen()) root.VDuckieEXPBoard.refresh();

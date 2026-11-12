@@ -1,0 +1,18 @@
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync('assets/games/game-ranking.js','utf8');
+function harness(user='player-a',handler=async()=>({data:{run_id:'run-1'}})){
+ let current=user;const calls=[];const window={VDuckieEXPCore:{session:()=>current?{user:{id:current}}:null,client:()=>({rpc:(name,args)=>{calls.push({name,args});return handler(name,args);}})}};
+ vm.runInNewContext(source,{window,document:{readyState:'loading',addEventListener(){}},Intl,Promise,URLSearchParams,URL,console});
+ return {api:window.VDuckieGameRanking,calls,switchUser:u=>current=u};
+}
+function status(){return {isConnected:true,textContent:'',appendChild(){throw new Error('unexpected retry')}};}
+const flush=()=>new Promise(resolve=>setImmediate(resolve));
+test('guests play without score writes or EXP calls',async()=>{const h=harness(null),ticket=await h.api.begin('typing','1:easy:guided'),node=status();h.api.submit(ticket,{completed:2},node);await flush();assert.equal(h.calls.length,0);assert.match(node.textContent,/Đăng nhập/);});
+test('a run is bound to the account that started it',async()=>{const h=harness(),ticket=await h.api.begin('typing','2:hard:hanzi');h.switchUser('player-b');const node=status();h.api.submit(ticket,{completed:2},node);await flush();assert.deepEqual(h.calls.map(c=>c.name),['start_game_run']);assert.match(node.textContent,/Tài khoản đã thay đổi/);});
+test('result saving uses server score and separate game RPCs',async()=>{const h=harness('a',async name=>({data:name==='start_game_run'?{run_id:'run-1'}:{score:600}})),ticket=await h.api.begin('typing','3:medium:vietnamese'),node=status();h.api.submit(ticket,{completed:6,combos:[1,2,3,4,5,6]},node);await flush();assert.deepEqual(h.calls.map(c=>c.name),['start_game_run','submit_game_run']);assert.match(node.textContent,/Đã lưu 600 điểm/);assert.equal(h.api.filters().level,'3');assert.equal(h.api.filters().prompt,'vietnamese');});
+test('connection failure at start never fabricates a saved result',async()=>{const h=harness('a',async()=>({error:new Error('offline')})),node=status();h.api.submit(h.api.begin('sentences','daily'),{completed:5},node);await flush();assert.equal(h.calls.length,1);assert.match(node.textContent,/chưa kết nối/);assert.doesNotMatch(node.textContent,/Đã lưu/);});
+test('zero score does not submit and an account change during saving cannot show stale success',async()=>{let finish;const h=harness('a',async name=>name==='start_game_run'?{data:{run_id:'x'}}:new Promise(r=>finish=r)),ticket=await h.api.begin('typing','1:easy:guided'),node=status();h.api.submit(ticket,{completed:0},node);await flush();assert.equal(h.calls.length,1);h.api.submit(ticket,{completed:1},node);await flush();h.switchUser(null);finish({data:{score:100}});await flush();assert.doesNotMatch(node.textContent,/Đã lưu/);});
+test('an EXP RPC failure is propagated instead of becoming a false zero balance',async()=>{
+ const doc={readyState:'complete',getElementById(){return null},dispatchEvent(){},addEventListener(){}},window={VDUCKIE_SUPABASE_CONFIG:{url:'https://test.supabase.co',publishableKey:'sb_publishable_test'},supabase:{createClient:()=>({auth:{getSession:async()=>({data:{session:{user:{id:'a'}}}}),onAuthStateChange(){}},rpc:async()=>({error:new Error('offline')})})}};
+ vm.runInNewContext(fs.readFileSync('assets/v90/exp-core-v90.js','utf8'),{window,document:doc,Intl,CustomEvent:function(){},console,setTimeout,clearTimeout});await flush();await assert.rejects(window.VDuckieEXP.getCurrentUserEXP(),/offline/);
+});
