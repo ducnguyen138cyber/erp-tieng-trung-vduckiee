@@ -19,30 +19,22 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  await page.route('https://*.supabase.co/**',route=>route.abort());await page.addInitScript(()=>{Math.random=()=>.05;localStorage.setItem('vduckie-hsk-study-journey-v1',JSON.stringify({version:1,current:{level:1,lessonId:'hsk1-lesson-01'},lessons:{},reviews:{'1:你好':{level:1,lessonId:'hsk1-lesson-01',hanzi:'你好',pinyin:'nǐ hǎo',meaningVi:'xin chào',stage:0,nextAt:Date.now()-1000}}}));});
  await page.goto(base);await page.waitForFunction(()=>window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieMobileMenu);
  assert.equal(await page.locator('.v85-profile').count(),0);
- // One daily action replaces the legacy duplicate Continue/Progress row.
+ // Progress and Continue must share the main row, with one live continue card after refresh.
  async function checkHomeStats(){
-  await page.locator('#v865TodayFocus').waitFor();
-  assert.equal(await page.locator('#v865TodayFocus').count(),1);
-  assert.equal(await page.locator('#v865TodayFocus .v865-today-primary:visible').count(),1);
-  assert.equal(await page.locator('.v865-continue-card').isVisible(),false);
-  const fit=await page.locator('#v865TodayFocus').evaluate(n=>{const r=n.getBoundingClientRect();return {left:r.left,right:r.right,viewport:innerWidth,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};});
-  assert(fit.left>=-1&&fit.right<=fit.viewport+1&&fit.overflow<=1,'daily focus fits the viewport');
-  for(const selector of ['#v865HomeSidebar','.home-library-card','.home-recommended','#v85PersonalDashboard .v85-stats'])await page.locator(selector).waitFor();
-  assert.equal(await page.locator('.v85-stat-grid>div').count(),4);
+  await page.locator('#v85PersonalDashboard .v85-top>.v865-continue-card').waitFor();
+  const layout=await page.locator('#v85PersonalDashboard').evaluate(n=>{const top=n.querySelector('.v85-top'),stats=n.querySelector('.v85-stats'),next=top.querySelector('.v865-continue-card'),grid=n.querySelector('.v85-stat-grid'),a=top.getBoundingClientRect(),b=stats.getBoundingClientRect(),c=next.getBoundingClientRect();return {parent:a.width,stats:b.width,next:c.width,left:b.x-a.x,nextLeft:c.x-a.x,dy:c.y-b.y,bottom:b.bottom,top:c.top,columns:getComputedStyle(grid).gridTemplateColumns.split(' ').length,content:stats.clientWidth-parseFloat(getComputedStyle(stats).paddingLeft)-parseFloat(getComputedStyle(stats).paddingRight),count:grid.children.length,copies:document.querySelectorAll('.v865-continue-card').length,sidebarCopies:document.querySelectorAll('#v865HomeSidebar .v865-continue-card').length,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth};});
+  assert.equal(layout.copies,1);assert.equal(layout.sidebarCopies,0);assert.ok(Math.abs(layout.left)<2);assert.equal(layout.count,4);assert.equal(layout.columns,layout.content>=640?4:2);assert.ok(layout.overflow<=1,'home never overflows horizontally');
+  if(layout.parent>=620){assert.ok(Math.abs(layout.dy)<2,'Continue aligns with Progress');assert.ok(layout.nextLeft>layout.stats);assert.ok(Math.abs(layout.stats+layout.next+14-layout.parent)<2);}else{assert.ok(Math.abs(layout.stats-layout.parent)<2);assert.ok(Math.abs(layout.next-layout.parent)<2);assert.ok(layout.top>=layout.bottom,'mobile Continue follows Progress');}
  }
  await checkHomeStats();
  // Both independent renderers refresh on account/learning changes; neither may move or duplicate the card.
  await page.evaluate(()=>{window.VDuckieHomeDashboardV865.render();document.dispatchEvent(new CustomEvent('vduckie:learning-change'));});await page.waitForTimeout(250);await checkHomeStats();
  if(viewport.width===1440){for(const width of [1787,1280,1024]){await page.setViewportSize({width,height:900});await checkHomeStats();}await page.setViewportSize(viewport);await checkHomeStats();}
- await page.locator('#v865TodayFocus').screenshot({path:path.join(out,name+'-home-focus.png')});
- // Existing HSK progress still resumes through the curriculum entry.
- await page.locator('#v865TodayFocus [data-daily-nav=msutong]').click();
- await page.locator('[data-graded-continue]').click();await page.locator('#hskLesson .hsk-pro-lesson-head').waitFor();
- await page.locator('#brandHome').click();await checkHomeStats();
- // A due review is the primary daily action, not a second Continue card.
- await page.locator('#v865TodayFocus [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();assert.match(await page.locator('[data-hsk-review-drawer]').innerText(),/你好/);await page.locator('[data-hsk-review-close]').click();
- await page.locator('#brandHome').click();await checkHomeStats();
-
+ await page.locator('#v85PersonalDashboard .v85-top').screenshot({path:path.join(out,name+'-home-progress-continue.png')});
+ await page.locator('#v85PersonalDashboard [data-v865-action=continue]').click();await page.locator('#hskLesson .hsk-pro-lesson-head').waitFor();
+ if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
+ await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();assert.match(await page.locator('[data-hsk-review-drawer]').innerText(),/你好/);await page.locator('[data-hsk-review-close]').click();
+ if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
 
 
  assert.doesNotMatch(await page.locator('body').innerText(),/CÁ NHÂN HÓA · V85|CONTENT PACK V74|Supabase sync|PWA dùng chung|Cần chạy migration/);
@@ -58,7 +50,6 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await toggle.click();const backdropPoint=await page.evaluate(()=>{for(let x=innerWidth-1;x>=0;x--)if(document.elementFromPoint(x,120)?.id==='sidebarBackdrop')return {x,y:120};return null;});assert.ok(backdropPoint,'an exposed backdrop accepts pointer input');await page.mouse.click(backdropPoint.x-3,backdropPoint.y);assert.equal(await toggle.getAttribute('aria-expanded'),'false');
   await toggle.click();const close=page.locator('#sidebarClose');await close.focus();await page.keyboard.press('Shift+Tab');assert.equal(await page.locator('#studySidebar').evaluate(n=>n.contains(document.activeElement)),true);
  }else assert.equal(await toggle.isVisible(),false);
- await page.locator('#erpNavGroup>summary').click();
  await page.locator('#studySidebar [data-view=lessons]').click();
  await page.locator('#erpLessonApp .erp-module-link').first().waitFor();
  if(mobile)assert.equal(await toggle.getAttribute('aria-expanded'),'false');

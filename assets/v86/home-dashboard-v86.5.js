@@ -137,18 +137,16 @@ function getDiscoverExpanded(){
 function focusMarkup(data,expanded){
   return'<section class="v865-today-focus" id="v865TodayFocus" aria-labelledby="v865TodayHeading">'+
     '<div class="v865-today-main"><span class="v865-today-kicker">LỘ TRÌNH CỦA BẠN · 1 VIỆC CHÍNH</span>'+
-    '<h1 id="v865TodayHeading">'+esc(data.heading)+'</h1>'+
+    '<h2 id="v865TodayHeading">'+esc(data.heading)+'</h2>'+
     '<p>'+esc(data.detail)+'</p>'+
-    '<nav class="v865-today-links" aria-label="Học theo nhu cầu"><button type="button" data-daily-nav="shadowing">Luyện nghe & Shadowing</button><button type="button" data-daily-nav="dictionary">Tra từ</button><button type="button" data-daily-nav="msutong">Xem giáo trình</button></nav>'+
     '<div class="v865-today-steps" aria-label="Các bước của buổi học"><span>1. Từ mới</span><span>2. Nghe & nói</span><span>3. Luyện tập</span></div></div>'+
     '<div class="v865-today-actions"><button type="button" data-v865-action="'+data.action+'" class="v865-today-primary">'+
-      esc(data.cta)+'</button><button type="button" data-v865-action="toggle-discover" class="v865-today-discover" aria-expanded="'+expanded+'" aria-controls="v865HomeRoadmap v86PremiumLearning v865VietnameseInvite">'+
+      esc(data.cta)+'</button><button type="button" data-v865-action="toggle-discover" class="v865-today-discover" aria-expanded="'+expanded+'" aria-controls="v865HomeRoadmap">'+
       (expanded?"Thu gọn tính năng":"Khám phá thêm tính năng")+'</button></div></section>';
 }
 function renderFocus(main,shell){
   if(!main||!shell)return;
   var data=todayFocusData(),expanded=getDiscoverExpanded();
-  var home=document.getElementById("homeHub");if(home)home.setAttribute("aria-labelledby","v865TodayHeading");
   shell.setAttribute("data-discover-expanded",String(expanded));
   shell.setAttribute("data-first-visit",String(!data.hasStarted));
   var current=document.getElementById("v865TodayFocus"),markup=focusMarkup(data,expanded);
@@ -250,8 +248,6 @@ function render(){
     renderFocus(main,shell);
     pinMainNode(main,overview,1);
     pinMainNode(main,recommended,2);
-    var invite=home.querySelector(".vi-home-invite");
-    if(invite){invite.id="v865VietnameseInvite";pinMainNode(main,invite,6);}
     var oldRoad=document.getElementById("v865HomeRoadmap"),roadWrap=document.createElement("div");
     roadWrap.innerHTML=roadmapMarkup(roadmapData());
     var roadNode=roadWrap.firstChild;roadNode.style.order="3";
@@ -295,7 +291,7 @@ function bind(){
   document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsRender(event))scheduleRender()});
   ["vduckie:hsk-study-journey-change","vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
 }
-function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=home-restore1";document.head.appendChild(link)}
+function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=home-original1";document.head.appendChild(link)}
 function install(){
   css();bind();
   var tries=0,interval=root.setInterval(function(){tries++;if(render()||tries>55)root.clearInterval(interval)},170);

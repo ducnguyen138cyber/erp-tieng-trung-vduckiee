@@ -3,9 +3,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 const read=(name)=>fs.readFileSync(name,'utf8');
-test('home resource catalog describes vocabulary practice honestly',()=>{
+test('home resource catalog uses requested HSK exam tile and no obsolete Adam label',()=>{
   const html=read('app-shell-v88.html');
-  assert.match(html,/<strong>224<\/strong><span>Bài luyện HSK<\/span>/);
+  assert.match(html,/<strong>200\+<\/strong><span>Đề HSK thực chiến<\/span>/);
   assert.doesNotMatch(html,/60<\/strong><span>Câu Adam/);
 });
 test('the two home speaking cards use the matching illustrated mascot without changing other variants',()=>{

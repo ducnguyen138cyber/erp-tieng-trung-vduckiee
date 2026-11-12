@@ -60,52 +60,48 @@ try{
   await page.locator('[data-shadow-back]').click();await page.locator('.graded-hsk-page').waitFor();
   await page.goBack();await page.locator('.shadow-hanzi').waitFor();
   assert.equal(await page.locator('.shadow-hanzi').innerText(),shadowText);
-  await page.locator('#brandHome').click();
-  await page.locator('#v865TodayFocus').waitFor();
-  assert.equal(await page.locator('.daily-today').count(),0,'duplicate legacy mobile Home');
-  assert.equal(await page.locator('#homeHub .home-welcome-card').isVisible(),false);
-  for(const selector of ['#v865HomeSidebar','.home-library-card','.home-recommended','#v85PersonalDashboard .v85-stats'])assert.equal(await page.locator(selector).isVisible(),true,selector+' must remain visible with the old collapsed preference');
-  if(width>980){
-   const main=await page.locator('#v865HomeMain').boundingBox(),side=await page.locator('#v865HomeSidebar').boundingBox();
-   assert(side.x>=main.x+main.width-1&&Math.abs(side.y-main.y)<4,'desktop Home must keep its right column');
+  async function menu(screen){
+   if(width<=980)await page.locator('#mobileMenu').click();
+   await page.locator('#studySidebar [data-daily-nav="'+screen+'"]').click();
   }
-  assert.equal(await page.locator('#v865TodayFocus .v865-today-primary:visible').count(),1);
-  const primary=await page.locator('.v865-today-primary').evaluate(e=>getComputedStyle(e).backgroundColor);
-  assert.equal(primary,'rgb(37, 99, 235)','primary learning action must stand out');
-  await page.screenshot({path:`${out}/${width}-home-focus.png`});
-  await page.locator('[data-v865-action="toggle-discover"]').click();
-  assert.equal(await page.locator('#v865HomeSidebar').isVisible(),true);
-  assert.equal(await page.locator('.vi-home-invite').isVisible(),true);
-  assert.equal((await page.locator('.resource-speaking').innerText()).replace(/\s+/g,' ').trim(),'224 Bài luyện HSK');
-  await page.screenshot({path:`${out}/${width}-home-discover.png`});
-  await page.locator('[data-v865-action="toggle-discover"]').click();
-  for(const selector of ['#v865HomeSidebar','.home-library-card','.home-recommended','#v85PersonalDashboard .v85-stats'])assert.equal(await page.locator(selector).isVisible(),true,selector+' vanished after collapsing supplementary tools');
-  await page.reload();await page.locator('#v865TodayFocus').waitFor();
-  assert.equal(await page.locator('#v865HomeSidebar').isVisible(),true,'right rail must survive reload while collapsed');
-  await page.locator('#v865TodayFocus [data-daily-nav="dictionary"]').click();
-  await page.locator('#dailyDictionarySearch').fill('努力');
+  async function protectedHome(){
+   for(const selector of ['.vi-home-invite','.home-welcome-card','.home-library-card','#v865HomeSidebar'])await page.locator(selector).waitFor({state:'visible'});
+   assert.equal(await page.locator('.vi-home-invite').evaluate(e=>e.parentElement.classList.contains('home-overview-grid')),true,'Vietnamese banner must stay above the two original cards');
+   if(width>980){
+    const welcome=await page.locator('.home-welcome-card').boundingBox(),library=await page.locator('.home-library-card').boundingBox();
+    assert(Math.abs(welcome.y-library.y)<3&&library.x>=welcome.x+welcome.width,'original welcome/library cards must remain side by side');
+   }
+   if(width>1080){
+    const main=await page.locator('#v865HomeMain').boundingBox(),side=await page.locator('#v865HomeSidebar').boundingBox();
+    assert(side.x>=main.x+main.width-1&&Math.abs(side.y-main.y)<4,'desktop Home must preserve its right column');
+   }
+   assert.equal(await page.locator('.v865-streak-card [data-v865-action="start-streak"]').isVisible(),true,'keep the original streak action');
+  }
+  await page.locator('#brandHome').click();await page.locator('#v865TodayFocus').waitFor();
+  await protectedHome();
+  await page.screenshot({path:`${out}/${width}-home-original.png`});
+  await page.locator('[data-v865-action="toggle-discover"]').click();await protectedHome();
+  await page.locator('[data-v865-action="toggle-discover"]').click();await protectedHome();
+  await page.reload();await page.locator('#v865TodayFocus').waitFor();await protectedHome();
+  await menu('dictionary');await page.locator('#dailyDictionarySearch').fill('努力');
   await page.locator('.dictionary-example strong').filter({hasText:'只要继续努力'}).waitFor();
   assert.match(await page.locator('.dictionary-example').innerText(),/Chỉ cần tiếp tục cố gắng/);
   assert.match(await page.locator('.dictionary-example-pinyin').innerText(),/nǔ lì/);
   assert.match(await page.locator('.dictionary-meta').innerText(),/HSK 3/);
   await page.screenshot({path:`${out}/${width}-dictionary.png`});
-  await page.locator('#brandHome').click();await page.locator('#v865TodayFocus [data-daily-nav="msutong"]').click();
+  await page.locator('#brandHome').click();await menu('msutong');
   await page.locator('[data-practice-open]').click();await page.locator('.hsk-practice-paper').first().waitFor();
   assert.equal(await page.locator('.hsk-practice-paper').count(),56);
   assert.match(await page.locator('.hsk-practice-paper').first().innerText(),/Nghe · Đọc/);
   assert.match(await page.locator('.hsk-practice-paper').first().innerText(),/40 câu · 40 phút/);
   await page.screenshot({path:`${out}/${width}-practice-catalog.png`});
-  // Native keyboard disclosure, then an actual factory lesson navigation.
   await page.goto(base+'?screen=home');await page.locator('#v865TodayFocus').waitFor();
   if(width<=980)await page.locator('#mobileMenu').click();
-  await page.locator('#erpNavGroup>summary').waitFor();
-  assert.equal(await page.locator('#erpNavGroup').getAttribute('open'),null);
-  await page.locator('#erpNavGroup>summary').focus();await page.keyboard.press('Enter');
-  assert.equal(await page.locator('#studySidebar [data-view="lessons"]').isVisible(),true);
+  assert.equal(await page.locator('#studySidebar [data-daily-nav="daily"]').isVisible(),true,'original five-words menu stays in place');
+  assert.equal(await page.locator('#studySidebar [data-daily-nav="shadowing"]').isVisible(),true,'add a direct Shadowing menu');
   await page.locator('#studySidebar [data-view="lessons"]').click();await page.locator('#lessons').waitFor({state:'visible'});
   assert.equal(new URL(page.url()).searchParams.get('screen'),'erp:lessons');
   await page.reload();await page.locator('#lessons').waitFor({state:'visible'});
-  assert.notEqual(await page.locator('#erpNavGroup').getAttribute('open'),null,'active factory route must expand its menu');
   assert.deepEqual(errors,[],'uncaught browser errors');
   await context.close();
  }

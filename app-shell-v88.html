@@ -94,7 +94,7 @@
   </style>
   <link rel="stylesheet" href="./v72-layout.css?v=73.1">
   <link rel="stylesheet" href="./erp-lessons-v74.css?v=74.1">
-  <link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=home-restore1">
+  <link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=home-original1">
   <link rel="stylesheet" href="./assets/home/vduckie-mascot-v87.css?v=87.8">
   <link rel="stylesheet" href="./assets/daily-learning-v2.css?v=2.9">
   <link rel="stylesheet" href="./assets/curriculum/workspace-v1.css?v=1.0">
@@ -128,6 +128,7 @@
           <button class="active" data-home type="button"><span class="menu-icon">⌂</span><span>Hôm nay</span></button>
           <button data-daily-nav="msutong"><span class="menu-icon">路</span><span>Giáo trình HSK</span></button>
           <button data-daily-nav="shadowing" type="button"><span class="menu-icon">听</span><span>Luyện nghe &amp; Shadowing</span></button>
+          <button data-daily-nav="daily"><span class="menu-icon">+5</span><span>5 từ công xưởng</span></button>
           <button data-daily-nav="review"><span class="menu-icon">↻</span><span>Ôn tập</span></button>
           <button data-daily-nav="vietnamese" type="button"><span class="menu-icon">Vi</span><span>Học tiếng Việt / 学越南语</span></button>
           <button data-daily-nav="games" type="button"><span class="menu-icon">⌘</span><span>Trò chơi</span></button>
@@ -137,8 +138,7 @@
           <button data-daily-nav="dictionary"><span class="menu-icon">词</span><span>Từ điển</span></button>
           <button data-area="hsk"><span class="menu-icon">汉</span><span>Kho HSK bổ trợ</span></button>
         </nav>
-        <details class="sidebar-course-group" id="erpNavGroup"><summary>TIẾNG TRUNG CÔNG XƯỞNG</summary>
-          <button data-daily-nav="daily"><span class="menu-icon">+5</span><span>5 từ công xưởng</span></button>
+        <span class="learning-menu-group">TIẾNG TRUNG CÔNG XƯỞNG</span>
         <nav class="nav erp-nav" id="erpNav" aria-label="Các phần học tiếng Trung công xưởng">
           <button data-view="lessons"><span class="menu-icon">程</span><span>Bài học công xưởng</span></button>
           <button data-view="cards"><span class="menu-icon">卡</span><span>Thẻ từ công xưởng</span></button>
@@ -147,7 +147,7 @@
           <button data-view="glossary"><span class="menu-icon">专</span><span>Từ điển công xưởng</span></button>
           <button data-view="personal"><span class="menu-icon">收</span><span>Sổ từ cá nhân</span></button>
           <button data-view="community"><span class="menu-icon">众</span><span>Từ cộng đồng</span></button>
-        </nav></details>
+        </nav>
         <span class="learning-menu-group">KHÁC</span>
         <nav class="home-switch" aria-label="Tài khoản và thống kê">
           <button data-daily-nav="profile"><img class="menu-signature" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt=""><span>VDuckie &amp; thống kê</span></button>
@@ -180,8 +180,8 @@
               <div class="home-resource-grid">
                 <div class="home-resource-tile resource-erp"><strong>154+</strong><span>Từ công xưởng</span><img src="./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0" alt="Vịt VDuckie học thẻ từ"></div>
                 <div class="home-resource-tile resource-hsk"><strong>44</strong><span>Bài HSK</span><img src="./assets/mascot/duckie-writing-2d-v3.webp?v=3.0" alt="Vịt VDuckie học ngữ pháp"></div>
-                <div class="home-resource-tile resource-speaking"><strong>224</strong><span>Bài luyện HSK</span><img src="./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0" alt="Duckie cầm micro luyện nói"></div>
-                <div class="home-resource-tile resource-road"><strong>4</strong><span>Cấp HSK đang mở</span><img src="./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" alt="Vịt VDuckie đeo tai nghe"></div>
+                <div class="home-resource-tile resource-speaking"><strong>200+</strong><span>Đề HSK thực chiến</span><img src="./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0" alt="Duckie cầm micro luyện nói"></div>
+                <div class="home-resource-tile resource-road"><strong>8</strong><span>Chặng HSK</span><img src="./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" alt="Vịt VDuckie đeo tai nghe"></div>
               </div>
               <button class="home-library-link" type="button" data-daily-nav="msutong"><span>↗</span> Xem toàn bộ lộ trình HSK <span aria-hidden="true">›</span></button>
             </article>
@@ -200,7 +200,7 @@
                 <span class="home-course-label">听 Luyện nghe</span><span class="home-course-art course-listening"><img src="./assets/mascot/duckie-listening-2d-v3.webp?v=3.0" alt=""></span><span class="home-course-copy"><strong>Hội thoại thực tế</strong><small>Luyện giao tiếp trong xưởng</small><i>Học ngay →</i></span>
               </button>
               <button class="home-course-card" type="button" data-home-area="erp" data-home-view="dialogue">
-                <span class="home-course-label">说 Luyện nói</span><span class="home-course-art course-speaking"><img src="./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0" alt=""></span><span class="home-course-copy"><strong>Phản xạ và phát âm</strong><small>Ghi âm và tự nghe lại</small><i>Học ngay →</i></span>
+                <span class="home-course-label">说 Luyện nói</span><span class="home-course-art course-speaking"><img src="./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0" alt=""></span><span class="home-course-copy"><strong>Phản xạ và phát âm</strong><small>Mic chấm câu bạn đọc</small><i>Học ngay →</i></span>
               </button>
             </div>
           </section>

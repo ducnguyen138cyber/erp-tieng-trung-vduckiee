@@ -33,15 +33,13 @@ test('P1 due reviews take priority, without fabricating progress',()=>{
   assert.equal(result.action,'review-hsk');
   assert.match(result.detail,/7 từ/);
 });
-test('Home keeps its main content and right rail when supplementary discovery is collapsed',()=>{
+test('P1 existing features are retained behind optional discovery for newcomers',()=>{
   new vm.Script(source);
   assert.match(source,/data-first-visit/);
   assert.match(source,/data-discover-expanded/);
   assert.match(source,/data-v865-action="toggle-discover"/);
   assert.match(source,/vduckie-home-discover-expanded-v1/);
-  const collapsed=[...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].filter(match=>match[1].includes('data-discover-expanded="false"')&&/display\s*:\s*none/.test(match[2]));
-  assert.ok(collapsed.length);
-  for(const match of collapsed)assert.doesNotMatch(match[1],/home-overview-grid|home-recommended|v85PersonalDashboard|v865HomeSidebar/);
+  assert.match(css,/data-first-visit="true"/);
   assert.match(css,/\.home-recommended/);
   assert.match(css,/#v865HomeRoadmap/);
   assert.match(source,/data-focus-signature/);

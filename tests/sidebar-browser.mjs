@@ -70,7 +70,7 @@ try {
     await page.waitForFunction(() => window.VDuckieHomeEXP90 && window.__VDUCKIE_EXPERIENCE_V86_READY__);
     const home = async () => {
       await page.locator('#studySidebar [data-home]').click();
-      await page.locator('#v865TodayFocus').waitFor({state:'visible'});
+      await page.locator('#v865HomeSidebar [data-exp-mission]').first().waitFor({state:'visible'});
     };
     await home();
     // Newcomer: only one obvious learning action; more features are opt-in.
@@ -78,8 +78,6 @@ try {
     assert.match(await page.locator('#v865TodayHeading').innerText(), /Hôm nay/);
     assert.equal(await page.locator('#v865HomeShell').getAttribute('data-first-visit'), 'true');
     assert.equal(await page.locator('#v865HomeRoadmap').isVisible(), false);
-    assert.equal(await page.locator('#v865HomeSidebar').isVisible(), true);
-    assert.equal(await page.locator('.home-library-card').isVisible(), true);
     const shotDir=path.join(root,'artifacts','onboarding');
     await mkdir(shotDir,{recursive:true});
     await page.screenshot({path:path.join(shotDir,(authenticated?'member':'guest')+'-desktop.png'),fullPage:true});
@@ -110,7 +108,6 @@ try {
     assert(listeners.some(listener => listener.type === 'click' && listener.useCapture), 'sidebar capture listener missing');
 
     // An unrelated DOM mutation must not replace/focus-drop the mission button.
-    await showMore.click();
     const mission = await page.locator('[data-exp-mission="review_10_words"]').elementHandle();
     await mission.focus();
     await page.evaluate(() => { const node = document.createElement('span'); document.body.append(node); node.remove(); });
@@ -119,6 +116,7 @@ try {
     await mission.dispose();
 
     for (const [selector, target] of [
+      ['[data-v865-action="start-streak"]', '.daily-panel'],
       ['[data-exp-mission="study_5_days"]', '.daily-panel'],
       ['[data-exp-mission="review_10_words"]', '.daily-panel'],
       ['[data-exp-mission="complete_quiz"]', '#quiz'],
@@ -127,8 +125,7 @@ try {
     ]) {
       console.log('Testing', authenticated ? 'mock authenticated' : 'guest', selector);
       await home();
-      if(await page.locator('#v865HomeShell').getAttribute('data-discover-expanded')!=='true')await showMore.click();
-      await page.locator((selector==='[data-v865-action="continue"]'?'#v865TodayFocus ':'#v865HomeSidebar ') + selector).click({ delay: 150 });
+      await page.locator((selector==='[data-v865-action="continue"]'?'#v85PersonalDashboard ':'#v865HomeSidebar ') + selector).click({ delay: 150 });
       if (target === '.daily-panel') {
         // Daily Learning mounts its destination as a sibling of the home hub.
         if (selector.includes('review_10')) await page.getByRole('heading', {name:'Không có từ đến hạn',exact:true}).waitFor();
@@ -139,12 +136,10 @@ try {
     }
 
     await home();
-    if(await page.locator('#v865HomeShell').getAttribute('data-discover-expanded')!=='true')await showMore.click();
     await page.locator('[data-exp-mission="review_10_words"]').focus();
     await page.keyboard.press('Enter');
     await page.getByRole('heading', {name:'Không có từ đến hạn',exact:true}).waitFor();
     await home();
-    if(await page.locator('#v865HomeShell').getAttribute('data-discover-expanded')!=='true')await showMore.click();
     await page.locator('[data-exp-mission="complete_quiz"]').focus();
     await page.keyboard.press('Space');
     await page.locator('#quiz').waitFor({state:'visible'});

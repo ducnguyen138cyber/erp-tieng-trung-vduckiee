@@ -65,7 +65,7 @@
       screen.indexOf("erp:") === 0 ? '#studySidebar [data-view="' + screen.slice(4) + '"]' :
       '#studySidebar [data-daily-nav="' + screen + '"]';
     var selected = one(selector);
-    if (selected) { selected.classList.add("active"); selected.setAttribute("aria-current", "page"); var group=selected.closest("details");if(group)group.open=true; }
+    if (selected) { selected.classList.add("active"); selected.setAttribute("aria-current", "page"); }
     document.querySelectorAll("[data-exp-nav]").forEach(function (button) {
       var name = button.getAttribute("data-exp-nav");
       var active = name === (screen.indexOf("erp:") === 0 ? "erp" : screen);
