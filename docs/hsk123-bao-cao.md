@@ -68,13 +68,13 @@ Quy trình trạng thái: `unreviewed → machine-checked → human-reviewed →
 
 ## 5. Kiểm thử và blocker
 
-- **97 kiểm thử Node liên quan đạt**, 0 thất bại; thêm **3 kiểm thử Python** cho chuyển thanh, đa âm theo ngữ cảnh và không đoán 儿化 đều đạt.
+- **98 kiểm thử Node liên quan đạt**, 0 thất bại; thêm **3 kiểm thử Python** cho chuyển thanh, đa âm theo ngữ cảnh và không đoán 儿化 đều đạt.
 - Kiểm tra cấu trúc toàn repo có sẵn: 10.695 bản ghi, 0 lỗi. Đây không phải rà chuyên môn HSK4+.
 - C2 generator được bổ sung bước áp lại các sửa đổi có lịch sử, tránh ghi đè chúng khi kiểm tra tính tái lập.
 - Checkpoint `0c97d88`: **18/18 hành trình browser đạt** (đầu/giữa/cuối mỗi cấp × desktop 1440 và mobile 390), gồm học từ → các phần nội dung → làm bài/xem đáp án → hoàn thành → tải lại → ôn. Kiểm tra câu sai có chủ ý, đáp án khóa, rubric và giữ bản ghi hoàn thành cũ trong profile khách cô lập. Đây là thử nghiệm có chọn mẫu, không phải mọi câu/biến thể.
 - Cũng tại checkpoint đó: HSK3–4 browser, khóa HSK5–6, kiểm tra Home/layout/Shadowing/dictionary, 224 bài luyện, Public Load và game regression đã đạt.
 - Đã kiểm tra trực tiếp Cloudflare Preview HSK1–3: che/mở transcript, biến thể họ giáo viên, câu viết khác mẫu dùng rubric. Không đăng nhập hoặc ghi dữ liệu học vào tài khoản thật.
-- **Đang chờ chạy lại CI trên commit bổ sung cuối**; kết quả cuối được ghi thêm bên dưới. Không dùng kết quả của commit cũ để tự nhận commit mới đã qua.
+- Lượt CI cuối trên code `0a1dc4d7b2aae323b3de897342e6a5786879b03b`: luồng HSK desktop/mobile và tương thích HSK4–6 đều đạt; Sidebar stability (gồm kiểm tra UI/điều hướng), 224 bài luyện và Public Load đều đạt. HSK Content Quality chạy đủ và chỉ thất bại đúng 3 test phiên bản asset có sẵn trên main được nêu dưới đây. Không bỏ qua test để đổi kết luận thành xanh.
 
 CI rộng có **3 test tồn tại từ main** liên quan version asset EXP/mascot: `production loads V106.1…`, `all new assets have cache-busted…`, `EXP reward guide matches…`. Đối chứng trên cây code nguyên gốc có cùng tree SHA `18bb69ff25c51e7bea48fb67a6e364bba7b5c05f` cũng thất bại đúng 3 test này (11/14 đạt). Chúng không được đóng, bỏ qua hay đổi assertion để lấy kết quả xanh. Hệ thống EXP/mascot nằm ngoài phạm vi sửa; **CI toàn repo chưa được tuyên bố xanh**.
 
@@ -90,4 +90,32 @@ Tiến độ/ID hiện có được giữ; không có migration dữ liệu ngư
 
 ## 7. Điểm tiếp tục
 
-PR #123 chứa checkpoint kiểm kê và sửa lỗi; không merge tự động. Sau khi CI cuối hoàn tất, xem phần cập nhật kết quả ở dưới, rồi dùng danh sách cảnh báo/bằng chứng để tổ chức kiểm duyệt độc lập. Không tái tạo ngân hàng hoặc đổi ID để xử lý cảnh báo.
+PR #123 chứa các checkpoint kiểm kê, sửa lỗi, QA và kết quả CI cuối ở mục 8; không merge tự động. Dùng danh sách cảnh báo/bằng chứng để tổ chức kiểm duyệt độc lập. Không tái tạo ngân hàng hoặc đổi ID để xử lý cảnh báo.
+
+
+## 8. Bằng chứng CI cuối và phiên bản bàn giao
+
+Code đã xác minh: [`0a1dc4d`](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/commit/0a1dc4d7b2aae323b3de897342e6a5786879b03b). Những commit chỉ cập nhật báo cáo sau đó không thay đổi code hoặc học liệu đã kiểm thử.
+
+| Kiểm tra | Kết quả trên code bàn giao | Bằng chứng |
+|---|---|---|
+| HSK1–3 browser + tương thích HSK4–6 | Đạt; 18 hành trình mới đầu/giữa/cuối × desktop/mobile | [Run 43344968466](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43344968466) |
+| Sidebar/UI/điều hướng + acceptance học tập | Đạt; đã sửa riêng màu cảnh báo chất lượng để phù hợp giao diện hiện có | [Run 43344968525](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43344968525) |
+| 224 bài luyện HSK | Đạt | [Run 43344968629](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43344968629) |
+| Public Load | Đạt | [Run 43344968796](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43344968796) |
+| HSK Content Quality / hồi quy toàn repo | Thất bại đúng 3 test phiên bản EXP/mascot đã đối chứng trên main; các kiểm tra schema/audit/đa âm/duplicates/coverage đều đạt | [Run 43344968444](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43344968444) |
+| Game regression | Đạt cả gameplay, public demo và benchmark ở lần chạy lại nguyên job trên cùng code. Lần đầu benchmark timeout 15 giây ở thao tác bấm chọn; giữ ghi nhận lỗi, không thay logic hoặc ngưỡng test | [Run 43344968452](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43344968452) |
+
+CLI audit hiện trả mã lỗi khi có Critical/High, kể cả khi báo cáo snapshot được cập nhật. Kiểm thử hồi quy có cố ý gắn một khóa ngoài các lựa chọn và xác nhận CLI không thể báo đạt.
+
+Các checkpoint đã push:
+
+1. [`c590e79`](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/commit/c590e799f235c7d224f061e735a7948cd99c63b2): kiểm kê và snapshot gốc.
+2. [`0c97d88`](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/commit/0c97d88eaa095a7dbce5598035d4437c5e44ead6): sửa lỗi và bằng chứng kiểm duyệt.
+3. [`6a16b86`](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/commit/6a16b86adc88cfdc37462b9dd97f0f3e1331165b): hoàn thiện xử lý trả lời theo ý nghĩa, đồng bộ metadata từ điển, bổ sung kiểm tra đa âm theo ngữ cảnh.
+4. [`0a65ba0`](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/commit/0a65ba032e43cf1dfc6d69292e62873217057391): CLI chặn lỗi xác nhận mới.
+5. [`0a1dc4d`](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/commit/0a1dc4d7b2aae323b3de897342e6a5786879b03b): cảnh báo kiểm duyệt đúng màu giao diện.
+
+Preview cố định của code đã kiểm tra: [HSK1 trên Cloudflare](https://28e8d4a0.vduckie.pages.dev/?screen=hsk&hskLevel=1&hskLesson=hsk1-lesson-01&area=hsk#hsk). Đã mở và thao tác trực tiếp trên Preview này; xác minh cảnh báo nền xanh và transcript chưa hiện trước khi trả lời.
+
+**Chưa merge; chưa thể gọi học liệu đã được chuyên gia duyệt.** Các mục chờ chuyên môn, giới hạn chấm tự động và 3 test main còn lỗi được giữ rõ ràng để tiếp tục.

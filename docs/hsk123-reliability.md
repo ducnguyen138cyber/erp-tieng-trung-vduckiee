@@ -12,6 +12,8 @@ Enrichment/provenance documents are in the file/hash inventory, not double-count
 
 ```sh
 python -m pip install -r scripts/hsk123-audit-requirements.txt
+npm install --no-save --package-lock=false jsdom@26.1.0
+python tests/hsk123-phonetics.test.py
 node scripts/audit-hsk123-reliability.cjs
 node --test tests/hsk123-reliability.test.cjs
 ```
@@ -76,3 +78,8 @@ The historical C2 patch document is retained as provenance, not a new review sig
 Primary machine-tool reference: https://github.com/mozillazg/python-pinyin (pinned 0.55.0). Machine dictionary readings are triage references, not independent professional evidence.
 
 Local relevant regression: **74 tests passed, 0 failed** at checkpoint 2–3. The earlier test demanding `linguistic-reviewed` by label was corrected to require honest `unreviewed` machine-assisted content, with new independent-evidence regressions; it was not skipped. Whole repository schema validation: 10,695 records, 0 errors (this is structural validation only, not a semantic audit of HSK4+). Desktop/mobile browser sampling and CI are still pending at this checkpoint.
+
+
+## Final validation (code 0a1dc4d)
+
+98 relevant Node tests and three Python checks passed locally. Final CI passed 18 HSK1–3 sampled journeys, HSK4–6 compatibility, Sidebar/UI/navigation, 224-exam acceptance, Public Load, and game verification (performance retry after an initial selector timeout, unchanged code and assertions). HSK Content Quality completed and reports exactly three unrelated asset-version assertion failures reproduced on original main. Full CI is therefore not claimed green. See the Vietnamese handoff for run URLs, commit links, per-level counts, all limitations and the immutable Cloudflare preview. No merge or independent review promotion occurred.
