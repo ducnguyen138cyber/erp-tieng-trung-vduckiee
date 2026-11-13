@@ -21,3 +21,12 @@ Advisors không báo thiếu RLS trên bảng này. Có cảnh báo ngoài phạ
 Hai thiết bị/hai danh tính cô lập, dữ liệu cũ, xung đột, cập nhật đồng thời, đăng xuất/đăng nhập, offline/reconnect; nhớ lại 1–3–7 ngày và xem đáp án không được thành thạo. Phân biệt rõ fixture browser với đăng nhập tài khoản Supabase thật trong báo cáo nghiệm thu.
 
 CI sau merge PR123: HSK quality/HSK+EXP đạt; job hậu triển khai visuals thất bại ở cài Chromium vì ubuntu-latest đã chuyển 26.04, Playwright 1.58.2 không hỗ trợ. Ghim runner Ubuntu24.04 cho job này, không bỏ test hay đổi budget.
+
+## Checkpoint triển khai 1
+
+- Giữ bảng/system row cũ, thêm ba khóa còn thiếu vào hồ sơ. Hợp nhất journal theo bài/câu/từ, giữ lịch sử sự kiện và lần làm lại; Shadowing có dấu xóa bookmark để không bị phục hồi nhầm; bài luyện lưu draft, deadline, điểm cao và lịch sử theo lượt.
+- Ghi hồ sơ bằng đọc–hợp nhất–UPDATE có điều kiện theo `updated_at` do server đặt. INSERT trùng hoặc revision xung đột được đọc lại và thử lại giới hạn; offline/lỗi mạng giữ cache riêng từng tài khoản và thử lại. Không báo “đã đồng bộ” khi offline.
+- Daily dùng hồ sơ chung cho lần ghi mới, system row Daily cũ chỉ làm nguồn nhập dữ liệu. Kiểm tra chủ tài khoản ở phản hồi bất đồng bộ; đổi tài khoản xóa trạng thái UI cũ ở các module liên quan.
+- Ôn bằng nghĩa → tự gõ từ Hán đã học. Xem mẫu không được tăng mức nhớ; trả lời lặp ngay không được tăng mức nhớ. Ba lượt nhớ lại qua các khoảng hạn 1–3–7 ngày mới được tính ghi nhớ; dấu thành thạo cũ không tự chuyển thành bằng chứng mới. Giữ điểm EXP/RPC/quota hiện có, không cộng EXP từ bài luyện.
+- “Hôm nay học gì?” chỉ bổ sung thông tin từ yếu và gợi ý 5 phút trong đoạn mô tả đang có, giữ nguyên khung/cột/card/menu.
+- **70 test Node liên quan đạt** tại checkpoint. Chưa tuyên bố browser/hai tài khoản Supabase thật đạt; các ca đó đang được bổ sung trong PR này.

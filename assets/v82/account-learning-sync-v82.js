@@ -1,7 +1,7 @@
 (function (root) {
   "use strict";
 
-  var VERSION = "82.1";
+  var VERSION = "82.2";
   var PROFILE_WORD_KEY = "__vduckie_learning_profile_v2__";
   var PROFILE_CATEGORY = "__system_learning_profile__";
   var CACHE_PREFIX = "vduckie-learning-profile-cache-v2:";
@@ -15,6 +15,7 @@
   var pollTimer = null;
   var uploadTimer = null;
   var lastLocalProfile = null;
+  var activeSync = null, retryTimer = null;
 
   var EXPLICIT_KEYS = {
     "vduckie-erp-v74-progress": true,
@@ -27,7 +28,10 @@
     "vduckie-study-activity-v1": true,
     "vduckie-study-goals-v1": true,
     "vduckie-learning-settings-v1": true,
-    "vduckie-hsk-study-journey-v1": true
+    "vduckie-hsk-study-journey-v1": true,
+    "vduckie-shadowing-v1": true,
+    "vduckie-hsk-practice-exams-v2": true,
+    "vduckie-daily-learning-v1": true
   };
 
   var EXCLUDED_KEYS = {
@@ -175,6 +179,9 @@
       var right = remote.fields[key];
       if (!left) merged.fields[key] = right;
       else if (!right) merged.fields[key] = left;
+      else if (root.VDuckieLearningProgressMerge && left.value !== null && right.value !== null && root.VDuckieLearningProgressMerge.merge(key,parseJson(left.value,{}),parseJson(right.value,{}),left.updatedAt,right.updatedAt)) {
+        merged.fields[key] = {value:root.VDuckieLearningProgressMerge.stable(root.VDuckieLearningProgressMerge.merge(key,parseJson(left.value,{}),parseJson(right.value,{}),left.updatedAt,right.updatedAt)),updatedAt:Math.max(left.updatedAt,right.updatedAt)};
+      }
       else if (right.updatedAt > left.updatedAt) merged.fields[key] = right;
       else if (left.updatedAt > right.updatedAt) merged.fields[key] = left;
       else if (left.value === right.value) merged.fields[key] = left;
@@ -335,71 +342,45 @@
     }, 250);
   }
 
-  function upsertProfile(profile, generation) {
-    if (generation !== sessionGeneration || !client || !session || !session.user || !root.navigator || !root.navigator.onLine) return Promise.resolve();
-    return client.from("user_words").upsert([profileRow(profile, session.user.id)], {
-      onConflict: "user_id,word_key"
-    }).then(function (result) {
-      if (result.error) throw result.error;
-    });
-  }
-
-  function fetchRemoteProfile() {
-    if (!client || !session || !session.user) return Promise.resolve(null);
-    return client.from("user_words")
-      .select("word_key,note,category,known_updated_at,saved_updated_at")
-      .eq("word_key", PROFILE_WORD_KEY)
-      .then(function (result) {
-        if (result.error) throw result.error;
-        return result.data && result.data.length ? result.data[0] : null;
-      });
-  }
-
   function synchronizeProfile() {
     if (!client || !session || !session.user) return Promise.resolve();
-    var userId = session.user.id;
-    var generation = sessionGeneration;
-    var cached = readProfileCache(userId);
-    var local = captureProfile(userId, cached);
-    setStatus("Đang đồng bộ toàn bộ dữ liệu học…", "waiting");
-    return fetchRemoteProfile().then(function (row) {
-      if (generation !== sessionGeneration) return;
-      var remote = parseProfileRow(row);
-      var winning = remoteWinningKeys(local, remote);
-      var merged = mergeProfiles(local, remote);
-      var changed = applyProfile(merged, userId);
-      return upsertProfile(merged, generation).then(function () {
-        if (generation !== sessionGeneration) return;
-        setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
-        maybeReload(userId, merged, changed, winning);
-      });
-    }).catch(function (error) {
-      if (generation !== sessionGeneration) return;
-      console.error("VDuckie full learning profile sync failed", error);
-      setStatus(root.navigator && root.navigator.onLine ? "Lỗi đồng bộ dữ liệu học" : "Chờ có mạng", root.navigator && root.navigator.onLine ? "bad" : "waiting");
+    var userId=session.user.id,generation=sessionGeneration;
+    var cached=captureProfile(userId,lastLocalProfile||readProfileCache(userId));
+    writeProfileCache(userId,cached);
+    if(!root.navigator || !root.navigator.onLine){setStatus("Đã lưu trên máy · Chờ có mạng", "waiting");return Promise.resolve();}
+    if(activeSync&&activeSync.generation===generation){activeSync.again=true;return activeSync.promise;}
+    var merge=root.VDuckieLearningProgressMerge;
+    if(!merge){setStatus("Chưa tải được bộ đồng bộ tiến độ", "bad");return Promise.resolve();}
+    var run={generation:generation,again:false};activeSync=run;
+    setStatus("Đang đồng bộ dữ liệu học…", "waiting");
+    function current(){return generation===sessionGeneration&&session&&session.user&&session.user.id===userId;}
+    run.promise=merge.persistRow({client:client,userId:userId,key:PROFILE_WORD_KEY,value:cached,
+      current:current,getLocal:function(){return captureProfile(userId,lastLocalProfile||readProfileCache(userId));},
+      merge:mergeProfiles,row:profileRow
+    }).then(function(saved){
+      if(!saved||!current())return;
+      var local=captureProfile(userId,lastLocalProfile||readProfileCache(userId));
+      var merged=mergeProfiles(local,saved),winning=remoteWinningKeys(local,saved);
+      if(stableStringify(merged)!==stableStringify(saved))run.again=true;
+      var changed=applyProfile(merged,userId);
+      setStatus(run.again?"Đang lưu thay đổi mới…":"Đã đồng bộ dữ liệu học",run.again?"waiting":"good");
+      maybeReload(userId,merged,changed,winning);
+    }).catch(function(error){
+      if(!current())return;
+      setStatus(root.navigator.onLine?"Chưa đồng bộ được · Dữ liệu vẫn lưu trên máy":"Đã lưu trên máy · Chờ có mạng", "waiting");
+      root.clearTimeout(retryTimer);retryTimer=root.setTimeout(function(){if(current())synchronizeProfile();},10000);
+      console.error("VDuckie learning profile sync failed",error);
+    }).then(function(){
+      if(activeSync===run)activeSync=null;
+      if(run.again&&current())scheduleUpload();
     });
+    return run.promise;
   }
 
   function scheduleUpload() {
-    if (!session || !session.user || applying) return;
-    root.clearTimeout(uploadTimer);
-    var userId = session.user.id;
-    var generation = sessionGeneration;
-    uploadTimer = root.setTimeout(function () {
-      if (generation !== sessionGeneration || !session || !session.user || session.user.id !== userId) return;
-      var next = captureProfile(userId, lastLocalProfile || readProfileCache(userId));
-      if (stableStringify(next) === stableStringify(lastLocalProfile || {})) return;
-      lastLocalProfile = next;
-      writeProfileCache(userId, next);
-      upsertProfile(next, generation).then(function () {
-        if (generation !== sessionGeneration) return;
-        setStatus("Đã đồng bộ toàn bộ dữ liệu học", "good");
-      }).catch(function (error) {
-        if (generation !== sessionGeneration) return;
-        console.error("VDuckie profile upload failed", error);
-        setStatus("Lỗi đồng bộ dữ liệu học", "bad");
-      });
-    }, 600);
+    if(!session||!session.user||applying)return;
+    root.clearTimeout(uploadTimer);var generation=sessionGeneration;
+    uploadTimer=root.setTimeout(function(){if(generation===sessionGeneration)synchronizeProfile();},600);
   }
 
   function updateJsonKey(key, updater) {
@@ -633,11 +614,15 @@
         touchActivity("erp:completed");
       });
       root.document.addEventListener("vduckie:hsk-progress-synced", scheduleUpload);
+      ["vduckie:hsk-study-journey-change","vduckie:daily-learning-change","vduckie:shadowing-change","vduckie:practice-progress-change"].forEach(function(name){root.document.addEventListener(name,scheduleUpload);});
+      root.document.addEventListener("visibilitychange",function(){if(!root.document.hidden)synchronizeProfile();});
     }
     root.addEventListener("storage", function (event) {
       if (event && isSyncableKey(event.key)) scheduleUpload();
     });
     root.addEventListener("online", synchronizeProfile);
+    root.addEventListener("focus", synchronizeProfile);
+    root.setInterval(function(){if(session&&session.user&&root.navigator.onLine&&!root.document.hidden)synchronizeProfile();},30000);
     root.addEventListener("beforeunload", function () {
       if (session && session.user) {
         var profile = captureProfile(session.user.id, lastLocalProfile || readProfileCache(session.user.id));
@@ -684,7 +669,7 @@
     var previousSession = session;
     var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
     sessionGeneration++;
-    root.clearTimeout(uploadTimer);
+    root.clearTimeout(uploadTimer);root.clearTimeout(retryTimer);
     uploadTimer = null;
     session = nextSession || null;
     if (!session || !session.user) {
@@ -741,6 +726,9 @@
 
   root.VDuckieAccountSyncUtils = {
     version: VERSION,
+    flush: synchronizeProfile,
+    schedule: scheduleUpload,
+    identity: function(){return session&&session.user?session.user.id:"";},
     profileWordKey: PROFILE_WORD_KEY,
     isSyncableKey: isSyncableKey,
     normalize: normalizeProfile,

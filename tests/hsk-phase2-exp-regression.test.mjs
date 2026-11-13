@@ -4,12 +4,13 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 const read=path=>fs.readFileSync(path,'utf8');
 function setup(){
-  const storage=new Map(),events=[];
-  const window={localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},
+  const storage=new Map(),events=[];let clock=1800000000000;
+  const window={Date:{now:()=>clock},localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},
     document:{dispatchEvent:event=>events.push(event.type)},
     CustomEvent:function(type,options){this.type=type;this.detail=options.detail}};
+  vm.runInNewContext(read('assets/v82/learning-progress-merge-v1.js'),window);
   vm.runInNewContext(read('assets/hsk-content/hsk-study-journey-v1.js'),window);
-  return {journal:window.VDuckieHskStudyJourney,storage,events};
+  return {journal:window.VDuckieHskStudyJourney,storage,events,advance:days=>clock+=days*86400000};
 }
 test('Phase 2 records a wrong HSK vocabulary answer and makes that exact word due',()=>{
   const {journal}=setup();
@@ -21,7 +22,7 @@ test('Phase 2 records a wrong HSK vocabulary answer and makes that exact word du
   assert.equal(journal.due(3)[0].hanzi,'努力');
 });
 test('Phase 2 keeps mistaken words weak after one correct recall and clears after spaced review',()=>{
-  const {journal,storage}=setup();
+  const {journal,storage,advance}=setup();
   journal.recordWord(3,'hsk3-lesson-01','努力',false,'nǔlì','nỗ lực');
   journal.recordWord(3,'hsk3-lesson-01','努力',true,'nǔlì','nỗ lực');
   assert.equal(journal.wordStats().accuracy,50);
@@ -29,9 +30,12 @@ test('Phase 2 keeps mistaken words weak after one correct recall and clears afte
   journal.reviewWord(3,'努力',true);
   assert.equal(journal.weakWords(3).length,1);
   journal.reviewWord(3,'努力',true);
+  assert.equal(journal.weakWords(3).length,1);
+  assert.equal(journal.wordStats().remembered,0);
+  for(const days of [1,3,7]){advance(days);journal.reviewWord(3,'努力',true,{retrieval:true});}
   assert.equal(journal.weakWords(3).length,0);
-  assert.equal(journal.wordStats().attempts,4);
-  assert.equal(journal.wordStats().correct,3);
+  assert.equal(journal.wordStats().attempts,7);
+  assert.equal(journal.wordStats().correct,6);
   assert.ok(storage.has(journal.KEY));
 });
 test('EXP is emitted from verified lesson completion, not from merely opening a lesson',()=>{

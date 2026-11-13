@@ -10,7 +10,7 @@
   var state = load();
   var active = null;
   var writer = null;
-  var navBound = false;
+  var navBound = false, syncOwner=localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
 
   function emptyState() {
     return { version: 2, assignments: {}, words: {}, msutong: { currentBook: "beginner-1", currentLesson: "b1-u1", completed: {}, lessons: {}, review: {} }, updatedAt: 0 };
@@ -39,7 +39,8 @@
   function mergeRemote(remote) {
     remote = normalize(remote);
     var merged = root.VDuckieCurriculumProgress ? root.VDuckieCurriculumProgress.merge(Object.assign({ updatedAt: state.updatedAt }, state.msutong), Object.assign({ updatedAt: remote.updatedAt }, remote.msutong)) : null;
-    if (remote.updatedAt > state.updatedAt) state = remote;
+    if(root.VDuckieLearningProgressMerge)state=normalize(root.VDuckieLearningProgressMerge.daily(state,remote));
+    else if (remote.updatedAt > state.updatedAt) state = remote;
     if (merged) state.msutong = merged;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {}
     renderToday(); updateDock();
@@ -483,6 +484,12 @@
   function init() {
     renderToday(); installDock(); bindNav(document); bindLegacyClose(); updateDock(); networkState();
     root.addEventListener("online", networkState); root.addEventListener("offline", networkState);
+    document.addEventListener("vduckie:account-learning-synced",function(event){
+      var owner=event.detail&&event.detail.userId||'',changedOwner=owner!==syncOwner;syncOwner=owner;
+      state=load();if(changedOwner)active=null;
+      if(changedOwner&&["daily","review-erp"].indexOf(document.body.getAttribute("data-current-area"))>=0)showPanel("daily");
+      renderToday();updateDock();
+    });
     document.addEventListener("vduckie:daily-learning-synced", function (event) { mergeRemote(event.detail); });
     if (root.VDuckieCloud && root.VDuckieCloud.loadDailyLearning) root.VDuckieCloud.loadDailyLearning().then(mergeRemote);
   }

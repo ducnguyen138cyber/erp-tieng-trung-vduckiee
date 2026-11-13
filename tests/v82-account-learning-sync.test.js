@@ -151,6 +151,7 @@ function accountRuntime() {
   };
   ctx.globalThis = ctx;
   vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(root,"assets/v82/learning-progress-merge-v1.js"),"utf8"),ctx);
   // Instrument private lifecycle functions only in this VM, never in production.
   vm.runInContext(source.replace('  root.VDuckieAccountSyncUtils = {', `
     root.testLifecycle = {
@@ -161,8 +162,9 @@ function accountRuntime() {
     root.VDuckieAccountSyncUtils = {`), ctx);
   ctx.testLifecycle.attach({ from() { return {
     select() { return this; }, eq() { return this; },
-    then(resolve) { return new Promise(done => reads.push(row => done(resolve({data: row ? [row] : [], error:null})))); },
-    upsert(rows) { writes.push(...rows); return Promise.resolve({error:null}); }
+    maybeSingle() { return new Promise(done => reads.push(row => done({data:row,error:null}))); },
+    insert(rows) { writes.push(...rows);return {select(){return Promise.resolve({data:rows.map(r=>({word_key:r.word_key})),error:null});}}; },
+    update(row) { writes.push(row);return {eq(){return this;},select(){return Promise.resolve({data:[{word_key:row.word_key}],error:null});}}; }
   }; } });
   return { ctx, values, timers, reads, writes, api: ctx.testLifecycle };
 }

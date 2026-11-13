@@ -4,6 +4,7 @@
   var config = window.VDUCKIE_SUPABASE_CONFIG || {};
   var client = null;
   var session = null;
+  var sessionGeneration = 0;
   var syncing = false;
   var syncAgain = false;
   var queueKey = "vduckie-cloud-queue-v1";
@@ -367,6 +368,9 @@
       return Promise.resolve();
     }
     if (!navigator.onLine) { setStatus("Chờ có mạng", "waiting"); return Promise.resolve(); }
+    // New clients use the existing per-account profile/CAS transport. The old
+    // Daily row remains a read-only migration source, never a second writer.
+    if(window.VDuckieAccountSyncUtils&&window.VDuckieAccountSyncUtils.flush)return window.VDuckieAccountSyncUtils.flush();
     return client.from("user_words").upsert([dailyLearningRow(snapshot, session.user.id)], { onConflict: "user_id,word_key" }).then(function (result) {
       if (result.error) throw result.error;
       setStatus("Đã đồng bộ bài học hôm nay", "good");
@@ -378,9 +382,17 @@
 
   function loadDailyLearning() {
     if (!client || !session || !session.user) return Promise.resolve(null);
-    return client.from("user_words").select("word_key,note,known_updated_at").eq("word_key", dailyLearningWordKey).maybeSingle().then(function (result) {
+    var owner=session.user.id;
+    return client.from("user_words").select("word_key,note,known_updated_at").eq("user_id",owner).eq("word_key", dailyLearningWordKey).maybeSingle().then(function (result) {
+      if(!session||!session.user||session.user.id!==owner)return null;
       if (result.error) throw result.error;
       var snapshot = parseDailyLearningRow(result.data);
+      var merge=window.VDuckieLearningProgressMerge,account=window.VDuckieAccountSyncUtils;
+      if(merge&&account&&account.identity()===owner){
+        var local;try{local=JSON.parse(localStorage.getItem("vduckie-daily-learning-v1")||"{}");}catch(error){local={};}
+        snapshot=merge.daily(local,snapshot||{});
+        localStorage.setItem("vduckie-daily-learning-v1",JSON.stringify(snapshot));account.schedule();
+      }
       publishDailyLearning(snapshot);
       return snapshot;
     }).catch(function (error) {
@@ -620,12 +632,16 @@
       return Promise.resolve();
     }
     syncing = true;
+    var generation=sessionGeneration,owner=session.user.id;
+    function current(){return generation===sessionGeneration&&session&&session.user&&session.user.id===owner;}
     setStatus("Đang đồng bộ từ vựng và tiến độ…", "waiting");
 
     return client
       .from("user_words")
       .select("word_key,hanzi,pinyin,near_vi,meaning_vi,category,note,example_zh,example_vi,is_known,is_saved,known_updated_at,saved_updated_at")
+      .eq("user_id",owner)
       .then(function (remote) {
+        if(!current())return;
         if (remote.error) throw remote.error;
         var rows = remote.data || [];
         var wordRows = [];
@@ -647,12 +663,14 @@
           : flushQueue();
 
         return wordSync.then(function () {
+          if(!current())return;
           return synchronizeProgress(remoteProgress).then(function () {
-            publishDailyLearning(parseDailyLearningRow(remoteDailyLearning));
+            if(current())return loadDailyLearning();
           });
         });
       })
       .then(function () {
+        if(!current())return;
         setStatus("Đã đồng bộ từ vựng và tiến độ", "good");
       })
       .catch(function (error) {
@@ -720,6 +738,7 @@
   }
 
   function handleSession(nextSession, authEvent) {
+    sessionGeneration++;
     var previousSession = session;
     var wasSignedOut = !previousSession;
     var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";

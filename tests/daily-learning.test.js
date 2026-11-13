@@ -91,12 +91,14 @@ test("daily progress still reuses the existing Supabase user_words system row", 
   assert.match(source, /VDuckieCloud\.loadDailyLearning/);
 });
 
-test("mobile dock stays daily-only and respects the safe area", () => {
+test("mobile dock stays daily-only and respects the safe area", async () => {
+  const {publicEntrypoint}=require("./helpers/public-entrypoint.cjs");
+  const live=await publicEntrypoint();
   for (const label of ["Hôm nay", "MSUTONG", "+5", "Ôn tập", "VDuckie"]) assert.ok(source.includes(label), label);
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=polish1/);
+  assert.ok(fs.readFileSync("service-worker.js","utf8").includes(JSON.stringify(live.asset("assets/daily-learning-v2.js"))));
   assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.9/);
 });
 

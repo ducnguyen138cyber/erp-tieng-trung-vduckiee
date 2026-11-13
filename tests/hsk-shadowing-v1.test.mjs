@@ -9,12 +9,15 @@ const css=read('assets/hsk-content/hsk-shadowing-v1.css');
 const entry=read('assets/curriculum/graded-hsk-entry.js');
 const html=read('index.html');
 
-test('Shadowing MVP script and app bootstrap remain parseable',()=>{
+test('Shadowing MVP script and app bootstrap remain parseable',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const live=await publicEntrypoint();
   new vm.Script(js);
   const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
   assert.ok(scripts.some(s=>s.includes('restoreStaticVDuckie')&&new vm.Script(s)));
   assert.match(html,/hsk-shadowing-v1\.css\?v=polish1/);
-  assert.match(html,/hsk-shadowing-v1\.js\?v=polish1/);
+  const url=live.asset('assets/hsk-content/hsk-shadowing-v1.js');
+  assert.ok(read('service-worker.js').includes(JSON.stringify(url)));
   assert.match(entry,/data-shadow-open/);
   assert.match(css,/\.shadow-hanzi/);
 });

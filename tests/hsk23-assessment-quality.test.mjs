@@ -9,6 +9,7 @@ async function learner(level,fixture=false,direct=false){
  const dom=new JSDOM('<div id="hsk"><div id="hskLesson"></div><div id="hskLevels"></div><div id="hskLessonList"></div><div id="hskJourney"><div id="hskProgress"></div></div></div>',{url:`https://example.test/?hskLevel=${level}`,runScripts:'outside-only',pretendToBeVisual:true});
  const w=dom.window;w.HTMLElement.prototype.scrollIntoView=function(){};
  w.fetch=async p=>{const data=JSON.parse(read(String(p).replace(/^\.\//,'')));if(fixture&&String(p).endsWith('exercises.json'))for(const e of data.records){if(e.id.startsWith(`hsk${level}-lesson-01-`)&&typeof e.answer==='string'){e.reviewStatus='approved';e.reviewEvidence={status:'approved',independent:true,reviewerId:'test-fixture-reviewer',approverId:'test-fixture-approver',reviewedAt:'2026-11-13',reference:'https://example.test/fixture-only',contentVersion:e.contentVersion};}}return{ok:true,json:async()=>data};};
+ w.eval(read('assets/v82/learning-progress-merge-v1.js'));
  for(const p of ['hsk-study-journey-v1.js','hsk-study-flow-v1.js','hsk-professional-runtime.js'])w.eval(read('assets/hsk-content/'+p));
  if(direct)await w.VDuckieHskProfessionalRuntime.selectLevel(level,false);else await w.VDuckieHskProfessionalRuntime.mount(true);
  return {dom,w,doc:w.document,j:w.VDuckieHskStudyJourney,click:s=>w.document.querySelector(s).click()};

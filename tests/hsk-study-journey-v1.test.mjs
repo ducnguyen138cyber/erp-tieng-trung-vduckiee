@@ -18,6 +18,7 @@ function createJournal() {
     CustomEvent: function (name, detail) { this.type = name; this.detail = detail.detail; },
     Date, JSON, Math
   };
+  vm.runInNewContext(fs.readFileSync('assets/v82/learning-progress-merge-v1.js','utf8'), context);
   vm.runInNewContext(source, context, {filename:'hsk-study-journey-v1.js'});
   return {journal: context.VDuckieHskStudyJourney, storage, fired};
 }
@@ -89,12 +90,14 @@ test('canonical progress stays explicitly read-only while learner UI is an addit
   assert.doesNotMatch(flow,/erp-hsk-progress-v2|VDuckieEXP/);
 });
 
-test('bootstrap and PWA load the new study components before the HSK content flags', () => {
+test('bootstrap and PWA load the new study components before the HSK content flags', async () => {
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const live=await publicEntrypoint();
   const index = read('index.html');
   const worker = read('service-worker.js');
   const loader = read('assets/hsk-content/hsk-content-feature-flags.js');
-  for (const asset of ["hsk-study-flow-v1.js?v=reliability1", "hsk-content-feature-flags.js?v=reliability1"]) { assert.ok(index.includes(asset)); assert.ok(worker.includes(asset)); }
-  assert.ok(index.indexOf("hsk-study-flow-v1.js?v=reliability1") < index.indexOf("hsk-content-feature-flags.js?v=reliability1"));
+  for (const asset of [live.asset("assets/hsk-content/hsk-study-flow-v1.js"), live.asset("assets/hsk-content/hsk-content-feature-flags.js")]) { assert.ok(index.includes(asset)); assert.ok(worker.includes(asset)); }
+  assert.ok(index.indexOf(live.asset("assets/hsk-content/hsk-study-flow-v1.js")) < index.indexOf("hsk-content-feature-flags.js?v=reliability1"));
   assert.match(index,/hsk-study-journey-v1\.css\?v=reliability1/);
   assert.match(worker,/vduckie-pwa-v52/);
   assert.match(loader,/hsk-professional-runtime\.js\?v=reliability1/);

@@ -24,7 +24,7 @@ const APP_SHELL = [
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
   "./assets/v86/experience-suite-loader-v86.js?v=progress-row1",
-  "./assets/v86/home-dashboard-v86.5.js?v=home-original1",
+  "./assets/v86/home-dashboard-v86.5.js?v=progress-sync1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=public1",
   "./assets/navigation/screen-router.js?v=polish1",
@@ -71,16 +71,18 @@ const APP_SHELL = [
   "./assets/design-system/erp-workspace-v1.css?v=1.0",
   "./assets/design-system/remaining-interface-polish-20261103.css?v=1",
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
-  "./assets/hsk-content/hsk-study-journey-v1.js?v=phase2.3",
-  "./assets/hsk-content/hsk-study-flow-v1.js?v=reliability1",
+  "./assets/v82/learning-progress-merge-v1.js?v=1",
+  "./assets/v82/account-learning-sync-v82.js?v=progress-sync1",
+  "./assets/hsk-content/hsk-study-journey-v1.js?v=progress-sync1",
+  "./assets/hsk-content/hsk-study-flow-v1.js?v=progress-sync1",
   "./assets/hsk-content/hsk-study-journey-v1.css?v=reliability1",
   "./assets/hsk-content/hsk-professional-runtime.js?v=reliability1",
   "./assets/hsk-content/hsk-content-feature-flags.js?v=reliability1",
   "./assets/curriculum/graded-hsk-entry.js?v=polish1",
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
-  "./assets/hsk-content/hsk-practice-ui-v1.js?v=polish1",
+  "./assets/hsk-content/hsk-practice-ui-v1.js?v=progress-sync1",
   "./assets/hsk-content/hsk-practice-ui-v1.css?v=polish1",
-  "./assets/hsk-content/hsk-shadowing-v1.js?v=polish1",
+  "./assets/hsk-content/hsk-shadowing-v1.js?v=progress-sync1",
   "./assets/hsk-content/hsk-shadowing-v1.css?v=polish1",
   "./data/shadowing/hsk2-v1.json?v=3",
   "./data/shadowing/hsk3-v1.json?v=3",
@@ -102,7 +104,7 @@ const APP_SHELL = [
   "./hsk-lessons.js",
   "./dialogue.js",
   "./assets/daily-learning-v2.css?v=2.9",
-  "./assets/daily-learning-v2.js?v=polish1",
+  "./assets/daily-learning-v2.js?v=progress-sync1",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",
   "./assets/curriculum/progress-v1.js",
@@ -187,7 +189,13 @@ self.addEventListener("fetch", (event) => {
           if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(request, response.clone()));
           return response;
         })
-        .catch(async () => (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html")))
+        .catch(async () => {
+          if (["./", "./index.html"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname)) {
+            const app = await caches.match(request) || await caches.match(scoped("./index.html")) || await caches.match(scoped("./"));
+            if (app) return app;
+          }
+          return (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html"));
+        })
     );
     return;
   }
