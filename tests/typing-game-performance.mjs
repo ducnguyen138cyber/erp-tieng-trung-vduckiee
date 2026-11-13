@@ -16,13 +16,16 @@ const server=createServer(async(req,res)=>{
  try{res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'application/octet-stream'}).end(await readFile(file));}catch{res.writeHead(404).end();}
 });
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const base='http://127.0.0.1:'+server.address().port+'/';
-const browser=await chromium.launch(),results=[];
+let browser;const results=[];
 const normalize=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f\s]/g,'');
 const quantile=(a,p)=>a.length?[...a].sort((x,y)=>x-y)[Math.min(a.length-1,Math.floor(a.length*p))]:0;
 try{
  for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
   for(const mode of (viewport.width===1440?['easy','medium','hard']:['hard'])){
    for(const variant of ['baseline','optimized']){
+    // Isolate browser-process/video resources between A/B samples. Both variants
+    // still run the same Chromium, full application and 4x CPU profile.
+    browser=await chromium.launch();
     const name=viewport.width+'-'+mode+'-'+variant;console.log(name+': starting A/B sample');const record=viewport.width===1440&&mode==='hard';
     const context=await browser.newContext({viewport,serviceWorkers:'block',...(record?{recordVideo:{dir:out,size:viewport}}:{})}),page=await context.newPage();
     page.setDefaultTimeout(15000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
@@ -49,7 +52,13 @@ try{
      function frame(now){const p=window.__perf;if(p.active){if(p.last)p.frames.push(now-p.last);p.last=now;}else p.last=0;requestAnimationFrame(frame);}requestAnimationFrame(frame);
     });
     const cdp=await context.newCDPSession(page);await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});await cdp.send('Performance.enable');
-    await page.goto(base+'?screen=games');await page.locator('[data-game-action=choose]').click();
+    await context.tracing.start({screenshots:true,snapshots:true});
+    try {
+    await page.goto(base+'?screen=games');
+    // The outer loader document.write()s a second document. A visible hub button
+    // alone does not prove its parser/paint-guard lifecycle has finished.
+    await page.waitForFunction(()=>document.readyState==='complete' && !document.documentElement.classList.contains('vduckie-paint-pending'));
+    await page.locator('[data-game-action=choose]').click();
     await page.locator('[data-level="4"]:not([disabled])').click();await page.locator('[data-mode='+mode+']').click();
     await page.evaluate(()=>{window.VDuckieEXP={...window.VDuckieEXP,awardWordMastery:async()=>({awarded:false,exp_awarded:0,reason:'duplicate'})};});
     await page.locator('[data-game-action=start]').click();await page.locator('.tg-meteor.is-target').waitFor();await page.waitForTimeout(1200);
@@ -95,8 +104,18 @@ try{
      assert.ok((await page.locator('.tg-meteor.is-target').boundingBox()).y>still.y);
     }
     await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
-    assert.equal(await page.locator('.tg-overlay').count(),0);const video=page.video();await context.close();
+    assert.equal(await page.locator('.tg-overlay').count(),0);
+    await context.tracing.stop({path:path.join(out,name+'-trace.zip')});
+    const video=page.video();await context.close();
     if(video)await video.saveAs(path.join(out,'hard-'+variant+'-gameplay.webm'));
+    }catch(error){
+      await page.screenshot({path:path.join(out,name+'-failure.png'),timeout:5000}).catch(()=>{});
+      await writeFile(path.join(out,name+'-failure.json'),JSON.stringify({name,message:error.message,url:page.url(),errors},null,2));
+      throw error;
+    }finally{
+      await context.tracing.stop({path:path.join(out,name+'-trace.zip')}).catch(()=>{});
+      await browser.close();browser=null;
+    }
    }
   }
  }
@@ -138,5 +157,5 @@ try{
   }
   assert.ok(optimized.observerCalls<original.observerCalls*.4,'gameplay must substantially stop waking global observers: '+optimized.name);
  }
-}finally{server.closeAllConnections();await new Promise(r=>server.close(r));await browser.close();}
+}finally{server.closeAllConnections();await new Promise(r=>server.close(r));if(browser)await browser.close();}
 process.exit(0);

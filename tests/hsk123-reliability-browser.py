@@ -1,5 +1,5 @@
 """18 real-browser sampled learner journeys. Run in GitHub CI, isolated guest storage."""
-import json, threading
+import json, threading, hashlib
 from http.server import ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
@@ -25,8 +25,18 @@ try:
      context.add_init_script("""if(!localStorage.getItem('vduckie-hsk-study-journey-v1'))localStorage.setItem('vduckie-hsk-study-journey-v1',JSON.stringify({lessons:{legacy:{level:1,completedAt:123,answers:{old:{correct:true}},position:{stage:'examples'}}}}));localStorage.setItem('hsk123-preserve-sentinel','old-user-data');""")
      page=context.new_page();page.set_default_timeout(20000)
      errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
+     asset_responses=[]
+     page.on('response',lambda response:asset_responses.append(response))
      page.goto(f'{base}?screen=hsk&area=hsk&hskLevel={level}&hskLesson={lesson["id"]}',wait_until='domcontentloaded');ready(page,level)
      assert page.locator('[data-focus-word]').count()>0
+     if label=='desktop' and level==1 and lesson==lessons[0]:
+      assets=[]
+      for file in ['assets/v90/exp-core-v90.js','assets/v92/progress-store-v92.js','assets/v90/exp-leaderboard-v90.js','assets/v106/mascot-polish-v106.js']:
+       urls=page.locator(f'script[src*="{file}"]').evaluate_all('(els)=>els.map(el=>el.src)');assert len(urls)==1,(file,urls)
+       response=next(r for r in asset_responses if r.url==urls[0]);assert response.status==200
+       body=response.body();assert body==(ROOT/file).read_bytes(),file+' response must be the actual deployed script'
+       assets.append({'url':response.url,'status':response.status,'sha256':hashlib.sha256(body).hexdigest()})
+      (out/'public-asset-loads.json').write_text(json.dumps(assets,indent=2))
      # Vocabulary then grammar/dialogue/listening/reading, then practice.
      for stage in ['words','extra','examples']:
       page.locator(f'[data-focus-stage="{stage}"]').click()

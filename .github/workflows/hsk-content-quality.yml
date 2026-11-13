@@ -52,7 +52,8 @@ jobs:
           python -m pip install -r scripts/hsk123-audit-requirements.txt
           python tests/hsk123-phonetics.test.py
           node scripts/audit-hsk123-reliability.cjs
-          git diff --exit-code -- reports/hsk123/current.json
+          node scripts/hsk123-pronunciation-review.cjs
+          git diff --exit-code -- reports/hsk123/current.json reports/hsk123/pronunciation-review.json docs/hsk123-pronunciation-review.md
       - name: Check HSK duplicates
         run: node scripts/check-hsk-duplicates.js
       - name: Check HSK coverage

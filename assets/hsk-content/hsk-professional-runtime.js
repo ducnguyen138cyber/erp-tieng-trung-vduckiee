@@ -616,6 +616,8 @@
     var open = exercise.answer && typeof exercise.answer === 'object' && !Array.isArray(exercise.answer);
     if (open) {
       var rubric = exercise.answer.rubric || {};
+      var rubricLabels = auditedLevel(exercise) ? {meaning:'Ý nghĩa',language:'Cách dùng từ và cấu trúc',evidence:'Bằng chứng trong bài',review:'Giới hạn đánh giá',taskCompletion:'Hoàn thành yêu cầu',intelligibility:'Mức độ nghe hiểu được',grammarAndWords:'Ngữ pháp và từ vựng',selfCorrection:'Tự sửa',wordOrder:'Trật tự từ',grammar:'Ngữ pháp',charactersAndPunctuation:'Chữ và dấu câu',revision:'Sửa bài',content:'Nội dung',organization:'Bố cục',vocabulary:'Từ vựng',pronunciation:'Phát âm',interaction:'Tương tác',safety:'Phù hợp và an toàn',transfer:'Vận dụng',reflection:'Tự nhận xét'} : {};
+
       var selfAnswer = article.querySelector('[data-pro-input-for="' + id + '"]');
       if (!selfAnswer || !text(selfAnswer.value)) {
         feedback.className = 'hsk-pro-feedback bad';
@@ -624,7 +626,7 @@
       }
       article.querySelectorAll('[data-pro-transcript]').forEach(function(node) { node.hidden = false; });
       feedback.className = 'hsk-pro-feedback';
-      feedback.innerHTML = '<b>Tiêu chí tự đối chiếu</b><p>' + Object.keys(rubric).map(function (key) { return esc(key) + ': ' + esc(rubric[key]) + (typeof rubric[key] === 'number' ? '%' : ''); }).join(' · ') + '</p>' + (exercise.answer.referenceAnswer ? '<p>Tham khảo (không phải đáp án duy nhất): '+esc(exercise.answer.referenceAnswer)+'</p>' : '') + (exercise.answer.answerVi ? '<p>Ý cần có: '+esc(exercise.answer.answerVi)+'</p>' : '') + (exercise.answer.evidenceZh ? '<p>Bằng chứng: '+esc(exercise.answer.evidenceZh)+'</p>' : '') + '<p>' + esc(exercise.explanationVi) + '</p>';
+      feedback.innerHTML = '<b>Tiêu chí tự đối chiếu</b>' + (auditedLevel(exercise) ? '<p>Hệ thống chưa chấm đúng/sai. Xem mẫu và tự đối chiếu không xác nhận đã nắm vững.</p>' : '') + '<p>' + Object.keys(rubric).map(function (key) { return esc(rubricLabels[key] || key) + ': ' + esc(rubric[key]) + (typeof rubric[key] === 'number' ? '%' : ''); }).join(' · ') + '</p>' + (exercise.answer.referenceAnswer ? '<p>Tham khảo (không phải đáp án duy nhất): '+esc(exercise.answer.referenceAnswer)+'</p>' : '') + (exercise.answer.answerVi ? '<p>Ý cần có: '+esc(exercise.answer.answerVi)+'</p>' : '') + (exercise.answer.evidenceZh ? '<p>Bằng chứng: '+esc(exercise.answer.evidenceZh)+'</p>' : '') + '<p>' + esc(exercise.explanationVi) + '</p>';
       if (state.selectedLessonId && root.VDuckieHskStudyFlow) root.VDuckieHskStudyFlow.onChecked(id,null);
       return;
     }

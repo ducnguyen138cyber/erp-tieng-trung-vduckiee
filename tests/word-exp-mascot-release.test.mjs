@@ -59,16 +59,20 @@ test('EXP feedback is a non-modal float and client scripts still parse',()=>{
   for(const file of ['assets/v90/exp-core-v90.js','assets/v89/exp-learning-hooks-v89.js','assets/design-system/mascot-swap-v1.js'])
     assert.doesNotThrow(()=>new vm.Script(read(file)),file);
 });
-test('all new assets have cache-busted public entrypoints and current PWA cache',()=>{
+test('public EXP and mascot assets load exactly once with cache keys and matching offline entries',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const entry=await publicEntrypoint();
   const index=read('index.html'),worker=read('service-worker.js');
   assert.match(index,/exp-floating-feedback-v91\.css\?v=1/);
-  assert.match(index,/exp-core-v90\.js\?v=word-float1/);
+  for(const file of ['assets/v90/exp-core-v90.js','assets/design-system/mascot-swap-v1.js'])assert.ok(worker.includes(JSON.stringify(entry.asset(file))),file+' offline URL must match the actual loader');
   assert.match(index,/mascot-swap-v1\.js\?v=10/);
   assert.match(worker,/vduckie-pwa-v52/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
 });
 
-test('EXP reward guide matches the deployed three-point, fifty-word rule in every language',()=>{
+test('EXP reward guide matches the deployed three-point, fifty-word rule in every language',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const entry=await publicEntrypoint();
   const board=read('assets/v90/exp-leaderboard-v90.js');
   const i18n=read('assets/i18n/interface-i18n-v1.js');
   const index=read('index.html');
@@ -76,6 +80,7 @@ test('EXP reward guide matches the deployed three-point, fifty-word rule in ever
   assert.doesNotMatch(board,/Nhớ đúng một từ HSK mới: \+5 EXP/);
   assert.match(i18n,/每天最多 50 个词/);
   assert.match(i18n,/up to 50 words\/day/);
-  assert.match(index,/exp-leaderboard-v90\.js\?v=word3-50/);
+  entry.asset('assets/v90/exp-leaderboard-v90.js');
+  entry.asset('assets/i18n/interface-i18n-v1.js');
   assert.match(index,/interface-i18n-v1\.js\?v=seo-guides1/);
 });

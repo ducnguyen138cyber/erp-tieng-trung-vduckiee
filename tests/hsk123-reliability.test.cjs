@@ -12,7 +12,7 @@ test('corpus inventory and IDs are preserved; no unsupported review labels or co
  assert.deepEqual(r.confirmedBySeverity,{Critical:0,High:0,Medium:0,Low:0});assert.ok(r.levels.every(l=>l.independentlyReviewed===0));
 });
 test('every repaired field has before/after, stable ID, version increment and non-human authorship',()=>{
- const changes=read('docs/hsk123-content-changes.json').changes;assert.equal(changes.length,2173);assert.equal(new Set(changes.map(x=>x.id)).size,changes.length);
+ const changes=read('docs/hsk123-content-changes.json').changes;assert.equal(changes.length,2176);assert.equal(new Set(changes.map(x=>x.id)).size,changes.length);
  for(const c of changes){assert.ok(c.reason&&c.references.length);assert.equal(c.independentHumanReview,false);assert.equal(c.fields.contentVersion.after,c.fields.contentVersion.before+1);const d=read(c.file),r=(d.records||d.entries).find(r=>r.id===c.id);assert.ok(r,c.id);for(const [field,v] of Object.entries(c.fields))assert.deepEqual(r[field],v.after,c.id+' '+field);}
 });
 test('all 474 numbered-Pinyin repairs preserve the authored Hanzi, tone-mark Pinyin and Vietnamese meaning',()=>{
@@ -73,4 +73,21 @@ test('audit CLI fails on a new Critical key defect even when it writes an update
   const result=spawnSync(process.execPath,[path.join(root,'scripts/audit-hsk123-reliability.cjs')],{cwd:temp,encoding:'utf8'});
   assert.equal(result.status,1,result.stderr);const report=JSON.parse(fs.readFileSync(path.join(temp,'reports/hsk123/current.json')));assert.ok(report.confirmedBySeverity.Critical>=1);assert.ok(report.issues.some(i=>i.rule==='answer-outside-options'&&i.id===e.id));
  }finally{fs.rmSync(temp,{recursive:true,force:true});}
+});
+
+test('acceptance: all 36 HSK3 grammar tasks align meaning and structure to their own source example',()=>{
+ const byId=new Map(records.map(r=>[r.id,r]));const rows=records.filter(r=>r.recordType==='exercise'&&r.hskLevel===3&&r.id.endsWith('exercise-2'));assert.equal(rows.length,36);
+ for(const e of rows){const g=byId.get(e.grammarFocus[0]);assert.ok(g,e.id);const model=g.correctExamples.find(x=>x.zh===e.answer.referenceAnswer);assert.ok(model,e.id+' needs its own grammar model');assert.equal(e.stimulus.meaningVi,model.vi);assert.equal(e.stimulus.targetStructureVi,g.formula);assert.equal(runtime.canGradeExercise(e),false,e.id);}
+});
+test('acceptance: converted open responses retain an inspectable reference and no mastery assertion',()=>{
+ const changes=read('docs/hsk123-content-changes.json').changes,byId=new Map(records.map(r=>[r.id,r]));
+ for(const c of changes.filter(c=>typeof c.fields.answer?.before==='string'&&c.fields.answer?.after?.rubric)){
+  const e=byId.get(c.id);assert.ok(e.answer.referenceAnswer||e.answer.answerVi||e.answer.evidenceZh,c.id+' reference missing');assert.equal(runtime.canGradeExercise(e),false);
+ }
+ for(const e of records.filter(r=>r.recordType==='exercise'&&r.hskLevel===3&&r.format==='usage-explanation'))assert.ok(e.answer.referenceAnswer.length>80,e.id);
+});
+test('acceptance: every pronunciation warning has an actionable, non-certifying review row',()=>{
+ const report=read('reports/hsk123/current.json'),q=read('reports/hsk123/pronunciation-review.json');assert.equal(q.rows.length,430);assert.equal(q.counts['confirmed-error'],0);
+ assert.deepEqual(q.rows.map(r=>r.id),report.issues.filter(i=>!i.confirmed).map(i=>i.id));
+ for(const r of q.rows){assert.ok(r.hanzi&&r.pinyin&&r.meaningVi&&r.sourceSentence&&r.reasonVi&&r.references.length,r.id);assert.equal(r.reviewStatus,'unreviewed');assert.equal(r.confirmedError,false);for(const c of r.comparisons)assert.match(c.character,/[\u3400-\u9fff]/);}
 });
