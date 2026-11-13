@@ -1,3 +1,5 @@
+> **Cập nhật nghiệm thu:** xem [hsk123-acceptance.md](hsk123-acceptance.md) cho sửa bổ sung, phân loại 430 cảnh báo và kiểm tra CI/tài nguyên hiện tại. Các số liệu và trạng thái CI bên dưới là checkpoint trước nghiệm thu.
+
 # Báo cáo kiểm duyệt kỹ thuật học liệu HSK1–3
 
 Ngày: **13/11/2026**. Nhánh: `audit/hsk123-content-reliability`. PR: [#123](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/pull/123). Base `main`: `6fba328c5d74dbfaa1909e6b54e0f6ec4391227e`. **Chưa merge.**

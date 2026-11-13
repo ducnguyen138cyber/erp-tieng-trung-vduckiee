@@ -77,7 +77,7 @@
     "Medium": 0,
     "Low": 0
   },
-  "suspected": 430,
+  "suspected": 429,
   "files": [
     {
       "file": "data/hsk/hsk1/assessments.json",
@@ -181,12 +181,12 @@
     },
     {
       "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
-      "sha256": "4bc16efcd5bcf743c8ba975287adb87382e789120a652dafd221ce8e92097f08",
+      "sha256": "54b7ba4d323daeb4f18c83e2c8b7fa25c8de0f881c98526e90c19177dcf2ce6a",
       "contentVersion": "1.0.0"
     },
     {
       "file": "data/hsk/hsk1/sentences/index.json",
-      "sha256": "5ea7a628c0a77b4a69d358d4c588be56bb261abe5c5fd8c29b40c78536b66902",
+      "sha256": "fada5fe81b11401d82872118488bbe5a2636d6ee4b0ecb487b57fbb35b3130bc",
       "contentVersion": "1.0.0"
     },
     {
@@ -53841,27 +53841,6 @@
             "characterIndex": 3,
             "given": "yi1",
             "contextReference": "yi2"
-          }
-        ],
-        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
-      }
-    },
-    {
-      "id": "hsk1-s-0858",
-      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
-      "pointer": "/records/57",
-      "rule": "contextual-reading-needs-review",
-      "severity": "Medium",
-      "confirmed": false,
-      "evidence": {
-        "hanzi": "这杯水只剩一半。",
-        "pinyin": "zhè bēi shuǐ zhī shèng yí bàn",
-        "comparisons": [],
-        "polyphoneContextComparisons": [
-          {
-            "characterIndex": 3,
-            "given": "zhi1",
-            "contextReference": "zhi3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."

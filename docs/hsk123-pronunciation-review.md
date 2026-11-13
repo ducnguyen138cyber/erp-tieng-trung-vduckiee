@@ -1,6 +1,6 @@
 # Hàng chờ xác minh cách đọc HSK1–3
 
-430 cảnh báo máy, **0 lỗi phát âm được xác nhận** trong nhóm này. 415 mục có dấu hiệu cách đọc hợp lệ theo ngữ cảnh; 15 mục cần chuyên môn. Đây là phân loại hỗ trợ rà soát, không phải chứng nhận đúng. Không sửa Pinyin chỉ vì khác từ điển máy.
+430 cảnh báo ban đầu, **1 lỗi phát âm đã được xác nhận và sửa** trong nhóm này. 415 mục có dấu hiệu cách đọc hợp lệ theo ngữ cảnh; 14 mục cần chuyên môn. Đây là phân loại hỗ trợ rà soát, không phải chứng nhận đúng. Không sửa Pinyin chỉ vì khác từ điển máy.
 
 Nguồn: [GB/T 16159-2012 (thông báo Bộ Giáo dục)](https://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/201207/t20120717_139437.html); [GF0016-2010, mục 5.2.2 về nguyên điệu, biến điệu, âm nhẹ và 儿 hóa](https://www.moe.gov.cn/ewebeditor/uploadfile/2015/03/02/20150302165029995.pdf); [谁: shéi/shuí](https://dict.revised.moe.edu.tw/dictView.jsp?ID=8878&la=1&powerMode=0). Khác biệt âm nhẹ vẫn phải xác minh theo từng từ. Chi tiết so sánh và sourceIds trong [JSON](../reports/hsk123/pronunciation-review.json).
 
@@ -325,7 +325,7 @@ Nguồn: [GB/T 16159-2012 (thông báo Bộ Giáo dục)](https://www.moe.gov.cn
 | hsk1-s-0854 | 我买了一个苹果。 | wǒ mǎi le yī gè píng guǒ | Tôi đã mua một quả táo. | 我买了一个苹果。 | possibly-valid-context: Có thể là âm nhẹ, biến điệu 一/不, biến thể 谁 hoặc âm 儿 hóa; khác từ điển máy không đủ kết luận sai. |
 | hsk1-s-0855 | 我想买衣服。 | wǒ xiǎng mǎi yī fu | Tôi muốn mua quần áo. | 我想买衣服。 | possibly-valid-context: Có thể là âm nhẹ, biến điệu 一/不, biến thể 谁 hoặc âm 儿 hóa; khác từ điển máy không đủ kết luận sai. |
 | hsk1-s-0856 | 我认识一个医生。 | wǒ rèn shi yī gè yī shēng | Tôi quen một bác sĩ. | 我认识一个医生。 | possibly-valid-context: Có thể là âm nhẹ, biến điệu 一/不, biến thể 谁 hoặc âm 儿 hóa; khác từ điển máy không đủ kết luận sai. |
-| hsk1-s-0858 | 这杯水只剩一半。 | zhè bēi shuǐ zhī shèng yí bàn | Cốc nước này chỉ còn một nửa. | 这杯水只剩一半。 | specialist-required: Cần đối chiếu ngữ cảnh và cách đọc từ; bộ đối chiếu máy chưa đủ xác nhận. |
+| hsk1-s-0858 | 这杯水只剩一半。 | zhè bēi shuǐ zhī shèng yí bàn → zhè bēi shuǐ zhǐ shèng yí bàn | Cốc nước này chỉ còn một nửa. | 这杯水只剩一半。 | confirmed-error: 只 bổ nghĩa cho 剩 với nghĩa “chỉ còn”, đọc zhǐ; zhī chỉ lượng từ không phù hợp cú pháp và nghĩa Việt của câu này. |
 | hsk1-s-0859 | 请再说一下。 | qǐng zài shuō yí xià | Vui lòng nói lại một lần. | 请再说一下。 | possibly-valid-context: Có thể là âm nhẹ, biến điệu 一/不, biến thể 谁 hoặc âm 儿 hóa; khác từ điển máy không đủ kết luận sai. |
 | hsk1-s-0861 | 我只要一点儿米饭。 | wǒ zhī yào yì diǎnr mǐ fàn | Tôi chỉ cần một chút cơm. | 我只要一点儿米饭。 | possibly-valid-context: Có thể là âm nhẹ, biến điệu 一/不, biến thể 谁 hoặc âm 儿 hóa; khác từ điển máy không đủ kết luận sai. |
 | hsk1-s-0862 | 一些学生已经来了。 | yì xiē xué shēng yǐ jīng lái le | Một số học sinh đã đến rồi. | 一些学生已经来了。 | possibly-valid-context: Có thể là âm nhẹ, biến điệu 一/不, biến thể 谁 hoặc âm 儿 hóa; khác từ điển máy không đủ kết luận sai. |

@@ -61,7 +61,11 @@ try{
     await page.locator('[data-game-action=choose]').click();
     await page.locator('[data-level="4"]:not([disabled])').click();await page.locator('[data-mode='+mode+']').click();
     await page.evaluate(()=>{window.VDuckieEXP={...window.VDuckieEXP,awardWordMastery:async()=>({awarded:false,exp_awarded:0,reason:'duplicate'})};});
-    await page.locator('[data-game-action=start]').click();await page.locator('.tg-meteor.is-target').waitFor();await page.waitForTimeout(1200);
+    await page.locator('[data-game-action=start]').click();await page.locator('.tg-meteor.is-target').waitFor();
+    // Trace setup/click races only: snapshots during the benchmark itself
+    // add large observer/paint overhead and invalidate the A/B frame sample.
+    await context.tracing.stop({path:path.join(out,name+'-setup-trace.zip')});
+    await page.waitForTimeout(1200);
     await page.evaluate(()=>{window.__perf.active=true;});const before=(await cdp.send('Performance.getMetrics')).metrics;
     const geometry=await page.locator('.tg-meteor.is-target').boundingBox();await page.waitForTimeout(1500);
     const later=await page.locator('.tg-meteor.is-target').boundingBox();assert.ok(later.y>geometry.y,'meteors fall through real viewport');
@@ -105,7 +109,6 @@ try{
     }
     await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();
     assert.equal(await page.locator('.tg-overlay').count(),0);
-    await context.tracing.stop({path:path.join(out,name+'-trace.zip')});
     const video=page.video();await context.close();
     if(video)await video.saveAs(path.join(out,'hard-'+variant+'-gameplay.webm'));
     }catch(error){

@@ -2,9 +2,9 @@
   "schemaVersion": 1,
   "tool": "editorial triage; not independent linguistic review",
   "counts": {
-    "confirmed-error": 0,
+    "confirmed-error": 1,
     "possibly-valid-context": 415,
-    "specialist-required": 15
+    "specialist-required": 14
   },
   "rows": [
     {
@@ -10199,28 +10199,19 @@
       "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
       "hanzi": "这杯水只剩一半。",
       "pinyin": "zhè bēi shuǐ zhī shèng yí bàn",
+      "correctedPinyin": "zhè bēi shuǐ zhǐ shèng yí bàn",
       "meaningVi": "Cốc nước này chỉ còn một nửa.",
       "sourceSentence": "这杯水只剩一半。",
-      "category": "specialist-required",
-      "reasonVi": "Cần đối chiếu ngữ cảnh và cách đọc từ; bộ đối chiếu máy chưa đủ xác nhận.",
-      "comparisons": [
-        {
-          "characterIndex": 3,
-          "given": "zhi1",
-          "contextReference": "zhi3",
-          "character": "只"
-        }
-      ],
-      "sourceIds": [
-        "vduckie-hsk1-phase2a-original",
-        "moe-gbt-16159-2012"
-      ],
+      "category": "confirmed-error",
+      "status": "fixed",
+      "reasonVi": "只 bổ nghĩa cho 剩 với nghĩa “chỉ còn”, đọc zhǐ; zhī chỉ lượng từ không phù hợp cú pháp và nghĩa Việt của câu này.",
+      "comparisons": [],
       "references": [
-        "https://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/201207/t20120717_139437.html",
-        "https://www.moe.gov.cn/ewebeditor/uploadfile/2015/03/02/20150302165029995.pdf"
+        "https://dict.concised.moe.edu.tw/dictView.jsp?ID=29138&la=0&powerMode=0",
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?breadcrumbs=Search_%E5%8F%AA_one&dictSearchField=%E5%8F%AA&wordID=D0002782"
       ],
       "reviewStatus": "unreviewed",
-      "confirmedError": false
+      "confirmedError": true
     },
     {
       "id": "hsk1-s-0859",

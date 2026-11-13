@@ -8,7 +8,7 @@ Kế thừa kiểm kê và bằng chứng của PR, không kiểm duyệt lại 
 - 474 trường Pinyin số: giữ nguyên Hán tự, Pinyin có dấu và nghĩa gốc, regression đối chiếu từng ID. Không thay chữ/tone-mark theo pypinyin.
 - 52 transcript: vẫn ẩn trước câu trả lời không rỗng, hiện sau khi tự đối chiếu. Browser regression kiểm tra hành vi này cùng luồng đã học/không tự thành thạo.
 - Toàn bộ câu vừa chuyển từ đáp án chuỗi sang rubric có đáp án tham khảo/ý trả lời/bằng chứng nguồn. Bài nói/viết mở đã tồn tại trước PR chưa đồng loạt được sáng tác thêm mẫu; giới hạn này được giữ rõ. Hệ thống không chấm tự động chúng.
-- [430 cảnh báo cách đọc](hsk123-pronunciation-review.md): 415 có thể hợp lệ (âm nhẹ, 一/不, 谁, 儿 hóa), 15 cần chuyên môn; **0 lỗi phát âm được xác nhận trong nhóm cảnh báo này**. Mỗi mục có ID, Hán, Pinyin, Việt, câu nguồn, lý do, sourceIds và tài liệu đối chiếu. Phân loại không phải teacher verdict. Không tự sửa hoặc nâng reviewStatus; qualityGate vẫn locked.
+- [430 cảnh báo cách đọc](hsk123-pronunciation-review.md): 415 có thể hợp lệ (âm nhẹ, 一/不, 谁, 儿 hóa), 1 đã sửa, 14 cần chuyên môn; **1 lỗi phát âm được xác nhận và sửa trong nhóm cảnh báo này**. Mỗi mục có ID, Hán, Pinyin, Việt, câu nguồn, lý do, sourceIds và tài liệu đối chiếu. Phân loại không phải teacher verdict. Không tự sửa hoặc nâng reviewStatus; qualityGate vẫn locked.
 
 ## CI và tài nguyên
 
@@ -17,3 +17,11 @@ Ba assertion cũ được tái hiện trên main `6fba328`. Test mới chạy ch
 Game performance: hai run 43344968452 (attempt đầu) và 43346733402 đều dừng tại click choose trước khi lấy mẫu 1440-hard-optimized; log ghi nút visible/enabled/stable, không có failure ở budget gameplay. Artifact đầu chỉ có ảnh easy/medium, video hard-baseline và video optimized trắng; **không có trace trước sửa**. Không thể suy từ đó rằng game chậm. Sửa riêng harness: đợi lifecycle document.write/paint-guard hoàn tất; mỗi mẫu dùng browser process mới để tách tài nguyên video/renderer giữa các mẫu. Giữ nguyên CPU 4x, timeout 15s, toàn bộ threshold và bàn phím/click thật. Thu trace từng mẫu và screenshot/JSON khi lỗi. Không sửa game production.
 
 CI/Preview cuối cùng sẽ được bổ sung sau khi chạy bản sửa này; chưa dùng kết quả cũ để tuyên bố bản mới đạt.
+
+## Bổ sung xác minh cách đọc
+
+`hsk1-s-0858`: 这杯水只剩一半。 — `zhè bēi shuǐ zhī shèng yí bàn` → `zhè bēi shuǐ zhǐ shèng yí bàn` — Cốc nước này chỉ còn một nửa. 只 là phó từ hạn định nghĩa “chỉ”, không phải lượng từ. [Bằng chứng và nguồn chính thức](hsk123-pronunciation-confirmed.json). Cập nhật đồng thời pinyin/pinyinTone/pinyinNumber và checksum shard, không thay ID/tiến độ. Đây là sửa biên tập có căn cứ, không tự ký human-reviewed. Còn **429 cảnh báo chưa kết luận**, giữ riêng với 1 lỗi đã sửa.
+
+Giới hạn kiểm thử local: suite toàn website có các test tự gọi Chromium bị môi trường chặn socket/ptrace. Không dùng kết quả local đó làm bằng chứng browser; bộ browser/full regression được chạy trên GitHub CI, không bỏ các test thất bại.
+
+Lần chạy CI `af6b25e`: HSK Content Quality đã xanh; harness game có trace toàn lượt gây nhiễu phép đo (snapshot tracing làm tăng rAF p95 lên 150ms dù scripting ~194ms), rồi dừng assertion hoàn thành từ ở baseline. Đã giới hạn trace vào bước khởi động/chọn/bắt đầu và dừng trước phép đo, giữ nguyên tất cả budget. Không dùng số liệu có trace trong phép đo để kết luận game bị regression. Cần chạy CI lại bản chỉnh này.

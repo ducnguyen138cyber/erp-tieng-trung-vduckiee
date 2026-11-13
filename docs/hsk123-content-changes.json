@@ -20924,20 +20924,34 @@
     {
       "id": "hsk1-s-0858",
       "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
-      "reason": "Remove unsupported historical review claim. Independent reviewer evidence is absent; retain its previous value in the change ledger.",
+      "reason": "Remove unsupported historical review claim. Independent reviewer evidence is absent; retain its previous value in the change ledger. 只 bổ nghĩa cho 剩 với nghĩa “chỉ còn”, đọc zhǐ; zhī chỉ lượng từ không phù hợp cú pháp và nghĩa Việt của câu này.",
       "references": [
-        "hsk1-s-0858#/reviewStatus"
+        "hsk1-s-0858#/reviewStatus",
+        "https://dict.concised.moe.edu.tw/dictView.jsp?ID=29138&la=0&powerMode=0",
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?breadcrumbs=Search_%E5%8F%AA_one&dictSearchField=%E5%8F%AA&wordID=D0002782"
       ],
       "actor": "machine-assisted-editorial",
       "independentHumanReview": false,
       "fields": {
-        "contentVersion": {
-          "before": 1,
-          "after": 2
+        "pinyin": {
+          "before": "zhè bēi shuǐ zhī shèng yí bàn",
+          "after": "zhè bēi shuǐ zhǐ shèng yí bàn"
+        },
+        "pinyinTone": {
+          "before": "zhè bēi shuǐ zhī shèng yí bàn",
+          "after": "zhè bēi shuǐ zhǐ shèng yí bàn"
+        },
+        "pinyinNumber": {
+          "before": "zhe4 bei1 shui3 zhi1 sheng4 yi2 ban4",
+          "after": "zhe4 bei1 shui3 zhi3 sheng4 yi2 ban4"
         },
         "reviewStatus": {
           "before": "linguistic-reviewed",
           "after": "unreviewed"
+        },
+        "contentVersion": {
+          "before": 1,
+          "after": 2
         }
       }
     },

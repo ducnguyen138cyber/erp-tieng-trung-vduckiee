@@ -16,7 +16,7 @@ test('every repaired field has before/after, stable ID, version increment and no
  for(const c of changes){assert.ok(c.reason&&c.references.length);assert.equal(c.independentHumanReview,false);assert.equal(c.fields.contentVersion.after,c.fields.contentVersion.before+1);const d=read(c.file),r=(d.records||d.entries).find(r=>r.id===c.id);assert.ok(r,c.id);for(const [field,v] of Object.entries(c.fields))assert.deepEqual(r[field],v.after,c.id+' '+field);}
 });
 test('all 474 numbered-Pinyin repairs preserve the authored Hanzi, tone-mark Pinyin and Vietnamese meaning',()=>{
- const fixes=read('docs/hsk123-content-changes.json').changes.filter(x=>x.fields.pinyinNumber);assert.equal(fixes.length,474);
+ const fixes=read('docs/hsk123-content-changes.json').changes.filter(x=>x.fields.pinyinNumber&&/^hsk[23]-v-/.test(x.id));assert.equal(fixes.length,474);
  for(const c of fixes){assert.ok(!c.fields.pinyinTone&&!c.fields.simplified&&!c.fields.meaningVi);assert.match(c.fields.pinyinNumber.after,/^[a-zv]+[1-5]( [a-zv]+[1-5])*$/);}
  assert.equal(read('data/hsk/hsk2/vocabulary/hsk2-v-0101-0150.json').records[0].pinyinNumber,'men2 kou3');
 });
@@ -87,7 +87,12 @@ test('acceptance: converted open responses retain an inspectable reference and n
  for(const e of records.filter(r=>r.recordType==='exercise'&&r.hskLevel===3&&r.format==='usage-explanation'))assert.ok(e.answer.referenceAnswer.length>80,e.id);
 });
 test('acceptance: every pronunciation warning has an actionable, non-certifying review row',()=>{
- const report=read('reports/hsk123/current.json'),q=read('reports/hsk123/pronunciation-review.json');assert.equal(q.rows.length,430);assert.equal(q.counts['confirmed-error'],0);
- assert.deepEqual(q.rows.map(r=>r.id),report.issues.filter(i=>!i.confirmed).map(i=>i.id));
- for(const r of q.rows){assert.ok(r.hanzi&&r.pinyin&&r.meaningVi&&r.sourceSentence&&r.reasonVi&&r.references.length,r.id);assert.equal(r.reviewStatus,'unreviewed');assert.equal(r.confirmedError,false);for(const c of r.comparisons)assert.match(c.character,/[\u3400-\u9fff]/);}
+ const report=read('reports/hsk123/current.json'),q=read('reports/hsk123/pronunciation-review.json');assert.equal(q.rows.length,430);assert.equal(q.counts['confirmed-error'],1);
+ assert.deepEqual(q.rows.filter(r=>!r.confirmedError).map(r=>r.id).sort(),report.issues.filter(i=>!i.confirmed).map(i=>i.id).sort());
+ for(const r of q.rows){assert.ok(r.hanzi&&r.pinyin&&r.meaningVi&&r.sourceSentence&&r.reasonVi&&r.references.length,r.id);assert.equal(r.reviewStatus,'unreviewed');if(r.confirmedError)assert.equal(r.status,'fixed');for(const c of r.comparisons)assert.match(c.character,/[\u3400-\u9fff]/);}
+});
+test('context regression: adverb 只剩 uses zhi3, animal classifier 只 retains zhi1',()=>{
+ const sentences=read('data/hsk/hsk1/sentences/hsk1-s-0801-0900.json').records;
+ const r=sentences.find(r=>r.id==='hsk1-s-0858');assert.equal(r.chinese,'这杯水只剩一半。');assert.equal(r.pinyinTone,'zhè bēi shuǐ zhǐ shèng yí bàn');assert.match(r.pinyinNumber,/zhi3 sheng4/);
+ const classifier=read('data/hsk/hsk1/vocabulary/hsk1-v-0251-0300.json').records.find(r=>r.id==='hsk1-v-0287');assert.equal(classifier.pinyinTone,'zhī');
 });
