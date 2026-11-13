@@ -1,0 +1,174 @@
+{
+  "base": "6fba328c5d74dbfaa1909e6b54e0f6ec4391227e",
+  "independentHumanReview": false,
+  "findings": [
+    {
+      "id": "hsk3-lesson-04-exercise-2",
+      "beforeSource": "我想提高听力，因为平时听得还不够清楚。",
+      "beforeAnswer": "我终于找到了护照。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-04-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-05-exercise-2",
+      "beforeSource": "你只是看，没有开口练。",
+      "beforeAnswer": "大家聊起来了。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-05-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-06-exercise-2",
+      "beforeSource": "先别只看得分，你听力比以前清楚多了。",
+      "beforeAnswer": "这间屋子安静得很。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-06-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-07-exercise-2",
+      "beforeSource": "谢谢，我今天先做什么？",
+      "beforeAnswer": "第二套房比第一套还安静。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-07-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-10-exercise-2",
+      "beforeSource": "十点十分，七号检票口。",
+      "beforeAnswer": "我比他早到十分钟。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-10-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-11-exercise-2",
+      "beforeSource": "您最后在哪儿看到的？",
+      "beforeAnswer": "越练越自然。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-11-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-12-exercise-2",
+      "beforeSource": "你走反了，应该向北走。",
+      "beforeAnswer": "除了听力以外，我还想提高写作。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-12-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-13-exercise-2",
+      "beforeSource": "走路八分钟，附近也有超市。",
+      "beforeAnswer": "她一边听一边记笔记。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-13-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-16-exercise-2",
+      "beforeSource": "量过体温吗？",
+      "beforeAnswer": "只要每天练，就会进步。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-16-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-17-exercise-2",
+      "beforeSource": "刚开始不用这么多，一周三次就可以。",
+      "beforeAnswer": "只有说明问题，客服才能帮助你。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-17-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-18-exercise-2",
+      "beforeSource": "我晚上常常看手机到一点。",
+      "beforeAnswer": "虽然晚点了，可是我们没有错过火车。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-18-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-22-exercise-2",
+      "beforeSource": "您可以试试小一号的。",
+      "beforeAnswer": "天气一会儿晴，一会儿下雨。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-22-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-23-exercise-2",
+      "beforeSource": "请拍一下外卖和菜单上的订单。",
+      "beforeAnswer": "为了按时到，我提前出发。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-23-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-24-exercise-2",
+      "beforeSource": "请问两次的价钱一样吗？",
+      "beforeAnswer": "在老师看来，进步不只看分数。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-24-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-25-exercise-2",
+      "beforeSource": "开始时天气很好，后来突然刮风下雨。",
+      "beforeAnswer": "对初学者来说，坚持最重要。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-25-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-28-exercise-2",
+      "beforeSource": "打扰了，这是给您家人的一点儿礼物。",
+      "beforeAnswer": "我一张票也没找到。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-28-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-29-exercise-2",
+      "beforeSource": "送花怎么样？",
+      "beforeAnswer": "这条路一点儿也不远。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-29-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-30-exercise-2",
+      "beforeSource": "很好，留学生也有表演吗？",
+      "beforeAnswer": "谁都可以参加。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-30-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-31-exercise-2",
+      "beforeSource": "以前很清楚，现在春天变短了。",
+      "beforeAnswer": "你想喝点儿什么？",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-31-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-34-exercise-2",
+      "beforeSource": "可以，不过天气预报说可能下雨。",
+      "beforeAnswer": "桌上少了一张卡。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-34-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-35-exercise-2",
+      "beforeSource": "可以。",
+      "beforeAnswer": "你的担心是有道理的。",
+      "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-35-exercise-2"
+    }
+  ]
+}
