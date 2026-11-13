@@ -50,9 +50,9 @@ try{
  await Promise.all([flush(p),flush(q)]);await flush(p);await flush(q);
  for(const page of [p,q]){const j=await journal(page);assert.equal(j.lessons.legacy_guest.completedAt,123);assert.ok(j.lessons['hsk1-lesson-01'].content.words);assert.ok(j.lessons['hsk2-lesson-15'].content.words);assert.equal((await memory(page)).remembered,0);}
  evidence.checks.push('two devices merge independent lesson progress and preserve old completion without mastery');
- await p.locator('[data-hsk-review-open]:visible').first().click();await p.locator('[data-hsk-review-reveal]').click();
+ await p.locator('[data-hsk-review-open]:visible').first().click();const correctBeforeReveal=(await memory(p)).correct;await p.evaluate(()=>{window.__recallAwards=0;document.addEventListener('vduckie:hsk-word-mastered',()=>window.__recallAwards++);});await p.locator('[data-hsk-review-reveal]').click();
  assert.match(await p.locator('[data-hsk-recall-feedback]').innerText(),/Chưa đánh giá ghi nhớ/);assert.equal((await memory(p)).remembered,0);
- assert.equal((await p.evaluate(()=>window.__learningAuth.state.rpc)).filter(r=>/award/.test(r.name)).length,0,'revealing an answer must not award EXP');
+ assert.equal(await p.evaluate(()=>window.__recallAwards),0,'revealing an answer must not emit a mastery/EXP reward');assert.equal((await memory(p)).correct,correctBeforeReveal,'reveal is not a correct recall');
  evidence.checks.push('answer reveal cannot award memory or EXP');
  await p.screenshot({path:path.join(out,'desktop-recall.png')});
  await flush(p);await flush(q);await q.reload();await ready(q);
