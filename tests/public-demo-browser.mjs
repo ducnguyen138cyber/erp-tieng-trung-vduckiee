@@ -33,7 +33,11 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  await page.locator('#v85PersonalDashboard .v85-top').screenshot({path:path.join(out,name+'-home-progress-continue.png')});
  await page.locator('#v85PersonalDashboard [data-v865-action=continue]').click();await page.locator('#hskLesson .hsk-pro-lesson-head').waitFor();
  if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
- await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();assert.match(await page.locator('[data-hsk-review-drawer]').innerText(),/你好/);await page.locator('[data-hsk-review-close]').click();
+ await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();
+ const recall=page.locator('[data-hsk-review-drawer]');assert.match(await recall.innerText(),/xin chào/);assert.doesNotMatch(await recall.innerText(),/你好|nǐ hǎo/);assert.equal(await page.locator('[data-hsk-review-meaning]').isVisible(),false);
+ await page.locator('[data-hsk-recall-input]').fill('你好');await page.locator('[data-hsk-recall-check]').click();
+ assert.match(await page.locator('[data-hsk-recall-feedback]').innerText(),/Đúng từ đã học/);assert.equal(await page.locator('[data-hsk-review-meaning]').isVisible(),true);assert.match(await recall.innerText(),/你好/);assert.equal(await page.evaluate(()=>window.VDuckieHskStudyJourney.wordStats().remembered),0,'one correct answer is not spaced mastery');
+ await page.locator('[data-hsk-review-close]').click();
  if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
 
 
