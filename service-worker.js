@@ -186,14 +186,19 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(request, response.clone()));
+          if (response.ok) {
+            const copy=response.clone();
+            event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy)));
+          }
           return response;
         })
         .catch(async () => {
           if (["./", "./index.html"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname)) {
             const ready = await caches.match(scoped("./.learning-offline-ready-progress-sync1"));
             const app = ready && (await caches.match(request) || await caches.match(scoped("./index.html")) || await caches.match(scoped("./")));
-            if (app) return app;
+            // Cloudflare redirects /index.html to /. A redirected cached response
+            // cannot satisfy an offline navigation with redirect=manual.
+            if (app) return app.redirected ? new Response(app.clone().body,{status:app.status,statusText:app.statusText,headers:app.headers}) : app;
           }
           return (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html"));
         })

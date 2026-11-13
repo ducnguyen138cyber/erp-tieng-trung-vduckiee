@@ -304,7 +304,11 @@
     panel().querySelectorAll("[data-writing-char]").forEach(function (button) { button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); }; });
     if (!root.HanziWriter || !selected) { if (status) status.textContent = "Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở."; return; }
     try {
-      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData });
+      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData, onLoadCharDataError: function(){
+        if(status&&document.getElementById("dailyWritingStatus")!==status)return;
+        if(status)status.textContent="Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở.";
+        var current=panel();current.querySelectorAll('[data-writing-replay],[data-writing-practice]').forEach(function(button){button.disabled=true;});
+      } });
       var replay = panel().querySelector("[data-writing-replay]"), practice = panel().querySelector("[data-writing-practice]");
       if (replay) replay.onclick = function () { writer.animateCharacter(); if (status) status.textContent = "Đang chạy thứ tự nét của chữ " + selected + "."; };
       if (practice) practice.onclick = function () { writer.quiz({ showHintAfterMisses: 2, onComplete: function () { if (status) status.textContent = "Đã viết hết các nét. Hãy viết lại một lần vào vở."; } }); if (status) status.textContent = "Viết theo từng nét trong ô vuông."; };

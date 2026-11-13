@@ -32,7 +32,7 @@ async function device(name,viewport,legacy){
  await context.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));
  await context.route('https://learning-fixture.supabase.co/**',backend);
  await context.route('https://*.supabase.co/**',async r=>{if(r.request().url().includes('learning-fixture'))return backend(r);return r.fulfill({contentType:'application/json',body:'[]'});});
- if(legacy)await context.addInitScript(({key})=>{if(!localStorage.getItem('__learning_fixture_seeded')){localStorage.setItem(key,JSON.stringify({version:1,lessons:{legacy_guest:{level:1,completedAt:123}},reviews:{'3:努力':{level:3,lessonId:'hsk3-lesson-01',hanzi:'努力',pinyin:'nǔlì',meaningVi:'cố gắng',weak:true,stage:4,correct:9,lastAt:Date.now()-2*86400000,nextAt:1}}}));localStorage.setItem('__learning_fixture_seeded','1');}}, {key:KEY});
+ if(legacy)await context.addInitScript(({key})=>{if(location.protocol==='https:'||location.protocol==='http:')if(!localStorage.getItem('__learning_fixture_seeded')){localStorage.setItem(key,JSON.stringify({version:1,lessons:{legacy_guest:{level:1,completedAt:123}},reviews:{'3:努力':{level:3,lessonId:'hsk3-lesson-01',hanzi:'努力',pinyin:'nǔlì',meaningVi:'cố gắng',weak:true,stage:4,correct:9,lastAt:Date.now()-2*86400000,nextAt:1}}}));localStorage.setItem('__learning_fixture_seeded','1');}}, {key:KEY});
  const page=await context.newPage();evidence.navigations[name]=0;page.on('framenavigated',frame=>{if(frame===page.mainFrame())evidence.navigations[name]++;});page.setDefaultTimeout(20000);page.on('pageerror',e=>evidence.errors.push(name+': '+e.message));
  await page.goto(base+'?screen=hsk&hskLevel=1&hskLesson=hsk1-lesson-01&area=hsk#hsk');await ready(page);
  return {page,context,name};
@@ -91,6 +91,7 @@ try{
  // Return to an already cached lesson, then exercise real browser offline status/cache.
  await lesson(p,1,'hsk1-lesson-01');await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await ready(p);
  await p.waitForFunction(async()=>!!(await caches.match(new URL('./.learning-offline-ready-progress-sync1',location.href).href)));
+ evidence.offlineCache=await p.evaluate(async()=>{const meta={};for(const key of ['./index.html','./']){const r=await caches.match(new URL(key,location.href).href);meta[key]=r?{url:r.url,redirected:r.redirected,status:r.status}:null;}return {controller:navigator.serviceWorker.controller?.scriptURL,meta};});
  await desktop.context.setOffline(true);assert.equal(await p.evaluate(()=>navigator.onLine),false);
  await p.locator('[data-focus-stage="examples"]').click();await p.locator('[data-focus-panel="examples"] [data-hsk-content-done]').click();const writesBefore=evidence.writes;await flush(p);assert.equal(evidence.writes,writesBefore);
  await p.reload({waitUntil:'domcontentloaded'});await p.locator('[data-focus-stage="examples"]').waitFor();assert.ok((await journal(p)).lessons['hsk1-lesson-01'].content.examples);
