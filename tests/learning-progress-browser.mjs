@@ -10,7 +10,7 @@ const server=createServer(async(req,res)=>{const u=new URL(req.url,'http://local
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=(process.env.LEARNING_PREVIEW_URL||'http://127.0.0.1:'+server.address().port+'/').replace(/\/?$/,'/');
 const sdk=await readFile('tests/fixtures/learning-auth-sdk.js','utf8'),browser=await chromium.launch();
 const A='00000000-0000-4000-8000-000000000111',B='00000000-0000-4000-8000-000000000222',KEY='vduckie-hsk-study-journey-v1';
-const rows=new Map(),evidence={scope:'Two browser devices and two mocked auth identities; REST concurrency emulator. SQL RLS is tested separately, not real Supabase password sessions.',base,checks:[],errors:[],writes:0,conflicts:0};let revision=0;
+const rows=new Map(),evidence={scope:'Two browser devices and two mocked auth identities; REST concurrency emulator. SQL RLS is tested separately, not real Supabase password sessions.',base,checks:[],errors:[],navigations:{},writes:0,conflicts:0};let revision=0;
 async function backend(route){
  const req=route.request().postDataJSON(),single=req.single;let data=[],error=null;
  if(req.table==='user_words'){
@@ -33,7 +33,7 @@ async function device(name,viewport,legacy){
  await context.route('https://learning-fixture.supabase.co/**',backend);
  await context.route('https://*.supabase.co/**',async r=>{if(r.request().url().includes('learning-fixture'))return backend(r);return r.fulfill({contentType:'application/json',body:'[]'});});
  if(legacy)await context.addInitScript(({key})=>{if(!localStorage.getItem('__learning_fixture_seeded')){localStorage.setItem(key,JSON.stringify({version:1,lessons:{legacy_guest:{level:1,completedAt:123}},reviews:{'3:努力':{level:3,lessonId:'hsk3-lesson-01',hanzi:'努力',pinyin:'nǔlì',meaningVi:'cố gắng',weak:true,stage:4,correct:9,lastAt:Date.now()-2*86400000,nextAt:1}}}));localStorage.setItem('__learning_fixture_seeded','1');}}, {key:KEY});
- const page=await context.newPage();page.setDefaultTimeout(20000);page.on('pageerror',e=>evidence.errors.push(name+': '+e.message));
+ const page=await context.newPage();evidence.navigations[name]=0;page.on('framenavigated',frame=>{if(frame===page.mainFrame())evidence.navigations[name]++;});page.setDefaultTimeout(20000);page.on('pageerror',e=>evidence.errors.push(name+': '+e.message));
  await page.goto(base+'?screen=hsk&hskLevel=1&hskLesson=hsk1-lesson-01&area=hsk#hsk');await ready(page);
  return {page,context,name};
 }
@@ -44,12 +44,13 @@ async function lesson(page,level,id){await page.goto(base+`?screen=hsk&hskLevel=
 async function journal(page){return page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'{}'),KEY);}
 try{
  const desktop=await device('desktop',{width:1440,height:900},true),mobile=await device('mobile',{width:390,height:844},false),p=desktop.page,q=mobile.page;
- await p.locator('[data-focus-panel="words"] [data-hsk-content-done]').click();
+ const desktopNavigations=evidence.navigations.desktop;await p.locator('[data-focus-panel="words"] [data-hsk-content-done]').click();
  await p.locator('[data-focus-next]').first().click();
  await lesson(q,2,'hsk2-lesson-15');await q.locator('[data-focus-panel="words"] [data-hsk-content-done]').click();
  await Promise.all([flush(p),flush(q)]);await flush(p);await flush(q);
  for(const page of [p,q]){const j=await journal(page);assert.equal(j.lessons.legacy_guest.completedAt,123);assert.ok(j.lessons['hsk1-lesson-01'].content.words);assert.ok(j.lessons['hsk2-lesson-15'].content.words);assert.equal((await memory(page)).remembered,0);}
- evidence.checks.push('two devices merge independent lesson progress and preserve old completion without mastery');
+ assert.equal(evidence.navigations.desktop,desktopNavigations,'background progress sync cannot reload the active lesson');
+ evidence.checks.push('two devices merge independent lesson progress, preserve old completion and do not reload the active lesson');
  await p.locator('[data-hsk-review-open]:visible').first().click();const correctBeforeReveal=(await memory(p)).correct;await p.evaluate(()=>{window.__recallAwards=0;document.addEventListener('vduckie:hsk-word-mastered',()=>window.__recallAwards++);});await p.locator('[data-hsk-review-reveal]').click();
  assert.match(await p.locator('[data-hsk-recall-feedback]').innerText(),/Chưa đánh giá ghi nhớ/);assert.equal((await memory(p)).remembered,0);
  assert.equal(await p.evaluate(()=>window.__recallAwards),0,'revealing an answer must not emit a mastery/EXP reward');assert.equal((await memory(p)).correct,correctBeforeReveal,'reveal is not a correct recall');

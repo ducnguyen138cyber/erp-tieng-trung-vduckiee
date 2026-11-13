@@ -323,11 +323,20 @@
     return output;
   }
 
-  function maybeReload(userId, profile, changed, winning) {
+  function maybeReload(userId, profile, changed, winning, previous) {
     if (!changed.length || !winning.length || !root.location || typeof root.location.reload !== "function") return;
     var important = false;
     for (var i = 0; i < changed.length; i++) {
-      if (/progress|lesson|course|module|section|setting|preference|roast/i.test(changed[i])) important = true;
+      var changedKey=changed[i];
+      // The professional HSK UI consumes the journal sync event in place. Its
+      // legacy visit mirror must not tear down an active answer/card on another device.
+      if(changedKey==="vduckie-hsk-section-progress-v1"&&root.VDuckieHskStudyFlow&&root.VDuckieHskStudyFlow.getCurrent())continue;
+      if(changedKey==="vduckie-learning-settings-v1"){
+        var before=parseJson(previous&&previous.fields[changedKey]&&previous.fields[changedKey].value,{}),after=parseJson(profile.fields[changedKey]&&profile.fields[changedKey].value,{});
+        delete before.updatedAt;delete after.updatedAt;
+        if(stableStringify(before)===stableStringify(after))continue;
+      }
+      if (/progress|lesson|course|module|section|setting|preference|roast/i.test(changedKey)) important = true;
     }
     if (!important) return;
     var signature = hash(stableStringify(profile));
@@ -364,7 +373,7 @@
       if(stableStringify(merged)!==stableStringify(saved))run.again=true;
       var changed=applyProfile(merged,userId);
       setStatus(run.again?"Đang lưu thay đổi mới…":"Đã đồng bộ dữ liệu học",run.again?"waiting":"good");
-      maybeReload(userId,merged,changed,winning);
+      maybeReload(userId,merged,changed,winning,local);
     }).catch(function(error){
       if(!current())return;
       setStatus(root.navigator.onLine?"Chưa đồng bộ được · Dữ liệu vẫn lưu trên máy":"Đã lưu trên máy · Chờ có mạng", "waiting");

@@ -157,7 +157,8 @@ function accountRuntime() {
     root.testLifecycle = {
       attach: function(value) { client = value; },
       session: handleSession,
-      schedule: scheduleUpload
+      schedule: scheduleUpload,
+      maybeReload: maybeReload
     };
     root.VDuckieAccountSyncUtils = {`), ctx);
   ctx.testLifecycle.attach({ from() { return {
@@ -223,4 +224,15 @@ test('late profile fetch and queued upload cannot apply Alice data after switchi
   assert.equal(r.writes.length, 1);
   assert.equal(r.writes[0].user_id, 'bob');
   assert.doesNotMatch(r.writes[0].note, /dailyWords/);
+});
+
+
+test('remote legacy visits and timestamp-only settings cannot reload an active HSK answer',()=>{
+ const r=accountRuntime();let reloaded=0;r.ctx.location={reload(){reloaded++;}};r.ctx.VDuckieHskStudyFlow={getCurrent(){return {level:2,lessonId:'hsk2-lesson-15'};}};
+ const key='vduckie-learning-settings-v1',before={fields:{[key]:{value:JSON.stringify({roastHsk:true,updatedAt:1})}}},after={fields:{[key]:{value:JSON.stringify({roastHsk:true,updatedAt:2})}}};
+ r.api.maybeReload('alice',after,['vduckie-hsk-section-progress-v1',key],[key],before);
+ assert.equal(r.timers.size,0);assert.equal(reloaded,0);
+ // An actual preference change still takes the existing refresh path.
+ after.fields[key].value=JSON.stringify({roastHsk:false,updatedAt:3});
+ r.api.maybeReload('alice',after,[key],[key],before);assert.equal(r.timers.size,1);
 });
