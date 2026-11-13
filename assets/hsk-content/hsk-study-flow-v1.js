@@ -21,9 +21,9 @@
   function eligibleExercise(exercise,level){
     var statuses=['verified','linguistic-reviewed'];if(level===2||level===3)statuses.push('approved');
     var runtime=root.VDuckieHskProfessionalRuntime;
-    return statuses.indexOf(exercise.reviewStatus)>=0&&(runtime&&runtime.canGradeExercise?runtime.canGradeExercise(exercise):typeof exercise.answer==='string');
+    return (level>=1&&level<=3?(runtime&&runtime.independentReview&&runtime.independentReview(exercise)):statuses.indexOf(exercise.reviewStatus)>=0)&&(runtime&&runtime.canGradeExercise?runtime.canGradeExercise(exercise):typeof exercise.answer==='string');
   }
-  function insufficient(info){return (info.level===2||info.level===3)&&!info.verifiedIds.length;}
+  function insufficient(info){return (info.level>=1&&info.level<=3)&&!info.verifiedIds.length;}
   function lessonStats(info){return journal.stats(info.lesson.id,info.exercises,info.verifiedIds);}
   function missingContent(info){var content=journal.lesson(info.lesson.id).content||{};return info.content.filter(function(stage){return !content[stage];});}
   function progressHtml(info){

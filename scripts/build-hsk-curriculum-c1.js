@@ -280,7 +280,7 @@ function buildGrammar() {
     sourceIds: SOURCES.slice(0, 4),
     contentStatus: STATUS,
     translationReviewStatus: STATUS,
-    reviewStatus: "linguistic-reviewed",
+    reviewStatus: "unreviewed",
     contentVersion: 1,
   }));
 }
@@ -403,7 +403,7 @@ function buildExercises(lessons) {
     const common = {
       recordType:"exercise", syllabusVersion:SYLLABUS, hskLevel:1, difficulty:lesson.difficulty,
       topic:lesson.topic, grammarFocus:lesson.grammarRefs, vocabularyFocus:[], sourceIds:SOURCES,
-      contentStatus:STATUS, translationReviewStatus:STATUS, reviewStatus:"linguistic-reviewed", contentVersion:1,
+      contentStatus:STATUS, translationReviewStatus:STATUS, reviewStatus:"unreviewed", contentVersion:1,
       reviewMetadata:{ firstIntroducedIn:lesson.id, reviewStage:1, reviewReason:"C1 lesson-aligned item; human sampling required.", previousExerciseId:null }
     };
     const dialogueFirstLine = def.dialogue.split("\n")[0];
@@ -466,7 +466,7 @@ function buildEnrichment() {
     sourceIds:[SOURCES[0],SOURCES[1],SOURCES[4]],
     contentStatus:STATUS,
     translationReviewStatus:STATUS,
-    reviewStatus:"linguistic-reviewed",
+    reviewStatus:"unreviewed",
     contentVersion:1
   }));
 }

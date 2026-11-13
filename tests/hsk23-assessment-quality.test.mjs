@@ -8,7 +8,7 @@ const records=(level,file)=>JSON.parse(read(`data/hsk/hsk${level}/${file}.json`)
 async function learner(level,fixture=false,direct=false){
  const dom=new JSDOM('<div id="hsk"><div id="hskLesson"></div><div id="hskLevels"></div><div id="hskLessonList"></div><div id="hskJourney"><div id="hskProgress"></div></div></div>',{url:`https://example.test/?hskLevel=${level}`,runScripts:'outside-only',pretendToBeVisual:true});
  const w=dom.window;w.HTMLElement.prototype.scrollIntoView=function(){};
- w.fetch=async p=>{const data=JSON.parse(read(String(p).replace(/^\.\//,'')));if(fixture&&String(p).endsWith('exercises.json'))for(const e of data.records){if(e.id.startsWith(`hsk${level}-lesson-01-`)&&typeof e.answer==='string')e.reviewStatus='approved';}return{ok:true,json:async()=>data};};
+ w.fetch=async p=>{const data=JSON.parse(read(String(p).replace(/^\.\//,'')));if(fixture&&String(p).endsWith('exercises.json'))for(const e of data.records){if(e.id.startsWith(`hsk${level}-lesson-01-`)&&typeof e.answer==='string'){e.reviewStatus='approved';e.reviewEvidence={status:'approved',independent:true,reviewerId:'test-fixture-reviewer',approverId:'test-fixture-approver',reviewedAt:'2026-11-13',reference:'https://example.test/fixture-only',contentVersion:e.contentVersion};}}return{ok:true,json:async()=>data};};
  for(const p of ['hsk-study-journey-v1.js','hsk-study-flow-v1.js','hsk-professional-runtime.js'])w.eval(read('assets/hsk-content/'+p));
  if(direct)await w.VDuckieHskProfessionalRuntime.selectLevel(level,false);else await w.VDuckieHskProfessionalRuntime.mount(true);
  return {dom,w,doc:w.document,j:w.VDuckieHskStudyJourney,click:s=>w.document.querySelector(s).click()};
@@ -47,7 +47,7 @@ test('HSK2 accepts transcript-supported alias and shows cloze/context without ex
   assert.match(r.doc.querySelector('[data-pro-exercise="hsk2-lesson-28-exercise-1"]').textContent,/我去____两次广州/);
   await r.w.VDuckieHskProfessionalRuntime.selectLevel(3,false);
   const a=r.doc.querySelector('[data-pro-exercise="hsk3-lesson-01-exercise-3"]');assert.equal(a.querySelector('[data-pro-transcript]').hidden,true);
-  a.querySelector('input').value='không biết';r.click('[data-pro-check="hsk3-lesson-01-exercise-3"]');assert.equal(a.querySelector('[data-pro-transcript]').hidden,false);
+  a.querySelector('input,textarea').value='không biết';r.click('[data-pro-check="hsk3-lesson-01-exercise-3"]');assert.equal(a.querySelector('[data-pro-transcript]').hidden,false);
  }finally{r.dom.window.close();}
 });
 test('bounded HSK3 open-task corrections require self-review, never exact-match a single exemplar or append percent to prose',async()=>{
@@ -60,7 +60,7 @@ test('bounded HSK3 open-task corrections require self-review, never exact-match 
   assert.ok(r.j.weakWords(3).some(w=>w.hanzi==='阿姨'));
  }finally{r.dom.window.close();}
 });
-test('isolated approved fixture proves mastery gate and retry without duplicate completion events; live content stays unreviewed',async()=>{
+test('isolated synthetic review-evidence fixture proves mastery gate and retry without duplicate completion events; live content stays unreviewed',async()=>{
  const r=await learner(2,true);try{
   const id='hsk2-lesson-01',es=records(2,'exercises').filter(e=>e.id.startsWith(id+'-'));
   let completions=0;r.doc.addEventListener('vduckie:hsk-learner-completed',()=>completions++);

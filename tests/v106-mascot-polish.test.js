@@ -5,11 +5,15 @@ const path = require("node:path");
 const root = path.join(__dirname, "..");
 const read = file => fs.readFileSync(path.join(root, file), "utf8");
 
-test("production loads V106.1 after the stable V105 renderer display layer", () => {
+test("production loads the current progress store before mascot polish, after its renderer layer", async () => {
+  const {publicEntrypoint}=require("./helpers/public-entrypoint.cjs");
+  const entry=await publicEntrypoint(root);
   const index = read("index.html") + "\n" + read("app-shell-v88.html");
   assert.ok(index.indexOf("mascot-display-v105.css") < index.indexOf("mascot-polish-v106.css"));
   assert.ok(index.indexOf("learning-events-v103.js") < index.indexOf("mascot-polish-v106.js"));
-  assert.match(index, /progress-store-v92\.js\?v=106\.1/);
+  const progress=entry.asset("assets/v92/progress-store-v92.js");
+  const polish=entry.asset("assets/v106/mascot-polish-v106.js");
+  assert.ok(entry.html.indexOf(progress) < entry.html.indexOf(polish));
   assert.match(index, /mascot-polish-v106\.css\?v=106\.1/);
   assert.match(index, /mascot-polish-v106\.js\?v=106\.1/);
 });

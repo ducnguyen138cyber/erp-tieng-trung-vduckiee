@@ -90,7 +90,7 @@
 .hsk-entry-mastery{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
 .hsk-entry-mastery span{display:inline-flex;align-items:center;gap:5px;padding:8px 11px;background:#f8fbff;border:1px solid #dbeafe;border-radius:12px;color:#475569;font-size:13px;line-height:1.4}
 .hsk-entry-mastery b{font-size:15px;color:#1d4ed8}
-.hsk-pro-quality-note{margin:10px 0 14px;padding:10px 12px;border:1px solid #f5dcb7;border-radius:12px;background:#fffbeb;color:#7c4a03;font-size:13px;line-height:1.55}
+.hsk-pro-quality-note{margin:10px 0 14px;padding:10px 12px;border:1px solid #bfdbfe;border-radius:12px;background:#eff6ff;color:#0f172a;font-size:13px;line-height:1.55}
 .exp-award-guide{font-size:13px;line-height:1.65;color:#475569;margin:8px 0 0}
 .exp-zero-explained{padding:14px 16px!important;background:#f8fbff;color:#475569;border-radius:12px;border:1px solid #dbeafe}
 @media(max-width:640px){.hsk-entry-mastery{display:grid;grid-template-columns:1fr}.hsk-entry-mastery span{width:100%;box-sizing:border-box}}
