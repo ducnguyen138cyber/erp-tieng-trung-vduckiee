@@ -124,6 +124,8 @@
       else n.textContent="↻ Ôn HSK"+(journal.due().length?" · "+journal.due().length:"");
     }
     reviewDrawer();bind();
+    // Only a successfully rendered lesson may mark its cached app shell usable offline.
+    if(root.navigator&&root.navigator.serviceWorker&&root.navigator.serviceWorker.controller)root.navigator.serviceWorker.controller.postMessage('LEARNING_SHELL_READY');
   }
   function restorePosition(host,position){
     var stage=['words','examples','practice','extra'].indexOf(position.stage)>=0?position.stage:'words';

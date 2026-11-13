@@ -10,7 +10,7 @@ const APP_SHELL = [
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
   "./assets/navigation/screen-router.js?v=polish1",
-  "./supabase-sync.js?v=vi1",
+  "./supabase-sync.js?v=progress-sync1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
   "./pwa-register.js?v=3",
@@ -191,7 +191,8 @@ self.addEventListener("fetch", (event) => {
         })
         .catch(async () => {
           if (["./", "./index.html"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname)) {
-            const app = await caches.match(request) || await caches.match(scoped("./index.html")) || await caches.match(scoped("./"));
+            const ready = await caches.match(scoped("./.learning-offline-ready-progress-sync1"));
+            const app = ready && (await caches.match(request) || await caches.match(scoped("./index.html")) || await caches.match(scoped("./")));
             if (app) return app;
           }
           return (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html"));
@@ -241,4 +242,11 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener("message", (event) => {
   if (event.data === "SKIP_WAITING") self.skipWaiting();
+  if (event.data === "LEARNING_SHELL_READY") event.waitUntil((async () => {
+    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=progress-sync1","./assets/hsk-content/hsk-study-journey-v1.js?v=progress-sync1","./assets/hsk-content/hsk-study-flow-v1.js?v=progress-sync1"];
+    if ((await Promise.all(required.map(file => caches.match(scoped(file))))).every(Boolean)) {
+      const cache=await caches.open(SHELL_CACHE);
+      await cache.put(scoped("./.learning-offline-ready-progress-sync1"),new Response("ready"));
+    }
+  })());
 });

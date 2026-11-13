@@ -30,3 +30,7 @@ CI sau merge PR123: HSK quality/HSK+EXP đạt; job hậu triển khai visuals t
 - Ôn bằng nghĩa → tự gõ từ Hán đã học. Xem mẫu không được tăng mức nhớ; trả lời lặp ngay không được tăng mức nhớ. Ba lượt nhớ lại qua các khoảng hạn 1–3–7 ngày mới được tính ghi nhớ; dấu thành thạo cũ không tự chuyển thành bằng chứng mới. Giữ điểm EXP/RPC/quota hiện có, không cộng EXP từ bài luyện.
 - “Hôm nay học gì?” chỉ bổ sung thông tin từ yếu và gợi ý 5 phút trong đoạn mô tả đang có, giữ nguyên khung/cột/card/menu.
 - **70 test Node liên quan đạt** tại checkpoint. Chưa tuyên bố browser/hai tài khoản Supabase thật đạt; các ca đó đang được bổ sung trong PR này.
+
+## Checkpoint kiểm thử browser/RLS
+
+Thêm workflow ba job: 70 test liên quan; Postgres17 với hai chủ tài khoản và schema/policies lấy nguyên từ supabase/schema.sql (database CI dùng xong rollback); browser desktop/mobile trên Preview bất biến với auth/REST fixture cô lập. Browser chạy thao tác bài học, ẩn/hiện đáp án, Shadowing, tiếp tục bài luyện, offline/reload/reconnect và chuyển A→B→đăng xuất→A. Các ca browser mới cần CI xác minh; không dùng mô phỏng làm bằng chứng đăng nhập hai tài khoản Production thật.

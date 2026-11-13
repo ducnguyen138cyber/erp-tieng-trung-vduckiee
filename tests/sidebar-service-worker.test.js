@@ -109,3 +109,13 @@ test('offline launch shows the complete offline page instead of an incomplete ap
   assert.equal((await w.load('install.html', { mode: 'navigate' })).body, 'install-guide');
   assert.equal((await w.load('install', { mode: 'navigate' })).body, 'install-guide');
 });
+
+
+test('a fully visited learning shell can reopen offline without discarding the incomplete-cache guard', async () => {
+  const w=worker(false);
+  await w.seed('https://example.test/app/index.html','visited-app');
+  await w.seed('https://example.test/app/.learning-offline-ready-progress-sync1','ready');
+  await w.seed('https://example.test/app/offline.html','offline-page');
+  assert.equal((await w.load('?screen=hsk&hskLevel=2',{mode:'navigate'})).body,'visited-app');
+  assert.equal((await w.load('unknown-guide/',{mode:'navigate'})).body,'offline-page');
+});
