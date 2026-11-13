@@ -7,7 +7,7 @@
  function keys(v){return Object.keys(obj(v)).filter(function(k){return !['__proto__','constructor','prototype'].includes(k);});}
  function stable(v){return Array.isArray(v)?'['+v.map(stable).join(',')+']':v&&typeof v==='object'?'{'+keys(v).sort().map(function(k){return JSON.stringify(k)+':'+stable(v[k]);}).join(',')+'}':JSON.stringify(v);}
  function stamp(v,fallback){v=obj(v);return Number(v.updatedAt||v.at||v.lastAt||v.lastReviewed)||Date.parse(v.date||v.submittedAt||'')||Number(fallback)||0;}
- function newer(a,b,ta,tb){a=obj(a);b=obj(b);var x=stamp(a,ta),y=stamp(b,tb);return copy(x>y?a:y>x?b:stable(a)>stable(b)?a:b);}
+ function newer(a,b,ta,tb){a=obj(a);b=obj(b);if(!keys(a).length)return copy(b);if(!keys(b).length)return copy(a);var x=stamp(a,ta),y=stamp(b,tb);return copy(x>y?a:y>x?b:stable(a)>stable(b)?a:b);}
  function union(a,b){var out=Object.create(null);keys(a).concat(keys(b)).forEach(function(k){if(a&&a[k]!==undefined&&b&&b[k]!==undefined)out[k]=newer(a[k],b[k]);else out[k]=copy((a&&a[k])||(b&&b[k]));});return out;}
  function numericMap(a,b){var out={};keys(a).concat(keys(b)).forEach(function(k){out[k]=Math.max(Number(a&&a[k])||0,Number(b&&b[k])||0);});return out;}
  function latestMap(a,b,ta,tb){var out={};keys(a).concat(keys(b)).forEach(function(k){if(a&&a[k]!==undefined&&b&&b[k]!==undefined)out[k]=newer(a[k],b[k],ta,tb);else out[k]=copy((a&&a[k])||(b&&b[k]));});return out;}
@@ -61,7 +61,28 @@
   if(x.draft&&y.draft&&x.draft.sessionId===y.draft.sessionId){entry.draft.answers=latestMap(x.draft.answers,y.draft.answers);entry.draft.deadline=Math.min(Number(x.draft.deadline)||Infinity,Number(y.draft.deadline)||Infinity);}
   if(entry.draft&&entry.attemptHistory[entry.draft.sessionId])delete entry.draft;
   out[k]=entry;});return out;}
- function daily(a,b,ta,tb){a=obj(a);b=obj(b);var out=newer(a,b,ta,tb);out.updatedAt=Math.max(stamp(a,ta),stamp(b,tb));out.words=latestMap(a.words,b.words,a.updatedAt||ta,b.updatedAt||tb);out.assignments=Object.assign({},obj(a.assignments),obj(b.assignments));out.msutong=newer(a.msutong,b.msutong,a.updatedAt||ta,b.updatedAt||tb);['lessons','review'].forEach(function(k){out.msutong[k]=latestMap(obj(a.msutong)[k],obj(b.msutong)[k],a.updatedAt||ta,b.updatedAt||tb);});out.msutong.completed=Object.assign({},obj(obj(a.msutong).completed),obj(obj(b.msutong).completed));
+ function dailyWordState(item){
+  item=copy(item);var events=obj(item.attemptEvents);if(!keys(events).length)return item;
+  var base=obj(item.attemptBase),out=Object.assign({},item,copy(base));out.attemptBase=copy(base);out.attemptEvents=events;
+  out.correct=Number(base.correct)||0;out.wrong=Number(base.wrong)||0;out.stage=Number(base.stage)||0;out.skills=copy(obj(base.skills));
+  keys(events).map(function(id){return Object.assign({id:id},events[id]);}).sort(function(a,b){return a.at-b.at||(Number(a.order)||0)-(Number(b.order)||0)||a.id.localeCompare(b.id);}).forEach(function(e){
+   var skill=out.skills[e.skill]||(out.skills[e.skill]={correct:0,wrong:0}),at=Number(e.at)||0;
+   if(e.correct===true){out.correct++;skill.correct++;if(out.correct>=[0,3,6,9,12][Math.min(4,out.stage+1)])out.stage=Math.min(4,out.stage+1);}
+   else{out.wrong++;skill.wrong++;out.stage=Math.max(0,out.stage-1);}
+   out.lastReviewed=at;out.nextReview=at+(e.correct===true?[0,1,3,7,21][Math.max(1,out.stage)]*DAY:600000);out.updatedAt=Math.max(Number(out.updatedAt)||0,at);
+  });return out;
+ }
+ function dailyWordEvent(item,event){
+  item=copy(item);if(!item.attemptBase){item.attemptBase={};['correct','wrong','skills','stage','lastReviewed','nextReview','updatedAt'].forEach(function(k){if(item[k]!==undefined)item.attemptBase[k]=copy(item[k]);});}
+  item.attemptEvents=obj(item.attemptEvents);event=copy(event);event.order=Math.max(0,...keys(item.attemptEvents).map(function(id){return Number(item.attemptEvents[id].order)||0;}))+1;item.attemptEvents[event.id]=event;return dailyWordState(item);
+ }
+ function mergeDailyWord(a,b,ta,tb){
+  a=obj(a);b=obj(b);var out=newer(a,b,ta,tb),events=union(a.attemptEvents,b.attemptEvents);if(!keys(events).length)return out;
+  var bases=[a,b].filter(function(x){return x.attemptBase;}).map(function(x){return x.attemptBase;});
+  out.attemptBase=copy(bases.sort(function(x,y){return stamp(x)-stamp(y)||stable(x).localeCompare(stable(y));})[0]||{});out.attemptEvents=events;out=dailyWordState(out);
+  ['correct','wrong'].forEach(function(k){out[k]=Math.max(Number(out[k])||0,Number(a[k])||0,Number(b[k])||0);});return out;
+ }
+ function daily(a,b,ta,tb){a=obj(a);b=obj(b);var out=newer(a,b,ta,tb);out.updatedAt=Math.max(stamp(a,ta),stamp(b,tb));out.words={};keys(a.words).concat(keys(b.words)).forEach(function(k){out.words[k]=mergeDailyWord(obj(a.words)[k],obj(b.words)[k],a.updatedAt||ta,b.updatedAt||tb);});out.assignments=Object.assign({},obj(a.assignments),obj(b.assignments));out.msutong=newer(a.msutong,b.msutong,a.updatedAt||ta,b.updatedAt||tb);['lessons','review'].forEach(function(k){out.msutong[k]=latestMap(obj(a.msutong)[k],obj(b.msutong)[k],a.updatedAt||ta,b.updatedAt||tb);});out.msutong.completed=Object.assign({},obj(obj(a.msutong).completed),obj(obj(b.msutong).completed));
   if(root&&root.VDuckieCurriculumProgress)out.msutong=root.VDuckieCurriculumProgress.merge(Object.assign({updatedAt:a.updatedAt},obj(a.msutong)),Object.assign({updatedAt:b.updatedAt},obj(b.msutong)));
   return out;}
  var stores={'vduckie-hsk-study-journey-v1':journal,'vduckie-shadowing-v1':shadow,'vduckie-hsk-practice-exams-v2':practice,'vduckie-daily-learning-v1':daily};
@@ -90,5 +111,5 @@
  }
  function eventId(){return typeof crypto!=='undefined'&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+'-'+Math.random().toString(36).slice(2)+'-'+(++eventId.sequence);}
  eventId.sequence=0;
- return Object.freeze({merge:merge,journal:journal,shadow:shadow,practice:practice,daily:daily,wordState:wordState,wordEvent:wordEvent,eventId:eventId,stable:stable,persistRow:persistRow});
+ return Object.freeze({merge:merge,journal:journal,shadow:shadow,practice:practice,daily:daily,wordState:wordState,wordEvent:wordEvent,dailyWordEvent:dailyWordEvent,eventId:eventId,stable:stable,persistRow:persistRow});
 });

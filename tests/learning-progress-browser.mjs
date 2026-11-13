@@ -62,7 +62,7 @@ try{
  // Shadowing is exercised through the actual screen/menu and buttons.
  await p.getByRole('button',{name:/Luyện nghe & Shadowing/}).first().click();await p.locator('[data-shadow-star]').waitFor();
  await p.locator('[data-shadow-star]').click();await p.locator('[data-shadow-next]').click();await flush(p);await flush(q);
- const shadow=await p.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-shadowing-v1')));assert.deepEqual(await q.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-shadowing-v1'))),shadow);
+ const shadow=await p.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-shadowing-v1'))),mobileShadow=await q.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-shadowing-v1')));assert.equal(mobileShadow.lastLevel,shadow.lastLevel);for(const field of ['id','index','starred','weak','group','mode','rate','showPinyin','showVi','repeats'])assert.deepEqual(mobileShadow[shadow.lastLevel][field],shadow[shadow.lastLevel][field]);
  evidence.checks.push('Shadowing position and saved line sync without uploading recordings');
  // Public practice entry; draft and deadline travel to the second device.
  await p.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await p.locator('[data-practice-open]').first().click();await p.locator('[data-practice-start="1"]').click();

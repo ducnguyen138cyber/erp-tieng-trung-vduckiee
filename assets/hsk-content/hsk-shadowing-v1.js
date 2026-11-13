@@ -275,8 +275,8 @@
     load([1,2,3].includes(choice)?choice:1,route);
   }
   document.addEventListener("vduckie:account-learning-synced",function(event){
-    var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
     var owner=event.detail&&event.detail.userId||"",changedOwner=owner!==syncOwner;syncOwner=owner;
+    var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
     if(changedOwner){var saved=store();load(Number(saved.lastLevel)||1,{});}else if(!playing&&!recording&&!micPending)render();
   });
   root.VDuckieShadowing=Object.freeze({open:open,leave:leave});

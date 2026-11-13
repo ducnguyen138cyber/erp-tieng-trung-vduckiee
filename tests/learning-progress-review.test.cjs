@@ -44,7 +44,7 @@ test('practice preserves best/history and merges answers of the same resumed dra
  const out=m.practice(a,b).paper;assert.equal(out.best,80);assert.equal(out.attempts,3);assert.equal(Object.keys(out.attemptHistory).length,2);assert.equal(out.draft.deadline,200);assert.equal(out.draft.answers.a.value,'你');assert.equal(out.draft.answers.b.value,'好');
 });
 test('Daily preserves independently learned words and completed lessons',()=>{
- const out=m.daily({updatedAt:20,words:{a:{wrong:2,updatedAt:20}},msutong:{completed:{A:1}}},{updatedAt:30,words:{b:{correct:1,updatedAt:30}},msutong:{completed:{B:2}}});assert.ok(out.words.a&&out.words.b);assert.ok(out.msutong.completed.A&&out.msutong.completed.B);
+ const out=m.daily({updatedAt:20,words:{a:{wrong:2,updatedAt:20}},msutong:{completed:{A:1}}},{updatedAt:30,words:{b:{correct:1,updatedAt:30}},msutong:{completed:{B:2}}});assert.equal(out.words.a.wrong,2);assert.equal(out.words.b.correct,1);assert.ok(out.msutong.completed.A&&out.msutong.completed.B);
 });
 test('CAS retries simultaneous first writes and overlapping updates instead of last-writer data loss',async()=>{
  const db=database();await Promise.all([m.persistRow(options(db,{lessons:{A:{completedAt:10}},updatedAt:10})),m.persistRow(options(db,{lessons:{B:{completedAt:20}},updatedAt:20}))]);let out=JSON.parse(db.rows.get('alice|profile').note);assert.ok(out.lessons.A&&out.lessons.B);assert.ok(db.conflicts>=1);
@@ -55,3 +55,14 @@ test('account identity changes stop pending writes and distinct owners never sha
  const count=db.writes;await m.persistRow({...options(db,{lessons:{private:{completedAt:1}}}),current:()=>false});assert.equal(db.writes,count);
 });
 module.exports={database};
+
+
+test('Daily concurrent answers for the same word retain both attempts and do not count replay twice',()=>{
+ const base={correct:6,wrong:2,stage:2,skills:{write:{correct:6,wrong:2}},updatedAt:10};
+ const a=m.dailyWordEvent(base,{id:'pc',at:20,skill:'write',correct:false}),b=m.dailyWordEvent(base,{id:'phone',at:21,skill:'write',correct:true});
+ const left={words:{word:a}},right={words:{word:b}},out=m.daily(left,right).words.word;
+ assert.equal(m.daily(left,{updatedAt:1000}).words.word.wrong,3);assert.equal(out.correct,7);assert.equal(out.wrong,3);assert.equal(out.skills.write.wrong,3);assert.equal(out.skills.write.correct,7);
+ assert.equal(Object.keys(out.attemptEvents).length,2);assert.equal(m.stable(m.daily(left,right)),m.stable(m.daily(right,left)));
+ assert.equal(m.stable(m.daily({words:{word:out}},{words:{word:out}}).words.word),m.stable(out));
+ assert.ok(out.nextReview>out.lastReviewed);
+});
