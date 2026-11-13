@@ -41,7 +41,7 @@
       },
       "skill": "listening",
       "format": "listen-main-detail",
-      "prompt": "Nghe transcript của bài “Khi nghe chưa rõ” và trả lời: Giáo viên mới họ gì?",
+      "prompt": "Nghe đoạn của bài “Khi nghe chưa rõ”. Viết họ của giáo viên bằng chữ Hán (có thể kèm 老师).",
       "stimulus": {
         "scriptZh": "老师：这位是李老师。学生：不好意思，是哪位老师？老师：李老师。学生：啊，听懂了，谢谢您帮忙。",
         "audioStatus": "script-ready-audio-pending",
@@ -87,7 +87,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-01",
         "reviewStage": 3,
@@ -103,12 +103,18 @@
         "evidenceZh": "王老师"
       },
       "options": [],
-      "answer": "Giáo viên họ Vương.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Giáo viên họ Vương."
+      },
       "acceptedAnswers": [
-        "Giáo viên họ Vương.",
-        "王老师"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “王老师” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-01-reading-reading-short-answer"
     },
@@ -141,7 +147,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-01",
         "reviewStage": 3,
@@ -155,11 +161,18 @@
         "incorrectZh": "再说一次啊不好意思。"
       },
       "options": [],
-      "answer": "不好意思，请再说一次。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "不好意思，请再说一次。"
+      },
       "acceptedAnswers": [
-        "不好意思，请再说一次。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “不好意思，请再说一次。”. Viết lại lời yêu cầu trực tiếp thành một lời nhờ lịch sự có 不好意思.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-01-grammar-grammar-error-correction"
     },
@@ -756,7 +769,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-03",
         "reviewStage": 3,
@@ -772,12 +785,18 @@
         "evidenceZh": "周一和周四晚上"
       },
       "options": [],
-      "answer": "Tối thứ Hai và thứ Năm.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Tối thứ Hai và thứ Năm."
+      },
       "acceptedAnswers": [
-        "Tối thứ Hai và thứ Năm.",
-        "周一和周四晚上"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “周一和周四晚上” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-03-reading-reading-detail"
     },
@@ -1093,7 +1112,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-04",
         "reviewStage": 3,
@@ -1108,11 +1127,18 @@
         "evidenceZh": "再准备书包"
       },
       "options": [],
-      "answer": "Chuẩn bị cặp sách.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Chuẩn bị cặp sách."
+      },
       "acceptedAnswers": [
-        "Chuẩn bị cặp sách."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-04-reading-reading-inference"
     },
@@ -1393,11 +1419,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "Tàu hỏa.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Tàu hỏa."
+      },
       "acceptedAnswers": [
-        "Tàu hỏa."
+        "rubric-self-check"
       ],
-      "explanationVi": "Đáp án lấy từ đúng chi tiết trong transcript; audio chuẩn còn pending nên transcript và TTS chỉ là phương án học tạm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk2-05-listening-listen-main-detail"
     },
@@ -1430,7 +1463,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-05",
         "reviewStage": 3,
@@ -1446,12 +1479,18 @@
         "evidenceZh": "旁边的咖啡店"
       },
       "options": [],
-      "answer": "Quán cà phê bên cạnh.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Quán cà phê bên cạnh."
+      },
       "acceptedAnswers": [
-        "Quán cà phê bên cạnh.",
-        "旁边的咖啡店"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “旁边的咖啡店” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-05-reading-reading-short-answer"
     },
@@ -1484,7 +1523,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-05",
         "reviewStage": 3,
@@ -1498,11 +1537,18 @@
         "incorrectZh": "火车已经快要到了了。"
       },
       "options": [],
-      "answer": "火车快要到了。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "火车快要到了。"
+      },
       "acceptedAnswers": [
-        "火车快要到了。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “火车快要到了。”. Hoàn thành 火车___到了 bằng 快要…了.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-05-grammar-grammar-error-correction"
     },
@@ -2094,7 +2140,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-07",
         "reviewStage": 3,
@@ -2110,12 +2156,18 @@
         "evidenceZh": "很近"
       },
       "options": [],
-      "answer": "Rất gần.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Rất gần."
+      },
       "acceptedAnswers": [
-        "Rất gần.",
-        "很近"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “很近” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-07-reading-reading-detail"
     },
@@ -2429,7 +2481,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-08",
         "reviewStage": 3,
@@ -2444,11 +2496,18 @@
         "evidenceZh": "左边的门离地铁站近"
       },
       "options": [],
-      "answer": "Cửa bên trái.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Cửa bên trái."
+      },
       "acceptedAnswers": [
-        "Cửa bên trái."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-08-reading-reading-inference"
     },
@@ -2725,11 +2784,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "Trạm trung tâm.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Trạm trung tâm."
+      },
       "acceptedAnswers": [
-        "Trạm trung tâm."
+        "rubric-self-check"
       ],
-      "explanationVi": "Đáp án lấy từ đúng chi tiết trong transcript; audio chuẩn còn pending nên transcript và TTS chỉ là phương án học tạm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk2-09-listening-listen-main-detail"
     },
@@ -2762,7 +2828,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-09",
         "reviewStage": 3,
@@ -2778,12 +2844,18 @@
         "evidenceZh": "拿着大包，所以选择打车"
       },
       "options": [],
-      "answer": "Taxi vì mang túi lớn.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Taxi vì mang túi lớn."
+      },
       "acceptedAnswers": [
-        "Taxi vì mang túi lớn.",
-        "拿着大包，所以选择打车"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “拿着大包，所以选择打车” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-09-reading-reading-short-answer"
     },
@@ -2816,7 +2888,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-09",
         "reviewStage": 3,
@@ -2830,11 +2902,18 @@
         "incorrectZh": "我到家从车站坐地铁。"
       },
       "options": [],
-      "answer": "我从家坐地铁到车站。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我从家坐地铁到车站。"
+      },
       "acceptedAnswers": [
-        "我从家坐地铁到车站。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “我从家坐地铁到车站。”. Nối 从家、到车站、坐地铁 thành một câu.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-09-grammar-grammar-error-correction"
     },
@@ -3147,7 +3226,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-10",
         "reviewStage": 3,
@@ -3171,7 +3250,8 @@
       "options": [],
       "answer": "我在这里，请把票拿过来。",
       "acceptedAnswers": [
-        "我在这里，请把票拿过来。"
+        "我在这里，请把票拿过来。",
+        "请把票拿过来，我在这里。"
       ],
       "explanationVi": "Trật tự đúng là “我在这里，请把票拿过来。”. Đối chiếu vị trí của thành phần ngữ pháp trọng tâm.",
       "cognitiveSkill": "application",
@@ -3429,7 +3509,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-11",
         "reviewStage": 3,
@@ -3445,12 +3525,18 @@
         "evidenceZh": "不大，但是很干净"
       },
       "options": [],
-      "answer": "Không lớn nhưng sạch.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Không lớn nhưng sạch."
+      },
       "acceptedAnswers": [
-        "Không lớn nhưng sạch.",
-        "不大，但是很干净"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “不大，但是很干净” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-11-reading-reading-detail"
     },
@@ -3764,7 +3850,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-12",
         "reviewStage": 3,
@@ -3779,11 +3865,18 @@
         "evidenceZh": "小安不吃肉"
       },
       "options": [],
-      "answer": "Tiểu An.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Tiểu An."
+      },
       "acceptedAnswers": [
-        "Tiểu An."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-12-reading-reading-inference"
     },
@@ -4061,11 +4154,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "Túi đỏ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Túi đỏ."
+      },
       "acceptedAnswers": [
-        "Túi đỏ."
+        "rubric-self-check"
       ],
-      "explanationVi": "Đáp án lấy từ đúng chi tiết trong transcript; audio chuẩn còn pending nên transcript và TTS chỉ là phương án học tạm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk2-13-listening-listen-main-detail"
     },
@@ -4099,7 +4199,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-13",
         "reviewStage": 3,
@@ -4115,12 +4215,18 @@
         "evidenceZh": "黑色裤子和一个白色小包"
       },
       "options": [],
-      "answer": "Quần đen và túi trắng.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Quần đen và túi trắng."
+      },
       "acceptedAnswers": [
-        "Quần đen và túi trắng.",
-        "黑色裤子和一个白色小包"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “黑色裤子和一个白色小包” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-13-reading-reading-short-answer"
     },
@@ -4154,7 +4260,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-13",
         "reviewStage": 3,
@@ -4168,11 +4274,18 @@
         "incorrectZh": "黑色的比白色的很贵。"
       },
       "options": [],
-      "answer": "黑色的比白色的贵。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "黑色的比白色的贵。"
+      },
       "acceptedAnswers": [
-        "黑色的比白色的贵。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “黑色的比白色的贵。”. Tạo câu A 比 B + tính từ với hai chiếc túi.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-13-grammar-grammar-error-correction"
     },
@@ -4779,7 +4892,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-15",
         "reviewStage": 3,
@@ -4795,12 +4908,18 @@
         "evidenceZh": "少上网、多休息"
       },
       "options": [],
-      "answer": "Ít lên mạng và nghỉ nhiều.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Ít lên mạng và nghỉ nhiều."
+      },
       "acceptedAnswers": [
-        "Ít lên mạng và nghỉ nhiều.",
-        "少上网、多休息"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “少上网、多休息” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-15-reading-reading-detail"
     },
@@ -5118,7 +5237,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-16",
         "reviewStage": 3,
@@ -5133,11 +5252,18 @@
         "evidenceZh": "跑得太快"
       },
       "options": [],
-      "answer": "Chạy quá nhanh và nhanh mệt.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Chạy quá nhanh và nhanh mệt."
+      },
       "acceptedAnswers": [
-        "Chạy quá nhanh và nhanh mệt."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-16-reading-reading-inference"
     },
@@ -5414,11 +5540,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "26 độ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "26 độ."
+      },
       "acceptedAnswers": [
-        "26 độ."
+        "rubric-self-check"
       ],
-      "explanationVi": "Đáp án lấy từ đúng chi tiết trong transcript; audio chuẩn còn pending nên transcript và TTS chỉ là phương án học tạm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk2-17-listening-listen-main-detail"
     },
@@ -5451,7 +5584,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-17",
         "reviewStage": 3,
@@ -5467,12 +5600,18 @@
         "evidenceZh": "白色的包"
       },
       "options": [],
-      "answer": "Một chiếc túi trắng.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Một chiếc túi trắng."
+      },
       "acceptedAnswers": [
-        "Một chiếc túi trắng.",
-        "白色的包"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “白色的包” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-17-reading-reading-short-answer"
     },
@@ -5505,7 +5644,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-17",
         "reviewStage": 3,
@@ -5519,11 +5658,18 @@
         "incorrectZh": "今天是很晴。"
       },
       "options": [],
-      "answer": "今天是晴天。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "今天是晴天。"
+      },
       "acceptedAnswers": [
-        "今天是晴天。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “今天是晴天。”. Dùng tính từ + 多了 để nói thời tiết ấm hơn trước.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-17-grammar-grammar-error-correction"
     },
@@ -6123,7 +6269,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-19",
         "reviewStage": 3,
@@ -6139,12 +6285,18 @@
         "evidenceZh": "说得不快"
       },
       "options": [],
-      "answer": "Không nhanh.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Không nhanh."
+      },
       "acceptedAnswers": [
-        "Không nhanh.",
-        "说得不快"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “说得不快” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-19-reading-reading-detail"
     },
@@ -6462,7 +6614,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-20",
         "reviewStage": 3,
@@ -6477,11 +6629,18 @@
         "evidenceZh": "检查一份名单"
       },
       "options": [],
-      "answer": "Một danh sách.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Một danh sách."
+      },
       "acceptedAnswers": [
-        "Một danh sách."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-20-reading-reading-inference"
     },
@@ -6759,11 +6918,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "Chiều thứ Bảy.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Chiều thứ Bảy."
+      },
       "acceptedAnswers": [
-        "Chiều thứ Bảy."
+        "rubric-self-check"
       ],
-      "explanationVi": "Đáp án lấy từ đúng chi tiết trong transcript; audio chuẩn còn pending nên transcript và TTS chỉ là phương án học tạm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk2-21-listening-listen-main-detail"
     },
@@ -6797,7 +6963,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-21",
         "reviewStage": 3,
@@ -6813,12 +6979,18 @@
         "evidenceZh": "一起运动很有意思"
       },
       "options": [],
-      "answer": "Cùng nhau vận động.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Cùng nhau vận động."
+      },
       "acceptedAnswers": [
-        "Cùng nhau vận động.",
-        "一起运动很有意思"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “一起运动很有意思” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-21-reading-reading-short-answer"
     },
@@ -6852,7 +7024,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-21",
         "reviewStage": 3,
@@ -6866,11 +7038,18 @@
         "incorrectZh": "我一起跟朋友足球踢。"
       },
       "options": [],
-      "answer": "我跟朋友一起踢足球。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我跟朋友一起踢足球。"
+      },
       "acceptedAnswers": [
-        "我跟朋友一起踢足球。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “我跟朋友一起踢足球。”. Dùng 跟…一起… để mời một người chơi bóng.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-21-grammar-grammar-error-correction"
     },
@@ -7469,7 +7648,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-23",
         "reviewStage": 3,
@@ -7485,12 +7664,18 @@
         "evidenceZh": "爷爷奶奶家"
       },
       "options": [],
-      "answer": "Ông bà.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Ông bà."
+      },
       "acceptedAnswers": [
-        "Ông bà.",
-        "爷爷奶奶家"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “爷爷奶奶家” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-23-reading-reading-detail"
     },
@@ -7804,7 +7989,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-24",
         "reviewStage": 3,
@@ -7819,11 +8004,18 @@
         "evidenceZh": "在公园画画"
       },
       "options": [],
-      "answer": "Vẽ ở công viên.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Vẽ ở công viên."
+      },
       "acceptedAnswers": [
-        "Vẽ ở công viên."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-24-reading-reading-inference"
     },
@@ -8100,11 +8292,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "Xe buýt.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Xe buýt."
+      },
       "acceptedAnswers": [
-        "Xe buýt."
+        "rubric-self-check"
       ],
-      "explanationVi": "Đáp án lấy từ đúng chi tiết trong transcript; audio chuẩn còn pending nên transcript và TTS chỉ là phương án học tạm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk2-25-listening-listen-main-detail"
     },
@@ -8137,7 +8336,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-25",
         "reviewStage": 3,
@@ -8153,12 +8352,18 @@
         "evidenceZh": "要早起去机场"
       },
       "options": [],
-      "answer": "Vì cần dậy sớm đi sân bay và nó gần nhất.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Vì cần dậy sớm đi sân bay và nó gần nhất."
+      },
       "acceptedAnswers": [
-        "Vì cần dậy sớm đi sân bay và nó gần nhất.",
-        "要早起去机场"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “要早起去机场” hỗ trợ trực tiếp cho đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-25-reading-reading-short-answer"
     },
@@ -8191,7 +8396,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-25",
         "reviewStage": 3,
@@ -8205,11 +8410,18 @@
         "incorrectZh": "这个比那个很好。"
       },
       "options": [],
-      "answer": "这个比那个好。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "这个比那个好。"
+      },
       "acceptedAnswers": [
-        "这个比那个好。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu phù hợp là “这个比那个好。”. Sửa câu so sánh có 很 và thêm phạm vi cho 最.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-25-grammar-grammar-error-correction"
     },
@@ -8528,7 +8740,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-26",
         "reviewStage": 3,
@@ -8549,7 +8761,8 @@
       "options": [],
       "answer": "你往左还是往右？",
       "acceptedAnswers": [
-        "你往左还是往右？"
+        "你往左还是往右？",
+        "你往右还是往左？"
       ],
       "explanationVi": "Trật tự đúng là “你往左还是往右？”. Đối chiếu vị trí của thành phần ngữ pháp trọng tâm.",
       "cognitiveSkill": "application",
@@ -8824,7 +9037,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-27",
         "reviewStage": 3,
@@ -8840,12 +9053,18 @@
         "evidenceZh": "从房间里拿出来，再搬到楼下"
       },
       "options": [],
-      "answer": "Từ phòng xuống tầng dưới.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Từ phòng xuống tầng dưới."
+      },
       "acceptedAnswers": [
-        "Từ phòng xuống tầng dưới.",
-        "从房间里拿出来，再搬到楼下"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết “从房间里拿出来，再搬到楼下” quyết định đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk2-27-reading-reading-detail"
     },
@@ -9153,7 +9372,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-28",
         "reviewStage": 3,
@@ -9168,11 +9387,18 @@
         "evidenceZh": "以前没出过国"
       },
       "options": [],
-      "answer": "Có.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Có."
+      },
       "acceptedAnswers": [
-        "Có."
+        "rubric-self-check"
       ],
-      "explanationVi": "Kết luận phải dựa vào chi tiết đã dẫn; không suy đoán thêm thông tin ngoài bài.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "inference",
       "templateFamily": "hsk2-28-reading-reading-inference"
     },

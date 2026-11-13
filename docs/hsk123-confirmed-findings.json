@@ -301,6 +301,112 @@
       "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
       "reference": "hsk3-lesson-35#listening",
       "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-02-exercise-2",
+      "beforeSource": "我把它放到经理办公室了。",
+      "beforeAnswer": "他把门关上了。",
+      "reason": "Source and correction key describe different situations; valid correction cannot match this unrelated key.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "hsk3-lesson-02-exercise-2",
+      "discoveredAfterBaseline": true,
+      "severity": "Critical",
+      "rule": "answer-unrelated-to-source"
+    },
+    {
+      "id": "hsk3-lesson-08-exercise-2",
+      "beforeSource": "刚看到邮件，我两点前可能赶不回来。",
+      "beforeAnswer": "两次付款的价钱一样。",
+      "reason": "Source and correction key describe different situations; valid correction cannot match this unrelated key.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "hsk3-lesson-08-exercise-2",
+      "discoveredAfterBaseline": true,
+      "severity": "Critical",
+      "rule": "answer-unrelated-to-source"
+    },
+    {
+      "id": "hsk3-lesson-14-exercise-2",
+      "beforeSource": "真的对不起，朋友来做客，我们聊得太晚了。",
+      "beforeAnswer": "他不但按时完成，而且检查了两遍。",
+      "reason": "Source and correction key describe different situations; valid correction cannot match this unrelated key.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "hsk3-lesson-14-exercise-2",
+      "discoveredAfterBaseline": true,
+      "severity": "Critical",
+      "rule": "answer-unrelated-to-source"
+    },
+    {
+      "id": "hsk3-lesson-20-exercise-2",
+      "beforeSource": "对不起，我叔叔住院了，我当时太着急，忘了说明。",
+      "beforeAnswer": "我们或者坐地铁，或者骑自行车。",
+      "reason": "Source and correction key describe different situations; valid correction cannot match this unrelated key.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "hsk3-lesson-20-exercise-2",
+      "discoveredAfterBaseline": true,
+      "severity": "Critical",
+      "rule": "answer-unrelated-to-source"
+    },
+    {
+      "id": "hsk3-lesson-26-exercise-2",
+      "beforeSource": "出发前有点儿担心，到了以后反而很开心。",
+      "beforeAnswer": "从下周起，校园里不能开车。",
+      "reason": "Source and correction key describe different situations; valid correction cannot match this unrelated key.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "hsk3-lesson-26-exercise-2",
+      "discoveredAfterBaseline": true,
+      "severity": "Critical",
+      "rule": "answer-unrelated-to-source"
+    },
+    {
+      "id": "hsk3-lesson-32-exercise-2",
+      "beforeSource": "因为小区多放了垃圾箱，还增加了打扫的人。",
+      "beforeAnswer": "我们不是说好七点见吗？",
+      "reason": "Source and correction key describe different situations; valid correction cannot match this unrelated key.",
+      "evidenceType": "direct-source-and-key-comparison",
+      "reference": "hsk3-lesson-32-exercise-2",
+      "discoveredAfterBaseline": true,
+      "severity": "Critical",
+      "rule": "answer-unrelated-to-source"
+    },
+    {
+      "id": "hsk1-lesson-12-exercise-2",
+      "beforeAnswer": "我们下午三点见。",
+      "validVariant": "下午三点我们见。",
+      "rule": "valid-variant-rejected",
+      "severity": "High",
+      "reason": "Time expression can precede the subject; independent clauses can reverse order; A还是B alternatives can reverse. These variants use exactly the supplied chunks/tokens and preserve the requested meaning.",
+      "reference": "hsk1-lesson-12-exercise-2#stimulus",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk1-lesson-13-exercise-2",
+      "beforeAnswer": "我每天八点上班。",
+      "validVariant": "每天八点我上班。",
+      "rule": "valid-variant-rejected",
+      "severity": "High",
+      "reason": "Time expression can precede the subject; independent clauses can reverse order; A还是B alternatives can reverse. These variants use exactly the supplied chunks/tokens and preserve the requested meaning.",
+      "reference": "hsk1-lesson-13-exercise-2#stimulus",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk2-lesson-10-exercise-3",
+      "beforeAnswer": "我在这里，请把票拿过来。",
+      "validVariant": "请把票拿过来，我在这里。",
+      "rule": "valid-variant-rejected",
+      "severity": "High",
+      "reason": "Time expression can precede the subject; independent clauses can reverse order; A还是B alternatives can reverse. These variants use exactly the supplied chunks/tokens and preserve the requested meaning.",
+      "reference": "hsk2-lesson-10-exercise-3#stimulus",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk2-lesson-26-exercise-3",
+      "beforeAnswer": "你往左还是往右？",
+      "validVariant": "你往右还是往左？",
+      "rule": "valid-variant-rejected",
+      "severity": "High",
+      "reason": "Time expression can precede the subject; independent clauses can reverse order; A还是B alternatives can reverse. These variants use exactly the supplied chunks/tokens and preserve the requested meaning.",
+      "reference": "hsk2-lesson-26-exercise-3#stimulus",
+      "discoveredAfterBaseline": true
     }
   ]
 }

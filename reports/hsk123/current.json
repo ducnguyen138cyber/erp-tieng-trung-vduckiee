@@ -77,7 +77,7 @@
     "Medium": 0,
     "Low": 0
   },
-  "suspected": 326,
+  "suspected": 430,
   "files": [
     {
       "file": "data/hsk/hsk1/assessments.json",
@@ -106,7 +106,7 @@
     },
     {
       "file": "data/hsk/hsk1/exercises.json",
-      "sha256": "6914864e72d164ec1450cb82d291f65a16deea7b60ceb2ba6dbd0e6762f6a24d",
+      "sha256": "a24881c436cb721324d6629cbf7250b0781e8b0273c95b867bef5f27e232c451",
       "contentVersion": "1.0.0"
     },
     {
@@ -256,7 +256,7 @@
     },
     {
       "file": "data/hsk/hsk2/exercises.json",
-      "sha256": "6e19ab99267e40a7b219b370711bf3df8b638231fb04ee2c895f5057a122cbe9",
+      "sha256": "8c4b4f7eb6bc37c5952ff1765120ef26901483e73ed2488f787e2ca055f35eea",
       "contentVersion": "1.0.0"
     },
     {
@@ -336,7 +336,7 @@
     },
     {
       "file": "data/hsk/hsk3/exercises.json",
-      "sha256": "14dd9a180faa1058752a7bd81007d1f4943bbe99769ad40bf8edf53f87fddcd7",
+      "sha256": "78b835c6d81fa0980a4f08f63ba15a0726c58f7d38346e67e4686bf3f1160621",
       "contentVersion": "1.0.0"
     },
     {
@@ -22267,7 +22267,7 @@
       "pointer": "/records/1",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22284,7 +22284,7 @@
       "pointer": "/records/2",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22471,7 +22471,7 @@
       "pointer": "/records/13",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22573,7 +22573,7 @@
       "pointer": "/records/19",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22675,7 +22675,7 @@
       "pointer": "/records/25",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22692,7 +22692,7 @@
       "pointer": "/records/26",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22879,7 +22879,7 @@
       "pointer": "/records/37",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -22981,7 +22981,7 @@
       "pointer": "/records/43",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23083,7 +23083,7 @@
       "pointer": "/records/49",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23100,7 +23100,7 @@
       "pointer": "/records/50",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23202,7 +23202,7 @@
       "pointer": "/records/56",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23287,7 +23287,7 @@
       "pointer": "/records/61",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23389,7 +23389,7 @@
       "pointer": "/records/67",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23491,7 +23491,7 @@
       "pointer": "/records/73",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23508,7 +23508,7 @@
       "pointer": "/records/74",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23695,7 +23695,7 @@
       "pointer": "/records/85",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23797,7 +23797,7 @@
       "pointer": "/records/91",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23899,7 +23899,7 @@
       "pointer": "/records/97",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -23916,7 +23916,7 @@
       "pointer": "/records/98",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24103,7 +24103,7 @@
       "pointer": "/records/109",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24205,7 +24205,7 @@
       "pointer": "/records/115",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24307,7 +24307,7 @@
       "pointer": "/records/121",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24324,7 +24324,7 @@
       "pointer": "/records/122",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24511,7 +24511,7 @@
       "pointer": "/records/133",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24613,7 +24613,7 @@
       "pointer": "/records/139",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24715,7 +24715,7 @@
       "pointer": "/records/145",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24732,7 +24732,7 @@
       "pointer": "/records/146",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24834,7 +24834,7 @@
       "pointer": "/records/152",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -24919,7 +24919,7 @@
       "pointer": "/records/157",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -25021,7 +25021,7 @@
       "pointer": "/records/163",
       "level": 2,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "moe-gf0025-2021-standard",
         "cti-hsk3-current-syllabus-2026",
@@ -31414,7 +31414,7 @@
       "pointer": "/records/3",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -31512,7 +31512,7 @@
       "pointer": "/records/10",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -31610,7 +31610,7 @@
       "pointer": "/records/17",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -31806,7 +31806,7 @@
       "pointer": "/records/31",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32002,7 +32002,7 @@
       "pointer": "/records/45",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32100,7 +32100,7 @@
       "pointer": "/records/52",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32198,7 +32198,7 @@
       "pointer": "/records/59",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32394,7 +32394,7 @@
       "pointer": "/records/73",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32590,7 +32590,7 @@
       "pointer": "/records/87",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32688,7 +32688,7 @@
       "pointer": "/records/94",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32786,7 +32786,7 @@
       "pointer": "/records/101",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -32982,7 +32982,7 @@
       "pointer": "/records/115",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33178,7 +33178,7 @@
       "pointer": "/records/129",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33276,7 +33276,7 @@
       "pointer": "/records/136",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33374,7 +33374,7 @@
       "pointer": "/records/143",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33570,7 +33570,7 @@
       "pointer": "/records/157",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33766,7 +33766,7 @@
       "pointer": "/records/171",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33864,7 +33864,7 @@
       "pointer": "/records/178",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -33962,7 +33962,7 @@
       "pointer": "/records/185",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -34158,7 +34158,7 @@
       "pointer": "/records/199",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -34354,7 +34354,7 @@
       "pointer": "/records/213",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -34452,7 +34452,7 @@
       "pointer": "/records/220",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -34550,7 +34550,7 @@
       "pointer": "/records/227",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -34746,7 +34746,7 @@
       "pointer": "/records/241",
       "level": 3,
       "type": "exercise",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "sourceIds": [
         "cti-hsk3-current-syllabus-2026",
         "vduckie-hsk3-c4-original"
@@ -45976,6 +45976,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0006",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0001-0100.json",
+      "pointer": "/records/5",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这里有一百个人。",
+        "pinyin": "zhè lǐ yǒu yī bǎi gè rén",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -45998,6 +46020,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46028,6 +46051,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "qi5",
+            "contextReference": "qi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46050,6 +46080,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46072,6 +46103,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46097,6 +46129,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46119,6 +46158,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46141,6 +46181,28 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0031",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0001-0100.json",
+      "pointer": "/records/30",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我是第一个。",
+        "pinyin": "wǒ shì dì yī gè",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -46167,6 +46229,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46189,6 +46252,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46211,6 +46275,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46235,6 +46300,13 @@
               "fu1",
               "bu2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bu5",
+            "contextReference": "bu4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -46269,6 +46341,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "shao5",
+            "contextReference": "shao3"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46291,6 +46370,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46313,6 +46393,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46333,6 +46414,13 @@
             "dictionaryAlternatives": [
               "ge1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "de5",
+            "contextReference": "di1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -46357,6 +46445,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46379,6 +46474,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46401,6 +46497,28 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0066",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0001-0100.json",
+      "pointer": "/records/65",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "中国是一个大国。",
+        "pinyin": "zhōng guó shì yī gè dà guó",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -46427,6 +46545,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46451,6 +46570,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46486,6 +46606,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46508,6 +46629,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46533,6 +46655,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46555,6 +46684,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46578,6 +46708,13 @@
               "xu4",
               "zu1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "jie5",
+            "contextReference": "jie3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -46604,6 +46741,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46626,6 +46764,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46648,6 +46787,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46682,6 +46822,18 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bu5",
+            "contextReference": "bu4"
+          },
+          {
+            "characterIndex": 5,
+            "given": "xi5",
+            "contextReference": "xi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46704,6 +46856,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46726,6 +46879,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46748,6 +46902,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46770,6 +46925,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46805,6 +46961,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46829,6 +46986,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46866,6 +47024,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46901,6 +47060,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46923,6 +47083,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46945,6 +47106,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46967,6 +47129,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -46998,6 +47161,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47031,6 +47195,18 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "fu5",
+            "contextReference": "fu2"
+          },
+          {
+            "characterIndex": 6,
+            "given": "liang5",
+            "contextReference": "liang4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47053,6 +47229,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47077,6 +47254,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47091,6 +47269,27 @@
         "hanzi": "请问，书店在哪儿？",
         "pinyin": "qǐng wèn shū diàn zài nǎr",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0169",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0101-0200.json",
+      "pointer": "/records/68",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "今天外边很热。",
+        "pinyin": "jīn tiān wài bian hěn rè",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -47112,6 +47311,34 @@
               "shi4",
               "zhi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0181",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0101-0200.json",
+      "pointer": "/records/80",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "他是谁？",
+        "pinyin": "tā shì shéi",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shei2",
+            "contextReference": "shui2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47136,6 +47363,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47158,6 +47386,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47182,6 +47411,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47204,6 +47434,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47226,6 +47457,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47247,6 +47479,13 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shang5",
+            "contextReference": "shang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47271,6 +47510,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47296,6 +47536,55 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "jie5",
+            "contextReference": "jie3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0204",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/3",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "它们是两只猫。",
+        "pinyin": "tā men shì liǎng zhī māo",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "zhi1",
+            "contextReference": "zhi3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0213",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/12",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边很冷。",
+        "pinyin": "wài bian hěn lěng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47317,6 +47606,34 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0220",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/19",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我有一个问题。",
+        "pinyin": "wǒ yǒu yī gè wèn tí",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47341,6 +47658,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0227",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/26",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边正在下雨。",
+        "pinyin": "wài bian zhèng zài xià yǔ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47361,6 +47700,28 @@
             "dictionaryAlternatives": [
               "sheng1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0234",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/33",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这只狗很小。",
+        "pinyin": "zhè zhī gǒu hěn xiǎo",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "zhi1",
+            "contextReference": "zhi3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47385,6 +47746,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47409,6 +47771,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0243",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/42",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一个星期有七天。",
+        "pinyin": "yī gè xīng qī yǒu qī tiān",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47431,6 +47815,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47451,6 +47836,28 @@
             "dictionaryAlternatives": [
               "xi1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0251",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/50",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边有雪。",
+        "pinyin": "wài bian yǒu xuě",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47478,6 +47885,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47492,6 +47906,27 @@
         "hanzi": "我喝一点儿水。",
         "pinyin": "wǒ hē yì diǎnr shuǐ",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0262",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0201-0300.json",
+      "pointer": "/records/61",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我买了一些苹果。",
+        "pinyin": "wǒ mǎi le yì xiē píng guǒ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi4",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -47511,6 +47946,13 @@
             "dictionaryAlternatives": [
               "mei4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47550,6 +47992,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47571,6 +48014,13 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47597,6 +48047,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47621,6 +48072,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47658,6 +48110,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47682,6 +48135,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47704,6 +48158,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47724,6 +48179,28 @@
             "dictionaryAlternatives": [
               "ba4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0306",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0301-0400.json",
+      "pointer": "/records/5",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这本书一百页。",
+        "pinyin": "zhè běn shū yī bǎi yè",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47750,6 +48227,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47772,6 +48250,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47794,6 +48273,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47815,6 +48295,13 @@
               "qi4",
               "qi3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "qi5",
+            "contextReference": "qi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -47841,6 +48328,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47865,6 +48353,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47890,6 +48379,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47912,6 +48408,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47936,6 +48433,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47960,6 +48458,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0333",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0301-0400.json",
+      "pointer": "/records/32",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我喝一点水。",
+        "pinyin": "wǒ hē yī diǎn shuǐ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -47981,6 +48501,13 @@
               "shao3",
               "shao4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "shao5",
+            "contextReference": "shao3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48007,6 +48534,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48029,6 +48557,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48051,6 +48580,13 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "bu4",
+            "contextReference": "bu2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48079,6 +48615,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bu5",
+            "contextReference": "bu4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48100,6 +48643,13 @@
               "shao3",
               "shao4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "shao5",
+            "contextReference": "shao3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48126,6 +48676,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48150,6 +48701,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48172,6 +48724,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48194,6 +48747,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48218,6 +48772,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48240,6 +48795,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48264,6 +48820,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48288,6 +48845,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48312,6 +48870,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48354,6 +48913,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48375,6 +48935,13 @@
               "liang4",
               "liang2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "liang5",
+            "contextReference": "liang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48402,6 +48969,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "jie5",
+            "contextReference": "jie3"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48416,6 +48990,27 @@
         "hanzi": "她觉得有点儿冷。",
         "pinyin": "tā jué de yǒu diǎnr lěng",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0403",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0401-0500.json",
+      "pointer": "/records/2",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这节课很有意思。",
+        "pinyin": "zhè jié kè hěn yǒu yì sī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "si1",
+            "contextReference": "si5"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -48437,6 +49032,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48459,6 +49055,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48480,6 +49077,13 @@
               "xi4",
               "ji4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "xi5",
+            "contextReference": "xi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48504,6 +49108,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48526,6 +49131,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48561,6 +49167,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48585,6 +49192,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48620,6 +49228,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48642,6 +49251,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48673,6 +49283,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48695,6 +49306,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48732,6 +49344,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48754,6 +49373,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48778,6 +49398,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48800,6 +49427,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48824,6 +49452,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48846,6 +49475,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48868,6 +49498,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48899,6 +49530,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "pian2",
+            "contextReference": "bian4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -48920,6 +49558,13 @@
               "liang4",
               "liang2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "liang5",
+            "contextReference": "liang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48952,6 +49597,13 @@
               "shao3",
               "shao4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "shao5",
+            "contextReference": "shao3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -48987,6 +49639,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0481",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0401-0500.json",
+      "pointer": "/records/80",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "谁是老师？",
+        "pinyin": "shéi shì lǎo shī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "shei2",
+            "contextReference": "shui2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49009,6 +49689,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49031,6 +49712,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49062,6 +49744,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49086,6 +49769,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0500",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0401-0500.json",
+      "pointer": "/records/99",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和他一起上学。",
+        "pinyin": "wǒ hé tā yī qǐ shàng xué",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49106,6 +49811,28 @@
             "dictionaryAlternatives": [
               "huan1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0502",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/1",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和她一起工作。",
+        "pinyin": "wǒ hé tā yī qǐ gōng zuò",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49132,6 +49859,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0505",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/4",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和她们一起吃饭。",
+        "pinyin": "wǒ hé tā men yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49156,6 +49911,49 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0512",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/11",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边下雨了。",
+        "pinyin": "wài bian xià yǔ le",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0513",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/12",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "孩子们在外边玩。",
+        "pinyin": "hái zi men zài wài bian wán",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49177,6 +49975,13 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "shang5",
+            "contextReference": "shang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49203,6 +50008,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49225,6 +50031,13 @@
               "shi4",
               "zhi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "shi5",
+            "contextReference": "shi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49272,6 +50085,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 7,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49292,6 +50112,13 @@
             "dictionaryAlternatives": [
               "sheng1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "shei2",
+            "contextReference": "shui2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49318,6 +50145,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0535",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/34",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "小朋友在外边。",
+        "pinyin": "xiǎo péng yǒu zài wài bian",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49340,6 +50189,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49364,6 +50214,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49388,6 +50239,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49412,6 +50264,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49434,6 +50287,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49456,6 +50310,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49498,6 +50353,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0554",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/53",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这里有一个人。",
+        "pinyin": "zhè lǐ yǒu yī gè rén",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49523,6 +50400,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0559",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/58",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我想看一下。",
+        "pinyin": "wǒ xiǎng kàn yí xià",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi2",
+            "contextReference": "yi1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49537,6 +50442,27 @@
         "hanzi": "请说慢一点儿。",
         "pinyin": "qǐng shuō màn yì diǎnr",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0562",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/61",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这里有一些书。",
+        "pinyin": "zhè lǐ yǒu yì xiē shū",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi4",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -49573,6 +50499,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49594,6 +50521,13 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shang5",
+            "contextReference": "shang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49620,6 +50554,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49652,6 +50587,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49676,6 +50618,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49709,6 +50652,28 @@
             "dictionaryAlternatives": [
               "huan1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0587",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0501-0600.json",
+      "pointer": "/records/86",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "树上有两只鸟。",
+        "pinyin": "shù shàng yǒu liǎng zhī niǎo",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "zhi1",
+            "contextReference": "zhi3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49746,6 +50711,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49781,6 +50747,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49803,6 +50776,34 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0613",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/12",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "他不是老师。",
+        "pinyin": "tā bù shì lǎo shī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bu4",
+            "contextReference": "bu2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49828,6 +50829,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "qi5",
+            "contextReference": "qi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49848,6 +50856,49 @@
             "dictionaryAlternatives": [
               "xie4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0618",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/17",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起唱歌。",
+        "pinyin": "míng tiān wǒ men yī qǐ chàng gē",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0621",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/20",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起吃米饭。",
+        "pinyin": "míng tiān wǒ men yī qǐ chī mǐ fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49875,6 +50926,18 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          },
+          {
+            "characterIndex": 8,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49895,6 +50958,13 @@
             "dictionaryAlternatives": [
               "ma1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -49921,6 +50991,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49945,6 +51016,18 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49967,6 +51050,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -49989,6 +51073,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50013,6 +51098,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50035,6 +51127,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50057,6 +51150,55 @@
               "shi4",
               "zhi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0642",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/41",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起读这本书。",
+        "pinyin": "míng tiān wǒ men yī qǐ dú zhè běn shū",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0643",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/42",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起读书。",
+        "pinyin": "míng tiān wǒ men yī qǐ dú shū",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50085,6 +51227,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "bu5",
+            "contextReference": "bu4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50109,6 +51258,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50132,6 +51282,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "shao5",
+            "contextReference": "shao3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0648",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/47",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和儿子一起吃饭。",
+        "pinyin": "wǒ hé ér zi yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50152,6 +51330,13 @@
             "dictionaryAlternatives": [
               "ge1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50178,6 +51363,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50198,6 +51384,34 @@
             "dictionaryAlternatives": [
               "mei4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0663",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/62",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起工作。",
+        "pinyin": "míng tiān wǒ men yī qǐ gōng zuò",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50222,6 +51436,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50246,6 +51461,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50268,6 +51484,49 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0668",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/67",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和孩子一起吃饭。",
+        "pinyin": "wǒ hé hái zi yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0669",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/68",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "汉语很有意思。",
+        "pinyin": "hàn yǔ hěn yǒu yì sī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "si1",
+            "contextReference": "si5"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50294,6 +51553,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50318,6 +51578,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50349,6 +51610,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50363,6 +51625,27 @@
         "hanzi": "和朋友一起玩儿很好玩儿。",
         "pinyin": "hé péng you yī qǐ wán ér hěn hǎo wánr",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0677",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/76",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起喝水。",
+        "pinyin": "míng tiān wǒ men yī qǐ hē shuǐ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -50382,6 +51665,13 @@
             "dictionaryAlternatives": [
               "you3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50404,6 +51694,70 @@
             "dictionaryAlternatives": [
               "huan1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0681",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/80",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起回家。",
+        "pinyin": "míng tiān wǒ men yī qǐ huí jiā",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0687",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/86",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和家人一起吃饭。",
+        "pinyin": "wǒ hé jiā rén yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0688",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/87",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起见老师。",
+        "pinyin": "míng tiān wǒ men yī qǐ jiàn lǎo shī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50439,6 +51793,18 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "fu5",
+            "contextReference": "fu2"
+          },
+          {
+            "characterIndex": 6,
+            "given": "liang5",
+            "contextReference": "liang4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50462,6 +51828,18 @@
               "xu4",
               "zu1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "jie5",
+            "contextReference": "jie3"
+          },
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50488,6 +51866,70 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0697",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/96",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起开门。",
+        "pinyin": "míng tiān wǒ men yī qǐ kāi mén",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0698",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/97",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起开车去公司。",
+        "pinyin": "míng tiān wǒ men yī qǐ kāi chē qù gōng sī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0699",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0601-0700.json",
+      "pointer": "/records/98",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起看电影。",
+        "pinyin": "míng tiān wǒ men yī qǐ kàn diàn yǐng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50510,6 +51952,28 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0703",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/2",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "课后我们一起吃饭。",
+        "pinyin": "kè hòu wǒ men yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50536,6 +52000,39 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0709",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/8",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边真冷。",
+        "pinyin": "wài bian zhēn lěng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50556,6 +52053,55 @@
             "dictionaryAlternatives": [
               "ma1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0716",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/15",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起买苹果。",
+        "pinyin": "míng tiān wǒ men yī qǐ mǎi píng guǒ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0717",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/16",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起卖水果。",
+        "pinyin": "míng tiān wǒ men yī qǐ mài shuǐ guǒ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50580,6 +52126,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50613,6 +52160,13 @@
             "dictionaryAlternatives": [
               "mei4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50650,6 +52204,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50680,6 +52235,13 @@
               "bi4",
               "bo2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 6,
+            "given": "fu5",
+            "contextReference": "fu2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50713,6 +52275,13 @@
               "ge3",
               "gan4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50752,6 +52321,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50787,6 +52357,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50820,6 +52391,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50840,6 +52412,13 @@
             "dictionaryAlternatives": [
               "you3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50864,6 +52443,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50895,6 +52475,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0753",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/52",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和女儿一起吃饭。",
+        "pinyin": "wǒ hé nǚ ér yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50917,6 +52519,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -50937,6 +52546,13 @@
             "dictionaryAlternatives": [
               "you3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -50970,6 +52586,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51002,6 +52619,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 7,
+            "given": "liang5",
+            "contextReference": "liang4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0761",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/60",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起起床。",
+        "pinyin": "míng tiān wǒ men yī qǐ qǐ chuáng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51022,6 +52667,49 @@
             "dictionaryAlternatives": [
               "zi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0767",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/66",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起去学校。",
+        "pinyin": "míng tiān wǒ men yī qǐ qù xué xiào",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0769",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/68",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边不太热。",
+        "pinyin": "wài bian bù tài rè",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51055,6 +52743,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51079,6 +52768,76 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0776",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/75",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起上班。",
+        "pinyin": "míng tiān wǒ men yī qǐ shàng bān",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0777",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/76",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起上课。",
+        "pinyin": "míng tiān wǒ men yī qǐ shàng kè",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0779",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/78",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起上学。",
+        "pinyin": "míng tiān wǒ men yī qǐ shàng xué",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51099,6 +52858,28 @@
             "dictionaryAlternatives": [
               "xi1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0781",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/80",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "你在等谁？",
+        "pinyin": "nǐ zài děng shéi",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "shei2",
+            "contextReference": "shui2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51123,6 +52904,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51145,6 +52927,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51167,6 +52950,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51198,6 +52982,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "bu4",
+            "contextReference": "bu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51218,6 +53009,49 @@
             "dictionaryAlternatives": [
               "xie4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0796",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/95",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起说汉语。",
+        "pinyin": "míng tiān wǒ men yī qǐ shuō hàn yǔ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0797",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0701-0800.json",
+      "pointer": "/records/96",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起说话。",
+        "pinyin": "míng tiān wǒ men yī qǐ shuō huà",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51245,6 +53079,97 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0804",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/3",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "它们都在外边玩。",
+        "pinyin": "tā men dōu zài wài bian wán",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 5,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0809",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/8",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起听歌。",
+        "pinyin": "míng tiān wǒ men yī qǐ tīng gē",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0810",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/9",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边太远，我没有听见。",
+        "pinyin": "wài bian tài yuǎn wǒ méi yǒu tīng jiàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0811",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/10",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我和同学一起吃饭。",
+        "pinyin": "wǒ hé tóng xué yī qǐ chī fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51270,6 +53195,60 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "fu5",
+            "contextReference": "fu2"
+          },
+          {
+            "characterIndex": 5,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0813",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/12",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边有一辆出租车。",
+        "pinyin": "wài bian yǒu yī liàng chū zū chē",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0814",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/13",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起玩。",
+        "pinyin": "míng tiān wǒ men yī qǐ wán",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51293,6 +53272,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51314,6 +53300,34 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shang5",
+            "contextReference": "shang4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0819",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/18",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起问老师。",
+        "pinyin": "míng tiān wǒ men yī qǐ wèn lǎo shī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51340,6 +53354,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51362,6 +53377,70 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0826",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/25",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "请你说一下。",
+        "pinyin": "qǐng nǐ shuō yí xià",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi2",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0828",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/27",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起下班。",
+        "pinyin": "míng tiān wǒ men yī qǐ xià bān",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0829",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/28",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起下课。",
+        "pinyin": "míng tiān wǒ men yī qǐ xià kè",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51382,6 +53461,49 @@
             "dictionaryAlternatives": [
               "sheng1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0833",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/32",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起想去中国。",
+        "pinyin": "míng tiān wǒ men yī qǐ xiǎng qù zhōng guó",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0834",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/33",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我想买一个小杯子。",
+        "pinyin": "wǒ xiǎng mǎi yī gè xiǎo bēi zi",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51408,6 +53530,18 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51432,6 +53566,39 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0840",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/39",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起写汉字。",
+        "pinyin": "míng tiān wǒ men yī qǐ xiě hàn zì",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51454,6 +53621,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51478,6 +53646,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51498,6 +53667,34 @@
             "dictionaryAlternatives": [
               "xi1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0847",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/46",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起学汉语。",
+        "pinyin": "míng tiān wǒ men yī qǐ xué hàn yǔ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51522,6 +53719,60 @@
               "shi4",
               "zhi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0849",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/48",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起学习中文。",
+        "pinyin": "míng tiān wǒ men yī qǐ xué xí zhōng wén",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0854",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/53",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "我买了一个苹果。",
+        "pinyin": "wǒ mǎi le yī gè píng guǒ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51549,6 +53800,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51573,6 +53831,60 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0858",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/57",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "这杯水只剩一半。",
+        "pinyin": "zhè bēi shuǐ zhī shèng yí bàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "zhi1",
+            "contextReference": "zhi3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0859",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/58",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "请再说一下。",
+        "pinyin": "qǐng zài shuō yí xià",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "yi2",
+            "contextReference": "yi1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51587,6 +53899,27 @@
         "hanzi": "我只要一点儿米饭。",
         "pinyin": "wǒ zhī yào yì diǎnr mǐ fàn",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0862",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/61",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一些学生已经来了。",
+        "pinyin": "yì xiē xué shēng yǐ jīng lái le",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi4",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -51608,6 +53941,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51643,6 +53977,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51664,6 +53999,34 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0878",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/77",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起找手机。",
+        "pinyin": "míng tiān wǒ men yī qǐ zhǎo shǒu jī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51690,6 +54053,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51704,6 +54068,27 @@
         "hanzi": "请来这儿坐。",
         "pinyin": "qǐng lái zhèr zuò",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-s-0886",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/85",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边正在下大雨。",
+        "pinyin": "wài bian zhèng zài xià dà yǔ",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -51725,6 +54110,18 @@
               "shi4",
               "zhi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "shi5",
+            "contextReference": "shi2"
+          },
+          {
+            "characterIndex": 3,
+            "given": "yi1",
+            "contextReference": "yi2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51751,6 +54148,70 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0898",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/97",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起坐出租车。",
+        "pinyin": "míng tiān wǒ men yī qǐ zuò chū zū chē",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0899",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/98",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起做这件事。",
+        "pinyin": "míng tiān wǒ men yī qǐ zuò zhè jiàn shì",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-s-0900",
+      "file": "data/hsk/hsk1/sentences/hsk1-s-0801-0900.json",
+      "pointer": "/records/99",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "明天我们一起做饭。",
+        "pinyin": "míng tiān wǒ men yī qǐ zuò fàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 4,
+            "given": "yi1",
+            "contextReference": "yi4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51773,6 +54234,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51794,6 +54256,13 @@
               "qi4",
               "qi3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "qi5",
+            "contextReference": "qi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51820,6 +54289,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51842,6 +54312,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51868,6 +54339,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bu5",
+            "contextReference": "bu4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51889,6 +54367,13 @@
               "shao3",
               "shao4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shao5",
+            "contextReference": "shao3"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -51913,6 +54398,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51951,6 +54437,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "jie5",
+            "contextReference": "jie3"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51973,6 +54466,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -51994,6 +54488,13 @@
               "xi4",
               "ji4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 2,
+            "given": "xi5",
+            "contextReference": "xi4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52018,6 +54519,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52053,6 +54555,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52077,6 +54580,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52114,6 +54618,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52149,6 +54654,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52171,6 +54677,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52193,6 +54700,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52215,6 +54723,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52236,6 +54745,13 @@
               "liang4",
               "liang2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "liang5",
+            "contextReference": "liang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52262,6 +54778,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shi5",
+            "contextReference": "shi2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-v-0181",
+      "file": "data/hsk/hsk1/vocabulary/hsk1-v-0151-0200.json",
+      "pointer": "/records/30",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "谁",
+        "pinyin": "shéi",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "shei2",
+            "contextReference": "shui2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52282,6 +54826,28 @@
             "dictionaryAlternatives": [
               "hou4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-v-0213",
+      "file": "data/hsk/hsk1/vocabulary/hsk1-v-0201-0250.json",
+      "pointer": "/records/12",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "外边",
+        "pinyin": "wài bian",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52307,6 +54873,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52329,6 +54902,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52351,6 +54925,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52373,6 +54948,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52395,6 +54971,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52420,6 +54997,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk1-v-0259",
+      "file": "data/hsk/hsk1/vocabulary/hsk1-v-0251-0300.json",
+      "pointer": "/records/8",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一下",
+        "pinyin": "yí xià",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi2",
+            "contextReference": "yi1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52434,6 +55039,27 @@
         "hanzi": "一点儿",
         "pinyin": "yì diǎnr",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-v-0262",
+      "file": "data/hsk/hsk1/vocabulary/hsk1-v-0251-0300.json",
+      "pointer": "/records/11",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一些",
+        "pinyin": "yì xiē",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi4",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -52469,6 +55095,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52493,6 +55126,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52507,6 +55141,48 @@
         "hanzi": "这儿",
         "pinyin": "zhèr",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk1-v-0287",
+      "file": "data/hsk/hsk1/vocabulary/hsk1-v-0251-0300.json",
+      "pointer": "/records/36",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "只",
+        "pinyin": "zhī",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "zhi1",
+            "contextReference": "zhi3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0012",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0001-0050.json",
+      "pointer": "/records/11",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "不错",
+        "pinyin": "búcuò",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "bu2",
+            "contextReference": "bu4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -52527,6 +55203,76 @@
               "si1",
               "sai1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 3,
+            "given": "si5",
+            "contextReference": "si1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0014",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0001-0050.json",
+      "pointer": "/records/13",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "长",
+        "pinyin": "cháng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "chang2",
+            "contextReference": "zhang3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0032",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0001-0050.json",
+      "pointer": "/records/31",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "得",
+        "pinyin": "de",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "de5",
+            "contextReference": "de2"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0033",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0001-0050.json",
+      "pointer": "/records/32",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "地",
+        "pinyin": "de",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "de5",
+            "contextReference": "di4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52551,6 +55297,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52572,6 +55319,13 @@
               "guo4",
               "guo1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "guo5",
+            "contextReference": "guo4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52597,6 +55351,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shi5",
+            "contextReference": "shi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0067",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0051-0100.json",
+      "pointer": "/records/16",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "教",
+        "pinyin": "jiāo",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "jiao1",
+            "contextReference": "jiao4"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52618,6 +55400,13 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52643,6 +55432,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52665,6 +55455,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52695,6 +55486,27 @@
       }
     },
     {
+      "id": "hsk2-v-0117",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0101-0150.json",
+      "pointer": "/records/16",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "妻子",
+        "pinyin": "qīzi",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "zi5",
+            "contextReference": "zi3"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
       "id": "hsk2-v-0132",
       "file": "data/hsk/hsk2/vocabulary/hsk2-v-0101-0150.json",
       "pointer": "/records/31",
@@ -52713,6 +55525,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52738,6 +55551,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "fu5",
+            "contextReference": "fu2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52759,6 +55579,13 @@
               "shang4",
               "shang3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shang5",
+            "contextReference": "shang4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52796,6 +55623,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52817,6 +55645,13 @@
               "jing1",
               "jing3"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "jing5",
+            "contextReference": "jing1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52841,6 +55676,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52877,6 +55713,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52898,6 +55735,28 @@
               "si1",
               "sai1"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0182",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0151-0200.json",
+      "pointer": "/records/31",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "右边",
+        "pinyin": "yòubian",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52923,6 +55782,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "fu5",
+            "contextReference": "fu1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk2-v-0200",
+      "file": "data/hsk/hsk2/vocabulary/hsk2-v-0151-0200.json",
+      "pointer": "/records/49",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "左边",
+        "pinyin": "zuǒbian",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bian5",
+            "contextReference": "bian1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52943,6 +55830,49 @@
             "dictionaryAlternatives": [
               "ren2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0038",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0001-0050.json",
+      "pointer": "/records/37",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "不但",
+        "pinyin": "búdàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "bu2",
+            "contextReference": "bu4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0040",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0001-0050.json",
+      "pointer": "/records/39",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "不用",
+        "pinyin": "búyòng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "bu2",
+            "contextReference": "bu4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -52971,6 +55901,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -52991,6 +55922,28 @@
             "dictionaryAlternatives": [
               "ren2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0087",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0051-0100.json",
+      "pointer": "/records/36",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "得",
+        "pinyin": "děi",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "dei3",
+            "contextReference": "de2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -53020,6 +55973,34 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "fang5",
+            "contextReference": "fang1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0095",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0051-0100.json",
+      "pointer": "/records/44",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "电子书",
+        "pinyin": "diànzǐshū",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "zi3",
+            "contextReference": "zi5"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53042,6 +56023,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53063,6 +56045,34 @@
               "shi4",
               "zi4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "shi5",
+            "contextReference": "shi4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0178",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0151-0200.json",
+      "pointer": "/records/27",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "还",
+        "pinyin": "huán",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "huan2",
+            "contextReference": "hai2"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -53087,6 +56097,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53123,6 +56134,13 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "bai5",
+            "contextReference": "bai2"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53145,6 +56163,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53167,6 +56186,7 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53188,6 +56208,13 @@
               "fa1",
               "fa4"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "fa5",
+            "contextReference": "fa4"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
@@ -53212,6 +56239,28 @@
             ]
           }
         ],
+        "polyphoneContextComparisons": [],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0423",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0401-0450.json",
+      "pointer": "/records/22",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一共",
+        "pinyin": "yígòng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi2",
+            "contextReference": "yi1"
+          }
+        ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
@@ -53226,6 +56275,48 @@
         "hanzi": "一块儿",
         "pinyin": "yíkuàir",
         "note": "May be valid erhua, spelling or contextual reading. Never auto-replace."
+      }
+    },
+    {
+      "id": "hsk3-v-0425",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0401-0450.json",
+      "pointer": "/records/24",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一样",
+        "pinyin": "yíyàng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi2",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0433",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0401-0450.json",
+      "pointer": "/records/32",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "一边",
+        "pinyin": "yìbiān",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "yi4",
+            "contextReference": "yi1"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
       }
     },
     {
@@ -53246,6 +56337,55 @@
               "liang4",
               "liang2"
             ]
+          }
+        ],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "liang5",
+            "contextReference": "liang4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0463",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0451-0500.json",
+      "pointer": "/records/12",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "脏",
+        "pinyin": "zāng",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 0,
+            "given": "zang1",
+            "contextReference": "zang4"
+          }
+        ],
+        "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."
+      }
+    },
+    {
+      "id": "hsk3-v-0472",
+      "file": "data/hsk/hsk3/vocabulary/hsk3-v-0451-0500.json",
+      "pointer": "/records/21",
+      "rule": "contextual-reading-needs-review",
+      "severity": "Medium",
+      "confirmed": false,
+      "evidence": {
+        "hanzi": "照片",
+        "pinyin": "zhàopiàn",
+        "comparisons": [],
+        "polyphoneContextComparisons": [
+          {
+            "characterIndex": 1,
+            "given": "pian4",
+            "contextReference": "pian1"
           }
         ],
         "note": "Character dictionary differences include valid neutral tone and sandhi; no automatic correction."

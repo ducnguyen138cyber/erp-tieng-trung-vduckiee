@@ -1,4 +1,6 @@
-# HSK1–3 reliability audit — working handoff
+# HSK1–3 reliability audit — implementation handoff
+
+**Current Vietnamese handoff: [hsk123-bao-cao.md](hsk123-bao-cao.md).** The checkpoints below preserve discovery history. Final scope: 27 Critical, 2,134 High, 124 Low findings corrected; 2,173 records edited; 430 machine suspects remain for contextual review; independent review 0%.
 
 Branch: `audit/hsk123-content-reliability`. Base: `6fba328c5d74dbfaa1909e6b54e0f6ec4391227e`. Do not merge automatically.
 

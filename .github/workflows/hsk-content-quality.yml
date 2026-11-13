@@ -50,6 +50,7 @@ jobs:
       - name: HSK1–3 reliability audit (machine checks only)
         run: |
           python -m pip install -r scripts/hsk123-audit-requirements.txt
+          python tests/hsk123-phonetics.test.py
           node scripts/audit-hsk123-reliability.cjs
           git diff --exit-code -- reports/hsk123/current.json
       - name: Check HSK duplicates

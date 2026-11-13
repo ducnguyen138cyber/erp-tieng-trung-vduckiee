@@ -145,12 +145,18 @@
       "format": "reading-main-idea",
       "prompt": "Tiểu An phát hiện điều gì ở giao lộ?",
       "options": [],
-      "answer": "Cậu ấy quên mang vở ghi chép.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Cậu ấy quên mang vở ghi chép."
+      },
       "acceptedAnswers": [
-        "Cậu ấy quên mang vở ghi chép.",
-        "走到路口才发现没带笔记本"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “走到路口才发现没带笔记本” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Từ một câu đến một đoạn",
       "grammarFocus": [
@@ -173,7 +179,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "今天小安本来七点半出门，可是走到路口才发现没带笔记本。他马上回家拿，然后坐地铁去学校。虽然迟到了十分钟，但是他把原因说得很清楚。",
         "evidenceZh": "走到路口才发现没带笔记本",
@@ -367,13 +373,20 @@
       "hskLevel": 3,
       "skill": "grammar",
       "format": "error-correction",
-      "prompt": "Sửa trật tự hoặc từ nối trong phát ngôn dưới đây bằng mẫu “Câu 把 với kết quả/hướng”.",
+      "prompt": "Trong bài “Nói rõ một sự việc”, diễn đạt ý sau bằng cấu trúc “Câu 把 với kết quả/hướng”: Anh ấy đã đóng cửa lại. Giữ đúng ý; không bắt buộc giống một câu mẫu.",
       "options": [],
-      "answer": "他把门关上了。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "他把门关上了。"
+      },
       "acceptedAnswers": [
-        "他把门关上了。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 把字句：结果和趋向.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Nói rõ một sự việc",
       "grammarFocus": [
@@ -397,8 +410,8 @@
       "reviewStatus": "unreviewed",
       "contentVersion": 2,
       "stimulus": {
-        "sourceZh": "我把它放到经理办公室了。",
-        "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        "meaningVi": "Anh ấy đã đóng cửa lại.",
+        "targetStructureVi": "主语 + 把 + 宾语 + 动词 + 结果/趋向补语"
       }
     },
     {
@@ -461,12 +474,18 @@
       "format": "reading-detail",
       "prompt": "Vật quan trọng nào còn ở văn phòng?",
       "options": [],
-      "answer": "Danh sách quan trọng nhất.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Danh sách quan trọng nhất."
+      },
       "acceptedAnswers": [
-        "Danh sách quan trọng nhất.",
-        "最重要的名单还在办公室"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “最重要的名单还在办公室” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Nói rõ một sự việc",
       "grammarFocus": [
@@ -489,7 +508,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "下班前，小东把电脑关上，把桌子打扫干净，又把明天开会要用的文件放进包里。回家以后他才发现，最重要的名单还在办公室。",
         "evidenceZh": "最重要的名单还在办公室",
@@ -770,12 +789,18 @@
       "format": "reading-inference",
       "prompt": "Từ chi tiết trong bài, em suy ra điều gì cho câu hỏi: Tiểu Vũ làm gì sau khi đọc lại?",
       "options": [],
-      "answer": "Gọi ngay cho Tiểu Kiệt.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Gọi ngay cho Tiểu Kiệt."
+      },
       "acceptedAnswers": [
-        "Gọi ngay cho Tiểu Kiệt.",
-        "马上给小杰打了电话"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “马上给小杰打了电话” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Hiểu lầm xảy ra thế nào",
       "grammarFocus": [
@@ -798,7 +823,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "班级群里写着“周五下午在图书馆见”，小雨却看成了“体育馆”。她到那儿以后才发现一个同学也没有。后来她重新看消息，马上给小杰打了电话。",
         "evidenceZh": "马上给小杰打了电话",
@@ -1421,12 +1446,18 @@
       "format": "reading-sequence",
       "prompt": "Tóm tắt trình tự sự việc rồi trả lời: Sau một tuần có hai thay đổi gì?",
       "options": [],
-      "answer": "Nhớ lâu hơn và nói tự nhiên hơn.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Nhớ lâu hơn và nói tự nhiên hơn."
+      },
       "acceptedAnswers": [
-        "Nhớ lâu hơn và nói tự nhiên hơn.",
-        "不但记得更久，而且说得更自然"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “不但记得更久，而且说得更自然” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Ôn tập cũng cần phương pháp",
       "grammarFocus": [
@@ -1449,7 +1480,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小林复习时不一直看答案。他先读课文，然后关上书讲主要内容；讲不出来的地方才重新看。一个星期以后，他发现自己不但记得更久，而且说得更自然。",
         "evidenceZh": "不但记得更久，而且说得更自然",
@@ -2070,12 +2101,18 @@
       "format": "reading-main-idea",
       "prompt": "Ai giới thiệu đồng nghiệp cho Tiểu Văn?",
       "options": [],
-      "answer": "Quản lý.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Quản lý."
+      },
       "acceptedAnswers": [
-        "Quản lý.",
-        "经理先带她认识同事"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “经理先带她认识同事” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Ngày đầu ở văn phòng",
       "grammarFocus": [
@@ -2097,7 +2134,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小文第一天到办公室，经理先带她认识同事，又介绍了电脑和邮箱的使用方法。中午以前，她完成了个人信息表；下午，她参加会议并记下了下周的主要任务。",
         "evidenceZh": "经理先带她认识同事",
@@ -2288,13 +2325,20 @@
       "hskLevel": 3,
       "skill": "grammar",
       "format": "error-correction",
-      "prompt": "Sửa trật tự hoặc từ nối trong phát ngôn dưới đây bằng mẫu “So sánh ngang bằng”.",
+      "prompt": "Trong bài “Đừng đến họp muộn”, diễn đạt ý sau bằng cấu trúc “So sánh ngang bằng”: Giá của hai lần thanh toán giống nhau. Giữ đúng ý; không bắt buộc giống một câu mẫu.",
       "options": [],
-      "answer": "两次付款的价钱一样。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "两次付款的价钱一样。"
+      },
       "acceptedAnswers": [
-        "两次付款的价钱一样。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của A跟B一样.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Đừng đến họp muộn",
       "grammarFocus": [
@@ -2317,8 +2361,8 @@
       "reviewStatus": "unreviewed",
       "contentVersion": 2,
       "stimulus": {
-        "sourceZh": "刚看到邮件，我两点前可能赶不回来。",
-        "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        "meaningVi": "Giá của hai lần thanh toán giống nhau.",
+        "targetStructureVi": "A + 跟 + B + 一样 (+ 形容词)"
       }
     },
     {
@@ -2380,12 +2424,18 @@
       "format": "reading-detail",
       "prompt": "Tiểu Văn nhờ đồng nghiệp làm gì?",
       "options": [],
-      "answer": "Trình bày trước nội dung cô ấy đã chuẩn bị.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Trình bày trước nội dung cô ấy đã chuẩn bị."
+      },
       "acceptedAnswers": [
-        "Trình bày trước nội dung cô ấy đã chuẩn bị.",
-        "请同事先介绍她准备的内容"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “请同事先介绍她准备的内容” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Đừng đến họp muộn",
       "grammarFocus": [
@@ -2407,7 +2457,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "原来的会议是下午三点，经理后来改成两点。小文正在外地办事，回办公室大概要半天。她没有等到最后才说，而是马上发邮件说明情况，并请同事先介绍她准备的内容。",
         "evidenceZh": "请同事先介绍她准备的内容",
@@ -2683,12 +2733,18 @@
       "format": "reading-inference",
       "prompt": "Từ chi tiết trong bài, em suy ra điều gì cho câu hỏi: Cuối cùng nhiệm vụ có đúng hạn không?",
       "options": [],
-      "answer": "Có, vẫn đúng hạn.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Có, vẫn đúng hạn."
+      },
       "acceptedAnswers": [
-        "Có, vẫn đúng hạn.",
-        "任务还是按时完成了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “任务还是按时完成了” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Nhiệm vụ gặp vấn đề",
       "grammarFocus": [
@@ -2710,7 +2766,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小文发现报告少了一部分数据。如果一直等，她可能来不及完成全部工作。于是她先做好已经有的内容，再联系同事确认发送时间。最后文件虽然晚到了一会儿，任务还是按时完成了。",
         "evidenceZh": "任务还是按时完成了",
@@ -3322,12 +3378,18 @@
       "format": "reading-sequence",
       "prompt": "Tóm tắt trình tự sự việc rồi trả lời: Ai mang túi đến?",
       "options": [],
-      "answer": "Một người nào đó.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Một người nào đó."
+      },
       "acceptedAnswers": [
-        "Một người nào đó.",
-        "有人把包送来了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “有人把包送来了” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 3,
       "topic": "Hộ chiếu và hành lý thất lạc",
       "grammarFocus": [
@@ -3349,7 +3411,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "一位游客在机场发现护照包丢了。包是蓝色的，里面有护照、银行卡和一张照片。他先回到刚才坐过的地方找，又去服务台说明。半小时后，工作人员告诉他有人把包送来了。",
         "evidenceZh": "有人把包送来了",
@@ -3961,12 +4023,18 @@
       "format": "reading-main-idea",
       "prompt": "Căn đầu có hai nhược điểm gì?",
       "options": [],
-      "answer": "Diện tích nhỏ và giá cao.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Diện tích nhỏ và giá cao."
+      },
       "acceptedAnswers": [
-        "Diện tích nhỏ và giá cao.",
-        "面积小、价格高"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “面积小、价格高” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Xem nhà trước khi chuyển",
       "grammarFocus": [
@@ -3988,7 +4056,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小林看了两套房。第一套在市中心，交通方便，但是面积小、价格高；第二套远一点儿，却更安静，还有花园。他平时在家工作，所以最后选择了第二套。",
         "evidenceZh": "面积小、价格高",
@@ -4179,13 +4247,20 @@
       "hskLevel": 3,
       "skill": "grammar",
       "format": "error-correction",
-      "prompt": "Sửa trật tự hoặc từ nối trong phát ngôn dưới đây bằng mẫu “Không những… mà còn…”.",
+      "prompt": "Trong bài “Hàng xóm và đời sống khu nhà”, diễn đạt ý sau bằng cấu trúc “Không những… mà còn…”: Anh ấy không chỉ xong đúng giờ mà còn kiểm tra hai lượt. Giữ đúng ý; không bắt buộc giống một câu mẫu.",
       "options": [],
-      "answer": "他不但按时完成，而且检查了两遍。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "他不但按时完成，而且检查了两遍。"
+      },
       "acceptedAnswers": [
-        "他不但按时完成，而且检查了两遍。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 不但……而且…….",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Hàng xóm và đời sống khu nhà",
       "grammarFocus": [
@@ -4208,8 +4283,8 @@
       "reviewStatus": "unreviewed",
       "contentVersion": 2,
       "stimulus": {
-        "sourceZh": "真的对不起，朋友来做客，我们聊得太晚了。",
-        "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        "meaningVi": "Anh ấy không chỉ xong đúng giờ mà còn kiểm tra hai lượt.",
+        "targetStructureVi": "不但 + 分句1，而且 + 分句2"
       }
     },
     {
@@ -4271,12 +4346,18 @@
       "format": "reading-detail",
       "prompt": "Sân tắt đèn lúc mấy giờ?",
       "options": [],
-      "answer": "9 giờ tối.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "9 giờ tối."
+      },
       "acceptedAnswers": [
-        "9 giờ tối.",
-        "晚上九点关灯"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “晚上九点关灯” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Hàng xóm và đời sống khu nhà",
       "grammarFocus": [
@@ -4298,7 +4379,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小区新开了一个球场，年轻人很喜欢，附近的老人却担心晚上太吵。大家开会以后决定：白天正常使用，晚上九点关灯。这个办法照顾了不同人的需要。",
         "evidenceZh": "晚上九点关灯",
@@ -4574,12 +4655,18 @@
       "format": "reading-inference",
       "prompt": "Từ chi tiết trong bài, em suy ra điều gì cho câu hỏi: Việc gì chưa xử lý?",
       "options": [],
-      "answer": "Hai món nội thất cũ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Hai món nội thất cũ."
+      },
       "acceptedAnswers": [
-        "Hai món nội thất cũ.",
-        "两件旧家具没有处理"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “两件旧家具没有处理” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Dọn nhà mới sạch sẽ",
       "grammarFocus": [
@@ -4601,7 +4688,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "搬家那天，大家把工作分开：小安搬箱子，小兰打扫厨房，叔叔检查电和空调。中午以前，大部分东西都放好了，只剩下两件旧家具没有处理。",
         "evidenceZh": "两件旧家具没有处理",
@@ -5213,12 +5300,18 @@
       "format": "reading-sequence",
       "prompt": "Tóm tắt trình tự sự việc rồi trả lời: Sau ba tháng việc gì dễ hơn?",
       "options": [],
-      "answer": "Leo cầu thang.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Leo cầu thang."
+      },
       "acceptedAnswers": [
-        "Leo cầu thang.",
-        "爬楼梯也没有以前那么难了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “爬楼梯也没有以前那么难了” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Tập luyện quý ở kiên trì",
       "grammarFocus": [
@@ -5240,7 +5333,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小东以前很少锻炼，一跑步就觉得累。后来他不再只看速度，而是记录每周运动几次。三个月后，他的身体更健康，爬楼梯也没有以前那么难了。",
         "evidenceZh": "爬楼梯也没有以前那么难了",
@@ -5851,12 +5944,18 @@
       "format": "reading-main-idea",
       "prompt": "Vì sao Tiểu Vũ không trả lời?",
       "options": [],
-      "answer": "Điện thoại bị hỏng.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Điện thoại bị hỏng."
+      },
       "acceptedAnswers": [
-        "Điện thoại bị hỏng.",
-        "小雨的手机坏了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “小雨的手机坏了” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Một tin nhắn chưa trả lời",
       "grammarFocus": [
@@ -5878,7 +5977,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小美看到消息没有被回答，就以为朋友不高兴。后来她才知道，小雨的手机坏了，一整天都没上网。小美发现，网络上的安静不一定表示拒绝。",
         "evidenceZh": "小雨的手机坏了",
@@ -6069,13 +6168,20 @@
       "hskLevel": 3,
       "skill": "grammar",
       "format": "error-correction",
-      "prompt": "Sửa trật tự hoặc từ nối trong phát ngôn dưới đây bằng mẫu “Hoặc… hoặc…”.",
+      "prompt": "Trong bài “Gặp mặt để nói rõ”, diễn đạt ý sau bằng cấu trúc “Hoặc… hoặc…”: Chúng tôi hoặc đi tàu điện, hoặc đi xe đạp. Giữ đúng ý; không bắt buộc giống một câu mẫu.",
       "options": [],
-      "answer": "我们或者坐地铁，或者骑自行车。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我们或者坐地铁，或者骑自行车。"
+      },
       "acceptedAnswers": [
-        "我们或者坐地铁，或者骑自行车。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 或者……或者…….",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Gặp mặt để nói rõ",
       "grammarFocus": [
@@ -6098,8 +6204,8 @@
       "reviewStatus": "unreviewed",
       "contentVersion": 2,
       "stimulus": {
-        "sourceZh": "对不起，我叔叔住院了，我当时太着急，忘了说明。",
-        "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        "meaningVi": "Chúng tôi hoặc đi tàu điện, hoặc đi xe đạp.",
+        "targetStructureVi": "或者 + 选择1，或者 + 选择2"
       }
     },
     {
@@ -6161,12 +6267,18 @@
       "format": "reading-detail",
       "prompt": "Quy tắc mới của hai người là gì?",
       "options": [],
-      "answer": "Có thay đổi thì báo kịp thời.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Có thay đổi thì báo kịp thời."
+      },
       "acceptedAnswers": [
-        "Có thay đổi thì báo kịp thời.",
-        "计划有变化就及时说明"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “计划有变化就及时说明” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Gặp mặt để nói rõ",
       "grammarFocus": [
@@ -6188,7 +6300,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小雨和小杰因为一次没完成的约定几天没有聊天。见面以后，两个人先说事实，再说自己的感受，没有互相说难听的话。最后他们决定，以后计划有变化就及时说明。",
         "evidenceZh": "计划有变化就及时说明",
@@ -6464,12 +6576,18 @@
       "format": "reading-inference",
       "prompt": "Từ chi tiết trong bài, em suy ra điều gì cho câu hỏi: Cách trả lời cho thấy điều gì?",
       "options": [],
-      "answer": "Cô ấy vẫn muốn tham gia.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Cô ấy vẫn muốn tham gia."
+      },
       "acceptedAnswers": [
-        "Cô ấy vẫn muốn tham gia.",
-        "让对方知道她愿意参加"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “让对方知道她愿意参加” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Lời mời cũng có thể từ chối",
       "grammarFocus": [
@@ -6491,7 +6609,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小兰邀请同学周末来做客。小美没有只说“不行”，而是先感谢邀请，说明自己有课，又问晚上去是否合适。这样既表达了真实情况，也让对方知道她愿意参加。",
         "evidenceZh": "让对方知道她愿意参加",
@@ -7103,12 +7221,18 @@
       "format": "reading-sequence",
       "prompt": "Tóm tắt trình tự sự việc rồi trả lời: Bộ phận hỗ trợ đồng ý làm gì?",
       "options": [],
-      "answer": "Giao bù món thiếu.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Giao bù món thiếu."
+      },
       "acceptedAnswers": [
-        "Giao bù món thiếu.",
-        "同意补送少的东西"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “同意补送少的东西” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 4,
       "topic": "Đơn giao đồ ăn bị sai",
       "grammarFocus": [
@@ -7130,7 +7254,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小杰点了两碗面和一瓶饮料，送来的袋子里却只有一碗面，饮料也不是他选的。客服根据订单检查后，同意补送少的东西，并把处理时间告诉了他。",
         "evidenceZh": "同意补送少的东西",
@@ -7742,12 +7866,18 @@
       "format": "reading-main-idea",
       "prompt": "Gió thổi vật gì xuống sông?",
       "options": [],
-      "answer": "Một chiếc mũ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Một chiếc mũ."
+      },
       "acceptedAnswers": [
-        "Một chiếc mũ.",
-        "风把一顶帽子吹进了河里"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “风把一顶帽子吹进了河里” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Hôm đó đã xảy ra chuyện gì",
       "grammarFocus": [
@@ -7769,7 +7899,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "周末班级去公园拍照。上午太阳很大，大家在草地上聊天；中午天气突然变化，风把一顶帽子吹进了河里。虽然没拿回来，帽子的主人却笑着说这是一次特别的经历。",
         "evidenceZh": "风把一顶帽子吹进了河里",
@@ -7960,13 +8090,20 @@
       "hskLevel": 3,
       "skill": "grammar",
       "format": "error-correction",
-      "prompt": "Sửa trật tự hoặc từ nối trong phát ngôn dưới đây bằng mẫu “Bắt đầu từ…”.",
+      "prompt": "Trong bài “Lần đầu du lịch một mình”, diễn đạt ý sau bằng cấu trúc “Bắt đầu từ…”: Từ tuần sau, trong trường không được lái xe. Giữ đúng ý; không bắt buộc giống một câu mẫu.",
       "options": [],
-      "answer": "从下周起，校园里不能开车。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "从下周起，校园里不能开车。"
+      },
       "acceptedAnswers": [
-        "从下周起，校园里不能开车。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 从……起.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Lần đầu du lịch một mình",
       "grammarFocus": [
@@ -7989,8 +8126,8 @@
       "reviewStatus": "unreviewed",
       "contentVersion": 2,
       "stimulus": {
-        "sourceZh": "出发前有点儿担心，到了以后反而很开心。",
-        "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        "meaningVi": "Từ tuần sau, trong trường không được lái xe.",
+        "targetStructureVi": "从 + 时间/地点 + 起"
       }
     },
     {
@@ -8052,12 +8189,18 @@
       "format": "reading-detail",
       "prompt": "Cô ấy hiểu độc lập là gì?",
       "options": [],
-      "answer": "Biết khi nào nên nhờ người khác.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Biết khi nào nên nhờ người khác."
+      },
       "acceptedAnswers": [
-        "Biết khi nào nên nhờ người khác.",
-        "知道什么时候应该问人"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “知道什么时候应该问人” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Lần đầu du lịch một mình",
       "grammarFocus": [
@@ -8079,7 +8222,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小安去年第一次一个人去北方旅行。她提前查地图、订宾馆，也把行程发给家人。路上她遇到晚点和下雨，但都自己解决了。回来以后，她觉得独立不是不需要帮助，而是知道什么时候应该问人。",
         "evidenceZh": "知道什么时候应该问人",
@@ -8355,12 +8498,18 @@
       "format": "reading-inference",
       "prompt": "Từ chi tiết trong bài, em suy ra điều gì cho câu hỏi: Nhóm thay đổi hai điều gì?",
       "options": [],
-      "answer": "Đổi địa điểm và luyện lại.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Đổi địa điểm và luyện lại."
+      },
       "acceptedAnswers": [
-        "Đổi địa điểm và luyện lại.",
-        "换地点、重新练习"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “换地点、重新练习” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Cuối cùng cũng hoàn thành",
       "grammarFocus": [
@@ -8382,7 +8531,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "班级要做一个介绍城市的节目。第一次拍摄声音不清楚，第二次又遇到下雨。大家没有放弃，而是换地点、重新练习。到第三次，他们终于完成了一段满意的作品。",
         "evidenceZh": "换地点、重新练习",
@@ -8994,12 +9143,18 @@
       "format": "reading-sequence",
       "prompt": "Tóm tắt trình tự sự việc rồi trả lời: Tiểu Lan làm quà gì cho bà?",
       "options": [],
-      "answer": "Một tấm thiệp ảnh.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Một tấm thiệp ảnh."
+      },
       "acceptedAnswers": [
-        "Một tấm thiệp ảnh.",
-        "给奶奶做了一张照片卡"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “给奶奶做了一张照片卡” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Tặng gì vào dịp lễ",
       "grammarFocus": [
@@ -9021,7 +9176,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "不同节日送礼的方法不完全一样。礼物不一定越贵越好，重要的是让对方感到被关心。小兰给奶奶做了一张照片卡，还写下今年最想一起完成的三件事。",
         "evidenceZh": "给奶奶做了一张照片卡",
@@ -9633,12 +9788,18 @@
       "format": "reading-main-idea",
       "prompt": "Hồi nhỏ mùa đông thế nào?",
       "options": [],
-      "answer": "Lạnh hơn.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Lạnh hơn."
+      },
       "acceptedAnswers": [
-        "Lạnh hơn.",
-        "小时候冬天比较冷"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “小时候冬天比较冷” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Thời tiết bốn mùa thay đổi",
       "grammarFocus": [
@@ -9660,7 +9821,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小兰记得小时候冬天比较冷，春天常看到公园开花。最近几年，冬天不太冷，夏天却更长。天气变化影响了人们的衣服、运动时间和假期计划。",
         "evidenceZh": "小时候冬天比较冷",
@@ -9851,13 +10012,20 @@
       "hskLevel": 3,
       "skill": "grammar",
       "format": "error-correction",
-      "prompt": "Sửa trật tự hoặc từ nối trong phát ngôn dưới đây bằng mẫu “Câu hỏi tu từ nhấn mạnh”.",
+      "prompt": "Trong bài “Vì sao công viên sạch hơn”, diễn đạt ý sau bằng cấu trúc “Câu hỏi tu từ nhấn mạnh”: Chẳng phải đã hẹn gặp lúc bảy giờ sao? Giữ đúng ý; không bắt buộc giống một câu mẫu.",
       "options": [],
-      "answer": "我们不是说好七点见吗？",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我们不是说好七点见吗？"
+      },
       "acceptedAnswers": [
-        "我们不是说好七点见吗？"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu mẫu cho thấy đúng trật tự của 不是……吗？.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Vì sao công viên sạch hơn",
       "grammarFocus": [
@@ -9880,8 +10048,8 @@
       "reviewStatus": "unreviewed",
       "contentVersion": 2,
       "stimulus": {
-        "sourceZh": "因为小区多放了垃圾箱，还增加了打扫的人。",
-        "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        "meaningVi": "Chẳng phải đã hẹn gặp lúc bảy giờ sao?",
+        "targetStructureVi": "不是 + 已知信息 + 吗？"
       }
     },
     {
@@ -9943,12 +10111,18 @@
       "format": "reading-detail",
       "prompt": "Sau một tháng có hai kết quả gì?",
       "options": [],
-      "answer": "Ít rác hơn và nhiều người đi dạo hơn.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Ít rác hơn và nhiều người đi dạo hơn."
+      },
       "acceptedAnswers": [
-        "Ít rác hơn và nhiều người đi dạo hơn.",
-        "地上的垃圾少了，来公园散步的人也更多了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “地上的垃圾少了，来公园散步的人也更多了” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Vì sao công viên sạch hơn",
       "grammarFocus": [
@@ -9970,7 +10144,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "以前周末过后，草地和河边常有瓶子和纸。小区先增加垃圾箱，又请志愿者说明分类方法。一个月后，地上的垃圾少了，来公园散步的人也更多了。",
         "evidenceZh": "地上的垃圾少了，来公园散步的人也更多了",
@@ -10246,12 +10420,18 @@
       "format": "reading-inference",
       "prompt": "Từ chi tiết trong bài, em suy ra điều gì cho câu hỏi: Khi nào cậu ấy chọn phương tiện công cộng?",
       "options": [],
-      "answer": "Khi đường xa hoặc mang đồ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Khi đường xa hoặc mang đồ."
+      },
       "acceptedAnswers": [
-        "Khi đường xa hoặc mang đồ.",
-        "路远或带东西时"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “路远或带东西时” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Chọn cách đi lại xanh",
       "grammarFocus": [
@@ -10273,7 +10453,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小东以前每天开车，常在路口等很久。后来他发现骑自行车只多用十分钟，还能锻炼身体。现在天气合适时他就骑车，路远或带东西时再选择公共交通。",
         "evidenceZh": "路远或带东西时",
@@ -10885,12 +11065,18 @@
       "format": "reading-sequence",
       "prompt": "Tóm tắt trình tự sự việc rồi trả lời: Tiểu An tránh cách ghi nào?",
       "options": [],
-      "answer": "Chỉ ghi ý mình đồng ý.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Chỉ ghi ý mình đồng ý."
+      },
       "acceptedAnswers": [
-        "Chỉ ghi ý mình đồng ý.",
-        "没有只写自己同意的答案"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng “没有只写自己同意的答案” hỗ trợ trực tiếp đáp án.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "difficulty": 5,
       "topic": "Phỏng vấn người quanh mình",
       "grammarFocus": [
@@ -10912,7 +11098,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "stimulus": {
         "textZh": "小安采访了五名同学。有人认为手机让学习更方便，也有人觉得消息太多会影响注意力。小安没有只写自己同意的答案，而是按原意记录不同看法。",
         "evidenceZh": "没有只写自己同意的答案",

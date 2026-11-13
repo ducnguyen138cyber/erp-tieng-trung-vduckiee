@@ -12,7 +12,7 @@ test('corpus inventory and IDs are preserved; no unsupported review labels or co
  assert.deepEqual(r.confirmedBySeverity,{Critical:0,High:0,Medium:0,Low:0});assert.ok(r.levels.every(l=>l.independentlyReviewed===0));
 });
 test('every repaired field has before/after, stable ID, version increment and non-human authorship',()=>{
- const changes=read('docs/hsk123-content-changes.json').changes;assert.equal(changes.length,2119);assert.equal(new Set(changes.map(x=>x.id)).size,changes.length);
+ const changes=read('docs/hsk123-content-changes.json').changes;assert.equal(changes.length,2173);assert.equal(new Set(changes.map(x=>x.id)).size,changes.length);
  for(const c of changes){assert.ok(c.reason&&c.references.length);assert.equal(c.independentHumanReview,false);assert.equal(c.fields.contentVersion.after,c.fields.contentVersion.before+1);const d=read(c.file),r=(d.records||d.entries).find(r=>r.id===c.id);assert.ok(r,c.id);for(const [field,v] of Object.entries(c.fields))assert.deepEqual(r[field],v.after,c.id+' '+field);}
 });
 test('all 474 numbered-Pinyin repairs preserve the authored Hanzi, tone-mark Pinyin and Vietnamese meaning',()=>{
@@ -52,6 +52,16 @@ test('historical completion remains stored unchanged while new mastery requires 
  }finally{dom.window.close();}
 });
 test('12 listening sequence/attitude mismatches now ask the matching source detail and self-review meaning',()=>{
- const byId=new Map(records.map(x=>[x.id,x]));const findings=read('docs/hsk123-confirmed-findings.json').findings.filter(f=>f.discoveredAfterBaseline);assert.equal(findings.length,12);
+ const byId=new Map(records.map(x=>[x.id,x]));const findings=read('docs/hsk123-confirmed-findings.json').findings.filter(f=>f.rule==='listening-question-skill-mismatch');assert.equal(findings.length,12);
  for(const f of findings){const e=byId.get(f.id),l=byId.get(f.id.split('-exercise')[0]),content=l.sections.find(s=>s.type==='listening').content,qa=content.answerKey.find(q=>q.answer===f.beforeAnswer);assert.equal(e.format,'listen-detail');assert.equal(e.stimulus.questionVi,qa.qVi);assert.match(e.prompt,new RegExp(qa.qVi.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));assert.equal(e.answer.referenceAnswer,f.beforeAnswer);assert.equal(runtime.canGradeExercise(e),false);}
+});
+test('all 27 confirmed HSK3 unrelated correction keys are removed from automatic grading',()=>{
+ const byId=new Map(records.map(x=>[x.id,x]));const findings=read('docs/hsk123-confirmed-findings.json').findings.filter(f=>!f.rule||f.rule==='answer-unrelated-to-source');assert.equal(findings.length,27);
+ for(const f of findings){const e=byId.get(f.id);assert.ok(e.answer.rubric);assert.ok(e.stimulus.meaningVi);assert.equal(runtime.canGradeExercise(e),false);}
+});
+test('semantic reading/listening paraphrases and free corrections are never exact-string graded',()=>{
+ for(const e of records.filter(x=>x.recordType==='exercise'&&!x.options.length)){
+  if((e.skill==='reading'&&!/chép|tìm cụm/i.test(e.prompt))||(e.skill==='listening'&&!['listen-fill','listen-dictation','listen-final-line'].includes(e.format)&&e.id!=='hsk2-lesson-01-exercise-1')||['error-correction','grammar-error-correction'].includes(e.format))assert.equal(runtime.canGradeExercise(e),false,e.id);
+ }
+ const byId=new Map(records.map(x=>[x.id,x]));for(const [id,answer] of [['hsk1-lesson-12-exercise-2','下午三点我们见。'],['hsk1-lesson-13-exercise-2','每天八点我上班。'],['hsk2-lesson-10-exercise-3','请把票拿过来，我在这里。'],['hsk2-lesson-26-exercise-3','你往右还是往左？']])assert.ok(byId.get(id).acceptedAnswers.includes(answer),id);
 });

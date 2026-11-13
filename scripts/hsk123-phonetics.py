@@ -48,6 +48,7 @@ def scan(root):
                     contextual=[x[0] for x in pinyin(zh,style=Style.TONE3,neutral_tone_with_five=True,errors='ignore')]
                     result['contextDictionary']=' '.join(contextual)
                     result['readingSuspects']=mismatches
+                    result['polyphoneContextSuspects']=[{'characterIndex':i,'given':part,'contextReference':contextual[i]} for i,(part,readings) in enumerate(zip(numbered,choices)) if len(contextual)==len(numbered) and len(readings)>1 and part!=contextual[i]]
                 out.append(result)
     return {'tool':'pypinyin','version':__version__,'scope':'vocabulary/sentence Hanzi–Pinyin pairs only; examples lacking Pinyin need human review','pairs':out}
 

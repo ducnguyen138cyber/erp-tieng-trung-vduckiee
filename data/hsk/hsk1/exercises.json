@@ -136,12 +136,18 @@
         "evidenceZh": "老师读"
       },
       "options": [],
-      "answer": "Giáo viên đọc trước.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Giáo viên đọc trước."
+      },
       "acceptedAnswers": [
-        "Giáo viên đọc trước.",
-        "老师读"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng: 老师读.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-01-c2-reading-reading-short-answer"
     },
@@ -558,11 +564,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "我很好",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我很好"
+      },
       "acceptedAnswers": [
-        "我很好"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bài kiểm tra khả năng bắt chi tiết mục tiêu trong input ngắn.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-03-c2-listening-listen-information-extraction"
     },
@@ -603,11 +616,18 @@
         "sentenceZh": "我是很好。"
       },
       "options": [],
-      "answer": "我很好。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我很好。"
+      },
       "acceptedAnswers": [
-        "我很好。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Trong câu miêu tả trạng thái bằng tính từ, không dùng 是 trước 很好.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk1-lesson-03-c2-grammar-error-correction"
     },
@@ -1097,11 +1117,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "请再说一次",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "请再说一次"
+      },
       "acceptedAnswers": [
-        "请再说一次"
+        "rubric-self-check"
       ],
-      "explanationVi": "Đối chiếu câu trả lời với transcript sau khi hoàn thành lượt nghe.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-05-c2-listening-listen-confirmation"
     },
@@ -1196,12 +1223,18 @@
         "evidenceZh": "没听见"
       },
       "options": [],
-      "answer": "Vì bạn ấy chưa nghe thấy rõ câu trước.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Vì bạn ấy chưa nghe thấy rõ câu trước."
+      },
       "acceptedAnswers": [
-        "Vì bạn ấy chưa nghe thấy rõ câu trước.",
-        "没听见"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng: 没听见.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-05-c2-reading-reading-short-answer"
     },
@@ -1633,11 +1666,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "同学",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "同学"
+      },
       "acceptedAnswers": [
-        "同学"
+        "rubric-self-check"
       ],
-      "explanationVi": "Trả lời bằng chi tiết nghe được, không suy diễn thêm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-07-c2-listening-listen-short-answer"
     },
@@ -1678,11 +1718,18 @@
         "sentenceZh": "她是很漂亮。"
       },
       "options": [],
-      "answer": "她很漂亮。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "她很漂亮。"
+      },
       "acceptedAnswers": [
-        "她很漂亮。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Tính từ có thể làm vị ngữ; câu miêu tả đơn giản không cần 是.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk1-lesson-07-c2-grammar-error-correction"
     },
@@ -1725,12 +1772,18 @@
         "evidenceZh": "王老师是中国人。他是老师"
       },
       "options": [],
-      "answer": "Ông/thầy Vương là giáo viên người Trung Quốc.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Ông/thầy Vương là giáo viên người Trung Quốc."
+      },
       "acceptedAnswers": [
-        "Ông/thầy Vương là giáo viên người Trung Quốc.",
-        "王老师是中国人。他是老师"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết cần tìm nằm ở cụm “王老师是中国人。他是老师”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-07-c2-reading-reading-information-extraction"
     },
@@ -2164,11 +2217,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "一点儿",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "一点儿"
+      },
       "acceptedAnswers": [
-        "一点儿"
+        "rubric-self-check"
       ],
-      "explanationVi": "Đối chiếu câu trả lời với transcript sau khi hoàn thành lượt nghe.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-09-c2-listening-listen-confirmation"
     },
@@ -2792,12 +2852,18 @@
         "evidenceZh": "五月十号"
       },
       "options": [],
-      "answer": "Ngày 10 tháng 5.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Ngày 10 tháng 5."
+      },
       "acceptedAnswers": [
-        "Ngày 10 tháng 5.",
-        "五月十号"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết cần tìm nằm ở cụm “五月十号”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-11-c2-reading-reading-information-extraction"
     },
@@ -3014,7 +3080,8 @@
       "options": [],
       "answer": "我们下午三点见。",
       "acceptedAnswers": [
-        "我们下午三点见。"
+        "我们下午三点见。",
+        "下午三点我们见。"
       ],
       "explanationVi": "Trong câu cơ bản, mốc thời gian đứng trước động từ 见.",
       "cognitiveSkill": "application",
@@ -3231,11 +3298,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "七点",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "七点"
+      },
       "acceptedAnswers": [
-        "七点"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bài kiểm tra khả năng bắt chi tiết mục tiêu trong input ngắn.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-13-c2-listening-listen-information-extraction"
     },
@@ -3283,7 +3357,8 @@
       "options": [],
       "answer": "我每天八点上班。",
       "acceptedAnswers": [
-        "我每天八点上班。"
+        "我每天八点上班。",
+        "每天八点我上班。"
       ],
       "explanationVi": "Mốc thời gian 每天八点 đứng trước động từ 上班.",
       "cognitiveSkill": "application",
@@ -3329,12 +3404,18 @@
         "evidenceZh": "八点上班"
       },
       "options": [],
-      "answer": "8 giờ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "8 giờ."
+      },
       "acceptedAnswers": [
-        "8 giờ.",
-        "八点上班"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng: 八点上班.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-13-c2-reading-reading-short-answer"
     },
@@ -3763,11 +3844,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "看书",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "看书"
+      },
       "acceptedAnswers": [
-        "看书"
+        "rubric-self-check"
       ],
-      "explanationVi": "Đối chiếu câu trả lời với transcript sau khi hoàn thành lượt nghe.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-15-c2-listening-listen-confirmation"
     },
@@ -4303,11 +4391,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "两个包子和一杯茶",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "两个包子和一杯茶"
+      },
       "acceptedAnswers": [
-        "两个包子和一杯茶"
+        "rubric-self-check"
       ],
-      "explanationVi": "Trả lời bằng chi tiết nghe được, không suy diễn thêm.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-17-c2-listening-listen-short-answer"
     },
@@ -4397,12 +4492,18 @@
         "evidenceZh": "茶五块一杯"
       },
       "options": [],
-      "answer": "5 tệ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "5 tệ."
+      },
       "acceptedAnswers": [
-        "5 tệ.",
-        "茶五块一杯"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bằng chứng: 茶五块一杯.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-17-c2-reading-reading-short-answer"
     },
@@ -4844,11 +4945,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "八十块",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "八十块"
+      },
       "acceptedAnswers": [
-        "八十块"
+        "rubric-self-check"
       ],
-      "explanationVi": "Đối chiếu câu trả lời với transcript sau khi hoàn thành lượt nghe.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-19-c2-listening-listen-confirmation"
     },
@@ -4938,12 +5046,18 @@
         "evidenceZh": "这本书三十块"
       },
       "options": [],
-      "answer": "30 tệ.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "30 tệ."
+      },
       "acceptedAnswers": [
-        "30 tệ.",
-        "这本书三十块"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết cần tìm nằm ở cụm “这本书三十块”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-19-c2-reading-reading-information-extraction"
     },
@@ -5709,11 +5823,18 @@
         "sentenceZh": "今天天气是很热。"
       },
       "options": [],
-      "answer": "今天天气很热。",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "今天天气很热。"
+      },
       "acceptedAnswers": [
-        "今天天气很热。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu vị ngữ tính từ cơ bản không dùng 是 trước 很热.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk1-lesson-22-c2-grammar-error-correction"
     },
@@ -5928,11 +6049,18 @@
         "transcriptVisibility": "after-answer"
       },
       "options": [],
-      "answer": "我生病了",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我生病了"
+      },
       "acceptedAnswers": [
-        "我生病了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Bài kiểm tra khả năng bắt chi tiết mục tiêu trong input ngắn.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "recognition",
       "templateFamily": "hsk1-lesson-23-c2-listening-listen-information-extraction"
     },
@@ -6024,12 +6152,18 @@
         "evidenceZh": "小李生病了"
       },
       "options": [],
-      "answer": "Vì anh ấy bị ốm.",
+      "answer": {
+        "rubric": {
+          "meaning": "Trả lời đúng ý hoặc sửa đúng vấn đề được hỏi; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Đối chiếu chi tiết trong câu/văn bản nguồn và cấu trúc mục tiêu.",
+          "review": "Tự đối chiếu; không tự chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "Vì anh ấy bị ốm."
+      },
       "acceptedAnswers": [
-        "Vì anh ấy bị ốm.",
-        "小李生病了"
+        "rubric-self-check"
       ],
-      "explanationVi": "Chi tiết cần tìm nằm ở cụm “小李生病了”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa và bằng chứng. Câu tham khảo không phải đáp án duy nhất; không chấm sai chỉ vì dùng cách diễn đạt khác.",
       "cognitiveSkill": "analysis",
       "templateFamily": "hsk1-lesson-23-c2-reading-reading-information-extraction"
     },

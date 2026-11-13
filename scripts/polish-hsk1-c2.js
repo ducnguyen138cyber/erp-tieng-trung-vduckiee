@@ -583,6 +583,20 @@ function outputMap(documents, report) {
   };
 }
 
+// Replay later, evidence-backed editorial corrections after the historical C2 transform.
+// Read-only unless --write was explicitly requested; never discard stable IDs.
+function applyReliabilityCorrections(documents) {
+  const file=path.join(ROOT,'docs/hsk123-content-changes.json');
+  if (!fs.existsSync(file)) return;
+  const collections={'data/hsk/hsk1/exercises.json':documents.exercises,'data/hsk/hsk1/grammar.json':documents.grammar};
+  for (const change of JSON.parse(fs.readFileSync(file,'utf8')).changes) {
+    const collection=collections[change.file];if(!collection)continue;
+    const record=collection.records.find(record=>record.id===change.id);
+    if(!record)throw new Error('Reliability correction target missing: '+change.id);
+    for(const [field,values] of Object.entries(change.fields))record[field]=structuredClone(values.after);
+  }
+}
+
 function main() {
   const patch = JSON.parse(fs.readFileSync(PATCH_PATH, "utf8"));
   const documents = loadDocuments();
@@ -592,6 +606,7 @@ function main() {
   applyExercises(documents, patch);
   applyAssessments(documents);
   const audit = applyManifestAndLevel(documents);
+  applyReliabilityCorrections(documents);
   const report = validateC2(documents, audit);
   const outputs = outputMap(documents, report);
   const writeMode = process.argv.includes("--write");
