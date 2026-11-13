@@ -65,3 +65,12 @@ test('semantic reading/listening paraphrases and free corrections are never exac
  }
  const byId=new Map(records.map(x=>[x.id,x]));for(const [id,answer] of [['hsk1-lesson-12-exercise-2','下午三点我们见。'],['hsk1-lesson-13-exercise-2','每天八点我上班。'],['hsk2-lesson-10-exercise-3','请把票拿过来，我在这里。'],['hsk2-lesson-26-exercise-3','你往右还是往左？']])assert.ok(byId.get(id).acceptedAnswers.includes(answer),id);
 });
+test('audit CLI fails on a new Critical key defect even when it writes an updated report',()=>{
+ const os=require('node:os'),path=require('node:path'),{spawnSync}=require('node:child_process');const temp=fs.mkdtempSync(path.join(os.tmpdir(),'hsk123-blocker-'));
+ try{
+  fs.mkdirSync(path.join(temp,'data/hsk'),{recursive:true});for(const name of ['hsk1','hsk2','hsk3','schemas'])fs.cpSync(path.join(root,'data/hsk',name),path.join(temp,'data/hsk',name),{recursive:true});fs.copyFileSync(path.join(root,'data/hsk/sources.json'),path.join(temp,'data/hsk/sources.json'));fs.mkdirSync(path.join(temp,'scripts'));fs.copyFileSync(path.join(root,'scripts/hsk123-phonetics.py'),path.join(temp,'scripts/hsk123-phonetics.py'));
+  const file=path.join(temp,'data/hsk/hsk1/exercises.json'),d=JSON.parse(fs.readFileSync(file));const e=d.records.find(e=>e.options.length);e.answer='__invalid-key-outside-options__';fs.writeFileSync(file,JSON.stringify(d));
+  const result=spawnSync(process.execPath,[path.join(root,'scripts/audit-hsk123-reliability.cjs')],{cwd:temp,encoding:'utf8'});
+  assert.equal(result.status,1,result.stderr);const report=JSON.parse(fs.readFileSync(path.join(temp,'reports/hsk123/current.json')));assert.ok(report.confirmedBySeverity.Critical>=1);assert.ok(report.issues.some(i=>i.rule==='answer-outside-options'&&i.id===e.id));
+ }finally{fs.rmSync(temp,{recursive:true,force:true});}
+});
