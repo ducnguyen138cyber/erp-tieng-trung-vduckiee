@@ -28,7 +28,7 @@ async function backend(route){
 }
 const contexts=[];
 async function device(name,viewport,legacy){
- const context=await browser.newContext({viewport,isMobile:name==='mobile',hasTouch:name==='mobile',serviceWorkers:'allow'});contexts.push(context);
+ const context=await browser.newContext({viewport,isMobile:name==='mobile',hasTouch:name==='mobile',serviceWorkers:'allow'});contexts.push(context);await context.tracing.start({screenshots:true,snapshots:true});
  await context.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));
  await context.route('https://learning-fixture.supabase.co/**',backend);
  await context.route('https://*.supabase.co/**',async r=>{if(r.request().url().includes('learning-fixture'))return backend(r);return r.fulfill({contentType:'application/json',body:'[]'});});
@@ -37,7 +37,8 @@ async function device(name,viewport,legacy){
  await page.goto(base+'?screen=hsk&hskLevel=1&hskLesson=hsk1-lesson-01&area=hsk#hsk');await ready(page);
  return {page,context,name};
 }
-async function ready(page){await page.locator('[data-focus-stage="words"]').waitFor();await page.waitForFunction(()=>window.VDuckieAccountSyncUtils?.identity()==='00000000-0000-4000-8000-000000000111');await flush(page);}
+async function ready(page){await page.locator('[data-focus-stage="words"]').waitFor();await page.waitForFunction(()=>window.VDuckieAccountSyncUtils?.identity()==='00000000-0000-4000-8000-000000000111');await flush(page);await page.waitForFunction(()=>!!window.VDuckieHskStudyJourney);}
+async function memory(page){const value=await page.waitForFunction(()=>window.VDuckieHskStudyJourney?.wordStats());return value.jsonValue();}
 async function flush(page){await page.evaluate(async()=>{await window.VDuckieAccountSyncUtils.flush();});}
 async function lesson(page,level,id){await page.goto(base+`?screen=hsk&hskLevel=${level}&hskLesson=${id}&area=hsk#hsk`);await ready(page);}
 async function journal(page){return page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'{}'),KEY);}
@@ -47,10 +48,10 @@ try{
  await p.locator('[data-focus-next]').first().click();
  await lesson(q,2,'hsk2-lesson-15');await q.locator('[data-focus-panel="words"] [data-hsk-content-done]').click();
  await Promise.all([flush(p),flush(q)]);await flush(p);await flush(q);
- for(const page of [p,q]){const j=await journal(page);assert.equal(j.lessons.legacy_guest.completedAt,123);assert.ok(j.lessons['hsk1-lesson-01'].content.words);assert.ok(j.lessons['hsk2-lesson-15'].content.words);assert.equal(await page.evaluate(()=>window.VDuckieHskStudyJourney.wordStats().remembered),0);}
+ for(const page of [p,q]){const j=await journal(page);assert.equal(j.lessons.legacy_guest.completedAt,123);assert.ok(j.lessons['hsk1-lesson-01'].content.words);assert.ok(j.lessons['hsk2-lesson-15'].content.words);assert.equal((await memory(page)).remembered,0);}
  evidence.checks.push('two devices merge independent lesson progress and preserve old completion without mastery');
- await p.locator('[data-hsk-review-open]').first().click();await p.locator('[data-hsk-review-reveal]').click();
- assert.match(await p.locator('[data-hsk-recall-feedback]').innerText(),/Chưa đánh giá ghi nhớ/);assert.equal(await p.evaluate(()=>window.VDuckieHskStudyJourney.wordStats().remembered),0);
+ await p.locator('[data-hsk-review-open]:visible').first().click();await p.locator('[data-hsk-review-reveal]').click();
+ assert.match(await p.locator('[data-hsk-recall-feedback]').innerText(),/Chưa đánh giá ghi nhớ/);assert.equal((await memory(p)).remembered,0);
  assert.equal((await p.evaluate(()=>window.__learningAuth.state.rpc)).filter(r=>/award/.test(r.name)).length,0,'revealing an answer must not award EXP');
  evidence.checks.push('answer reveal cannot award memory or EXP');
  await p.screenshot({path:path.join(out,'desktop-recall.png')});
@@ -68,6 +69,15 @@ try{
  await q.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await q.locator('[data-practice-open]').first().click();assert.match(await q.locator('[data-practice-start="1"]').innerText(),/đang dở/);await q.locator('[data-practice-start="1"]').click();
  assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
  evidence.checks.push('unfinished practice answer and original timer resume on mobile');
+ // Daily Learning uses its current UI/store, including a wrong answer due for review.
+ await p.evaluate(()=>window.VDuckieDailyLearning.show('daily'));
+ for(let i=0;i<3;i++)await p.locator('#dailyLearningPanel [data-session-next]').click();
+ await p.locator('#dailyLearningPanel [data-answer]').first().click();await flush(p);await flush(q);
+ const daily=await p.evaluate(()=>window.VDuckieDailyLearning.getState());
+ const mobileDaily=await q.evaluate(()=>window.VDuckieDailyLearning.getState());
+ for(const [id,item] of Object.entries(daily.words))assert.deepEqual(mobileDaily.words[id],item);
+ assert.ok(Object.values(daily.words).some(w=>w.lastReviewed));
+ evidence.checks.push('Daily answer, due date and history sync through the existing store');
  // Return to an already cached lesson, then exercise real browser offline status/cache.
  await lesson(p,1,'hsk1-lesson-01');await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await ready(p);
  await p.waitForFunction(async()=>!!(await caches.match(new URL('./.learning-offline-ready-progress-sync1',location.href).href)));
@@ -85,5 +95,5 @@ try{
  for(const dev of [desktop,mobile]){const overflow=await dev.page.evaluate(()=>Math.max(0,document.documentElement.scrollWidth-innerWidth));assert.ok(overflow<=2);}
  assert.deepEqual(evidence.errors,[]);evidence.status='pass';
 }catch(error){evidence.status='fail';evidence.failure={message:error.message,stack:error.stack};for(let i=0;i<contexts.length;i++)for(const page of contexts[i].pages()){await page.screenshot({path:path.join(out,'failure-device-'+i+'.png')}).catch(()=>{});}throw error;}
-finally{await writeFile(path.join(out,'journeys.json'),JSON.stringify(evidence,null,2));for(const c of contexts)await c.close();await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
+finally{await writeFile(path.join(out,'journeys.json'),JSON.stringify(evidence,null,2));for(let i=0;i<contexts.length;i++){await contexts[i].tracing.stop({path:path.join(out,'device-'+i+'.zip')});await contexts[i].close();}await browser.close();server.closeAllConnections();await new Promise(r=>server.close(r));}
 console.log(JSON.stringify(evidence));
