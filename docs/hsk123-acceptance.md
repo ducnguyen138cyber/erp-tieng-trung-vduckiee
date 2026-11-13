@@ -25,3 +25,9 @@ CI/Preview cuối cùng sẽ được bổ sung sau khi chạy bản sửa này;
 Giới hạn kiểm thử local: suite toàn website có các test tự gọi Chromium bị môi trường chặn socket/ptrace. Không dùng kết quả local đó làm bằng chứng browser; bộ browser/full regression được chạy trên GitHub CI, không bỏ các test thất bại.
 
 Lần chạy CI `af6b25e`: HSK Content Quality đã xanh; harness game có trace toàn lượt gây nhiễu phép đo (snapshot tracing làm tăng rAF p95 lên 150ms dù scripting ~194ms), rồi dừng assertion hoàn thành từ ở baseline. Đã giới hạn trace vào bước khởi động/chọn/bắt đầu và dừng trước phép đo, giữ nguyên tất cả budget. Không dùng số liệu có trace trong phép đo để kết luận game bị regression. Cần chạy CI lại bản chỉnh này.
+
+Browser harness hỗ trợ `workflow_dispatch.preview_url` để chạy đúng 18 hành trình trên Cloudflare Preview bất biến, ngoài CI local-build thông thường. Các bytes của professional runtime được so với commit checkout để tránh thử nhầm bản cũ. Tài khoản thử trong lượt nghiệm thu này là guest cô lập, ranh giới Supabase được mock; không tuyên bố đã thử đồng bộ tài khoản thật.
+
+## Checkpoint CI đã hoàn thành
+
+Commit `3827fb77`: HSK Content Quality, Sidebar stability, Typing game browser verification (cả performance), HSK learner browser contracts, HSK224 và Public Load đều **success**. 116 test Node liên quan + 3 test Python local đạt. Chưa merge: đang bổ sung lượt nghiệm thu trên đúng Cloudflare Preview cho desktop/mobile; CI mới đọc check deployment theo head SHA và đối chiếu bytes runtime, không dùng Preview nhánh có thể trôi phiên bản.

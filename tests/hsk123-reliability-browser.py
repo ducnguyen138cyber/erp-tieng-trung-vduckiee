@@ -1,5 +1,5 @@
 """18 real-browser sampled learner journeys. Run in GitHub CI, isolated guest storage."""
-import json, threading, hashlib
+import json, threading, hashlib, os
 from http.server import ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
@@ -8,7 +8,8 @@ from helpers.hsk_browser_smoke import Handler,AUTH,ready,ROOT
 out=ROOT/'artifacts/hsk123-reliability';out.mkdir(parents=True,exist_ok=True)
 server=ThreadingHTTPServer(('127.0.0.1',0),lambda *a,**k:Handler(*a,directory=str(ROOT),**k))
 threading.Thread(target=server.serve_forever,daemon=True).start()
-base=f'http://127.0.0.1:{server.server_port}/'
+base=os.environ.get('HSK123_PREVIEW_URL') or f'http://127.0.0.1:{server.server_port}/'
+base=base.rstrip('/')+'/'
 results=[]
 try:
  with sync_playwright() as p:
@@ -31,7 +32,7 @@ try:
      assert page.locator('[data-focus-word]').count()>0
      if label=='desktop' and level==1 and lesson==lessons[0]:
       assets=[]
-      for file in ['assets/v90/exp-core-v90.js','assets/v92/progress-store-v92.js','assets/v90/exp-leaderboard-v90.js','assets/v106/mascot-polish-v106.js']:
+      for file in ['assets/v90/exp-core-v90.js','assets/v92/progress-store-v92.js','assets/v90/exp-leaderboard-v90.js','assets/v106/mascot-polish-v106.js','assets/hsk-content/hsk-professional-runtime.js']:
        urls=page.locator(f'script[src*="{file}"]').evaluate_all('(els)=>els.map(el=>el.src)');assert len(urls)==1,(file,urls)
        response=next(r for r in asset_responses if r.url==urls[0]);assert response.status==200
        body=response.body();assert body==(ROOT/file).read_bytes(),file+' response must be the actual deployed script'

@@ -3,11 +3,17 @@ on:
   pull_request:
     paths: ['assets/hsk-content/**','assets/navigation/**','assets/interface/**','tests/hsk*-learner-browser-smoke*','tests/hsk123-reliability-browser.py','tests/helpers/hsk_browser_smoke.py','tests/runtime-readiness-recovery.test.cjs','scripts/hsk1-production-readiness-audit.js','index.html','app-shell-v88.html','.github/workflows/hsk-recovery-browser.yml']
   workflow_dispatch:
+    inputs:
+      preview_url:
+        description: Optional immutable Cloudflare Preview URL for HSK1–3 acceptance
+        required: false
+        type: string
 concurrency:
   group: hsk-learner-${{ github.ref }}
   cancel-in-progress: true
 permissions:
   contents: read
+  checks: read
 jobs:
   learner:
     runs-on: ubuntu-24.04
@@ -22,7 +28,28 @@ jobs:
       - run: python -m playwright install --with-deps chromium
       - name: HSK 3–4 lessons, tabs, exercises and assessments; HSK 5–6 public locks
         run: node --test --test-concurrency=1 tests/hsk3-learner-browser-smoke.test.js tests/hsk4-learner-browser-smoke.test.js tests/hsk5-learner-browser-smoke.test.js tests/hsk6-learner-browser-smoke.test.js
+      - name: Resolve successful immutable Cloudflare Preview for this PR head
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ref = context.payload.pull_request.head.sha;
+            for (let attempt=0; attempt<30; attempt++) {
+              const {data} = await github.rest.checks.listForRef({...context.repo, ref});
+              const check = data.check_runs.find(c => c.name === 'Cloudflare Pages');
+              const url = check?.output?.summary?.match(/https:\/\/[a-z0-9]+\.vduckie\.pages\.dev/)?.[0];
+              if (check?.conclusion === 'success' && url) {
+                core.exportVariable('HSK123_PREVIEW_URL', url);
+                core.info('Acceptance Preview: '+url+'; head '+ref);
+                return;
+              }
+              if (check?.conclusion && check.conclusion !== 'success') throw new Error('Cloudflare deployment failed: '+check.conclusion);
+              await new Promise(resolve => setTimeout(resolve, 2000));
+            }
+            throw new Error('No successful Cloudflare Preview for the exact PR head');
       - name: HSK1–3 first/middle/last journeys on desktop and mobile
+        env:
+          HSK123_PREVIEW_URL: ${{ inputs.preview_url || env.HSK123_PREVIEW_URL }}
         run: python tests/hsk123-reliability-browser.py
       - uses: actions/upload-artifact@v4
         if: always()
