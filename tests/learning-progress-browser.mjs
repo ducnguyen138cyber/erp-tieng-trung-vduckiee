@@ -37,7 +37,7 @@ async function device(name,viewport,legacy){
  await page.goto(base+'?screen=hsk&hskLevel=1&hskLesson=hsk1-lesson-01&area=hsk#hsk');await ready(page);
  return {page,context,name};
 }
-async function ready(page){await page.locator('[data-focus-stage="words"]').waitFor();await page.waitForFunction(()=>window.VDuckieAccountSyncUtils?.identity()==='00000000-0000-4000-8000-000000000111');await flush(page);await page.waitForFunction(()=>!!window.VDuckieHskStudyJourney);}
+async function ready(page){await page.locator('[data-focus-stage="words"]').waitFor();await page.waitForFunction(()=>window.VDuckieAccountSyncUtils?.identity()==='00000000-0000-4000-8000-000000000111');await flush(page);await page.waitForFunction(()=>!!window.VDuckieHskStudyJourney);const expected=new URL(page.url()).searchParams.get('hskLesson');if(expected)await page.waitForFunction(id=>window.VDuckieHskStudyFlow?.getCurrent()?.lessonId===id,expected);}
 async function memory(page){const value=await page.waitForFunction(()=>window.VDuckieHskStudyJourney?.wordStats());return value.jsonValue();}
 async function flush(page){await page.evaluate(async()=>{await window.VDuckieAccountSyncUtils.flush();});}
 async function lesson(page,level,id){await page.goto(base+`?screen=hsk&hskLevel=${level}&hskLesson=${id}&area=hsk#hsk`);await ready(page);}
@@ -58,7 +58,7 @@ try{
  await p.screenshot({path:path.join(out,'desktop-recall.png')});
  await flush(p);await flush(q);await q.reload();await ready(q);
  const mobileJournal=await journal(q);assert.ok(mobileJournal.reviews['3:努力'].recallEvents);
- await q.screenshot({path:path.join(out,'mobile-resume.png')});
+ assert.equal(await q.evaluate(()=>window.VDuckieHskStudyFlow.getCurrent().lessonId),'hsk2-lesson-15');
  // Shadowing is exercised through the actual screen/menu and buttons.
  await p.getByRole('button',{name:/Luyện nghe & Shadowing/}).first().click();await p.locator('[data-shadow-star]').waitFor();
  await p.locator('[data-shadow-star]').click();await p.locator('[data-shadow-next]').click();await flush(p);await flush(q);
@@ -69,6 +69,7 @@ try{
  await p.locator('[data-practice-answer]').first().check();await flush(p);await flush(q);
  await q.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await q.locator('[data-practice-open]').first().click();assert.match(await q.locator('[data-practice-start="1"]').innerText(),/đang dở/);await q.locator('[data-practice-start="1"]').click();
  await q.locator('[data-practice-answer]').first().waitFor();assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
+ await q.locator('[data-practice-answer]').first().scrollIntoViewIfNeeded();await q.screenshot({path:path.join(out,'mobile-resume.png')});
  evidence.checks.push('unfinished practice answer and original timer resume on mobile');
  // Daily Learning uses its current UI/store, including a wrong answer due for review.
  const dailyTargets=[];

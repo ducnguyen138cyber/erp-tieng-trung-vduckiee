@@ -33,6 +33,14 @@ Tiếp tục dùng `public.user_words` và hồ sơ v82, không tạo bảng/mig
 6. Giữ nguyên quality gate và trạng thái kiểm duyệt. Daily công xưởng giữ tên stage cũ; các stage này không được nhập thành bằng chứng mastery HSK. Không thêm/chỉnh corpus trong PR này.
 7. Sửa runner hậu triển khai visuals sang Ubuntu24.04 vì ubuntu-latest26.04 không hỗ trợ Playwright1.58.2 đang ghim. Job main sau merge123 đã lỗi ở cài Chromium; không phải bằng chứng hình ảnh Production bị hỏng. Fix chỉ có hiệu lực main sau khi PR124 được nghiệm thu/merge.
 
+## Kết quả browser đã chạy
+
+Head `1c0af8c` chạy trên Preview bất biến `https://0a4a6306.vduckie.pages.dev/`: cả 3 job merge/recall, RLS và browser đạt (run `43387666627`). 7 nhóm kiểm tra browser đạt, 0 page error; một xung đột ghi thực sự được thử lại thành công. Browser xác nhận index.html đã cache có redirected=true; chuẩn hóa response đã giúp reload offline và nối lại đồng bộ thành công. 82 test Node liên quan (72 + 10 service worker) local đạt. Ảnh/trace/journeys trong artifact `14019232109`.
+
+Các sửa từ browser: mirror lượt xem/cài đặt chỉ đổi timestamp không tải lại bài đang học; Shadowing theo dõi chủ tài khoản ngay cả khi chưa mở; Daily giữ cả hai lượt sai trên hai thiết bị; khoảng trống nút điều hướng tránh Duckie Chat; thiếu dữ liệu nét không phát unhandled rejection và vẫn học tiếp. Không nới timeout hoặc bỏ assertion kiểm tra lỗi.
+
+Head tiếp theo bổ sung xác nhận **bài thực sự đang hiển thị sau reload** phải khớp lessonId trong URL (không chỉ đọc localStorage) và chụp ảnh điện thoại ở bài luyện đã tiếp tục. Kết quả head cuối cùng/CI hồi quy ghi tại PR.
+
 ## Trạng thái bàn giao
 
 PR đang Draft; hoàn thành browser/regression và cập nhật mô tả PR trước khi xin nghiệm thu. Không tự merge PR124. Các giới hạn Auth thật/offline lạnh cần được xác minh trước khi tuyên bố toàn bộ yêu cầu đồng bộ đa thiết bị đã đạt.
