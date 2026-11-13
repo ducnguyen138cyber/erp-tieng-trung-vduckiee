@@ -66,3 +66,14 @@ test('Daily concurrent answers for the same word retain both attempts and do not
  assert.equal(m.stable(m.daily({words:{word:out}},{words:{word:out}}).words.word),m.stable(out));
  assert.ok(out.nextReview>out.lastReviewed);
 });
+
+
+test('legacy flashcard SRS, section visits and exercise results retain disjoint records despite different field clocks',()=>{
+ const cases=[['vduckie-review-srs-v1','words',{correctCount:3,wrongCount:1,lastReviewedAt:10,nextReviewAt:20}],['vduckie-exercise-results-v1','items',{attempts:3,correct:2,wrong:1,lastAt:10,bestScore:80}],['vduckie-hsk-section-progress-v1','lessons',{sections:{words:{completedAt:10,visits:2,lastVisitedAt:10}},updatedAt:10}]];
+ for(const [key,field,item] of cases){
+  const a={updatedAt:20,[field]:{A:item}},b={updatedAt:100,[field]:{B:item}};let merged=m.merge(key,a,b,20,100);
+  assert.deepEqual(merged[field].A,item,key+' must keep all old fields');assert.deepEqual(merged[field].B,item);assert.equal(m.stable(merged),m.stable(m.merge(key,b,a,100,20)));assert.equal(m.stable(merged),m.stable(m.merge(key,merged,merged)));
+ }
+ const k='vduckie-review-srs-v1',out=m.merge(k,{words:{word:{correctCount:5,wrongCount:2,lastReviewedAt:10,nextReviewAt:100}}},{words:{word:{correctCount:4,wrongCount:3,lastReviewedAt:20,nextReviewAt:30}}});
+ assert.equal(out.words.word.correctCount,5);assert.equal(out.words.word.wrongCount,3);assert.equal(out.words.word.nextReviewAt,30);assert.ok(!out.words.word.spacedRecalls,'legacy counts cannot create spaced-memory evidence');
+});

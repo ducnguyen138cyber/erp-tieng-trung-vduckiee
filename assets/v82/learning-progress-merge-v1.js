@@ -6,7 +6,7 @@
  function copy(v){return JSON.parse(JSON.stringify(v==null?{}:v));}
  function keys(v){return Object.keys(obj(v)).filter(function(k){return !['__proto__','constructor','prototype'].includes(k);});}
  function stable(v){return Array.isArray(v)?'['+v.map(stable).join(',')+']':v&&typeof v==='object'?'{'+keys(v).sort().map(function(k){return JSON.stringify(k)+':'+stable(v[k]);}).join(',')+'}':JSON.stringify(v);}
- function stamp(v,fallback){v=obj(v);return Number(v.updatedAt||v.at||v.lastAt||v.lastReviewed)||Date.parse(v.date||v.submittedAt||'')||Number(fallback)||0;}
+ function stamp(v,fallback){v=obj(v);return Number(v.updatedAt||v.at||v.lastAt||v.lastReviewed||v.lastReviewedAt||v.lastVisitedAt)||Date.parse(v.date||v.submittedAt||'')||Number(fallback)||0;}
  function newer(a,b,ta,tb){a=obj(a);b=obj(b);if(!keys(a).length)return copy(b);if(!keys(b).length)return copy(a);var x=stamp(a,ta),y=stamp(b,tb);return copy(x>y?a:y>x?b:stable(a)>stable(b)?a:b);}
  function union(a,b){var out=Object.create(null);keys(a).concat(keys(b)).forEach(function(k){if(a&&a[k]!==undefined&&b&&b[k]!==undefined)out[k]=newer(a[k],b[k]);else out[k]=copy((a&&a[k])||(b&&b[k]));});return out;}
  function numericMap(a,b){var out={};keys(a).concat(keys(b)).forEach(function(k){out[k]=Math.max(Number(a&&a[k])||0,Number(b&&b[k])||0);});return out;}
@@ -85,7 +85,18 @@
  function daily(a,b,ta,tb){a=obj(a);b=obj(b);var out=newer(a,b,ta,tb);out.updatedAt=Math.max(stamp(a,ta),stamp(b,tb));out.words={};keys(a.words).concat(keys(b.words)).forEach(function(k){out.words[k]=mergeDailyWord(obj(a.words)[k],obj(b.words)[k],a.updatedAt||ta,b.updatedAt||tb);});out.assignments=Object.assign({},obj(a.assignments),obj(b.assignments));out.msutong=newer(a.msutong,b.msutong,a.updatedAt||ta,b.updatedAt||tb);['lessons','review'].forEach(function(k){out.msutong[k]=latestMap(obj(a.msutong)[k],obj(b.msutong)[k],a.updatedAt||ta,b.updatedAt||tb);});out.msutong.completed=Object.assign({},obj(obj(a.msutong).completed),obj(obj(b.msutong).completed));
   if(root&&root.VDuckieCurriculumProgress)out.msutong=root.VDuckieCurriculumProgress.merge(Object.assign({updatedAt:a.updatedAt},obj(a.msutong)),Object.assign({updatedAt:b.updatedAt},obj(b.msutong)));
   return out;}
- var stores={'vduckie-hsk-study-journey-v1':journal,'vduckie-shadowing-v1':shadow,'vduckie-hsk-practice-exams-v2':practice,'vduckie-daily-learning-v1':daily};
+ // Older stores have aggregates rather than event IDs. Preserve every key and
+ // monotonic count; do not invent individual attempts or new mastery evidence.
+ function legacyRecords(a,b,ta,tb,field){
+  a=obj(a);b=obj(b);var out=newer(a,b,ta,tb);out.updatedAt=Math.max(stamp(a,ta),stamp(b,tb));out[field]={};
+  keys(a[field]).concat(keys(b[field])).forEach(function(k){
+   var x=obj(obj(a[field])[k]),y=obj(obj(b[field])[k]),item=newer(x,y,ta,tb);
+   ['attempts','correct','wrong','correctCount','wrongCount','bestScore','visits','completedAt'].forEach(function(counter){if(x[counter]!==undefined||y[counter]!==undefined)item[counter]=Math.max(Number(x[counter])||0,Number(y[counter])||0);});
+   if(x.sections||y.sections)item.sections=legacyRecords(x,y,stamp(x,ta),stamp(y,tb),'sections').sections;
+   out[field][k]=item;
+  });return out;
+ }
+ var stores={'vduckie-review-srs-v1':function(a,b,ta,tb){return legacyRecords(a,b,ta,tb,'words');},'vduckie-exercise-results-v1':function(a,b,ta,tb){return legacyRecords(a,b,ta,tb,'items');},'vduckie-hsk-section-progress-v1':function(a,b,ta,tb){return legacyRecords(a,b,ta,tb,'lessons');},'vduckie-hsk-study-journey-v1':journal,'vduckie-shadowing-v1':shadow,'vduckie-hsk-practice-exams-v2':practice,'vduckie-daily-learning-v1':daily};
  function merge(key,a,b,ta,tb){return stores[key]?stores[key](a,b,ta,tb):null;}
  async function persistRow(options){
   var value=options.value;

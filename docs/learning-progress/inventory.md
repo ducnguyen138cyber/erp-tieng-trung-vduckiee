@@ -16,6 +16,10 @@ Project `vduckie-chinese` hoạt động. `public.user_words` bật RLS. SELECT/
 
 Advisors không báo thiếu RLS trên bảng này. Có cảnh báo ngoài phạm vi về các RPC EXP/BXH có SECURITY DEFINER và cấu hình mật khẩu; không tự sửa quyền hoặc tính năng đó. RLS metadata không thay thế ca thử thực tế với hai tài khoản. Không tạo schema hoặc thay dữ liệu Production trong bước kiểm kê.
 
+## Bổ sung kiểm kê kho tiến độ cũ
+
+Ngoài journal tự học, vẫn có `vduckie-review-srs-v1.words`, `vduckie-exercise-results-v1.items` và `vduckie-hsk-section-progress-v1.lessons[].sections`. Đây là các bộ đếm/lịch ôn legacy dùng cả trong module bổ trợ. Hợp nhất theo từng từ/câu/bài và giữ bộ đếm tối đa, không để timestamp cấp hồ sơ làm mất toàn bộ từ/bài ở thiết bị kia. Không suy diễn aggregate cũ thành lịch sử sự kiện chính xác, không biến chúng thành bằng chứng nhớ cách ngày. Lịch của cùng một từ theo lần ôn mới nhất; ID/hình thức dữ liệu giữ nguyên.
+
 ## Kiểm thử đang triển khai
 
 Hai thiết bị/hai danh tính cô lập, dữ liệu cũ, xung đột, cập nhật đồng thời, đăng xuất/đăng nhập, offline/reconnect; nhớ lại 1–3–7 ngày và xem đáp án không được thành thạo. Phân biệt rõ fixture browser với đăng nhập tài khoản Supabase thật trong báo cáo nghiệm thu.
