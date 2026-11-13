@@ -39,3 +39,38 @@ node --test tests/hsk123-reliability.test.cjs
 ## Remaining implementation and validation
 
 Checkpoint 1: inventory + deterministic checks + confirmed/suspected evidence. Next: remove unsafe grading, fix verified representation defects, add regression tests and review workflow validation; then desktop/mobile journeys for first/middle/last lessons. Browser/CI results, repaired counts, pass rates, provenance verification and preview will be appended. **Task not yet accepted; browser journeys have not yet been run for this branch.**
+
+## Checkpoint 2–3: repairs and QA implemented (2026-11-13)
+
+- **2,119 unique records edited** with per-field before/after and reasons in `hsk123-content-changes.json`. Existing IDs, authored Hanzi, tone-mark Pinyin and vocabulary meanings are preserved.
+- Corrected **474** numbered Pinyin representations (112 HSK2, 362 HSK3); only conversion of existing authored tones, not guessed new pronunciations.
+- Removed **1,474** unsupported review labels (1,341 canonical HSK1 records + 133 enrichment entries). They now explicitly say `unreviewed`. Previous values remain in the change ledger. C1/C2 editorial generators no longer assign linguistic-review labels themselves.
+- **21 Critical** HSK3 source/key mismatches now use the meaning of the existing grammar example as the actual task, and rubric self-review. The unrelated source has been removed; no wrong automatic key remains.
+- **12 High** HSK3 listening prompts were subsequently confirmed mismatched against their lesson's actual listening answerKey. They now ask the corresponding detail question and self-review meaning, rather than claiming sequence/attitude assessment.
+- Concealed **52** listening transcripts before answering. Runtime also defaults to concealing scripts for all HSK1–3 listening exercises, preventing omission of metadata from reintroducing the leak.
+- Restored four missing HSK1 reading-evidence rubrics; removed redundant equivalent answer entries. Open production/explanation/semantic listening answers use explicit self-review and retain valid models as references after submission. Literal dictation and finite choices still grade normally.
+- Mastery for HSK1–3 now requires independent, version-bound reviewer evidence. Historical completion is preserved; no canonical learner-data migration, account or storage-format change. HSK4 retains its previous public behavior; HSK5–6 remain locked.
+- Review policy validates ordered events, content hashes/versions, reviewer/date/reference/independence, and separate approver for approval. Current review events are **empty**. Optional attestation schema fields do not create a review or unlock production.
+- CI now regenerates the reliability report and checks its committed snapshot. New regressions exercise real DOM conceal/reveal, wrong-key refusal for open tasks, explicit finite grading, non-certifying legacy labels, stale/fabricated event rejection, and preserved old completion.
+
+### Correction examples
+
+| ID | Hán / Pinyin / Việt | Before | After |
+|---|---|---|---|
+| `hsk2-v-0101` | 门口 · ménkǒu · cửa ra vào | `menkou3` loses mén's tone | `men2 kou3`; authored Hanzi/Pinyin/meaning unchanged |
+| `hsk3-v-0201` | 健康 · jiànkāng · sức khỏe; khỏe mạnh | `jiankang1` loses jiàn's tone | `jian4 kang1`; authored Hanzi/Pinyin/meaning unchanged |
+| `hsk3-lesson-04-exercise-2` | 我终于找到了护照。 · Wǒ zhōngyú zhǎodào le hùzhào. · Cuối cùng tôi đã tìm thấy hộ chiếu. | Accepted this unrelated answer while asking to rewrite a statement about improving listening | Task now explicitly asks to express the matching Vietnamese meaning with the result complement; example is a reference after submission, rubric does not impose one correct string |
+
+### Metrics and limitations
+
+Current mechanical checks: **2,906/2,906 canonical records pass the implemented checks (100%)**. Another **833 enrichment entries** have shape/review-label checks (133/200/500 by level); they are not extra canonical words. Independently reviewed: **0/2,906 (0%)**, and no independent review asserted for enrichment.
+
+Confirmed corpus findings identified so far: **21 Critical, 2,016 High, 124 Low** rule occurrences (includes later discoveries); all corrected in the checked scope. This counts issue occurrences, not 2,161 different wrong sentences. Remaining machine linguistic triage: **326 suspects** (41 conservative alignment failures, 285 character-reading differences). Many are valid 儿化, neutral tones or sandhi; these are not 326 confirmed pronunciation errors.
+
+Specialist queue: verify the 326 phonetic flags by context, the 21 repaired grammar tasks' teaching fit, 12 corrected listening tasks, all open-answer rubrics and models, and contextual Hanzi/Pinyin/meaning/grammar/dialogue/level fit not certified by schema. Existing lesson-objectives such as hearing four tones are not proved by a number dictation alone. Listening uses draft TTS, not independently verified recordings. Dictionary/Shadowing do not consume numbered-Pinyin fields or exercise answer keys; their existing Hanzi, marked Pinyin and meanings were not altered. No claim that their entire linguistic content is correct.
+
+The historical C2 patch document is retained as provenance, not a new review signature. Legacy HSK2/3 corpus generators can still overwrite editorial corrections if run indiscriminately; the new corpus audit/regression is the merge guard. Do not regenerate the corpus wholesale to apply this PR.
+
+Primary machine-tool reference: https://github.com/mozillazg/python-pinyin (pinned 0.55.0). Machine dictionary readings are triage references, not independent professional evidence.
+
+Local relevant regression: **74 tests passed, 0 failed** at checkpoint 2–3. The earlier test demanding `linguistic-reviewed` by label was corrected to require honest `unreviewed` machine-assisted content, with new independent-evidence regressions; it was not skipped. Whole repository schema validation: 10,695 records, 0 errors (this is structural validation only, not a semantic audit of HSK4+). Desktop/mobile browser sampling and CI are still pending at this checkpoint.

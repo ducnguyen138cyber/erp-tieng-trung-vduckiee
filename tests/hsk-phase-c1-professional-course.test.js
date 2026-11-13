@@ -156,7 +156,8 @@ test("grammar records explain form, meaning, position, correct use and Vietnames
     assert.ok(record.correctExamples.length >= 2, record.id);
     assert.ok(record.incorrectExamples.length >= 1, record.id);
     assert.ok(record.commonErrorsVi.length >= 1, record.id);
-    assert.ok(["linguistic-reviewed", "c2-editorial-reviewed"].includes(record.reviewStatus), record.id);
+    assert.equal(record.reviewStatus, "unreviewed", record.id + ": editorial completeness is not independent review");
+    assert.equal(record.contentStatus, "machine-assisted", record.id);
   }
 });
 

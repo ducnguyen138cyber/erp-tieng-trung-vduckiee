@@ -17,7 +17,11 @@
     },
     "sourceRef": {
       "type": "object",
-      "required": ["sourceId", "fields", "locator"],
+      "required": [
+        "sourceId",
+        "fields",
+        "locator"
+      ],
       "properties": {
         "sourceId": {
           "type": "string",
@@ -40,14 +44,28 @@
       "additionalProperties": false
     },
     "contentStatus": {
-      "enum": ["planned", "draft", "machine-assisted", "human-reviewed", "production-ready", "fixture"]
+      "enum": [
+        "planned",
+        "draft",
+        "machine-assisted",
+        "human-reviewed",
+        "production-ready",
+        "fixture"
+      ]
     },
     "translationReviewStatus": {
-      "enum": ["draft", "machine-assisted", "human-reviewed"]
+      "enum": [
+        "draft",
+        "machine-assisted",
+        "human-reviewed"
+      ]
     },
     "ref": {
       "type": "object",
-      "required": ["id", "path"],
+      "required": [
+        "id",
+        "path"
+      ],
       "properties": {
         "id": {
           "$ref": "#/$defs/id"
@@ -61,10 +79,16 @@
     },
     "reviewMetadata": {
       "type": "object",
-      "required": ["reviewStage", "reviewReason"],
+      "required": [
+        "reviewStage",
+        "reviewReason"
+      ],
       "properties": {
         "firstIntroducedIn": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "reviewStage": {
           "type": "integer",
@@ -75,7 +99,10 @@
           "minLength": 3
         },
         "previousExerciseId": {
-          "type": ["string", "null"]
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "additionalProperties": false
@@ -155,7 +182,10 @@
       "minLength": 3
     },
     "traditional": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "pinyin": {
       "type": "string",
@@ -190,7 +220,10 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["context", "meaningVi"],
+        "required": [
+          "context",
+          "meaningVi"
+        ],
         "properties": {
           "context": {
             "type": "string",
@@ -208,7 +241,10 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["zh", "vi"],
+        "required": [
+          "zh",
+          "vi"
+        ],
         "properties": {
           "zh": {
             "type": "string",
@@ -230,7 +266,10 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["zh", "vi"],
+        "required": [
+          "zh",
+          "vi"
+        ],
         "properties": {
           "zh": {
             "type": "string",
@@ -241,7 +280,10 @@
             "minLength": 1
           },
           "sourceType": {
-            "enum": ["original", "quoted-short"]
+            "enum": [
+              "original",
+              "quoted-short"
+            ]
           }
         },
         "additionalProperties": false
@@ -261,7 +303,10 @@
       }
     },
     "measureWord": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "usageNoteVi": {
       "type": "string",
@@ -274,13 +319,29 @@
       }
     },
     "knowledgeStatus": {
-      "enum": ["new", "review", "reinforcement", "extension"]
+      "enum": [
+        "new",
+        "review",
+        "reinforcement",
+        "extension"
+      ]
     },
     "register": {
-      "enum": ["colloquial", "neutral", "formal", "literary", "technical"]
+      "enum": [
+        "colloquial",
+        "neutral",
+        "formal",
+        "literary",
+        "technical"
+      ]
     },
     "sentiment": {
-      "enum": ["positive", "neutral", "negative", "context-dependent"]
+      "enum": [
+        "positive",
+        "neutral",
+        "negative",
+        "context-dependent"
+      ]
     },
     "commonErrorsVi": {
       "type": "array",
@@ -289,7 +350,10 @@
       }
     },
     "characterDecomposition": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "sourceIds": {
       "$ref": "#/$defs/sourceIds"
@@ -319,7 +383,10 @@
       "uniqueItems": true
     },
     "audioRef": {
-      "type": ["string", "null"]
+      "type": [
+        "string",
+        "null"
+      ]
     },
     "contentStatus": {
       "$ref": "#/$defs/contentStatus"
@@ -328,11 +395,59 @@
       "$ref": "#/$defs/translationReviewStatus"
     },
     "reviewStatus": {
-      "enum": ["unreviewed", "linguistic-reviewed", "pedagogy-reviewed", "approved"]
+      "enum": [
+        "unreviewed",
+        "linguistic-reviewed",
+        "pedagogy-reviewed",
+        "approved"
+      ]
     },
     "contentVersion": {
       "type": "integer",
       "minimum": 1
+    },
+    "reviewEvidence": {
+      "type": "object",
+      "required": [
+        "status",
+        "independent",
+        "reviewerId",
+        "reviewedAt",
+        "reference",
+        "contentVersion"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "human-reviewed",
+            "approved"
+          ]
+        },
+        "independent": {
+          "const": true
+        },
+        "reviewerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewedAt": {
+          "type": "string",
+          "minLength": 10
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "approverId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

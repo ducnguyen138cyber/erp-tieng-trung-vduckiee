@@ -332,6 +332,14 @@
     return sectionCard(section.titleVi || section.type || 'Nội dung', chunks.join(''));
   }
 
+  function auditedLevel(exercise) { var level=Number(exercise.hskLevel); return level>=1&&level<=3; }
+  function independentReview(exercise) {
+    var e=exercise&&exercise.reviewEvidence;
+    return !!(e&&e.independent===true&&text(e.reviewerId)&&text(e.reference)&&
+      Number.isFinite(Date.parse(e.reviewedAt))&&e.contentVersion===exercise.contentVersion&&
+      ['human-reviewed','approved'].indexOf(e.status)>=0&&
+      (e.status!=='approved'||(text(e.approverId)&&e.approverId!==e.reviewerId)));
+  }
   function hsk23Exercise(exercise) { return Number(exercise.hskLevel) === 2 || Number(exercise.hskLevel) === 3; }
   function matchingPairs(exercise) {
     if (!hsk23Exercise(exercise) || !Array.isArray(exercise.answer)) return [];
@@ -347,8 +355,8 @@
   function exerciseStimulus(exercise) {
     var s = exercise.stimulus || {};
     var html = '';
-    if (s.scriptZh) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN"'+(hsk23Exercise(exercise)&&s.transcriptVisibility==='after-answer'?' hidden data-pro-transcript':'')+'>' + esc(s.scriptZh) + '</pre>' + speakButton(s.scriptZh, 'Nghe bằng TTS') + '</div>';
-    if (hsk23Exercise(exercise)) ['clozeZh','sourceZh','incorrectZh','dialogueContextZh'].forEach(function(key) { if (s[key]) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN">'+esc(s[key])+'</pre></div>'; });
+    if (s.scriptZh) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN"'+((auditedLevel(exercise)&&exercise.skill==='listening')||(hsk23Exercise(exercise)&&s.transcriptVisibility==='after-answer')?' hidden data-pro-transcript':'')+'>' + esc(s.scriptZh) + '</pre>' + speakButton(s.scriptZh, 'Nghe bằng TTS') + '</div>';
+    if (auditedLevel(exercise)||hsk23Exercise(exercise)) ['clozeZh','sourceZh','sentenceZh','contextZh','incorrectZh','dialogueContextZh','meaningVi','targetStructureVi'].forEach(function(key) { if (s[key]) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN">'+esc(s[key])+'</pre></div>'; });
     if (s.textZh) html += '<div class="hsk-pro-reading" lang="zh-CN">' + esc(s.textZh) + '</div>';
     if (s.dialogueZh) html += '<div class="hsk-pro-stimulus"><pre lang="zh-CN">' + esc(s.dialogueZh) + '</pre></div>';
     if (array(s.tokens).length) html += '<div class="hsk-pro-tokens">' + s.tokens.map(function (token) { return '<span>' + esc(token) + '</span>'; }).join('') + '</div>';
@@ -382,7 +390,7 @@
 
   function renderPractice(data, lesson) {
     var exercises = array(lesson.practiceRefs).map(function (id) { return data.exerciseById[id]; }).filter(Boolean);
-    var needsReview = exercises.filter(function(exercise) { return !['linguistic-reviewed','verified'].concat(hsk23Exercise(exercise)?['approved']:[]).includes(exercise.reviewStatus); }).length;
+    var needsReview = exercises.filter(function(exercise) { return auditedLevel(exercise)?!independentReview(exercise):!['linguistic-reviewed','verified'].concat(hsk23Exercise(exercise)?['approved']:[]).includes(exercise.reviewStatus); }).length;
     var qualityNotice = needsReview ? '<p class="hsk-pro-quality-note">Lưu ý: ' + needsReview + '/' + exercises.length + ' câu trong bài chưa được kiểm định ngôn ngữ đầy đủ. Hãy dùng đáp án để tự luyện, không coi là đề thi chuẩn.</p>' : '';
     return sectionCard('Bài tập của bài học', '<p class="hsk-pro-help">Làm bài và bấm Kiểm tra từng câu. Nhật ký tự học được lưu riêng; đây không phải điểm thi HSK chính thức.</p>' + qualityNotice + '<div class="hsk-pro-exercises">' + exercises.map(function (exercise) { return renderExercise(exercise, false); }).join('') + '</div>', 'hsk-pro-practice');
   }
@@ -616,7 +624,7 @@
       }
       article.querySelectorAll('[data-pro-transcript]').forEach(function(node) { node.hidden = false; });
       feedback.className = 'hsk-pro-feedback';
-      feedback.innerHTML = '<b>Tiêu chí tự đối chiếu</b><p>' + Object.keys(rubric).map(function (key) { return esc(key) + ': ' + esc(rubric[key]) + (typeof rubric[key] === 'number' ? '%' : ''); }).join(' · ') + '</p><p>' + esc(exercise.explanationVi) + '</p>';
+      feedback.innerHTML = '<b>Tiêu chí tự đối chiếu</b><p>' + Object.keys(rubric).map(function (key) { return esc(key) + ': ' + esc(rubric[key]) + (typeof rubric[key] === 'number' ? '%' : ''); }).join(' · ') + '</p>' + (exercise.answer.referenceAnswer ? '<p>Tham khảo (không phải đáp án duy nhất): '+esc(exercise.answer.referenceAnswer)+'</p>' : '') + (exercise.answer.answerVi ? '<p>Ý cần có: '+esc(exercise.answer.answerVi)+'</p>' : '') + (exercise.answer.evidenceZh ? '<p>Bằng chứng: '+esc(exercise.answer.evidenceZh)+'</p>' : '') + '<p>' + esc(exercise.explanationVi) + '</p>';
       if (state.selectedLessonId && root.VDuckieHskStudyFlow) root.VDuckieHskStudyFlow.onChecked(id,null);
       return;
     }
@@ -895,6 +903,7 @@
     selectAssessment: selectAssessment,
     selectLevel: selectLevel,
     normalizeAnswer: normalizeAnswer,
+    independentReview: independentReview,
     canGradeExercise: function(exercise) { return (typeof exercise.answer === 'string' && !!text(exercise.answer)) || matchingPairs(exercise).length > 0; },
     resolveFocusWord: resolveFocusWord,
     verifyCourse: verifyCourse,

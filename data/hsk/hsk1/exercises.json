@@ -22,8 +22,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-01",
         "reviewStage": 2,
@@ -38,7 +38,8 @@
       "stimulus": {
         "scriptZh": "老师：请听。一、七、八、十。学生：一、七、八、十。老师：很好。现在请听：四、八、十、七。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Dãy số đầu tiên theo thứ tự là gì?"
+        "questionVi": "Dãy số đầu tiên theo thứ tự là gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "一、七、八、十",
@@ -68,8 +69,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-01",
         "reviewStage": 2,
@@ -116,8 +117,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-01",
         "reviewStage": 2,
@@ -163,8 +164,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-01",
         "reviewStage": 2,
@@ -215,8 +216,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-01",
         "reviewStage": 2,
@@ -278,8 +279,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-02",
         "reviewStage": 2,
@@ -294,7 +295,8 @@
       "stimulus": {
         "scriptZh": "老师：请看。“人”。学生：人。老师：现在写“大”。学生：大。老师：这个字是“小”。学生：小。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Sau chữ 人, giáo viên yêu cầu viết chữ nào?"
+        "questionVi": "Sau chữ 人, giáo viên yêu cầu viết chữ nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "大",
@@ -327,8 +329,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-02",
         "reviewStage": 2,
@@ -372,8 +374,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-02",
         "reviewStage": 2,
@@ -419,8 +421,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-02",
         "reviewStage": 2,
@@ -472,8 +474,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-02",
         "reviewStage": 2,
@@ -536,8 +538,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-03",
         "reviewStage": 2,
@@ -552,7 +554,8 @@
       "stimulus": {
         "scriptZh": "A：你好！B：你好！A：你好吗？B：我很好，谢谢。你呢？A：我也很好。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B trả lời tình trạng của mình thế nào?"
+        "questionVi": "Người B trả lời tình trạng của mình thế nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "我很好",
@@ -583,8 +586,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-03",
         "reviewStage": 2,
@@ -628,8 +631,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-03",
         "reviewStage": 2,
@@ -677,8 +680,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-03",
         "reviewStage": 2,
@@ -730,8 +733,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-03",
         "reviewStage": 2,
@@ -796,8 +799,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-04",
         "reviewStage": 2,
@@ -812,7 +815,8 @@
       "stimulus": {
         "scriptZh": "A：你叫什么名字？B：我叫安娜。A：你是中国人吗？B：不是，我是越南人。A：你是学生吗？B：是。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B tên gì?"
+        "questionVi": "Người B tên gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "安娜",
@@ -846,8 +850,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-04",
         "reviewStage": 2,
@@ -897,8 +901,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-04",
         "reviewStage": 2,
@@ -918,7 +922,12 @@
       "options": [],
       "answer": {
         "answerVi": "Cô ấy là người Việt Nam.",
-        "evidenceZh": "安娜是越南人"
+        "evidenceZh": "安娜是越南人",
+        "rubric": {
+          "meaning": "Trả lời đúng câu hỏi theo văn bản; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Chỉ ra chi tiết trong văn bản hỗ trợ câu trả lời.",
+          "review": "Tự đối chiếu, không chấm điểm tự động."
+        }
       },
       "acceptedAnswers": [
         "Cô ấy là người Việt Nam.",
@@ -949,8 +958,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-04",
         "reviewStage": 2,
@@ -1003,8 +1012,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-04",
         "reviewStage": 2,
@@ -1068,8 +1077,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-05",
         "reviewStage": 2,
@@ -1084,7 +1093,8 @@
       "stimulus": {
         "scriptZh": "A：我叫王明。B：对不起，请再说一次。A：我叫王明。B：王明，对吗？A：对。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B yêu cầu gì sau lượt nói đầu?"
+        "questionVi": "Người B yêu cầu gì sau lượt nói đầu?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "请再说一次",
@@ -1115,8 +1125,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-05",
         "reviewStage": 2,
@@ -1132,12 +1142,18 @@
         "contextZh": "Bạn chưa nghe rõ tên người đối diện."
       },
       "options": [],
-      "answer": "请再说一次",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "请再说一次"
+      },
       "acceptedAnswers": [
-        "请再说一次",
-        "请再说一次。"
+        "rubric-self-check"
       ],
-      "explanationVi": "请再说一次 là yêu cầu lịch sự khi chưa nghe rõ.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk1-lesson-05-c2-grammar-dialogue-completion"
     },
@@ -1161,8 +1177,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-05",
         "reviewStage": 2,
@@ -1209,8 +1225,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-05",
         "reviewStage": 2,
@@ -1262,8 +1278,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-05",
         "reviewStage": 2,
@@ -1329,8 +1345,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-06",
         "reviewStage": 2,
@@ -1345,7 +1361,8 @@
       "stimulus": {
         "scriptZh": "A：你家有几个人？B：四个人。A：你有哥哥吗？B：没有，我有一个妹妹。A：你妈妈是老师吗？B：是。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Gia đình người B có mấy người?"
+        "questionVi": "Gia đình người B có mấy người?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "四个人",
@@ -1379,8 +1396,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-06",
         "reviewStage": 2,
@@ -1425,8 +1442,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-06",
         "reviewStage": 2,
@@ -1475,8 +1492,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-06",
         "reviewStage": 2,
@@ -1529,8 +1546,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-06",
         "reviewStage": 2,
@@ -1596,8 +1613,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-07",
         "reviewStage": 2,
@@ -1612,7 +1629,8 @@
       "stimulus": {
         "scriptZh": "A：她是谁？B：她是我的同学。A：她怎么样？B：她很好，也很高兴。A：他呢？B：他是老师。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người nữ được nói tới là ai?"
+        "questionVi": "Người nữ được nói tới là ai?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "同学",
@@ -1643,8 +1661,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-07",
         "reviewStage": 2,
@@ -1688,8 +1706,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-07",
         "reviewStage": 2,
@@ -1736,8 +1754,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-07",
         "reviewStage": 2,
@@ -1789,8 +1807,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-07",
         "reviewStage": 2,
@@ -1857,8 +1875,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-08",
         "reviewStage": 2,
@@ -1873,7 +1891,8 @@
       "stimulus": {
         "scriptZh": "学生：老师，这个字怎么读？老师：读“学”。学生：这个字是什么？老师：是“学”。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Học sinh hỏi cách đọc bằng câu nào?"
+        "questionVi": "Học sinh hỏi cách đọc bằng câu nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "这个字怎么读？",
@@ -1906,8 +1925,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-08",
         "reviewStage": 2,
@@ -1949,8 +1968,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-08",
         "reviewStage": 2,
@@ -1970,7 +1989,12 @@
       "options": [],
       "answer": {
         "answerVi": "Hỏi đó là chữ gì và đọc thế nào.",
-        "evidenceZh": "这是什么字？怎么读？"
+        "evidenceZh": "这是什么字？怎么读？",
+        "rubric": {
+          "meaning": "Trả lời đúng câu hỏi theo văn bản; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Chỉ ra chi tiết trong văn bản hỗ trợ câu trả lời.",
+          "review": "Tự đối chiếu, không chấm điểm tự động."
+        }
       },
       "acceptedAnswers": [
         "Hỏi đó là chữ gì và đọc thế nào.",
@@ -2000,8 +2024,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-08",
         "reviewStage": 2,
@@ -2053,8 +2077,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-08",
         "reviewStage": 2,
@@ -2120,8 +2144,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-09",
         "reviewStage": 2,
@@ -2136,7 +2160,8 @@
       "stimulus": {
         "scriptZh": "A：你会说汉语吗？B：会说一点儿。A：你会写汉字吗？B：会写一点儿。A：这里可以坐吗？B：可以。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B nói tiếng Trung ở mức nào?"
+        "questionVi": "Người B nói tiếng Trung ở mức nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "一点儿",
@@ -2167,8 +2192,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-09",
         "reviewStage": 2,
@@ -2212,8 +2237,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-09",
         "reviewStage": 2,
@@ -2261,8 +2286,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-09",
         "reviewStage": 2,
@@ -2314,8 +2339,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-09",
         "reviewStage": 2,
@@ -2381,8 +2406,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-10",
         "reviewStage": 2,
@@ -2397,7 +2422,8 @@
       "stimulus": {
         "scriptZh": "A：你的电话号码是多少？B：一三八，二零五六，七八九零。A：房间号呢？B：五零八。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Ba số đầu của số điện thoại là gì?"
+        "questionVi": "Ba số đầu của số điện thoại là gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "一三八",
@@ -2430,8 +2456,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-10",
         "reviewStage": 2,
@@ -2475,8 +2501,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-10",
         "reviewStage": 2,
@@ -2522,8 +2548,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-10",
         "reviewStage": 2,
@@ -2575,8 +2601,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-10",
         "reviewStage": 2,
@@ -2648,8 +2674,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-11",
         "reviewStage": 2,
@@ -2664,7 +2690,8 @@
       "stimulus": {
         "scriptZh": "A：今天几月几号？B：五月八号，星期三。A：明天呢？B：五月九号，星期四。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Hôm nay là ngày nào?"
+        "questionVi": "Hôm nay là ngày nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "五月八号",
@@ -2695,8 +2722,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-11",
         "reviewStage": 2,
@@ -2746,8 +2773,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-11",
         "reviewStage": 2,
@@ -2794,8 +2821,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-11",
         "reviewStage": 2,
@@ -2847,8 +2874,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-11",
         "reviewStage": 2,
@@ -2914,8 +2941,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-12",
         "reviewStage": 2,
@@ -2930,7 +2957,8 @@
       "stimulus": {
         "scriptZh": "A：我们几点见？B：下午三点。A：三点半可以吗？B：可以。我们三点半在学校见。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Giờ hẹn cuối cùng là mấy giờ?"
+        "questionVi": "Giờ hẹn cuối cùng là mấy giờ?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "下午三点半",
@@ -2963,8 +2991,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-12",
         "reviewStage": 2,
@@ -3012,8 +3040,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-12",
         "reviewStage": 2,
@@ -3061,8 +3089,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-12",
         "reviewStage": 2,
@@ -3114,8 +3142,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-12",
         "reviewStage": 2,
@@ -3183,8 +3211,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-13",
         "reviewStage": 2,
@@ -3199,7 +3227,8 @@
       "stimulus": {
         "scriptZh": "A：你早上几点起床？B：七点。A：几点上班？B：八点上班，下午五点下班。A：晚上几点睡觉？B：十一点。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B thức dậy lúc mấy giờ?"
+        "questionVi": "Người B thức dậy lúc mấy giờ?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "七点",
@@ -3231,8 +3260,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-13",
         "reviewStage": 2,
@@ -3281,8 +3310,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-13",
         "reviewStage": 2,
@@ -3330,8 +3359,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-13",
         "reviewStage": 2,
@@ -3384,8 +3413,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-13",
         "reviewStage": 2,
@@ -3450,8 +3479,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-14",
         "reviewStage": 2,
@@ -3466,7 +3495,8 @@
       "stimulus": {
         "scriptZh": "A：我的书在哪儿？B：在桌子上。A：桌子上有手机吗？B：没有。手机在椅子上。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Quyển sách ở đâu?"
+        "questionVi": "Quyển sách ở đâu?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "桌子上",
@@ -3499,8 +3529,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-14",
         "reviewStage": 2,
@@ -3544,8 +3574,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-14",
         "reviewStage": 2,
@@ -3591,8 +3621,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-14",
         "reviewStage": 2,
@@ -3644,8 +3674,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-14",
         "reviewStage": 2,
@@ -3713,8 +3743,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-15",
         "reviewStage": 2,
@@ -3729,7 +3759,8 @@
       "stimulus": {
         "scriptZh": "A：你在做什么呢？B：我正在看书。A：妈妈呢？B：她在看电视。A：爸爸在工作吗？B：没有，他在休息。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B đang làm gì?"
+        "questionVi": "Người B đang làm gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "看书",
@@ -3760,8 +3791,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-15",
         "reviewStage": 2,
@@ -3777,12 +3808,18 @@
         "sentenceZh": "我看书。"
       },
       "options": [],
-      "answer": "我正在看书。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我正在看书。"
+      },
       "acceptedAnswers": [
-        "我正在看书。",
-        "我在看书。"
+        "rubric-self-check"
       ],
-      "explanationVi": "在/正在 + động từ diễn tả hành động đang diễn ra.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk1-lesson-15-c2-grammar-grammar-transformation"
     },
@@ -3806,8 +3843,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-15",
         "reviewStage": 2,
@@ -3855,8 +3892,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-15",
         "reviewStage": 2,
@@ -3908,8 +3945,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-15",
         "reviewStage": 2,
@@ -3976,8 +4013,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-16",
         "reviewStage": 2,
@@ -3992,7 +4029,8 @@
       "stimulus": {
         "scriptZh": "A：你喜欢吃什么？B：我喜欢吃米饭和菜。A：你喜欢喝茶吗？B：喜欢。A：你不喜欢吃什么？B：我不喜欢吃苹果。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B thích ăn gì?"
+        "questionVi": "Người B thích ăn gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "米饭和菜",
@@ -4025,8 +4063,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-16",
         "reviewStage": 2,
@@ -4068,8 +4106,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-16",
         "reviewStage": 2,
@@ -4089,7 +4127,12 @@
       "options": [],
       "answer": {
         "answerVi": "Cơm và món ăn.",
-        "evidenceZh": "中午吃米饭和菜"
+        "evidenceZh": "中午吃米饭和菜",
+        "rubric": {
+          "meaning": "Trả lời đúng câu hỏi theo văn bản; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Chỉ ra chi tiết trong văn bản hỗ trợ câu trả lời.",
+          "review": "Tự đối chiếu, không chấm điểm tự động."
+        }
       },
       "acceptedAnswers": [
         "Cơm và món ăn.",
@@ -4119,8 +4162,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-16",
         "reviewStage": 2,
@@ -4172,8 +4215,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-16",
         "reviewStage": 2,
@@ -4240,8 +4283,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-17",
         "reviewStage": 2,
@@ -4256,7 +4299,8 @@
       "stimulus": {
         "scriptZh": "A：请问，你要什么？B：我要两个包子和一杯茶。A：还要米饭吗？B：不要，谢谢。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B gọi hai món gì?"
+        "questionVi": "Người B gọi hai món gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "两个包子和一杯茶",
@@ -4288,8 +4332,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-17",
         "reviewStage": 2,
@@ -4334,8 +4378,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-17",
         "reviewStage": 2,
@@ -4383,8 +4427,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-17",
         "reviewStage": 2,
@@ -4437,8 +4481,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-17",
         "reviewStage": 2,
@@ -4507,8 +4551,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-18",
         "reviewStage": 2,
@@ -4523,7 +4567,8 @@
       "stimulus": {
         "scriptZh": "A：这件衣服怎么样？B：很好看，也不太大。A：那件呢？B：那件有一点儿小。A：你喜欢哪件？B：我喜欢这件。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Bộ đồ thứ hai thế nào?"
+        "questionVi": "Bộ đồ thứ hai thế nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "有一点儿小",
@@ -4557,8 +4602,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-18",
         "reviewStage": 2,
@@ -4603,8 +4648,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-18",
         "reviewStage": 2,
@@ -4653,8 +4698,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-18",
         "reviewStage": 2,
@@ -4707,8 +4752,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-18",
         "reviewStage": 2,
@@ -4779,8 +4824,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-19",
         "reviewStage": 2,
@@ -4795,7 +4840,8 @@
       "stimulus": {
         "scriptZh": "A：这个多少钱？B：八十块。A：太贵了。那个呢？B：五十块。A：好，我买那个。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Món đầu tiên giá bao nhiêu?"
+        "questionVi": "Món đầu tiên giá bao nhiêu?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "八十块",
@@ -4828,8 +4874,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-19",
         "reviewStage": 2,
@@ -4873,8 +4919,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-19",
         "reviewStage": 2,
@@ -4923,8 +4969,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-19",
         "reviewStage": 2,
@@ -4978,8 +5024,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-19",
         "reviewStage": 2,
@@ -5050,8 +5096,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-20",
         "reviewStage": 2,
@@ -5066,7 +5112,8 @@
       "stimulus": {
         "scriptZh": "A：请问，医院在哪儿？B：在饭店后边。A：商店呢？B：商店在学校前边。A：谢谢。B：不客气。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Bệnh viện ở đâu?"
+        "questionVi": "Bệnh viện ở đâu?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "饭店后边",
@@ -5099,8 +5146,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-20",
         "reviewStage": 2,
@@ -5143,8 +5190,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-20",
         "reviewStage": 2,
@@ -5164,7 +5211,12 @@
       "options": [],
       "answer": {
         "answerVi": "Phía trước trường.",
-        "evidenceZh": "商店在学校前边"
+        "evidenceZh": "商店在学校前边",
+        "rubric": {
+          "meaning": "Trả lời đúng câu hỏi theo văn bản; chấp nhận cách diễn đạt tương đương.",
+          "evidence": "Chỉ ra chi tiết trong văn bản hỗ trợ câu trả lời.",
+          "review": "Tự đối chiếu, không chấm điểm tự động."
+        }
       },
       "acceptedAnswers": [
         "Phía trước trường.",
@@ -5194,8 +5246,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-20",
         "reviewStage": 2,
@@ -5247,8 +5299,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-20",
         "reviewStage": 2,
@@ -5317,8 +5369,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-21",
         "reviewStage": 2,
@@ -5333,7 +5385,8 @@
       "stimulus": {
         "scriptZh": "A：你怎么去公司？B：我坐出租车去。A：几点到？B：八点到。A：晚上怎么回家？B：我坐车回家。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B đi công ty bằng gì?"
+        "questionVi": "Người B đi công ty bằng gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "出租车",
@@ -5365,8 +5418,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-21",
         "reviewStage": 2,
@@ -5415,8 +5468,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-21",
         "reviewStage": 2,
@@ -5465,8 +5518,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-21",
         "reviewStage": 2,
@@ -5519,8 +5572,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-21",
         "reviewStage": 2,
@@ -5589,8 +5642,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-22",
         "reviewStage": 2,
@@ -5605,7 +5658,8 @@
       "stimulus": {
         "scriptZh": "A：今天天气怎么样？B：很热。A：明天呢？B：明天下雨，有一点儿冷。A：下雪吗？B：不下雪。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Ngày mai có thời tiết gì?"
+        "questionVi": "Ngày mai có thời tiết gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "下雨，有一点儿冷",
@@ -5638,8 +5692,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-22",
         "reviewStage": 2,
@@ -5683,8 +5737,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-22",
         "reviewStage": 2,
@@ -5730,8 +5784,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-22",
         "reviewStage": 2,
@@ -5783,8 +5837,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-22",
         "reviewStage": 2,
@@ -5854,8 +5908,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-23",
         "reviewStage": 2,
@@ -5870,7 +5924,8 @@
       "stimulus": {
         "scriptZh": "A：你怎么了？B：我生病了。A：你能去医院看病吗？B：能。A：今天不要上班，请休息。B：好，谢谢。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người B nói mình thế nào?"
+        "questionVi": "Người B nói mình thế nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "我生病了",
@@ -5903,8 +5958,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-23",
         "reviewStage": 2,
@@ -5950,8 +6005,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-23",
         "reviewStage": 2,
@@ -6000,8 +6055,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-23",
         "reviewStage": 2,
@@ -6055,8 +6110,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-23",
         "reviewStage": 2,
@@ -6125,8 +6180,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-24",
         "reviewStage": 2,
@@ -6141,7 +6196,8 @@
       "stimulus": {
         "scriptZh": "A：星期六你想做什么？B：我想看电影。A：我们看电影吧。B：好。几点？A：下午三点，可以吗？B：可以。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Hoạt động được thống nhất là gì?"
+        "questionVi": "Hoạt động được thống nhất là gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "看电影",
@@ -6175,8 +6231,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-24",
         "reviewStage": 2,
@@ -6219,8 +6275,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-24",
         "reviewStage": 2,
@@ -6269,8 +6325,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-24",
         "reviewStage": 2,
@@ -6323,8 +6379,8 @@
       ],
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
-      "reviewStatus": "linguistic-reviewed",
-      "contentVersion": 2,
+      "reviewStatus": "unreviewed",
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk1-lesson-24",
         "reviewStage": 2,

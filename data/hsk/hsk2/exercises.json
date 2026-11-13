@@ -32,7 +32,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-01",
         "reviewStage": 3,
@@ -45,7 +45,8 @@
       "stimulus": {
         "scriptZh": "老师：这位是李老师。学生：不好意思，是哪位老师？老师：李老师。学生：啊，听懂了，谢谢您帮忙。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Giáo viên mới họ gì?"
+        "questionVi": "Giáo viên mới họ gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "李",
@@ -366,7 +367,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-02",
         "reviewStage": 3,
@@ -379,13 +380,13 @@
       "stimulus": {
         "scriptZh": "老师：请打开书，读这个词。学生：老师，我没听懂它的意思。老师：先看例句，再做这道题。学生：好，我用笔写下来。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "请打开书，读这个词",
       "acceptedAnswers": [
-        "请打开书，读这个词",
-        "请打开书，读这个词。"
+        "请打开书，读这个词"
       ],
       "explanationVi": "Câu cần chép là “请打开书，读这个词”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -697,7 +698,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-03",
         "reviewStage": 3,
@@ -710,7 +711,8 @@
       "stimulus": {
         "scriptZh": "我每周上五天班。星期二和星期四下班以后，我去跑步。每次跑三十分钟，跑完再回家。周末我有时不运动。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Người nói chạy bộ vào ngày nào?"
+        "questionVi": "Người nói chạy bộ vào ngày nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "Trên giường.",
@@ -808,7 +810,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-03",
         "reviewStage": 3,
@@ -823,11 +825,18 @@
         "targetStructureVi": "Sắp xếp 每 / 我 / 都 / 早上 / 跑步 thành câu đúng."
       },
       "options": [],
-      "answer": "我每天都学习。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我每天都学习。"
+      },
       "acceptedAnswers": [
-        "我每天都学习。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “我每天都学习。”. Sắp xếp 每 / 我 / 都 / 早上 / 跑步 thành câu đúng.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-03-grammar-grammar-transformation"
     },
@@ -860,7 +869,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-03",
         "reviewStage": 3,
@@ -874,11 +883,18 @@
         "targetWordZh": "每"
       },
       "options": [],
-      "answer": "我每天七点起来。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我每天七点起来。"
+      },
       "acceptedAnswers": [
-        "我每天七点起来。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “每”: 我每天七点起来。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-03-lexis-controlled-translation"
     },
@@ -1022,7 +1038,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-04",
         "reviewStage": 3,
@@ -1035,7 +1051,8 @@
       "stimulus": {
         "scriptZh": "女：你准备好了吗？男：还没有，我找不到手表。女：在床上。记得带伞，一会儿可能下雨。男：好，我拿了就出门。",
         "clozeZh": "女：你准备好了吗？男：还没有，我找不到手表。女：在床上。记得带伞，一会儿可能下雨。男：好，我拿了就____。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "出门",
@@ -1129,7 +1146,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-04",
         "reviewStage": 3,
@@ -1143,11 +1160,18 @@
         "dialogueContextZh": "A：快起来，八点了！\nB：我准备好了，一会儿就出门。\nA：记得拿手机，别忘了钥匙。\nB：知道了。我晚上九点回来，你先回去吧。"
       },
       "options": [],
-      "answer": "我先吃饭，再出门。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我先吃饭，再出门。"
+      },
       "acceptedAnswers": [
-        "我先吃饭，再出门。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “我先吃饭，再出门。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-04-grammar-dialogue-completion"
     },
@@ -1352,7 +1376,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-05",
         "reviewStage": 3,
@@ -1365,7 +1389,8 @@
       "stimulus": {
         "scriptZh": "火车快要到了。请已经买好票的客人准备上车。车门开着的时候，请不要跑。可能有雨，请拿好自己的东西。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Phương tiện nào sắp đến?"
+        "questionVi": "Phương tiện nào sắp đến?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "Tàu hỏa.",
@@ -1684,7 +1709,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-06",
         "reviewStage": 3,
@@ -1697,13 +1722,13 @@
       "stimulus": {
         "scriptZh": "请进。你的房间在二楼。床上面有一条白色的东西，是毛巾。洗手间在房间外面，出门往左走。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "请进",
       "acceptedAnswers": [
-        "请进",
-        "请进。"
+        "请进"
       ],
       "explanationVi": "Câu cần chép là “请进”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -2011,7 +2036,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-07",
         "reviewStage": 3,
@@ -2024,7 +2049,8 @@
       "stimulus": {
         "scriptZh": "这间酒店在商场后面，离机场不远。酒店旁边有地铁站，前面有两家饭馆。您的房间在八楼。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Khách sạn ở phía nào của trung tâm thương mại?"
+        "questionVi": "Khách sạn ở phía nào của trung tâm thương mại?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "Phía sau.",
@@ -2122,7 +2148,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-07",
         "reviewStage": 3,
@@ -2137,11 +2163,18 @@
         "targetStructureVi": "Hoàn thành 我家___公司很近 bằng 离."
       },
       "options": [],
-      "answer": "我家离公司很近。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我家离公司很近。"
+      },
       "acceptedAnswers": [
-        "我家离公司很近。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “我家离公司很近。”. Hoàn thành 我家___公司很近 bằng 离.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-07-grammar-grammar-transformation"
     },
@@ -2174,7 +2207,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-07",
         "reviewStage": 3,
@@ -2188,11 +2221,18 @@
         "targetWordZh": "楼"
       },
       "options": [],
-      "answer": "我住在三楼。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我住在三楼。"
+      },
       "acceptedAnswers": [
-        "我住在三楼。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “楼”: 我住在三楼。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-07-lexis-controlled-translation"
     },
@@ -2335,7 +2375,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-08",
         "reviewStage": 3,
@@ -2348,7 +2388,8 @@
       "stimulus": {
         "scriptZh": "请从右边的门进去。进去以后不要上楼，先往前走。看见咖啡店以后向左走，办公室就在左边。",
         "clozeZh": "请从右边的门进去。进去以后不要上楼，先往前走。看见咖啡店以后向____走，办公室就在左边。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "左",
@@ -2440,7 +2481,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-08",
         "reviewStage": 3,
@@ -2454,11 +2495,18 @@
         "dialogueContextZh": "A：我在楼下，走哪个门？\nB：从左边的门进来，别走右边。\nA：我看见门了，要进去吗？\nB：对，进去以后往左走，我在教室里等你。"
       },
       "options": [],
-      "answer": "我在房间里，请进来。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我在房间里，请进来。"
+      },
       "acceptedAnswers": [
-        "我在房间里，请进来。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “我在房间里，请进来。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-08-grammar-dialogue-completion"
     },
@@ -2660,7 +2708,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-09",
         "reviewStage": 3,
@@ -2673,7 +2721,8 @@
       "stimulus": {
         "scriptZh": "下一站是中心车站。去机场的客人请在这一站下车，再坐机场公交车。路上大约四十分钟。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Khách đi sân bay xuống ở đâu?"
+        "questionVi": "Khách đi sân bay xuống ở đâu?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "Trạm trung tâm.",
@@ -2992,7 +3041,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-10",
         "reviewStage": 3,
@@ -3005,13 +3054,13 @@
       "stimulus": {
         "scriptZh": "飞往上海的客人请注意：飞机可能晚三十分钟。已经有机票的客人不用换票，请在十二号门等。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "飞往上海的客人请注意：飞机可能晚三十分钟",
       "acceptedAnswers": [
-        "飞往上海的客人请注意：飞机可能晚三十分钟",
-        "飞往上海的客人请注意：飞机可能晚三十分钟。"
+        "飞往上海的客人请注意：飞机可能晚三十分钟"
       ],
       "explanationVi": "Câu cần chép là “飞往上海的客人请注意：飞机可能晚三十分钟”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -3322,7 +3371,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-11",
         "reviewStage": 3,
@@ -3335,7 +3384,8 @@
       "stimulus": {
         "scriptZh": "从酒店出去以后往左走，过一个路口就能看见公园。门票在右边的小房子里买。旅游车下午五点回来。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Ra khỏi khách sạn thì đi hướng nào?"
+        "questionVi": "Ra khỏi khách sạn thì đi hướng nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "5 giờ chiều.",
@@ -3433,7 +3483,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-11",
         "reviewStage": 3,
@@ -3448,11 +3498,18 @@
         "targetStructureVi": "Điền 从…到… vào câu nói đường từ khách sạn đến công viên."
       },
       "options": [],
-      "answer": "从酒店往公园走。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "从酒店往公园走。"
+      },
       "acceptedAnswers": [
-        "从酒店往公园走。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “从酒店往公园走。”. Điền 从…到… vào câu nói đường từ khách sạn đến công viên.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-11-grammar-grammar-transformation"
     },
@@ -3485,7 +3542,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-11",
         "reviewStage": 3,
@@ -3499,11 +3556,18 @@
         "targetWordZh": "酒店"
       },
       "options": [],
-      "answer": "这家酒店离机场不远。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "这家酒店离机场不远。"
+      },
       "acceptedAnswers": [
-        "这家酒店离机场不远。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “酒店”: 这家酒店离机场不远。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-11-lexis-controlled-translation"
     },
@@ -3646,7 +3710,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-12",
         "reviewStage": 3,
@@ -3659,7 +3723,8 @@
       "stimulus": {
         "scriptZh": "您好，您点的是一条鱼、一盘肉、一杯红茶和一杯咖啡。鱼要等二十分钟，其他的马上来。",
         "clozeZh": "您好，您点的是一条鱼、一盘肉、一杯红茶和一杯____。鱼要等二十分钟，其他的马上来。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "咖啡",
@@ -3751,7 +3816,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-12",
         "reviewStage": 3,
@@ -3765,11 +3830,18 @@
         "dialogueContextZh": "服务员：两位喝什么？\nA：我要一杯绿茶，他要奶茶。\nB：我不喝奶茶，来红茶吧。\nA：再点一条鱼和一点儿肉。"
       },
       "options": [],
-      "answer": "请说慢一点儿。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "请说慢一点儿。"
+      },
       "acceptedAnswers": [
-        "请说慢一点儿。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “请说慢一点儿。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-12-grammar-dialogue-completion"
     },
@@ -3972,7 +4044,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-13",
         "reviewStage": 3,
@@ -3985,7 +4057,8 @@
       "stimulus": {
         "scriptZh": "今天商场有活动。红色的包两百块，黑色的包三百块。白色裤子没有了，绿色裤子还有三条。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Túi màu nào rẻ hơn?"
+        "questionVi": "Túi màu nào rẻ hơn?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "Túi đỏ.",
@@ -4309,7 +4382,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-14",
         "reviewStage": 3,
@@ -4322,13 +4395,13 @@
       "stimulus": {
         "scriptZh": "您买的是两条鱼和三碗面，一共一百二十块。如果东西坏了，请拿票到商场一楼。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "您买的是两条鱼和三碗面，一共一百二十块",
       "acceptedAnswers": [
-        "您买的是两条鱼和三碗面，一共一百二十块",
-        "您买的是两条鱼和三碗面，一共一百二十块。"
+        "您买的是两条鱼和三碗面，一共一百二十块"
       ],
       "explanationVi": "Câu cần chép là “您买的是两条鱼和三碗面，一共一百二十块”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -4647,7 +4720,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 2,
+      "contentVersion": 3,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-15",
         "reviewStage": 3,
@@ -4660,7 +4733,8 @@
       "stimulus": {
         "scriptZh": "这种药饭后吃，一天两次。吃药以后如果还是头疼、眼睛疼，请明天再来看医生。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Thuốc uống trước hay sau ăn?"
+        "questionVi": "Thuốc uống trước hay sau ăn?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "Trước ăn.",
@@ -4760,7 +4834,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-15",
         "reviewStage": 3,
@@ -4775,11 +4849,18 @@
         "targetStructureVi": "Hoàn thành câu hỏi tình trạng với 怎么了 và câu trả lời có …疼."
       },
       "options": [],
-      "answer": "我头疼。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我头疼。"
+      },
       "acceptedAnswers": [
-        "我头疼。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “我头疼。”. Hoàn thành câu hỏi tình trạng với 怎么了 và câu trả lời có …疼.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-15-grammar-grammar-transformation"
     },
@@ -4813,7 +4894,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-15",
         "reviewStage": 3,
@@ -4827,11 +4908,18 @@
         "targetWordZh": "身体"
       },
       "options": [],
-      "answer": "多运动对身体好。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "多运动对身体好。"
+      },
       "acceptedAnswers": [
-        "多运动对身体好。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “身体”: 多运动对身体好。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-15-lexis-controlled-translation"
     },
@@ -4976,7 +5064,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-16",
         "reviewStage": 3,
@@ -4989,7 +5077,8 @@
       "stimulus": {
         "scriptZh": "今天的运动课先走五分钟，再跑十五分钟。累的人可以慢一点儿。运动完请洗手，洗手间在教室外面。",
         "clozeZh": "今天的运动课先走五分钟，再____十五分钟。累的人可以慢一点儿。运动完请洗手，洗手间在教室外面。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "跑",
@@ -5081,7 +5170,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-16",
         "reviewStage": 3,
@@ -5095,11 +5184,18 @@
         "dialogueContextZh": "A：你每天运动吗？\nB：我常跑步，但是跑得不快。\nA：累了就别跑，先走一走。\nB：好。运动完我去洗手，洗手间在哪儿？"
       },
       "options": [],
-      "answer": "他跑得不快。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "他跑得不快。"
+      },
       "acceptedAnswers": [
-        "他跑得不快。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “他跑得不快。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-16-grammar-dialogue-completion"
     },
@@ -5301,7 +5397,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-17",
         "reviewStage": 3,
@@ -5314,7 +5410,8 @@
       "stimulus": {
         "scriptZh": "明天上午晴，下午阴。最高二十六度。去机场的路可能很慢，请大家早点儿出门。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Nhiệt độ cao nhất bao nhiêu?"
+        "questionVi": "Nhiệt độ cao nhất bao nhiêu?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "26 độ.",
@@ -5634,7 +5731,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-18",
         "reviewStage": 3,
@@ -5647,13 +5744,13 @@
       "stimulus": {
         "scriptZh": "三班的同学请注意：明天上午八点在五楼教室考试。请带笔，不要带电脑。李老师教的内容都要复习。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "三班的同学请注意：明天上午八点在五楼教室考试",
       "acceptedAnswers": [
-        "三班的同学请注意：明天上午八点在五楼教室考试",
-        "三班的同学请注意：明天上午八点在五楼教室考试。"
+        "三班的同学请注意：明天上午八点在五楼教室考试"
       ],
       "explanationVi": "Câu cần chép là “三班的同学请注意：明天上午八点在五楼教室考试”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -5967,7 +6064,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-19",
         "reviewStage": 3,
@@ -5980,7 +6077,8 @@
       "stimulus": {
         "scriptZh": "请大家慢慢地说姓名，再介绍自己的爱好。说得清楚的人不用再说；大家没听懂时，请再说一次。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Ngoài họ tên cần giới thiệu gì?"
+        "questionVi": "Ngoài họ tên cần giới thiệu gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "Sở thích.",
@@ -6080,7 +6178,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-19",
         "reviewStage": 3,
@@ -6095,11 +6193,18 @@
         "targetStructureVi": "Phân biệt nói ‘nói rõ’ bằng 说得清楚 và ‘vui vẻ nói’ bằng 高兴地说."
       },
       "options": [],
-      "answer": "他说得很清楚。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "他说得很清楚。"
+      },
       "acceptedAnswers": [
-        "他说得很清楚。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “他说得很清楚。”. Phân biệt nói ‘nói rõ’ bằng 说得清楚 và ‘vui vẻ nói’ bằng 高兴地说.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-19-grammar-grammar-transformation"
     },
@@ -6133,7 +6238,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-19",
         "reviewStage": 3,
@@ -6147,11 +6252,18 @@
         "targetWordZh": "地"
       },
       "options": [],
-      "answer": "她高兴地笑了。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "她高兴地笑了。"
+      },
       "acceptedAnswers": [
-        "她高兴地笑了。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “地”: 她高兴地笑了。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-19-lexis-controlled-translation"
     },
@@ -6296,7 +6408,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-20",
         "reviewStage": 3,
@@ -6309,7 +6421,8 @@
       "stimulus": {
         "scriptZh": "请各位下午一点到教室开会。经理希望大家自己准备一个问题。会议从一点开始，三点就结束。",
         "clozeZh": "请各位下午一点到教室开会。经理希望大家____准备一个问题。会议从一点开始，三点就结束。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "自己",
@@ -6401,7 +6514,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-20",
         "reviewStage": 3,
@@ -6415,11 +6528,18 @@
         "dialogueContextZh": "A：这件事情我自己做不完，你能帮忙吗？\nB：可以。你希望我先做什么？\nA：请跟我一起看名单。经理让我下午就交。\nB：好，但是我三点有会。"
       },
       "options": [],
-      "answer": "经理让我下午交。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "经理让我下午交。"
+      },
       "acceptedAnswers": [
-        "经理让我下午交。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “经理让我下午交。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-20-grammar-dialogue-completion"
     },
@@ -6622,7 +6742,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-21",
         "reviewStage": 3,
@@ -6635,7 +6755,8 @@
       "stimulus": {
         "scriptZh": "星期六下午学校有篮球比赛，星期日上午大家一起踢足球。喜欢跳舞的同学可以星期六晚上来看表演。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Trận bóng rổ khi nào?"
+        "questionVi": "Trận bóng rổ khi nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "Chiều thứ Bảy.",
@@ -6959,7 +7080,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-22",
         "reviewStage": 3,
@@ -6972,13 +7093,13 @@
       "stimulus": {
         "scriptZh": "照片左边是王女士和她的丈夫，右边是爷爷奶奶。前面的男孩儿八岁，女孩儿六岁。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "照片左边是王女士和她的丈夫，右边是爷爷奶奶",
       "acceptedAnswers": [
-        "照片左边是王女士和她的丈夫，右边是爷爷奶奶",
-        "照片左边是王女士和她的丈夫，右边是爷爷奶奶。"
+        "照片左边是王女士和她的丈夫，右边是爷爷奶奶"
       ],
       "explanationVi": "Câu cần chép là “照片左边是王女士和她的丈夫，右边是爷爷奶奶”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -7290,7 +7411,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-23",
         "reviewStage": 3,
@@ -7303,7 +7424,8 @@
       "stimulus": {
         "scriptZh": "我从小喜欢足球。十二岁生日时，爸爸送我一个足球。过年的时候，我常跟哥哥一起踢。现在我们还会一起看比赛。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Bố tặng gì?"
+        "questionVi": "Bố tặng gì?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "Cùng đá bóng.",
@@ -7401,7 +7523,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-23",
         "reviewStage": 3,
@@ -7416,11 +7538,18 @@
         "targetStructureVi": "Đặt 小时候 ở vị trí đúng trong câu."
       },
       "options": [],
-      "answer": "我小时候住在河内。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我小时候住在河内。"
+      },
       "acceptedAnswers": [
-        "我小时候住在河内。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “我小时候住在河内。”. Đặt 小时候 ở vị trí đúng trong câu.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-23-grammar-grammar-transformation"
     },
@@ -7453,7 +7582,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-23",
         "reviewStage": 3,
@@ -7467,11 +7596,18 @@
         "targetWordZh": "小时候"
       },
       "options": [],
-      "answer": "我小时候住在农村。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我小时候住在农村。"
+      },
       "acceptedAnswers": [
-        "我小时候住在农村。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “小时候”: 我小时候住在农村。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-23-lexis-controlled-translation"
     },
@@ -7614,7 +7750,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-24",
         "reviewStage": 3,
@@ -7627,7 +7763,8 @@
       "stimulus": {
         "scriptZh": "我今天在网上看见一个游泳活动。星期日上午九点开始，地点在学校旁边。参加的人请带水，不用带票。",
         "clozeZh": "我今天在____看见一个游泳活动。星期日上午九点开始，地点在学校旁边。参加的人请带水，不用带票。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "网上",
@@ -7719,7 +7856,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-24",
         "reviewStage": 3,
@@ -7733,11 +7870,18 @@
         "dialogueContextZh": "A：你在网上发的照片真好看。\nB：谢谢。上午我去游泳，下午画了花和鸟。\nA：那只鸟很有意思，看了就想笑。\nB：下次一起去吧。"
       },
       "options": [],
-      "answer": "她笑着看照片。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "她笑着看照片。"
+      },
       "acceptedAnswers": [
-        "她笑着看照片。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “她笑着看照片。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-24-grammar-dialogue-completion"
     },
@@ -7939,7 +8083,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-25",
         "reviewStage": 3,
@@ -7952,7 +8096,8 @@
       "stimulus": {
         "scriptZh": "虽然公交车最便宜，但是要一个小时。地铁比公交车快，打车最快但最贵。因为我拿着两个大包，所以我还是打车。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Phương tiện nào rẻ nhất?"
+        "questionVi": "Phương tiện nào rẻ nhất?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "Xe buýt.",
@@ -8273,7 +8418,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-26",
         "reviewStage": 3,
@@ -8286,13 +8431,13 @@
       "stimulus": {
         "scriptZh": "您好，饭馆离地铁站很近。出站以后别往右走，请往左走。看见白色商场时给我打电话，我在门口等您。",
         "audioStatus": "script-ready-audio-pending",
-        "dictationScope": "first-sentence"
+        "dictationScope": "first-sentence",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "您好，饭馆离地铁站很近",
       "acceptedAnswers": [
-        "您好，饭馆离地铁站很近",
-        "您好，饭馆离地铁站很近。"
+        "您好，饭馆离地铁站很近"
       ],
       "explanationVi": "Câu cần chép là “您好，饭馆离地铁站很近”. Tập trung vào ranh giới từ, trợ từ và thanh điệu khi shadowing.",
       "cognitiveSkill": "recall",
@@ -8620,7 +8765,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-27",
         "reviewStage": 3,
@@ -8633,7 +8778,8 @@
       "stimulus": {
         "scriptZh": "请大家从右边的门进来，上二楼以后往左走。活动结束时，请从前面的门出去，不要下楼找后门。",
         "audioStatus": "script-ready-audio-pending",
-        "questionVi": "Vào bằng cửa nào?"
+        "questionVi": "Vào bằng cửa nào?",
+        "transcriptVisibility": "after-answer"
       },
       "options": [
         "Hai lần.",
@@ -8733,7 +8879,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-27",
         "reviewStage": 3,
@@ -8748,11 +8894,18 @@
         "targetStructureVi": "Chọn 下来 hay 下去 khi người nói đang đứng dưới tầng."
       },
       "options": [],
-      "answer": "我在楼下，你下来吧。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我在楼下，你下来吧。"
+      },
       "acceptedAnswers": [
-        "我在楼下，你下来吧。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Sau khi biến đổi: “我在楼下，你下来吧。”. Chọn 下来 hay 下去 khi người nói đang đứng dưới tầng.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-27-grammar-grammar-transformation"
     },
@@ -8786,7 +8939,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-27",
         "reviewStage": 3,
@@ -8800,11 +8953,18 @@
         "targetWordZh": "出"
       },
       "options": [],
-      "answer": "他刚从教室出来。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "他刚从教室出来。"
+      },
       "acceptedAnswers": [
-        "他刚从教室出来。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Câu đích dùng đúng từ “出”: 他刚从教室出来。",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-27-lexis-controlled-translation"
     },
@@ -8944,7 +9104,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-28",
         "reviewStage": 3,
@@ -8957,7 +9117,8 @@
       "stimulus": {
         "scriptZh": "我去过两次广州。第一次坐飞机，第二次坐火车。每次都要过一条很长的河。我还没去过成都，希望明年去。",
         "clozeZh": "我去____两次广州。第一次坐飞机，第二次坐火车。每次都要过一条很长的河。我还没去过成都，希望明年去。",
-        "audioStatus": "script-ready-audio-pending"
+        "audioStatus": "script-ready-audio-pending",
+        "transcriptVisibility": "after-answer"
       },
       "options": [],
       "answer": "过",
@@ -9039,7 +9200,7 @@
       "contentStatus": "machine-assisted",
       "translationReviewStatus": "machine-assisted",
       "reviewStatus": "unreviewed",
-      "contentVersion": 1,
+      "contentVersion": 2,
       "reviewMetadata": {
         "firstIntroducedIn": "hsk2-lesson-28",
         "reviewStage": 3,
@@ -9053,11 +9214,18 @@
         "dialogueContextZh": "A：你去过中国吗？\nB：去过。去年我去上海旅游，还坐船过了河。\nA：你吃过当地的鱼吗？\nB：吃过，很好吃。下次我想去北京。"
       },
       "options": [],
-      "answer": "我没去过北京。",
+      "answer": {
+        "rubric": {
+          "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+          "language": "Đối chiếu từ và cấu trúc mục tiêu; đáp án tham khảo không phải cách trả lời duy nhất.",
+          "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+        },
+        "referenceAnswer": "我没去过北京。"
+      },
       "acceptedAnswers": [
-        "我没去过北京。"
+        "rubric-self-check"
       ],
-      "explanationVi": "Một lượt đáp đạt yêu cầu là “我没去过北京。”.",
+      "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
       "cognitiveSkill": "application",
       "templateFamily": "hsk2-28-grammar-dialogue-completion"
     },

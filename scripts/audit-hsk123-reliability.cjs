@@ -4,14 +4,15 @@
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),cp=require('node:child_process');
 const {walkJsonFiles,validateSchema}=require('./hsk-schema-engine');
 const norm=s=>String(s??'').normalize('NFC').replace(/[\s，。！？、,.!?;；:：'“”"‘’（）()\-]/g,'').toLowerCase();
-function independent(r){const e=r.reviewEvidence;return !!(e&&e.independent===true&&e.reviewerId&&e.reviewedAt&&e.reference&&e.contentVersion===r.contentVersion&&['human-reviewed','approved'].includes(e.status));}
+const {independent,validateReviewEvents}=require('./hsk123-review-policy.cjs');
 function audit(root=process.cwd(),phonetics){
- const files=[],entries=[],issues=[],checks=new Map(),schemas={};
+ const files=[],entries=[],supplements=[],issues=[],checks=new Map(),schemas={};
  function issue(entry,rule,severity,evidence,confirmed=true,pointer=''){issues.push({id:entry.id,file:entry.file,pointer:pointer||entry.pointer,rule,severity,confirmed,evidence});if(confirmed)checks.get(entry.id)?.add(rule);}
  for(let level=1;level<=3;level++)for(const absolute of walkJsonFiles(path.join(root,'data/hsk/hsk'+level))){
   const file=path.relative(root,absolute),bytes=fs.readFileSync(absolute);let d;
   try{d=JSON.parse(bytes);}catch(e){issues.push({file,rule:'json',severity:'Critical',confirmed:true,evidence:e.message});continue;}
   files.push({file,sha256:crypto.createHash('sha256').update(bytes).digest('hex'),contentVersion:d.contentVersion??d.schemaVersion??null});
+  if(d.collectionType==='vocabulary-enrichment')for(const [index,r] of (d.entries||[]).entries())supplements.push({id:r.id||r.canonicalId,file,pointer:'/entries/'+index,level,record:r});
   const records=d.recordType?[[d,'']]:Array.isArray(d.records)?d.records.map((r,i)=>[r,'/records/'+i]):[];
   for(const [r,pointer] of records){if(!r.recordType)continue;const e={id:r.id,file,pointer,level,record:r};entries.push(e);if(!checks.has(r.id))checks.set(r.id,new Set());}
  }
@@ -45,6 +46,9 @@ function audit(root=process.cwd(),phonetics){
    if(r.skill==='listening'&&r.stimulus?.scriptZh&&typeof r.answer==='string'&&r.format==='listen-dictation'&&!norm(r.stimulus.scriptZh).includes(norm(r.answer)))issue(e,'dictation-answer-not-in-script','Critical',{answer:r.answer,script:r.stimulus.scriptZh});
   }
  }
+ const eventsFile=path.join(root,'docs/hsk123-review-events.json');
+ if(fs.existsSync(eventsFile))for(const problem of validateReviewEvents(JSON.parse(fs.readFileSync(eventsFile)).events,entries)){const e=byId.get(problem.id);if(e)issue(e,problem.rule,'Critical',problem);else issues.push({...problem,severity:'Critical',confirmed:true});}
+ for(const e of supplements){const r=e.record;if(!r.simplified||!(r.canonicalId||r.canonicalLookup))issues.push({...e,record:undefined,rule:'enrichment-shape',severity:'High',confirmed:true,evidence:'Missing term/canonical lookup'});if(['linguistic-reviewed','approved','human-reviewed'].includes(r.reviewStatus)&&!independent(r))issues.push({id:e.id,file:e.file,pointer:e.pointer,rule:'unsupported-enrichment-review',severity:'High',confirmed:true,evidence:r.reviewStatus});}
  const phoneticById=new Map((phonetics?.pairs||[]).map(p=>[p.id,p]));
  for(const e of entries){const p=phoneticById.get(e.id);if(!p)continue;
   if(p.numberMismatch)issue(e,'numbered-pinyin-loses-tones','High',{hanzi:p.hanzi,pinyin:p.pinyin,actual:e.record.pinyinNumber,expected:p.expectedNumber});
@@ -52,13 +56,13 @@ function audit(root=process.cwd(),phonetics){
   if(p.readingSuspects?.length)issue(e,'contextual-reading-needs-review','Medium',{hanzi:p.hanzi,pinyin:p.pinyin,comparisons:p.readingSuspects,note:'Character dictionary differences include valid neutral tone and sandhi; no automatic correction.'},false);
  }
  const manualFile=path.join(root,'docs/hsk123-confirmed-findings.json');
- if(fs.existsSync(manualFile))for(const finding of JSON.parse(fs.readFileSync(manualFile)).findings){const e=byId.get(finding.id);if(e&&typeof e.record.answer==='string'&&e.record.answer===finding.beforeAnswer)issue(e,'answer-unrelated-to-source','Critical',finding);}
+ if(fs.existsSync(manualFile))for(const finding of JSON.parse(fs.readFileSync(manualFile)).findings){const e=byId.get(finding.id);if(e&&typeof e.record.answer==='string'&&e.record.answer===finding.beforeAnswer)issue(e,finding.rule||'answer-unrelated-to-source',finding.severity||'Critical',finding);}
  const duplicateGroups=new Map();for(const e of entries.filter(e=>e.record.recordType==='exercise')){const r=e.record,key=JSON.stringify([r.skill,r.format,r.prompt,r.stimulus]);if(!duplicateGroups.has(key))duplicateGroups.set(key,[]);duplicateGroups.get(key).push(e);}
  for(const group of duplicateGroups.values())if(group.length>1)for(const e of group)issue(e,'duplicate-question','Medium',group.map(x=>x.id),false);
  const levels=[1,2,3].map(level=>{const es=entries.filter(e=>e.level===level),counts={};for(const e of es)counts[e.record.recordType]=(counts[e.record.recordType]||0)+1;
   const passed=es.filter(e=>!checks.get(e.id).size).length,human=es.filter(e=>independent(e.record)).length;
   return {level,files:files.filter(f=>f.file.startsWith('data/hsk/hsk'+level+'/')).length,counts,records:es.length,machinePassed:passed,machinePassPercent:Math.round(passed/es.length*10000)/100,independentlyReviewed:human,independentReviewPercent:Math.round(human/es.length*10000)/100};});
- return {schemaVersion:1,scope:'All JSON files and typed records in data/hsk/hsk1–3; enrichment and provenance included in file inventory. Semantic correctness not certified.',phoneticTool:phonetics?{name:phonetics.tool,version:phonetics.version,pairs:phonetics.pairs.length}:null,levels,confirmedBySeverity:Object.fromEntries(['Critical','High','Medium','Low'].map(s=>[s,issues.filter(i=>i.confirmed&&i.severity===s).length])),suspected:issues.filter(i=>!i.confirmed).length,files,items:entries.map(e=>({id:e.id,file:e.file,pointer:e.pointer,level:e.level,type:e.record.recordType,contentVersion:e.record.contentVersion??null,sourceIds:e.record.sourceIds||[],state:independent(e.record)?e.record.reviewEvidence.status:checks.get(e.id).size?'unreviewed':'machine-checked',failedChecks:[...checks.get(e.id)]})),issues};
+ return {schemaVersion:1,scope:'All JSON files and typed records in data/hsk/hsk1–3; enrichment and provenance included in file inventory. Semantic correctness not certified.',phoneticTool:phonetics?{name:phonetics.tool,version:phonetics.version,pairs:phonetics.pairs.length}:null,levels,supplementalEnrichment:supplements.reduce((o,e)=>(o[e.level]=(o[e.level]||0)+1,o),{}),confirmedBySeverity:Object.fromEntries(['Critical','High','Medium','Low'].map(s=>[s,issues.filter(i=>i.confirmed&&i.severity===s).length])),suspected:issues.filter(i=>!i.confirmed).length,files,items:entries.map(e=>({id:e.id,file:e.file,pointer:e.pointer,level:e.level,type:e.record.recordType,contentVersion:e.record.contentVersion??null,sourceIds:e.record.sourceIds||[],state:independent(e.record)?e.record.reviewEvidence.status:checks.get(e.id).size?'unreviewed':'machine-checked',failedChecks:[...checks.get(e.id)]})),issues};
 }
 if(require.main===module){const root=process.cwd(),p=cp.spawnSync('python',[path.join(root,'scripts/hsk123-phonetics.py'),root],{encoding:'utf8',maxBuffer:20*1024*1024});if(p.status!==0)throw new Error('Install pypinyin==0.55.0 before audit: '+p.stderr);const report=audit(root,JSON.parse(p.stdout)),dir='reports/hsk123';fs.mkdirSync(dir,{recursive:true});const target=process.argv.includes('--baseline')?'baseline':'current';fs.writeFileSync(dir+'/'+target+'.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({levels:report.levels,confirmed:report.confirmedBySeverity,suspected:report.suspected},null,2));}
 module.exports={audit,independent,norm};

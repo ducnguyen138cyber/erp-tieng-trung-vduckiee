@@ -270,6 +270,49 @@
     "contentVersion": {
       "type": "integer",
       "minimum": 1
+    },
+    "reviewEvidence": {
+      "type": "object",
+      "required": [
+        "status",
+        "independent",
+        "reviewerId",
+        "reviewedAt",
+        "reference",
+        "contentVersion"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "human-reviewed",
+            "approved"
+          ]
+        },
+        "independent": {
+          "const": true
+        },
+        "reviewerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewedAt": {
+          "type": "string",
+          "minLength": 10
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "contentVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "approverId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false

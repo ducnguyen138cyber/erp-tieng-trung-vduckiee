@@ -169,6 +169,138 @@
       "reason": "Prompt requires preserving the source meaning, but the key is a different situation. Reproducing the unrelated model is incorrectly accepted; a faithful response cannot match.",
       "evidenceType": "direct-source-and-key-comparison",
       "reference": "data/hsk/hsk3/exercises.json#hsk3-lesson-35-exercise-2"
+    },
+    {
+      "id": "hsk3-lesson-04-exercise-3",
+      "beforeSource": "Nghe và nêu thứ tự hai hành động chính trong tình huống “Mục tiêu học kỳ mới”.",
+      "beforeAnswer": "Kiểm tra lỗi thường gặp trong tuần.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-04#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-05-exercise-3",
+      "beforeSource": "Nghe và nhận xét thái độ hoặc mối quan tâm của người nói trong tình huống “Ôn tập cũng cần phương pháp”.",
+      "beforeAnswer": "Ba ngày sau.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-05#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-10-exercise-3",
+      "beforeSource": "Nghe và nêu thứ tự hai hành động chính trong tình huống “Khởi hành bằng tàu cao tốc”.",
+      "beforeAnswer": "Phía Nam.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-10#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-11-exercise-3",
+      "beforeSource": "Nghe và nhận xét thái độ hoặc mối quan tâm của người nói trong tình huống “Hộ chiếu và hành lý thất lạc”.",
+      "beforeAnswer": "Màu đen.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-11#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-16-exercise-3",
+      "beforeSource": "Nghe và nêu thứ tự hai hành động chính trong tình huống “Đột nhiên bị sốt”.",
+      "beforeAnswer": "Ngày kia.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-16#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-17-exercise-3",
+      "beforeSource": "Nghe và nhận xét thái độ hoặc mối quan tâm của người nói trong tình huống “Tập luyện quý ở kiên trì”.",
+      "beforeAnswer": "7 giờ sáng.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-17#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-22-exercise-3",
+      "beforeSource": "Nghe và nêu thứ tự hai hành động chính trong tình huống “Bộ quần áo này có hợp không”.",
+      "beforeAnswer": "Bên cạnh thang máy.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-22#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-23-exercise-3",
+      "beforeSource": "Nghe và nhận xét thái độ hoặc mối quan tâm của người nói trong tình huống “Đơn giao đồ ăn bị sai”.",
+      "beforeAnswer": "Cửa Bắc.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-23#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-28-exercise-3",
+      "beforeSource": "Nghe và nêu thứ tự hai hành động chính trong tình huống “Đến nhà bạn làm khách”.",
+      "beforeAnswer": "6 giờ 30.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-28#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-29-exercise-3",
+      "beforeSource": "Nghe và nhận xét thái độ hoặc mối quan tâm của người nói trong tình huống “Tặng gì vào dịp lễ”.",
+      "beforeAnswer": "Dạ hội trường.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-29#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-34-exercise-3",
+      "beforeSource": "Nghe và nêu thứ tự hai hành động chính trong tình huống “Thiết kế một cuối tuần trong thành phố”.",
+      "beforeAnswer": "Năm phút.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-34#listening",
+      "discoveredAfterBaseline": true
+    },
+    {
+      "id": "hsk3-lesson-35-exercise-3",
+      "beforeSource": "Nghe và nhận xét thái độ hoặc mối quan tâm của người nói trong tình huống “Phỏng vấn người quanh mình”.",
+      "beforeAnswer": "Mục đích.",
+      "rule": "listening-question-skill-mismatch",
+      "severity": "High",
+      "reason": "Prompt asks sequence or attitude, but its single key is a location/time/object/detail answer copied from a different lesson question.",
+      "evidenceType": "direct-comparison-with-lesson-listening-answerKey",
+      "reference": "hsk3-lesson-35#listening",
+      "discoveredAfterBaseline": true
     }
   ]
 }

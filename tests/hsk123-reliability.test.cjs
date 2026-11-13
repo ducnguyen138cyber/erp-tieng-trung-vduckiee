@@ -1,0 +1,57 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const {JSDOM}=require('jsdom');
+const {audit,norm}=require('../scripts/audit-hsk123-reliability.cjs');
+const {digest,independent,validateReviewEvents}=require('../scripts/hsk123-review-policy.cjs');
+const read=f=>JSON.parse(fs.readFileSync(f));
+const root=process.cwd(),baseline=read('reports/hsk123/baseline.json');
+const runtime=require('../assets/hsk-content/hsk-professional-runtime.js');
+const records=[];for(let n=1;n<=3;n++)for(const name of ['exercises','grammar','lessons'])records.push(...read(`data/hsk/hsk${n}/${name}.json`).records);
+test('corpus inventory and IDs are preserved; no unsupported review labels or confirmed audit failures remain',()=>{
+ const r=audit(root);assert.deepEqual(r.levels.map(l=>l.records),[1439,509,958]);assert.deepEqual(r.items.map(x=>x.id),baseline.items.map(x=>x.id));
+ assert.deepEqual(r.confirmedBySeverity,{Critical:0,High:0,Medium:0,Low:0});assert.ok(r.levels.every(l=>l.independentlyReviewed===0));
+});
+test('every repaired field has before/after, stable ID, version increment and non-human authorship',()=>{
+ const changes=read('docs/hsk123-content-changes.json').changes;assert.equal(changes.length,2119);assert.equal(new Set(changes.map(x=>x.id)).size,changes.length);
+ for(const c of changes){assert.ok(c.reason&&c.references.length);assert.equal(c.independentHumanReview,false);assert.equal(c.fields.contentVersion.after,c.fields.contentVersion.before+1);const d=read(c.file),r=(d.records||d.entries).find(r=>r.id===c.id);assert.ok(r,c.id);for(const [field,v] of Object.entries(c.fields))assert.deepEqual(r[field],v.after,c.id+' '+field);}
+});
+test('all 474 numbered-Pinyin repairs preserve the authored Hanzi, tone-mark Pinyin and Vietnamese meaning',()=>{
+ const fixes=read('docs/hsk123-content-changes.json').changes.filter(x=>x.fields.pinyinNumber);assert.equal(fixes.length,474);
+ for(const c of fixes){assert.ok(!c.fields.pinyinTone&&!c.fields.simplified&&!c.fields.meaningVi);assert.match(c.fields.pinyinNumber.after,/^[a-zv]+[1-5]( [a-zv]+[1-5])*$/);}
+ assert.equal(read('data/hsk/hsk2/vocabulary/hsk2-v-0101-0150.json').records[0].pinyinNumber,'men2 kou3');
+});
+test('21 unrelated HSK3 keys cannot grade either the old wrong key or a valid free response as wrong',()=>{
+ const byId=new Map(records.map(x=>[x.id,x]));for(const f of read('docs/hsk123-confirmed-findings.json').findings.filter(f=>!f.discoveredAfterBaseline)){const r=byId.get(f.id);assert.equal(typeof r.answer,'object');assert.ok(r.answer.rubric.meaning);assert.equal(runtime.canGradeExercise(r),false);assert.notEqual(r.stimulus?.sourceZh,f.beforeSource);assert.ok(r.stimulus.meaningVi);}
+});
+test('inference/production use rubric; dictation and finite choices retain explicit answer checks',()=>{
+ for(const r of records.filter(x=>x.recordType==='exercise')){
+  if(['vocabulary-sentence','usage-explanation','controlled-translation','reading-explanation'].includes(r.format))assert.equal(runtime.canGradeExercise(r),false,r.id);
+  if(['listen-dictation','listen-final-line'].includes(r.format)){assert.equal(runtime.canGradeExercise(r),true,r.id);assert.ok(norm(r.stimulus.scriptZh).includes(norm(r.answer)),r.id);}
+  if(r.options.length)assert.ok(r.options.includes(r.answer),r.id);
+ }
+});
+test('legacy labels, machine state, stale versions and incomplete approvals never establish independent review',()=>{
+ const r={id:'q',hskLevel:1,answer:'好',contentVersion:2};
+ for(const reviewStatus of ['linguistic-reviewed','verified','machine-checked','approved'])assert.equal(runtime.independentReview({...r,reviewStatus}),false);
+ const e={status:'human-reviewed',independent:true,reviewerId:'teacher-example',reviewedAt:'2026-11-13',reference:'https://example.test/review/1',contentVersion:2};
+ assert.equal(runtime.independentReview({...r,reviewEvidence:e}),true);
+ for(const bad of [{contentVersion:1},{reviewerId:''},{reviewedAt:'invalid'},{status:'machine-checked'},{independent:false},{status:'approved',approverId:'teacher-example'}]){const x={...r,reviewEvidence:{...e,...bad}};assert.equal(runtime.independentReview(x),false);assert.equal(independent(x),false);}
+ const event={...e,id:r.id,state:'human-reviewed',recordSha256:digest(r)};assert.ok(validateReviewEvents([event],[r]).some(x=>x.rule==='review-transition'));
+ const machine={id:r.id,state:'machine-checked',contentVersion:2,recordSha256:digest(r),checks:[{name:'schema',result:'pass'}]};
+ assert.deepEqual(validateReviewEvents([machine,event],[r]),[]);assert.ok(validateReviewEvents([machine,{...event,contentVersion:1}],[r]).some(x=>x.rule==='stale-review'));
+});
+async function domCourse(level){const dom=new JSDOM('<div id="hskLevels"></div><div id="hskLessonList"></div><div id="hskLesson"></div><div id="hskProgress"></div><div id="hskJourney"></div>',{url:'https://example.test/',runScripts:'outside-only',pretendToBeVisual:true});const w=dom.window;w.HTMLElement.prototype.scrollIntoView=function(){};w.fetch=async url=>({ok:true,json:async()=>read(String(url).replace(/^\.\//,''))});w.eval(fs.readFileSync('assets/hsk-content/hsk-study-journey-v1.js','utf8'));w.eval(fs.readFileSync('assets/hsk-content/hsk-study-flow-v1.js','utf8'));w.eval(fs.readFileSync('assets/hsk-content/hsk-professional-runtime.js','utf8'));await w.VDuckieHskProfessionalRuntime.selectLevel(level,false);return dom;}
+test('HSK1–3 listening text is hidden until a non-empty response; rubric never returns Boolean correctness',async()=>{
+ for(const level of [1,2,3]){const dom=await domCourse(level);try{const w=dom.window,rows=read(`data/hsk/hsk${level}/exercises.json`).records;const listening=rows.find(x=>x.skill==='listening');w.VDuckieHskProfessionalRuntime.selectLesson(listening.id.split('-exercise')[0],false);let article=w.document.querySelector(`[data-pro-exercise="${listening.id}"]`);assert.ok(article);const transcript=article.querySelector('[data-pro-transcript]');assert.equal(transcript.hidden,true);
+ article.querySelector('[data-pro-check]').click();assert.equal(transcript.hidden,true);article.querySelector('input,textarea').value=typeof listening.answer==='string'?listening.answer:'Ý nghe được';article.querySelector('[data-pro-check]').click();assert.equal(transcript.hidden,false);
+ const open=rows.find(x=>x.answer?.rubric);w.VDuckieHskProfessionalRuntime.selectLesson(open.id.split('-exercise')[0],false);article=w.document.querySelector(`[data-pro-exercise="${open.id}"]`);article.querySelector('textarea').value='Một cách diễn đạt hợp lệ khác';article.querySelector('[data-pro-check]').click();assert.match(article.querySelector('[data-pro-feedback]').textContent,/Tiêu chí tự đối chiếu/);assert.equal(w.VDuckieHskStudyJourney.lesson(open.id.split('-exercise')[0]).answers[open.id].correct,null);
+ }finally{dom.window.close();}}
+});
+test('historical completion remains stored unchanged while new mastery requires independent evidence',async()=>{
+ const dom=await domCourse(1);try{const w=dom.window,j=w.VDuckieHskStudyJourney,k=j.KEY;const old={lessons:{'hsk1-lesson-01':{level:1,completedAt:123,answers:{old:{correct:true}},masteryAnswers:{old:{verified:true,correct:true}}}}};w.localStorage.setItem(k,JSON.stringify(old));w.VDuckieHskProfessionalRuntime.selectLesson('hsk1-lesson-01',false);assert.equal(j.lesson('hsk1-lesson-01').completedAt,123);assert.equal(j.lesson('hsk1-lesson-01').masteryAnswers.old.correct,true);assert.match(w.document.querySelector('#hskLesson').textContent,/Chưa đủ dữ liệu đánh giá/);assert.equal(j.stats('hsk1-lesson-01',[],[]).mastered,false);
+ }finally{dom.window.close();}
+});
+test('12 listening sequence/attitude mismatches now ask the matching source detail and self-review meaning',()=>{
+ const byId=new Map(records.map(x=>[x.id,x]));const findings=read('docs/hsk123-confirmed-findings.json').findings.filter(f=>f.discoveredAfterBaseline);assert.equal(findings.length,12);
+ for(const f of findings){const e=byId.get(f.id),l=byId.get(f.id.split('-exercise')[0]),content=l.sections.find(s=>s.type==='listening').content,qa=content.answerKey.find(q=>q.answer===f.beforeAnswer);assert.equal(e.format,'listen-detail');assert.equal(e.stimulus.questionVi,qa.qVi);assert.match(e.prompt,new RegExp(qa.qVi.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));assert.equal(e.answer.referenceAnswer,f.beforeAnswer);assert.equal(runtime.canGradeExercise(e),false);}
+});

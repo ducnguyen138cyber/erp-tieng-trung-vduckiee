@@ -162,7 +162,7 @@ function applyLessons(documents, patch) {
 function applyGrammar(documents, patch) {
   for (const record of documents.grammar.records) {
     record.contentVersion = 2;
-    record.reviewStatus = "linguistic-reviewed";
+    record.reviewStatus = "unreviewed";
 
     if (record.id === "hsk1-grammar-demonstratives") {
       record.incorrectExamples = [{
@@ -206,7 +206,7 @@ function applyGrammar(documents, patch) {
   // whether it starts from the C1 baseline or from an already materialized C2 checkout.
   for (const record of documents.grammar.records) {
     record.contentVersion = 2;
-    record.reviewStatus = "linguistic-reviewed";
+    record.reviewStatus = "unreviewed";
   }
 
   for (const [indexText, refs] of Object.entries(patch.grammarRefAdditions)) {
@@ -238,7 +238,7 @@ function applyExercises(documents, patch) {
       exercise.topic = lesson.topic;
       exercise.grammarFocus = structuredClone(lesson.grammarRefs);
       exercise.contentVersion = 2;
-      exercise.reviewStatus = "linguistic-reviewed";
+      exercise.reviewStatus = "unreviewed";
       exercise.reviewMetadata = {
         firstIntroducedIn: lesson.id,
         reviewStage: 2,

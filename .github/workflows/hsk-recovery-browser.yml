@@ -1,7 +1,7 @@
 name: HSK current learner browser contracts
 on:
   pull_request:
-    paths: ['assets/hsk-content/**','assets/navigation/**','assets/interface/**','tests/hsk*-learner-browser-smoke*','tests/helpers/hsk_browser_smoke.py','tests/runtime-readiness-recovery.test.cjs','scripts/hsk1-production-readiness-audit.js','index.html','app-shell-v88.html','.github/workflows/hsk-recovery-browser.yml']
+    paths: ['assets/hsk-content/**','assets/navigation/**','assets/interface/**','tests/hsk*-learner-browser-smoke*','tests/hsk123-reliability-browser.py','tests/helpers/hsk_browser_smoke.py','tests/runtime-readiness-recovery.test.cjs','scripts/hsk1-production-readiness-audit.js','index.html','app-shell-v88.html','.github/workflows/hsk-recovery-browser.yml']
   workflow_dispatch:
 concurrency:
   group: hsk-learner-${{ github.ref }}
@@ -11,7 +11,7 @@ permissions:
 jobs:
   learner:
     runs-on: ubuntu-24.04
-    timeout-minutes: 12
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -22,8 +22,12 @@ jobs:
       - run: python -m playwright install --with-deps chromium
       - name: HSK 3–4 lessons, tabs, exercises and assessments; HSK 5–6 public locks
         run: node --test --test-concurrency=1 tests/hsk3-learner-browser-smoke.test.js tests/hsk4-learner-browser-smoke.test.js tests/hsk5-learner-browser-smoke.test.js tests/hsk6-learner-browser-smoke.test.js
+      - name: HSK1–3 first/middle/last journeys on desktop and mobile
+        run: python tests/hsk123-reliability-browser.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: hsk-recovery-browser-evidence
-          path: artifacts/hsk-recovery/
+          path: |
+            artifacts/hsk-recovery/
+            artifacts/hsk123-reliability/
