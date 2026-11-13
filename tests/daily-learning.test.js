@@ -99,7 +99,7 @@ test("mobile dock stays daily-only and respects the safe area", async () => {
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
   assert.ok(fs.readFileSync("service-worker.js","utf8").includes(JSON.stringify(live.asset("assets/daily-learning-v2.js"))));
-  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.9/);
+  assert.ok(fs.readFileSync("service-worker.js","utf8").includes(JSON.stringify(live.asset("assets/daily-learning-v2.css"))));
 });
 
 test("desktop browser restores the wide legacy shell while MSUTONG uses the available width", () => {

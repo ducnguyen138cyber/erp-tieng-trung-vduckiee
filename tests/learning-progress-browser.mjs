@@ -71,13 +71,22 @@ try{
  await q.locator('[data-practice-answer]').first().waitFor();assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
  evidence.checks.push('unfinished practice answer and original timer resume on mobile');
  // Daily Learning uses its current UI/store, including a wrong answer due for review.
- await p.evaluate(()=>window.VDuckieDailyLearning.show('daily'));
- for(let i=0;i<3;i++)await p.locator('#dailyLearningPanel [data-session-next]').click();
- await p.locator('#dailyLearningPanel [data-answer]').first().click();await flush(p);await flush(q);
- const daily=await p.evaluate(()=>window.VDuckieDailyLearning.getState());
- const mobileDaily=await q.evaluate(()=>window.VDuckieDailyLearning.getState());
+ const dailyTargets=[];
+ for(const page of [p,q]){
+  await page.evaluate(()=>window.VDuckieDailyLearning.show('daily'));
+  dailyTargets.push((await page.locator('#dailyLearningPanel .focus-word>strong').innerText()).trim());
+  for(let i=0;i<3;i++)await page.locator('#dailyLearningPanel [data-session-next]').click();
+ }
+ assert.equal(dailyTargets[0],dailyTargets[1]);
+ for(const page of [p,q]){
+  const choices=await page.locator('#dailyLearningPanel [data-answer]').evaluateAll(nodes=>nodes.map(n=>n.dataset.answer));
+  await page.locator('#dailyLearningPanel [data-answer]').nth(choices.findIndex(x=>x!==dailyTargets[0])).click();
+ }
+ await Promise.all([flush(p),flush(q)]);await flush(p);await flush(q);
+ const daily=await p.evaluate(()=>window.VDuckieDailyLearning.getState()),mobileDaily=await q.evaluate(()=>window.VDuckieDailyLearning.getState());
  for(const [id,item] of Object.entries(daily.words))assert.deepEqual(mobileDaily.words[id],item);
- assert.ok(Object.values(daily.words).some(w=>w.lastReviewed));
+ assert.equal(Object.keys(daily.words[dailyTargets[0]].attemptEvents).length,2);assert.equal(daily.words[dailyTargets[0]].wrong,2);
+ assert.ok(daily.words[dailyTargets[0]].nextReview>daily.words[dailyTargets[0]].lastReviewed);
  evidence.checks.push('Daily answer, due date and history sync through the existing store');
  // Return to an already cached lesson, then exercise real browser offline status/cache.
  await lesson(p,1,'hsk1-lesson-01');await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await ready(p);

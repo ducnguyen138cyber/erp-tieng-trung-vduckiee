@@ -103,7 +103,7 @@ const APP_SHELL = [
   "./erp-lessons-v74.js",
   "./hsk-lessons.js",
   "./dialogue.js",
-  "./assets/daily-learning-v2.css?v=2.9",
+  "./assets/daily-learning-v2.css?v=progress-sync1",
   "./assets/daily-learning-v2.js?v=progress-sync1",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",

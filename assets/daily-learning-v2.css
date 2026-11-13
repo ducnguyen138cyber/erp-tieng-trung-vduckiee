@@ -65,3 +65,6 @@ body[data-current-area="home"] .study-rail,body[data-current-area="msutong"] .st
   body[data-current-area="home"] #homeHub>.daily-today .daily-task{grid-template-columns:minmax(0,1fr) auto;gap:8px}
   body[data-current-area="home"] #homeHub>.daily-today .daily-heading{min-height:0!important}
 }
+
+/* Keep Daily session actions clear of the fixed chat launcher on desktop/mobile. */
+.learning-session>.learning-session-nav{padding-inline-end:170px;flex-wrap:wrap}
