@@ -68,7 +68,7 @@ try{
  await p.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await p.locator('[data-practice-open]').first().click();await p.locator('[data-practice-start="1"]').click();
  await p.locator('[data-practice-answer]').first().check();await flush(p);await flush(q);
  await q.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await q.locator('[data-practice-open]').first().click();assert.match(await q.locator('[data-practice-start="1"]').innerText(),/đang dở/);await q.locator('[data-practice-start="1"]').click();
- assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
+ await q.locator('[data-practice-answer]').first().waitFor();assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
  evidence.checks.push('unfinished practice answer and original timer resume on mobile');
  // Daily Learning uses its current UI/store, including a wrong answer due for review.
  await p.evaluate(()=>window.VDuckieDailyLearning.show('daily'));
