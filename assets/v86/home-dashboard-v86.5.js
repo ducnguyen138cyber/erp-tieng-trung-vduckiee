@@ -116,7 +116,6 @@ function todayFocusData(){
   try{if(journey&&typeof journey.summary==="function")summary=journey.summary()}catch(error){}
   var now=summary&&summary.current||{},level=Math.max(1,Math.min(4,Number(now.level)||1));
   var lessonId=text(now.lessonId),due=Math.max(0,Number(summary&&summary.due)||0);
-  var weak=Math.max(0,Number(summary&&summary.weak)||0);
   // The runtime may preselect a lesson on first load. Selection is not learning.
   var lessonEvidence={};
   try{if(journey&&lessonId&&typeof journey.lesson==="function")lessonEvidence=journey.lesson(lessonId)||{}}catch(e){}
@@ -126,8 +125,8 @@ function todayFocusData(){
     Number(lessonEvidence.completedAt)||Number(lessonEvidence.attemptAt)));
   return{level:level,lessonId:lessonId,due:due,hasStarted:hasStarted,
     heading:due?"Hôm nay, ôn lại từ sắp quên":hasStarted?"Hôm nay, học tiếp đúng chỗ cũ":"Hôm nay, bắt đầu từ một bài HSK",
-    detail:due?due+" từ đến hạn"+(weak?" · "+weak+" từ hay quên":"")+". Ôn 5 phút, rồi học tiếp HSK "+level+".":hasStarted?
-      "Tiếp tục HSK "+level+(lessonId?" · "+lessonId.replace(/^hsk\d+-lesson-0*/, "Bài "):"")+". Không cần học lại từ đầu."+(weak?" Có "+weak+" từ cần luyện lại.":"")+" Gợi ý: học 5 phút, rồi tự nhớ lại từ mới.":
+    detail:due?due+" từ đến hạn. Ôn trước để nhớ lâu hơn.":hasStarted?
+      "Tiếp tục HSK "+level+(lessonId?" · "+lessonId.replace(/^hsk\d+-lesson-0*/, "Bài "):"")+". Không cần học lại từ đầu.":
       "Chỉ cần bắt đầu HSK 1: học từ mới, nghe câu mẫu, rồi làm bài ngắn.",
     cta:due?"Ôn từ đến hạn →":hasStarted?"Tiếp tục HSK "+level+" →":"Bắt đầu HSK 1 →",
     action:due?"review-hsk":"continue"};

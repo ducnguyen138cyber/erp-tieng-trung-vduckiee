@@ -65,8 +65,8 @@ try{
  assert.equal(evidence.navigations.desktop,desktopNavigations,'background progress sync cannot reload the active lesson');
  evidence.checks.push('two devices merge independent lesson progress, preserve old completion and do not reload the active lesson');
  await p.locator('[data-hsk-review-open]:visible').first().click();const correctBeforeReveal=(await memory(p)).correct;await p.evaluate(()=>{window.__recallAwards=0;document.addEventListener('vduckie:hsk-word-mastered',()=>window.__recallAwards++);});await p.locator('[data-hsk-review-reveal]').click();
- assert.match(await p.locator('[data-hsk-recall-feedback]').innerText(),/Chưa đánh giá ghi nhớ/);assert.equal((await memory(p)).remembered,0);
- assert.equal(await p.evaluate(()=>window.__recallAwards),0,'revealing an answer must not emit a mastery/EXP reward');assert.equal((await memory(p)).correct,correctBeforeReveal,'reveal is not a correct recall');
+ assert.equal(await p.locator('[data-hsk-review-meaning]').isVisible(),true);assert.equal(await p.locator('[data-hsk-recall-input]').count(),0);assert.equal((await memory(p)).remembered,0);
+ assert.equal(await p.evaluate(()=>window.__recallAwards),0,'revealing an answer must not emit a mastery/EXP reward');assert.equal((await memory(p)).correct,correctBeforeReveal,'reveal is not a correct recall');await p.locator('[data-hsk-review-grade="1"]').click();assert.equal((await memory(p)).correct,correctBeforeReveal,'self-assessment after reveal is not verified recall');assert.equal(await p.evaluate(()=>window.__recallAwards),0);
  evidence.checks.push('answer reveal cannot award memory or EXP');
  await p.screenshot({path:path.join(out,'desktop-recall.png')});
  await flush(p);await flush(q);await q.reload();await ready(q);
@@ -81,7 +81,7 @@ try{
  await p.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await p.locator('[data-practice-open]').first().click();await p.locator('[data-practice-start="1"]').click();
  await p.locator('[data-practice-answer]').first().check();await flush(p);await flush(q);
  const originalPracticeDraft=await p.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-hsk-practice-exams-v2'))[window.VDuckieHSKPractice.getExamState().id].draft);
- await q.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await q.locator('[data-practice-open]').first().click();assert.match(await q.locator('[data-practice-start="1"]').innerText(),/đang dở/);await q.locator('[data-practice-start="1"]').click();
+ await q.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await q.locator('[data-practice-open]').first().click();assert.equal(await q.locator('[data-practice-start="1"]').count(),1);await q.locator('[data-practice-start="1"]').click();
  await q.locator('[data-practice-answer]').first().waitFor();assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
  const resumedPracticeDraft=await q.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-hsk-practice-exams-v2'))[window.VDuckieHSKPractice.getExamState().id].draft);
  assert.equal(resumedPracticeDraft.sessionId,originalPracticeDraft.sessionId);assert.equal(resumedPracticeDraft.deadline,originalPracticeDraft.deadline,'resuming on mobile must retain the exact original deadline');

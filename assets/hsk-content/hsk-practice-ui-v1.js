@@ -132,7 +132,7 @@
       var key="hsk"+level+"-practice-"+String(n).padStart(2,"0"),stat=saved[key];
       cards.push('<button type="button" class="hsk-practice-paper" data-practice-start="'+n+'"><b>'+
         esc(t("Bài luyện","练习","Practice"))+' '+String(n).padStart(2,"0")+'</b><small>'+
-        (stat&&stat.draft?esc(t("Tiếp tục bài đang dở","继续未完成练习","Resume unfinished practice")):stat&&stat.attempts?esc(t("Cao nhất: ","最佳：","Best: "))+Math.round(stat.best)+'%':
+        (stat&&Number.isFinite(Number(stat.best))?esc(t("Cao nhất: ","最佳：","Best: "))+Math.round(stat.best)+'%':
         esc(t("Chưa làm","尚未作答","Not attempted")))+
         '</small><span class="hsk-practice-paper-skills">'+esc(t("Nghe · Đọc","听力 · 阅读","Listening · Reading")+(plan.writing?t(" · Viết"," · 书写"," · Writing"):""))+'</span><span class="hsk-practice-paper-content">'+esc(t("Từ vựng · Chữ Hán · Pinyin","词汇 · 汉字 · 拼音","Vocabulary · Hanzi · Pinyin"))+'</span><span class="hsk-practice-paper-time">'+total+' '+esc(t("câu","题","questions"))+' · '+plan.minutes+' '+esc(t("phút","分钟","min"))+'</span></button>');
     }

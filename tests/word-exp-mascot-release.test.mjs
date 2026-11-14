@@ -38,11 +38,13 @@ test('word mastery +3 EXP uses a restricted RPC, dedupe and a 50-word daily cap'
   assert.match(sql,/revoke all on function public\.award_word_mastery\(integer,text\) from public, anon/);
   assert.doesNotMatch(sql,/service_role/i);
 });
-test('first correct recall or SRS confirmation emits learner evidence, passive viewing does not',()=>{
+test('first correct learning answer emits evidence, old review self-assessment does not',()=>{
   const flow=read('assets/hsk-content/hsk-study-flow-v1.js');
   const hooks=read('assets/v89/exp-learning-hooks-v89.js');
   assert.match(flow,/firstCorrect&&saved/);
-  assert.match(flow,/savedReview&&freshRecall/);
+  const selfReport=flow.slice(flow.indexOf('if(button.hasAttribute("data-hsk-review-grade"))'),flow.indexOf('if(button.hasAttribute("data-hsk-next-lesson"))'));
+  assert.match(selfReport,/reviewWordSnapshot/);
+  assert.doesNotMatch(selfReport,/dispatchEvent|hsk-word-mastered/);
   assert.match(flow,/vduckie:hsk-word-mastered/);
   assert.match(hooks,/awardWordMastery/);
   assert.match(hooks,/bindWordMastery\(\)/);

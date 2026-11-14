@@ -96,3 +96,13 @@ Hai test qua UI thật trên JSDOM tái hiện lỗi trước sửa: mở lại 
 Targeted suite sau sửa: **88/88 PASS** local, không skip. Đây là lỗi runtime duy nhất sửa thêm trong phiên khôi phục. Không triển khai tính năng mới. Một lượt CI chỉ sửa tài liệu trước đó không tìm thấy Cloudflare check cho đúng head; không đổi sang Preview khác để làm xanh. Commit có sửa runtime sẽ deploy Preview mới và chạy lại toàn bộ hồi quy; kết quả head cuối cùng được ghi trong mô tả PR sau khi hoàn tất.
 
 PR giữ Draft/chưa merge. Giới hạn hai tài khoản Auth thật, phần cứng điện thoại và mở offline lạnh vẫn như trên; chưa đủ bằng chứng để công nhận toàn bộ yêu cầu E2E Production đã đạt.
+
+## Chủ repo yêu cầu giữ toàn bộ giao diện trước khi merge — 2026-11-14
+
+Yêu cầu mới thay thế phần giao diện ôn gõ chữ Hán của PR: giữ giao diện đang có trên main `507b2d44`. Đã khôi phục nguyên file CSS Daily và renderer trang chủ (byte-for-byte), HTML của khung ôn từ/các nút Xem nghĩa–Chưa nhớ–Đã nhớ, nhãn nút Daily và cách hiển thị danh sách bài luyện. Không gộp khung nhập chữ Hán hay mô tả mới trên trang chủ; gỡ padding Daily bổ sung. Khung trang/body giữ nguyên các khối và điều khiển; chỉ đổi URL tài nguyên để tránh cache cũ.
+
+Giữ toàn bộ sửa đồng bộ, offline, dữ liệu nét và deadline. Tự đánh giá Đã nhớ sau khi xem nghĩa không phải bằng chứng trả lời đúng, không cộng EXP hoặc chứng nhận nhớ cách ngày. Chưa nhớ vẫn ghi nhận từ yếu và hẹn ôn sớm. Lịch/merge/evidence trong dữ liệu được giữ, nhưng không tuyên bố đã phát hành bài kiểm tra gõ Hán khi giao diện đó đã bị gỡ theo yêu cầu.
+
+`tests/fixtures/learning-ui-baseline.json` được lấy từ main nêu trên. Bốn test UI khóa CSS, renderer trang chủ, body của shell (bỏ script và chuẩn hóa khoảng trắng), cùng HTML khung ôn từ. Browser tiếp tục kiểm tra nút tự đánh giá cũ và bảo đảm không phát EXP/mastery. Local targeted **92/92 PASS**, không skip; syntax/diff checks PASS. Kết quả CI head mới và trạng thái merge ghi ở PR.
+
+Chủ repo đã yêu cầu gộp main sau khi giữ toàn bộ giao diện cũ; yêu cầu này thay thế trạng thái bàn giao giữ Draft ở các checkpoint trước. Không triển khai tính năng khác.

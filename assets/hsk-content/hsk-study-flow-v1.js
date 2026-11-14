@@ -2,7 +2,7 @@
 (function(root){
   "use strict";
   if(!root||!root.document||root.VDuckieHskStudyFlow)return;
-  var doc=root.document, journal=root.VDuckieHskStudyJourney, current=null, reviewOpen=false, reviewKey="", reviewRevealed=false, reviewChecked=false, reviewWordSnapshot=null, bound=false;
+  var doc=root.document, journal=root.VDuckieHskStudyJourney, current=null, reviewOpen=false, reviewKey="", reviewRevealed=false, reviewWordSnapshot=null, bound=false;
   function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function q(sel){return doc.querySelector(sel);}
   function wordsFromLesson(info){
@@ -87,14 +87,12 @@
       existing.innerHTML='<div class="hsk-study-review-head"><h4>Ôn từ đến hạn</h4><button type="button" data-hsk-review-close aria-label="Đóng">×</button></div><p>Hôm nay không còn từ HSK đến hạn. Tiếp tục học một bài để tạo lịch ôn mới.</p>';
       return;
     }
-    var memoryStats=journal.wordStats();
-    var word=pending[0];reviewKey=word.level+":"+word.hanzi;reviewWordSnapshot=word;reviewRevealed=false;reviewChecked=false;
-    existing.innerHTML='<div class="hsk-study-review-head"><div><span>NHỚ LẠI · LỊCH ÔN 1–3–7 NGÀY</span><h4>Còn '+pending.length+' từ cần ôn</h4></div><button type="button" data-hsk-review-close aria-label="Đóng">×</button></div>'+
-      '<p>Đã xem '+memoryStats.seen+' từ · Đã luyện '+memoryStats.attempted+' từ · '+memoryStats.correct+' lượt trả lời đúng · '+memoryStats.remembered+' từ nhớ qua các lượt ôn.</p><p>Viết đúng từ đã học bằng chữ Hán theo nghĩa dưới đây. Chưa hiện chữ Hán hoặc Pinyin. Xem đáp án chỉ tính đã xem.</p>'+
-      '<p><strong>'+esc(word.meaningVi)+'</strong></p><label>Từ tiếng Trung <input type="text" data-hsk-recall-input autocomplete="off" autocapitalize="off" spellcheck="false"></label>'+
-      '<div class="hsk-study-actions"><button type="button" data-hsk-recall-check>Kiểm tra nhớ lại</button><button type="button" data-hsk-review-reveal>Xem đáp án</button><button type="button" data-hsk-recall-next hidden>Từ tiếp →</button></div><p role="status" data-hsk-recall-feedback hidden></p><div data-hsk-review-meaning hidden><strong lang="zh-CN">'+esc(word.hanzi)+'</strong><span>'+esc(word.pinyin)+'</span></div>';
+    var word=pending[0];reviewKey=word.level+":"+word.hanzi;reviewWordSnapshot=word;reviewRevealed=false;
+    existing.innerHTML='<div class="hsk-study-review-head"><div><span>ÔN TẬP CÁCH QUÃNG</span><h4>Còn '+pending.length+' từ cần ôn</h4></div><button type="button" data-hsk-review-close aria-label="Đóng">×</button></div>'+
+      '<p>Ưu tiên từ hay quên. Hãy tự nhớ trước khi xem nghĩa; đây là tự đánh giá ôn tập.</p><div class="hsk-study-review-word"><strong lang="zh-CN">'+esc(word.hanzi)+'</strong><span>'+esc(word.pinyin)+'</span><p data-hsk-review-meaning hidden>'+esc(word.meaningVi)+'</p></div>'+
+      '<div class="hsk-study-actions"><button type="button" data-hsk-review-reveal>Xem nghĩa</button>'+
+      '<button type="button" data-hsk-review-grade="0" hidden>Chưa nhớ</button><button type="button" data-hsk-review-grade="1" hidden>Đã nhớ</button></div>';
   }
-
   function decorate(info){
     if(!journal||!info||!info.lesson||!info.data)return;
     var host=q("#hskLesson");if(!host)return;
@@ -263,31 +261,20 @@
     if(button.hasAttribute("data-hsk-review-close")){reviewOpen=false;reviewDrawer();return;}
     if(button.hasAttribute("data-hsk-review-reveal")){
       if(!reviewWordSnapshot)return;
-      if(!reviewRevealed&&!reviewChecked)journal.reviewWord(reviewWordSnapshot.level,reviewWordSnapshot.hanzi,false,{exposed:true});
+      // Keep the existing self-assessment UI. Viewing a model is exposure only.
+      if(!reviewRevealed)journal.reviewWord(reviewWordSnapshot.level,reviewWordSnapshot.hanzi,false,{exposed:true});
       reviewRevealed=true;
       var meaning=q("[data-hsk-review-meaning]");if(meaning)meaning.hidden=false;
-      button.hidden=true;q('[data-hsk-recall-check]').disabled=true;q('[data-hsk-recall-next]').hidden=false;
-      var feedback=q('[data-hsk-recall-feedback]');feedback.hidden=false;feedback.textContent='Đã xem đáp án · Chưa đánh giá ghi nhớ. Từ này sẽ trở lại sau 1 ngày.';
-      update();return;
+      q("[data-hsk-review-reveal]").hidden=true;
+      doc.querySelectorAll("[data-hsk-review-grade]").forEach(function(b){b.hidden=false;});return;
     }
-    if(button.hasAttribute('data-hsk-recall-check')){
-      if(!reviewWordSnapshot||reviewRevealed||reviewChecked)return;
-      var input=q('[data-hsk-recall-input]'),value=(input&&input.value||'').trim().replace(/[\s。！？,.!?]/g,'');
-      var note=q('[data-hsk-recall-feedback]');note.hidden=false;
-      if(!value){note.textContent='Hãy tự nhớ và nhập từ trước khi kiểm tra.';return;}
-      var first=reviewWordSnapshot,remembered=value===first.hanzi;
-      var freshRecall=remembered&&!Number(first.correct);
-      var savedReview=journal.reviewWord(first.level,first.hanzi,remembered,{retrieval:true});
-      if(!savedReview){note.textContent='Chưa lưu được kết quả. Giữ trang này và thử lại.';return;}
-      reviewChecked=true;input.disabled=true;button.disabled=true;
-      q('[data-hsk-review-meaning]').hidden=false;q('[data-hsk-review-reveal]').hidden=true;q('[data-hsk-recall-next]').hidden=false;
-      var after=journal.load().reviews[reviewKey];
-      freshRecall=freshRecall&&Number(after.spacedRecalls)>Number(first.spacedRecalls||0);
-      note.textContent=remembered?'Đúng từ đã học. '+(Number(after.spacedRecalls)>Number(first.spacedRecalls||0)?'Đã ghi nhận nhớ lại sau một khoảng thời gian.':'Luyện ngay chỉ tính trả lời đúng, chưa tăng mức ghi nhớ.'):'Chưa khớp từ đã học. Từ này trở lại sau 5 phút; có thể ôn tiếp các từ khác.';
-      if(savedReview&&freshRecall)doc.dispatchEvent(new root.CustomEvent('vduckie:hsk-word-mastered',{detail:{level:first.level,hanzi:first.hanzi,lessonId:first.lessonId,origin:button}}));
-      update();return;
+    if(button.hasAttribute("data-hsk-review-grade")){
+      if(!reviewWordSnapshot||!reviewRevealed)return;
+      // A self-reported 'remembered' after reveal is not a verified correct answer.
+      // Keep the exposure's due date; 'not remembered' schedules the word sooner.
+      if(button.getAttribute("data-hsk-review-grade")==="0")journal.reviewWord(reviewWordSnapshot.level,reviewWordSnapshot.hanzi,false);
+      reviewWordSnapshot=null;update();reviewDrawer();return;
     }
-    if(button.hasAttribute('data-hsk-recall-next')){reviewDrawer();return;}
     if(button.hasAttribute("data-hsk-next-lesson"))moveLesson(1);
   }
   function bind(){
@@ -300,7 +287,7 @@
         reviewOpen=false;reviewWordSnapshot=null;
         var saved=journal.current(),runtime=root.VDuckieHskProfessionalRuntime;
         if(current&&runtime){var lessonId=saved.lessonId||current.data.lessons[0].id;runtime.selectLevel(saved.level||1,false).then(function(){runtime.selectLesson(lessonId,false);});}
-      }lastOwner=owner;update();if(!reviewChecked&&!reviewRevealed)reviewDrawer();
+      }lastOwner=owner;update();if(!reviewRevealed)reviewDrawer();
     });
     doc.addEventListener('focusin',function(event){var article=event.target.closest&&event.target.closest('[data-pro-exercise]');if(article)savePosition(event.target);});
   }
