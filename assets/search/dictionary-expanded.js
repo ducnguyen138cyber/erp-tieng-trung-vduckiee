@@ -21,6 +21,24 @@
       .replace(/[\u0300-\u036f]/g, "").replace(/[1-5]/g, "")
       .replace(/[^a-z]/g, "");
   }
+  function tonePinyin(value) {
+    var tones = {
+      a: ["ā","á","ǎ","à"], e: ["ē","é","ě","è"],
+      i: ["ī","í","ǐ","ì"], o: ["ō","ó","ǒ","ò"],
+      u: ["ū","ú","ǔ","ù"], "ü": ["ǖ","ǘ","ǚ","ǜ"]
+    };
+    return String(value || "").replace(/([a-züv:]+)([1-5])/gi, function(full, original, tone) {
+      var syllable = original.toLowerCase().replace(/u:/g, "ü").replace(/v/g, "ü");
+      if (tone === "5") return syllable;
+      var index = syllable.search(/[ae]/);
+      if (index < 0) index = syllable.indexOf("ou") >= 0 ? syllable.indexOf("o") : -1;
+      if (index < 0) for (var i = syllable.length-1; i >= 0; i--) {
+        if (/[iouü]/.test(syllable[i])) { index=i; break; }
+      }
+      if (index < 0) return syllable;
+      return syllable.slice(0,index) + tones[syllable[index]][Number(tone)-1] + syllable.slice(index+1);
+    });
+  }
   function fetchJson(path) {
     if (!requests[path]) {
       requests[path] = root.fetch(BASE + path, { cache: "force-cache" }).then(function(response) {
@@ -87,7 +105,7 @@
     if (!tokens.length || tokens.length > 7) return Promise.resolve([]);
     return Promise.all(tokens.map(function(token) {
       return indexByName("vi-" + token[0]).then(function(index) {
-        return prefixIds(index, token, 300);
+        return prefixIds(index, token, tokens.length > 1 ? 10000 : 140);
       });
     })).then(function(groups) {
       if (!groups.length) return [];
@@ -140,7 +158,7 @@
           .slice(0, 40).map(function(item) {
             var row = item.row;
             return {
-              hanzi: row[0], traditional: row[1], pinyin: row[2],
+              hanzi: row[0], traditional: row[1], pinyin: tonePinyin(row[2]),
               meanings: { hsk: [], erp: [row[3]] }, examples: { hsk: [], erp: [] },
               pos: "", hskLevels: [], sources: ["cvdict"], cvdictReference: true
             };
@@ -153,6 +171,6 @@
   }
   root.VDuckieExpandedDictionary = Object.freeze({
     lookup: lookup, manifest: manifest, normalizePinyin: normalizePinyin,
-    normalizeVietnamese: normalizeVietnamese
+    normalizeVietnamese: normalizeVietnamese, tonePinyin: tonePinyin
   });
 })(window);
