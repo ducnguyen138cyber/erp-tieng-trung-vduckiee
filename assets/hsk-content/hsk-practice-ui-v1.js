@@ -23,7 +23,8 @@
     node.innerHTML=html;
     document.body.setAttribute("data-current-area","msutong");
   }
-  function stopTimer(){if(clock!==null&&root.clearInterval)root.clearInterval(clock);clock=null;deadline=0;}
+  // Pausing the display must not discard the deadline used by pagehide/draft saves.
+  function stopTimer(){if(clock!==null&&root.clearInterval)root.clearInterval(clock);clock=null;}
   function stopAudio(){if(root.speechSynthesis&&typeof root.speechSynthesis.cancel==="function")root.speechSynthesis.cancel();audioMessage="";}
   function secondsLeft(){return Math.max(0,Math.ceil((deadline-Date.now())/1000));}
   function timeText(seconds){
@@ -42,7 +43,7 @@
     if(remaining===0)finish(true);
   }
   function startTimer(){
-    stopTimer();deadline=Date.now()+remaining*1000;
+    stopTimer();if(!deadline)deadline=Date.now()+remaining*1000;
     if(typeof root.setInterval==="function")clock=root.setInterval(tick,1000);
   }
   function getWords(hsk){
@@ -245,7 +246,7 @@
     updateCounters();updateTimer();
   }
   function start(nextLevel,number,fresh){
-    saveDraft();stopTimer();stopAudio();level=Number(nextLevel);var token=++seq;
+    saveDraft();stopTimer();deadline=0;stopAudio();level=Number(nextLevel);var token=++seq;
     paper=null;answers=Object.create(null);finished=false;review=false;confirmSubmit=false;loadingPaper=true;
     mount('<section class="hsk-practice-container"><p class="hsk-practice-wait">'+esc(t("Đang tải đề…","正在加载试卷…","Loading paper…"))+'</p></section>');
     getWords(level).then(function(records){
@@ -255,7 +256,8 @@
       draftId=draft&&draft.sessionId||(root.VDuckieLearningProgressMerge?root.VDuckieLearningProgressMerge.eventId():String(Date.now()));draftTimes={};
       if(draft&&draft.questionIds===paper.questions.map(function(q){return q.id;}).join('|')){
         paper.questions.forEach(function(q){var field=draft.answers&&draft.answers[q.id];if(field&&typeof field.value==='string'){answers[q.id]=field.value;draftTimes[q.id]=field.at;}});
-        remaining=Math.max(0,Math.ceil((Number(draft.deadline)-Date.now())/1000));
+        var savedDeadline=Number(draft.deadline);
+        if(Number.isFinite(savedDeadline)&&savedDeadline>0){deadline=savedDeadline;remaining=secondsLeft();}
       }
       loadingPaper=false;renderExam();startTimer();saveDraft();
       if(remaining===0)finish(true);

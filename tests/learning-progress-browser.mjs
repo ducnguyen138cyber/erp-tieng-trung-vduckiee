@@ -80,8 +80,11 @@ try{
  // Public practice entry; draft and deadline travel to the second device.
  await p.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await p.locator('[data-practice-open]').first().click();await p.locator('[data-practice-start="1"]').click();
  await p.locator('[data-practice-answer]').first().check();await flush(p);await flush(q);
+ const originalPracticeDraft=await p.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-hsk-practice-exams-v2'))[window.VDuckieHSKPractice.getExamState().id].draft);
  await q.evaluate(()=>{window.VDuckieScreenRouter.navigate('msutong');});await q.locator('[data-practice-open]').first().click();assert.match(await q.locator('[data-practice-start="1"]').innerText(),/đang dở/);await q.locator('[data-practice-start="1"]').click();
  await q.locator('[data-practice-answer]').first().waitFor();assert.ok((await q.evaluate(()=>window.VDuckieHSKPractice.getExamState())).answered>=1);
+ const resumedPracticeDraft=await q.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-hsk-practice-exams-v2'))[window.VDuckieHSKPractice.getExamState().id].draft);
+ assert.equal(resumedPracticeDraft.sessionId,originalPracticeDraft.sessionId);assert.equal(resumedPracticeDraft.deadline,originalPracticeDraft.deadline,'resuming on mobile must retain the exact original deadline');
  await q.locator('[data-practice-answer]').first().scrollIntoViewIfNeeded();await q.screenshot({path:path.join(out,'mobile-resume.png')});
  evidence.checks.push('unfinished practice answer and original timer resume on mobile');
  // Daily Learning uses its current UI/store, including a wrong answer due for review.

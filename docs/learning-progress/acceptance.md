@@ -63,7 +63,7 @@ Head tiếp theo bổ sung xác nhận **bài thực sự đang hiển thị sau
 
 Log browser của run `43389465406` xác nhận Preview đúng head `https://a2c1f91a.vduckie.pages.dev/`, 7 nhóm hành trình PASS, `errors: []`, 44 lượt ghi, 1 xung đột đã thử lại. Cache index thực tế có `redirected: true`; reload offline vẫn PASS. [Artifact 14020097245](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465406/artifacts/14020097245) giữ ảnh, trace và journeys. Đây là bằng chứng mới nhất của phiên cũ, không dùng checkpoint cũ hơn thay cho head cuối.
 
-Phiên khôi phục chạy lại **86/86 targeted Node tests PASS**, không skip, gồm 11 file merge/Daily/HSK/practice/Shadowing/EXP hiện có, cộng `tests/sidebar-service-worker.test.js` (10 test) và `tests/hsk-stroke-lazy-load.test.mjs` (3 test). Syntax và diff checks PASS. Không phát hiện lỗi ứng dụng mới từ các phép kiểm tra đã chạy; không sửa runtime hay mở rộng tính năng.
+Phiên khôi phục chạy lại **86/86 targeted Node tests PASS**, không skip, gồm 11 file merge/Daily/HSK/practice/Shadowing/EXP hiện có, cộng `tests/sidebar-service-worker.test.js` (10 test) và `tests/hsk-stroke-lazy-load.test.mjs` (3 test). Syntax và diff checks PASS. Checkpoint này chưa phát hiện lỗi ứng dụng mới; kiểm tra deadline bổ sung sau đó đã tìm thấy lỗi và được sửa như phần cuối báo cáo.
 
 Commit `6fabc4d` bổ sung hai ca browser: thay một bản Daily JS cũ trong warm cache rồi kiểm tra mạng trả mã hiện tại/cache được cập nhật/tiến độ giữ nguyên; ép thiếu dữ liệu nét và HTTP 404 để kiểm tra trạng thái rõ ràng, nút hoạt ảnh bị vô hiệu, nghe và Tiếp vẫn dùng được, không có page error. Hai file test SW và stroke-loader cũng đã được đưa vào targeted CI để không chỉ được chạy local. Cloudflare trên commit này SUCCESS, Preview `https://8fc7dcdc.vduckie.pages.dev/`.
 
@@ -87,6 +87,12 @@ Commit `6fabc4d` bổ sung hai ca browser: thay một bản Daily JS cũ trong w
 | Service Worker trả mã cũ | PASS browser warm-cache và 10 unit tests cache/activation/versioning |
 | Thiếu dữ liệu nét chữ | PASS browser fallback cùng 3 unit tests loader, không tạo nét giả |
 
-Các workflow hồi quy còn lại được chạy lại khi đẩy tài liệu; trạng thái chính xác của head cuối và các liên kết run được cập nhật trong mô tả PR sau khi hoàn tất. Commit cập nhật tài liệu không đổi mã ứng dụng hoặc kiểm thử so với `6fabc4d`.
+### Lỗi còn lại: deadline khi tiếp tục bài luyện
+
+Hai test qua UI thật trên JSDOM tái hiện lỗi trước sửa: mở lại bài cộng thêm phần làm tròn giây vào deadline (ví dụ +234 ms); rời màn hình rồi phát pagehide sau 60 giây đẩy deadline thêm 60 giây. Nguyên nhân là stopTimer xóa deadline và startTimer dựng lại từ số giây đã làm tròn.
+
+Đã sửa để dừng đồng hồ hiển thị vẫn giữ deadline; chỉ bài mới tạo deadline mới; mở lại draft dùng đúng timestamp gốc. Bump query của practice UI sang `progress-sync2` trong index và danh sách SW để tải bản sửa. Hai test hành vi chuyển FAIL → PASS, kiểm tra nhiều lần resume và pagehide. Browser còn xác nhận chính xác sessionId/deadline từ desktop được giữ trên mobile, thay vì chỉ thấy câu đã trả lời.
+
+Targeted suite sau sửa: **88/88 PASS** local, không skip. Đây là lỗi runtime duy nhất sửa thêm trong phiên khôi phục. Không triển khai tính năng mới. Một lượt CI chỉ sửa tài liệu trước đó không tìm thấy Cloudflare check cho đúng head; không đổi sang Preview khác để làm xanh. Commit có sửa runtime sẽ deploy Preview mới và chạy lại toàn bộ hồi quy; kết quả head cuối cùng được ghi trong mô tả PR sau khi hoàn tất.
 
 PR giữ Draft/chưa merge. Giới hạn hai tài khoản Auth thật, phần cứng điện thoại và mở offline lạnh vẫn như trên; chưa đủ bằng chứng để công nhận toàn bộ yêu cầu E2E Production đã đạt.
