@@ -32,7 +32,8 @@ function drawResults(){
     results.slice(0,visibleLimit).map(function(r,i){
       return '<button type="button" role="option" data-vsearch-result="'+i+'"><b lang="zh-CN">'+esc(r.hanzi)+'</b><span>'+esc(r.pinyin||"")+'</span><small>'+esc(terms(r).slice(0,2).join("; ")||"Chưa có nghĩa tiếng Việt")+'</small></button>';
     }).join("")+
-    (results.length>visibleLimit?'<button type="button" class="vsearch-all" data-vsearch-more>Hiển thị thêm ('+(results.length-visibleLimit)+')</button>':''):
+    (results.length>visibleLimit?'<button type="button" class="vsearch-all" data-vsearch-more>Hiển thị thêm ('+(results.length-visibleLimit)+')</button>':'')+
+    '<button type="button" class="vsearch-all" data-vsearch-all>Mở từ điển HSK / ERP</button>':
     '<p class="vsearch-status">Chưa tìm thấy từ trong các nguồn dữ liệu đang có.</p>';
   list.hidden=false;
   if(field)field.setAttribute("aria-expanded","true");
