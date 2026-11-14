@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {createRequire} from 'node:module';
+import {JSDOM} from 'jsdom';
 const require=createRequire(import.meta.url);
 const bank=require('../assets/hsk-content/hsk-practice-bank-v1.js');
 const read=(file)=>fs.readFileSync(file,'utf8');
@@ -25,7 +26,6 @@ const PLAN=[
   {listening:45,reading:40,writing:15,minutes:105}
 ];
 async function timedPractice(){
-  const {JSDOM}=require('jsdom');
   const dom=new JSDOM('<body data-current-area="msutong"><div id="dailyLearningPanel"></div></body>',{url:'https://example.test/',runScripts:'outside-only'});
   const w=dom.window;let now=1800000000123,tick;
   w.Date.now=()=>now;w.setInterval=fn=>{tick=fn;return 1;};w.clearInterval=()=>{};
