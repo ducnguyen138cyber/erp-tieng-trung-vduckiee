@@ -67,6 +67,26 @@ Phiên khôi phục chạy lại **86/86 targeted Node tests PASS**, không skip
 
 Commit `6fabc4d` bổ sung hai ca browser: thay một bản Daily JS cũ trong warm cache rồi kiểm tra mạng trả mã hiện tại/cache được cập nhật/tiến độ giữ nguyên; ép thiếu dữ liệu nét và HTTP 404 để kiểm tra trạng thái rõ ràng, nút hoạt ảnh bị vô hiệu, nghe và Tiếp vẫn dùng được, không có page error. Hai file test SW và stroke-loader cũng đã được đưa vào targeted CI để không chỉ được chạy local. Cloudflare trên commit này SUCCESS, Preview `https://8fc7dcdc.vduckie.pages.dev/`.
 
-**Hai ca browser bổ sung trên `6fabc4d`: CHƯA CHẠY ĐƯỢC.** Chromium local không khởi động do môi trường từ chối socket (`Operation not permitted`); GitHub chưa tạo Actions run cho commit được push qua connector. Connector không có dispatch workflow và trình duyệt GitHub chưa đăng nhập, nên chưa thể chạy thủ công. Không gọi đây là lỗi ứng dụng và không lấy 9 workflow trên `1f5d755` làm bằng chứng hai ca mới đã PASS. Bước còn lại: chạy workflow **Learning progress and spaced recall** trên nhánh PR hiện tại; chạy theo sự kiện PR sẽ tự chọn immutable Cloudflare Preview, còn workflow_dispatch hiện dùng static server local trên runner.
+**Browser bổ sung trên `6fabc4d`: PASS**, đã xác nhận cả 3 job tại [run 43537678894](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43537678894). GitHub Actions khởi chạy trễ rồi hoàn tất; không cần đăng nhập thêm hoặc dispatch thủ công. Chromium local bị môi trường chặn socket, nhưng browser trên GitHub runner đã chạy thành công với Preview đúng commit.
+
+- 86/86 Node tests PASS trong CI, không skip; Postgres owner RLS PASS.
+- 9 nhóm hành trình browser PASS, `errors: []`, 48 lượt ghi, 1 xung đột thử lại thành công.
+- Warm cache cũ: `refreshed: true`, `cacheUpdated: true`, `progressPreserved: true`.
+- Thiếu nét: ép thiếu dataset/HTTP 404 thực sự, nút hoạt ảnh vô hiệu; nghe và Tiếp còn dùng được; không page error.
+- Cloudflare index cache vẫn `redirected: true`; offline edit → reload → reconnect và đồng bộ sang context thứ hai PASS.
+- [Artifact 14090123144](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43537678894/artifacts/14090123144) chứa ảnh/trace/journeys.
+
+| Yêu cầu hồi quy | Kết quả và phạm vi |
+| --- | --- |
+| Daily, hai thiết bị trả lời cùng từ | PASS; giữ cả hai lượt, không nhân đôi khi replay |
+| Tiếp tục bài học/bài luyện | PASS; xác nhận lessonId hiển thị sau reload và câu đã trả lời trên mobile |
+| Mất mạng, reload, có mạng lại | PASS với bài đã cache và auth/REST fixture |
+| Cloudflare chuyển hướng index | PASS trên Preview bất biến đúng commit |
+| Đăng xuất/đăng nhập/đổi tài khoản | PASS với A → B → logout → A qua fixture |
+| PC ↔ điện thoại | PASS hai Chromium context desktop1440/mobile390, chưa phải hai máy vật lý |
+| Service Worker trả mã cũ | PASS browser warm-cache và 10 unit tests cache/activation/versioning |
+| Thiếu dữ liệu nét chữ | PASS browser fallback cùng 3 unit tests loader, không tạo nét giả |
+
+Các workflow hồi quy còn lại được chạy lại khi đẩy tài liệu; trạng thái chính xác của head cuối và các liên kết run được cập nhật trong mô tả PR sau khi hoàn tất. Commit cập nhật tài liệu không đổi mã ứng dụng hoặc kiểm thử so với `6fabc4d`.
 
 PR giữ Draft/chưa merge. Giới hạn hai tài khoản Auth thật, phần cứng điện thoại và mở offline lạnh vẫn như trên; chưa đủ bằng chứng để công nhận toàn bộ yêu cầu E2E Production đã đạt.
