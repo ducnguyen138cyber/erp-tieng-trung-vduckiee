@@ -63,13 +63,17 @@ export async function build(raw, output = DATA_DIR, minEntries = 100000) {
     entryFiles[id % ENTRY_SHARDS].push(row);
     const chars = new Set(Array.from(row[0] + row[1]).filter(ch => /\p{Script=Han}/u.test(ch)));
     for (const ch of chars) add(hanIndexes[ch.codePointAt(0) % HAN_SHARDS], ch, id);
+    for (const word of new Set([row[0], row[1]])) {
+      const first = Array.from(word)[0];
+      if (first && Array.from(word).length > 1) add(hanIndexes[first.codePointAt(0) % HAN_SHARDS], word, id);
+    }
     const pinyin = latin(row[2]);
     if (pinyin) {
       const bucket = pinyin[0];
       if (!pyIndexes[bucket]) pyIndexes[bucket] = Object.create(null);
       add(pyIndexes[bucket], pinyin, id);
     }
-    const tokens = new Set(vietnamese(row[3]).split(' ').filter(token => token.length >= 2 && !STOPWORDS.has(token)));
+    const tokens = new Set(vietnamese(row[3]).split(' ').filter(token => token.length >= 2));
     for (const word of tokens) {
       const bucket = word[0];
       if (!viIndexes[bucket]) viIndexes[bucket] = Object.create(null);
