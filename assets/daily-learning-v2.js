@@ -10,7 +10,7 @@
   var state = load();
   var active = null;
   var writer = null;
-  var navBound = false;
+  var navBound = false, syncOwner=localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
 
   function emptyState() {
     return { version: 2, assignments: {}, words: {}, msutong: { currentBook: "beginner-1", currentLesson: "b1-u1", completed: {}, lessons: {}, review: {} }, updatedAt: 0 };
@@ -39,7 +39,8 @@
   function mergeRemote(remote) {
     remote = normalize(remote);
     var merged = root.VDuckieCurriculumProgress ? root.VDuckieCurriculumProgress.merge(Object.assign({ updatedAt: state.updatedAt }, state.msutong), Object.assign({ updatedAt: remote.updatedAt }, remote.msutong)) : null;
-    if (remote.updatedAt > state.updatedAt) state = remote;
+    if(root.VDuckieLearningProgressMerge)state=normalize(root.VDuckieLearningProgressMerge.daily(state,remote));
+    else if (remote.updatedAt > state.updatedAt) state = remote;
     if (merged) state.msutong = merged;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {}
     renderToday(); updateDock();
@@ -273,10 +274,15 @@
   }
   function finishDailyAnswer(correct, skill, term) {
     active.answered = true;
-    var item = meta(wordId(term)), now = Date.now(); item.skills[skill] = item.skills[skill] || { correct: 0, wrong: 0 };
-    if (correct) { active.correct++; item.correct++; item.skills[skill].correct++; if (item.correct >= [0, 3, 6, 9, 12][Math.min(4, item.stage + 1)]) item.stage = Math.min(4, item.stage + 1); }
-    else { active.wrong++; active.weak[wordId(term)] = true; item.wrong++; item.skills[skill].wrong++; item.stage = Math.max(0, item.stage - 1); }
-    item.lastReviewed = now; item.nextReview = now + (correct ? INTERVALS[Math.max(1, item.stage)] * DAY : 10 * 60000); item.updatedAt = now; save();
+    var item = meta(wordId(term)), now = Date.now(), helper=root.VDuckieLearningProgressMerge;
+    if(correct)active.correct++;else{active.wrong++;active.weak[wordId(term)]=true;}
+    if(helper&&helper.dailyWordEvent)state.words[wordId(term)]=helper.dailyWordEvent(item,{id:helper.eventId(),at:now,skill:skill,correct:correct});
+    else{
+      item.skills[skill] = item.skills[skill] || { correct: 0, wrong: 0 };
+      if(correct){item.correct++;item.skills[skill].correct++;if(item.correct>=[0, 3, 6, 9, 12][Math.min(4,item.stage+1)])item.stage=Math.min(4,item.stage+1);}
+      else{item.wrong++;item.skills[skill].wrong++;item.stage=Math.max(0,item.stage-1);}
+      item.lastReviewed=now;item.nextReview=now+(correct?INTERVALS[Math.max(1,item.stage)]*DAY:10 * 60000);item.updatedAt=now;
+    }save();
     var feedback = document.getElementById("dailyFeedback");
     if (feedback) { feedback.className = "daily-feedback " + (correct ? "good" : "bad"); feedback.textContent = correct ? "Đúng. Từ này vẫn sẽ quay lại để nhớ chắc." : "Chưa đúng: " + term[0] + " · " + term[1] + " · " + term[3]; }
     panel().querySelectorAll("[data-answer]").forEach(function (button) { if (button.dataset.answer === term[0]) button.classList.add("correct"); button.disabled = true; });
@@ -298,7 +304,11 @@
     panel().querySelectorAll("[data-writing-char]").forEach(function (button) { button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); }; });
     if (!root.HanziWriter || !selected) { if (status) status.textContent = "Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở."; return; }
     try {
-      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData });
+      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData, onLoadCharDataError: function(){
+        if(status&&document.getElementById("dailyWritingStatus")!==status)return;
+        if(status)status.textContent="Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở.";
+        var current=panel();current.querySelectorAll('[data-writing-replay],[data-writing-practice]').forEach(function(button){button.disabled=true;});
+      } });
       var replay = panel().querySelector("[data-writing-replay]"), practice = panel().querySelector("[data-writing-practice]");
       if (replay) replay.onclick = function () { writer.animateCharacter(); if (status) status.textContent = "Đang chạy thứ tự nét của chữ " + selected + "."; };
       if (practice) practice.onclick = function () { writer.quiz({ showHintAfterMisses: 2, onComplete: function () { if (status) status.textContent = "Đã viết hết các nét. Hãy viết lại một lần vào vở."; } }); if (status) status.textContent = "Viết theo từng nét trong ô vuông."; };
@@ -483,6 +493,12 @@
   function init() {
     renderToday(); installDock(); bindNav(document); bindLegacyClose(); updateDock(); networkState();
     root.addEventListener("online", networkState); root.addEventListener("offline", networkState);
+    document.addEventListener("vduckie:account-learning-synced",function(event){
+      var owner=event.detail&&event.detail.userId||'',changedOwner=owner!==syncOwner;syncOwner=owner;
+      state=load();if(changedOwner)active=null;
+      if(changedOwner&&["daily","review-erp"].indexOf(document.body.getAttribute("data-current-area"))>=0)showPanel("daily");
+      renderToday();updateDock();
+    });
     document.addEventListener("vduckie:daily-learning-synced", function (event) { mergeRemote(event.detail); });
     if (root.VDuckieCloud && root.VDuckieCloud.loadDailyLearning) root.VDuckieCloud.loadDailyLearning().then(mergeRemote);
   }

@@ -10,7 +10,7 @@ const APP_SHELL = [
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
   "./assets/navigation/screen-router.js?v=polish1",
-  "./supabase-sync.js?v=vi1",
+  "./supabase-sync.js?v=progress-sync1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
   "./pwa-register.js?v=3",
@@ -24,7 +24,7 @@ const APP_SHELL = [
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
   "./assets/v86/experience-suite-loader-v86.js?v=progress-row1",
-  "./assets/v86/home-dashboard-v86.5.js?v=home-original1",
+  "./assets/v86/home-dashboard-v86.5.js?v=ui-preserve1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=public1",
   "./assets/navigation/screen-router.js?v=polish1",
@@ -71,16 +71,18 @@ const APP_SHELL = [
   "./assets/design-system/erp-workspace-v1.css?v=1.0",
   "./assets/design-system/remaining-interface-polish-20261103.css?v=1",
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
-  "./assets/hsk-content/hsk-study-journey-v1.js?v=phase2.3",
-  "./assets/hsk-content/hsk-study-flow-v1.js?v=reliability1",
+  "./assets/v82/learning-progress-merge-v1.js?v=1",
+  "./assets/v82/account-learning-sync-v82.js?v=progress-sync1",
+  "./assets/hsk-content/hsk-study-journey-v1.js?v=progress-sync1",
+  "./assets/hsk-content/hsk-study-flow-v1.js?v=ui-preserve1",
   "./assets/hsk-content/hsk-study-journey-v1.css?v=reliability1",
   "./assets/hsk-content/hsk-professional-runtime.js?v=reliability1",
   "./assets/hsk-content/hsk-content-feature-flags.js?v=reliability1",
   "./assets/curriculum/graded-hsk-entry.js?v=polish1",
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
-  "./assets/hsk-content/hsk-practice-ui-v1.js?v=polish1",
+  "./assets/hsk-content/hsk-practice-ui-v1.js?v=ui-preserve1",
   "./assets/hsk-content/hsk-practice-ui-v1.css?v=polish1",
-  "./assets/hsk-content/hsk-shadowing-v1.js?v=polish1",
+  "./assets/hsk-content/hsk-shadowing-v1.js?v=progress-sync1",
   "./assets/hsk-content/hsk-shadowing-v1.css?v=polish1",
   "./data/shadowing/hsk2-v1.json?v=3",
   "./data/shadowing/hsk3-v1.json?v=3",
@@ -101,8 +103,8 @@ const APP_SHELL = [
   "./erp-lessons-v74.js",
   "./hsk-lessons.js",
   "./dialogue.js",
-  "./assets/daily-learning-v2.css?v=2.9",
-  "./assets/daily-learning-v2.js?v=polish1",
+  "./assets/daily-learning-v2.css?v=ui-preserve1",
+  "./assets/daily-learning-v2.js?v=ui-preserve1",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",
   "./assets/curriculum/progress-v1.js",
@@ -184,10 +186,22 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(request, response.clone()));
+          if (response.ok) {
+            const copy=response.clone();
+            event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy)));
+          }
           return response;
         })
-        .catch(async () => (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html")))
+        .catch(async () => {
+          if (["./", "./index.html"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname)) {
+            const ready = await caches.match(scoped("./.learning-offline-ready-progress-sync1"));
+            const app = ready && (await caches.match(request) || await caches.match(scoped("./index.html")) || await caches.match(scoped("./")));
+            // Cloudflare redirects /index.html to /. A redirected cached response
+            // cannot satisfy an offline navigation with redirect=manual.
+            if (app) return app.redirected ? new Response(app.clone().body,{status:app.status,statusText:app.statusText,headers:app.headers}) : app;
+          }
+          return (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html"));
+        })
     );
     return;
   }
@@ -233,4 +247,11 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener("message", (event) => {
   if (event.data === "SKIP_WAITING") self.skipWaiting();
+  if (event.data === "LEARNING_SHELL_READY") event.waitUntil((async () => {
+    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=progress-sync1","./assets/hsk-content/hsk-study-journey-v1.js?v=progress-sync1","./assets/hsk-content/hsk-study-flow-v1.js?v=ui-preserve1"];
+    if ((await Promise.all(required.map(file => caches.match(scoped(file))))).every(Boolean)) {
+      const cache=await caches.open(SHELL_CACHE);
+      await cache.put(scoped("./.learning-offline-ready-progress-sync1"),new Response("ready"));
+    }
+  })());
 });

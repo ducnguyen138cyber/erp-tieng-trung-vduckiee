@@ -2,7 +2,7 @@
 (function(root){
   "use strict";
   if(!root||!root.document||root.VDuckieHskStudyFlow)return;
-  var doc=root.document, journal=root.VDuckieHskStudyJourney, current=null, reviewOpen=false, reviewKey="", bound=false;
+  var doc=root.document, journal=root.VDuckieHskStudyJourney, current=null, reviewOpen=false, reviewKey="", reviewRevealed=false, reviewWordSnapshot=null, bound=false;
   function esc(v){return String(v==null?"":v).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
   function q(sel){return doc.querySelector(sel);}
   function wordsFromLesson(info){
@@ -87,7 +87,7 @@
       existing.innerHTML='<div class="hsk-study-review-head"><h4>Ôn từ đến hạn</h4><button type="button" data-hsk-review-close aria-label="Đóng">×</button></div><p>Hôm nay không còn từ HSK đến hạn. Tiếp tục học một bài để tạo lịch ôn mới.</p>';
       return;
     }
-    var word=pending[0];reviewKey=word.level+":"+word.hanzi;
+    var word=pending[0];reviewKey=word.level+":"+word.hanzi;reviewWordSnapshot=word;reviewRevealed=false;
     existing.innerHTML='<div class="hsk-study-review-head"><div><span>ÔN TẬP CÁCH QUÃNG</span><h4>Còn '+pending.length+' từ cần ôn</h4></div><button type="button" data-hsk-review-close aria-label="Đóng">×</button></div>'+
       '<p>Ưu tiên từ hay quên. Hãy tự nhớ trước khi xem nghĩa; đây là tự đánh giá ôn tập.</p><div class="hsk-study-review-word"><strong lang="zh-CN">'+esc(word.hanzi)+'</strong><span>'+esc(word.pinyin)+'</span><p data-hsk-review-meaning hidden>'+esc(word.meaningVi)+'</p></div>'+
       '<div class="hsk-study-actions"><button type="button" data-hsk-review-reveal>Xem nghĩa</button>'+
@@ -122,6 +122,8 @@
       else n.textContent="↻ Ôn HSK"+(journal.due().length?" · "+journal.due().length:"");
     }
     reviewDrawer();bind();
+    // Only a successfully rendered lesson may mark its cached app shell usable offline.
+    if(root.navigator&&root.navigator.serviceWorker&&root.navigator.serviceWorker.controller)root.navigator.serviceWorker.controller.postMessage('LEARNING_SHELL_READY');
   }
   function restorePosition(host,position){
     var stage=['words','examples','practice','extra'].indexOf(position.stage)>=0?position.stage:'words';
@@ -207,7 +209,7 @@
           var word=wordsFromLesson(current).find(function(w){return w.hanzi===hanzi;});
           var correct=button.getAttribute("data-focus-choice")===hanzi;
           var old=journal.load().reviews[current.level+":"+hanzi];
-          var firstCorrect=correct&&(!old||!Number(old.correct));
+          var firstCorrect=correct&&(!old||!Number(old.attempts));
           var saved=journal.recordWord(current.level,current.lesson.id,hanzi,correct,
             word&&word.pinyin||"",word&&word.meaningVi||"");
           if(firstCorrect&&saved)doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-word-mastered",{detail:{
@@ -258,26 +260,35 @@
     }
     if(button.hasAttribute("data-hsk-review-close")){reviewOpen=false;reviewDrawer();return;}
     if(button.hasAttribute("data-hsk-review-reveal")){
+      if(!reviewWordSnapshot)return;
+      // Keep the existing self-assessment UI. Viewing a model is exposure only.
+      if(!reviewRevealed)journal.reviewWord(reviewWordSnapshot.level,reviewWordSnapshot.hanzi,false,{exposed:true});
+      reviewRevealed=true;
       var meaning=q("[data-hsk-review-meaning]");if(meaning)meaning.hidden=false;
       q("[data-hsk-review-reveal]").hidden=true;
       doc.querySelectorAll("[data-hsk-review-grade]").forEach(function(b){b.hidden=false;});return;
     }
     if(button.hasAttribute("data-hsk-review-grade")){
-      var first=journal.due().find(function(word){return word.level+":"+word.hanzi===reviewKey;});if(!first)return;
-      var remembered=button.getAttribute("data-hsk-review-grade")==="1";
-      var freshRecall=remembered&&!Number(first.correct);
-      var savedReview=journal.reviewWord(first.level,first.hanzi,remembered);
-      if(savedReview&&freshRecall)doc.dispatchEvent(new root.CustomEvent("vduckie:hsk-word-mastered",{detail:{
-        level:first.level,hanzi:first.hanzi,lessonId:first.lessonId,origin:button
-      }}));
-      update();reviewDrawer();return;
+      if(!reviewWordSnapshot||!reviewRevealed)return;
+      // A self-reported 'remembered' after reveal is not a verified correct answer.
+      // Keep the exposure's due date; 'not remembered' schedules the word sooner.
+      if(button.getAttribute("data-hsk-review-grade")==="0")journal.reviewWord(reviewWordSnapshot.level,reviewWordSnapshot.hanzi,false);
+      reviewWordSnapshot=null;update();reviewDrawer();return;
     }
     if(button.hasAttribute("data-hsk-next-lesson"))moveLesson(1);
   }
   function bind(){
     if(bound)return;bound=true;
     doc.addEventListener("click",handle);
-    doc.addEventListener("vduckie:account-learning-synced",function(){update();reviewDrawer();});
+    var lastOwner=null;
+    doc.addEventListener("vduckie:account-learning-synced",function(event){
+      var owner=event.detail&&event.detail.userId||'';
+      if(lastOwner!==null&&owner!==lastOwner){
+        reviewOpen=false;reviewWordSnapshot=null;
+        var saved=journal.current(),runtime=root.VDuckieHskProfessionalRuntime;
+        if(current&&runtime){var lessonId=saved.lessonId||current.data.lessons[0].id;runtime.selectLevel(saved.level||1,false).then(function(){runtime.selectLesson(lessonId,false);});}
+      }lastOwner=owner;update();if(!reviewRevealed)reviewDrawer();
+    });
     doc.addEventListener('focusin',function(event){var article=event.target.closest&&event.target.closest('[data-pro-exercise]');if(article)savePosition(event.target);});
   }
   bind();

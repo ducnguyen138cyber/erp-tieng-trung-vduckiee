@@ -69,7 +69,7 @@ async function boot({ configured, signedIn }) {
     from(table) {
       assert.equal(table, "user_words");
       return {
-        async select() { return { data: remoteRows, error: null }; },
+        select() { const filters={};return {eq(k,v){filters[k]=v;return this;},then(ok,bad){return Promise.resolve({data:remoteRows.filter(r=>Object.keys(filters).every(k=>r[k]===undefined||r[k]===filters[k])),error:null}).then(ok,bad);},maybeSingle(){return Promise.resolve({data:remoteRows.find(r=>r.word_key===filters.word_key)||null,error:null});}}; },
         async upsert(rows, options) {
           upserts.push({ rows, options });
           return { error: null };

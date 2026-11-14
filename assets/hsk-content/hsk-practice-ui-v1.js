@@ -8,7 +8,7 @@
   var bank=root.VDuckieHSKPracticeBank,cache=Object.create(null),seq=0;
   var level=1,paper=null,answers=Object.create(null),finished=false,review=false;
   var remaining=0,clock=null,deadline=0,confirmSubmit=false,loadingPaper=false;
-  var audioRate=0.85,audioMessage="";
+  var audioRate=0.85,audioMessage="",draftId="",draftTimes={},syncOwner=root.localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
 
   function el(id){return document.getElementById(id);}
   function esc(value){return String(value==null?"":value).replace(/[&<>"']/g,function(ch){
@@ -23,7 +23,8 @@
     node.innerHTML=html;
     document.body.setAttribute("data-current-area","msutong");
   }
-  function stopTimer(){if(clock!==null&&root.clearInterval)root.clearInterval(clock);clock=null;deadline=0;}
+  // Pausing the display must not discard the deadline used by pagehide/draft saves.
+  function stopTimer(){if(clock!==null&&root.clearInterval)root.clearInterval(clock);clock=null;}
   function stopAudio(){if(root.speechSynthesis&&typeof root.speechSynthesis.cancel==="function")root.speechSynthesis.cancel();audioMessage="";}
   function secondsLeft(){return Math.max(0,Math.ceil((deadline-Date.now())/1000));}
   function timeText(seconds){
@@ -42,7 +43,7 @@
     if(remaining===0)finish(true);
   }
   function startTimer(){
-    stopTimer();deadline=Date.now()+remaining*1000;
+    stopTimer();if(!deadline)deadline=Date.now()+remaining*1000;
     if(typeof root.setInterval==="function")clock=root.setInterval(tick,1000);
   }
   function getWords(hsk){
@@ -69,6 +70,15 @@
       return value&&typeof value==="object"&&!Array.isArray(value)?value:{};
     }catch(e){return {};}
   }
+  function changed(){document.dispatchEvent(new CustomEvent('vduckie:practice-progress-change'));}
+  function saveDraft(){
+    if(!paper||finished||!draftId)return;
+    try{var data=progress(),entry=data[paper.id]||{},previous=entry.draft||{},fields=Object.assign({},previous.answers||{});
+      Object.keys(answers).forEach(function(id){if(!fields[id]||Number(draftTimes[id]||0)>=Number(fields[id].at||0))fields[id]={value:answers[id],at:draftTimes[id]||Date.now()};});
+      entry.draft={sessionId:draftId,answers:fields,deadline:deadline||Date.now()+remaining*1000,updatedAt:Date.now(),questionIds:paper.questions.map(function(q){return q.id;}).join('|')};
+      data[paper.id]=entry;root.localStorage.setItem('vduckie-hsk-practice-exams-v2',JSON.stringify(data));changed();
+    }catch(error){}
+  }
   function save(result,byTime){
     try{
       var data=progress(),old=data[paper.id]||{};
@@ -80,9 +90,14 @@
           score:result.score,max:result.max,
           sections:result.totals,incorrectIds:result.incorrectIds.slice(0,100),
           reviewStatus:result.reviewStatus}};
+      var helper=root.VDuckieLearningProgressMerge;
+      var history=Object.assign({},old.attemptHistory||{}),attemptId=draftId||(helper?helper.eventId():stamp);
+      history[attemptId]=Object.assign({percent:score},data[paper.id].lastDetail);
+      data[paper.id].attemptHistory=history;
+      data[paper.id].legacyAttempts=old.legacyAttempts!=null?Number(old.legacyAttempts):old.attemptHistory?0:Number(old.attempts)||0;
       // Preserve unrelated legacy fields and metadata from previous versions.
-      data[paper.id]=Object.assign({},old,data[paper.id]);
-      root.localStorage.setItem("vduckie-hsk-practice-exams-v2",JSON.stringify(data));
+      data[paper.id]=Object.assign({},old,data[paper.id]);delete data[paper.id].draft;
+      root.localStorage.setItem("vduckie-hsk-practice-exams-v2",JSON.stringify(data));changed();
     }catch(e){/* Browser may disable storage; no impact on examination. */}
   }
   function sectionTitle(section){
@@ -104,6 +119,7 @@
       esc(t("← Giáo trình HSK","← 返回 HSK 课程","← HSK curriculum"))+'</button></header>';
   }
   function catalog(){
+    saveDraft();
     ++seq;stopTimer();stopAudio();paper=null;answers=Object.create(null);finished=false;review=false;confirmSubmit=false;loadingPaper=false;
     var saved=progress(),plan=bank.BLUEPRINT[level],total=plan.listening+plan.reading+plan.writing;
     var tabs='<div class="hsk-practice-levels" role="tablist" aria-label="HSK">'+
@@ -116,7 +132,7 @@
       var key="hsk"+level+"-practice-"+String(n).padStart(2,"0"),stat=saved[key];
       cards.push('<button type="button" class="hsk-practice-paper" data-practice-start="'+n+'"><b>'+
         esc(t("Bài luyện","练习","Practice"))+' '+String(n).padStart(2,"0")+'</b><small>'+
-        (stat?esc(t("Cao nhất: ","最佳：","Best: "))+Math.round(stat.best)+'%':
+        (stat&&Number.isFinite(Number(stat.best))?esc(t("Cao nhất: ","最佳：","Best: "))+Math.round(stat.best)+'%':
         esc(t("Chưa làm","尚未作答","Not attempted")))+
         '</small><span class="hsk-practice-paper-skills">'+esc(t("Nghe · Đọc","听力 · 阅读","Listening · Reading")+(plan.writing?t(" · Viết"," · 书写"," · Writing"):""))+'</span><span class="hsk-practice-paper-content">'+esc(t("Từ vựng · Chữ Hán · Pinyin","词汇 · 汉字 · 拼音","Vocabulary · Hanzi · Pinyin"))+'</span><span class="hsk-practice-paper-time">'+total+' '+esc(t("câu","题","questions"))+' · '+plan.minutes+' '+esc(t("phút","分钟","min"))+'</span></button>');
     }
@@ -229,14 +245,22 @@
       '<p class="hsk-exam-audio-status" id="hskPracticeAudioStatus" role="status">'+esc(audioMessage)+'</p>'+body+control+'</section>');
     updateCounters();updateTimer();
   }
-  function start(nextLevel,number){
-    stopTimer();stopAudio();level=Number(nextLevel);var token=++seq;
+  function start(nextLevel,number,fresh){
+    saveDraft();stopTimer();deadline=0;stopAudio();level=Number(nextLevel);var token=++seq;
     paper=null;answers=Object.create(null);finished=false;review=false;confirmSubmit=false;loadingPaper=true;
     mount('<section class="hsk-practice-container"><p class="hsk-practice-wait">'+esc(t("Đang tải đề…","正在加载试卷…","Loading paper…"))+'</p></section>');
     getWords(level).then(function(records){
       if(token!==seq||document.body.getAttribute("data-current-area")!=="msutong")return;
       paper=bank.build(level,number,records);remaining=paper.blueprint.minutes*60;
-      loadingPaper=false;renderExam();startTimer();
+      var saved=progress()[paper.id],draft=!fresh&&saved&&saved.draft;
+      draftId=draft&&draft.sessionId||(root.VDuckieLearningProgressMerge?root.VDuckieLearningProgressMerge.eventId():String(Date.now()));draftTimes={};
+      if(draft&&draft.questionIds===paper.questions.map(function(q){return q.id;}).join('|')){
+        paper.questions.forEach(function(q){var field=draft.answers&&draft.answers[q.id];if(field&&typeof field.value==='string'){answers[q.id]=field.value;draftTimes[q.id]=field.at;}});
+        var savedDeadline=Number(draft.deadline);
+        if(Number.isFinite(savedDeadline)&&savedDeadline>0){deadline=savedDeadline;remaining=secondsLeft();}
+      }
+      loadingPaper=false;renderExam();startTimer();saveDraft();
+      if(remaining===0)finish(true);
     }).catch(function(error){
       if(token!==seq)return;
       loadingPaper=false;
@@ -348,7 +372,7 @@
     if(button.hasAttribute("data-practice-level")){level=Number(button.getAttribute("data-practice-level"));catalog();return;}
     if(button.hasAttribute("data-practice-catalog")){catalog();return;}
     if(button.hasAttribute("data-practice-start")){start(level,Number(button.getAttribute("data-practice-start")));return;}
-    if(button.hasAttribute("data-practice-again")){start(paper.level,paper.number);return;}
+    if(button.hasAttribute("data-practice-again")){start(paper.level,paper.number,true);return;}
     if(button.hasAttribute("data-practice-listen")){play(Number(button.getAttribute("data-practice-listen")));return;}
     if(button.hasAttribute("data-practice-rate")){
       var rate=Number(button.getAttribute("data-practice-rate"));
@@ -367,7 +391,7 @@
     if(!q)return;
     var option=q.options[Number(input.value)];
     if(option===undefined)return;
-    answers[id]=option;confirmSubmit=false;
+    answers[id]=option;draftTimes[id]=Date.now();saveDraft();confirmSubmit=false;
     var card=input.closest(".hsk-exam-question");
     if(card)Array.prototype.forEach.call(card.querySelectorAll(".hsk-exam-choice"),function(label){
       label.classList.toggle("is-selected",!!label.querySelector("input:checked"));
@@ -377,7 +401,7 @@
   }
   function onInput(event){
     if(!paper||finished||!event.target.matches||!event.target.matches("[data-practice-write]"))return;
-    answers[event.target.getAttribute("data-practice-write")]=event.target.value;
+    answers[event.target.getAttribute("data-practice-write")]=event.target.value;draftTimes[event.target.getAttribute("data-practice-write")]=Date.now();saveDraft();
     confirmSubmit=false;var warning=el("hskPracticeSubmitWarning");
     if(warning)warning.textContent="";
     updateCounters();
@@ -386,6 +410,13 @@
     level=Number(l)>=1&&Number(l)<=4?Number(l):1;
     catalog();
   }
+  document.addEventListener("vduckie:account-learning-synced",function(event){
+    var owner=event.detail&&event.detail.userId||'',changedOwner=owner!==syncOwner;syncOwner=owner;
+    if(!changedOwner)return;
+    // Storage was already switched/merged. Never save the outgoing account's draft here.
+    var n=host();if(n&&n.classList.contains('hsk-practice-screen')){paper=null;answers={};finished=false;stopTimer();catalog();}
+  });
+  root.addEventListener('pagehide',saveDraft);
   document.addEventListener("click",onClick);
   document.addEventListener("visibilitychange",function(){if(!document.hidden&&clock!==null)tick();});
   document.addEventListener("change",onChange);

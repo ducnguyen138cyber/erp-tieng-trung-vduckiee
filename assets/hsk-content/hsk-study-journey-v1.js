@@ -6,7 +6,8 @@
   if(root)root.VDuckieHskStudyJourney=api;
 })(typeof globalThis!=="undefined"?globalThis:this,function(root){
   "use strict";
-  var KEY="vduckie-hsk-study-journey-v1", DAY=86400000, INTERVALS=[1,3,7,14,30];
+  var KEY="vduckie-hsk-study-journey-v1", DAY=86400000;
+  var memory=root.VDuckieLearningProgressMerge || (typeof require==="function"?require("../v82/learning-progress-merge-v1.js"):null);
   function safe(value){return String(value==null?"":value).trim();}
   function now(){return Date.now();}
   function empty(){return {version:1,current:{level:1,lessonId:""},lessons:{},reviews:{},updatedAt:0};}
@@ -33,20 +34,20 @@
     if(level<1||level>4||!lessonId)return false;
     var data=load();
     if(data.current.level===level&&data.current.lessonId===lessonId)return true;
-    data.current={level:level,lessonId:lessonId};return emit(data);
+    data.current={level:level,lessonId:lessonId,updatedAt:now()};return emit(data);
   }
   function lesson(id){return copy(object(load().lessons[safe(id)]));}
   function position(level,lessonId,value){
     var data=load(),entry=object(data.lessons[safe(lessonId)]);
     if(!lessonId||Number(level)<1||Number(level)>4)return false;
-    entry.level=Number(level);entry.position=Object.assign({},object(entry.position),object(value));
-    data.lessons[lessonId]=entry;return emit(data);
+    entry.level=Number(level);entry.position=Object.assign({},object(entry.position),object(value),{updatedAt:now()});entry.updatedAt=now();
+    data.lessons[lessonId]=entry;data.current={level:Number(level),lessonId:lessonId,updatedAt:now()};return emit(data);
   }
   function contentDone(level,lessonId,stage){
     if(['words','examples','extra'].indexOf(stage)<0)return false;
     var data=load(),entry=object(data.lessons[safe(lessonId)]);
     entry.level=Number(level);entry.content=object(entry.content);entry.content[stage]=now();
-    data.lessons[lessonId]=entry;return emit(data);
+    data.lessons[lessonId]=entry;data.current={level:Number(level),lessonId:lessonId,updatedAt:now()};return emit(data);
   }
   function retry(lessonId){
     var data=load(),entry=object(data.lessons[safe(lessonId)]);
@@ -59,12 +60,14 @@
     entry.level=level;entry.answers=object(entry.answers);
     if(Array.isArray(verifiedIds))entry.verifiedIds=verifiedIds.slice();
     entry.answers[exerciseId]={correct:correct===true?true:correct===false?false:null,at:now()};
+    entry.updatedAt=now();entry.answerHistory=object(entry.answerHistory);
+    if(memory)entry.answerHistory[memory.eventId()]={exerciseId:exerciseId,correct:entry.answers[exerciseId].correct,at:now(),attemptAt:Number(entry.attemptAt)||0};
     // First submitted answer in this attempt only. Revealing/correcting an answer is practice.
     entry.masteryAnswers=object(entry.masteryAnswers);
     if(verified===true&&typeof correct==='boolean'&&!entry.masteryAnswers[exerciseId]){
       entry.masteryAnswers[exerciseId]={correct:correct,at:now(),verified:true};
     }
-    data.lessons[lessonId]=entry;data.current={level:level,lessonId:lessonId};
+    data.lessons[lessonId]=entry;data.current={level:level,lessonId:lessonId,updatedAt:now()};
     return emit(data);
   }
   function stats(lessonId,total,verifiedIds){
@@ -91,7 +94,7 @@
     if(!entry.completedAt)entry.completedAt=now();
     entry.level=level;entry.answers=answers;entry.exercises=total;
     if(requirements&&Array.isArray(requirements.verifiedIds))entry.verifiedIds=requirements.verifiedIds.slice();
-    data.lessons[lessonId]=entry;data.current={level:level,lessonId:lessonId};
+    data.lessons[lessonId]=entry;data.current={level:level,lessonId:lessonId,updatedAt:now()};
     (Array.isArray(words)?words:[]).forEach(function(word){
       if(!word||!safe(word.hanzi))return;
       var key=reviewKey(level,word.hanzi);
@@ -108,42 +111,27 @@
     });
     return items.sort(function(a,b){return Number(!!b.weak)-Number(!!a.weak)||Number(b.mistakes||0)-Number(a.mistakes||0)||Number(a.nextAt)-Number(b.nextAt)||safe(a.hanzi).localeCompare(safe(b.hanzi));});
   }
-  function reviewWord(level,hanzi,known){
+  function reviewWord(level,hanzi,known,options){
     var data=load(),key=reviewKey(level,hanzi),item=data.reviews[key];
-    if(!item)return false;
-    item.stage=known?Math.min(INTERVALS.length-1,(Number(item.stage)||0)+1):0;
-    item.attempts=Math.max(0,Number(item.attempts)||0)+1;
-    item.correct=Math.max(0,Number(item.correct)||0)+(known?1:0);
-    if(!known){item.weak=true;item.mistakes=Math.max(0,Number(item.mistakes)||0)+1;}
-    else if(item.stage>=2)item.weak=false;
-    item.lastAt=now();item.nextAt=now()+(known?INTERVALS[item.stage]*DAY:5*60000);
+    if(!item||!memory)return false;
+    var event={id:memory.eventId(),at:now(),kind:options&&options.exposed?'reveal':'review',correct:known===true,retrieval:!!(options&&options.retrieval)};
+    data.reviews[key]=memory.wordEvent(item,event);
     return emit(data);
   }
   function recordWord(level,lessonId,hanzi,correct,pinyin,meaningVi){
     level=Number(level);lessonId=safe(lessonId);hanzi=safe(hanzi);
-    if(level<1||level>4||!lessonId||!hanzi||typeof correct!=='boolean')return false;
-    var data=load(),key=reviewKey(level,hanzi),item=object(data.reviews[key]),timestamp=now();
+    if(level<1||level>4||!lessonId||!hanzi||typeof correct!=='boolean'||!memory)return false;
+    var data=load(),key=reviewKey(level,hanzi),item=object(data.reviews[key]);
     item.level=level;item.lessonId=lessonId;item.hanzi=hanzi;
     item.pinyin=safe(pinyin)||safe(item.pinyin);item.meaningVi=safe(meaningVi)||safe(item.meaningVi);
-    item.attempts=Math.max(0,Number(item.attempts)||0)+1;
-    item.correct=Math.max(0,Number(item.correct)||0)+(correct===true?1:0);
-    item.mistakes=Math.max(0,Number(item.mistakes)||0)+(correct===false?1:0);
-    item.lastAt=timestamp;
-    if(correct===false){
-      item.stage=0;item.nextAt=timestamp;item.weak=true;
-    }else{
-      // A single correct answer doesn't instantly erase prior weaknesses.
-      item.stage=Math.max(0,Number(item.stage)||0);
-      item.nextAt=item.nextAt && Number(item.nextAt)>timestamp ? item.nextAt:timestamp+DAY;
-    }
-    data.reviews[key]=item;
+    data.reviews[key]=memory.wordEvent(item,{id:memory.eventId(),at:now(),kind:'study',correct:correct});
     return emit(data);
   }
   function wordStats(){
     var reviews=load().reviews,words=Object.keys(reviews).map(function(key){return reviews[key];}).filter(Boolean);
     var correct=0,attempts=0;
     words.forEach(function(word){attempts+=Number(word.attempts)||0;correct+=Number(word.correct)||0;});
-    return {studied:words.length,remembered:words.filter(function(word){return !word.weak&&Number(word.stage)>=2&&Number(word.correct)>0;}).length,weak:words.filter(function(word){return !!word.weak;}).length,
+    return {seen:words.length,attempted:words.filter(function(word){return Number(word.attempts)>0;}).length,studied:words.length,remembered:words.filter(function(word){return !word.weak&&Number(word.spacedRecalls)>=3;}).length,weak:words.filter(function(word){return !!word.weak;}).length,
       attempts:attempts,correct:correct,accuracy:attempts?Math.round(correct*100/attempts):null};
   }
   function weakWords(level){

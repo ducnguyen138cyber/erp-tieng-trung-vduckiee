@@ -26,7 +26,7 @@ function worker(online = true) {
     async delete(name) { return stores.delete(name); },
   };
   vm.runInNewContext(fs.readFileSync(require.resolve('../service-worker.js'), 'utf8'), {
-    URL, caches,
+    URL, Response, caches,
     self: { registration: { scope: 'https://example.test/app/' }, addEventListener(type, fn) { handlers[type] = fn; }, skipWaiting() {}, clients: { claim() {} } },
     async fetch(request) { requests.push(request.url); if (!online) throw new Error('offline'); return response('current'); },
   });
@@ -108,4 +108,22 @@ test('offline launch shows the complete offline page instead of an incomplete ap
   assert.equal((await w.load('?screen=home', { mode: 'navigate' })).body, 'offline-page');
   assert.equal((await w.load('install.html', { mode: 'navigate' })).body, 'install-guide');
   assert.equal((await w.load('install', { mode: 'navigate' })).body, 'install-guide');
+});
+
+
+test('a fully visited learning shell can reopen offline without discarding the incomplete-cache guard', async () => {
+  const w=worker(false);
+  await w.seed('https://example.test/app/index.html','visited-app');
+  await w.seed('https://example.test/app/.learning-offline-ready-progress-sync1','ready');
+  await w.seed('https://example.test/app/offline.html','offline-page');
+  assert.equal((await w.load('?screen=hsk&hskLevel=2',{mode:'navigate'})).body,'visited-app');
+  assert.equal((await w.load('unknown-guide/',{mode:'navigate'})).body,'offline-page');
+});
+
+
+test('Cloudflare canonical index redirect is normalized for offline navigation',async()=>{
+ const w=worker(false),cache=await w.caches.open('vduckie-pwa-v52-shell');
+ const redirected=new Response('<main>cached lesson</main>',{headers:{'content-type':'text/html'}});Object.defineProperty(redirected,'redirected',{value:true});
+ await cache.put('https://example.test/app/index.html',redirected);await w.seed('https://example.test/app/.learning-offline-ready-progress-sync1','ready');
+ const result=await w.load('?screen=hsk',{mode:'navigate',redirect:'manual'});assert.equal(result.redirected,false);assert.equal(await result.text(),'<main>cached lesson</main>');
 });

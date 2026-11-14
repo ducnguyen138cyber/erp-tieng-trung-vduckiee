@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import {createRequire} from 'node:module';
+import {JSDOM} from 'jsdom';
 const require=createRequire(import.meta.url);
 const bank=require('../assets/hsk-content/hsk-practice-bank-v1.js');
 const read=(file)=>fs.readFileSync(file,'utf8');
@@ -24,6 +25,33 @@ const PLAN=[
   {listening:40,reading:30,writing:10,minutes:90},
   {listening:45,reading:40,writing:15,minutes:105}
 ];
+async function timedPractice(){
+  const dom=new JSDOM('<body data-current-area="msutong"><div id="dailyLearningPanel"></div></body>',{url:'https://example.test/',runScripts:'outside-only'});
+  const w=dom.window;let now=1800000000123,tick;
+  w.Date.now=()=>now;w.setInterval=fn=>{tick=fn;return 1;};w.clearInterval=()=>{};
+  w.VDuckieHSKPracticeBank=bank;
+  w.fetch=async url=>({ok:true,json:async()=>JSON.parse(read(new URL(url,w.location).pathname.slice(1)))});
+  w.eval(read('assets/hsk-content/hsk-practice-ui-v1.js'));
+  async function resume(){w.VDuckieHSKPractice.open(1);w.document.querySelector('[data-practice-start="1"]').click();await new Promise(setImmediate);assert.ok(w.document.querySelector('[data-practice-answer]'));}
+  await resume();
+  return {w,dom,resume,advance:ms=>now+=ms,tick:()=>tick(),draft:()=>JSON.parse(w.localStorage.getItem('vduckie-hsk-practice-exams-v2'))['hsk1-practice-01'].draft};
+}
+test('resuming practice repeatedly preserves the exact original deadline without rounding up time',async()=>{
+  const p=await timedPractice();
+  try{
+    const first=p.draft();
+    for(const elapsed of [1234,867,2001]){p.advance(elapsed);await p.resume();assert.equal(p.draft().sessionId,first.sessionId);assert.equal(p.draft().deadline,first.deadline);}
+  }finally{p.dom.window.close();}
+});
+test('pagehide after leaving practice cannot move its saved deadline forward',async()=>{
+  const p=await timedPractice();
+  try{
+    const original=p.draft().deadline;
+    p.w.document.body.setAttribute('data-current-area','home');p.tick();
+    p.advance(60000);p.w.dispatchEvent(new p.w.Event('pagehide'));
+    assert.equal(p.draft().deadline,original);
+  }finally{p.dom.window.close();}
+});
 test('all 224 HSK papers are fully populated, section-ordered and canonically gradable',()=>{
   assert.equal(bank.LEVELS,4);
   assert.equal(bank.PAPERS_PER_LEVEL,56);
@@ -114,14 +142,16 @@ test('the exam UI shows entire listening/reading/writing sections and grades onl
   assert.match(css,/\.hsk-exam-question-list/);
   assert.match(css,/\.hsk-exam-section-nav/);
 });
-test('the full-length exam entry is bundled in current PWA',()=>{
+test('the full-length exam entry is bundled in current PWA',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const live=await publicEntrypoint();
   const graded=read('assets/curriculum/graded-hsk-entry.js');
   const html=read('index.html'),worker=read('service-worker.js');
   assert.match(graded,/data-practice-open/);
   assert.match(graded,/Bài luyện HSK · 224 mã bài/);
   assert.match(graded,/không phải đề thi HSK chính thức/);
   assert.match(html,/hsk-practice-bank-v1\.js\?v=2/);
-  assert.match(html,/hsk-practice-ui-v1\.js\?v=polish1/);
+  assert.ok(worker.includes(JSON.stringify(live.asset('assets/hsk-content/hsk-practice-ui-v1.js'))));
   assert.match(html,/hsk-practice-ui-v1\.css\?v=polish1/);
   assert.match(html,/graded-hsk-entry\.js\?v=polish1/);
   assert.match(worker,/vduckie-pwa-v52/);

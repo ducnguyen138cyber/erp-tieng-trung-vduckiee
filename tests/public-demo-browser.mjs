@@ -33,7 +33,13 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  await page.locator('#v85PersonalDashboard .v85-top').screenshot({path:path.join(out,name+'-home-progress-continue.png')});
  await page.locator('#v85PersonalDashboard [data-v865-action=continue]').click();await page.locator('#hskLesson .hsk-pro-lesson-head').waitFor();
  if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
- await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();assert.match(await page.locator('[data-hsk-review-drawer]').innerText(),/你好/);await page.locator('[data-hsk-review-close]').click();
+ await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();
+ const recall=page.locator('[data-hsk-review-drawer]');assert.match(await recall.innerText(),/你好|nǐ hǎo/);assert.equal(await page.locator('[data-hsk-recall-input]').count(),0);assert.equal(await page.locator('[data-hsk-review-meaning]').isVisible(),false);
+ const beforeSelfReport=await page.evaluate(()=>window.VDuckieHskStudyJourney.wordStats());
+ await page.locator('[data-hsk-review-reveal]').click();assert.equal(await page.locator('[data-hsk-review-meaning]').isVisible(),true);assert.match(await recall.innerText(),/xin chào/);
+ await page.locator('[data-hsk-review-grade="1"]').click();const afterSelfReport=await page.evaluate(()=>window.VDuckieHskStudyJourney.wordStats());
+ assert.equal(afterSelfReport.correct,beforeSelfReport.correct,'old self-assessment UI must not manufacture a correct recall');assert.equal(afterSelfReport.remembered,0);
+ await page.locator('[data-hsk-review-close]').click();
  if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
 
 

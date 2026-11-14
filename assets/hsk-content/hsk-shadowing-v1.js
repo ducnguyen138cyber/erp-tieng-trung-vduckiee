@@ -3,7 +3,7 @@
   "use strict";
   if(!root||!document)return;
   var key="vduckie-shadowing-v1",level=1,lines=[],index=0,recorder=null,chunks=[],recordUrl="",stream=null,startedAt=0,elapsed=null;
-  var playing=false,recording=false,micPending=false;
+  var playing=false,recording=false,micPending=false,syncOwner=root.localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
   var showPinyin=true,showVi=true,rate=0.85,token=0,group="all",mode="all",selectedId="",recordEpoch=0,repeats=1,soundEpoch=0,soundTimer=null;
   function el(id){return document.getElementById(id);}
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
@@ -12,14 +12,17 @@
   function persist(){try{
     var data=store(),entry=current();
     data[level]=Object.assign({},entry,{index:index,id:selectedId,group:group,mode:mode,rate:rate,showPinyin:showPinyin,showVi:showVi,repeats:repeats,updatedAt:Date.now()});
-    data.lastLevel=level;root.localStorage.setItem(key,JSON.stringify(data));
+    data.lastLevel=level;data.updatedAt=Date.now();root.localStorage.setItem(key,JSON.stringify(data));
+    document.dispatchEvent(new CustomEvent("vduckie:shadowing-change"));
   }catch(e){}
     writeUrl();
   }
   function mark(kind,id){
     if(!id)return;
     try{var data=store(),entry=current(),saved=Object.assign({},entry[kind]||{});
-      if(saved[id])delete saved[id];else saved[id]=true;
+      saved[id]=!saved[id];
+      entry.flagChanges=entry.flagChanges||{};entry.flagChanges[kind]=entry.flagChanges[kind]||{};
+      entry.flagChanges[kind][id]={value:saved[id],at:Date.now()};
       data[level]=Object.assign({},entry,{[kind]:saved,updatedAt:Date.now()});
       root.localStorage.setItem(key,JSON.stringify(data));
     }catch(e){}
@@ -271,5 +274,10 @@
     var choice=Number(route.level)||Number(store().lastLevel)||1;
     load([1,2,3].includes(choice)?choice:1,route);
   }
+  document.addEventListener("vduckie:account-learning-synced",function(event){
+    var owner=event.detail&&event.detail.userId||"",changedOwner=owner!==syncOwner;syncOwner=owner;
+    var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    if(changedOwner){var saved=store();load(Number(saved.lastLevel)||1,{});}else if(!playing&&!recording&&!micPending)render();
+  });
   root.VDuckieShadowing=Object.freeze({open:open,leave:leave});
 })(window,document);
