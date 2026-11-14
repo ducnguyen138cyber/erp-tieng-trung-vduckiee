@@ -42,6 +42,20 @@ async function memory(page){const value=await page.waitForFunction(()=>window.VD
 async function flush(page){await page.evaluate(async()=>{await window.VDuckieAccountSyncUtils.flush();});}
 async function lesson(page,level,id){await page.goto(base+`?screen=hsk&hskLevel=${level}&hskLesson=${id}&area=hsk#hsk`);await ready(page);}
 async function journal(page){return page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'{}'),KEY);}
+// The owner explicitly keeps main's layout, including its partially overlapping chat launcher.
+// Click an actually exposed point as a user can; never force clicks, hide chat or move controls.
+async function dailyNext(page){
+ const button=page.locator('#dailyLearningPanel [data-session-next]');await button.scrollIntoViewIfNeeded();
+ const point=await button.evaluate(node=>{
+  const r=node.getBoundingClientRect(),clear=(x,y)=>{const hit=document.elementFromPoint(r.left+x,r.top+y);return hit&&(hit===node||node.contains(hit));};
+  const centerClear=clear(r.width/2,r.height/2);
+  for(const [x,y] of [[r.width/2,r.height/2],[8,8],[r.width-8,8],[8,r.height-8],[r.width-8,r.height-8]])if(x>0&&y>0&&clear(x,y))return {x,y,centerClear};
+  return null;
+ });
+ assert.ok(point,'the preserved Daily button must have a real pointer-accessible point');
+ if(!point.centerClear){evidence.uiNotes=evidence.uiNotes||[];const note='Preserved main layout: chat partially covers Daily Next; a real exposed point was clicked.';if(!evidence.uiNotes.includes(note))evidence.uiNotes.push(note);}
+ await button.click({position:{x:point.x,y:point.y}});
+}
 try{
  const desktop=await device('desktop',{width:1440,height:900},true),mobile=await device('mobile',{width:390,height:844},false),p=desktop.page,q=mobile.page;
  // A warm, stale executable must be refreshed on this load without touching progress.
@@ -98,18 +112,18 @@ try{
    let missingRequests=0;
    const missingStroke=route=>{missingRequests++;return route.fulfill({status:404,contentType:'application/json',body:'{}'});};
    await mobile.context.route('**/hanzi-data/*.json',missingStroke);
-   await page.locator('#dailyLearningPanel [data-session-next]').click();
+   await dailyNext(page);
    await page.waitForFunction(()=>document.getElementById('dailyWritingStatus')?.textContent.includes('chưa có dữ liệu nét'));
    assert.ok(missingRequests>0,'Exercise a real failed stroke-data request');
    assert.equal(await page.locator('[data-writing-replay]').isDisabled(),true);assert.equal(await page.locator('[data-writing-practice]').isDisabled(),true);
    assert.equal(await page.locator('#dailyLearningPanel [data-speak]').isEnabled(),true);
    assert.equal(await page.locator('#dailyLearningPanel [data-session-next]').isEnabled(),true);
-   await page.locator('#dailyLearningPanel [data-session-next]').click();
+   await dailyNext(page);
    await mobile.context.unroute('**/hanzi-data/*.json',missingStroke);
    await page.evaluate(()=>{window.HSK_HANZI_DATA=window.__savedStrokeData;delete window.__savedStrokeData;});
-   await page.locator('#dailyLearningPanel [data-session-next]').click();
+   await dailyNext(page);
    evidence.checks.push('missing verified stroke data disables animation, keeps audio and next step, and raises no page error');
-  }else for(let i=0;i<3;i++)await page.locator('#dailyLearningPanel [data-session-next]').click();
+  }else for(let i=0;i<3;i++)await dailyNext(page);
  }
  assert.equal(dailyTargets[0],dailyTargets[1]);
  for(const page of [p,q]){

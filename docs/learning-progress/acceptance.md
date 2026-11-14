@@ -106,3 +106,5 @@ Giữ toàn bộ sửa đồng bộ, offline, dữ liệu nét và deadline. T�
 `tests/fixtures/learning-ui-baseline.json` được lấy từ main nêu trên. Bốn test UI khóa CSS, renderer trang chủ, body của shell (bỏ script và chuẩn hóa khoảng trắng), cùng HTML khung ôn từ. Browser tiếp tục kiểm tra nút tự đánh giá cũ và bảo đảm không phát EXP/mastery. Local targeted **92/92 PASS**, không skip; syntax/diff checks PASS. Kết quả CI head mới và trạng thái merge ghi ở PR.
 
 Chủ repo đã yêu cầu gộp main sau khi giữ toàn bộ giao diện cũ; yêu cầu này thay thế trạng thái bàn giao giữ Draft ở các checkpoint trước. Không triển khai tính năng khác.
+
+Giới hạn giao diện giữ nguyên: Duckie Chat ở main có thể che điểm giữa của nút Tiếp Daily trên desktop. Run `43566898784` đã ghi nhận pointer interception sau khi bỏ padding mới. Theo lựa chọn giữ nguyên toàn bộ UI, không dịch chuyển nút/chat hoặc ẩn widget. Browser tìm một điểm thực sự lộ ra bằng elementFromPoint và nhấn thật vào đó; vẫn FAIL nếu không còn điểm bấm được, không force click/bỏ assertion. `journeys.json.uiNotes` ghi rõ sự chồng lấn. Đây là giới hạn UX được giữ lại từ main, không được báo thành đã sửa hết che nút.
