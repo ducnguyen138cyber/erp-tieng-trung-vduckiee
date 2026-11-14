@@ -44,6 +44,19 @@ async function lesson(page,level,id){await page.goto(base+`?screen=hsk&hskLevel=
 async function journal(page){return page.evaluate(k=>JSON.parse(localStorage.getItem(k)||'{}'),KEY);}
 try{
  const desktop=await device('desktop',{width:1440,height:900},true),mobile=await device('mobile',{width:390,height:844},false),p=desktop.page,q=mobile.page;
+ // A warm, stale executable must be refreshed on this load without touching progress.
+ await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await ready(p);
+ evidence.staleCache=await p.evaluate(async()=>{
+  const url=document.querySelector('script[src*="assets/daily-learning-v2.js"]').src;
+  const keys=await caches.keys(),name=keys.find(key=>key.endsWith('-static')&&key.startsWith('vduckie-pwa-'));
+  if(!name)throw new Error('Current static cache is missing');
+  const cache=await caches.open(name),before=localStorage.getItem('vduckie-hsk-study-journey-v1');
+  await cache.put(url,new Response('/* stale-learning-fixture */',{headers:{'content-type':'text/javascript'}}));
+  const body=await (await fetch(url)).text(),stored=await (await cache.match(url)).text();
+  return {url,refreshed:body.includes('function dailyPlan(')&&!body.includes('stale-learning-fixture'),cacheUpdated:stored===body,progressPreserved:before===localStorage.getItem('vduckie-hsk-study-journey-v1')};
+ });
+ assert.equal(evidence.staleCache.refreshed,true);assert.equal(evidence.staleCache.cacheUpdated,true);assert.equal(evidence.staleCache.progressPreserved,true);
+ evidence.checks.push('online load replaces stale Daily executable cache without changing saved progress');
  const desktopNavigations=evidence.navigations.desktop;await p.locator('[data-focus-panel="words"] [data-hsk-content-done]').click();
  await p.locator('[data-focus-next]').first().click();
  await lesson(q,2,'hsk2-lesson-15');await q.locator('[data-focus-panel="words"] [data-hsk-content-done]').click();
@@ -76,7 +89,24 @@ try{
  for(const page of [p,q]){
   await page.evaluate(()=>window.VDuckieDailyLearning.show('daily'));
   dailyTargets.push((await page.locator('#dailyLearningPanel .focus-word>strong').innerText()).trim());
-  for(let i=0;i<3;i++)await page.locator('#dailyLearningPanel [data-session-next]').click();
+  if(page===q){
+   await page.waitForFunction(()=>!!window.HanziWriter);
+   await page.evaluate(()=>{window.__savedStrokeData=window.HSK_HANZI_DATA;window.HSK_HANZI_DATA={};});
+   let missingRequests=0;
+   const missingStroke=route=>{missingRequests++;return route.fulfill({status:404,contentType:'application/json',body:'{}'});};
+   await mobile.context.route('**/hanzi-data/*.json',missingStroke);
+   await page.locator('#dailyLearningPanel [data-session-next]').click();
+   await page.waitForFunction(()=>document.getElementById('dailyWritingStatus')?.textContent.includes('chưa có dữ liệu nét'));
+   assert.ok(missingRequests>0,'Exercise a real failed stroke-data request');
+   assert.equal(await page.locator('[data-writing-replay]').isDisabled(),true);assert.equal(await page.locator('[data-writing-practice]').isDisabled(),true);
+   assert.equal(await page.locator('#dailyLearningPanel [data-speak]').isEnabled(),true);
+   assert.equal(await page.locator('#dailyLearningPanel [data-session-next]').isEnabled(),true);
+   await page.locator('#dailyLearningPanel [data-session-next]').click();
+   await mobile.context.unroute('**/hanzi-data/*.json',missingStroke);
+   await page.evaluate(()=>{window.HSK_HANZI_DATA=window.__savedStrokeData;delete window.__savedStrokeData;});
+   await page.locator('#dailyLearningPanel [data-session-next]').click();
+   evidence.checks.push('missing verified stroke data disables animation, keeps audio and next step, and raises no page error');
+  }else for(let i=0;i<3;i++)await page.locator('#dailyLearningPanel [data-session-next]').click();
  }
  assert.equal(dailyTargets[0],dailyTargets[1]);
  for(const page of [p,q]){

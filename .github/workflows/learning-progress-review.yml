@@ -1,7 +1,7 @@
 name: Learning progress and spaced recall
 on:
   pull_request:
-    paths: ['assets/v82/**','assets/hsk-content/**','assets/daily-learning-v2.js','assets/v86/home-dashboard-v86.5.js','supabase-sync.js','service-worker.js','tests/learning-*','tests/fixtures/learning-*','.github/workflows/learning-progress-review.yml']
+    paths: ['assets/v82/**','assets/hsk-content/**','assets/daily-learning-v2.js','assets/v86/home-dashboard-v86.5.js','supabase-sync.js','service-worker.js','tests/learning-*','tests/fixtures/learning-*','tests/sidebar-service-worker.test.js','tests/hsk-stroke-lazy-load.test.mjs','.github/workflows/learning-progress-review.yml']
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '24'
       - run: npm install --no-save --package-lock=false jsdom@26.1.0
-      - run: node --test tests/learning-progress-review.test.cjs tests/v82-account-learning-sync.test.js tests/hsk-self-study-mastery.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-phase2-exp-regression.test.mjs tests/supabase-sync.test.js tests/daily-learning.test.js tests/hsk-practice-v1.test.mjs tests/hsk-shadowing-v1.test.mjs tests/hsk-shadowing-complete.test.mjs tests/word-exp-mascot-release.test.mjs
+      - run: node --test tests/learning-progress-review.test.cjs tests/v82-account-learning-sync.test.js tests/hsk-self-study-mastery.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-phase2-exp-regression.test.mjs tests/supabase-sync.test.js tests/daily-learning.test.js tests/hsk-practice-v1.test.mjs tests/hsk-shadowing-v1.test.mjs tests/hsk-shadowing-complete.test.mjs tests/word-exp-mascot-release.test.mjs tests/sidebar-service-worker.test.js tests/hsk-stroke-lazy-load.test.mjs
   owner-rls:
     runs-on: ubuntu-24.04
     services:
