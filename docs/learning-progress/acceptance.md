@@ -43,4 +43,30 @@ Head tiếp theo bổ sung xác nhận **bài thực sự đang hiển thị sau
 
 ## Trạng thái bàn giao
 
-PR đang Draft; hoàn thành browser/regression và cập nhật mô tả PR trước khi xin nghiệm thu. Không tự merge PR124. Các giới hạn Auth thật/offline lạnh cần được xác minh trước khi tuyên bố toàn bộ yêu cầu đồng bộ đa thiết bị đã đạt.
+### Khôi phục phiên bị gián đoạn — 2026-11-14
+
+Đã đối chiếu GitHub: cả 13 commit từ `7edede3` đến `1f5d755` đã có trên nhánh `feat/learning-progress-sync-review`. Các sửa callback Daily, không tải lại bài khi đồng bộ nền, giữ hai lượt trả lời Daily, chủ tài khoản Shadowing, chuẩn hóa Cloudflare redirected response và fallback thiếu nét đều đã push. Không tìm được workspace của chính phiên này để phục hồi thêm thay đổi chưa commit; các checkout còn lại thuộc công việc cũ. Không làm lại các sửa đã có.
+
+**CI trên `1f5d755`: 9/9 workflow SUCCESS**, đã kiểm tra từng run qua GitHub API:
+
+| Workflow | Run |
+| --- | --- |
+| Learning progress and spaced recall | [43389465406](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465406) |
+| HSK 224 Exam Targeted Acceptance | [43389465410](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465410) |
+| Shadowing HSK2–3 Acceptance | [43389465528](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465528) |
+| P1 Public Load Lab | [43389465463](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465463) |
+| Vietnamese learning module | [43389465327](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465327) |
+| Typing game browser verification | [43389465381](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465381) |
+| Sidebar stability | [43389465332](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465332) |
+| HSK Content Quality | [43389465527](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465527) |
+| HSK current learner browser contracts | [43389465437](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465437) |
+
+Log browser của run `43389465406` xác nhận Preview đúng head `https://a2c1f91a.vduckie.pages.dev/`, 7 nhóm hành trình PASS, `errors: []`, 44 lượt ghi, 1 xung đột đã thử lại. Cache index thực tế có `redirected: true`; reload offline vẫn PASS. [Artifact 14020097245](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/actions/runs/43389465406/artifacts/14020097245) giữ ảnh, trace và journeys. Đây là bằng chứng mới nhất của phiên cũ, không dùng checkpoint cũ hơn thay cho head cuối.
+
+Phiên khôi phục chạy lại **86/86 targeted Node tests PASS**, không skip, gồm 11 file merge/Daily/HSK/practice/Shadowing/EXP hiện có, cộng `tests/sidebar-service-worker.test.js` (10 test) và `tests/hsk-stroke-lazy-load.test.mjs` (3 test). Syntax và diff checks PASS. Không phát hiện lỗi ứng dụng mới từ các phép kiểm tra đã chạy; không sửa runtime hay mở rộng tính năng.
+
+Commit `6fabc4d` bổ sung hai ca browser: thay một bản Daily JS cũ trong warm cache rồi kiểm tra mạng trả mã hiện tại/cache được cập nhật/tiến độ giữ nguyên; ép thiếu dữ liệu nét và HTTP 404 để kiểm tra trạng thái rõ ràng, nút hoạt ảnh bị vô hiệu, nghe và Tiếp vẫn dùng được, không có page error. Hai file test SW và stroke-loader cũng đã được đưa vào targeted CI để không chỉ được chạy local. Cloudflare trên commit này SUCCESS, Preview `https://8fc7dcdc.vduckie.pages.dev/`.
+
+**Hai ca browser bổ sung trên `6fabc4d`: CHƯA CHẠY ĐƯỢC.** Chromium local không khởi động do môi trường từ chối socket (`Operation not permitted`); GitHub chưa tạo Actions run cho commit được push qua connector. Connector không có dispatch workflow và trình duyệt GitHub chưa đăng nhập, nên chưa thể chạy thủ công. Không gọi đây là lỗi ứng dụng và không lấy 9 workflow trên `1f5d755` làm bằng chứng hai ca mới đã PASS. Bước còn lại: chạy workflow **Learning progress and spaced recall** trên nhánh PR hiện tại; chạy theo sự kiện PR sẽ tự chọn immutable Cloudflare Preview, còn workflow_dispatch hiện dùng static server local trên runner.
+
+PR giữ Draft/chưa merge. Giới hạn hai tài khoản Auth thật, phần cứng điện thoại và mở offline lạnh vẫn như trên; chưa đủ bằng chứng để công nhận toàn bộ yêu cầu E2E Production đã đạt.
