@@ -23,6 +23,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Verify JavaScript syntax
+        run: |
+          node --check assets/search/header-chinese-search.js
+          node --check assets/search/dictionary-expanded.js
+          node --check scripts/build-cvdict-index.mjs
       - name: Verify parser, shard layout and search normalization
         run: node --test tests/dictionary-cvdict.test.mjs
       - name: Download licensed CVDICT and write 122k+ dictionary shards
