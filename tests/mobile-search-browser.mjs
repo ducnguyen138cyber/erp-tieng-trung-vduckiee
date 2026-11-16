@@ -66,7 +66,13 @@ try{
     assert.equal(await input.evaluate(e=>document.activeElement===e),false,'detail blurs keyboard input');
     await geometry(page,'.vsearch-detail',width,430);
     await page.screenshot({path:`${out}/${engine}-${width}-detail.png`});
-    await page.locator('[data-vsearch-close]').tap();
+    const exitBox=await page.locator('[data-vsearch-close]').boundingBox();
+    assert(exitBox.width>=44&&exitBox.height>=44,'detail close is a proper touch target');
+    // The visible X must dismiss in the same click, regardless of delayed WebKit popstate.
+    const closedNow=await page.locator('[data-vsearch-close]').evaluate(el=>{
+      el.click();return !document.querySelector('#vsearchDetail')&&!document.querySelector('#vsearchMobileScreen').inert;
+    });
+    assert.equal(closedNow,true,'detail X closes synchronously');
     await page.locator('#vsearchDetail').waitFor({state:'detached'});
     assert.equal(await input.inputValue(),'你好','return retains query');
     assert.equal(await input.evaluate(e=>document.activeElement===e),false,'return does not raise keyboard');
@@ -84,7 +90,9 @@ try{
     await page.evaluate(()=>{window.VDuckieExpandedDictionary={lookup:()=>new Promise(resolve=>window.finishLookup=resolve)}});
     await input.tap();await input.fill('zzzzz');
     await page.waitForFunction(()=>typeof window.finishLookup==='function');
-    await page.locator('[data-vsearch-back]').tap();
+    const dismissBox=await page.locator('[data-vsearch-dismiss]').boundingBox();
+    assert(dismissBox.width>=44&&dismissBox.height>=44,'search X is a proper touch target');
+    await page.locator('[data-vsearch-dismiss]').tap();
     await page.locator('#vsearchMobileScreen').waitFor({state:'detached'});
     await page.evaluate(()=>window.finishLookup([{hanzi:'测试',pinyin:'cè shì',meanings:{hsk:['thử nghiệm']}}]));
     await page.waitForTimeout(180);
