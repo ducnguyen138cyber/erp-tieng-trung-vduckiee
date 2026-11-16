@@ -137,7 +137,7 @@ var old=document.getElementById("vsearchDetail");if(old)old.remove();var modal=d
  }).catch(function(){modal.querySelectorAll("[data-vsearch-example-pinyin]").forEach(function(node){node.textContent="Chưa có Pinyin được xác minh"})});var chars=Array.from(r.hanzi||"").filter(function(ch){return /[\u3400-\u9fff]/.test(ch)});
  if(chars.length>1){var parts=chars.map(function(ch){var match=search(ch).find(function(candidate){return candidate.hanzi===ch});return match?'<span><b>'+esc(ch)+'</b> · '+esc(match.pinyin||"")+' · '+esc(terms(match)[0]||"Chưa có nghĩa riêng")+'</span>':'<span><b>'+esc(ch)+'</b> · Chưa có dữ liệu phân tích riêng</span>'});
  var breakdown=document.createElement("div");breakdown.className="vsearch-breakdown";breakdown.innerHTML='<h3>Các chữ cấu thành</h3>'+parts.join("");modal.querySelector(".vsearch-examples").after(breakdown)}
- modal.querySelector("[data-vsearch-close]").focus()}
+ modal.querySelector("[data-vsearch-close]").focus({preventScroll:true})}
 function allResults(){
  var d=root.VDuckieDictionary;if(!d||!d.open){render();return}
  var query=field.value.trim();

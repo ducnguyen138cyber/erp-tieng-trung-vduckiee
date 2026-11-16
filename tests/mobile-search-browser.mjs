@@ -16,6 +16,7 @@ await new Promise(done=>server.listen(0,'127.0.0.1',done));
 const base=`http://127.0.0.1:${server.address().port}`;
 await mkdir(out,{recursive:true});
 async function geometry(page,selector,width,height){
+ await page.waitForFunction(({selector,width,height})=>{const r=document.querySelector(selector)?.getBoundingClientRect();return r&&r.x>=-1&&r.right<=width+1&&r.y>=-1&&r.bottom<=height+1},{selector,width,height},{timeout:3000});
  const box=await page.locator(selector).boundingBox();
  assert(box.x>=-1&&box.x+box.width<=width+1,`${selector} horizontal overflow ${JSON.stringify(box)}`);
  assert(box.y>=-1&&box.y+box.height<=height+1,`${selector} outside visible viewport ${JSON.stringify(box)}`);
