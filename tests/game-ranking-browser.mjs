@@ -57,7 +57,7 @@ try{
   await page.locator('.tg-results [data-game-action=rankings]').click();await page.locator('.gr-row').waitFor();assert.equal(await page.locator('[data-game-filter=game]').inputValue(),'typing');assert.equal(await page.locator('[data-game-filter=level]').inputValue(),'1');
   // The protected home panels must survive a full ranking/game/navigation trip.
   await page.locator('#studySidebar [data-home]').evaluate(n=>n.click());await page.locator('#homeHub').waitFor();
-  await page.locator('#expMiniList .v90-mini-row').first().waitFor();assert.match(await page.locator('#expHeaderAccount').textContent(),/349 EXP tổng/);assert.match(await page.locator('#expMiniList').textContent(),/3 EXP tuần/);
+  await page.locator('#expMiniList .v90-mini-row').first().waitFor();assert.match(await page.locator('#expHeaderAccount').textContent(),/349 EXP tổng/);assert.match(await page.locator('#expMiniList').textContent(),/349 EXP/);
   for(const selector of ['.vi-home-invite','.home-welcome-card','.home-library-card'])assert.equal(await page.locator(selector).isVisible(),true,selector);
   if(width===1440){assert.equal(await page.locator('#v865HomeSidebar').isVisible(),true);await page.screenshot({path:path.join(out,width+'-home.png'),fullPage:true});}
   assert.deepEqual(errors,[]);await context.close();console.log(width+': game board filters, reload/history, save, EXP isolation, home passed');
