@@ -125,3 +125,20 @@ test('Top 5 recovers identical confirmed rows after a failed refresh', async () 
   await sandbox.VDuckieHomeEXP90.refreshMini();
   assert.equal(nodes.expMiniList.innerHTML,confirmed,'a cached markup signature must not trap the error/loading state');
 });
+
+test('an EXP award invalidates a pre-award read before refresh subscribers run', async () => {
+  let init,oldResolve,reads=0,fresh;
+  const session={user:{id:'A',user_metadata:{full_name:'Alice'}}};
+  const sandbox={VDUCKIE_SUPABASE_CONFIG:{url:'https://fixture.supabase.co',publishableKey:'sb_publishable_fixture'},
+    supabase:{createClient:()=>({auth:{getSession:async()=>({data:{session}}),onAuthStateChange(){}},rpc(name){
+      if(name==='award_exp')return Promise.resolve({data:[{awarded:true,exp_awarded:3,total_exp:153}],error:null});
+      if(name==='get_my_exp'){reads++;return reads===1?new Promise(r=>oldResolve=r):Promise.resolve({data:153,error:null});}
+    }})},document:{readyState:'loading',getElementById:()=>null,addEventListener:(type,fn)=>{if(type==='DOMContentLoaded')init=fn},dispatchEvent(event){if(event.type==='vduckie:exp-updated')fresh=sandbox.VDuckieEXP.getCurrentUserEXP();}},
+    console,Intl,CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}},setTimeout,clearTimeout};
+  sandbox.window=sandbox;vm.runInNewContext(fs.readFileSync(path.join(root,'assets/v90/exp-core-v90.js'),'utf8'),sandbox);
+  init();await Promise.resolve();
+  const old=sandbox.VDuckieEXP.getCurrentUserEXP();
+  await sandbox.VDuckieEXP.awardEXP('lesson_complete','fixture');
+  assert.equal(reads,2,'post-award subscribers cannot reuse a pre-award RPC');
+  oldResolve({data:150,error:null});assert.equal(await old,150);assert.equal(await fresh,153);
+});

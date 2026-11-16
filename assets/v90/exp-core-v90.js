@@ -87,6 +87,8 @@
   }
   function announceAward(row,anchor){
     if(row&&row.awarded&&Number(row.exp_awarded)>0){
+      // A pre-award read can still be in flight; mutation subscribers need a fresh total.
+      expRead = null;
       floatAward(row.exp_awarded,anchor);
       document.dispatchEvent(new CustomEvent("vduckie:exp-updated",{detail:row}));
       document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded",{detail:{totalEXP:Number(row.total_exp)||0}}));
