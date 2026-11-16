@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v56";
+const CACHE_VERSION = "vduckie-pwa-v57";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -37,6 +37,7 @@ const APP_SHELL = [
   "./assets/auth/auth-screen.css?v=6",
   "./assets/auth/auth-screen.js?v=6",
   "./assets/interface/public-interface.css?v=3",
+  "./assets/interface/mobile-fluidity-v1.css?v=1",
   "./assets/interface/mobile-navigation.js?v=1",
   "./assets/factory/workshop-content.js?v=1",
   "./assets/games/sentence-engine.js?v=2",
@@ -91,9 +92,9 @@ const APP_SHELL = [
   "./data/shadowing/hsk2-v1.json?v=3",
   "./data/shadowing/hsk3-v1.json?v=3",
   "./assets/v95/mascot-manifest-v95.js?v=96.1",
-  "./assets/search/header-chinese-search.css?v=mobile-search1",
+  "./assets/search/header-chinese-search.css?v=mobile-search2",
   "./assets/search/dictionary-expanded.js?v=1",
-  "./assets/search/header-chinese-search.js?v=mobile-search1",
+  "./assets/search/header-chinese-search.js?v=mobile-search2",
   "./assets/search/dictionary-extras.css?v=polish1",
   "./assets/ai/free-learning-assistant.css?v=2",
   "./hsk-lessons.js?v=2b4.2",
