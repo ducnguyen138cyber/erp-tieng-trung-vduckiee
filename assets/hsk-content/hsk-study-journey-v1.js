@@ -17,7 +17,7 @@
     var saved;try{saved=JSON.parse(root.localStorage.getItem(KEY)||"{}");}catch(error){saved={};}
     saved=object(saved);var base=empty();
     base.current=Object.assign(base.current,object(saved.current));
-    base.current.level=Math.max(1,Math.min(4,Number(base.current.level)||1));
+    base.current.level=Math.max(1,Math.min(6,Number(base.current.level)||1));
     base.current.lessonId=safe(base.current.lessonId);
     base.lessons=object(saved.lessons);base.reviews=object(saved.reviews);
     base.updatedAt=Number(saved.updatedAt)||0;return base;
@@ -31,7 +31,7 @@
   function current(){return copy(load().current);}
   function visit(level,lessonId){
     level=Number(level);lessonId=safe(lessonId);
-    if(level<1||level>4||!lessonId)return false;
+    if(level<1||level>6||!lessonId)return false;
     var data=load();
     if(data.current.level===level&&data.current.lessonId===lessonId)return true;
     data.current={level:level,lessonId:lessonId,updatedAt:now()};return emit(data);
@@ -39,7 +39,7 @@
   function lesson(id){return copy(object(load().lessons[safe(id)]));}
   function position(level,lessonId,value){
     var data=load(),entry=object(data.lessons[safe(lessonId)]);
-    if(!lessonId||Number(level)<1||Number(level)>4)return false;
+    if(!lessonId||Number(level)<1||Number(level)>6)return false;
     entry.level=Number(level);entry.position=Object.assign({},object(entry.position),object(value),{updatedAt:now()});entry.updatedAt=now();
     data.lessons[lessonId]=entry;data.current={level:Number(level),lessonId:lessonId,updatedAt:now()};return emit(data);
   }
@@ -55,7 +55,7 @@
   }
   function recordAnswer(level,lessonId,exerciseId,correct,verified,verifiedIds){
     level=Number(level);lessonId=safe(lessonId);exerciseId=safe(exerciseId);
-    if(level<1||level>4||!lessonId||!exerciseId)return false;
+    if(level<1||level>6||!lessonId||!exerciseId)return false;
     var data=load(),entry=object(data.lessons[lessonId]);
     entry.level=level;entry.answers=object(entry.answers);
     if(Array.isArray(verifiedIds))entry.verifiedIds=verifiedIds.slice();
@@ -86,7 +86,7 @@
   function complete(level,lessonId,total,words,requirements){
     var ids=Array.isArray(total)?total:null;
     level=Number(level);lessonId=safe(lessonId);total=ids?ids.length:Math.max(0,Number(total)||0);
-    if(level<1||level>4||!lessonId)return {ok:false,reason:"invalid-lesson"};
+    if(level<1||level>6||!lessonId)return {ok:false,reason:"invalid-lesson"};
     var data=load(),entry=object(data.lessons[lessonId]),answers=object(entry.answers),checked=(ids||Object.keys(answers)).filter(function(id){return !!answers[id];}).length;
     var missing=((requirements&&requirements.content)||[]).filter(function(stage){return !object(entry.content)[stage];});
     if(!entry.completedAt&&missing.length)return {ok:false,reason:'unfinished-content',remaining:missing.length};
@@ -120,7 +120,7 @@
   }
   function recordWord(level,lessonId,hanzi,correct,pinyin,meaningVi){
     level=Number(level);lessonId=safe(lessonId);hanzi=safe(hanzi);
-    if(level<1||level>4||!lessonId||!hanzi||typeof correct!=='boolean'||!memory)return false;
+    if(level<1||level>6||!lessonId||!hanzi||typeof correct!=='boolean'||!memory)return false;
     var data=load(),key=reviewKey(level,hanzi),item=object(data.reviews[key]);
     item.level=level;item.lessonId=lessonId;item.hanzi=hanzi;
     item.pinyin=safe(pinyin)||safe(item.pinyin);item.meaningVi=safe(meaningVi)||safe(item.meaningVi);

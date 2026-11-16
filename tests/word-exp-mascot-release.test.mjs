@@ -84,5 +84,5 @@ test('EXP reward guide matches the deployed three-point, fifty-word rule in ever
   assert.match(i18n,/up to 50 words\/day/);
   entry.asset('assets/v90/exp-leaderboard-v90.js');
   entry.asset('assets/i18n/interface-i18n-v1.js');
-  assert.match(index,/interface-i18n-v1\.js\?v=total-exp1/);
+  assert.match(index,/interface-i18n-v1\.js\?v=hsk56-1/);
 });

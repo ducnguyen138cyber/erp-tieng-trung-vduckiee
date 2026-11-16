@@ -1,0 +1,891 @@
+{
+  "version": 1,
+  "status": "original-self-study-material-not-independent-review",
+  "descriptionVi": "Mỗi tình huống dùng xuyên suốt ba bài trong chương: hiểu dữ kiện, phân tích và vận dụng. Đây là tình huống hư cấu để luyện ngôn ngữ, không phải thông tin thời sự hay tư vấn chuyên môn.",
+  "cases": {
+    "hsk5-unit-01": {
+      "zh": [
+        "群里有人转发消息，声称附近的图书馆下个月就要关闭。",
+        "小林联系图书馆后得知，实际安排只是周末暂停开放，以便维修照明设备。",
+        "她在转发之前补上原始通知的日期和链接，并说明维修结束后将恢复正常开放。"
+      ],
+      "vi": [
+        "Trong nhóm có người chuyển tiếp tin nói rằng thư viện gần đó sẽ đóng cửa vào tháng tới.",
+        "Sau khi liên hệ thư viện, Tiểu Lâm biết kế hoạch thực tế chỉ là tạm đóng vào cuối tuần để sửa thiết bị chiếu sáng.",
+        "Trước khi chuyển tiếp, cô bổ sung ngày và đường dẫn của thông báo gốc, đồng thời nói rõ thư viện sẽ mở bình thường sau khi sửa xong."
+      ],
+      "py": [
+        "qún lǐ yǒu rén zhuǎn fā xiāo xī， shēng chēng fù jìn de tú shū guǎn xià gè yuè jiù yào guān bì。",
+        "xiǎo lín lián xì tú shū guǎn hòu dé zhī， shí jì ān pái zhǐ shì zhōu mò zàn tíng kāi fàng， yǐ biàn wéi xiū zhào míng shè bèi。",
+        "tā zài zhuǎn fā zhī qián bǔ shàng yuán shǐ tōng zhī de rì qī hé liàn jiē， bìng shuō míng wéi xiū jié shù hòu jiāng huī fù zhèng cháng kāi fàng。"
+      ]
+    },
+    "hsk5-unit-02": {
+      "zh": [
+        "客户在邮件中要求周五以前收到报告，却没有说明需要初稿还是最终版本。",
+        "小周没有直接承诺，而是回复邮件，询问数据范围、文件格式和确认人。",
+        "双方确认周五先交初稿，客户周一提供意见，再由项目组修改并提交最终版本。"
+      ],
+      "vi": [
+        "Khách hàng yêu cầu nhận báo cáo trước thứ Sáu qua email nhưng chưa nói cần bản nháp hay bản cuối.",
+        "Tiểu Chu chưa cam kết ngay mà trả lời để hỏi phạm vi dữ liệu, định dạng tệp và người xác nhận.",
+        "Hai bên thống nhất nộp bản nháp thứ Sáu, khách góp ý thứ Hai rồi nhóm dự án sửa và nộp bản cuối."
+      ],
+      "py": [
+        "kè hù zài yóu jiàn zhōng yāo qiú zhōu wǔ yǐ qián shōu dào bào gào， què méi yǒu shuō míng xū yào chū gǎo hái shì zuì zhōng bǎn běn。",
+        "xiǎo zhōu méi yǒu zhí jiē chéng nuò， ér shì huí fù yóu jiàn， xún wèn shù jù fàn wéi、 wén jiàn gé shì hé què rèn rén。",
+        "shuāng fāng què rèn zhōu wǔ xiān jiāo chū gǎo， kè hù zhōu yī tí gōng yì jiàn， zài yóu xiàng mù zǔ xiū gǎi bìng tí jiāo zuì zhōng bǎn běn。"
+      ]
+    },
+    "hsk5-unit-03": {
+      "zh": [
+        "会议上，销售部门希望尽快上线新服务，技术部门则担心测试时间不足。",
+        "主持人请双方分别列出必须满足的条件，而不是重复各自的立场。",
+        "最后大家决定先向少量用户开放试用，由技术部门记录问题，一周后再决定是否扩大范围。"
+      ],
+      "vi": [
+        "Trong cuộc họp, bộ phận kinh doanh muốn ra mắt dịch vụ sớm còn bộ phận kỹ thuật lo thiếu thời gian kiểm thử.",
+        "Người chủ trì đề nghị hai bên liệt kê điều kiện bắt buộc thay vì lặp lại lập trường.",
+        "Cuối cùng mọi người quyết định cho một nhóm nhỏ dùng thử, kỹ thuật ghi nhận lỗi và sau một tuần mới quyết định có mở rộng không."
+      ],
+      "py": [
+        "huì yì shàng， xiāo shòu bù mén xī wàng jǐn kuài shàng xiàn xīn fú wù， jì shù bù mén zé dān xīn cè shì shí jiān bù zú。",
+        "zhǔ chí rén qǐng shuāng fāng fēn bié liè chū bì xū mǎn zú de tiáo jiàn， ér bú shì chóng fù gè zì de lì chǎng。",
+        "zuì hòu dà jiā jué dìng xiān xiàng shǎo liàng yòng hù kāi fàng shì yòng， yóu jì shù bù mén jì lù wèn tí， yī zhōu hòu zài jué dìng shì fǒu kuò dà fàn wéi。"
+      ]
+    },
+    "hsk5-unit-04": {
+      "zh": [
+        "项目比原计划晚了三天，有人认为只要增加人手就能赶上进度。",
+        "复盘记录显示，真正的问题是任务之间的依赖关系没有说明，后一道工序一直在等前一道工序确认。",
+        "负责人重新列出交接条件和确认时间，并要求发现风险时及时报告，而不是等到截止日期再解释。"
+      ],
+      "vi": [
+        "Dự án chậm ba ngày và có người cho rằng chỉ cần thêm nhân sự là theo kịp tiến độ.",
+        "Biên bản rà soát cho thấy vấn đề thật là quan hệ phụ thuộc giữa các việc chưa rõ, công đoạn sau luôn chờ công đoạn trước xác nhận.",
+        "Người phụ trách lập lại điều kiện bàn giao và thời gian xác nhận, yêu cầu báo sớm khi thấy rủi ro thay vì đến hạn mới giải thích."
+      ],
+      "py": [
+        "xiàng mù bǐ yuán jì huà wǎn le sān tiān， yǒu rén rèn wéi zhǐ yào zēng jiā rén shǒu jiù néng gǎn shàng jìn dù。",
+        "fù pán jì lù xiǎn shì， zhēn zhèng de wèn tí shì rèn wù zhī jiān de yī lài guān xì méi yǒu shuō míng， hòu yī dào gōng xù yì zhí zài děng qián yī dào gōng xù què rèn。",
+        "fù zé rén chóng xīn liè chū jiāo jiē tiáo jiàn hé què rèn shí jiān， bìng yāo qiú fā xiàn fēng xiǎn shí jí shí bào gào， ér bú shì děng dào jié zhǐ rì qī zài jiě shì。"
+      ]
+    },
+    "hsk5-unit-05": {
+      "zh": [
+        "顾客投诉设备经常断线，客服最初只建议他重新启动。",
+        "进一步询问后，客服发现问题总是在同一位置出现，而其他位置使用正常。",
+        "客服记录使用环境和出现时间，约定进一步检查的时间，并在报价中分别说明维修费用和服务范围。"
+      ],
+      "vi": [
+        "Khách phàn nàn thiết bị thường mất kết nối, ban đầu chăm sóc khách chỉ khuyên khởi động lại.",
+        "Hỏi thêm mới thấy lỗi luôn xảy ra ở cùng một vị trí còn nơi khác dùng bình thường.",
+        "Nhân viên ghi lại môi trường và thời điểm xảy ra lỗi, hẹn kiểm tra thêm, đồng thời tách rõ phí sửa chữa và phạm vi dịch vụ trong báo giá."
+      ],
+      "py": [
+        "gù kè tóu sù shè bèi jīng cháng duàn xiàn， kè fú zuì chū zhǐ jiàn yì tā chóng xīn qǐ dòng。",
+        "jìn yí bù xún wèn hòu， kè fú fā xiàn wèn tí zǒng shì zài tóng yī wèi zhì chū xiàn， ér qí tā wèi zhì shǐ yòng zhèng cháng。",
+        "kè fú jì lù shǐ yòng huán jìng hé chū xiàn shí jiān， yuē dìng jìn yí bù jiǎn chá de shí jiān， bìng zài bào jià zhōng fēn bié shuō míng wéi xiū fèi yòng hé fú wù fàn wéi。"
+      ]
+    },
+    "hsk5-unit-06": {
+      "zh": [
+        "面试时，小陈只说自己参加过几个项目，却没有说明承担了什么责任。",
+        "面试官请他选择一个具体例子，解释遇到的问题、采取的行动以及得到的结果。",
+        "小陈补充了可核实的成果，也说明自己尚需学习的技能，并据此比较不同岗位的发展机会。"
+      ],
+      "vi": [
+        "Khi phỏng vấn, Tiểu Trần chỉ nói đã tham gia vài dự án mà chưa nêu trách nhiệm của mình.",
+        "Người phỏng vấn đề nghị chọn một ví dụ cụ thể để giải thích vấn đề, hành động và kết quả.",
+        "Tiểu Trần bổ sung kết quả có thể kiểm chứng, nói rõ kỹ năng còn cần học rồi dựa vào đó so sánh cơ hội phát triển ở các vị trí."
+      ],
+      "py": [
+        "miàn shì shí， xiǎo chén zhǐ shuō zì jǐ cān jiā guò jǐ gè xiàng mù， què méi yǒu shuō míng chéng dān le shén me zé rèn。",
+        "miàn shì guān qǐng tā xuǎn zé yí gè jù tǐ lì zi， jiě shì yù dào de wèn tí、 cǎi qǔ de xíng dòng yǐ jí dé dào de jié guǒ。",
+        "xiǎo chén bǔ chōng le kě hé shí de chéng guǒ， yě shuō míng zì jǐ shàng xū xué xí de jì néng， bìng jù cǐ bǐ jiào bù tóng gǎng wèi de fā zhǎn jī huì。"
+      ]
+    },
+    "hsk5-unit-07": {
+      "zh": [
+        "一家小店本月销售额增长了，但店主发现利润没有相应提高。",
+        "员工比较记录后发现，折扣吸引了更多顾客，同时配送和包装成本也增加了。",
+        "他们决定先调整部分商品的促销方式，记录成本变化，再判断新方案是否值得推广。"
+      ],
+      "vi": [
+        "Doanh thu tháng này của một cửa hàng nhỏ tăng nhưng chủ tiệm thấy lợi nhuận không tăng tương ứng.",
+        "So sánh sổ ghi chép, nhân viên nhận ra giảm giá thu hút thêm khách nhưng phí giao hàng và đóng gói cũng tăng.",
+        "Họ quyết định điều chỉnh khuyến mại một số mặt hàng, ghi lại biến động chi phí rồi mới xét có nên mở rộng cách làm mới."
+      ],
+      "py": [
+        "yī jiā xiǎo diàn běn yuè xiāo shòu é zēng zhǎng le， dàn diàn zhǔ fā xiàn lì rùn méi yǒu xiāng yìng tí gāo。",
+        "yuán gōng bǐ jiào jì lù hòu fā xiàn， zhé kòu xī yǐn le gèng duō gù kè， tóng shí pèi sòng hé bāo zhuāng chéng běn yě zēng jiā le。",
+        "tā men jué dìng xiān tiáo zhěng bù fèn shāng pǐn de cù xiāo fāng shì， jì lù chéng běn biàn huà， zài pàn duàn xīn fāng àn shì fǒu zhí de tuī guǎng。"
+      ]
+    },
+    "hsk5-unit-08": {
+      "zh": [
+        "公司准备使用自动整理会议记录的工具，有人期待节省时间，也有人担心资料泄露。",
+        "试用小组先用不含个人信息的样本测试，并逐条核对工具生成的摘要。",
+        "他们把使用范围、人工确认步骤和删除期限写进说明，获得负责人确认后才扩大试用。"
+      ],
+      "vi": [
+        "Công ty định dùng công cụ tự tổng hợp biên bản họp, có người mong tiết kiệm thời gian và có người lo lộ tài liệu.",
+        "Nhóm thử nghiệm dùng mẫu không chứa thông tin cá nhân và kiểm tra từng mục tóm tắt do công cụ tạo.",
+        "Họ ghi rõ phạm vi sử dụng, bước kiểm tra của con người và thời hạn xóa, được người phụ trách xác nhận rồi mới mở rộng thử nghiệm."
+      ],
+      "py": [
+        "gōng sī zhǔn bèi shǐ yòng zì dòng zhěng lǐ huì yì jì lù de gōng jù， yǒu rén qī dài jié shěng shí jiān， yě yǒu rén dān xīn zī liào xiè lòu。",
+        "shì yòng xiǎo zǔ xiān yòng bù hán gè rén xìn xī de yàng běn cè shì， bìng zhú tiáo hé duì gōng jù shēng chéng de zhāi yào。",
+        "tā men bǎ shǐ yòng fàn wéi、 rén gōng què rèn bù zhòu hé shān chú qī xiàn xiě jìn shuō míng， huò dé fù zé rén què rèn hòu cái kuò dà shì yòng。"
+      ]
+    },
+    "hsk5-unit-09": {
+      "zh": [
+        "社区准备调整公交线路，部分居民认为新路线更方便，另一部分居民却需要走更远的路。",
+        "居民代表收集不同时间段的出行情况，并请行动不便的人说明实际困难。",
+        "他们向服务窗口提交具体地点、时段和建议，要求试行后公开反馈，再讨论是否继续调整。"
+      ],
+      "vi": [
+        "Khu dân cư định chỉnh tuyến xe buýt, một số người thấy thuận tiện hơn nhưng người khác phải đi bộ xa hơn.",
+        "Đại diện cư dân thu thập việc đi lại theo từng khung giờ và mời người khó di chuyển nói rõ trở ngại.",
+        "Họ gửi vị trí, khung giờ và kiến nghị cụ thể đến bộ phận dịch vụ, đề nghị công khai phản hồi sau thử nghiệm rồi bàn việc điều chỉnh tiếp."
+      ],
+      "py": [
+        "shè qū zhǔn bèi tiáo zhěng gōng jiāo xiàn lù， bù fèn jū mín rèn wéi xīn lù xiàn gèng fāng biàn， lìng yī bù fèn jū mín què xū yào zǒu gèng yuǎn de lù。",
+        "jū mín dài biǎo shōu jí bù tóng shí jiān duàn de chū xíng qíng kuàng， bìng qǐng xíng dòng bù biàn de rén shuō míng shí jì kùn nán。",
+        "tā men xiàng fú wù chuāng kǒu tí jiāo jù tǐ dì diǎn、 shí duàn hé jiàn yì， yāo qiú shì xíng hòu gōng kāi fǎn kuì， zài tǎo lùn shì fǒu jì xù tiáo zhěng。"
+      ]
+    },
+    "hsk5-unit-10": {
+      "zh": [
+        "小王看到一条健康消息，标题说一种习惯适合所有人，却没有提供研究来源。",
+        "他读完原文后发现，研究只观察了一小组人，并没有证明这种习惯能带来相同结果。",
+        "他把不确定的地方记下来，准备咨询专业人员，并在描述自己的情况时说明持续时间和变化。"
+      ],
+      "vi": [
+        "Tiểu Vương thấy một tin sức khỏe có tiêu đề nói một thói quen phù hợp với mọi người nhưng không dẫn nguồn nghiên cứu.",
+        "Đọc bản gốc, anh thấy nghiên cứu chỉ quan sát một nhóm nhỏ và chưa chứng minh thói quen đó đem lại kết quả giống nhau.",
+        "Anh ghi lại điểm chưa chắc để hỏi người có chuyên môn, đồng thời khi mô tả tình trạng của mình sẽ nêu thời gian kéo dài và diễn biến."
+      ],
+      "py": [
+        "xiǎo wáng kàn dào yī tiáo jiàn kāng xiāo xī， biāo tí shuō yī zhǒng xí guàn shì hé suǒ yǒu rén， què méi yǒu tí gōng yán jiū lái yuán。",
+        "tā dú wán yuán wén hòu fā xiàn， yán jiū zhǐ guān chá le yī xiǎo zǔ rén， bìng méi yǒu zhèng míng zhè zhǒng xí guàn néng dài lái xiāng tóng jié guǒ。",
+        "tā bǎ bù què dìng de dì fāng jì xià lái， zhǔn bèi zī xún zhuān yè rén yuán， bìng zài miáo shù zì jǐ de qíng kuàng shí shuō míng chí xù shí jiān hé biàn huà。"
+      ]
+    },
+    "hsk5-unit-11": {
+      "zh": [
+        "办公室提出减少一次性用品，但员工发现替代用品的采购费用较高。",
+        "讨论中，大家不仅比较购买价格，也计算清洗、保管和重复使用的成本。",
+        "他们选择一个部门先试行，记录使用量和实际支出，再根据结果修改采购计划。"
+      ],
+      "vi": [
+        "Văn phòng đề xuất giảm đồ dùng một lần nhưng nhân viên thấy vật dụng thay thế có giá mua cao hơn.",
+        "Khi thảo luận, mọi người không chỉ so giá mua mà còn tính phí vệ sinh, bảo quản và tái sử dụng.",
+        "Họ chọn một bộ phận thử trước, ghi lượng dùng và chi phí thực tế rồi dựa vào kết quả sửa kế hoạch mua sắm."
+      ],
+      "py": [
+        "bàn gōng shì tí chū jiǎn shǎo yí cì xìng yòng pǐn， dàn yuán gōng fā xiàn tì dài yòng pǐn de cǎi gòu fèi yòng jiào gāo。",
+        "tǎo lùn zhōng， dà jiā bù jǐn bǐ jiào gòu mǎi jià gé， yě jì suàn qīng xǐ、 bǎo guǎn hé chóng fù shǐ yòng de chéng běn。",
+        "tā men xuǎn zé yí gè bù mén xiān shì xíng， jì lù shǐ yòng liàng hé shí jì zhī chū， zài gēn jù jié guǒ xiū gǎi cǎi gòu jì huà。"
+      ]
+    },
+    "hsk5-unit-12": {
+      "zh": [
+        "旅行途中，原定的列车临时取消，同行的人有的想改乘汽车，有的希望等待下一班。",
+        "领队先确认每个人的时间限制，再向工作人员核实可用的交通方式和退改条件。",
+        "他把已经确认的信息和仍在等待的消息分开通知，并约定半小时后再次更新安排。"
+      ],
+      "vi": [
+        "Trong chuyến đi, tàu đã định bất ngờ bị hủy; người muốn đổi sang ô tô, người muốn chờ chuyến sau.",
+        "Trưởng đoàn xác nhận giới hạn thời gian của từng người rồi hỏi nhân viên về phương tiện còn hoạt động và điều kiện đổi trả.",
+        "Anh thông báo riêng phần đã xác nhận và phần còn chờ, hẹn cập nhật lịch trình lần nữa sau nửa giờ."
+      ],
+      "py": [
+        "lǚ xíng tú zhōng， yuán dìng de liè chē lín shí qǔ xiāo， tóng háng de rén yǒu de xiǎng gǎi chéng qì chē， yǒu de xī wàng děng dài xià yī bān。",
+        "lǐng duì xiān què rèn měi gè rén de shí jiān xiàn zhì， zài xiàng gōng zuò rén yuán hé shí kě yòng de jiāo tōng fāng shì hé tuì gǎi tiáo jiàn。",
+        "tā bǎ yǐ jīng què rèn de xìn xī hé réng zài děng dài de xiāo xī fēn kāi tōng zhī， bìng yuē dìng bàn xiǎo shí hòu zài cì gēng xīn ān pái。"
+      ]
+    },
+    "hsk5-unit-13": {
+      "zh": [
+        "学校准备介绍一种传统节日习俗，不同家庭对做法的解释却并不相同。",
+        "组织者采访了几代人，发现有些变化来自生活条件，有些变化来自个人选择。",
+        "展览同时保留不同说法，并注明采访背景，避免把一种家庭经验说成所有人的共同传统。"
+      ],
+      "vi": [
+        "Nhà trường định giới thiệu một phong tục lễ hội truyền thống nhưng các gia đình giải thích cách làm khác nhau.",
+        "Người tổ chức phỏng vấn nhiều thế hệ và thấy một số thay đổi đến từ điều kiện sống, một số từ lựa chọn cá nhân.",
+        "Triển lãm giữ nhiều cách kể và ghi bối cảnh phỏng vấn để tránh coi trải nghiệm của một gia đình là truyền thống chung của mọi người."
+      ],
+      "py": [
+        "xué xiào zhǔn bèi jiè shào yī zhǒng chuán tǒng jié rì xí sú， bù tóng jiā tíng duì zuò fǎ de jiě shì què bìng bù xiāng tóng。",
+        "zǔ zhī zhě cǎi fǎng le jǐ dài rén， fā xiàn yǒu xiē biàn huà lái zì shēng huó tiáo jiàn， yǒu xiē biàn huà lái zì gè rén xuǎn zé。",
+        "zhǎn lǎn tóng shí bǎo liú bù tóng shuō fǎ， bìng zhù míng cǎi fǎng bèi jǐng， bì miǎn bǎ yī zhǒng jiā tíng jīng yàn shuō chéng suǒ yǒu rén de gòng tóng chuán tǒng。"
+      ]
+    },
+    "hsk5-unit-14": {
+      "zh": [
+        "读书会准备推荐一部小说，有人喜欢人物的选择，有人却认为结尾缺少说服力。",
+        "主持人请大家引用具体情节，并区分作品中的事实和读者自己的评价。",
+        "最后的推荐介绍了故事特点和可能适合的读者，同时保留了不同意见，没有直接透露结局。"
+      ],
+      "vi": [
+        "Câu lạc bộ đọc sách định giới thiệu một tiểu thuyết; có người thích lựa chọn của nhân vật, có người thấy kết thúc chưa thuyết phục.",
+        "Người chủ trì đề nghị dẫn tình tiết cụ thể và phân biệt sự việc trong tác phẩm với đánh giá của độc giả.",
+        "Bản giới thiệu cuối nêu đặc điểm câu chuyện và nhóm độc giả có thể phù hợp, giữ ý kiến khác biệt và không tiết lộ trực tiếp kết thúc."
+      ],
+      "py": [
+        "dú shū huì zhǔn bèi tuī jiàn yī bù xiǎo shuō， yǒu rén xǐ huān rén wù de xuǎn zé， yǒu rén què rèn wéi jié wěi quē shǎo shuō fú lì。",
+        "zhǔ chí rén qǐng dà jiā yǐn yòng jù tǐ qíng jié， bìng qū fēn zuò pǐn zhōng de shì shí hé dú zhě zì jǐ de píng jià。",
+        "zuì hòu de tuī jiàn jiè shào le gù shì tè diǎn hé kě néng shì hé de dú zhě， tóng shí bǎo liú le bù tóng yì jiàn， méi yǒu zhí jiē tòu lù jié jú。"
+      ]
+    },
+    "hsk5-unit-15": {
+      "zh": [
+        "父母习惯提前安排周末，孩子却觉得临时改变计划更自由。",
+        "一次争执后，双方发现冲突不仅是时间问题，还涉及是否被尊重和是否需要提前通知。",
+        "他们约定共同活动提前商量，个人活动保留选择空间，计划变化时及时说明原因。"
+      ],
+      "vi": [
+        "Cha mẹ quen lên lịch cuối tuần sớm còn người con thấy thay đổi tùy lúc tự do hơn.",
+        "Sau một lần cãi nhau, hai bên nhận ra mâu thuẫn còn liên quan đến sự tôn trọng và việc có cần báo trước.",
+        "Họ thống nhất bàn sớm hoạt động chung, giữ quyền chọn cho hoạt động cá nhân và báo lý do kịp thời khi đổi kế hoạch."
+      ],
+      "py": [
+        "fù mǔ xí guàn tí qián ān pái zhōu mò， hái zi què jué de lín shí gǎi biàn jì huà gèng zì yóu。",
+        "yī cì zhēng zhí hòu， shuāng fāng fā xiàn chōng tū bù jǐn shì shí jiān wèn tí， hái shè jí shì fǒu bèi zūn zhòng hé shì fǒu xū yào tí qián tōng zhī。",
+        "tā men yuē dìng gòng tóng huó dòng tí qián shāng liáng， gè rén huó dòng bǎo liú xuǎn zé kōng jiān， jì huà biàn huà shí jí shí shuō míng yuán yīn。"
+      ]
+    },
+    "hsk5-unit-16": {
+      "zh": [
+        "学生想调查同学为什么选择网上课程，最初只询问了自己的朋友。",
+        "老师提醒他，这样得到的答案可能无法代表其他年级和不同学习背景的人。",
+        "他扩大了调查范围，在报告中写明人数、提问方式和样本限制，并把结论限定在实际调查对象之内。"
+      ],
+      "vi": [
+        "Một học sinh muốn khảo sát vì sao các bạn chọn khóa học trực tuyến, ban đầu chỉ hỏi bạn bè mình.",
+        "Giáo viên nhắc rằng câu trả lời như vậy có thể không đại diện cho khối khác và người có nền tảng học khác.",
+        "Bạn ấy mở rộng phạm vi, ghi số người, cách hỏi và giới hạn mẫu trong báo cáo, chỉ kết luận trong phạm vi những người thực sự được khảo sát."
+      ],
+      "py": [
+        "xué shēng xiǎng diào chá tóng xué wèi shén me xuǎn zé wǎng shàng kè chéng， zuì chū zhǐ xún wèn le zì jǐ de péng yǒu。",
+        "lǎo shī tí xǐng tā， zhè yàng dé dào de dá àn kě néng wú fǎ dài biǎo qí tā nián jí hé bù tóng xué xí bèi jǐng de rén。",
+        "tā kuò dà le diào chá fàn wéi， zài bào gào zhōng xiě míng rén shù、 tí wèn fāng shì hé yàng běn xiàn zhì， bìng bǎ jié lùn xiàn dìng zài shí jì diào chá duì xiàng zhī nèi。"
+      ]
+    },
+    "hsk5-unit-17": {
+      "zh": [
+        "小林和姐姐回忆搬家的那一天，却记得不同的细节。",
+        "他们查看旧照片和日记后发现，有些印象来自后来的讲述，并不是当天亲眼看到的事情。",
+        "小林写故事时保留了记忆中的感受，也注明哪些细节已经核实，哪些仍有不同说法。"
+      ],
+      "vi": [
+        "Tiểu Lâm và chị gái nhớ lại ngày chuyển nhà nhưng nhớ các chi tiết khác nhau.",
+        "Xem ảnh và nhật ký cũ, họ thấy một số ấn tượng đến từ lời kể sau này chứ không phải điều trực tiếp thấy hôm đó.",
+        "Khi viết chuyện, Tiểu Lâm giữ cảm xúc trong ký ức và ghi rõ chi tiết nào đã kiểm chứng, chi tiết nào còn cách kể khác."
+      ],
+      "py": [
+        "xiǎo lín hé jiě jiě huí yì bān jiā de nà yī tiān， què jì de bù tóng de xì jié。",
+        "tā men chá kàn jiù zhào piān hé rì jì hòu fā xiàn， yǒu xiē yìn xiàng lái zì hòu lái de jiǎng shù， bìng bú shì dàng tiān qīn yǎn kàn dào de shì qíng。",
+        "xiǎo lín xiě gù shì shí bǎo liú le jì yì zhōng de gǎn shòu， yě zhù míng nǎ xiē xì jié yǐ jīng hé shí， nǎ xiē réng yǒu bù tóng shuō fǎ。"
+      ]
+    },
+    "hsk5-unit-18": {
+      "zh": [
+        "讨论是否延长图书馆开放时间时，双方都说自己的方案更公平。",
+        "主持人先请大家解释公平的含义，再分别讨论读者需求、工作人员安排和经费限制。",
+        "大家同意先公布现有数据，再比较两种试行方案，遇到新证据时允许修改原来的判断。"
+      ],
+      "vi": [
+        "Khi bàn việc kéo dài giờ mở thư viện, hai bên đều nói phương án mình công bằng hơn.",
+        "Người chủ trì đề nghị giải thích nghĩa của công bằng trước rồi bàn nhu cầu độc giả, lịch nhân viên và giới hạn kinh phí.",
+        "Mọi người đồng ý công bố dữ liệu hiện có, so hai phương án thử nghiệm và cho phép sửa nhận định khi có bằng chứng mới."
+      ],
+      "py": [
+        "tǎo lùn shì fǒu yán cháng tú shū guǎn kāi fàng shí jiān shí， shuāng fāng dōu shuō zì jǐ de fāng àn gèng gōng píng。",
+        "zhǔ chí rén xiān qǐng dà jiā jiě shì gōng píng de hán yì， zài fēn bié tǎo lùn dú zhě xū qiú、 gōng zuò rén yuán ān pái hé jīng fèi xiàn zhì。",
+        "dà jiā tóng yì xiān gōng bù xiàn yǒu shù jù， zài bǐ jiào liǎng zhǒng shì xíng fāng àn， yù dào xīn zhèng jù shí yǔn xǔ xiū gǎi yuán lái de pàn duàn。"
+      ]
+    },
+    "hsk5-unit-19": {
+      "zh": [
+        "公益小组为社区提供学习空间，活动结束后收到了很多感谢。",
+        "负责人认为感谢说明活动受到欢迎，却不能单独证明学习效果已经提高。",
+        "小组继续收集使用记录和参加者反馈，同时公开支出，让支持者了解项目做到了什么、还有什么没有解决。"
+      ],
+      "vi": [
+        "Một nhóm công ích cung cấp không gian học cho cộng đồng và nhận nhiều lời cảm ơn sau hoạt động.",
+        "Người phụ trách cho rằng lời cảm ơn cho thấy hoạt động được đón nhận nhưng chưa đủ chứng minh hiệu quả học đã tăng.",
+        "Nhóm tiếp tục thu thập lượt sử dụng và phản hồi, công khai chi phí để người hỗ trợ biết đã làm được gì và điều gì còn chưa giải quyết."
+      ],
+      "py": [
+        "gōng yì xiǎo zǔ wèi shè qū tí gōng xué xí kōng jiān， huó dòng jié shù hòu shōu dào le hěn duō gǎn xiè。",
+        "fù zé rén rèn wéi gǎn xiè shuō míng huó dòng shòu dào huān yíng， què bù néng dān dú zhèng míng xué xí xiào guǒ yǐ jīng tí gāo。",
+        "xiǎo zǔ jì xù shōu jí shǐ yòng jì lù hé cān jiā zhě fǎn kuì， tóng shí gōng kāi zhī chū， ràng zhī chí zhě liǎo jiě xiàng mù zuò dào le shén me、 hái yǒu shén me méi yǒu jiě jué。"
+      ]
+    },
+    "hsk5-unit-20": {
+      "zh": [
+        "课程最后，小组选择食堂排队时间过长作为综合项目的主题。",
+        "他们观察不同时段的流程，采访工作人员，并比较增加窗口和调整取餐顺序两种方案。",
+        "公开汇报时，小组说明数据来源、方案成本和试行条件，再根据听众的提问补充下一步调查。"
+      ],
+      "vi": [
+        "Cuối khóa, nhóm chọn việc xếp hàng quá lâu ở nhà ăn làm chủ đề dự án tích hợp.",
+        "Họ quan sát quy trình ở các thời điểm, phỏng vấn nhân viên và so phương án tăng quầy với điều chỉnh thứ tự lấy đồ ăn.",
+        "Khi trình bày công khai, nhóm nói rõ nguồn dữ liệu, chi phí và điều kiện thử, rồi bổ sung khảo sát tiếp theo dựa trên câu hỏi của người nghe."
+      ],
+      "py": [
+        "kè chéng zuì hòu， xiǎo zǔ xuǎn zé shí táng pái duì shí jiān guò cháng zuò wéi zōng hé xiàng mù dì zhǔ tí。",
+        "tā men guān chá bù tóng shí duàn de liú chéng， cǎi fǎng gōng zuò rén yuán， bìng bǐ jiào zēng jiā chuāng kǒu hé tiáo zhěng qǔ cān shùn xù liǎng zhǒng fāng àn。",
+        "gōng kāi huì bào shí， xiǎo zǔ shuō míng shù jù lái yuán、 fāng àn chéng běn hé shì xíng tiáo jiàn， zài gēn jù tīng zhòng de tí wèn bǔ chōng xià yī bù diào chá。"
+      ]
+    },
+    "hsk6-unit-01": {
+      "zh": [
+        "小林整理了很多课堂笔记，遇到需要独立解释的问题时却仍然说不清楚。",
+        "她请同伴指出解释中缺少的联系，才发现熟悉课文并不等于能够运用知识。",
+        "她把学习计划改为先独立回忆，再用新例子解释，隔几天重新检查，并根据反馈调整复习内容。"
+      ],
+      "vi": [
+        "Tiểu Lâm ghi rất nhiều bài nhưng vẫn không giải thích rõ khi phải tự trả lời vấn đề.",
+        "Nhờ bạn chỉ ra mối liên hệ còn thiếu, cô mới thấy quen văn bản chưa đồng nghĩa với vận dụng được kiến thức.",
+        "Cô đổi kế hoạch thành tự nhớ lại trước, giải thích bằng ví dụ mới, kiểm tra sau vài ngày rồi chỉnh nội dung ôn theo phản hồi."
+      ],
+      "py": [
+        "xiǎo lín zhěng lǐ le hěn duō kè táng bǐ jì， yù dào xū yào dú lì jiě shì de wèn tí shí què réng rán shuō bù qīng chǔ。",
+        "tā qǐng tóng bàn zhǐ chū jiě shì zhōng quē shǎo de lián xì， cái fā xiàn shú xī kè wén bìng bù děng yú néng gòu yùn yòng zhī shí。",
+        "tā bǎ xué xí jì huà gǎi wéi xiān dú lì huí yì， zài yòng xīn lì zi jiě shì， gé jǐ tiān chóng xīn jiǎn chá， bìng gēn jù fǎn kuì tiáo zhěng fù xí nèi róng。"
+      ]
+    },
+    "hsk6-unit-02": {
+      "zh": [
+        "毕业前，小周在稳定的岗位和需要学习新技能的岗位之间犹豫。",
+        "他把工作内容、培训机会、生活安排和长期目标列在一起，发现较高的起薪并不代表更合适的发展方向。",
+        "他分别询问实际任务和评价方式，补充自己缺少的信息之后，再决定下一阶段的准备重点。"
+      ],
+      "vi": [
+        "Trước tốt nghiệp, Tiểu Chu phân vân giữa vị trí ổn định và vị trí đòi học kỹ năng mới.",
+        "Anh so nội dung công việc, cơ hội đào tạo, sinh hoạt và mục tiêu dài hạn rồi thấy lương khởi điểm cao chưa hẳn là hướng phù hợp hơn.",
+        "Anh hỏi rõ nhiệm vụ thực tế và cách đánh giá, bổ sung thông tin còn thiếu rồi mới quyết định trọng tâm chuẩn bị tiếp theo."
+      ],
+      "py": [
+        "bì yè qián， xiǎo zhōu zài wěn dìng de gǎng wèi hé xū yào xué xí xīn jì néng de gǎng wèi zhī jiān yóu yù。",
+        "tā bǎ gōng zuò nèi róng、 péi xùn jī huì、 shēng huó ān pái hé cháng qī mù biāo liè zài yì qǐ， fā xiàn jiào gāo de qǐ xīn bìng bù dài biǎo gèng hé shì de fā zhǎn fāng xiàng。",
+        "tā fēn bié xún wèn shí jì rèn wù hé píng jià fāng shì， bǔ chōng zì jǐ quē shǎo de xìn xī zhī hòu， zài jué dìng xià yī jiē duàn de zhǔn bèi zhòng diǎn。"
+      ]
+    },
+    "hsk6-unit-03": {
+      "zh": [
+        "两台设备的售价相差不大，但售后服务、耗材价格和预计使用年限不同。",
+        "采购人员发现，只比较购买时的价格会忽略以后持续发生的支出。",
+        "他们在说明中列出计算条件和无法确定的费用，并用同一标准比较长期成本，而不是直接宣布某个品牌最好。"
+      ],
+      "vi": [
+        "Hai thiết bị có giá bán gần nhau nhưng khác dịch vụ sau bán, giá vật tư tiêu hao và tuổi thọ dự kiến.",
+        "Người mua nhận ra chỉ so giá lúc mua sẽ bỏ qua chi phí phát sinh lâu dài.",
+        "Họ liệt kê điều kiện tính và khoản phí chưa chắc, dùng cùng tiêu chuẩn để so chi phí dài hạn thay vì tuyên bố ngay thương hiệu nào tốt nhất."
+      ],
+      "py": [
+        "liǎng tái shè bèi de shòu jià xiāng chā bú dà， dàn shòu hòu fú wù、 hào cái jià gé hé yù jì shǐ yòng nián xiàn bù tóng。",
+        "cǎi gòu rén yuán fā xiàn， zhǐ bǐ jiào gòu mǎi shí de jià gé huì hū lüè yǐ hòu chí xù fā shēng de zhī chū。",
+        "tā men zài shuō míng zhōng liè chū jì suàn tiáo jiàn hé wú fǎ què dìng de fèi yòng， bìng yòng tóng yī biāo zhǔn bǐ jiào cháng qī chéng běn， ér bú shì zhí jiē xuān bù mǒu gè pǐn pái zuì hǎo。"
+      ]
+    },
+    "hsk6-unit-04": {
+      "zh": [
+        "同一场活动结束后，两篇报道采用了不同的标题和受访者意见。",
+        "编辑核对记录后发现，两篇报道引用的内容并不矛盾，但选择的材料使读者注意到不同问题。",
+        "他在摘要中注明消息来源和报道时间，分别写出已确认的事实、解释和仍有争议的部分。"
+      ],
+      "vi": [
+        "Sau cùng một sự kiện, hai bài báo dùng tiêu đề và ý kiến người được hỏi khác nhau.",
+        "Biên tập viên kiểm tra ghi chép và thấy nội dung trích không mâu thuẫn nhưng cách chọn tư liệu khiến người đọc chú ý vấn đề khác nhau.",
+        "Anh ghi nguồn và thời gian trong tóm tắt, tách rõ dữ kiện đã xác nhận, cách giải thích và phần còn tranh luận."
+      ],
+      "py": [
+        "tóng yī chǎng huó dòng jié shù hòu， liǎng piān bào dào cǎi yòng le bù tóng de biāo tí hé shòu fǎng zhě yì jiàn。",
+        "biān jí hé duì jì lù hòu fā xiàn， liǎng piān bào dào yǐn yòng de nèi róng bìng bù máo dùn， dàn xuǎn zé de cái liào shǐ dú zhě zhù yì dào bù tóng wèn tí。",
+        "tā zài zhāi yào zhōng zhù míng xiāo xī lái yuán hé bào dào shí jiān， fēn bié xiě chū yǐ què rèn de shì shí、 jiě shì hé réng yǒu zhēng yì de bù fèn。"
+      ]
+    },
+    "hsk6-unit-05": {
+      "zh": [
+        "平台根据用户过去的点击推荐内容，使用者逐渐发现自己看到的观点越来越接近。",
+        "讨论者既承认推荐节省了寻找信息的时间，也担心用户难以接触不同的解释。",
+        "小组建议增加推荐理由、关闭个性化推荐的选择和反馈入口，并用试用结果评估这些调整是否有效。"
+      ],
+      "vi": [
+        "Nền tảng gợi ý nội dung theo lượt bấm trước đây, người dùng dần thấy các quan điểm mình gặp ngày càng giống nhau.",
+        "Người thảo luận vừa công nhận gợi ý tiết kiệm thời gian tìm tin vừa lo người dùng khó tiếp xúc cách giải thích khác.",
+        "Nhóm đề nghị thêm lý do gợi ý, lựa chọn tắt cá nhân hóa và nơi phản hồi, rồi dùng kết quả thử để đánh giá tác dụng của điều chỉnh."
+      ],
+      "py": [
+        "píng tái gēn jù yòng hù guò qù de diǎn jī tuī jiàn nèi róng， shǐ yòng zhě zhú jiàn fā xiàn zì jǐ kàn dào de guān diǎn yuè lái yuè jiē jìn。",
+        "tǎo lùn zhě jì chéng rèn tuī jiàn jié shěng le xún zhǎo xìn xī de shí jiān， yě dān xīn yòng hù nán yǐ jiē chù bù tóng de jiě shì。",
+        "xiǎo zǔ jiàn yì zēng jiā tuī jiàn lǐ yóu、 guān bì gè xìng huà tuī jiàn de xuǎn zé hé fǎn kuì rù kǒu， bìng yòng shì yòng jié guǒ píng gū zhè xiē tiáo zhěng shì fǒu yǒu xiào。"
+      ]
+    },
+    "hsk6-unit-06": {
+      "zh": [
+        "学生观察到使用新方法的小组表现更好，便认为新方法必然有效。",
+        "老师指出，两组原有基础和投入时间不同，因此目前只能说明结果存在差异，不能直接确定原因。",
+        "学生重新说明比较条件，列出其他可能的解释，并设计下一次观察来检验自己的判断。"
+      ],
+      "vi": [
+        "Học sinh thấy nhóm dùng cách mới làm tốt hơn nên cho rằng cách mới chắc chắn hiệu quả.",
+        "Giáo viên chỉ ra nền tảng ban đầu và thời gian bỏ ra khác nhau, nên hiện chỉ nói có khác biệt kết quả chứ chưa xác định được nguyên nhân.",
+        "Học sinh trình bày lại điều kiện so sánh, liệt kê cách giải thích khác và thiết kế quan sát tiếp theo để kiểm tra nhận định."
+      ],
+      "py": [
+        "xué shēng guān chá dào shǐ yòng xīn fāng fǎ de xiǎo zǔ biǎo xiàn gèng hǎo， biàn rèn wéi xīn fāng fǎ bì rán yǒu xiào。",
+        "lǎo shī zhǐ chū， liǎng zǔ yuán yǒu jī chǔ hé tóu rù shí jiān bù tóng， yīn cǐ mù qián zhǐ néng shuō míng jié guǒ cún zài chā yì， bù néng zhí jiē què dìng yuán yīn。",
+        "xué shēng chóng xīn shuō míng bǐ jiào tiáo jiàn， liè chū qí tā kě néng de jiě shì， bìng shè jì xià yī cì guān chá lái jiǎn yàn zì jǐ de pàn duàn。"
+      ]
+    },
+    "hsk6-unit-07": {
+      "zh": [
+        "一份生活习惯调查得到广泛转发，有人把其中的统计联系解释成对个人的确定预测。",
+        "阅读小组查看调查对象和研究限制后，发现这种解释超出了原文能够支持的范围。",
+        "他们把阅读结果改写成有条件的说明，明确区分一般信息和个人需要咨询专业人员的问题。"
+      ],
+      "vi": [
+        "Một khảo sát thói quen sinh hoạt được chia sẻ rộng, có người diễn giải liên hệ thống kê thành dự báo chắc chắn cho từng cá nhân.",
+        "Nhóm đọc xem đối tượng khảo sát và giới hạn nghiên cứu rồi thấy cách giải thích đó vượt phạm vi bản gốc hỗ trợ.",
+        "Họ viết lại thành giải thích có điều kiện, phân biệt thông tin chung với vấn đề cá nhân cần hỏi người có chuyên môn."
+      ],
+      "py": [
+        "yī fèn shēng huó xí guàn diào chá dé dào guǎng fàn zhuǎn fā， yǒu rén bǎ qí zhōng de tǒng jì lián xì jiě shì chéng duì gè rén dí què dìng yù cè。",
+        "yuè dú xiǎo zǔ chá kàn diào chá duì xiàng hé yán jiū xiàn zhì hòu， fā xiàn zhè zhǒng jiě shì chāo chū le yuán wén néng gòu zhī chí de fàn wéi。",
+        "tā men bǎ yuè dú jié guǒ gǎi xiě chéng yǒu tiáo jiàn de shuō míng， míng què qū fēn yì bān xìn xī hé gè rén xū yào zī xún zhuān yè rén yuán de wèn tí。"
+      ]
+    },
+    "hsk6-unit-08": {
+      "zh": [
+        "社区计划更换公共照明设备，预计能减少使用中的能源消耗，但也需要采购和安装支出。",
+        "居民提出，评估不能只看节能数字，还应说明旧设备处理方式、维护条件和费用由谁承担。",
+        "工作组先公布比较标准，安排小范围试行，并承诺记录实际消耗后再讨论全面更换。"
+      ],
+      "vi": [
+        "Khu dân cư định thay đèn công cộng để giảm năng lượng khi dùng nhưng cần chi tiền mua và lắp.",
+        "Cư dân đề nghị đánh giá cả xử lý thiết bị cũ, điều kiện bảo trì và bên chịu phí, không chỉ số tiết kiệm điện.",
+        "Tổ công tác công bố tiêu chuẩn so sánh, thử phạm vi nhỏ và cam kết ghi mức tiêu hao thực tế trước khi bàn thay toàn bộ."
+      ],
+      "py": [
+        "shè qū jì huà gēng huàn gōng gòng zhào míng shè bèi， yù jì néng jiǎn shǎo shǐ yòng zhōng de néng yuán xiāo hào， dàn yě xū yào cǎi gòu hé ān zhuāng zhī chū。",
+        "jū mín tí chū， píng gū bù néng zhǐ kàn jié néng shù zì， hái yīng shuō míng jiù shè bèi chǔ lǐ fāng shì、 wéi hù tiáo jiàn hé fèi yòng yóu shuí chéng dān。",
+        "gōng zuò zǔ xiān gōng bù bǐ jiào biāo zhǔn， ān pái xiǎo fàn wéi shì xíng， bìng chéng nuò jì lù shí jì xiāo hào hòu zài tǎo lùn quán miàn gēng huàn。"
+      ]
+    },
+    "hsk6-unit-09": {
+      "zh": [
+        "城市新建了一处公共服务中心，交通方便的居民认为效率提高了，住得较远的人却仍然觉得不便。",
+        "社区会议把平均办理时间和不同群体的实际体验放在一起比较，发现同一个指标不能解释所有困难。",
+        "代表们建议保留线下咨询，同时改善预约说明和无障碍服务，再分别收集不同使用者的反馈。"
+      ],
+      "vi": [
+        "Thành phố xây trung tâm dịch vụ công mới; người đi lại tiện thấy hiệu quả hơn còn người ở xa vẫn bất tiện.",
+        "Cuộc họp cộng đồng so thời gian giải quyết trung bình với trải nghiệm các nhóm và thấy một chỉ số không giải thích hết khó khăn.",
+        "Đại diện đề nghị giữ tư vấn trực tiếp, cải thiện hướng dẫn đặt hẹn và dịch vụ dễ tiếp cận, rồi lấy phản hồi riêng từng nhóm."
+      ],
+      "py": [
+        "chéng shì xīn jiàn le yī chù gōng gòng fú wù zhōng xīn， jiāo tōng fāng biàn de jū mín rèn wéi xiào lǜ tí gāo le， zhù dé jiào yuǎn de rén què réng rán jué de bù biàn。",
+        "shè qū huì yì bǎ píng jūn bàn lǐ shí jiān hé bù tóng qún tǐ de shí jì tǐ yàn fàng zài yì qǐ bǐ jiào， fā xiàn tóng yī gè zhǐ biāo bù néng jiě shì suǒ yǒu kùn nán。",
+        "dài biǎo men jiàn yì bǎo liú xiàn xià zī xún， tóng shí gǎi shàn yù yuē shuō míng hé wú zhàng ài fú wù， zài fēn bié shōu jí bù tóng shǐ yòng zhě de fǎn kuì。"
+      ]
+    },
+    "hsk6-unit-10": {
+      "zh": [
+        "共享空间公布了一项新规定，但使用者对适用范围和例外情况有不同理解。",
+        "管理人员先听取具体经历，再检查通知中的表述是否清楚，而没有立即把所有异议当作不愿配合。",
+        "他们补充说明和申诉渠道，公开处理流程，并约定依据实际执行中的问题再次讨论规则。"
+      ],
+      "vi": [
+        "Không gian dùng chung công bố quy định mới nhưng người dùng hiểu khác nhau về phạm vi và ngoại lệ.",
+        "Người quản lý nghe trải nghiệm cụ thể, kiểm tra thông báo có rõ không thay vì coi mọi ý kiến là không hợp tác.",
+        "Họ bổ sung giải thích, kênh phản ánh, công khai quy trình xử lý và hẹn bàn lại dựa trên vướng mắc khi thực hiện."
+      ],
+      "py": [
+        "gòng xiǎng kōng jiān gōng bù le yī xiàng xīn guī dìng， dàn shǐ yòng zhě duì shì yòng fàn wéi hé lì wài qíng kuàng yǒu bù tóng lǐ jiě。",
+        "guǎn lǐ rén yuán xiān tīng qǔ jù tǐ jīng lì， zài jiǎn chá tōng zhī zhōng de biǎo shù shì fǒu qīng chǔ， ér méi yǒu lì jí bǎ suǒ yǒu yì yì dàng zuò bù yuàn pèi hé。",
+        "tā men bǔ chōng shuō míng hé shēn sù qú dào， gōng kāi chǔ lǐ liú chéng， bìng yuē dìng yī jù shí jì zhí xíng zhōng de wèn tí zài cì tǎo lùn guī zé。"
+      ]
+    },
+    "hsk6-unit-11": {
+      "zh": [
+        "地方展览准备讲述老街的历史，征集到的照片和口述资料却呈现出不同的生活经验。",
+        "策划者发现，选择谁的故事会影响公众对共同记忆的理解，不能只保留最熟悉的一种叙述。",
+        "展览注明每份资料的来源和背景，把不同讲述并列展示，并邀请居民补充遗漏的经历。"
+      ],
+      "vi": [
+        "Triển lãm địa phương định kể lịch sử phố cũ nhưng ảnh và lời kể thu được thể hiện trải nghiệm khác nhau.",
+        "Người tổ chức thấy chọn câu chuyện của ai sẽ ảnh hưởng cách công chúng hiểu ký ức chung, không nên chỉ giữ cách kể quen nhất.",
+        "Triển lãm ghi nguồn và bối cảnh từng tư liệu, đặt các lời kể cạnh nhau và mời dân bổ sung trải nghiệm còn thiếu."
+      ],
+      "py": [
+        "dì fāng zhǎn lǎn zhǔn bèi jiǎng shù lǎo jiē de lì shǐ， zhēng jí dào de zhào piān hé kǒu shù zī liào què chéng xiàn chū bù tóng de shēng huó jīng yàn。",
+        "cè huà zhě fā xiàn， xuǎn zé shéi de gù shì huì yǐng xiǎng gōng zhòng duì gòng tóng jì yì de lǐ jiě， bù néng zhǐ bǎo liú zuì shú xī de yī zhǒng xù shù。",
+        "zhǎn lǎn zhù míng měi fèn zī liào de lái yuán hé bèi jǐng， bǎ bù tóng jiǎng shù bìng liè zhǎn shì， bìng yāo qǐng jū mín bǔ chōng yí lòu de jīng lì。"
+      ]
+    },
+    "hsk6-unit-12": {
+      "zh": [
+        "旅游小组准备介绍一个村落，最初的路线只包括适合拍照的地方。",
+        "与当地居民交谈后，组织者发现，参观时间、噪声和私人空间也是路线设计必须考虑的条件。",
+        "他们征求居民意见后调整安排，向游客说明哪些地方可以进入，并把当地人的解释纳入导览。"
+      ],
+      "vi": [
+        "Nhóm du lịch định giới thiệu một ngôi làng, lộ trình ban đầu chỉ gồm chỗ đẹp để chụp ảnh.",
+        "Nói chuyện với cư dân, người tổ chức nhận ra giờ thăm, tiếng ồn và không gian riêng cũng phải được tính đến.",
+        "Họ xin ý kiến dân rồi điều chỉnh, nói rõ nơi nào được vào và đưa cách giải thích của người địa phương vào hướng dẫn."
+      ],
+      "py": [
+        "lǚ yóu xiǎo zǔ zhǔn bèi jiè shào yí gè cūn luò， zuì chū de lù xiàn zhǐ bāo kuò shì hé pāi zhào de dì fāng。",
+        "yǔ dāng dì jū mín jiāo tán hòu， zǔ zhī zhě fā xiàn， cān guān shí jiān、 zào shēng hé sī rén kōng jiān yě shì lù xiàn shè jì bì xū kǎo lǜ de tiáo jiàn。",
+        "tā men zhēng qiú jū mín yì jiàn hòu tiáo zhěng ān pái， xiàng yóu kè shuō míng nǎ xiē dì fāng kě yǐ jìn rù， bìng bǎ dāng dì rén de jiě shì nà rù dǎo lǎn。"
+      ]
+    },
+    "hsk6-unit-13": {
+      "zh": [
+        "同事说这份计划还可以再考虑，小李却把这句话理解成已经同意。",
+        "执行后出现分歧，双方才意识到，一方是在委婉提出保留意见，另一方却需要明确的确认。",
+        "他们重新说明原意，约定以后分别写清建议、待确认事项和最终决定，避免只根据语气推断。"
+      ],
+      "vi": [
+        "Đồng nghiệp nói kế hoạch còn có thể cân nhắc thêm nhưng Tiểu Lý hiểu là đã đồng ý.",
+        "Sau khi làm xuất hiện bất đồng, hai bên mới thấy một người đang nói khéo ý bảo lưu còn người kia cần xác nhận rõ.",
+        "Họ giải thích lại ý định và thống nhất sau này ghi riêng đề xuất, mục còn chờ và quyết định cuối, tránh chỉ đoán qua giọng điệu."
+      ],
+      "py": [
+        "tóng shì shuō zhè fèn jì huà hái kě yǐ zài kǎo lǜ， xiǎo lǐ què bǎ zhè jù huà lǐ jiě chéng yǐ jīng tóng yì。",
+        "zhí xíng hòu chū xiàn fēn qí， shuāng fāng cái yì shí dào， yī fāng shì zài wěi wǎn tí chū bǎo liú yì jiàn， lìng yī fāng què xū yào míng què dí què rèn。",
+        "tā men chóng xīn shuō míng yuán yì， yuē dìng yǐ hòu fēn bié xiě qīng jiàn yì、 dài què rèn shì xiàng hé zuì zhōng jué dìng， bì miǎn zhǐ gēn jù yǔ qì tuī duàn。"
+      ]
+    },
+    "hsk6-unit-14": {
+      "zh": [
+        "小组成员每天处理很多消息，却发现最重要的报告一直没有完成。",
+        "复盘时，大家把任务按截止时间、相互依赖和影响范围重新分类，发现随时回复消息打断了集中工作。",
+        "他们安排共同答疑时段，保留处理紧急情况的渠道，并在每天下班前检查真正完成了哪些关键任务。"
+      ],
+      "vi": [
+        "Thành viên nhóm xử lý nhiều tin mỗi ngày nhưng báo cáo quan trọng nhất vẫn chưa xong.",
+        "Khi rà lại, họ phân loại theo hạn, phụ thuộc và tầm ảnh hưởng rồi thấy trả lời tin bất cứ lúc nào làm gián đoạn tập trung.",
+        "Họ đặt khung giờ giải đáp chung, giữ kênh khẩn cấp và cuối mỗi ngày kiểm tra việc trọng tâm nào thực sự hoàn thành."
+      ],
+      "py": [
+        "xiǎo zǔ chéng yuán měi tiān chǔ lǐ hěn duō xiāo xī， què fā xiàn zuì zhòng yào de bào gào yì zhí méi yǒu wán chéng。",
+        "fù pán shí， dà jiā bǎ rèn wù àn jié zhǐ shí jiān、 xiāng hù yī lài hé yǐng xiǎng fàn wéi chóng xīn fēn lèi， fā xiàn suí shí huí fù xiāo xī dǎ duàn le jí zhōng gōng zuò。",
+        "tā men ān pái gòng tóng dá yí shí duàn， bǎo liú chǔ lǐ jǐn jí qíng kuàng de qú dào， bìng zài měi tiān xià bān qián jiǎn chá zhēn zhèng wán chéng le nǎ xiē guān jiàn rèn wù。"
+      ]
+    },
+    "hsk6-unit-15": {
+      "zh": [
+        "仓库发现交接记录经常需要修改，最初有人把问题归结为工作人员不认真。",
+        "进一步检查显示，表格项目含义不清、更新时间不同和缺少确认人都可能导致差错。",
+        "小组分别比较修改表格、统一交接时间和增加复核步骤的成本，再通过试行确认主要原因是否得到解决。"
+      ],
+      "vi": [
+        "Kho thấy biên bản bàn giao thường phải sửa, ban đầu có người cho rằng nhân viên thiếu cẩn thận.",
+        "Kiểm tra thêm cho thấy ý nghĩa mục biểu chưa rõ, giờ cập nhật khác nhau và thiếu người xác nhận đều có thể gây sai.",
+        "Nhóm so chi phí sửa biểu, thống nhất giờ bàn giao và thêm bước kiểm tra, rồi thử để xác định nguyên nhân chính đã được giải quyết chưa."
+      ],
+      "py": [
+        "cāng kù fā xiàn jiāo jiē jì lù jīng cháng xū yào xiū gǎi， zuì chū yǒu rén bǎ wèn tí guī jié wèi gōng zuò rén yuán bù rèn zhēn。",
+        "jìn yí bù jiǎn chá xiǎn shì， biǎo gé xiàng mù hán yì bù qīng、 gēng xīn shí jiān bù tóng hé quē shǎo què rèn rén dōu kě néng dǎo zhì chā cuò。",
+        "xiǎo zǔ fèn bié bǐ jiào xiū gǎi biǎo gé、 tǒng yī jiāo jiē shí jiān hé zēng jiā fù hé bù zhòu de chéng běn， zài tōng guò shì xíng què rèn zhǔ yào yuán yīn shì fǒu dé dào jiě jué。"
+      ]
+    },
+    "hsk6-unit-16": {
+      "zh": [
+        "团队提出一种新的服务流程，但第一次试行没有达到预期效果。",
+        "负责人没有急着宣布想法失败，而是检查哪些条件成立、哪些环节没有按照原计划执行。",
+        "下一次试验先明确成功标准、观察期限和停止条件，再把结果与原方案比较，保留不符合预期的数据。"
+      ],
+      "vi": [
+        "Nhóm đề xuất quy trình dịch vụ mới nhưng lần thử đầu không đạt kỳ vọng.",
+        "Người phụ trách chưa vội kết luận ý tưởng thất bại mà xem điều kiện nào đúng và khâu nào chưa làm theo kế hoạch.",
+        "Lần thử sau xác định trước tiêu chuẩn thành công, thời gian theo dõi và điều kiện dừng, rồi so với cách cũ và giữ cả dữ liệu trái kỳ vọng."
+      ],
+      "py": [
+        "tuán duì tí chū yī zhǒng xīn de fú wù liú chéng， dàn dì yī cì shì xíng méi yǒu dá dào yù qī xiào guǒ。",
+        "fù zé rén méi yǒu jí zhe xuān bù xiǎng fǎ shī bài， ér shì jiǎn chá nǎ xiē tiáo jiàn chéng lì、 nǎ xiē huán jié méi yǒu àn zhào yuán jì huà zhí xíng。",
+        "xià yī cì shì yàn xiān míng què chéng gōng biāo zhǔn、 guān chá qī xiàn hé tíng zhǐ tiáo jiàn， zài bǎ jié guǒ yǔ yuán fāng àn bǐ jiào， bǎo liú bù fú hé yù qī de shù jù。"
+      ]
+    },
+    "hsk6-unit-17": {
+      "zh": [
+        "辩论中，一位同学提出应延长课外活动时间，另一位担心影响自主学习。",
+        "双方先复述对方最有力的理由，再分别说明自己的证据能够支持多大范围的结论。",
+        "最后他们把争议整理成可以继续调查的问题，承认部分目标一致，但对实现方式仍持不同意见。"
+      ],
+      "vi": [
+        "Trong tranh luận, một bạn đề xuất tăng giờ ngoại khóa còn bạn khác lo ảnh hưởng tự học.",
+        "Hai bên nhắc lại lý lẽ mạnh nhất của nhau rồi nói rõ bằng chứng mình hỗ trợ được kết luận đến phạm vi nào.",
+        "Cuối cùng họ chuyển tranh cãi thành câu hỏi có thể khảo sát tiếp, thừa nhận một số mục tiêu chung nhưng vẫn khác cách thực hiện."
+      ],
+      "py": [
+        "biàn lùn zhōng， yī wèi tóng xué tí chū yīng yán cháng kè wài huó dòng shí jiān， lìng yī wèi dān xīn yǐng xiǎng zì zhǔ xué xí。",
+        "shuāng fāng xiān fù shù duì fāng zuì yǒu lì de lǐ yóu， zài fēn bié shuō míng zì jǐ de zhèng jù néng gòu zhī chí duō dà fàn wéi de jié lùn。",
+        "zuì hòu tā men bǎ zhēng yì zhěng lǐ chéng kě yǐ jì xù diào chá de wèn tí， chéng rèn bù fèn mù biāo yí zhì， dàn duì shí xiàn fāng shì réng chí bù tóng yì jiàn。"
+      ]
+    },
+    "hsk6-unit-18": {
+      "zh": [
+        "一次公共活动临时改变安排后，网上出现了来自参加者、工作人员和旁观者的不同描述。",
+        "主持讨论的人先建立时间线，标明哪些内容可以核实，哪些只是个人感受或尚未确认的推测。",
+        "讨论围绕具体影响和改进措施展开，并约定新信息出现时补充记录，而不是要求所有人接受同一种解释。"
+      ],
+      "vi": [
+        "Sau khi một hoạt động công cộng đổi lịch đột xuất, trên mạng có lời kể khác nhau từ người tham gia, nhân viên và người đứng ngoài.",
+        "Người điều phối lập dòng thời gian, đánh dấu phần kiểm chứng được, cảm nhận cá nhân và suy đoán chưa xác nhận.",
+        "Cuộc bàn luận tập trung vào ảnh hưởng cụ thể và biện pháp cải thiện, hẹn bổ sung khi có tin mới thay vì ép mọi người cùng một cách giải thích."
+      ],
+      "py": [
+        "yī cì gōng gòng huó dòng lín shí gǎi biàn ān pái hòu， wǎng shàng chū xiàn le lái zì cān jiā zhě、 gōng zuò rén yuán hé páng guān zhě de bù tóng miáo shù。",
+        "zhǔ chí tǎo lùn de rén xiān jiàn lì shí jiān xiàn， biāo míng nǎ xiē nèi róng kě yǐ hé shí， nǎ xiē zhǐ shì gè rén gǎn shòu huò shàng wèi què rèn de tuī cè。",
+        "tǎo lùn wéi rào jù tǐ yǐng xiǎng hé gǎi jìn cuò shī zhǎn kāi， bìng yuē dìng xīn xìn xī chū xiàn shí bǔ chōng jì lù， ér bú shì yāo qiú suǒ yǒu rén jiē shòu tóng yī zhǒng jiě shì。"
+      ]
+    },
+    "hsk6-unit-19": {
+      "zh": [
+        "报告中的图表显示投诉数量下降，汇报者因此认为服务质量已经提高。",
+        "同事核对后发现，统计期间投诉入口也发生了变化，原始数量并不能直接反映问题减少。",
+        "新版报告同时说明统计口径、时间范围和缺失信息，保留原始记录，让其他人能够追踪分析过程。"
+      ],
+      "vi": [
+        "Biểu đồ báo cáo cho thấy số khiếu nại giảm nên người trình bày cho rằng chất lượng dịch vụ đã tăng.",
+        "Đồng nghiệp kiểm tra và thấy trong kỳ kênh nhận khiếu nại cũng thay đổi, số lượng thô chưa trực tiếp chứng tỏ vấn đề giảm.",
+        "Báo cáo mới nói rõ cách thống kê, khoảng thời gian, dữ liệu còn thiếu và giữ hồ sơ gốc để người khác truy lại quá trình phân tích."
+      ],
+      "py": [
+        "bào gào zhōng de tú biǎo xiǎn shì tóu sù shù liàng xià jiàng， huì bào zhě yīn cǐ rèn wéi fú wù zhì liàng yǐ jīng tí gāo。",
+        "tóng shì hé duì hòu fā xiàn， tǒng jì qī jiān tóu sù rù kǒu yě fā shēng le biàn huà， yuán shǐ shù liàng bìng bù néng zhí jiē fǎn yìng wèn tí jiǎn shǎo。",
+        "xīn bǎn bào gào tóng shí shuō míng tǒng jì kǒu jìng、 shí jiān fàn wéi hé quē shī xìn xī， bǎo liú yuán shǐ jì lù， ràng qí tā rén néng gòu zhuī zōng fēn xī guò chéng。"
+      ]
+    },
+    "hsk6-unit-20": {
+      "zh": [
+        "跨部门会议讨论了很多问题，结束时却没有人能说明谁负责下一步行动。",
+        "主持人发现议程混合了信息通知、意见征集和需要决定的事项，参与者对会议目标理解不同。",
+        "下一次会议把这三类事项分开，逐项记录负责人、完成条件和确认时间，并请相关人员当场核对。"
+      ],
+      "vi": [
+        "Cuộc họp liên bộ phận bàn nhiều việc nhưng kết thúc không ai nói được ai phụ trách bước tiếp.",
+        "Người chủ trì thấy chương trình trộn thông báo, xin ý kiến và mục cần quyết, khiến người dự hiểu khác mục tiêu.",
+        "Lần họp sau tách ba loại việc, ghi người phụ trách, điều kiện hoàn thành và giờ xác nhận từng mục, nhờ người liên quan kiểm tra ngay."
+      ],
+      "py": [
+        "kuà bù mén huì yì tǎo lùn le hěn duō wèn tí， jié shù shí què méi yǒu rén néng shuō míng shuí fù zé xià yī bù xíng dòng。",
+        "zhǔ chí rén fā xiàn yì chéng hùn hé le xìn xī tōng zhī、 yì jiàn zhēng jí hé xū yào jué dìng de shì xiàng， cān yù zhě duì huì yì mù biāo lǐ jiě bù tóng。",
+        "xià yī cì huì yì bǎ zhè sān lèi shì xiàng fēn kāi， zhú xiàng jì lù fù zé rén、 wán chéng tiáo jiàn hé què rèn shí jiān， bìng qǐng xiāng guān rén yuán dāng chǎng hé duì。"
+      ]
+    },
+    "hsk6-unit-21": {
+      "zh": [
+        "客户在项目进行中增加了新的要求，团队仍然按照原来的期限承诺交付。",
+        "项目负责人核对后发现，新要求改变了测试范围，也影响其他任务的安排。",
+        "他把新增工作、可用资源和期限之间的关系写成变更说明，请双方确认取舍，再更新风险记录和交接计划。"
+      ],
+      "vi": [
+        "Khách thêm yêu cầu khi dự án đang chạy nhưng nhóm vẫn hứa giao theo hạn cũ.",
+        "Người phụ trách kiểm tra và thấy yêu cầu mới đổi phạm vi thử nghiệm, ảnh hưởng cả lịch các việc khác.",
+        "Anh viết bản thay đổi nêu quan hệ giữa việc thêm, nguồn lực và thời hạn, nhờ hai bên xác nhận đánh đổi rồi cập nhật rủi ro và kế hoạch bàn giao."
+      ],
+      "py": [
+        "kè hù zài xiàng mù jìn xíng zhōng zēng jiā le xīn de yāo qiú， tuán duì réng rán àn zhào yuán lái de qī xiàn chéng nuò jiāo fù。",
+        "xiàng mù fù zé rén hé duì hòu fā xiàn， xīn yāo qiú gǎi biàn le cè shì fàn wéi， yě yǐng xiǎng qí tā rèn wù de ān pái。",
+        "tā bǎ xīn zēng gōng zuò、 kě yòng zī yuán hé qī xiàn zhī jiān de guān xì xiě chéng biàn gēng shuō míng， qǐng shuāng fāng què rèn qǔ shě， zài gēng xīn fēng xiǎn jì lù hé jiāo jiē jì huà。"
+      ]
+    },
+    "hsk6-unit-22": {
+      "zh": [
+        "一封邮件只写了尽快处理，收件人无法判断事情的轻重缓急，也不知道需要回复什么。",
+        "写信人重新整理背景，把请求、截止时间和需要确认的内容分别列出，并解释提出这个时间的原因。",
+        "修改后的邮件语气仍然礼貌，但责任和下一步更加明确，附件也标注了版本，减少了来回询问。"
+      ],
+      "vi": [
+        "Một email chỉ ghi xử lý sớm nên người nhận không biết mức khẩn và cần trả lời gì.",
+        "Người viết sắp lại bối cảnh, tách yêu cầu, hạn và nội dung cần xác nhận, giải thích lý do chọn thời gian đó.",
+        "Email sửa vẫn lịch sự nhưng trách nhiệm và bước tiếp rõ hơn, tệp đính kèm có phiên bản để giảm hỏi lại."
+      ],
+      "py": [
+        "yī fēng yóu jiàn zhǐ xiě le jǐn kuài chǔ lǐ， shōu jiàn rén wú fǎ pàn duàn shì qíng de qīng zhòng huǎn jí， yě bù zhī dào xū yào huí fù shén me。",
+        "xiě xìn rén chóng xīn zhěng lǐ bèi jǐng， bǎ qǐng qiú、 jié zhǐ shí jiān hé xū yào què rèn de nèi róng fēn bié liè chū， bìng jiě shì tí chū zhè ge shí jiān de yuán yīn。",
+        "xiū gǎi hòu de yóu jiàn yǔ qì réng rán lǐ mào， dàn zé rèn hé xià yī bù gèng jiā míng què， fù jiàn yě biāo zhù le bǎn běn， jiǎn shǎo le lái huí xún wèn。"
+      ]
+    },
+    "hsk6-unit-23": {
+      "zh": [
+        "客户要求在原价不变的情况下缩短交货期，供应商担心无法同时保证全部服务。",
+        "双方先确认客户真正不能改变的是活动日期，而部分附加功能可以稍后提供。",
+        "供应商据此提出分批交付的替代方案，说明每批内容、费用和确认条件，让拒绝部分要求不至于中断合作。"
+      ],
+      "vi": [
+        "Khách muốn rút hạn giao mà giữ nguyên giá, nhà cung cấp lo không đảm bảo được toàn bộ dịch vụ.",
+        "Hai bên xác nhận điều khách thật sự không đổi được là ngày sự kiện, còn một số chức năng thêm có thể cung cấp sau.",
+        "Nhà cung cấp đề xuất giao từng đợt, nói rõ nội dung, phí và điều kiện xác nhận từng đợt để từ chối một phần yêu cầu mà vẫn hợp tác."
+      ],
+      "py": [
+        "kè hù yāo qiú zài yuán jià bù biàn de qíng kuàng xià suō duǎn jiāo huò qī， gōng yìng shāng dān xīn wú fǎ tóng shí bǎo zhèng quán bù fú wù。",
+        "shuāng fāng xiān què rèn kè hù zhēn zhèng bù néng gǎi biàn de shì huó dòng rì qī， ér bù fèn fù jiā gōng néng kě yǐ shāo hòu tí gōng。",
+        "gōng yìng shāng jù cǐ tí chū fēn pī jiāo fù de tì dài fāng àn， shuō míng měi pī nèi róng、 fèi yòng hé què rèn tiáo jiàn， ràng jù jué bù fèn yāo qiú bù zhì yú zhōng duàn hé zuò。"
+      ]
+    },
+    "hsk6-unit-24": {
+      "zh": [
+        "综合项目要求学生围绕一个真实问题整合访谈、观察和书面资料，而不是简单拼接多个摘要。",
+        "小组比较不同来源的时间、立场和证据强度，发现有些分歧来自定义不同，有些则需要继续调查。",
+        "最终陈述把主要判断与原始材料对应起来，回应反方理由，说明限制，并提出可以检查结果的下一步行动。"
+      ],
+      "vi": [
+        "Dự án tổng hợp yêu cầu học sinh kết hợp phỏng vấn, quan sát và tư liệu viết quanh một vấn đề thực tế chứ không ghép nhiều tóm tắt.",
+        "Nhóm so thời gian, lập trường và sức nặng bằng chứng của các nguồn, thấy có bất đồng do định nghĩa khác và có điểm cần khảo sát thêm.",
+        "Bài trình bày cuối gắn nhận định chính với tư liệu gốc, đáp lại lý do phản đối, nêu giới hạn và đề xuất bước hành động có thể kiểm tra kết quả."
+      ],
+      "py": [
+        "zōng hé xiàng mù yāo qiú xué shēng wéi rào yí gè zhēn shí wèn tí zhěng hé fǎng tán、 guān chá hé shū miàn zī liào， ér bú shì jiǎn dān pīn jiē duō gè zhāi yào。",
+        "xiǎo zǔ bǐ jiào bù tóng lái yuán de shí jiān、 lì chǎng hé zhèng jù qiáng dù， fā xiàn yǒu xiē fēn qí lái zì dìng yì bù tóng， yǒu xiē zé xū yào jì xù diào chá。",
+        "zuì zhōng chén shù bǎ zhǔ yào pàn duàn yǔ yuán shǐ cái liào duì yìng qǐ lái， huí yìng fǎn fāng lǐ yóu， shuō míng xiàn zhì， bìng tí chū kě yǐ jiǎn chá jié guǒ de xià yī bù xíng dòng。"
+      ]
+    }
+  },
+  "definitionOverrides": {
+    "hsk6-v-1474": {
+      "meaningVi": "ngực; vòng một; tim; tâm trí; lòng ngực",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1743": {
+      "meaningVi": "gạch; LT:塊|块[kuai4]",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1009": {
+      "meaningVi": "trải; trưng bày; dựng lên; (cũ) tay nắm gõ cửa",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0891": {
+      "meaningVi": "họ [Mao4]",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0176": {
+      "meaningVi": "tấn công; va đập; (sóng) vỗ vào; sốc; tác động",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1795": {
+      "meaningVi": "mũi khoan; kim cương",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1638": {
+      "meaningVi": "hỗn hợp; đa dạng; nhiều loại; pha trộn",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1156": {
+      "meaningVi": "bắn; phóng; ám chỉ; phóng xạ (hóa học)",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0537": {
+      "meaningVi": "sáp nhập; thôn tính",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0692": {
+      "meaningVi": "sạch; sạch sẽ; chỉ; ròng (thu nhập, xuất khẩu v.v.); vai nam mặt vẽ trong kinh kịch",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1218": {
+      "meaningVi": "dựng; thẳng đứng; nét sổ (trong chữ Hán)",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0348": {
+      "meaningVi": "thói quen xấu; thói quen ác; tật xấu",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0001": {
+      "meaningVi": "bờ; bãi; bờ biển; bờ sông; LT:個|个[ge4]",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1408": {
+      "meaningVi": "chỉ; sợi; dây; đường; LT:條|条[tiao2],股[gu3],根[gen1]; (sau một con số) hạng (xếp hạng không chính thức của một thành phố ở Trung Quốc)",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0067": {
+      "meaningVi": "vải; tuyên bố; thông báo; truyền ra; làm cho biết",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0093": {
+      "meaningVi": "giẫm lên; đạp; dậm; nhấn bàn đạp; đạp (xe đạp); (trực tuyến) bình chọn không thích",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0269": {
+      "meaningVi": "đảo; LT:個|个[ge4],座[zuo4]",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0590": {
+      "meaningVi": "trộn; lẫn; lẫn lộn; trôi qua; sống qua ngày; giả vờ; hòa hợp với ai đó; không suy nghĩ; vô tình",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1560": {
+      "meaningVi": "nguyên nhân; lý do; bởi vì",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0227": {
+      "meaningVi": "giòn; mỏng manh; rộp ràng; giọng rõ ràng và to; dứt khoát, gọn gàng",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0241": {
+      "meaningVi": "trả lời; hồi đáp; Phản hồi: (trong tiêu đề email)",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1126": {
+      "meaningVi": "tán loạn; giải tán; phân tán; phổ biến; xua tan; (khẩu ngữ) sa thải",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1127": {
+      "meaningVi": "tán loạn; giải tán; phân tán; phổ biến; xua tan; (khẩu ngữ) sa thải",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0759": {
+      "meaningVi": "giới hạn; hạn chế; ràng buộc cái gì trong phạm vi nhất định",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0785": {
+      "meaningVi": "đồng ý; chấp thuận; bằng lòng",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1341": {
+      "meaningVi": "kéo; lôi; kéo lê; rủ xuống; lau (sàn); trì hoãn; kéo dài",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0963": {
+      "meaningVi": "ấm; làm ấm",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0989": {
+      "meaningVi": "trôi (trong không khí); phấp phới; bay nhẹ; tự mãn; phù phiếm; yếu; lung lay; lảo đảo",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1504": {
+      "meaningVi": "ngứa; bị nhột",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-1531": {
+      "meaningVi": "cánh đồng; trống trải; không gian mở; giới hạn; ranh giới; thô lỗ; hoang dã",
+      "source": "CVDICT by Phong Phan, CC BY-SA 4.0; matching headword and Pinyin"
+    },
+    "hsk6-v-0050": {
+      "meaningVi": "ép buộc; gây áp lực",
+      "source": "CVDICT; removed self-referential variant prefix"
+    },
+    "hsk6-v-1440": {
+      "meaningVi": "kẻ trộm; tên trộm (dạng có âm cuốn lưỡi của 小偷)",
+      "source": "Expanded CVDICT cross-reference 小偷"
+    },
+    "hsk6-v-0243": {
+      "meaningVi": "mọi người; tất cả mọi người (dạng có âm cuốn lưỡi của 大伙)",
+      "source": "Expanded CVDICT cross-reference 大伙"
+    }
+  },
+  "definitionAttribution": "CVDICT by Phong Phan (CC BY-SA 4.0), based on CC-CEDICT. See data/dictionary/cvdict-v1/ATTRIBUTION.md.",
+  "pinyinStatus": "machine-assisted-pypinyin-0.55.0-not-independent-review"
+}

@@ -13,8 +13,8 @@ test('HSK curriculum is labeled and mounted before the main router',()=>{
  assert.ok(entry.indexOf('graded-hsk-entry.js')<entry.lastIndexOf('screen-router.js'));
  new vm.Script(catalog);new vm.Script(router);
 });
-test('HSK 1–4 uses the primary learner and keeps legacy MSUTONG progress separate',()=>{
- assert.match(catalog,/counts=\[24,28,36,48,60,72\],MAX_LEARNER_HSK=4/);
+test('HSK 1–6 uses the primary learner and keeps legacy MSUTONG progress separate',()=>{
+ assert.match(catalog,/counts=\[24,28,36,48,60,72\],MAX_LEARNER_HSK=6/);
  assert.match(catalog,/runtime.selectLevel\(level,false\)/);
  assert.match(catalog,/previous.completed/);
  assert.match(catalog,/VDuckieHskStudyJourney/);

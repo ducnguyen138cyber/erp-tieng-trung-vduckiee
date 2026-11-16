@@ -1,7 +1,7 @@
-/* Primary learner entry for HSK 1-4. Old MSUTONG state stays intact. */
+/* Primary learner entry for HSK 1-6. Old MSUTONG state stays intact. */
 (function(root,document){
   "use strict";
-  var counts=[24,28,36,48,60,72],MAX_LEARNER_HSK=4;
+  var counts=[24,28,36,48,60,72],MAX_LEARNER_HSK=6;
   function esc(value){return String(value==null?"":value).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
   function openLesson(level,lessonId,review){
     if(!root.VDuckieScreenRouter)return;
@@ -33,7 +33,7 @@
     var intro=summary.totalCompleted
       ? '<p>Bạn đã hoàn thành '+summary.totalCompleted+' bài. Tiếp tục đúng vị trí đang học hoặc chọn cấp độ khác.</p>'
       : '<p>Mới bắt đầu? Chọn HSK 1. Đã biết tiếng Trung? Chọn cấp phù hợp rồi học lần lượt: từ mới → nghe & đọc → luyện tập → lưu tiến độ.</p>';
-    host.innerHTML='<section class="graded-hsk-page"><header class="graded-hsk-head"><span class="graded-hsk-eyebrow">GIÁO TRÌNH CHÍNH · HSK 1–4</span><h1>Học tiếng Trung theo từng bài</h1>'+intro+
+    host.innerHTML='<section class="graded-hsk-page"><header class="graded-hsk-head"><span class="graded-hsk-eyebrow">GIÁO TRÌNH CHÍNH · HSK 1–6</span><h1>Học tiếng Trung theo từng bài</h1>'+intro+
       '<div class="hsk-entry-mastery"><span><b>'+studied+'</b> từ đã gặp</span><span><b>'+(summary.remembered||0)+'</b> từ nhớ qua ôn cách quãng</span><span><b>'+weak+'</b> từ cần ôn</span><span><b>'+esc(accuracy)+'</b></span></div>'+
       '<div class="hsk-entry-quick"><button type="button" data-graded-continue>'+(current.lessonId?'Học tiếp HSK '+current.level+' →':'Bắt đầu HSK 1 →')+'</button><button type="button" data-graded-review'+(summary.due?'':' disabled')+'>↻ Ôn từ đến hạn ('+summary.due+')</button></div>'+
       '<p class="hsk-entry-note">Chọn cấp độ phù hợp, học từng bài và luyện đề khi bạn đã sẵn sàng.</p></header>'+

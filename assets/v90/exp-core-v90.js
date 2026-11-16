@@ -94,7 +94,7 @@
   function awardWordMastery(level,hanzi,anchor){
     if(!session||!session.user)return Promise.resolve({awarded:false,reason:"not_authenticated",exp_awarded:0});
     level=Number(level);hanzi=String(hanzi||"").trim();
-    if(level<1||level>4||!hanzi)return Promise.resolve({awarded:false,reason:"invalid_word",exp_awarded:0});
+    if(level<1||level>6||!hanzi)return Promise.resolve({awarded:false,reason:"invalid_word",exp_awarded:0});
     return rpc("award_word_mastery",{p_level:level,p_word_hash:hashWord(level,hanzi)})
       .then(function(data){
         var row=Array.isArray(data)?data[0]:data;

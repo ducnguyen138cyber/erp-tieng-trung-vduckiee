@@ -13,7 +13,7 @@
   "./assets/developer-ui/developer-center.css?v=108.1"
 ];
   const jsAssets = [
-  "./assets/v90/exp-core-v90.js?v=90.0",
+  "./assets/v90/exp-core-v90.js?v=hsk56-1",
   "./assets/v92/progress-store-v92.js?v=106.1",
   "./assets/v90/exp-board-v90.js?v=total-exp1",
   "./assets/v90/exp-leaderboard-v90.js?v=total-exp1",
@@ -24,7 +24,7 @@
   "./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1",
   "./assets/v89/hsk-roadmap-v89.4.js?v=89.4",
   "./assets/v91/header-account-dropdown-v91.js?v=91.5",
-  "./assets/hsk-content/hsk-content-feature-flags.js?v=2b1.0",
+  "./assets/hsk-content/hsk-content-feature-flags.js?v=hsk56-1",
   "./assets/hsk-content/hsk-content-loader.js?v=2b4.0",
   "./assets/hsk-content/hsk-content-adapter.js?v=2b1.0",
   "./assets/hsk-content/hsk-progress-contract.js?v=2b2.0",
