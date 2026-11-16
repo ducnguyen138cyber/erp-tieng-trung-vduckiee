@@ -18,7 +18,7 @@
   "./assets/v90/exp-board-v90.js?v=beta-perf1",
   "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
   "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
-  "./assets/v90/exp-weekly-v90.js?v=90.0",
+  "./assets/v90/exp-weekly-v90.js?v=beta-perf1",
   "./assets/v90/header-account-session-bridge-v90.3.js?v=90.3",
   "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
   "./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1",
