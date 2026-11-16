@@ -1,7 +1,7 @@
 (function(root,document){
 "use strict";
 var mount,field,list,results=[],active=-1,timer=0,remoteTimer=0,selected=null,searchSerial=0,visibleLimit=8;
-var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0;
+var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0,openingTouchUntil=0;
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/gi,"d").toLowerCase().replace(/ü/g,"u").replace(/u:/g,"u").replace(/\s+/g,"").trim()}
 function pinyinNumber(s){var tones={a:["ā","á","ǎ","à"],e:["ē","é","ě","è"],i:["ī","í","ǐ","ì"],o:["ō","ó","ǒ","ò"],u:["ū","ú","ǔ","ù"],v:["ǖ","ǘ","ǚ","ǜ"]};return String(s).replace(/([a-zvü]+)([1-4])/gi,function(all,syllable,n){syllable=syllable.toLowerCase().replace(/ü/g,"v");var pos=syllable.search(/[ae]/);if(pos<0)pos=syllable.indexOf("ou")>=0?syllable.indexOf("o"):-1;if(pos<0){for(var i=syllable.length-1;i>=0;i--)if(/[iouv]/.test(syllable[i])){pos=i;break}}return pos<0?syllable:syllable.slice(0,pos)+tones[syllable[pos]][Number(n)-1]+syllable.slice(pos+1)})}
@@ -67,6 +67,8 @@ function lockPage(position){
 }
 function openMobile(push){
   if(mobileScreen)return;
+  // Reparenting during pointerdown can retarget the finishing click to the new back/X.
+  openingTouchUntil=Date.now()+400;
   // Moving the header can trigger scroll anchoring, so capture the page offset first.
   var position={x:root.scrollX,y:root.scrollY};
   homeSlot=document.createComment("header search position");mount.before(homeSlot);
@@ -75,7 +77,7 @@ function openMobile(push){
   mobileScreen.setAttribute("role","dialog");mobileScreen.setAttribute("aria-modal","true");mobileScreen.setAttribute("aria-label","Tìm kiếm từ điển");
   mobileScreen.innerHTML='<button type="button" class="vsearch-back" aria-label="Quay lại" data-vsearch-back>‹</button><button type="button" class="vsearch-dismiss" aria-label="Đóng tìm kiếm" data-vsearch-dismiss>×</button><p class="vsearch-mobile-hint">Tra chữ Hán, Pinyin hoặc nghĩa tiếng Việt</p>';
   document.body.appendChild(mobileScreen);mobileScreen.insertBefore(mount,mobileScreen.lastChild);
-  mobileScreen.querySelector("[data-vsearch-back]").onclick=leaveMobile;mobileScreen.querySelector("[data-vsearch-dismiss]").onclick=leaveMobile;
+  mobileScreen.querySelector("[data-vsearch-back]").onclick=guardedLeaveMobile;mobileScreen.querySelector("[data-vsearch-dismiss]").onclick=guardedLeaveMobile;
   lockPage(position);syncViewport();
   if(push){mobileToken="vsearch-"+Date.now();root.history.pushState(Object.assign({},root.history.state,{vduckieSearch:mobileToken}),"")}
   if(field.value.trim())render();
@@ -94,6 +96,10 @@ function closeMobile(){
   }
   // Focus the header without raising the keyboard again.
   mount.setAttribute("tabindex","-1");mount.focus({preventScroll:true});
+}
+function guardedLeaveMobile(event){
+  if(event&&Date.now()<openingTouchUntil){event.preventDefault();event.stopPropagation();return}
+  leaveMobile();
 }
 function leaveMobile(){
   if(root.history.state&&root.history.state.vduckieSearch===mobileToken)root.history.back();else closeMobile();
