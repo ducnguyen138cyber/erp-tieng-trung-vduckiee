@@ -1,7 +1,7 @@
 (function(root,document){
 "use strict";
 var mount,field,list,results=[],active=-1,timer=0,selected=null,searchSerial=0,visibleLimit=8;
-var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null;
+var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null;
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/gi,"d").toLowerCase().replace(/ü/g,"u").replace(/u:/g,"u").replace(/\s+/g,"").trim()}
 function pinyinNumber(s){var tones={a:["ā","á","ǎ","à"],e:["ē","é","ě","è"],i:["ī","í","ǐ","ì"],o:["ō","ó","ǒ","ò"],u:["ū","ú","ǔ","ù"],v:["ǖ","ǘ","ǚ","ǜ"]};return String(s).replace(/([a-zvü]+)([1-4])/gi,function(all,syllable,n){syllable=syllable.toLowerCase().replace(/ü/g,"v");var pos=syllable.search(/[ae]/);if(pos<0)pos=syllable.indexOf("ou")>=0?syllable.indexOf("o"):-1;if(pos<0){for(var i=syllable.length-1;i>=0;i--)if(/[iouv]/.test(syllable[i])){pos=i;break}}return pos<0?syllable:syllable.slice(0,pos)+tones[syllable[pos]][Number(n)-1]+syllable.slice(pos+1)})}
@@ -38,6 +38,8 @@ function syncViewport(){
 function lockPage(){
   var body=document.body,style=body.style;
   lockedPage={x:root.scrollX,y:root.scrollY,styles:{},inert:[]};
+  if(scrollRestoration===null)scrollRestoration=root.history.scrollRestoration||"auto";
+  root.history.scrollRestoration="manual";
   ["position","top","left","width","overflow"].forEach(function(key){lockedPage.styles[key]=[style.getPropertyValue(key),style.getPropertyPriority(key)]});
   Array.from(body.children).forEach(function(node){
     if(node===mobileScreen||/^(SCRIPT|STYLE|LINK)$/.test(node.tagName))return;
@@ -68,6 +70,8 @@ function closeMobile(){
   if(saved){
     Object.keys(saved.styles).forEach(function(key){var value=saved.styles[key];if(value[0])document.body.style.setProperty(key,value[0],value[1]);else document.body.style.removeProperty(key)});
     saved.inert.forEach(function(entry){entry[0].inert=entry[1]});root.scrollTo(saved.x,saved.y);
+    // Keep manual restoration through popstate; native history otherwise restores the fixed body's zero offset.
+    root.requestAnimationFrame(function(){if(!mobileScreen){root.scrollTo(saved.x,saved.y);root.history.scrollRestoration=scrollRestoration;scrollRestoration=null}});
   }
   // Focus the header without raising the keyboard again.
   mount.setAttribute("tabindex","-1");mount.focus({preventScroll:true});

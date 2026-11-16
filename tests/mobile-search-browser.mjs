@@ -73,6 +73,7 @@ try{
     await page.locator('#vsearchMobileScreen').waitFor({state:'detached'});
     assert.equal(await page.locator('#appShell').evaluate(e=>e.inert),false);
     assert.equal(await page.locator('.top #vsearchInput').count(),1);
+    await page.waitForFunction(y=>Math.abs(scrollY-y)<2,scroll);
     assert(Math.abs(await page.evaluate(()=>scrollY)-scroll)<2,'restore original page scroll');
     // Late external lookup and debounce cannot reopen the closed search surface.
     await page.evaluate(()=>{window.VDuckieExpandedDictionary={lookup:()=>new Promise(resolve=>window.finishLookup=resolve)}});
