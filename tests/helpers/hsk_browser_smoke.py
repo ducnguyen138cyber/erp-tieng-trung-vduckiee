@@ -54,7 +54,8 @@ def run(level):
             assert page.locator('.hsk-focus-stage:not(.hidden)').count()==1
           for section in lesson.get('sections',[]):
             if section.get('titleVi') and section['type']!='vocabulary':
-              assert page.locator('#hskLesson').get_by_text(section['titleVi'],exact=True).count()>0,section['titleVi']
+              title=({'dialogue':'Hội thoại theo tình huống','listening':'Nghe tình huống và ghi ý chính','reading':'Đọc hiểu và dẫn chứng'}.get(section['type'],section['titleVi']) if level>=5 else section['titleVi'])
+              assert page.locator('#hskLesson').get_by_text(title,exact=True).count()>0,title
           assert page.locator('.hsk-focus-vocabulary h4').inner_text()=='Học từ mới'
           assert page.locator('[data-focus-word]').count()>0
           result['flows']['allLessonSectionsAndTabs']='pass'
@@ -82,9 +83,6 @@ def run(level):
             page.locator('[data-hsk-finish]').click()
             assert page.evaluate('(id)=>!!window.VDuckieHskStudyJourney.lesson(id).completedAt',lesson['id'])
             assert 'Chưa đủ dữ liệu đánh giá' in page.locator('[data-hsk-finish-panel]').inner_text()
-            page.reload(wait_until='domcontentloaded');ready(page,level)
-            assert page.evaluate('(id)=>!!window.VDuckieHskStudyJourney.lesson(id).completedAt',lesson['id'])
-            result['flows']['completionReloadAndTranscript']='pass'
           if name=='desktop-1440':
             page.locator('[data-pro-next]').click();assert ready(page,level)['selectedLessonId']==course[1]['id']
             page.locator('[data-pro-prev]').click();assert ready(page,level)['selectedLessonId']==course[0]['id']
@@ -102,6 +100,9 @@ def run(level):
             result['flows']['publishedLevelSwitching']='pass'
           assert page.evaluate('window.__hskAwards')==0
           page.reload(wait_until='domcontentloaded');ready(page,level)
+          if level >= 5 and name == 'desktop-1440':
+            assert page.evaluate('(id)=>!!window.VDuckieHskStudyJourney.lesson(id).completedAt',lesson['id'])
+            result['flows']['completionReloadAndTranscript']='pass'
           result['flows']['reloadAndDirectUrl']='pass'
           metrics=page.evaluate("""()=>{const rail=document.getElementById('hskLevels');return {overflow:Math.max(0,document.documentElement.scrollWidth-innerWidth),levelRailOverflow:rail?Math.max(0,rail.scrollWidth-rail.clientWidth):0}}""")
           assert metrics['overflow']<=2 and metrics['levelRailOverflow']<=2,(name,metrics)

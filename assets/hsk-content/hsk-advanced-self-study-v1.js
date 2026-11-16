@@ -49,7 +49,7 @@
         else if(type==='independent-practice')content={speakingVi:'Trình bày tình huống trong ba ý, sau đó giải thích bạn đồng ý hoặc muốn thay đổi điều gì.',writingVi:'Viết một đoạn tiếng Trung tóm tắt tình huống và đề xuất một bước tiếp theo. Phân biệt dữ kiện có sẵn với đề xuất của bạn.',realWorldTaskVi:'Thử đặt tình huống tương tự trong học tập hoặc công việc; không đưa thông tin cá nhân của người khác vào bài.',selfCheck:['Đã nêu đủ dữ kiện chính?','Có dẫn chứng cho cách giải thích?','Đề xuất có liên quan đến tình huống?','Đã đọc lại cách dùng từ và quan hệ giữa các câu?']};
         else if(type==='review')content={spacingDays:[1,3,7,14,30],vocabularyRefs:lesson.vocabularyRefs,reviewPolicyVi:'Tự nhớ nghĩa trước khi xem đáp án; ôn lại từ khó và thuật lại tình huống sau một khoảng thời gian.'};
         else content={promptVi:'Dùng tình huống trong chương để luyện chủ đề “'+lesson.titleVi+'”.',steps:['Tự nhớ lại từ vựng.','Nghe và đọc tình huống, chỉ ra câu làm bằng chứng.','Viết câu trả lời trước khi xem mẫu tham khảo.']};
-        return Object.assign({},section,{content:content});
+        return Object.assign({},section,{content:content,titleVi:({dialogue:'Hội thoại theo tình huống',listening:'Nghe tình huống và ghi ý chính',reading:'Đọc hiểu và dẫn chứng'})[type]||section.titleVi});
       });
     });
     data.exercises.forEach(function(exercise,index){

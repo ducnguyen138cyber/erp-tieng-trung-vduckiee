@@ -84,3 +84,27 @@ test('polyphonic dictionary fixes retain the authored reading rather than anothe
  assert.doesNotMatch(words.get('hsk6-v-1795').meaningVi,/kim cương/);
  for(const id of ['hsk6-v-1126','hsk6-v-1127']){assert.equal(words.get(id).pinyinNumber,'san3');assert.match(words.get(id).meaningVi,/rải rác/);}
 });
+
+test('HSK5–6 learning events reach EXP, including sign-in recovery, while HSK7 stays excluded',async()=>{
+ const handlers={},sessions=[],calls=[];
+ const ctx={console,Promise,localStorage:{getItem(){return null;}},document:{readyState:'complete',body:{getAttribute(){return null;}},getElementById(){return null;},addEventListener(n,fn){(handlers[n]||(handlers[n]=[])).push(fn);}},
+  VDuckieEXP:{awardEXP:async(code,source)=>{calls.push({code,source});return {awarded:true};},awardWordMastery:async(level,hanzi)=>{calls.push({level,hanzi});return {awarded:true};}},
+  VDuckieEXPCore:{session:()=>({user:{id:'learner'}}),onSession:fn=>sessions.push(fn)},
+  VDuckieHskStudyJourney:{load:()=>({lessons:{'hsk5-lesson-02':{completedAt:1},'hsk6-lesson-02':{completedAt:1},'hsk7-lesson-02':{completedAt:1}},reviews:{a:{level:5,hanzi:'避免',correct:1},b:{level:6,hanzi:'证据',correct:1},c:{level:7,hanzi:'越界',correct:1}}})}};
+ ctx.window=ctx;vm.runInNewContext(fs.readFileSync('assets/v89/exp-learning-hooks-v89.js','utf8'),ctx);
+ function dispatch(name,detail){for(const fn of handlers[name]||[])fn({detail});}
+ for(const level of [5,6,7]){
+  dispatch('vduckie:hsk-word-mastered',{level,hanzi:'努力'});
+  dispatch('vduckie:hsk-learner-completed',{lessonId:`hsk${level}-lesson-01`,graded:0,correct:0});
+ }
+ for(let i=0;i<12;i++)await Promise.resolve();
+ assert.deepEqual(calls.filter(c=>c.hanzi==='努力').map(c=>c.level),[5,6]);
+ assert.equal(calls.filter(c=>c.code==='lesson_complete').length,2);
+ assert.equal(calls.filter(c=>c.code==='quiz_pass').length,0,'self-review completion is not a quiz pass');
+ calls.length=0;for(const fn of sessions)fn({user:{id:'learner'}});
+ for(let i=0;i<20;i++)await Promise.resolve();
+ assert.deepEqual(calls.filter(c=>c.hanzi).map(c=>c.level),[5,6]);
+ assert.ok(calls.some(c=>c.source==='hsk:hsk5-lesson-02:lesson'));
+ assert.ok(calls.some(c=>c.source==='hsk:hsk6-lesson-02:lesson'));
+ assert.ok(calls.every(c=>c.level!==7&&!String(c.source).includes('hsk7')));
+});

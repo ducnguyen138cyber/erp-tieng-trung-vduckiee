@@ -17,7 +17,7 @@
   "./assets/v92/progress-store-v92.js?v=106.1",
   "./assets/v90/exp-board-v90.js?v=total-exp1",
   "./assets/v90/exp-leaderboard-v90.js?v=total-exp1",
-  "./assets/v89/exp-learning-hooks-v89.js?v=2b4.0",
+  "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
   "./assets/v90/exp-weekly-v90.js?v=90.0",
   "./assets/v90/header-account-session-bridge-v90.3.js?v=90.3",
   "./assets/v90/home-exp-sidebar-v90.js?v=total-exp1",
