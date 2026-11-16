@@ -37,7 +37,11 @@ try{
     assert(Number.parseFloat(await input.evaluate(e=>getComputedStyle(e).fontSize))>=16,'input size must be set BEFORE focus');
     await page.evaluate(()=>scrollTo(0,600));
     const scroll=await page.evaluate(()=>scrollY);
-    await input.tap();
+    const tap=await input.boundingBox();
+    assert(tap.y>=0&&tap.y+tap.height<=850,'sticky input stays visible at the original scroll offset');
+    await input.evaluate(e=>e.addEventListener('pointerdown',()=>window.pointerStartScroll=scrollY,{once:true,capture:true}));
+    await page.touchscreen.tap(tap.x+10,tap.y+10);
+    console.log('search opened',JSON.stringify({engine,width,expectedScroll:scroll,...await page.evaluate(()=>({pointerScroll:window.pointerStartScroll,bodyTop:document.body.style.top,scrollY}))}));
     await page.locator('#vsearchMobileScreen').waitFor();
     assert.equal(await input.evaluate(e=>document.activeElement===e),true,'tap keeps keyboard input focused');
     assert.equal(await page.locator('#appShell').evaluate(e=>e.inert),true,'background is inert');
@@ -73,7 +77,8 @@ try{
     await page.locator('#vsearchMobileScreen').waitFor({state:'detached'});
     assert.equal(await page.locator('#appShell').evaluate(e=>e.inert),false);
     assert.equal(await page.locator('.top #vsearchInput').count(),1);
-    await page.waitForFunction(y=>Math.abs(scrollY-y)<2,scroll);
+    console.log('search closed',JSON.stringify({engine,width,expectedScroll:scroll,...await page.evaluate(()=>({scrollY,bodyTop:document.body.style.top,restoration:history.scrollRestoration}))}));
+    await page.waitForFunction(y=>Math.abs(scrollY-y)<2,scroll,{timeout:3000});
     assert(Math.abs(await page.evaluate(()=>scrollY)-scroll)<2,'restore original page scroll');
     // Late external lookup and debounce cannot reopen the closed search surface.
     await page.evaluate(()=>{window.VDuckieExpandedDictionary={lookup:()=>new Promise(resolve=>window.finishLookup=resolve)}});
