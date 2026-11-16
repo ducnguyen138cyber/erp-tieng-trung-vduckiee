@@ -87,7 +87,24 @@ try{
     console.log('search closed',JSON.stringify({engine,width,expectedScroll:scroll,...await page.evaluate(()=>({scrollY,bodyTop:document.body.style.top,restoration:history.scrollRestoration}))}));
     await page.waitForFunction(y=>Math.abs(scrollY-y)<2,scroll,{timeout:3000});
     assert(Math.abs(await page.evaluate(()=>scrollY)-scroll)<2,'restore original page scroll');
-    // Late external lookup and debounce cannot reopen the closed search surface.
+    // Regression: standalone iOS WebKit can defer history navigation until edge-swipe.
+     // Both X buttons must work on a real touchscreen even when history never moves.
+     await input.tap();await input.fill('你好');
+     await page.waitForFunction(()=>document.querySelector('[data-vsearch-result="0"] b')?.textContent==='你好');
+     await page.evaluate(()=>{
+       window.delayedHistoryCalls=0;
+       history.back=()=>{window.delayedHistoryCalls++};
+       history.go=()=>{window.delayedHistoryCalls++};
+     });
+     await page.locator('[data-vsearch-result="0"]').tap();
+     await page.locator('[data-vsearch-close]').tap();
+     assert.equal(await page.locator('#vsearchDetail').count(),0,'physical X touch dismisses detail without popstate');
+     assert.equal(await page.locator('#vsearchMobileScreen').evaluate(e=>e.inert),false,'search is usable immediately');
+     await page.locator('[data-vsearch-dismiss]').tap();
+     assert.equal(await page.locator('#vsearchMobileScreen').count(),0,'physical X touch dismisses search without popstate');
+     assert.equal(await page.locator('#appShell').evaluate(e=>e.inert),false,'app is immediately unlocked');
+     assert(await page.evaluate(()=>window.delayedHistoryCalls)>=1,'history cleanup may be requested');
+     // Late external lookup and debounce cannot reopen the closed search surface.
     await page.evaluate(()=>{window.VDuckieExpandedDictionary={lookup:()=>new Promise(resolve=>window.finishLookup=resolve)}});
     await input.tap();await input.fill('zzzzz');
     await page.waitForFunction(()=>typeof window.finishLookup==='function');
@@ -120,9 +137,9 @@ try{
     await page.locator('[data-vsearch-result="0"]').click();
     await page.locator('#vsearchTitle').waitFor();
     await geometry(page,'.vsearch-detail',width,850);
-    await page.locator('[data-vsearch-close]').click();
+    if(width<950)await page.locator('[data-vsearch-close]').tap();else await page.locator('[data-vsearch-close]').click();
     await page.locator('#vsearchDetail').waitFor({state:'detached'});
-    if(width<950){await page.goBack();await page.locator('#vsearchMobileScreen').waitFor({state:'detached'})}
+    if(width<950){await page.locator('[data-vsearch-dismiss]').tap();await page.locator('#vsearchMobileScreen').waitFor({state:'detached'})}
     assert.equal(page.url(),url,'search preserves underlying route');
     assert.equal(await page.evaluate(()=>window.VDuckieScreenRouter.current()),'home');
     assert.equal(await page.locator('#appShell').evaluate(e=>e.getBoundingClientRect().width),before,'home layout is restored');
