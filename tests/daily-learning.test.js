@@ -114,3 +114,24 @@ test("desktop browser restores the wide legacy shell while MSUTONG uses the avai
   assert.doesNotMatch(source, /hub\.innerHTML = .<section class="daily-today/);
   assert.match(source, /hub\.insertAdjacentHTML\("afterbegin", todayMarkup\)/);
 });
+
+test("Daily handwriting works without verified stroke paths and preserves a visible Next control", () => {
+  const helper = read("assets/daily-learning-freehand-v1.js");
+  const chat = read("assets/ai/duckie-chat.css");
+  const worker = read("service-worker.js");
+  assert.match(source, /VDuckieDailyFreehand\.mount/);
+  assert.match(source, /dailyInkCanvas/);
+  assert.match(source, /data-writing-clear/);
+  assert.match(source, /data-writing-guided hidden/);
+  assert.match(source, /chưa có dữ liệu thứ tự nét/);
+  assert.doesNotMatch(source, /\[data-writing-replay\],\[data-writing-practice\]/);
+  assert.match(helper, /pointerdown/);
+  assert.match(helper, /pointermove/);
+  assert.match(helper, /passive: false/);
+  assert.match(chat, /\.daily-panel:not\(\.hidden\) \.learning-session\) \.duckie-chat-launch/);
+  const inkCss = read("assets/daily-handwriting-v1.css");
+  assert.match(inkCss, /\.daily-ink-canvas/);
+  assert.match(inkCss, /touch-action:none!important/);
+  assert.match(shell, /daily-learning-freehand-v1\.js/);
+  assert.match(worker, /daily-learning-freehand-v1\.js/);
+});

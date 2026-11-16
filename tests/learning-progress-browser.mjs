@@ -120,9 +120,9 @@ try{
    const missingStroke=route=>{missingRequests++;return route.fulfill({status:404,contentType:'application/json',body:'{}'});};
    await mobile.context.route('**/hanzi-data/*.json',missingStroke);
    await dailyNext(page);
-   await page.waitForFunction(()=>document.getElementById('dailyWritingStatus')?.textContent.includes('chưa có dữ liệu nét'));
+   await page.waitForFunction(()=>document.getElementById('dailyWritingStatus')?.textContent.includes('chưa có dữ liệu thứ tự nét'));
    assert.ok(missingRequests>0,'Exercise a real failed stroke-data request');
-   assert.equal(await page.locator('[data-writing-replay]').isDisabled(),true);assert.equal(await page.locator('[data-writing-practice]').isDisabled(),true);
+   assert.equal(await page.locator('[data-writing-replay]').isDisabled(),true);assert.equal(await page.locator('[data-writing-practice]').isDisabled(),false,'freehand remains usable with no verified stroke data');assert.equal(await page.locator('#dailyInkCanvas').isVisible(),true);
    assert.equal(await page.locator('#dailyLearningPanel [data-speak]').isEnabled(),true);
    assert.equal(await page.locator('#dailyLearningPanel [data-session-next]').isEnabled(),true);
    await dailyNext(page);

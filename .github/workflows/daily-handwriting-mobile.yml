@@ -1,0 +1,42 @@
+name: Daily handwriting mobile
+on:
+  pull_request:
+    paths:
+      - 'assets/daily-learning-v2.js'
+      - 'assets/daily-learning-freehand-v1.js'
+      - 'assets/daily-handwriting-v1.css'
+      - 'assets/ai/duckie-chat.css'
+      - 'app-shell-v88.html'
+      - 'index.html'
+      - 'service-worker.js'
+      - 'tests/daily-handwriting-mobile-browser.mjs'
+      - 'tests/daily-learning.test.js'
+      - '.github/workflows/daily-handwriting-mobile.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: daily-handwriting-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  touch-and-navigation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+      - name: Finger drawing and unblocked Next in Chromium and WebKit
+        run: node tests/daily-handwriting-mobile-browser.mjs
+      - name: Upload actual mobile writing screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: daily-handwriting-mobile-screenshots
+          path: artifacts/daily-handwriting/
+          if-no-files-found: ignore

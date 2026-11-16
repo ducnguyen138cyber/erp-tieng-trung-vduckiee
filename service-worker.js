@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v58";
+const CACHE_VERSION = "vduckie-pwa-v59";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -109,8 +109,10 @@ const APP_SHELL = [
   "./erp-lessons-v74.js",
   "./hsk-lessons.js",
   "./dialogue.js",
-  "./assets/daily-learning-v2.css?v=ui-preserve1",
-  "./assets/daily-learning-v2.js?v=ui-preserve1",
+  "./assets/daily-learning-v2.css?v=daily-write2",
+  "./assets/daily-handwriting-v1.css?v=1",
+  "./assets/daily-learning-freehand-v1.js?v=1",
+  "./assets/daily-learning-v2.js?v=daily-write2",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",
   "./assets/curriculum/progress-v1.js",

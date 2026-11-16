@@ -10,6 +10,8 @@
   var state = load();
   var active = null;
   var writer = null;
+  var dailyInkPad = null;
+  function clearDailyInk() { if (dailyInkPad) { dailyInkPad.destroy(); dailyInkPad = null; } }
   var navBound = false, syncOwner=localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
 
   function emptyState() {
@@ -162,6 +164,7 @@
     else startDaily(kind === "review" || kind === "review-erp");
   }
   function closePanel() {
+    clearDailyInk();
     active = null; writer = null;
     var node = panel(); node.className = "panel daily-panel hidden";
     if (root.ERPAreaNavigation && root.ERPAreaNavigation.home) root.ERPAreaNavigation.home();
@@ -231,6 +234,7 @@
   }
   function renderDailyStep() {
     if (!active || active.kind !== "daily") return;
+    clearDailyInk();
     var step = active.plan[active.index];
     if (!step) { active.index = active.plan.length - 1; step = active.plan[active.index]; }
     if (step.type === "result") return renderDailyResult();
@@ -241,7 +245,7 @@
       var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [];
       if ((active.charIndex || 0) >= chars.length) active.charIndex = 0;
       var selectedChar = chars[active.charIndex || 0] || chars[0];
-      body = '<div class="writing-focus"><span class="focus-kicker">THỨ TỰ NÉT</span><div class="writing-word-pills">' + chars.map(function (char, index) { return '<button type="button" class="' + (char === selectedChar ? "active" : "") + '" data-writing-char="' + index + '">' + char + '</button>'; }).join("") + '</div><div id="dailyStrokeTarget" class="daily-stroke-target" aria-label="Luyện viết chữ ' + esc(selectedChar) + '"></div><p id="dailyWritingStatus">Xem nét mẫu hoặc tự viết theo trên màn hình.</p><div class="writing-actions"><button type="button" data-writing-replay>▶ Xem viết mẫu</button><button type="button" data-writing-practice>✍ Tự viết</button><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe từ</button></div><small>Phiên bản này hướng dẫn và cho viết theo; chưa chấm hình dáng chữ tự do.</small></div>';
+      body = '<div class="writing-focus"><span class="focus-kicker">THỨ TỰ NÉT</span><div class="writing-word-pills">' + chars.map(function (char, index) { return '<button type="button" class="' + (char === selectedChar ? "active" : "") + '" data-writing-char="' + index + '">' + char + '</button>'; }).join("") + '</div><div class="daily-writing-board ink-active"><div id="dailyStrokeTarget" class="daily-stroke-target" aria-label="Luyện viết chữ ' + esc(selectedChar) + '"></div><canvas id="dailyInkCanvas" class="daily-ink-canvas" aria-label="Viết chữ tự do bằng ngón tay hoặc bút cảm ứng"></canvas></div><p id="dailyWritingStatus">Viết trực tiếp trong ô vuông bằng ngón tay hoặc bút cảm ứng.</p><div class="writing-actions"><button type="button" data-writing-replay>▶ Xem viết mẫu</button><button type="button" data-writing-practice>✍ Tự viết</button><button type="button" data-writing-clear>↺ Xóa nét</button><button type="button" data-writing-guided hidden>Viết theo nét</button><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe từ</button></div><small>Phiên bản này hướng dẫn và cho viết theo; chưa chấm hình dáng chữ tự do.</small></div>';
     } else if (step.type === "phrase") {
       body = '<div class="context-focus"><span class="focus-kicker">KHÔNG HỌC TỪ CÔ LẬP</span><span class="context-source">' + esc(term[0]) + '</span><span class="context-arrow">＋</span><strong>' + esc(ctx.phrase) + '</strong><b>' + esc(reading(ctx.phrase, term[1])) + '</b><p>' + esc(ctx.phraseVi) + '</p><button type="button" class="audio-action" data-speak="' + esc(ctx.phrase) + '">♪ Nghe cụm từ</button></div>';
     } else if (step.type === "sentence") {
@@ -300,19 +304,75 @@
     root.fetch("./hanzi-data/" + encodeURIComponent(character) + ".json").then(function (response) { if (!response.ok) throw new Error("missing"); return response.json(); }).then(complete).catch(fail);
   }
   function setupDailyWriting(term) {
-    var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [], selected = chars[active.charIndex || 0] || chars[0], status = document.getElementById("dailyWritingStatus");
-    panel().querySelectorAll("[data-writing-char]").forEach(function (button) { button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); }; });
-    if (!root.HanziWriter || !selected) { if (status) status.textContent = "Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở."; return; }
+    var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [];
+    var selected = chars[active.charIndex || 0] || chars[0];
+    var stage = document.getElementById("dailyStrokeTarget");
+    var status = document.getElementById("dailyWritingStatus");
+    var board = panel().querySelector(".daily-writing-board");
+    var canvas = document.getElementById("dailyInkCanvas");
+    var replay = panel().querySelector("[data-writing-replay]");
+    var practice = panel().querySelector("[data-writing-practice]");
+    var clear = panel().querySelector("[data-writing-clear]");
+    var guided = panel().querySelector("[data-writing-guided]");
+    panel().querySelectorAll("[data-writing-char]").forEach(function (button) {
+      button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); };
+    });
+    dailyInkPad = root.VDuckieDailyFreehand && root.VDuckieDailyFreehand.mount(board, canvas);
+    if (replay) replay.disabled = true;
+    if (clear) clear.onclick = function () {
+      if (dailyInkPad) { dailyInkPad.enable(); dailyInkPad.clear(); }
+      if (status) status.textContent = "Đã xóa nét. Hãy viết lại bằng ngón tay hoặc bút cảm ứng.";
+    };
+    if (practice) practice.onclick = function () {
+      if (dailyInkPad) { dailyInkPad.enable(); dailyInkPad.clear(); }
+      if (status) status.textContent = "Viết tự do trong ô. Phần này không tự chấm hình dáng chữ.";
+    };
+    if (!root.HanziWriter || !selected) {
+      if (status) status.textContent = "Chưa có dữ liệu thứ tự nét; bạn vẫn có thể viết tự do trong ô vuông.";
+      return;
+    }
+    function stillHere() { return stage && document.getElementById("dailyStrokeTarget") === stage; }
+    function noStrokeData() {
+      if (!stillHere()) return;
+      if (status) status.textContent = "Chữ này chưa có dữ liệu thứ tự nét xác minh; bạn vẫn có thể tự viết.";
+      if (replay) replay.disabled = true;
+      if (guided) { guided.hidden = true; guided.disabled = true; }
+    }
     try {
-      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData, onLoadCharDataError: function(){
-        if(status&&document.getElementById("dailyWritingStatus")!==status)return;
-        if(status)status.textContent="Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở.";
-        var current=panel();current.querySelectorAll('[data-writing-replay],[data-writing-practice]').forEach(function(button){button.disabled=true;});
-      } });
-      var replay = panel().querySelector("[data-writing-replay]"), practice = panel().querySelector("[data-writing-practice]");
-      if (replay) replay.onclick = function () { writer.animateCharacter(); if (status) status.textContent = "Đang chạy thứ tự nét của chữ " + selected + "."; };
-      if (practice) practice.onclick = function () { writer.quiz({ showHintAfterMisses: 2, onComplete: function () { if (status) status.textContent = "Đã viết hết các nét. Hãy viết lại một lần vào vở."; } }); if (status) status.textContent = "Viết theo từng nét trong ô vuông."; };
-    } catch (error) { if (status) status.textContent = "Chữ này chưa có hoạt ảnh nét. Hãy chép lại theo mẫu."; }
+      writer = root.HanziWriter.create("dailyStrokeTarget", selected, {
+        renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false,
+        strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb",
+        drawingColor: "#2563eb", drawingWidth: 5,
+        charDataLoader: function (char, success, failure) {
+          loadCharacterData(char, function (verified) {
+            if (stillHere()) {
+              if (replay) replay.disabled = false;
+              if (guided) { guided.hidden = false; guided.disabled = false; }
+            }
+            success(verified);
+          }, failure);
+        },
+        onLoadCharDataError: noStrokeData
+      });
+      if (replay) replay.onclick = function () {
+        if (!writer || replay.disabled) return;
+        if (dailyInkPad) dailyInkPad.pause();
+        try {
+          writer.animateCharacter();
+          if (status) status.textContent = "Đang xem thứ tự nét của chữ " + selected + ".";
+        } catch (error) { noStrokeData(); if (dailyInkPad) dailyInkPad.enable(); }
+      };
+      if (guided) guided.onclick = function () {
+        if (!writer || guided.disabled) return;
+        if (dailyInkPad) dailyInkPad.pause();
+        try {
+          writer.quiz({ showHintAfterMisses: 2, onComplete: function () {
+            if (stillHere() && status) status.textContent = "Đã viết theo thứ tự nét có dữ liệu xác minh.";
+          } });
+          if (status) status.textContent = "Viết theo thứ tự nét được hướng dẫn.";
+        } catch (error) { noStrokeData(); if (dailyInkPad) dailyInkPad.enable(); }
+      };
+    } catch (error) { noStrokeData(); }
   }
 
   function renderRoadmap() {
@@ -475,7 +535,7 @@
   function bindLegacyClose() {
     document.querySelectorAll("[data-area],[data-home],[data-view],[data-open-dictionary],#brandHome").forEach(function (button) {
       button.addEventListener("click", function () {
-        active = null;
+        clearDailyInk(); active = null;
         var node = document.getElementById("dailyLearningPanel"); if (node) node.className = "panel daily-panel hidden";
         closeMenu();
       });
