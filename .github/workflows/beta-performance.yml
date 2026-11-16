@@ -34,6 +34,9 @@ jobs:
           node-version: '24'
       - run: npm install --no-save --package-lock=false playwright@1.58.2
         working-directory: candidate
+      - name: Existing level-up, focus, lifecycle and lazy sprite contracts
+        working-directory: candidate
+        run: node --test tests/v106-mascot-polish.test.js tests/v106-runtime-integration.test.js tests/v106-progress-metadata.test.js tests/word-exp-mascot-release.test.mjs
       - name: Candidate interactions and metrics
         working-directory: candidate
         env:
