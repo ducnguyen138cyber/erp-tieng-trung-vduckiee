@@ -40,9 +40,10 @@ try{
     const tap=await input.boundingBox();
     assert(tap.y>=0&&tap.y+tap.height<=850,'sticky input stays visible at the original scroll offset');
     await input.evaluate(e=>e.addEventListener('pointerdown',()=>window.pointerStartScroll=scrollY,{once:true,capture:true}));
-    await page.touchscreen.tap(tap.x+10,tap.y+10);
-    console.log('search opened',JSON.stringify({engine,width,expectedScroll:scroll,...await page.evaluate(()=>({pointerScroll:window.pointerStartScroll,bodyTop:document.body.style.top,scrollY}))}));
-    await page.locator('#vsearchMobileScreen').waitFor();
+    assert(tap.x>=0&&tap.x+tap.width<=width+1,'search input is horizontally reachable');
+    await page.touchscreen.tap(tap.x+tap.width/2,tap.y+tap.height/2);
+    console.log('search opened',JSON.stringify({engine,width,tap,errors,expectedScroll:scroll,...await page.evaluate(()=>({pointerScroll:window.pointerStartScroll,bodyTop:document.body.style.top,scrollY,mobileVisible:!!document.querySelector('#vsearchMobileScreen')}))}));
+    await page.locator('#vsearchMobileScreen').waitFor({timeout:5000});
     assert.equal(await input.evaluate(e=>document.activeElement===e),true,'tap keeps keyboard input focused');
     assert.equal(await page.locator('#appShell').evaluate(e=>e.inert),true,'background is inert');
     await geometry(page,'#vsearchMobileScreen',width,850);
