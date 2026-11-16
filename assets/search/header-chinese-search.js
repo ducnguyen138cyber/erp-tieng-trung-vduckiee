@@ -1,7 +1,7 @@
 (function(root,document){
 "use strict";
 var mount,field,list,results=[],active=-1,timer=0,remoteTimer=0,selected=null,searchSerial=0,visibleLimit=8;
-var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0,openingTouchUntil=0,pendingDismissPopstate=false,dismissPopstateTimer=0;
+var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0,openingTouchUntil=0,openingGesture=false,openingClickPending=false,pendingDismissPopstate=false,dismissPopstateTimer=0;
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/gi,"d").toLowerCase().replace(/ü/g,"u").replace(/u:/g,"u").replace(/\s+/g,"").trim()}
 function pinyinNumber(s){var tones={a:["ā","á","ǎ","à"],e:["ē","é","ě","è"],i:["ī","í","ǐ","ì"],o:["ō","ó","ǒ","ò"],u:["ū","ú","ǔ","ù"],v:["ǖ","ǘ","ǚ","ǜ"]};return String(s).replace(/([a-zvü]+)([1-4])/gi,function(all,syllable,n){syllable=syllable.toLowerCase().replace(/ü/g,"v");var pos=syllable.search(/[ae]/);if(pos<0)pos=syllable.indexOf("ou")>=0?syllable.indexOf("o"):-1;if(pos<0){for(var i=syllable.length-1;i>=0;i--)if(/[iouv]/.test(syllable[i])){pos=i;break}}return pos<0?syllable:syllable.slice(0,pos)+tones[syllable[pos]][Number(n)-1]+syllable.slice(pos+1)})}
@@ -114,7 +114,9 @@ function bindTouchDismiss(button,onDismiss){
   button.addEventListener("click",handle);
 }
 function guardedLeaveMobile(event){
-  if(event&&Date.now()<openingTouchUntil){event.preventDefault();event.stopPropagation();return}
+  // Block only the opening finger that can land on a newly created X,
+  // never a separate quick tap to close the search screen.
+  if(event&&openingGesture){event.preventDefault();event.stopPropagation();return}
   leaveMobile();
 }
 function leaveMobile(){
@@ -217,7 +219,7 @@ function init(){
  mount.innerHTML='<div class="vsearch-input-wrap"><span aria-hidden="true">⌕</span><input type="search" id="vsearchInput" autocomplete="off" autocapitalize="none" spellcheck="false" enterkeyhint="search" role="combobox" aria-controls="vsearchList" aria-expanded="false" aria-label="Tra từ tiếng Trung" placeholder="Tra tiếng Việt, Pinyin hoặc chữ Hán..."><button type="button" class="vsearch-clear" aria-label="Xóa tìm kiếm" hidden>×</button></div><div id="vsearchList" role="listbox" class="vsearch-list" hidden></div>';
  top.insertBefore(mount,top.querySelector(".top-actions"));field=mount.querySelector("input");list=mount.querySelector(".vsearch-list");
  // Reparent before native focus, in the same gesture, to keep the iOS keyboard attached.
- field.addEventListener("pointerdown",function(e){if(mobile()&&!mobileScreen){e.preventDefault();openMobile(true);field.focus({preventScroll:true})}});
+ field.addEventListener("pointerdown",function(e){if(mobile()&&!mobileScreen){openingGesture=true;openingClickPending=true;e.preventDefault();openMobile(true);root.setTimeout(function(){openingClickPending=false},450);field.focus({preventScroll:true})}});
  field.addEventListener("focus",function(){if(mobile()&&!mobileScreen)openMobile(true);if(field.value.trim())render()});
  function queueSearch(){clearTimeout(timer);clearTimeout(remoteTimer);remoteTimer=0;mount.querySelector(".vsearch-clear").hidden=!field.value;if(!composing)timer=setTimeout(function(){timer=0;render()},150)}
  field.addEventListener("compositionstart",function(){composing=true;clearTimeout(timer);searchSerial++});
@@ -241,6 +243,18 @@ function init(){
    else if(e.target.closest("[data-vsearch-more]")){visibleLimit=Math.min(80,visibleLimit+12);drawResults()}
    else if(e.target.closest("[data-vsearch-all]"))allResults();
  });
+ // Drop the opener's re-targeted click (if any), but release the gesture
+ // immediately after its pointer/touch ends so the next X is responsive.
+ document.addEventListener("pointerup",function(){if(openingGesture)root.setTimeout(function(){openingGesture=false},0)},true);
+ document.addEventListener("pointercancel",function(){openingGesture=false;openingClickPending=false},true);
+ document.addEventListener("touchend",function(){if(openingGesture)root.setTimeout(function(){openingGesture=false},0)},true);
+ document.addEventListener("click",function(e){
+   if(!openingClickPending)return;
+   openingClickPending=false;
+   if(e.target.closest&&e.target.closest("[data-vsearch-back],[data-vsearch-dismiss]")){
+     e.preventDefault();e.stopImmediatePropagation();
+   }
+ },true);
  document.addEventListener("click",function(e){if(!mobileScreen&&!mount.contains(e.target))close()});
  document.addEventListener("click",function(e){
    var modal=e.target.closest("#vsearchDetail");if(!modal)return;
