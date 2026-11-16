@@ -47,6 +47,12 @@ try{
     await page.screenshot({path:path.join(out,`${width}-home.png`),fullPage:true});
     await page.locator('header.top').screenshot({path:path.join(out,`${width}-exp.png`)});
     await page.goto(base+'?screen=ranking');await page.locator('#expLeaderboardList .exp-row').first().waitFor();
+    if(enforce){
+     assert.equal(await page.locator('#hsk').isVisible(),false,'ranking cannot stack with a late HSK mount');
+     await page.evaluate(()=>{document.querySelector('#hsk').classList.remove('hidden');document.body.setAttribute('data-current-area','hsk')});
+     assert.equal(await page.locator('#hsk').isVisible(),false,'route CSS prevents a wrong frame before reconciliation');
+     await page.waitForFunction(()=>document.querySelector('#hsk').classList.contains('hidden'));
+    }
     await page.screenshot({path:path.join(out,`${width}-ranking.png`),fullPage:true});
     // A real tab click must preserve resolved content while revalidating.
     const before=await page.locator('#expLeaderboardList').textContent();

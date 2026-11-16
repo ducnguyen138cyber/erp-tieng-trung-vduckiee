@@ -23,3 +23,10 @@
 /* Keep the legacy HSK panel truly hidden on non-HSK routes. This is
    layout/visibility ownership, intentionally outside paint-only brand CSS. */
 #hsk.hidden,#hskJourney.hidden,#hskHero.hidden{display:none!important}
+
+/* Explicit routes own the first paint, including late legacy HSK mounts. */
+body[data-screen-route="ranking"] .study-center>:not(#leaderboard),
+body[data-screen-route="home"] .study-center>:not(#homeHub),
+body[data-screen-route="roadmap"] .study-center>:not(#hskRoadmapScreen),
+body:is([data-screen-route="daily"],[data-screen-route="review"],[data-screen-route="dictionary"],[data-screen-route="profile"]) .study-center>:not(#dailyLearningPanel){display:none!important}
+body:is([data-screen-route="ranking"],[data-screen-route="home"],[data-screen-route="daily"],[data-screen-route="review"],[data-screen-route="dictionary"],[data-screen-route="profile"],[data-screen-route="roadmap"]) #hskJourney{display:none!important}
