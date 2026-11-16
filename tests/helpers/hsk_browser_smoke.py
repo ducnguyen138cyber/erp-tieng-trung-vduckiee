@@ -72,12 +72,12 @@ def run(level):
               page.locator(f'[data-hsk-content-done="{stage}"]').click()
             page.locator('[data-focus-stage="practice"]').click()
             listening = page.locator('.hsk-pro-exercise').filter(has=page.locator('[data-pro-transcript]')).first
-            assert listening.locator('[data-pro-transcript]').evaluate('(node) => node.hidden') is True
+            assert listening.locator('[data-pro-transcript]').is_visible() is False
             for article in page.locator('.hsk-pro-exercise').all():
               if article.locator('input[type=radio]').count(): article.locator('input[type=radio]').first.check()
               else: article.locator('input,textarea').first.fill('我先说明情况，再根据材料解释选择，并提出下一步行动。')
               article.locator('[data-pro-check]').click()
-            assert listening.locator('[data-pro-transcript]').evaluate('(node) => node.hidden') is False
+            assert listening.locator('[data-pro-transcript]').is_visible() is True
             assert 'chưa chấm đúng/sai' in listening.locator('.hsk-pro-feedback').inner_text()
             page.locator('[data-hsk-finish]').click()
             assert page.evaluate('(id)=>!!window.VDuckieHskStudyJourney.lesson(id).completedAt',lesson['id'])

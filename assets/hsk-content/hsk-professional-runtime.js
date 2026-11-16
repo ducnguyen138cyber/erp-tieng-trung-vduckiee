@@ -444,7 +444,7 @@
   }
 
   function learnerLabel(value) {
-    var labels={listening:'Nghe',reading:'Đọc',writing:'Viết',speaking:'Nói',grammar:'Ngữ pháp',lexis:'Từ vựng',vocabulary:'Từ vựng',integrated:'Tổng hợp',characters:'Chữ Hán',pronunciation:'Phát âm','mini-checkpoint':'Ôn tập chương',midpoint:'Đánh giá giữa khóa',final:'Đánh giá cuối khóa','mastery-review':'Ôn tập tổng hợp'};
+    var labels={translation:'Dịch',listening:'Nghe',reading:'Đọc',writing:'Viết',speaking:'Nói',grammar:'Ngữ pháp',lexis:'Từ vựng',vocabulary:'Từ vựng',integrated:'Tổng hợp',characters:'Chữ Hán',pronunciation:'Phát âm','mini-checkpoint':'Ôn tập chương',midpoint:'Đánh giá giữa khóa',final:'Đánh giá cuối khóa','mastery-review':'Ôn tập tổng hợp'};
     return labels[value] || String(value||'').replace(/Checkpoint Unit\s*(\d+)/gi,'Ôn tập chương $1').replace(/Midpoint Assessment/gi,'Đánh giá giữa khóa').replace(/Final Assessment/gi,'Đánh giá cuối khóa').replace(/Mastery Review/gi,'Ôn tập tổng hợp').replace(/Midpoint:/gi,'Đánh giá giữa khóa:').replace(/\bUnit\b/gi,'Chương');
   }
   function renderAssessment(data, assessment) {
