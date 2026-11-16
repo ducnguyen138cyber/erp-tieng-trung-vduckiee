@@ -76,3 +76,11 @@ test('missing advanced case material fails closed instead of displaying unsafe a
   const broken=JSON.parse(JSON.stringify(source));delete broken.cases[data.units[0].id];
   assert.throws(()=>advanced.prepare(data,broken),/Thiếu tình huống/);
 });
+
+test('polyphonic dictionary fixes retain the authored reading rather than another tone',()=>{
+ const data=advanced.prepare(course(6),source),words=new Map(data.vocabulary.map(w=>[w.id,w]));
+ assert.equal(words.get('hsk6-v-1795').pinyinNumber,'zuan1');
+ assert.match(words.get('hsk6-v-1795').meaningVi,/nghiên cứu chuyên sâu/);
+ assert.doesNotMatch(words.get('hsk6-v-1795').meaningVi,/kim cương/);
+ for(const id of ['hsk6-v-1126','hsk6-v-1127']){assert.equal(words.get(id).pinyinNumber,'san3');assert.match(words.get(id).meaningVi,/rải rác/);}
+});
