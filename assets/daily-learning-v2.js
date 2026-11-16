@@ -304,7 +304,7 @@
     root.fetch("./hanzi-data/" + encodeURIComponent(character) + ".json").then(function (response) { if (!response.ok) throw new Error("missing"); return response.json(); }).then(complete).catch(fail);
   }
   function setupDailyWriting(term) {
-    var chars = String(term[0]).match(/[\\u3400-\\u9fff]/g) || [];
+    var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [];
     var selected = chars[active.charIndex || 0] || chars[0];
     var stage = document.getElementById("dailyStrokeTarget");
     var status = document.getElementById("dailyWritingStatus");
