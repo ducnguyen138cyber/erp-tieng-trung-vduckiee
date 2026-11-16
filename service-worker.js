@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v53";
+const CACHE_VERSION = "vduckie-pwa-v54";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -16,7 +16,8 @@ const APP_SHELL = [
   "./pwa-register.js?v=3",
   "./community.js?v=factory1",
   "./assets/v75/home-welcome-v75.1.js?v=factory1",
-  "./assets/v90/exp-board-v90.js?v=public1",
+  "./assets/v90/exp-board-v90.js?v=total-exp1",
+  "./assets/v90/exp-leaderboard-v90.js?v=total-exp1",
   "./app-shell-v88.html?v=seo-guides1",
   "./assets/boot/pinyin-parts-boot-v1.js?v=1",
   "./assets/boot/erp-dictionary-boot-v1.js?v=2",
@@ -28,7 +29,7 @@ const APP_SHELL = [
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=public1",
   "./assets/navigation/screen-router.js?v=polish1",
-  "./assets/v90/home-exp-sidebar-v90.js?v=factory1",
+  "./assets/v90/home-exp-sidebar-v90.js?v=total-exp1",
 
   "./assets/auth/auth-screen.css?v=6",
   "./assets/auth/auth-screen.js?v=6",
@@ -62,7 +63,7 @@ const APP_SHELL = [
   "./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0",
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
-  "./assets/i18n/interface-i18n-v1.js?v=seo-guides1",
+  "./assets/i18n/interface-i18n-v1.js?v=total-exp1",
   "./assets/v90/exp-core-v90.js?v=exp-ranking1",
   "./assets/v89/exp-learning-hooks-v89.js?v=word-float1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",

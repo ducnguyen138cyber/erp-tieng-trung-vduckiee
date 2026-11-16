@@ -14,19 +14,19 @@
     var sidebar = document.querySelector(".study-sidebar .home-switch");
     if (sidebar) sidebar.insertAdjacentHTML("afterend", '<nav class="home-switch exp-sidebar-button"><button type="button" data-exp-nav="ranking"><span class="menu-icon">榜</span><span>Xếp hạng</span></button></nav>');
     var main = document.querySelector(".study-center");
-    if (main) main.insertAdjacentHTML("beforeend", '<section id="leaderboard" class="panel exp-leaderboard hidden"><div class="exp-board-head"><div><span class="step">BẢNG XẾP HẠNG NGƯỜI HỌC</span><h1>Học đều, EXP tự lên</h1><p>EXP tuần/tháng dùng để xếp hạng theo kỳ; Level luôn tính từ tổng EXP toàn thời gian.</p><p class="exp-award-guide">Nhớ đúng một từ HSK mới: +3 EXP (tối đa 50 từ/ngày) · Viết chính tả: +10 EXP · Hoàn thành bài: +20 EXP · Vượt kiểm tra đủ điều kiện: +15 EXP · Ôn bài: +2 EXP. Chỉ được cộng khi đã đăng nhập; mỗi hoạt động được kiểm tra trùng lặp và giới hạn điểm theo ngày.</p></div><div class="exp-period-tabs" role="tablist" aria-label="Khoảng thời gian xếp hạng"><button type="button" class="active" role="tab" aria-selected="true" data-exp-period="week">Tuần này</button><button type="button" role="tab" aria-selected="false" data-exp-period="month">Tháng này</button><button type="button" role="tab" aria-selected="false" data-exp-period="total">Tổng EXP</button></div></div><div id="expLoginCallout" class="exp-login-callout"><span>Đăng nhập để lưu EXP, nhận thưởng nhiệm vụ và xem hạng của bạn.</span><button type="button" id="expLoginButton">Đăng nhập Google</button></div><div id="expPodium" class="exp-podium" aria-live="polite"></div><div class="exp-board-card"><div class="exp-table-head"><span>Hạng</span><span>Avatar</span><span>Người học</span><span style="text-align:right">EXP</span></div><div id="expLeaderboardList"><div class="exp-state">Đang tải bảng xếp hạng…</div></div></div><div id="expMyRank"></div></section>');
+    if (main) main.insertAdjacentHTML("beforeend", '<section id="leaderboard" class="panel exp-leaderboard hidden"><div class="exp-board-head"><div><span class="step">BẢNG XẾP HẠNG NGƯỜI HỌC</span><h1>Học đều, EXP tự lên</h1><p>Xếp hạng và Level được tính từ tổng EXP tích lũy toàn thời gian.</p><p class="exp-award-guide">Nhớ đúng một từ HSK mới: +3 EXP (tối đa 50 từ/ngày) · Viết chính tả: +10 EXP · Hoàn thành bài: +20 EXP · Vượt kiểm tra đủ điều kiện: +15 EXP · Ôn bài: +2 EXP. Chỉ được cộng khi đã đăng nhập; mỗi hoạt động được kiểm tra trùng lặp và giới hạn điểm theo ngày.</p></div><div class="exp-period-tabs" role="tablist" aria-label="Khoảng thời gian xếp hạng"><button type="button" class="active" role="tab" aria-selected="true" data-exp-period="total">Tổng EXP</button></div></div><div id="expLoginCallout" class="exp-login-callout"><span>Đăng nhập để lưu EXP, nhận thưởng nhiệm vụ và xem hạng của bạn.</span><button type="button" id="expLoginButton">Đăng nhập Google</button></div><div id="expPodium" class="exp-podium" aria-live="polite"></div><div class="exp-board-card"><div class="exp-table-head"><span>Hạng</span><span>Avatar</span><span>Người học</span><span style="text-align:right">Tổng EXP</span></div><div id="expLeaderboardList"><div class="exp-state">Đang tải bảng xếp hạng…</div></div></div><div id="expMyRank"></div></section>');
     document.body.insertAdjacentHTML("beforeend", '<div id="expToast" class="exp-toast" role="status" aria-live="polite"></div>');
   }
   function mark(name) { Array.prototype.forEach.call(document.querySelectorAll("[data-exp-nav]"), function (button) { button.classList.toggle("active", button.getAttribute("data-exp-nav") === name); }); }
   function hide() { var board = byId("leaderboard"); if (board) board.classList.add("hidden"); }
   function isOpen() { var board = byId("leaderboard"); return !!board && !board.classList.contains("hidden"); }
-  function openLeaderboard(nextPeriod) {
+  function openLeaderboard() {
     var ids = ["homeHub", "erpHero", "hskHero", "lessons", "cards", "quiz", "glossary", "personal", "community", "hsk", "dialogue", "homeJourney", "erpJourney", "hskJourney"];
     ids.forEach(function (id) { var node = byId(id); if (node) node.classList.add("hidden"); });
     var board = byId("leaderboard"); if (board) board.classList.remove("hidden");
     document.body.setAttribute("data-current-area", "ranking"); document.title = "Bảng xếp hạng — Developed by VDuckie"; mark("ranking");
     if (root.history && root.history.replaceState) root.history.replaceState(null, "", "#leaderboard");
-    root.VDuckieEXPBoard.refresh(nextPeriod || "week");
+    root.VDuckieEXPBoard.refresh("total");
     // The central screen router owns scroll position; never navigate by scrolling to a section.
   }
   function navigate(name) {
@@ -35,7 +35,7 @@
     else if (name === "hsk" && root.ERPAreaNavigation) root.ERPAreaNavigation.select("hsk");
     else if (name === "erp" && root.ERPAreaNavigation) root.ERPAreaNavigation.select("erp");
     else if (name === "dictionary") { var item = document.querySelector('#erpNav [data-view="glossary"]'); if (item) item.click(); }
-    else if (name === "ranking") openLeaderboard("week");
+    else if (name === "ranking") openLeaderboard("total");
   }
   function updateAuth(session) {
     var callout = byId("expLoginCallout"); if (callout) callout.classList.toggle("hidden", !!(session && session.user));
@@ -67,7 +67,7 @@
       if (original.hasAttribute("data-home")) mark("home"); else if (area === "hsk") mark("hsk"); else if (view === "glossary") mark("dictionary"); else if (area === "erp" || view) mark("erp");
     });
   }
-  function init() { injectUI(); bind(); core.onSession(updateAuth); root.VDuckieEXPBoard.refresh("week"); if (root.location.hash === "#leaderboard") setTimeout(function () { openLeaderboard("week"); }, 50); }
+  function init() { injectUI(); bind(); core.onSession(updateAuth); root.VDuckieEXPBoard.refresh("total"); if (root.location.hash === "#leaderboard") setTimeout(function () { openLeaderboard("total"); }, 50); }
   root.VDuckieEXPUI = { refreshLeaderboard: root.VDuckieEXPBoard.refresh, isLeaderboardOpen: isOpen, openLeaderboard: openLeaderboard };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })(window, document);
