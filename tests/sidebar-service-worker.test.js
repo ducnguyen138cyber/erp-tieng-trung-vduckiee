@@ -3,6 +3,7 @@ const test = require('node:test');
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
+const currentCacheVersion = fs.readFileSync(require.resolve('../service-worker.js'), 'utf8').match(/const CACHE_VERSION = "([^"]+)"/)[1];
 
 function worker(online = true) {
   const handlers = {}, stores = new Map(), requests = [];
@@ -70,7 +71,7 @@ test('no-store HTML shell fetch is not replaced by stale cached shell', async ()
 
 test('offline versioned shell loads the precached unversioned shell without relaxing JS cache keys', async () => {
   const w = worker(false);
-  const cache = await w.caches.open('vduckie-pwa-v52-shell');
+  const cache = await w.caches.open(`${currentCacheVersion}-shell`);
   await cache.put('https://example.test/app/app-shell-v88.html', w.response('offline-shell'));
   assert.equal((await w.load('app-shell-v88.html?v=mobile-pwa-full-home-v6')).body, 'offline-shell');
   await assert.rejects(w.load('assets/daily-learning-v2.js?v=polish1'), /offline/);
@@ -83,11 +84,11 @@ test('Supabase, OAuth and non-GET requests bypass cache; activation removes only
   }
   await w.caches.open('unrelated-user-cache');
   await w.caches.open('vduckie-pwa-v12-static');
-  await w.caches.open('vduckie-pwa-v52-static');
+  await w.caches.open(`${currentCacheVersion}-static`);
   let pending;
   w.handlers.activate({ waitUntil(value) { pending = value; } });
   await pending;
-  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', 'vduckie-pwa-v52-static']);
+  assert.deepEqual(await w.caches.keys(), ['unrelated-user-cache', `${currentCacheVersion}-static`]);
   assert.deepEqual(w.requests, []);
 });
 
@@ -122,7 +123,7 @@ test('a fully visited learning shell can reopen offline without discarding the i
 
 
 test('Cloudflare canonical index redirect is normalized for offline navigation',async()=>{
- const w=worker(false),cache=await w.caches.open('vduckie-pwa-v52-shell');
+ const w=worker(false),cache=await w.caches.open(`${currentCacheVersion}-shell`);
  const redirected=new Response('<main>cached lesson</main>',{headers:{'content-type':'text/html'}});Object.defineProperty(redirected,'redirected',{value:true});
  await cache.put('https://example.test/app/index.html',redirected);await w.seed('https://example.test/app/.learning-offline-ready-progress-sync1','ready');
  const result=await w.load('?screen=hsk',{mode:'navigate',redirect:'manual'});assert.equal(result.redirected,false);assert.equal(await result.text(),'<main>cached lesson</main>');

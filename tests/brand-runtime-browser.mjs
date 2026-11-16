@@ -236,10 +236,10 @@ try{for(const width of (observe?[1440]:[1440,390])){
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));
    await page.waitForFunction(()=>document.querySelector('#leaderboard .exp-award-guide')?.textContent.startsWith('正确记住'));
-   assert.match(await page.locator('#leaderboard .exp-board-head p').first().textContent(),/每周和每月 EXP/);
+   assert.match(await page.locator('#leaderboard .exp-board-head p').first().textContent(),/累计总 EXP/);
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('vi'));
  }
- for(const period of ['week','month','total']){await page.locator(`[data-exp-period="${period}"]`).click();await check('ranking-'+period);}
+ for(const period of ['total']){await page.locator(`[data-exp-period="${period}"]`).click();await check('ranking-'+period);}
  await open('profile');
  if(!observe){
    await page.evaluate(()=>window.VDuckieInterfaceI18n.setLanguage('zh'));

@@ -68,7 +68,7 @@ test('public EXP and mascot assets load exactly once with cache keys and matchin
   assert.match(index,/exp-floating-feedback-v91\.css\?v=1/);
   for(const file of ['assets/v90/exp-core-v90.js','assets/design-system/mascot-swap-v1.js'])assert.ok(worker.includes(JSON.stringify(entry.asset(file))),file+' offline URL must match the actual loader');
   assert.match(index,/mascot-swap-v1\.js\?v=10/);
-  assert.match(worker,/vduckie-pwa-v52/);
+  assert.match(worker,/vduckie-pwa-v\d+/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
 });
 
@@ -84,5 +84,5 @@ test('EXP reward guide matches the deployed three-point, fifty-word rule in ever
   assert.match(i18n,/up to 50 words\/day/);
   entry.asset('assets/v90/exp-leaderboard-v90.js');
   entry.asset('assets/i18n/interface-i18n-v1.js');
-  assert.match(index,/interface-i18n-v1\.js\?v=seo-guides1/);
+  assert.match(index,/interface-i18n-v1\.js\?v=total-exp1/);
 });

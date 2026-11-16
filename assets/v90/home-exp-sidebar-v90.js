@@ -60,7 +60,7 @@
     article.id = "expMiniLeaderboard";
     article.className = "v865-side-card v90-mini-board";
     article.setAttribute("aria-live", "polite");
-    article.innerHTML = '<div class="v90-mini-head"><div><h3>👑 Bảng xếp hạng</h3><p>Top học viên tuần này</p></div><button type="button" data-exp-open-all>Xem tất cả ›</button></div><div id="expMiniList" class="v90-mini-list"><div class="v90-side-state">Đang tải bảng xếp hạng…</div></div>';
+    article.innerHTML = '<div class="v90-mini-head"><div><h3>👑 Bảng xếp hạng</h3><p>Top học viên theo tổng EXP</p></div><button type="button" data-exp-open-all>Xem tất cả ›</button></div><div id="expMiniList" class="v90-mini-list"><div class="v90-side-state">Đang tải bảng xếp hạng…</div></div>';
     return article;
   }
   function ensureLayout() {
@@ -182,14 +182,14 @@
       return;
     }
     if (!rows.length) {
-      host.innerHTML = '<div class="v90-side-state">Chưa có dữ liệu EXP tuần này.</div>';
+      host.innerHTML = '<div class="v90-side-state">Chưa có dữ liệu EXP.</div>';
       return;
     }
     host.innerHTML = rows.map(function (row) {
       var rank = Number(row.rank || 0);
       var level = core.calculateUserLevel(row.total_exp);
       var isMe = mine && rank === Number(mine.rank);
-      return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.period_exp) + '<small> EXP tuần</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
+      return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.total_exp) + '<small> EXP</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
     }).join("");
   }
   function refreshMini() {
@@ -203,8 +203,8 @@
     }
     var session = core.session();
     return Promise.all([
-      client.rpc("get_leaderboard", { p_period: "week", p_limit: 5 }),
-      session && session.user ? client.rpc("get_my_rank", { p_period: "week" }) : Promise.resolve({ data: null, error: null })
+      client.rpc("get_leaderboard", { p_period: "total", p_limit: 5 }),
+      session && session.user ? client.rpc("get_my_rank", { p_period: "total" }) : Promise.resolve({ data: null, error: null })
     ]).then(function (results) {
       if (request !== miniRequest) return [];
       if (results[0].error) throw results[0].error;
@@ -257,7 +257,7 @@
       event.stopImmediatePropagation();
       if (action.matches('[data-exp-open-all]')) {
         if (root.VDuckieEXPUI && typeof root.VDuckieEXPUI.openLeaderboard === "function") {
-          root.VDuckieEXPUI.openLeaderboard("week");
+          root.VDuckieEXPUI.openLeaderboard("total");
         } else {
           var rankingNav = document.querySelector('[data-exp-nav="ranking"]');
           if (rankingNav) rankingNav.click();
@@ -275,7 +275,7 @@
       if (mission) { openMission(mission.getAttribute("data-exp-mission")); return; }
       if (event.target.closest && event.target.closest("[data-exp-retry-mini]")) { refreshMini(); return; }
       if (event.target.closest && event.target.closest("[data-exp-open-all]")) {
-        if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard("week");
+        if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard("total");
       }
     });
     document.addEventListener("keydown", function(event) {

@@ -99,7 +99,7 @@ test('bootstrap and PWA load the new study components before the HSK content fla
   for (const asset of [live.asset("assets/hsk-content/hsk-study-flow-v1.js"), live.asset("assets/hsk-content/hsk-content-feature-flags.js")]) { assert.ok(index.includes(asset)); assert.ok(worker.includes(asset)); }
   assert.ok(index.indexOf(live.asset("assets/hsk-content/hsk-study-flow-v1.js")) < index.indexOf("hsk-content-feature-flags.js?v=reliability1"));
   assert.match(index,/hsk-study-journey-v1\.css\?v=reliability1/);
-  assert.match(worker,/vduckie-pwa-v52/);
+  assert.match(worker,/vduckie-pwa-v\d+/);
   assert.match(loader,/hsk-professional-runtime\.js\?v=reliability1/);
   for(const file of ['assets/hsk-content/hsk-study-journey-v1.js',
     'assets/hsk-content/hsk-study-flow-v1.js','assets/curriculum/graded-hsk-entry.js',

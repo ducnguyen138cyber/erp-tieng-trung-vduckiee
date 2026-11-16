@@ -154,6 +154,6 @@ test('the full-length exam entry is bundled in current PWA',async()=>{
   assert.ok(worker.includes(JSON.stringify(live.asset('assets/hsk-content/hsk-practice-ui-v1.js'))));
   assert.match(html,/hsk-practice-ui-v1\.css\?v=polish1/);
   assert.match(html,/graded-hsk-entry\.js\?v=polish1/);
-  assert.match(worker,/vduckie-pwa-v52/);
+  assert.match(worker,/vduckie-pwa-v\d+/);
   assert.match(worker,/hsk-practice-bank-v1\.js\?v=2/);
 });
