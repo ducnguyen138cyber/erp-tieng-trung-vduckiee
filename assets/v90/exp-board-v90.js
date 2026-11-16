@@ -49,6 +49,12 @@
     };
   }
   function levelText(total) { return "Level " + core.calculateUserLevel(total).level; }
+  function loadingPodium() {
+    var host = byId("expPodium"); if (!host) return;
+    host.innerHTML = [1,2,3].map(function(rank) {
+      return '<article class="exp-podium-card exp-podium-loading rank-' + rank + '" aria-hidden="true"><span class="exp-medal">&nbsp;</span><span class="exp-avatar">&nbsp;</span><strong>&nbsp;</strong><small>&nbsp;</small><b>&nbsp;</b></article>';
+    }).join("");
+  }
   function podium(rows) {
     var host = byId("expPodium"); if (!host) return;
     var medals = ["🥇", "🥈", "🥉"], html = "";
@@ -86,7 +92,7 @@
     // Keep confirmed content during same-account revalidation. Initial space is reserved in CSS.
     if (renderedKey !== key) {
       var pod = byId("expPodium"), own = byId("expMyRank");
-      if (pod) pod.innerHTML = "";
+      if (pod) loadingPodium();
       if (own) own.innerHTML = "";
       if (host) host.innerHTML = '<div class="exp-state">Đang tải bảng xếp hạng…</div>';
     }
@@ -99,7 +105,7 @@
     }).catch(function (error) {
       if (requestId !== requestNumber || userKey() !== key) return [];
       console.error("Leaderboard failed", error);
-      var pod = byId("expPodium"); if (pod) pod.innerHTML = "";
+      var pod = byId("expPodium"); if (pod) loadingPodium();
       if (host) host.innerHTML = '<div class="exp-state"><strong>Không tải được bảng xếp hạng</strong>' + (/migration v90|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error)) ? "Hãy thử lại sau ít phút." : "Hãy kiểm tra kết nối và thử lại.") + '<button type="button" data-exp-retry-board>Thử lại</button></div>';
       return [];
     }).finally(function () { if (board && requestId === requestNumber) board.setAttribute("aria-busy", "false"); });

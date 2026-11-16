@@ -6,6 +6,7 @@
   var client = null;
   var session = null;
   var sessionReady = false;
+  var sessionNotifiedAt = 0;
   var expRead = null;
   var listeners = [];
   var toastTimer = null;
@@ -127,7 +128,10 @@
     var previous = session && JSON.stringify([session.user.id, session.user.user_metadata]);
     session = nextSession || null;
     var next = session && JSON.stringify([session.user.id, session.user.user_metadata]);
-    if (sessionReady && previous === next) return;
+    // Coalesce getSession + INITIAL_SESSION without swallowing later same-user
+    // sign-in/refocus notifications (another device may have earned EXP).
+    if (sessionReady && previous === next && Date.now() - sessionNotifiedAt < 1000) return;
+    sessionNotifiedAt = Date.now();
     sessionReady = true;
     expRead = null;
     var identity = byId("cloudIdentity");

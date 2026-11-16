@@ -93,13 +93,13 @@ test('account switch rejects stale leaderboard completion and cache is identity 
   assert.doesNotMatch(nodes.expLeaderboardList.innerHTML,/Previous account/);
 });
 
-test('EXP startup waits for identity and repeated same-user auth events do not refetch', async () => {
-  let init,authChanged,sessionResolve,readResolve,reads=0,notifications=0;
+test('EXP startup waits for identity and adjacent same-user auth events coalesce', async () => {
+  let init,authChanged,sessionResolve,readResolve,reads=0,notifications=0,now=10000;
   const s={user:{id:'A',user_metadata:{full_name:'Alice'}}};
   const sandbox={VDUCKIE_SUPABASE_CONFIG:{url:'https://fixture.supabase.co',publishableKey:'sb_publishable_fixture'},
     supabase:{createClient:()=>({auth:{getSession:()=>new Promise(r=>sessionResolve=r),onAuthStateChange(fn){authChanged=fn}},rpc(){reads++;return new Promise(r=>readResolve=r)}})},
     document:{readyState:'loading',getElementById:()=>null,addEventListener:(type,fn)=>{if(type==='DOMContentLoaded')init=fn},dispatchEvent(){}},
-    console,Intl,CustomEvent:class{},setTimeout:fn=>fn(),clearTimeout(){}};
+    console,Intl,Date:{now:()=>now},CustomEvent:class{},setTimeout:fn=>fn(),clearTimeout(){}};
   sandbox.window=sandbox;vm.runInNewContext(fs.readFileSync(path.join(root,'assets/v90/exp-core-v90.js'),'utf8'),sandbox);
   sandbox.VDuckieEXPCore.onSession(()=>notifications++);assert.equal(notifications,0,'no temporary guest render');
   init();sessionResolve({data:{session:s}});await Promise.resolve();
@@ -107,7 +107,8 @@ test('EXP startup waits for identity and repeated same-user auth events do not r
   const a=sandbox.VDuckieEXP.getCurrentUserEXP(),b=sandbox.VDuckieEXP.getCurrentUserEXP();assert.equal(reads,1);
   readResolve({data:1500,error:null});assert.equal(await a,1500);assert.equal(await b,1500);
   authChanged('SIGNED_IN',s);assert.equal(notifications,1,'duplicate sign-in does not rerender');
-  authChanged('SIGNED_OUT',null);assert.equal(notifications,2);
+  now+=2000;authChanged('SIGNED_IN',s);assert.equal(notifications,2,'later refocus can refresh confirmed EXP');
+  authChanged('SIGNED_OUT',null);assert.equal(notifications,3);
 });
 
 test('Top 5 recovers identical confirmed rows after a failed refresh', async () => {
