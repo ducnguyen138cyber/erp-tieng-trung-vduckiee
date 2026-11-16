@@ -1,0 +1,36 @@
+name: Mobile dictionary search
+on:
+  pull_request:
+    paths:
+      - 'assets/search/**'
+      - 'tests/*search*'
+      - '.github/workflows/mobile-search.yml'
+      - 'index.html'
+      - 'service-worker.js'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile-search:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+      options: --ipc=host
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+      - run: node --test tests/header-chinese-search.test.js tests/remaining-interface-polish.test.mjs tests/pwa.test.js tests/pwa-mobile.test.cjs tests/sidebar-service-worker.test.js
+      - name: Existing dictionary detail and notebook interactions
+        run: node tests/header-search-browser.mjs
+      - name: Mobile and desktop search in Chromium and WebKit
+        run: node tests/mobile-search-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mobile-search-screenshots
+          path: artifacts/mobile-search/
+          if-no-files-found: warn
