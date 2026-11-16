@@ -205,10 +205,10 @@
       return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.total_exp) + '<small> EXP</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
     }).join(""));
   }
-  function refreshMini() {
+  function refreshMini(force) {
     var request = ++miniRequest;
     var key = core.session() && core.session().user && core.session().user.id || "guest";
-    return root.VDuckieEXPBoard.load().then(function (value) {
+    return root.VDuckieEXPBoard.load(force !== false).then(function (value) {
       if (request !== miniRequest || key !== (core.session() && core.session().user && core.session().user.id || "guest")) return [];
       var rows = value.rows.slice(0, 5), mine = value.mine;
       renderMini(rows, mine, null);
@@ -315,7 +315,7 @@
         // never be a prerequisite for local layout or independent reads.
         renderAccount(currentTotal);
         renderMissions(currentMissions);
-        Promise.all([refreshAccount(), refreshMissions(), refreshMini()]).catch(function(error){
+        Promise.all([refreshAccount(), refreshMissions(), refreshMini(false)]).catch(function(error){
           console.warn("VDuckie home sidebar refresh failed",error);
         });
 
@@ -324,7 +324,7 @@
         currentMissions = [];
         renderAccount(0);
         renderMissions([]);
-        refreshMini();
+        refreshMini(false);
       }
     });
     if (root.MutationObserver && document.body) {

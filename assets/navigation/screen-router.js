@@ -249,6 +249,10 @@
           var active = document.getElementById(owned);
           if (active && active.classList.contains("hidden")) active.classList.remove("hidden");
           if (document.body.getAttribute("data-current-area") !== current) document.body.setAttribute("data-current-area", current);
+          // Legacy HSK selection also writes ?area=hsk#hsk. Leaving that URL
+          // behind causes its area observer to continuously re-open the old panel.
+          if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk")
+            root.history.replaceState(root.history.state, "", urlFor(current));
           return;
         }
         if (current === "vietnamese") {

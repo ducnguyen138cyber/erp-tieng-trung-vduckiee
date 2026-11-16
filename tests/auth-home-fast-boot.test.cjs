@@ -88,7 +88,7 @@ test("home experience scripts fetch concurrently but execute in the original ord
 test("login first paint does not wait for profile upsert or leaderboard", () => {
   const sidebar=read("assets/v90/home-exp-sidebar-v90.js");
   const leaderboard=read("assets/v90/exp-leaderboard-v90.js");
-  assert.match(sidebar,/Promise\.all\(\[refreshAccount\(\), refreshMissions\(\), refreshMini\(\)\]\)/);
+  assert.match(sidebar,/Promise\.all\(\[refreshAccount\(\), refreshMissions\(\), refreshMini\(false\)\]\)/);
   assert.match(sidebar,/renderAccount\(currentTotal\);\s*renderMissions\(currentMissions\);/);
   assert.doesNotMatch(sidebar,/core\.syncProfile\(\)\.then\(function \(\) \{ return Promise\.all/);
   assert.doesNotMatch(leaderboard,/core\.syncProfile\(\)\.then\(root\.VDuckieEXP\.getCurrentUserEXP\)/);
