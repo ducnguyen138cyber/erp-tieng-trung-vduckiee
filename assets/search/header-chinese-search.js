@@ -35,9 +35,9 @@ function syncViewport(){
     node.style.setProperty("--vsearch-top",(viewport?viewport.offsetTop:0)+"px");
   });
 }
-function lockPage(){
+function lockPage(position){
   var body=document.body,style=body.style;
-  lockedPage={x:root.scrollX,y:root.scrollY,styles:{},inert:[]};
+  lockedPage={x:position.x,y:position.y,styles:{},inert:[]};
   if(scrollRestoration===null)scrollRestoration=root.history.scrollRestoration||"auto";
   root.history.scrollRestoration="manual";
   ["position","top","left","width","overflow"].forEach(function(key){lockedPage.styles[key]=[style.getPropertyValue(key),style.getPropertyPriority(key)]});
@@ -50,6 +50,8 @@ function lockPage(){
 }
 function openMobile(push){
   if(mobileScreen)return;
+  // Moving the header can trigger scroll anchoring, so capture the page offset first.
+  var position={x:root.scrollX,y:root.scrollY};
   homeSlot=document.createComment("header search position");mount.before(homeSlot);
   mobileScreen=document.createElement("section");mobileScreen.id="vsearchMobileScreen";
   mobileScreen.className="vsearch-mobile-screen";
@@ -57,7 +59,7 @@ function openMobile(push){
   mobileScreen.innerHTML='<button type="button" class="vsearch-back" aria-label="Quay lại" data-vsearch-back>‹</button><p class="vsearch-mobile-hint">Tra chữ Hán, Pinyin hoặc nghĩa tiếng Việt</p>';
   document.body.appendChild(mobileScreen);mobileScreen.insertBefore(mount,mobileScreen.lastChild);
   mobileScreen.querySelector("[data-vsearch-back]").onclick=leaveMobile;
-  lockPage();syncViewport();
+  lockPage(position);syncViewport();
   if(push){mobileToken="vsearch-"+Date.now();root.history.pushState(Object.assign({},root.history.state,{vduckieSearch:mobileToken}),"")}
   if(field.value.trim())render();
 }
