@@ -129,8 +129,9 @@ test("Daily handwriting works without verified stroke paths and preserves a visi
   assert.match(helper, /pointermove/);
   assert.match(helper, /passive: false/);
   assert.match(chat, /\.daily-panel:not\(\.hidden\) \.learning-session\) \.duckie-chat-launch/);
-  assert.match(css, /\.daily-ink-canvas/);
-  assert.match(css, /touch-action:none!important/);
+  const inkCss = read("assets/daily-handwriting-v1.css");
+  assert.match(inkCss, /\.daily-ink-canvas/);
+  assert.match(inkCss, /touch-action:none!important/);
   assert.match(shell, /daily-learning-freehand-v1\.js/);
   assert.match(worker, /daily-learning-freehand-v1\.js/);
 });
