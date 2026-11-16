@@ -29,6 +29,7 @@ async function boot(page) {
   await page.goto('https://daily-writing.test/');
   await page.evaluate(data => { window.ERP_TERMS = data; }, terms);
   await page.addStyleTag({ path: resolve('assets/daily-learning-v2.css') });
+  await page.addStyleTag({ path: resolve('assets/daily-handwriting-v1.css') });
   await page.addStyleTag({ path: resolve('assets/ai/duckie-chat.css') });
   await page.addScriptTag({ path: resolve('assets/daily-learning-freehand-v1.js') });
   await page.addScriptTag({ path: resolve('assets/ai/duckie-chat.js') });
