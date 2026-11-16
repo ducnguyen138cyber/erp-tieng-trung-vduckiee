@@ -9,7 +9,7 @@ const enforce=process.env.BETA_ENFORCE==='1';await mkdir(out,{recursive:true});
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.webmanifest':'application/manifest+json'};
 const server=createServer(async(req,res)=>{const u=new URL(req.url,'http://localhost');const f=path.resolve(root,'.'+(u.pathname==='/'?'/index.html':decodeURIComponent(u.pathname)));if(!f.startsWith(root+path.sep))return res.writeHead(403).end();try{res.writeHead(200,{'Content-Type':mime[path.extname(f)]||'application/octet-stream'}).end(await readFile(f));}catch{res.writeHead(404).end();}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));const base=`http://127.0.0.1:${server.address().port}/`;
-const fixture=`(()=>{const listeners=[];let owner='A';const rows=Array.from({length:8},(_,i)=>({rank:i+1,display_name:'Học viên '+(i+1),avatar_url:'',total_exp:1500-i*100,period_exp:i+1}));const session=()=>owner?{user:{id:owner,email:'qa@example.invalid',user_metadata:{full_name:'Người kiểm thử '+owner}},access_token:'fixture'}:null;const state=window.__beta={calls:[],fail:false,setUser(id){owner=id;listeners.forEach(fn=>fn(id?'SIGNED_IN':'SIGNED_OUT',session()))}};const q=()=>new Proxy({},{get:(o,k)=>k==='then'?(ok,bad)=>Promise.resolve({data:[],error:null}).then(ok,bad):()=>q()});window.supabase={createClient(){return {auth:{getSession:async()=>({data:{session:session()},error:null}),onAuthStateChange(fn){listeners.push(fn);return {data:{subscription:{unsubscribe(){}}}}},signOut:async()=>{state.setUser('');return {error:null}}},from:q,rpc:async(name,args)=>{const user=owner;state.calls.push({name,args,user});await new Promise(r=>setTimeout(r,/get_my_exp|get_leaderboard|get_my_rank/.test(name)?650:20));if(state.fail&&/get_leaderboard|get_my_rank/.test(name))return {error:{message:'fixture offline'},data:null};return {error:null,data:name==='get_my_exp'?(user==='B'?90:1500):name==='get_leaderboard'?rows:name==='get_my_rank'?[{...rows[0],rank:101,total_exp:user==='B'?90:1500}]:[]}}}}}})();`;
+const fixture=`(()=>{const listeners=[];let owner='A';const rows=Array.from({length:8},(_,i)=>({rank:i+1,display_name:'Học viên '+(i+1),avatar_url:'',total_exp:1500-i*100,period_exp:i+1}));const session=()=>owner?{user:{id:owner,email:'qa@example.invalid',user_metadata:{full_name:'Người kiểm thử '+owner}},access_token:'fixture'}:null;const state=window.__beta={calls:[],fail:false,empty:false,setUser(id){owner=id;listeners.forEach(fn=>fn(id?'SIGNED_IN':'SIGNED_OUT',session()))}};const q=()=>new Proxy({},{get:(o,k)=>k==='then'?(ok,bad)=>Promise.resolve({data:[],error:null}).then(ok,bad):()=>q()});window.supabase={createClient(){return {auth:{getSession:async()=>({data:{session:session()},error:null}),onAuthStateChange(fn){listeners.push(fn);return {data:{subscription:{unsubscribe(){}}}}},signOut:async()=>{state.setUser('');return {error:null}}},from:q,rpc:async(name,args)=>{const user=owner;state.calls.push({name,args,user});await new Promise(r=>setTimeout(r,/get_my_exp|get_leaderboard|get_my_rank/.test(name)?650:20));if(state.fail&&/get_leaderboard|get_my_rank/.test(name))return {error:{message:'fixture offline'},data:null};return {error:null,data:name==='get_my_exp'?(user==='B'?90:1500):name==='get_leaderboard'?(state.empty?[]:rows):name==='get_my_rank'?[{...rows[0],rank:101,total_exp:user==='B'?90:1500}]:[]}}}}}})();`;
 const report={method:'Same runner, local HTTP, mocked Supabase boundary with 650ms ranking/EXP latency. Three cold runs per viewport, SW blocked. Chromium lab only; not production/iPhone.',profiles:[],failures:[]};
 const browser=await chromium.launch();
 try{
@@ -32,7 +32,7 @@ try{
       const text=document.querySelector('.v91-account-trigger')?.textContent?.trim();if(text&&m.accountValues.at(-1)!==text)m.accountValues.push(text);
       frame=requestAnimationFrame(sample);
      }sample();
-     new MutationObserver(records=>{m.accountMutations+=records.filter(r=>r.target.closest?.('#expHeaderAccount,.v91-account-trigger')).length}).observe(document.documentElement,{childList:true,subtree:true});
+     new MutationObserver(records=>{m.accountMutations+=records.filter(r=>r.target.closest?.('#expHeaderAccount,.v91-account-trigger')).length}).observe(document,{childList:true,subtree:true});
      window.__betaStop=()=>cancelAnimationFrame(frame);
     }
     observe();document.addEventListener('DOMContentLoaded',observe,{once:true});
@@ -54,11 +54,22 @@ try{
     const during=await page.locator('#expLeaderboardList').textContent();
     if(enforce)assert.equal(during,before,'tab click cannot replace confirmed rows with loading');
     await page.reload();await page.locator('#expLeaderboardList .exp-row').first().waitFor();
+    if(enforce){
+     await page.evaluate(()=>{window.__beta.fail=true;window.VDuckieEXPBoard.invalidate()});
+     await page.locator('[data-exp-period=total]').click();await page.locator('[data-exp-retry-board]').waitFor();
+     await page.evaluate(()=>window.__beta.fail=false);await page.locator('[data-exp-retry-board]').click();await page.locator('#expLeaderboardList .exp-row').first().waitFor();
+     await page.evaluate(()=>{window.__beta.empty=true;window.VDuckieEXPBoard.invalidate()});await page.locator('[data-exp-period=total]').click();await page.locator('#expLeaderboardList').filter({hasText:'Chưa có dữ liệu EXP'}).waitFor();
+     await page.evaluate(()=>{window.__beta.empty=false;window.VDuckieEXPBoard.invalidate()});await page.locator('[data-exp-period=total]').click();await page.locator('#expLeaderboardList .exp-row').first().waitFor();
+    }
     await page.evaluate(()=>window.__beta.setUser('B'));await page.waitForFunction(()=>document.querySelector('.v91-account-trigger')?.textContent.includes('90 EXP'));
     await page.evaluate(()=>window.__beta.setUser(''));await page.waitForFunction(()=>!document.querySelector('.v91-account-trigger')||document.querySelector('.v91-account-trigger').hidden);
     // Search and detail close on actual app, touch-size and focus checks.
     await page.goto(base);const input=page.locator('#vsearchInput');await input.waitFor();await input.fill('努力');
-    await page.locator('[data-vsearch-open]').first().waitFor().catch(()=>{});
+    await page.locator('[data-vsearch-result]').first().waitFor();
+    await page.locator('[data-vsearch-result]').first().click();
+    await page.locator('#vsearchDetail').waitFor();
+    await page.locator('[data-vsearch-close]').click();
+    await page.locator('#vsearchDetail').waitFor({state:'detached'});
     await page.screenshot({path:path.join(out,`${width}-search.png`),fullPage:true});
     if(enforce&&width===390)assert.ok(await input.evaluate(e=>parseFloat(getComputedStyle(e).fontSize)>=16));
    }

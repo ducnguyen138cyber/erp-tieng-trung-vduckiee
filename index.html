@@ -124,6 +124,10 @@
         if(source.indexOf(homeBoundary)!==-1){
           source=source.replace(homeBoundary,'          </section>\n'+earlyHomeLayout+'\n        </section>\n\n        <section class="hero hidden" id="erpHero">');
         }
+        // These extensions have no interleaved inline consumers. Defer as one ordered
+        // chain so their network fetches overlap without changing dependency order.
+        var extensionsAt=source.indexOf('<script src="./assets/v90/exp-core-v90.js');
+        if(extensionsAt!==-1)source=source.slice(0,extensionsAt)+source.slice(extensionsAt).replace(/<script src=/g,'<script defer src=');
         document.open();document.write(source);document.close();
       }catch(error){
         function showBootFailure(){

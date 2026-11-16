@@ -69,3 +69,43 @@ test('ranking UI exposes total EXP and production entry loads new asset versions
     assert.ok(getRuntimeSnapshot().assets.some(asset => asset.endsWith(filename + '?v=beta-perf1')));
   }
 });
+
+test('concurrent mini/full refreshes coalesce RPCs and reuse one all-time snapshot', async () => {
+  const {sandbox,calls,nodes}=runtime();
+  await Promise.all([sandbox.VDuckieEXPBoard.refresh(),sandbox.VDuckieHomeEXP90.refreshMini()]);
+  assert.equal(calls.length,2);
+  assert.match(nodes.expMiniList.innerHTML,/1500/);
+  assert.match(nodes.expLeaderboardList.innerHTML,/1500/);
+  const content=nodes.expLeaderboardList.innerHTML;
+  const refresh=sandbox.VDuckieEXPBoard.refresh();
+  assert.equal(nodes.expLeaderboardList.innerHTML,content,'resolved rows remain while refreshing');
+  await refresh;
+});
+
+test('account switch rejects stale leaderboard completion and cache is identity scoped', async () => {
+  const {sandbox,calls,nodes}=runtime();
+  let resolve;
+  sandbox.VDuckieEXPCore.client().rpc=(name)=>new Promise(done=>{if(name==='get_leaderboard')resolve=done;else done({data:[],error:null})});
+  const pending=sandbox.VDuckieEXPBoard.refresh();
+  sandbox.VDuckieEXPCore.session=()=>({user:{id:'other'}});
+  resolve({data:[{rank:1,display_name:'Previous account',total_exp:200,period_exp:2}],error:null});
+  await pending;
+  assert.doesNotMatch(nodes.expLeaderboardList.innerHTML,/Previous account/);
+});
+
+test('EXP startup waits for identity and repeated same-user auth events do not refetch', async () => {
+  let init,authChanged,sessionResolve,readResolve,reads=0,notifications=0;
+  const s={user:{id:'A',user_metadata:{full_name:'Alice'}}};
+  const sandbox={VDUCKIE_SUPABASE_CONFIG:{url:'https://fixture.supabase.co',publishableKey:'sb_publishable_fixture'},
+    supabase:{createClient:()=>({auth:{getSession:()=>new Promise(r=>sessionResolve=r),onAuthStateChange(fn){authChanged=fn}},rpc(){reads++;return new Promise(r=>readResolve=r)}})},
+    document:{readyState:'loading',getElementById:()=>null,addEventListener:(type,fn)=>{if(type==='DOMContentLoaded')init=fn},dispatchEvent(){}},
+    console,Intl,CustomEvent:class{},setTimeout:fn=>fn(),clearTimeout(){}};
+  sandbox.window=sandbox;vm.runInNewContext(fs.readFileSync(path.join(root,'assets/v90/exp-core-v90.js'),'utf8'),sandbox);
+  sandbox.VDuckieEXPCore.onSession(()=>notifications++);assert.equal(notifications,0,'no temporary guest render');
+  init();sessionResolve({data:{session:s}});await Promise.resolve();
+  assert.equal(notifications,1);
+  const a=sandbox.VDuckieEXP.getCurrentUserEXP(),b=sandbox.VDuckieEXP.getCurrentUserEXP();assert.equal(reads,1);
+  readResolve({data:1500,error:null});assert.equal(await a,1500);assert.equal(await b,1500);
+  authChanged('SIGNED_IN',s);assert.equal(notifications,1,'duplicate sign-in does not rerender');
+  authChanged('SIGNED_OUT',null);assert.equal(notifications,2);
+});
