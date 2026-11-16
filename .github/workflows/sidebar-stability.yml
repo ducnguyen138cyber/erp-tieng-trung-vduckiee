@@ -38,6 +38,8 @@ jobs:
         run: node tests/blue-edtech-browser.mjs
       - name: Duckie Chat desktop and mobile UI with mocked AI
         run: node tests/duckie-chat-browser.mjs
+      - name: Daily freehand iPhone touch, erase and chat-free Next (Chromium + WebKit)
+        run: node tests/daily-handwriting-mobile-browser.mjs
       - name: Guest and mocked authenticated real Chromium clicks
         run: node tests/sidebar-browser.mjs
       - name: Exclusive screen navigation and history in Chromium
@@ -61,6 +63,7 @@ jobs:
             artifacts/brand-runtime/
             artifacts/shadowing/
             artifacts/onboarding/
+            artifacts/daily-handwriting/
           if-no-files-found: ignore
 
   learning-experience-acceptance:
