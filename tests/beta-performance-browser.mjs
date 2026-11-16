@@ -69,6 +69,7 @@ try{
      await page.evaluate(()=>{window.__beta.empty=false;window.VDuckieEXPBoard.invalidate()});await page.locator('[data-exp-period=total]').click();await page.locator('#expLeaderboardList .exp-row').first().waitFor();
     }
     await page.evaluate(()=>window.__beta.setUser('B'));await page.waitForFunction(()=>document.querySelector('.v91-account-trigger')?.textContent.includes('90 EXP'));
+    if(enforce)await page.waitForFunction(()=>document.querySelectorAll('#expMiniList .v90-mini-row').length===5);
     await page.evaluate(()=>window.__beta.setUser(''));await page.waitForFunction(()=>!document.querySelector('.v91-account-trigger')||document.querySelector('.v91-account-trigger').hidden);
     // Search and detail close on actual app, touch-size and focus checks.
     await page.goto(base);const input=page.locator('#vsearchInput');await input.waitFor();const searchStart=Date.now();await input.fill('努力');

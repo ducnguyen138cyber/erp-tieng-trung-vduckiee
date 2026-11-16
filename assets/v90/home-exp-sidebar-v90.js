@@ -191,11 +191,11 @@
     if (!host) return;
     if (error) {
       var needsMigration = /migration|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error));
-      host.innerHTML = '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Hãy thử lại sau ít phút.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>';
+      setMarkup(host, '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Hãy thử lại sau ít phút.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>');
       return;
     }
     if (!rows.length) {
-      host.innerHTML = '<div class="v90-side-state">Chưa có dữ liệu EXP.</div>';
+      setMarkup(host, '<div class="v90-side-state">Chưa có dữ liệu EXP.</div>');
       return;
     }
     setMarkup(host, rows.map(function (row) {
@@ -306,7 +306,7 @@
       if (accountUser !== nextUser) {
         currentTotal = null; currentMissions = []; miniState = null;
         accountSignature = "";
-        if (miniCard) { var list = miniCard.querySelector("#expMiniList"); if (list) list.innerHTML = '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>'; }
+        if (miniCard) { var list = miniCard.querySelector("#expMiniList"); if (list) setMarkup(list, '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>'); }
       }
       accountUser = nextUser;
       scheduleLayout();

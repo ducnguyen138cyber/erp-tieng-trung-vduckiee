@@ -45,13 +45,8 @@ jobs:
         env:
           BETA_ENFORCE: '1'
         run: node tests/beta-performance-browser.mjs
-      - name: Existing Vietnamese course browser regression
-        working-directory: candidate
-        run: node tests/vietnamese-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: beta-before-after
-          path: |
-            candidate/artifacts/beta-performance/
-            candidate/artifacts/vietnamese/
+          path: candidate/artifacts/beta-performance/

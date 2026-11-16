@@ -109,3 +109,18 @@ test('EXP startup waits for identity and repeated same-user auth events do not r
   authChanged('SIGNED_IN',s);assert.equal(notifications,1,'duplicate sign-in does not rerender');
   authChanged('SIGNED_OUT',null);assert.equal(notifications,2);
 });
+
+test('Top 5 recovers identical confirmed rows after a failed refresh', async () => {
+  const {sandbox,nodes}=runtime();
+  await sandbox.VDuckieHomeEXP90.refreshMini();
+  const confirmed=nodes.expMiniList.innerHTML,client=sandbox.VDuckieEXPCore.client(),rpc=client.rpc;
+  client.rpc=()=>Promise.resolve({error:{message:'test offline'},data:null});
+  sandbox.VDuckieEXPBoard.invalidate();
+  const log=sandbox.console;
+  sandbox.console={...log,error(){}};
+  await sandbox.VDuckieHomeEXP90.refreshMini();
+  assert.match(nodes.expMiniList.innerHTML,/Thử lại/);
+  client.rpc=rpc;sandbox.VDuckieEXPBoard.invalidate();
+  await sandbox.VDuckieHomeEXP90.refreshMini();
+  assert.equal(nodes.expMiniList.innerHTML,confirmed,'a cached markup signature must not trap the error/loading state');
+});
