@@ -1,7 +1,7 @@
 (function(root,document){
 "use strict";
 var mount,field,list,results=[],active=-1,timer=0,remoteTimer=0,selected=null,searchSerial=0,visibleLimit=8;
-var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0,openingTouchUntil=0;
+var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0,openingTouchUntil=0,pendingDismissPopstate=false,dismissPopstateTimer=0;
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/gi,"d").toLowerCase().replace(/ü/g,"u").replace(/u:/g,"u").replace(/\s+/g,"").trim()}
 function pinyinNumber(s){var tones={a:["ā","á","ǎ","à"],e:["ē","é","ě","è"],i:["ī","í","ǐ","ì"],o:["ō","ó","ǒ","ò"],u:["ū","ú","ǔ","ù"],v:["ǖ","ǘ","ǚ","ǜ"]};return String(s).replace(/([a-zvü]+)([1-4])/gi,function(all,syllable,n){syllable=syllable.toLowerCase().replace(/ü/g,"v");var pos=syllable.search(/[ae]/);if(pos<0)pos=syllable.indexOf("ou")>=0?syllable.indexOf("o"):-1;if(pos<0){for(var i=syllable.length-1;i>=0;i--)if(/[iouv]/.test(syllable[i])){pos=i;break}}return pos<0?syllable:syllable.slice(0,pos)+tones[syllable[pos]][Number(n)-1]+syllable.slice(pos+1)})}
@@ -77,7 +77,7 @@ function openMobile(push){
   mobileScreen.setAttribute("role","dialog");mobileScreen.setAttribute("aria-modal","true");mobileScreen.setAttribute("aria-label","Tìm kiếm từ điển");
   mobileScreen.innerHTML='<button type="button" class="vsearch-back" aria-label="Quay lại" data-vsearch-back>‹</button><button type="button" class="vsearch-dismiss" aria-label="Đóng tìm kiếm" data-vsearch-dismiss>×</button><p class="vsearch-mobile-hint">Tra chữ Hán, Pinyin hoặc nghĩa tiếng Việt</p>';
   document.body.appendChild(mobileScreen);mobileScreen.insertBefore(mount,mobileScreen.lastChild);
-  mobileScreen.querySelector("[data-vsearch-back]").onclick=guardedLeaveMobile;mobileScreen.querySelector("[data-vsearch-dismiss]").onclick=guardedLeaveMobile;
+  bindTouchDismiss(mobileScreen.querySelector("[data-vsearch-back]"),guardedLeaveMobile);bindTouchDismiss(mobileScreen.querySelector("[data-vsearch-dismiss]"),guardedLeaveMobile);
   lockPage(position);syncViewport();
   if(push){mobileToken="vsearch-"+Date.now();root.history.pushState(Object.assign({},root.history.state,{vduckieSearch:mobileToken}),"")}
   if(field.value.trim())render();
@@ -97,12 +97,40 @@ function closeMobile(){
   // Focus the header without raising the keyboard again.
   mount.setAttribute("tabindex","-1");mount.focus({preventScroll:true});
 }
+// Mobile WebKit/PWA can consume a tap while the keyboard is active. Handle the
+// physical release as well as click, without requiring a synthesized click.
+function bindTouchDismiss(button,onDismiss){
+  var handledPointerAt=0;
+  function handle(event){
+    if(event.type==="pointerup"&&event.pointerType==="mouse")return;
+    if(event.type==="touchend"&&Date.now()-handledPointerAt<300){if(event.cancelable)event.preventDefault();return}
+    if(event.type==="pointerup")handledPointerAt=Date.now();
+    if(event.cancelable)event.preventDefault();
+    event.stopPropagation();
+    onDismiss(event);
+  }
+  button.addEventListener("pointerup",handle);
+  button.addEventListener("touchend",handle,{passive:false});
+  button.addEventListener("click",handle);
+}
 function guardedLeaveMobile(event){
   if(event&&Date.now()<openingTouchUntil){event.preventDefault();event.stopPropagation();return}
   leaveMobile();
 }
 function leaveMobile(){
-  if(root.history.state&&root.history.state.vduckieSearch===mobileToken)root.history.back();else closeMobile();
+  if(!mobileScreen)return;
+  var state=root.history.state||{};
+  var ownHistory=state.vduckieSearch===mobileToken;
+  var steps=state.vduckieSearchDetail?2:1;
+  // Always remove the screen, unlock the app and restore scroll *before*
+  // requesting a browser history transition. iOS may defer popstate until swipe.
+  closeMobile();mobileToken=null;
+  if(ownHistory){
+    pendingDismissPopstate=true;
+    clearTimeout(dismissPopstateTimer);
+    dismissPopstateTimer=root.setTimeout(function(){pendingDismissPopstate=false},1800);
+    if(steps>1)root.history.go(-steps);else root.history.back();
+  }
 }
 function closeDetail(fromHistory){
   var overlay=document.getElementById("vsearchDetail");if(!overlay)return;
@@ -171,7 +199,7 @@ var old=document.getElementById("vsearchDetail");if(old)old.remove();var modal=d
  }).catch(function(){modal.querySelectorAll("[data-vsearch-example-pinyin]").forEach(function(node){node.textContent="Chưa có Pinyin được xác minh"})});var chars=Array.from(r.hanzi||"").filter(function(ch){return /[\u3400-\u9fff]/.test(ch)});
  if(chars.length>1){var parts=chars.map(function(ch){var match=search(ch).find(function(candidate){return candidate.hanzi===ch});return match?'<span><b>'+esc(ch)+'</b> · '+esc(match.pinyin||"")+' · '+esc(terms(match)[0]||"Chưa có nghĩa riêng")+'</span>':'<span><b>'+esc(ch)+'</b> · Chưa có dữ liệu phân tích riêng</span>'});
  var breakdown=document.createElement("div");breakdown.className="vsearch-breakdown";breakdown.innerHTML='<h3>Các chữ cấu thành</h3>'+parts.join("");modal.querySelector(".vsearch-examples").after(breakdown)}
- var closeButton=modal.querySelector("[data-vsearch-close]");closeButton.addEventListener("click",function(e){e.stopPropagation();closeDetail(false)});closeButton.focus({preventScroll:true})}
+ var closeButton=modal.querySelector("[data-vsearch-close]");bindTouchDismiss(closeButton,function(){closeDetail(false)});closeButton.focus({preventScroll:true})}
 function allResults(){
  var d=root.VDuckieDictionary;if(!d||!d.open){render();return}
  var query=field.value.trim();
@@ -233,6 +261,10 @@ function init(){
    else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
  });
  root.addEventListener("popstate",function(e){
+   if(pendingDismissPopstate){
+     pendingDismissPopstate=false;clearTimeout(dismissPopstateTimer);
+     e.stopImmediatePropagation();return;
+   }
    if(!mobileScreen)return;
    e.stopImmediatePropagation();
    if(e.state&&e.state.vduckieSearch===mobileToken){
