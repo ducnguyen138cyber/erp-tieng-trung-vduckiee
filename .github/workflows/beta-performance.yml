@@ -34,16 +34,16 @@ jobs:
           node-version: '24'
       - run: npm install --no-save --package-lock=false playwright@1.58.2
         working-directory: candidate
+      - name: Candidate interactions and metrics
+        working-directory: candidate
+        env:
+          BETA_ENFORCE: '1'
+        run: node tests/beta-performance-browser.mjs
       - name: Baseline (same browser and fixtures)
         working-directory: candidate
         env:
           BETA_ROOT: ../baseline
           BETA_OUT: artifacts/beta-performance/before
-        run: node tests/beta-performance-browser.mjs
-      - name: Candidate interactions and metrics
-        working-directory: candidate
-        env:
-          BETA_ENFORCE: '1'
         run: node tests/beta-performance-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()

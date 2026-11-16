@@ -58,7 +58,9 @@ try{
      assert.equal(await page.locator('#hsk').isVisible(),false,'ranking cannot stack with a late HSK mount');
      await page.evaluate(()=>{document.querySelector('#hsk').classList.remove('hidden');document.body.setAttribute('data-current-area','hsk')});
      assert.equal(await page.locator('#hsk').isVisible(),false,'route CSS prevents a wrong frame before reconciliation');
-     await page.waitForFunction(()=>document.querySelector('#hsk').classList.contains('hidden'));
+     try{await page.waitForFunction(()=>document.querySelector('#hsk').classList.contains('hidden'));}catch(error){
+      console.log('ROUTE_DIAGNOSTIC',JSON.stringify(await page.evaluate(()=>({route:window.VDuckieScreenRouter.current(),url:location.href,body:document.body.dataset,observer:!!document.querySelector('.study-center').__vduckieScreenObserver,hskParent:document.querySelector('#hsk').parentElement.outerHTML.slice(0,250),roots:['hsk','leaderboard','homeHub'].map(id=>({id,cls:document.getElementById(id).className,rect:document.getElementById(id).getBoundingClientRect().toJSON()}))}))));throw error;
+     }
     }
     await page.screenshot({path:path.join(out,`${width}-ranking.png`),fullPage:true});
     // A real tab click must preserve resolved content while revalidating.
