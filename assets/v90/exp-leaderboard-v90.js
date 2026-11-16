@@ -42,17 +42,14 @@
     if (session && session.user) {
       // EXP read is independent of profile upsert; do not block first paint.
       core.syncProfile().catch(function () {});
-      root.VDuckieEXP.getCurrentUserEXP().then(function (total) {
-        if (core.session() && core.session().user.id === session.user.id)
-          document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: total } }));
-      }).catch(function(error) { console.warn("Không tải được EXP", error); });
+
     }
     else document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: 0, guest: true } }));
     if (isOpen()) root.VDuckieEXPBoard.refresh();
   }
   function bind() {
     document.addEventListener("click", function (event) {
-      if (event.target.closest && event.target.closest("[data-exp-retry-board]")) { root.VDuckieEXPBoard.refresh(root.VDuckieEXPBoard.period()); return; }
+      if (event.target.closest && event.target.closest("[data-exp-retry-board]")) { root.VDuckieEXPBoard.refresh(true); return; }
       var nav = event.target.closest ? event.target.closest("[data-exp-nav]") : null;
       if (nav) { event.preventDefault(); navigate(nav.getAttribute("data-exp-nav")); return; }
       var period = event.target.closest ? event.target.closest("[data-exp-period]") : null;
@@ -67,7 +64,7 @@
       if (original.hasAttribute("data-home")) mark("home"); else if (area === "hsk") mark("hsk"); else if (view === "glossary") mark("dictionary"); else if (area === "erp" || view) mark("erp");
     });
   }
-  function init() { injectUI(); bind(); core.onSession(updateAuth); root.VDuckieEXPBoard.refresh("total"); if (root.location.hash === "#leaderboard") setTimeout(function () { openLeaderboard("total"); }, 50); }
+  function init() { injectUI(); bind(); core.onSession(updateAuth); if (root.location.hash === "#leaderboard") setTimeout(function () { openLeaderboard("total"); }, 50); }
   root.VDuckieEXPUI = { refreshLeaderboard: root.VDuckieEXPBoard.refresh, isLeaderboardOpen: isOpen, openLeaderboard: openLeaderboard };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
 })(window, document);

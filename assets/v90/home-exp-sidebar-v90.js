@@ -5,7 +5,7 @@
   var scheduled = false;
   var applying = false;
   var currentMissions = [];
-  var currentTotal = 0;
+  var currentTotal = null;
   var accountInitialized = false;
   var accountRequest = 0;
   var accountUser = null;
@@ -114,11 +114,19 @@
     }
     host.hidden = false;
     var meta = core.userMeta(session.user);
+    if (total === null) {
+      host.removeAttribute("data-total-exp");
+      setMarkup(host, '<span class="v90-header-account-loading">Đang tải EXP…</span>');
+      return;
+    }
+    host.removeAttribute("data-exp-error");
+    host.setAttribute("data-total-exp", String(total));
     var level = core.calculateUserLevel(total);
     var signature = JSON.stringify([meta.name, meta.avatar, level.totalEXP]);
     if (host === accountHost && signature === accountSignature) return;
     accountHost = host;
     accountSignature = signature;
+    host.__v90Markup = null;
     host.innerHTML = avatarMarkup(meta.name, meta.avatar, "v90-header-avatar") +
       '<div class="v90-header-account-copy"><strong title="' + core.escapeHtml(meta.name) + '">' + core.escapeHtml(meta.name) + '</strong>' +
       '<span>Level ' + level.level + ' · ' + core.formatEXP(level.totalEXP) + ' tổng</span>' +
@@ -165,8 +173,13 @@
       if (request !== accountRequest || !core.session() || core.session().user.id !== session.user.id) return currentTotal;
       currentTotal = Number(total || 0);
       renderAccount(currentTotal);
+      document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: currentTotal, userId: session.user.id } }));
       return currentTotal;
     }).catch(function(error) {
+      if (request === accountRequest && currentTotal === null) {
+        var host = byId("expHeaderAccount");
+        if (host) { host.setAttribute("data-exp-error", "true"); setMarkup(host, '<span class="v90-header-account-loading">Chưa tải được EXP</span>'); }
+      }
       console.warn("EXP chưa tải lại được; giữ số đã xác nhận", error);
       return currentTotal;
     });
@@ -185,32 +198,19 @@
       host.innerHTML = '<div class="v90-side-state">Chưa có dữ liệu EXP.</div>';
       return;
     }
-    host.innerHTML = rows.map(function (row) {
+    setMarkup(host, rows.map(function (row) {
       var rank = Number(row.rank || 0);
       var level = core.calculateUserLevel(row.total_exp);
       var isMe = mine && rank === Number(mine.rank);
       return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.total_exp) + '<small> EXP</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
-    }).join("");
+    }).join(""));
   }
   function refreshMini() {
     var request = ++miniRequest;
-    var host = byId("expMiniList");
-    if (host) host.innerHTML = '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>';
-    var client = core.client();
-    if (!client) {
-      renderMini([], null, new Error("not configured"));
-      return Promise.resolve([]);
-    }
-    var session = core.session();
-    return Promise.all([
-      client.rpc("get_leaderboard", { p_period: "total", p_limit: 5 }),
-      session && session.user ? client.rpc("get_my_rank", { p_period: "total" }) : Promise.resolve({ data: null, error: null })
-    ]).then(function (results) {
-      if (request !== miniRequest) return [];
-      if (results[0].error) throw results[0].error;
-      if (results[1].error) throw results[1].error;
-      var rows = (results[0].data || []).map(root.VDuckieEXPBoard.normalize);
-      var mine = Array.isArray(results[1].data) ? results[1].data[0] : results[1].data;
+    var key = core.session() && core.session().user && core.session().user.id || "guest";
+    return root.VDuckieEXPBoard.load().then(function (value) {
+      if (request !== miniRequest || key !== (core.session() && core.session().user && core.session().user.id || "guest")) return [];
+      var rows = value.rows.slice(0, 5), mine = value.mine;
       renderMini(rows, mine, null);
       return rows;
     }).catch(function (error) {
@@ -303,7 +303,11 @@
     core.onSession(function (session) {
       accountRequest++;
       var nextUser = session && session.user && session.user.id || null;
-      if (accountUser !== nextUser) { currentTotal = 0; currentMissions = []; }
+      if (accountUser !== nextUser) {
+        currentTotal = null; currentMissions = []; miniState = null;
+        accountSignature = "";
+        if (miniCard) { var list = miniCard.querySelector("#expMiniList"); if (list) list.innerHTML = '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>'; }
+      }
       accountUser = nextUser;
       scheduleLayout();
       if (session && session.user) {
@@ -314,10 +318,7 @@
         Promise.all([refreshAccount(), refreshMissions(), refreshMini()]).catch(function(error){
           console.warn("VDuckie home sidebar refresh failed",error);
         });
-        // Profile upsert remains reliable but is not on the critical paint path.
-        core.syncProfile().then(function(){return refreshAccount();}).catch(function(error){
-          console.warn("VDuckie profile refresh failed",error);
-        });
+
       } else {
         currentTotal = 0;
         currentMissions = [];
@@ -327,7 +328,15 @@
       }
     });
     if (root.MutationObserver && document.body) {
-      observer = new MutationObserver(scheduleLayout);
+      observer = new MutationObserver(function (records) {
+        // Ignore text, chat, mascot and unrelated screen updates.
+        if (records.some(function (record) {
+          if (record.target.id === "v865HomeSidebar") return true;
+          return Array.prototype.some.call(record.addedNodes, function (node) {
+            return node.nodeType === 1 && (node.id === "v865HomeSidebar" || node.id === "expHeaderAccount" || node.querySelector("#v865HomeSidebar"));
+          });
+        })) scheduleLayout();
+      });
       observer.observe(document.body, { childList: true, subtree: true });
     }
   }

@@ -38,7 +38,7 @@ test('full leaderboard and own rank always request all-time totals, including le
   const { sandbox, nodes, calls, events } = runtime();
   for (const period of [undefined, 'week', 'month']) await sandbox.VDuckieEXPBoard.refresh(period);
   assert.equal(sandbox.VDuckieEXPBoard.period(), 'total');
-  assert.equal(calls.length, 6);
+  assert.equal(calls.length, 2, "repeated opens share the confirmed total snapshot");
   assert.ok(calls.every(call => call.p_period === 'total'));
   assert.ok(calls.filter(call => call.name === 'get_leaderboard').every(call => call.p_limit === 100));
   assert.match(nodes.expPodium.innerHTML, /1500 EXP/);
@@ -54,7 +54,7 @@ test('home top five uses total EXP for authenticated users and guests', async ()
     const { sandbox, nodes, calls } = runtime(signedIn);
     await sandbox.VDuckieHomeEXP90.refreshMini();
     assert.ok(calls.every(call => call.p_period === 'total'));
-    assert.equal(calls[0].p_limit, 5);
+    assert.equal(calls[0].p_limit, 100, "Top 5 shares the full board snapshot");
     assert.equal(calls.length, signedIn ? 2 : 1);
     assert.match(nodes.expMiniList.innerHTML, /1500<small> EXP/);
     assert.doesNotMatch(nodes.expMiniList.innerHTML, /EXP tuần/);
@@ -66,6 +66,6 @@ test('ranking UI exposes total EXP and production entry loads new asset versions
   assert.match(ui, /data-exp-period="total"/);
   assert.doesNotMatch(ui, /data-exp-period="(?:week|month)"/);
   for (const filename of ['exp-board-v90.js', 'exp-leaderboard-v90.js', 'home-exp-sidebar-v90.js']) {
-    assert.ok(getRuntimeSnapshot().assets.some(asset => asset.endsWith(filename + '?v=total-exp1')));
+    assert.ok(getRuntimeSnapshot().assets.some(asset => asset.endsWith(filename + '?v=beta-perf1')));
   }
 });
