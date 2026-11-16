@@ -67,7 +67,7 @@ try{
     const tabMs=Date.now()-tabStart;
     const during=await page.locator('#expLeaderboardList').textContent();
     if(enforce)assert.equal(during,before,'tab click cannot replace confirmed rows with loading');
-    await page.reload();await page.locator('#expLeaderboardList .exp-row').first().waitFor();
+    await page.reload();await page.waitForFunction(()=>window.__beta);await page.evaluate(()=>window.__beta.releaseRank());await page.locator('#expLeaderboardList .exp-row').first().waitFor();
     if(enforce){
      await page.evaluate(()=>{window.__beta.fail=true;window.VDuckieEXPBoard.invalidate()});
      await page.locator('[data-exp-period=total]').click();await page.locator('[data-exp-retry-board]').waitFor();
