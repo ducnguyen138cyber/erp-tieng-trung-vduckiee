@@ -1,38 +1,55 @@
 (function(root,document){
 "use strict";
-var mount,field,list,results=[],active=-1,timer=0,selected=null,searchSerial=0,visibleLimit=8;
-var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null;
+var mount,field,list,results=[],active=-1,timer=0,remoteTimer=0,selected=null,searchSerial=0,visibleLimit=8;
+var mobileScreen=null,homeSlot=null,lockedPage=null,composing=false,mobileToken=null,scrollRestoration=null,viewportFrame=0;
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
 function norm(s){return String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/gi,"d").toLowerCase().replace(/ü/g,"u").replace(/u:/g,"u").replace(/\s+/g,"").trim()}
 function pinyinNumber(s){var tones={a:["ā","á","ǎ","à"],e:["ē","é","ě","è"],i:["ī","í","ǐ","ì"],o:["ō","ó","ǒ","ò"],u:["ū","ú","ǔ","ù"],v:["ǖ","ǘ","ǚ","ǜ"]};return String(s).replace(/([a-zvü]+)([1-4])/gi,function(all,syllable,n){syllable=syllable.toLowerCase().replace(/ü/g,"v");var pos=syllable.search(/[ae]/);if(pos<0)pos=syllable.indexOf("ou")>=0?syllable.indexOf("o"):-1;if(pos<0){for(var i=syllable.length-1;i>=0;i--)if(/[iouv]/.test(syllable[i])){pos=i;break}}return pos<0?syllable:syllable.slice(0,pos)+tones[syllable[pos]][Number(n)-1]+syllable.slice(pos+1)})}
 var cachedTerms=null,cachedMapped=null;
 function source(){var records=root.VDuckieDictionary&&root.VDuckieDictionary.records;if(records&&records.length)return records;var termsData=root.HSK_DICTIONARY_TERMS||[];if(termsData===cachedTerms&&cachedMapped)return cachedMapped;cachedTerms=termsData;cachedMapped=termsData.map(function(t){return {hanzi:t.hanzi,pinyin:t.pinyin,traditional:t.traditional,pos:t.pos,hskLevels:t.levels,meanings:{hsk:t.meanings||[],erp:[]},examples:{hsk:[],erp:[]}}});return cachedMapped}
 function terms(r){var m=r.meanings||{};return [].concat(m.hsk||[],m.erp||[]).filter(function(t){return typeof t==="string"&&!/^LT:/.test(t)})}
-function search(q){
-  var original=String(q||"").trim(),needle=norm(pinyinNumber(original));
-  if(!needle)return[];
-  var matches=[];
-  source().forEach(function(r){
-    var han=String(r.hanzi||""),trad=String(r.traditional||"");
-    var py=norm(r.pinyin),mean=terms(r);
-    var score=han===original||trad===original||py===needle?0:
-      han.indexOf(original)===0||trad.indexOf(original)===0||py.indexOf(needle)===0?1:
-      mean.some(function(v){return norm(v).split(/[;,\/]/).some(function(bit){return bit===needle})})?2:
-      mean.some(function(v){return norm(v).indexOf(needle)>=0})?3:
-      han.indexOf(original)>=0||trad.indexOf(original)>=0||py.indexOf(needle)>=0?4:99;
-    if(score<99)matches.push({r:r,score:score});
-  });
-  matches.sort(function(a,b){return a.score-b.score||String(a.r.hanzi).length-String(b.r.hanzi).length});
-  return matches.slice(0,40).map(function(v){return v.r});
+// Cache normalized dictionary rows across consecutive keystrokes.
+var searchMeta=typeof WeakMap==="function"?new WeakMap():null;
+function getSearchMeta(r){
+  var m=searchMeta&&searchMeta.get(r);
+  if(!m){m={han:String(r.hanzi||""),trad:String(r.traditional||""),py:norm(r.pinyin),mean:null};if(searchMeta)searchMeta.set(r,m)}
+  return m;
 }
-function close(){clearTimeout(timer);timer=0;searchSerial++;list.hidden=true;active=-1;field.setAttribute("aria-expanded","false")}
+function search(q){
+  var original=String(q||"").trim(),needle=norm(pinyinNumber(original));if(!needle)return[];
+  var buckets=[[],[],[],[],[]],records=source(),checkMeaning=!/[\u3400-\u9fff]/.test(original);
+  for(var i=0;i<records.length;i++){
+    var r=records[i],m=getSearchMeta(r),score=99;
+    if(m.han===original||m.trad===original||m.py===needle)score=0;
+    else if(m.han.indexOf(original)===0||m.trad.indexOf(original)===0||m.py.indexOf(needle)===0)score=1;
+    else{
+      if(checkMeaning){
+        if(!m.mean)m.mean=terms(r).map(norm);
+        if(m.mean.some(function(v){return v.split(/[;,\/]/).some(function(bit){return bit===needle})}))score=2;
+        else if(m.mean.some(function(v){return v.indexOf(needle)>=0}))score=3;
+      }
+      if(score===99&&(m.han.indexOf(original)>=0||m.trad.indexOf(original)>=0||m.py.indexOf(needle)>=0))score=4;
+    }
+    if(score<99&&buckets[score].length<160)buckets[score].push(r);
+  }
+  var ranked=[];buckets.forEach(function(bucket){
+    bucket.sort(function(a,b){return String(a.hanzi||"").length-String(b.hanzi||"").length});
+    ranked.push.apply(ranked,bucket.slice(0,40));
+  });
+  return ranked.slice(0,40);
+}
+function close(){clearTimeout(timer);clearTimeout(remoteTimer);timer=0;remoteTimer=0;searchSerial++;list.hidden=true;active=-1;field.setAttribute("aria-expanded","false")}
 function mobile(){return root.matchMedia&&root.matchMedia("(max-width: 950px)").matches}
 function syncViewport(){
-  var viewport=root.visualViewport;
-  [mobileScreen,document.getElementById("vsearchDetail")].forEach(function(node){
-    if(!node)return;
-    node.style.setProperty("--vsearch-height",(viewport?viewport.height:root.innerHeight)+"px");
-    node.style.setProperty("--vsearch-top",(viewport?viewport.offsetTop:0)+"px");
+  if(viewportFrame)return;
+  viewportFrame=root.requestAnimationFrame(function(){
+    viewportFrame=0;
+    var viewport=root.visualViewport,height=(viewport?viewport.height:root.innerHeight)+"px",top=(viewport?viewport.offsetTop:0)+"px";
+    [mobileScreen,document.getElementById("vsearchDetail")].forEach(function(node){
+      if(!node)return;
+      if(node.style.getPropertyValue("--vsearch-height")!==height)node.style.setProperty("--vsearch-height",height);
+      if(node.style.getPropertyValue("--vsearch-top")!==top)node.style.setProperty("--vsearch-top",top);
+    });
   });
 }
 function lockPage(position){
@@ -56,9 +73,9 @@ function openMobile(push){
   mobileScreen=document.createElement("section");mobileScreen.id="vsearchMobileScreen";
   mobileScreen.className="vsearch-mobile-screen";
   mobileScreen.setAttribute("role","dialog");mobileScreen.setAttribute("aria-modal","true");mobileScreen.setAttribute("aria-label","Tìm kiếm từ điển");
-  mobileScreen.innerHTML='<button type="button" class="vsearch-back" aria-label="Quay lại" data-vsearch-back>‹</button><p class="vsearch-mobile-hint">Tra chữ Hán, Pinyin hoặc nghĩa tiếng Việt</p>';
+  mobileScreen.innerHTML='<button type="button" class="vsearch-back" aria-label="Quay lại" data-vsearch-back>‹</button><button type="button" class="vsearch-dismiss" aria-label="Đóng tìm kiếm" data-vsearch-dismiss>×</button><p class="vsearch-mobile-hint">Tra chữ Hán, Pinyin hoặc nghĩa tiếng Việt</p>';
   document.body.appendChild(mobileScreen);mobileScreen.insertBefore(mount,mobileScreen.lastChild);
-  mobileScreen.querySelector("[data-vsearch-back]").onclick=leaveMobile;
+  mobileScreen.querySelector("[data-vsearch-back]").onclick=leaveMobile;mobileScreen.querySelector("[data-vsearch-dismiss]").onclick=leaveMobile;
   lockPage(position);syncViewport();
   if(push){mobileToken="vsearch-"+Date.now();root.history.pushState(Object.assign({},root.history.state,{vduckieSearch:mobileToken}),"")}
   if(field.value.trim())render();
@@ -83,10 +100,14 @@ function leaveMobile(){
 }
 function closeDetail(fromHistory){
   var overlay=document.getElementById("vsearchDetail");if(!overlay)return;
-  if(!fromHistory&&mobileScreen&&root.history.state&&root.history.state.vduckieSearchDetail){root.history.back();return}
+  // Dismiss on the tap itself; WebKit may defer history navigation.
   overlay.remove();
-  if(mobileScreen){mobileScreen.inert=false;if(field.value.trim())drawResults();mobileScreen.querySelector("[data-vsearch-back]").focus({preventScroll:true})}
-  else field.focus({preventScroll:true});
+  if(mobileScreen){
+    mobileScreen.inert=false;
+    if(field.value.trim())drawResults();
+    mobileScreen.querySelector("[data-vsearch-back]").focus({preventScroll:true});
+    if(!fromHistory&&root.history.state&&root.history.state.vduckieSearch===mobileToken&&root.history.state.vduckieSearchDetail)root.history.back();
+  }else field.focus({preventScroll:true});
 }
 function speak(v){if(!root.speechSynthesis)return;root.speechSynthesis.cancel();var utter=new SpeechSynthesisUtterance(v);utter.lang="zh-CN";utter.rate=.85;root.speechSynthesis.speak(utter)}
 function drawResults(){
@@ -114,7 +135,8 @@ function render(){
   if(data.length)drawResults();
   var expanded=root.VDuckieExpandedDictionary;
   if(!expanded||typeof expanded.lookup!=="function")return;
-  expanded.lookup(q).then(function(extra){
+  clearTimeout(remoteTimer);
+  remoteTimer=setTimeout(function(){remoteTimer=0;expanded.lookup(q).then(function(extra){
     if(request!==searchSerial||field.value.trim()!==q||!mount.isConnected)return;
     if(document.activeElement!==field&&!mount.contains(document.activeElement))return;
     var seen=new Set(results.map(function(r){return r.hanzi+"|"+norm(r.pinyin)}));
@@ -124,7 +146,7 @@ function render(){
     });
     results=results.slice(0,80);
     drawResults();
-  }).catch(function(){if(request===searchSerial&&data.length)drawResults()});
+  }).catch(function(){if(request===searchSerial&&data.length)drawResults()});},280);
 }
 function detail(r,fromHistory){selected=r;close();field.blur();
  if(mobileScreen){mobileScreen.inert=true;if(!fromHistory)root.history.pushState(Object.assign({},root.history.state,{vduckieSearchDetail:true}),"")}
@@ -143,7 +165,7 @@ var old=document.getElementById("vsearchDetail");if(old)old.remove();var modal=d
  }).catch(function(){modal.querySelectorAll("[data-vsearch-example-pinyin]").forEach(function(node){node.textContent="Chưa có Pinyin được xác minh"})});var chars=Array.from(r.hanzi||"").filter(function(ch){return /[\u3400-\u9fff]/.test(ch)});
  if(chars.length>1){var parts=chars.map(function(ch){var match=search(ch).find(function(candidate){return candidate.hanzi===ch});return match?'<span><b>'+esc(ch)+'</b> · '+esc(match.pinyin||"")+' · '+esc(terms(match)[0]||"Chưa có nghĩa riêng")+'</span>':'<span><b>'+esc(ch)+'</b> · Chưa có dữ liệu phân tích riêng</span>'});
  var breakdown=document.createElement("div");breakdown.className="vsearch-breakdown";breakdown.innerHTML='<h3>Các chữ cấu thành</h3>'+parts.join("");modal.querySelector(".vsearch-examples").after(breakdown)}
- modal.querySelector("[data-vsearch-close]").focus({preventScroll:true})}
+ var closeButton=modal.querySelector("[data-vsearch-close]");closeButton.addEventListener("click",function(e){e.stopPropagation();closeDetail(false)});closeButton.focus({preventScroll:true})}
 function allResults(){
  var d=root.VDuckieDictionary;if(!d||!d.open){render();return}
  var query=field.value.trim();
@@ -163,7 +185,7 @@ function init(){
  // Reparent before native focus, in the same gesture, to keep the iOS keyboard attached.
  field.addEventListener("pointerdown",function(e){if(mobile()&&!mobileScreen){e.preventDefault();openMobile(true);field.focus({preventScroll:true})}});
  field.addEventListener("focus",function(){if(mobile()&&!mobileScreen)openMobile(true);if(field.value.trim())render()});
- function queueSearch(){clearTimeout(timer);mount.querySelector(".vsearch-clear").hidden=!field.value;if(!composing)timer=setTimeout(function(){timer=0;render()},120)}
+ function queueSearch(){clearTimeout(timer);clearTimeout(remoteTimer);remoteTimer=0;mount.querySelector(".vsearch-clear").hidden=!field.value;if(!composing)timer=setTimeout(function(){timer=0;render()},150)}
  field.addEventListener("compositionstart",function(){composing=true;clearTimeout(timer);searchSerial++});
  field.addEventListener("compositionend",function(){composing=false;queueSearch()});
  field.addEventListener("input",queueSearch);
