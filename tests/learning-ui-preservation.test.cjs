@@ -2,9 +2,13 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto'),{JSDOM}=require('jsdom');
 const baseline=require('./fixtures/learning-ui-baseline.json');
 const read=p=>fs.readFileSync(p,'utf8'),hash=s=>crypto.createHash('sha256').update(s).digest('hex');
-test('Daily stylesheet and complete homepage renderer match the approved main interface',()=>{
+test('Daily stylesheet and homepage layout stay approved while learner support extends to HSK6',()=>{
  assert.equal(hash(read('assets/daily-learning-v2.css')),baseline.cssSha256);
- assert.equal(hash(read('assets/v86/home-dashboard-v86.5.js')),baseline.homeSha256);
+ const home=read('assets/v86/home-dashboard-v86.5.js');
+ assert.ok(home.includes('Math.min(6,Number(now.level)'));
+ // Only the level bound and level catalogue may differ from the approved layout.
+ const sameLayout=home.replace('Math.min(6,Number(now.level)','Math.min(4,Number(now.level)').replace('{level:5,label:"HSK 5",icon:"伍",active:true},\n    {level:6,label:"HSK 6",icon:"陆",active:true}','{level:5,label:"HSK 5–6",icon:"伍",active:false}');
+ assert.equal(hash(sameLayout),baseline.homeSha256);
 });
 test('application shell body keeps every existing block and control from main',()=>{
  const dom=new JSDOM(read('app-shell-v88.html'));

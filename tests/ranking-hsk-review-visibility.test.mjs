@@ -1,14 +1,14 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import vm from 'node:vm';
 const read=(p)=>fs.readFileSync(p,'utf8');
-test('HSK 5/6 learner controls remain locked until content review',()=>{
+test('HSK 1–6 learner controls are available; higher levels stay locked',()=>{
  const graded=read('assets/curriculum/graded-hsk-entry.js');
  const roadmap=read('assets/curriculum/hsk-roadmap-screen.js');
  const runtime=read('assets/hsk-content/hsk-professional-runtime.js');
  new vm.Script(graded);new vm.Script(roadmap);new vm.Script(runtime);
- assert.match(graded,/MAX_LEARNER_HSK=4/);
- assert.match(roadmap,/available=i<=4/);
- assert.match(runtime,/level > 4/);
- assert.match(runtime,/config && level <= 4/);
+ assert.match(graded,/MAX_LEARNER_HSK=6/);
+ assert.match(roadmap,/available=i<=6/);
+ assert.match(runtime,/level > 6/);
+ assert.match(runtime,/config && level <= 6/);
 });
 test('review mode raises chat launcher above bottom action controls',()=>{
  const style=read('assets/ai/duckie-chat.css');

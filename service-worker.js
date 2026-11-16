@@ -1,12 +1,15 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v54";
+const CACHE_VERSION = "vduckie-pwa-v55";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
+  "./assets/hsk-content/hsk-advanced-self-study-v1.js?v=hsk56-1",
+  "./data/hsk/advanced-cases-v1.json?v=hsk56-1",
+  "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
   "./assets/navigation/screen-router.js?v=polish1",
@@ -25,7 +28,7 @@ const APP_SHELL = [
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
   "./assets/v86/experience-suite-loader-v86.js?v=progress-row1",
-  "./assets/v86/home-dashboard-v86.5.js?v=ui-preserve1",
+  "./assets/v86/home-dashboard-v86.5.js?v=hsk56-1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=public1",
   "./assets/navigation/screen-router.js?v=polish1",
@@ -63,9 +66,9 @@ const APP_SHELL = [
   "./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0",
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
-  "./assets/i18n/interface-i18n-v1.js?v=total-exp1",
-  "./assets/v90/exp-core-v90.js?v=exp-ranking1",
-  "./assets/v89/exp-learning-hooks-v89.js?v=word-float1",
+  "./assets/i18n/interface-i18n-v1.js?v=hsk56-1",
+  "./assets/v90/exp-core-v90.js?v=hsk56-1",
+  "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
   "./assets/design-system/mascot-swap-v1.js?v=10",
   "./assets/mascot/duckie-reader-icon-32.png?v=4.0",
@@ -74,12 +77,12 @@ const APP_SHELL = [
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
   "./assets/v82/learning-progress-merge-v1.js?v=1",
   "./assets/v82/account-learning-sync-v82.js?v=progress-sync1",
-  "./assets/hsk-content/hsk-study-journey-v1.js?v=progress-sync1",
-  "./assets/hsk-content/hsk-study-flow-v1.js?v=ui-preserve1",
+  "./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1",
+  "./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1",
   "./assets/hsk-content/hsk-study-journey-v1.css?v=reliability1",
-  "./assets/hsk-content/hsk-professional-runtime.js?v=reliability1",
-  "./assets/hsk-content/hsk-content-feature-flags.js?v=reliability1",
-  "./assets/curriculum/graded-hsk-entry.js?v=polish1",
+  "./assets/hsk-content/hsk-professional-runtime.js?v=hsk56-1",
+  "./assets/hsk-content/hsk-content-feature-flags.js?v=hsk56-1",
+  "./assets/curriculum/graded-hsk-entry.js?v=hsk56-1",
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
   "./assets/hsk-content/hsk-practice-ui-v1.js?v=ui-preserve1",
   "./assets/hsk-content/hsk-practice-ui-v1.css?v=polish1",
@@ -250,7 +253,7 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener("message", (event) => {
   if (event.data === "SKIP_WAITING") self.skipWaiting();
   if (event.data === "LEARNING_SHELL_READY") event.waitUntil((async () => {
-    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=progress-sync1","./assets/hsk-content/hsk-study-journey-v1.js?v=progress-sync1","./assets/hsk-content/hsk-study-flow-v1.js?v=ui-preserve1"];
+    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=progress-sync1","./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1","./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1"];
     if ((await Promise.all(required.map(file => caches.match(scoped(file))))).every(Boolean)) {
       const cache=await caches.open(SHELL_CACHE);
       await cache.put(scoped("./.learning-offline-ready-progress-sync1"),new Response("ready"));

@@ -97,10 +97,10 @@ test('bootstrap and PWA load the new study components before the HSK content fla
   const worker = read('service-worker.js');
   const loader = read('assets/hsk-content/hsk-content-feature-flags.js');
   for (const asset of [live.asset("assets/hsk-content/hsk-study-flow-v1.js"), live.asset("assets/hsk-content/hsk-content-feature-flags.js")]) { assert.ok(index.includes(asset)); assert.ok(worker.includes(asset)); }
-  assert.ok(index.indexOf(live.asset("assets/hsk-content/hsk-study-flow-v1.js")) < index.indexOf("hsk-content-feature-flags.js?v=reliability1"));
+  assert.ok(index.indexOf(live.asset("assets/hsk-content/hsk-study-flow-v1.js")) < index.indexOf(live.asset("assets/hsk-content/hsk-content-feature-flags.js")));
   assert.match(index,/hsk-study-journey-v1\.css\?v=reliability1/);
   assert.match(worker,/vduckie-pwa-v\d+/);
-  assert.match(loader,/hsk-professional-runtime\.js\?v=reliability1/);
+  assert.match(loader,/hsk-professional-runtime\.js\?v=hsk56-1/);
   for(const file of ['assets/hsk-content/hsk-study-journey-v1.js',
     'assets/hsk-content/hsk-study-flow-v1.js','assets/curriculum/graded-hsk-entry.js',
     'assets/hsk-content/hsk-professional-runtime.js','assets/v86/home-dashboard-v86.5.js']){

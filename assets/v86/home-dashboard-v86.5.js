@@ -105,7 +105,8 @@ function roadmapData(){
     {level:2,label:"HSK 2",icon:"贰",active:true},
     {level:3,label:"HSK 3",icon:"叁",active:true},
     {level:4,label:"HSK 4",icon:"肆",active:true},
-    {level:5,label:"HSK 5–6",icon:"伍",active:false},
+    {level:5,label:"HSK 5",icon:"伍",active:true},
+    {level:6,label:"HSK 6",icon:"陆",active:true},
     {level:7,label:"HSK 7–9",icon:"锁",active:false}
   ];
   return stages.map(function(stage){stage.current=stage.level===current;stage.progress=stage.active?levelProgress(stage.level):{done:0,total:0,percent:0};return stage});
@@ -114,7 +115,7 @@ function roadmapData(){
 function todayFocusData(){
   var journey=root.VDuckieHskStudyJourney,summary=null;
   try{if(journey&&typeof journey.summary==="function")summary=journey.summary()}catch(error){}
-  var now=summary&&summary.current||{},level=Math.max(1,Math.min(4,Number(now.level)||1));
+  var now=summary&&summary.current||{},level=Math.max(1,Math.min(6,Number(now.level)||1));
   var lessonId=text(now.lessonId),due=Math.max(0,Number(summary&&summary.due)||0);
   // The runtime may preselect a lesson on first load. Selection is not learning.
   var lessonEvidence={};

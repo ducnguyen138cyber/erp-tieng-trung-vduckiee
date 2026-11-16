@@ -52,7 +52,9 @@ test('v86.5 keeps circular blue horizontal HSK stages', () => {
     'erp-hsk-progress-v2': JSON.stringify({ 'foundation-1': true, 'hsk1-1': true })
   }, { HSKCurriculum: { levels } });
   const stages = context.VDuckieHomeDashboardV865.roadmapData();
-  assert.equal(stages.length, 7);
+  assert.equal(stages.length, 8);
+  assert.equal(stages.find(stage=>stage.level===5).active,true);
+  assert.equal(stages.find(stage=>stage.level===6).active,true);
   assert.equal(stages.find((stage) => stage.level === 1).icon, '壹');
   assert.equal(stages.find((stage) => stage.level === 1).progress.percent, 100);
   assert.equal(stages.find((stage) => stage.level === 7).active, false);
