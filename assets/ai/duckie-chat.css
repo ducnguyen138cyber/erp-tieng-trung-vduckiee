@@ -25,3 +25,10 @@
 body[data-current-area="review"] .duckie-chat-launch,body[data-current-area="daily"] .duckie-chat-launch{bottom:100px}
 body:has(.daily-panel:not(.hidden) .daily-review-session) .duckie-chat-launch{bottom:100px}
 @media(max-width:760px){body[data-current-area="review"] .duckie-chat-launch,body[data-current-area="daily"] .duckie-chat-launch{bottom:145px}}
+
+/* A bottom-fixed chat pill must never obstruct Daily session actions. The
+   persistent VDuckie dock remains available as the learner's support entry. */
+@media(max-width:980px){
+  body:has(.daily-panel:not(.hidden) .learning-session) .duckie-chat-launch,
+  body:has(.daily-panel:not(.hidden) .learning-session) .duckie-chat-panel{display:none!important}
+}
