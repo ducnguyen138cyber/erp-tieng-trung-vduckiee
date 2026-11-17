@@ -6,7 +6,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import T from '../assets/games/typing-engine.js';
 const root=process.cwd(),out=path.join(root,'artifacts/public-demo');await mkdir(out,{recursive:true});
-const bank=JSON.parse(await readFile('data/games/sentences.json','utf8')).sentences;
+const bank=JSON.parse(await readFile('data/games/sentences.json','utf8')).sentences.concat((await Promise.all([1,2,3,4,5,6].map(n=>readFile('data/games/sentences-hsk'+n+'.json','utf8').then(JSON.parse)))).flatMap(d=>d.sentences));
 const files=JSON.parse(await readFile('data/hsk/hsk1/vocabulary/index.json','utf8')).shards;
 const vocabulary=(await Promise.all(files.map(f=>readFile('data/hsk/hsk1/vocabulary/'+f.file,'utf8').then(JSON.parse)))).flatMap(x=>x.records);
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp'};
@@ -89,9 +89,9 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await page.screenshot({path:path.join(out,name+'-'+prompt+'.png')});await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();assert.equal(await page.locator('.tg-overlay').count(),0);
  }
  await page.locator('[data-game-action=sentences]').click();
- for(const topic of ['basic','daily','factory']){
+ for(const topic of ['hsk1','hsk3','factory']){
   await page.locator('[data-topic='+topic+']').click();await page.locator('[data-sentence-action=start]').click();
-  const limit=topic==='basic'?10:2;
+  const limit=topic==='hsk1'?10:2;
   for(let i=0;i<limit;i++){
    const prompt=await page.locator('.sg-prompt').innerText(),s=bank.find(s=>s.vi===prompt);assert.ok(s);assert.equal(await page.locator('.sg-answer').textContent(),'');assert.equal(await page.locator('.sg-hanzi').count(),0);
    const input=page.locator('#sentencePinyin'),answer=T.normalize(s.answers.at(-1).pinyin),mask=page.locator('.sg-mask');

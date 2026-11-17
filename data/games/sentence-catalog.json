@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "selection": "HSK levels follow VDuckie lesson sources; original expansion uses graded sentence patterns, not an official exam claim",
+  "pinyin": "Source readings retained; missing readings generated at build time with the repository pinyin-pro engine",
+  "reviewStatus": "machine-checked; no independent human signoff claimed",
+  "levels": [
+    {
+      "level": 1,
+      "topic": "hsk1",
+      "file": "sentences-hsk1.json",
+      "count": 869,
+      "answers": 891,
+      "sha256": "4aa917511242fea922c8506b7db3f37f9fc99b172ee087f1836c9bf35a74add4"
+    },
+    {
+      "level": 2,
+      "topic": "hsk2",
+      "file": "sentences-hsk2.json",
+      "count": 249,
+      "answers": 249,
+      "sha256": "f3c1a8135f8200ab82ee6fe8be2fdbb9cf2942d80cb7caa578492dcf80ba7634"
+    },
+    {
+      "level": 3,
+      "topic": "hsk3",
+      "file": "sentences-hsk3.json",
+      "count": 539,
+      "answers": 539,
+      "sha256": "a326056021e8f91ac2c0383155a614b6e0439ecc703aa63f893489f0bbad95fc"
+    },
+    {
+      "level": 4,
+      "topic": "hsk4",
+      "file": "sentences-hsk4.json",
+      "count": 276,
+      "answers": 276,
+      "sha256": "b02ea8cda25e8517b5387faa9048c69d76879db723e4b4c935634d607fbd99ae"
+    },
+    {
+      "level": 5,
+      "topic": "hsk5",
+      "file": "sentences-hsk5.json",
+      "count": 266,
+      "answers": 266,
+      "sha256": "0491b6dcde4df99452b9669c0ad576575d4e507824d98cfda5f267d1a981b21e"
+    },
+    {
+      "level": 6,
+      "topic": "hsk6",
+      "file": "sentences-hsk6.json",
+      "count": 250,
+      "answers": 250,
+      "sha256": "0717e6b202560bc2d1676c9742e554aaed733c849ebc903d2aca2db210e9d687"
+    }
+  ],
+  "total": 2449
+}
