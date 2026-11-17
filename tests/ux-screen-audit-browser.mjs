@@ -46,6 +46,16 @@ try{
      return {screen,...geometry,contentLength:content.length};
     });
    }
+   await sample('daily-footer',async()=>{
+    await menu('[data-daily-nav="daily"]');
+    for(const step of ['intro','writing','context']){
+     const next=page.locator('#dailyLearningPanel [data-session-next]');await next.scrollIntoViewIfNeeded();
+     const hit=await next.evaluate(e=>{const r=e.getBoundingClientRect(),at=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return{clickable:e===at||e.contains(at),button:r.toJSON(),blockedBy:at?.outerHTML.slice(0,180)}});
+     assert(hit.clickable,'Daily '+step+' footer blocked '+JSON.stringify(hit));
+     await page.screenshot({path:`${out}/${name}-${width}-daily-${step}-footer.png`});await next.click();
+    }
+    await page.locator('#dailyLearningPanel [data-session-exit]').click();
+   });
    await sample('community-error-retry',async()=>{
     await menu('[data-view="community"]');await page.locator('#communityTerms').filter({hasText:'Chưa tải được'}).waitFor();
     communityFailure=false;await page.locator('#refreshCommunity').click();
