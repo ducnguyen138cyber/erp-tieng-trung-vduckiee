@@ -73,6 +73,12 @@ Ngày lập: 17/11/2026. Nguồn: giao diện/source `d67baa3` và hai ảnh ng�
 | P03 | Tài khoản/Hồ sơ | Hồ sơ và đăng xuất | Tên dài, EXP lớn, sửa thông tin, logout/login thiết bị khác. | Đủ chữ và nút; thông tin cập nhật đúng; không lộ dữ liệu tài khoản trước. | P0 |
 | T01 | Duckie Chat/Trợ lý | Mở/đóng và bố cục | Mở chat ở từng màn; gõ khi có bàn phím; đóng rồi chuyển màn. | Không che Tiếp/Nộp/Lưu; cuộn đúng khung; X dễ chạm và trả focus. | P0 |
 | T02 | Duckie Chat/Trợ lý | Gửi và lỗi | Câu dài/Hán/Pinyin; gửi nhanh; chờ; mất mạng; retry; nghe câu trả lời. | Một lần gửi một lượt; có trạng thái; không tự cuộn cướp vị trí đang đọc. | P1 |
+| T03 | Trợ giảng – Giải thích | Từ đang chọn | Mở từ đã tra, tìm từ khác; thiếu dữ liệu; nghe và xem ví dụ. | Giải thích đúng từ; Hán/Pinyin/Việt đủ chữ; có trạng thái khi nguồn chưa tải. | P1 |
+| T04 | Trợ giảng – Hội thoại | Từng tình huống | Chào hỏi/mua hàng/công xưởng; nhập dài bằng IME; kiểm tra và câu tiếp. | Câu hỏi/ô nhập/gợi ý không che nhau; phản hồi đúng lượt; không coi kiểm từ khóa là chấm chính xác hoàn toàn. | P1 |
+| T05 | Trợ giảng – Bài tập | Tạo và làm bài | Tạo bộ mới, chọn đáp án, câu tiếp, kết quả, bắt đầu lại. | Không giữ kết quả bộ cũ; đáp án/feedback rõ; bấm nhanh không chấm lặp. | P1 |
+| T06 | Trợ giảng – Điểm yếu | Thống kê và ôn | Chưa có dữ liệu, có nhiều lỗi; mở ôn từ yếu, trả lời và xem cập nhật. | Trạng thái trống dễ hiểu; đúng từ cần ôn; không nhảy danh sách khi đang chọn. | P1 |
+| T07 | Trợ giảng – Luyện nói | Micro và nhận dạng | Cho/từ chối quyền, thiết bị không hỗ trợ; ghi/dừng; rời tab khi đang thu. | Có phản hồi quyền/hỗ trợ; không treo micro; transcript và nút đọc được; không trình bày như chấm phát âm chuyên sâu. | P1 |
+| T08 | Trợ giảng – Trợ giảng | Gợi ý từ kho dữ liệu | Chọn các gợi ý giải thích/ví dụ/viết/ôn; đổi từ, đóng/mở panel. | Nội dung theo từ hiện tại; nút không bị che; nêu đúng khả năng trả lời từ kho dữ liệu. | P1 |
 | L01 | Ngôn ngữ và trợ năng | VI/中文/English | Đổi trên Home, bài học, BXH, tìm kiếm, form; reload. | Không chớp ngôn ngữ; nhãn dài không bị cắt; không dịch nhầm nghĩa/đáp án học liệu. | P1 |
 | L02 | Ngôn ngữ và trợ năng | Bàn phím và chữ lớn | Tab/Shift-Tab/Enter/Escape; 200% zoom/chữ lớn; reduced motion. | Focus thấy rõ và theo thứ tự; không mắc kẹt; chữ/nút không bị che. | P1 |
 | W01 | PWA/Offline/Đồng bộ | Cài và mở lại | Mở từ icon PWA; cold/warm; đổi app; khóa/mở máy; quay lại bài. | Đúng route/tiến độ; không tạo phiên học trùng; không mất âm thanh/scroll control. | P0 |
