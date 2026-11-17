@@ -1,6 +1,6 @@
 # VDuckie — Kết quả rà trải nghiệm 17/11/2026
 
-PR: [#134](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/pull/134). Build: UX v68; source sửa lỗi tại `d3f25cc` (các commit sau cập nhật kiểm thử/báo cáo). Đây là kết quả theo phần đã thao tác, **không phải chứng nhận mọi điều kiện của 69 ca đều đạt**.
+PR: [#134](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/pull/134). Build: UX v68; source UX v68 (SHA chính xác xem head/merge của PR). Đây là kết quả theo phần đã thao tác, **không phải chứng nhận mọi điều kiện của 69 ca đều đạt**.
 
 ## Đã thực hiện
 
@@ -20,8 +20,10 @@ PR: [#134](https://github.com/ducnguyen138cyber/erp-tieng-trung-vduckiee/pull/13
 | UX-007 | Học bài HSK → chuyển sang Review/Daily/BXH. | Không giữ tham số level/lesson/tab/assessment của màn cũ trong URL mới. | UR + UX. |
 | UX-011 | Hồ sơ/từ điển/ôn trống/Daily → bấm X; trước màn bị observer mở lại. | Dọn phiên và chuyển route về Home; menu/URL và màn hiện khớp nhau. | UX `panel-exit`, sáu cấu hình. |
 | UX-012 | Từ cộng đồng → fetch lỗi; danh sách vẫn ghi Đang tải. | Danh sách có lỗi và hướng dẫn Làm mới; retry được; refresh lỗi giữ từ đã tải. | UR + UX `community-error-retry`. |
+| UX-013 | Daily intro trên 320/390px: tâm nút Tiếp tại y802 chạm trúng nút Hồ sơ của dock. | Chừa chiều cao cho header hai hàng + dock/safe area; footer ở trên dock. | UX `daily-footer`: intro → viết → ngữ cảnh trên đủ sáu cấu hình. |
 
 Hai yêu cầu ảnh trước đó (Tiếp, bỏ khóa HSK5/6 thừa) đã phát hành trong PR#133 và được kiểm lại trong lượt này.
+
 
 ## Ghi nhận cần làm tiếp
 
@@ -61,7 +63,7 @@ Hai yêu cầu ảnh trước đó (Tiếp, bỏ khóa HSK5/6 thừa) đã phát
 | S03 | Shadowing — Ghi âm | Chờ thiết bị/quyền | Đã đọc trạng thái UI trước ghi và kiểm lifecycle bằng fixture. | Thu thật, từ chối quyền micro, iOS background/lock. | SH |
 | D01 | 5 từ công xưởng/Daily — Giới thiệu và Tiếp | PC + CI | Nhãn Tiếp; đi qua giới thiệu → viết → ngữ cảnh → quiz. | Một phiên trọn vẹn trên PWA cài thật. | HW, SY |
 | D02 | 5 từ công xưởng/Daily — Viết tay | PC + CI | Chuột vẽ được nét; touch/erase và fallback trong Chromium + WebKit. | Ngón tay/bút trên điện thoại thật; xoay khi đang vẽ. | HW |
-| D03 | 5 từ công xưởng/Daily — Thanh nút và chat | PC + CI | Next/Quay lại và chat trong kiểm touch, hẹp/ngang và hit-test. | Bàn phím/safe area iPhone thật. | HW |
+| D03 | 5 từ công xưởng/Daily — Thanh nút và chat | PC + CI | Đã phát hiện dock che Tiếp trong app đầy đủ (UX-013), chừa chiều cao footer; kiểm lại intro/viết/ngữ cảnh, ngoài kiểm touch/chat. | Bàn phím/safe area iPhone thật. | HW |
 | D04 | 5 từ công xưởng/Daily — Câu hỏi và hoàn thành | PC + CI | Trước trả lời Next khóa; sai có feedback; đã chấm khóa lựa chọn, Next mở. | Phiên thật đầy đủ/sync người dùng; không chỉ ca mẫu. | SY, HW |
 | V01 | Ôn tập thích ứng — Từ đến hạn và trống | PC + CI | Guest không có từ đến hạn, CTA quay Home; fixture có dữ liệu ôn. | Tập dữ liệu lớn production. | UX, SY |
 | V02 | Ôn tập thích ứng — Chu trình ôn | CI fixture | Chu trình recall, lịch yếu/ôn và merge bài học. | Chưa rà tay mọi kỹ năng với bàn phím thật. | SY |

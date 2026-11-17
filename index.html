@@ -102,7 +102,7 @@
         source=source.replace("<\/body>",'<script src="./assets/interface/mobile-navigation.js?v=1"><\/script><script src="./assets/games/sentence-engine.js?v=2"><\/script><script src="./assets/games/sentence-game.js?v=ranking1"><\/script><\/body>');
         source=source.replace("<\/head>",'<link rel="stylesheet" href="./assets/auth/auth-screen.css?v=6"><\/head>');
         source=source.replace("<\/body>",'<script src="./assets/auth/auth-screen.js?v=beta-perf5"><\/script><\/body>');
-        source=source.replace("<\/head>",'<link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=home-original1"><link rel="stylesheet" href="./assets/interface/mobile-fluidity-v1.css?v=1"><\/head>');
+        source=source.replace("<\/head>",'<link id="v865HomeDashboardCss" rel="stylesheet" href="./assets/v86/home-dashboard-v86.5.css?v=home-original1"><link rel="stylesheet" href="./assets/interface/mobile-fluidity-v1.css?v=ux-audit1"><\/head>');
         if(new URLSearchParams(location.search).get("developer")!=="1")source=source.replace(/<script\b[^>]*src=["']\.\/assets\/developer[^"']+["'][^>]*><\/script>/g,"");
         // Move the existing home cards into their final grid before initial paint.
         // The dashboard runtime reuses this shell and fills in live progress

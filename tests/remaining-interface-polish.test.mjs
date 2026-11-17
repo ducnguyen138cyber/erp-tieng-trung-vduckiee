@@ -43,7 +43,7 @@ test('PWA loads exact refreshed visual assets', () => {
   const worker = read('service-worker.js');
   assert.match(index, /remaining-interface-polish-20261103\.css\?v=1/);
   assert.match(index, /header-chinese-search\.css\?v=ux-audit1/);
-  assert.match(index, /mobile-fluidity-v1\.css\?v=1/);
+  assert.match(index, /mobile-fluidity-v1\.css\?v=ux-audit1/);
   assert.match(index, /free-learning-assistant\.css\?v=2/);
   assert.match(worker, /vduckie-pwa-v\d+/);
   assert.match(worker, /remaining-interface-polish-20261103\.css\?v=1/);
