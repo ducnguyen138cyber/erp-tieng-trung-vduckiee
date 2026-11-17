@@ -38,6 +38,6 @@ test('feedback rotates five contextual lines before repeating', () => {
 });
 
 test('public community loader keeps contextual roast retired', () => {
-  assert.match(loader, /runtime-v70\.2\.js\?v=no-roast-1/);
+  assert.match(loader, /runtime-v70\.2\.js\?v=no-roast-ux1/);
   assert.doesNotMatch(loader, /hsk-roast-context-v80\.1\.js|loadFeedbackContext\(\)|loadHskRoastContextV801\(\)/);
 });

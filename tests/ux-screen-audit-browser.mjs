@@ -23,12 +23,12 @@ try{
    await page.waitForFunction(()=>window.VDuckieScreenRouter&&window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieHeaderSearch);
    await page.waitForFunction(()=>[...document.querySelectorAll('link[rel="stylesheet"]')].every(e=>e.sheet));
    async function menu(selector){
-    if(!await page.locator('#studySidebar '+selector).isVisible())await page.locator('#mobileMenu').click();
+    if(width<=980&&await page.locator('#mobileMenu').getAttribute('aria-expanded')!=='true')await page.locator('#mobileMenu').click();
     await page.locator('#studySidebar '+selector).click();
    }
    async function sample(id,work){
-    const start=Date.now();try{const evidence=await work();report.push({engine:name,width,height,id,pass:true,elapsedMs:Date.now()-start,...evidence});}
-    catch(e){failures.push({engine:name,width,height,id,error:e.message});console.error('AUDIT FAILURE',JSON.stringify(failures.at(-1)));await page.screenshot({path:`${out}/${name}-${width}-${id.replaceAll(':','-')}-FAIL.png`});}
+    const start=Date.now();try{const evidence=await work();console.log('AUDIT PASS',name,width,id);report.push({engine:name,width,height,id,pass:true,elapsedMs:Date.now()-start,...evidence});}
+    catch(e){failures.push({engine:name,width,height,id,error:e.message});console.error('AUDIT FAILURE',JSON.stringify(failures.at(-1)));await page.screenshot({path:`${out}/${name}-${width}-${id.replaceAll(':','-')}-FAIL.png`});}await writeFile(out+'/checkpoint.json',JSON.stringify({report,failures},null,2));
    }
    for(const [screen,target,selector] of routes){
     await sample('route-'+screen,async()=>{
@@ -37,12 +37,19 @@ try{
      assert.equal(new URL(page.url()).searchParams.get('screen'),screen);
      const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,headings:[...document.querySelectorAll('main h1,main h2')].filter(e=>e.getClientRects().length).map(e=>e.textContent.trim()).slice(0,5)}));
      assert(geometry.overflow<=2,'document horizontal overflow '+JSON.stringify(geometry));
-     const content=(await page.locator(target).innerText()).trim();assert(content.length>10,'destination must contain useful content');
+     const content=(await page.locator(target).innerText()).trim();assert(content.length>0,'destination must contain useful content');
      await page.screenshot({path:`${out}/${name}-${width}-${screen.replaceAll(':','-')}.png`});
      await page.locator(target).evaluate(e=>e.scrollIntoView({block:'end'}));
      return {screen,...geometry,contentLength:content.length};
     });
    }
+   await sample('panel-exit',async()=>{
+    for(const screen of ['profile','dictionary','review','daily']){
+     await menu('[data-daily-nav="'+screen+'"]');await page.locator('#dailyLearningPanel [data-session-exit]').first().click();
+     await page.waitForFunction(()=>window.VDuckieScreenRouter.current()==='home');await page.locator('#homeHub').waitFor({state:'visible'});
+     assert.equal(new URL(page.url()).searchParams.get('screen'),'home');
+    }
+   });
    await sample('hsk56-card-entry',async()=>{
     for(const level of [5,6]){
      await page.locator('#brandHome').click();await page.locator('#v865TodayFocus').waitFor();

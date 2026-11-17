@@ -177,6 +177,7 @@
     var node = panel(); node.className = "panel daily-panel hidden";
     if (root.ERPAreaNavigation && root.ERPAreaNavigation.home) root.ERPAreaNavigation.home();
     renderToday(); closeMenu();
+    if (root.VDuckieScreenRouter) root.VDuckieScreenRouter.navigate("home");
   }
   function sessionHeader(label, index, total) {
     var percent = total ? Math.round((index + 1) * 100 / total) : 0;

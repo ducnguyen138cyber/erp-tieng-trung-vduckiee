@@ -86,7 +86,7 @@
     return true;
   }
   function show(screen, historyMode, options) {
-    if(root.VDuckieHeaderSearch&&root.VDuckieHeaderSearch.dismissForNavigation)root.VDuckieHeaderSearch.dismissForNavigation();
+    if((screen!==current||historyMode==="push")&&root.VDuckieHeaderSearch&&root.VDuckieHeaderSearch.dismissForNavigation)root.VDuckieHeaderSearch.dismissForNavigation();
     if(root.VDuckieMobileMenu)root.VDuckieMobileMenu.close();
     if (!valid(screen)) screen = "home";
     if (screen === current && historyMode === "push" && !options) {

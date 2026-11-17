@@ -19,6 +19,7 @@ test('route navigation clears foreign lesson parameters while preserving learner
   assert.equal(w.location.search,'?screen=review');
   w.history.replaceState(null,'','?screen=hsk-study&hskLevel=6&hskLesson=hsk6-lesson-02');
   w.VDuckieScreenRouter.navigate('hsk-study');assert.equal(new URL(w.location.href).searchParams.get('hskLevel'),'6');
+  const before=dismissed;w.dispatchEvent(new w.PopStateEvent('popstate'));assert.equal(dismissed,before,'same-screen search history must not dismiss the remaining search layer');
  }finally{w.close();}
 });
 test('metadata-only preselection does not fabricate a started journey in Home or its resume action',async()=>{
@@ -34,4 +35,13 @@ test('metadata-only preselection does not fabricate a started journey in Home or
   w.document.querySelector('#v865TodayFocus [data-v865-action="continue"]').click();await Promise.resolve();
   assert.deepEqual(calls,['hsk-study',1,'hsk1-lesson-01']);
  }finally{w.close();}
+});
+test('community failure exits loading, retry succeeds, later failure preserves loaded words',async()=>{
+ const vm=require('node:vm'),s=source('assets/v62/runtime-v70.2.js'),start=s.indexOf('function K('),end=s.indexOf('function _(',start),load=s.slice(start,end);
+ const terms={innerHTML:'Đang tải dữ liệu…'},statuses=[];let fail=true,renders=0;
+ const context={Array,a:false,n:[],e:'https://example.invalid/community',t:{},d:()=>terms,H:(...v)=>statuses.push(v),fetch:async()=>{if(fail)throw new Error('offline');return{ok:true,json:async()=>({terms:[{hanzi:'仓库'}]})}},B(){renders++;terms.innerHTML='仓库'}};
+ vm.runInNewContext(load,context);
+ await context.K(true);assert.match(terms.innerHTML,/Chưa tải được/);assert.doesNotMatch(terms.innerHTML,/Đang tải/);assert.equal(context.a,false);
+ fail=false;await context.K(true);assert.equal(renders,1);assert.equal(terms.innerHTML,'仓库');
+ fail=true;await context.K(true);assert.equal(terms.innerHTML,'仓库','failed refresh cannot erase previous data');assert.equal(context.a,false);
 });
