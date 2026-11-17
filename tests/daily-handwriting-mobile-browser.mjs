@@ -35,6 +35,7 @@ async function boot(page) {
   await page.addScriptTag({ path: resolve('assets/ai/duckie-chat.js') });
   await page.addScriptTag({ path: resolve('assets/daily-learning-v2.js') });
   await page.evaluate(() => window.VDuckieDailyLearning.show('daily'));
+  assert.equal((await page.locator('[data-session-next]').innerText()).trim(),'Tiếp →');
   await page.locator('[data-session-next]').click();
   await page.locator('#dailyInkCanvas').waitFor({ state: 'visible' });
   assert.match(await page.locator('#dailyWritingStatus').innerText(), /viết tự do/i);

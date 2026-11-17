@@ -30,8 +30,8 @@ test('runtime creates two faces only inside the round badge', () => {
   assert.doesNotMatch(ui, /hsk-card-back/);
 });
 
-test('HSK 5 through HSK 9 remain separate locked cards', () => {
-  [5, 6, 7, 8, 9].forEach((level) => assert.match(ui, new RegExp('level: ' + level + ', label: "HSK ' + level + '"')));
+test('only HSK 7 through HSK 9 remain separate locked cards', () => {
+  [7, 8, 9].forEach((level) => assert.match(ui, new RegExp('level: ' + level + ', label: "HSK ' + level + '"')));
   assert.match(ui, /data-roadmap-card-count", "10"/);
   assert.match(ui, /button\.disabled = true/);
 });
@@ -69,4 +69,28 @@ test('all ten palettes and accessibility fallbacks remain present', () => {
 test('existing progress and click logic remains unchanged', () => {
   assert.match(dashboard, /stage\.progress=stage\.active\?levelProgress/);
   assert.match(dashboard, /navigateHskLevel\(Number\(button\.getAttribute\("data-v865-level"\)\)\)/);
+});
+
+
+test('home roadmap keeps one active HSK5/6 and settles after enhancement and home rerender', () => {
+  const {JSDOM}=require('jsdom');
+  const dom=new JSDOM('<section id="v865HomeRoadmap"><div class="v865-road-scroll"></div></section>',{url:'https://example.invalid',runScripts:'outside-only'});
+  const w=dom.window,d=w.document;w.requestAnimationFrame=()=>0;
+  const scroll=d.querySelector('.v865-road-scroll');
+  const initial=()=>Array.from({length:8},(_,level)=>'<button class="v865-road-stage '+(level===7?'locked':'')+'" data-v865-level="'+level+'"><span class="v865-road-icon">汉</span><strong>HSK '+level+'</strong><small>Sẵn sàng học</small><div class="v865-road-track"><i></i></div></button>').join('');
+  try{
+    w.eval(ui);
+    for(let render=0;render<2;render++){
+      scroll.innerHTML=initial();w.VDuckieHSKRoadmapV894.enhance();
+      assert.equal(scroll.children.length,10);
+      for(const level of [5,6]){
+        const cards=scroll.querySelectorAll('[data-v865-level="'+level+'"]');
+        assert.equal(cards.length,1,'one card per available level');assert.equal(cards[0].disabled,false);
+        assert.doesNotMatch(cards[0].textContent,/Sắp mở/);
+      }
+      const cards=Array.from(scroll.children);
+      w.VDuckieHSKRoadmapV894.enhance();
+      assert.deepEqual(Array.from(scroll.children),cards,'a settled roadmap must not keep replacing its locked cards');
+    }
+  }finally{w.close();}
 });

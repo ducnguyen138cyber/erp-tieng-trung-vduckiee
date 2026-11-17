@@ -262,7 +262,7 @@
     } else {
       body = renderDailyQuestion(step, term);
     }
-    panel().innerHTML = '<div class="learning-session app-screen">' + sessionHeader(active.review ? "Ôn tập thích ứng" : "5 từ công xưởng", active.index, active.plan.length) + '<main class="learning-step">' + body + '</main>' + sessionNav(canNext, step.type === "intro" ? "Tao đã xem" : "Tiếp") + '</div>';
+    panel().innerHTML = '<div class="learning-session app-screen">' + sessionHeader(active.review ? "Ôn tập thích ứng" : "5 từ công xưởng", active.index, active.plan.length) + '<main class="learning-step">' + body + '</main>' + sessionNav(canNext, "Tiếp") + '</div>';
     bindSessionNavigation(renderDailyStep); bindSpeak();
     if (step.type === "writing") setupDailyWriting(term);
     if (step.type === "quiz" || step.type === "sentence") bindDailyAnswers(step, term);

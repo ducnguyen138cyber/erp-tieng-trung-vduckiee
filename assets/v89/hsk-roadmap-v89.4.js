@@ -5,8 +5,6 @@
   var observer = null;
   var scheduled = false;
   var lockedStages = [
-    { level: 5, label: "HSK 5", icon: "伍" },
-    { level: 6, label: "HSK 6", icon: "陆" },
     { level: 7, label: "HSK 7", icon: "柒" },
     { level: 8, label: "HSK 8", icon: "捌" },
     { level: 9, label: "HSK 9", icon: "玖" }
