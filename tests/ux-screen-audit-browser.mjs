@@ -16,9 +16,11 @@ try{
   const browser=await type.launch();
   try{for(const [width,height] of sizes){
    const context=await browser.newContext({viewport:{width,height},isMobile:width<951,hasTouch:width<951,serviceWorkers:'block'}),page=await context.newPage(),errors=[];
+   let communityFailure=true;
    page.setDefaultTimeout(12000);page.on('pageerror',e=>errors.push(e.message));
    await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:'window.supabase={createClient(){const q=()=>new Proxy({},{get(o,k){if(k==="then")return ok=>Promise.resolve({data:[],error:null}).then(ok);return()=>q()}});return{auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}}'}));
    await page.route('https://*.supabase.co/**',r=>r.abort());
+   await page.route('https://erp-tieng-trung.vduckie.chatgpt.site/api/community-terms',r=>r.fulfill({status:communityFailure?503:200,headers:{'access-control-allow-origin':'*'},contentType:'application/json',body:JSON.stringify(communityFailure?{error:'fixture unavailable'}:{terms:[]})}));
    await page.goto(base+'?screen=home');
    await page.waitForFunction(()=>window.VDuckieScreenRouter&&window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieHeaderSearch);
    await page.waitForFunction(()=>[...document.querySelectorAll('link[rel="stylesheet"]')].every(e=>e.sheet));
@@ -43,6 +45,12 @@ try{
      return {screen,...geometry,contentLength:content.length};
     });
    }
+   await sample('community-error-retry',async()=>{
+    await menu('[data-view="community"]');await page.locator('#communityTerms').filter({hasText:'Chưa tải được'}).waitFor();
+    communityFailure=false;await page.locator('#refreshCommunity').click();
+    await page.locator('#communityTerms').filter({hasText:'Chưa có từ nào'}).waitFor();
+    assert.doesNotMatch(await page.locator('#communityTerms').innerText(),/Đang tải/);
+   });
    await sample('panel-exit',async()=>{
     for(const screen of ['profile','dictionary','review','daily']){
      await menu('[data-daily-nav="'+screen+'"]');await page.locator('#dailyLearningPanel [data-session-exit]').first().click();
