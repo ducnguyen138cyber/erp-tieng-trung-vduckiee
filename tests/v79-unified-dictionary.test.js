@@ -73,11 +73,25 @@ test('HSK 1-6 and 7-9 filters work while ERP filters remain intact', () => {
 test('v79 loaders preserve 1600 ERP terms and add the local HSK dataset', () => {
   assert.match(pinyinPipeline, /erp-terms-v77-finalize\.js\?v=77\.1/);
   assert.match(pinyinPipeline, /hsk-dictionary-v79\.js\?v=79\.0/);
-  assert.match(pinyinPipeline, /unified-dictionary-v79\.js\?v=79\.0/);
+  assert.match(pinyinPipeline, /unified-dictionary-v79\.js\?v=79\.3/);
   assert.doesNotMatch(pinyinPipeline, /unified-dictionary-v78/);
   assert.match(community, /home-copy-v79\.js\?v=[\w.-]+/);
   assert.match(hskLoader, /MIN_TERMS=10000/);
   assert.match(loader, /part"\+index\+"\.txt\?v=[\w.-]+/);
   assert.match(source, /version: "79\.0"/);
   assert.match(homeCopy, /vduckie:hsk-dictionary-ready/);
+});
+
+// Faster startup can load the full 150-word course before the dictionary.
+// Replacing the starter course must not drop phrases used in foundation lessons.
+test('foundation practice phrases survive full HSK1 installation without a false HSK level', () => {
+  const foundation = { foundation: true, practiceWords: [['你好', 'nǐ hǎo', 'Xin chào', '你好！', 'Xin chào!']] };
+  const curriculum = { levels: { 0: [foundation], 1: [{ words: [['你', 'nǐ', 'Bạn'], ['好', 'hǎo', 'Tốt']] }] } };
+  const records = utils.buildRecords([], curriculum);
+  const phrase = records.find(row => row.hanzi === '你好');
+  assert.ok(phrase);
+  assert.equal(phrase.pinyin, 'nǐ hǎo');
+  assert.deepEqual(Array.from(phrase.meanings.hsk), ['Xin chào']);
+  assert.deepEqual(Array.from(phrase.hskLevels), []);
+  assert.equal(utils.filterRecords(records, {source:'all', query:'ni hao'}).length, 1);
 });
