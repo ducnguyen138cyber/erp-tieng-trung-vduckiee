@@ -4,6 +4,32 @@
   var core = root.VDuckieEXPCore;
   var period = "total";
   var requestNumber = 0;
+  var snapshot = null, pending = null, renderedKey = null;
+  function userKey() { var session = core.session(); return session && session.user ? session.user.id : "guest"; }
+  function invalidate() { snapshot = null; pending = null; }
+  // One snapshot for Top 5, podium, list and own rank. Never mix identities.
+  function load(force) {
+    var key = userKey();
+    if (pending && pending.key === key) return pending.promise;
+    if (!force && snapshot && snapshot.key === key && Date.now() - snapshot.at < 15000) return Promise.resolve(snapshot);
+    var client = core.client(), session = core.session();
+    if (!client) return Promise.reject(new Error("not configured"));
+    var task = { key: key };
+    task.promise = Promise.all([
+      client.rpc("get_leaderboard", { p_period: "total", p_limit: 100 }),
+      session && session.user ? client.rpc("get_my_rank", { p_period: "total" }) : Promise.resolve({ data: null, error: null })
+    ]).then(function (results) {
+      if (results[0].error) throw results[0].error;
+      if (results[1].error) throw results[1].error;
+      var mine = Array.isArray(results[1].data) ? results[1].data[0] : results[1].data;
+      var value = { key: key, at: Date.now(), rows: (results[0].data || []).map(normalize), mine: mine ? normalize(mine) : null };
+      if (pending === task && userKey() === key) snapshot = value;
+      return value;
+    }).finally(function () { if (pending === task) pending = null; });
+    pending = task;
+    return task.promise;
+  }
+  document.addEventListener("vduckie:exp-updated", invalidate);
 
   function byId(id) { return document.getElementById(id); }
   function avatar(name, url, className) {
@@ -23,6 +49,12 @@
     };
   }
   function levelText(total) { return "Level " + core.calculateUserLevel(total).level; }
+  function loadingPodium() {
+    var host = byId("expPodium"); if (!host) return;
+    host.innerHTML = [1,2,3].map(function(rank) {
+      return '<article class="exp-podium-card exp-podium-loading rank-' + rank + '" aria-hidden="true"><span class="exp-medal">&nbsp;</span><span class="exp-avatar">&nbsp;</span><strong>&nbsp;</strong><small>&nbsp;</small><b>&nbsp;</b></article>';
+    }).join("");
+  }
   function podium(rows) {
     var host = byId("expPodium"); if (!host) return;
     var medals = ["🥇", "🥈", "🥉"], html = "";
@@ -31,7 +63,7 @@
       if (!row) html += '<article class="exp-podium-card rank-' + (index + 1) + '"><span class="exp-medal">' + medals[index] + '</span><span class="exp-avatar">?</span><strong>Chưa có người học</strong><small>Level 1</small><b>0 EXP</b></article>';
       else html += '<article class="exp-podium-card rank-' + (index + 1) + '"><span class="exp-medal">' + medals[index] + '</span>' + avatar(row.display_name, row.avatar_url) + '<strong>' + core.escapeHtml(row.display_name) + '</strong><small>' + levelText(row.total_exp) + '</small><b>' + core.escapeHtml(core.formatEXP(row.total_exp)) + '</b></article>';
     }
-    host.innerHTML = html;
+    if (host.innerHTML !== html) host.innerHTML = html;
   }
   function rows(rowsData, myRank) {
     var host = byId("expLeaderboardList"); if (!host) return;
@@ -53,29 +85,30 @@
     period = "total";
     var tabs = document.querySelectorAll("[data-exp-period]");
     Array.prototype.forEach.call(tabs, function (tab) { var active = tab.getAttribute("data-exp-period") === period; tab.classList.toggle("active", active); tab.setAttribute("aria-selected", active ? "true" : "false"); });
-    var host = byId("expLeaderboardList"), client = core.client(), session = core.session();
-    if (host) host.innerHTML = '<div class="exp-state">Đang tải bảng xếp hạng…</div>';
+    var host = byId("expLeaderboardList"), key = userKey();
     var requestId = ++requestNumber;
-    if (!client) { podium([]); if (host) host.innerHTML = '<div class="exp-state"><strong>Chưa kết nối được bảng xếp hạng</strong>Không thể tải bảng xếp hạng.</div>'; return Promise.resolve([]); }
-    return Promise.all([
-      client.rpc("get_leaderboard", { p_period: period, p_limit: 100 }),
-      session && session.user ? client.rpc("get_my_rank", { p_period: period }) : Promise.resolve({ data: null, error: null })
-    ]).then(function (results) {
-      if (requestId !== requestNumber) return [];
-      if (results[0].error) throw results[0].error;
-      if (results[1].error) throw results[1].error;
-      var list = (results[0].data || []).map(normalize);
-      var rawMine = Array.isArray(results[1].data) ? results[1].data[0] : results[1].data;
-      var mine = rawMine ? { rank: Number(rawMine.rank || 0), period_exp: Number(rawMine.period_exp || 0), total_exp: Number(rawMine.total_exp || 0) } : null;
-      podium(list); rows(list, mine); ownRank(mine, list);
+    var board = byId("leaderboard");
+    if (board) board.setAttribute("aria-busy", "true");
+    // Keep confirmed content during same-account revalidation. Initial space is reserved in CSS.
+    if (renderedKey !== key) {
+      var pod = byId("expPodium"), own = byId("expMyRank");
+      if (pod) loadingPodium();
+      if (own) own.innerHTML = "";
+      if (host) host.innerHTML = '<div class="exp-state">Đang tải bảng xếp hạng…</div>';
+    }
+    return load(arguments[0] === true).then(function (value) {
+      if (requestId !== requestNumber || userKey() !== key) return [];
+      var list = value.rows, mine = value.mine;
+      podium(list); rows(list, mine); ownRank(mine, list); renderedKey = key;
       document.dispatchEvent(new CustomEvent("vduckie:leaderboard-updated", { detail: { period: period, rows: list, myRank: mine } }));
       return list;
     }).catch(function (error) {
-      if (requestId !== requestNumber) return [];
-      console.error("Leaderboard failed", error); podium([]);
+      if (requestId !== requestNumber || userKey() !== key) return [];
+      console.error("Leaderboard failed", error);
+      var pod = byId("expPodium"); if (pod) loadingPodium();
       if (host) host.innerHTML = '<div class="exp-state"><strong>Không tải được bảng xếp hạng</strong>' + (/migration v90|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error)) ? "Hãy thử lại sau ít phút." : "Hãy kiểm tra kết nối và thử lại.") + '<button type="button" data-exp-retry-board>Thử lại</button></div>';
       return [];
-    });
+    }).finally(function () { if (board && requestId === requestNumber) board.setAttribute("aria-busy", "false"); });
   }
-  root.VDuckieEXPBoard = { refresh: refresh, period: function () { return period; }, normalize: normalize };
+  root.VDuckieEXPBoard = { refresh: refresh, load: load, invalidate: invalidate, period: function () { return period; }, normalize: normalize };
 })(window, document);

@@ -100,6 +100,8 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
    assert.equal(await mask.getAttribute('aria-hidden'),'true');assert.equal(await input.evaluate(n=>getComputedStyle(n).color),'rgba(0, 0, 0, 0)');
    await input.pressSequentially(answer[0]);assert.equal(await page.locator('.sg-slot.is-correct').textContent(),answer[0]);assert.equal(await page.locator('.sg-slot.is-correct').evaluate(n=>getComputedStyle(n).color),'rgb(21, 148, 85)');
    // Freeze the finite error animation to verify both feedback color and movement.
+   // Observe and freeze inside the input event, before runner scheduling can consume the 420ms animation.
+   await input.evaluate(el=>el.addEventListener('input',()=>{const a=document.querySelector('.sg-slot.is-current')?.getAnimations()[0];if(a){a.pause();a.currentTime=100;}}));
    await input.pressSequentially('#');assert.equal(await input.inputValue(),answer[0]);
    const error=await page.locator('.sg-slot.is-current').evaluate(n=>{const a=n.getAnimations()[0];if(!a)return null;a.pause();a.currentTime=100;return {duration:a.effect.getTiming().duration,color:getComputedStyle(n).color,frames:a.effect.getKeyframes()};});
    assert.ok(error,'wrong character animates current star');assert.equal(error.duration,420);assert.equal(error.color,'rgb(220, 38, 38)');assert.ok(error.frames.some(f=>f.transform==='translateX(-3px)'));

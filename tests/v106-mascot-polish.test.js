@@ -15,7 +15,7 @@ test("production loads the current progress store before mascot polish, after it
   const polish=entry.asset("assets/v106/mascot-polish-v106.js");
   assert.ok(entry.html.indexOf(progress) < entry.html.indexOf(polish));
   assert.match(index, /mascot-polish-v106\.css\?v=106\.1/);
-  assert.match(index, /mascot-polish-v106\.js\?v=106\.1/);
+  assert.match(index, /mascot-polish-v106\.js\?v=beta-perf2/);
 });
 
 test("all ten levels retain distinct slow idle behaviours and common scale", () => {

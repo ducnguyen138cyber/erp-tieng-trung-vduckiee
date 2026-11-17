@@ -106,6 +106,8 @@
     scheduleCinematic(entry,function(){disposeCinematic(entry,true)},260);return true;
   }
   function cinematic(fromLevel,toLevel,preview){
+    // Fetch cinematic sprites when this effect is requested, not during app hydration.
+    preload(toLevel);
     var previousFocus=activeCinematic&&activeCinematic.previousFocus||document.activeElement;
     if(activeCinematic)disposeCinematic(activeCinematic,false);
     var gift=unlockedOutfit(toLevel),host=document.createElement("div"),entry={id:++cinematicSequence,node:host,timers:[],background:[],previousFocus:previousFocus,blocker:null};
@@ -126,7 +128,7 @@
   }
   function resetBaseline(identity,level,hydrated){baseline.sessionIdentity=identity;baseline.level=safeLevel(level);baseline.hydrated=!!hydrated}
   function onProgress(event){
-    var next=progressDetail(event);preload(next.level);
+    var next=progressDetail(event);
     if(next.sessionIdentity!==baseline.sessionIdentity){resetBaseline(next.sessionIdentity,next.level,false)}
     if(!next.hydrated||next.source==="session"||!baseline.hydrated){resetBaseline(next.sessionIdentity,next.level,next.hydrated&&next.source!=="session");return}
     if(next.source==="mutation"&&next.level>baseline.level)cinematic(baseline.level,next.level,false);
@@ -192,6 +194,6 @@
   document.addEventListener("vduckie:progress-updated",onProgress);document.addEventListener("vduckie:developer-animation-test",onDeveloper);document.addEventListener("vduckie:mascot-event",onMascotEvent);
   document.addEventListener("pointerenter",onPointerEnter,true);document.addEventListener("pointermove",parallax,true);document.addEventListener("pointerleave",resetParallax,true);document.addEventListener("click",onClick,true);document.addEventListener("focusin",onFocusIn,true);
   if(core&&typeof core.onSession==="function")unsubscribeSession=core.onSession(onSession);
-  preload(baseline.level);initLegacyGuard();
+  initLegacyGuard();
   root.VDuckiePolishV106=Object.freeze({version:"106.1",handlesLevelUp:true,preload:preload,cinematic:cinematic,destroy:destroy,getState:function(){return Object.freeze({baseline:Object.freeze({hydrated:baseline.hydrated,sessionIdentity:baseline.sessionIdentity,level:baseline.level}),activeCinematicId:activeCinematic&&activeCinematic.id||0,audioState:audio&&audio.state||"closed"})}});
 })(window,document);

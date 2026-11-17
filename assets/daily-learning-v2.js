@@ -110,7 +110,11 @@
     return root.matchMedia("(max-width: 980px)").matches || root.matchMedia("(display-mode: standalone)").matches;
   }
 
+  var renderingToday = false;
   function renderToday() {
+    if (renderingToday) return;
+    renderingToday = true;
+    try {
     var hub = document.getElementById("homeHub"); if (!hub) return;
     var existingToday = hub.querySelector(".daily-today");
     if (!isAppLayout()) {
@@ -125,9 +129,13 @@
       '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ công xưởng đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
     // Never replace #homeHub: the complete home dashboard must remain accessible on phones/PWA.
     // Repaint only the optional daily summary so home links and events survive sync.
-    if (existingToday) existingToday.outerHTML = todayMarkup;
+    if (existingToday && existingToday.__todayMarkup === todayMarkup) return;
+    if (existingToday && existingToday.parentNode) existingToday.outerHTML = todayMarkup;
     else hub.insertAdjacentHTML("afterbegin", todayMarkup);
+    var mounted = hub.querySelector(".daily-today");
+    if (mounted) mounted.__todayMarkup = todayMarkup;
     bindNav(hub);
+    } finally { renderingToday = false; }
   }
   function task(classes, kicker, title, copy, progress, width, action, kind) {
     return '<article class="daily-task ' + classes + '"><span class="daily-task-kicker">' + esc(kicker) + '</span><h2>' + esc(title) + '</h2><p>' + esc(copy) + '</p><div class="daily-task-progress"><span><b>Tiến độ</b><b>' + esc(progress) + '</b></span><div class="daily-bar"><i style="width:' + Math.min(100, width) + '%"></i></div><button class="daily-action" type="button" data-daily-nav="' + kind + '">' + esc(action) + ' →</button></div></article>';

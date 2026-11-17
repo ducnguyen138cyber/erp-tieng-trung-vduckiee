@@ -121,9 +121,12 @@ try{
    // All production styles and the real route handler must cooperate with overlay history.
    for(const width of [390,1440]){
     const context=await browser.newContext({viewport:{width,height:850},isMobile:width<950,hasTouch:width<950,serviceWorkers:'block'}),page=await context.newPage();
+    const appErrors=[];page.on('pageerror',e=>appErrors.push(e.stack));
     await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:'window.supabase={createClient(){const q=()=>new Proxy({},{get(o,k){if(k==="then")return ok=>Promise.resolve({data:[],error:null}).then(ok);return()=>q()}});return{auth:{getSession:async()=>({data:{session:null}}),onAuthStateChange:()=>({data:{subscription:{unsubscribe(){}}}})},from:q,rpc:async()=>({data:[],error:null})}}}'}));
     await page.goto(base+'/?screen=home');
-    await page.waitForFunction(()=>window.VDuckieScreenRouter&&window.VDuckieHeaderSearch?.search('你好').length&&window.__VDUCKIE_EXPERIENCE_V86_READY__);
+    try{await page.waitForFunction(()=>window.VDuckieScreenRouter&&window.VDuckieHeaderSearch?.search('你好').length&&window.__VDUCKIE_EXPERIENCE_V86_READY__);}catch(error){
+      console.log('SEARCH_BOOT_DIAGNOSTIC',JSON.stringify({engine,width,errors:appErrors,state:await page.evaluate(()=>({route:!!window.VDuckieScreenRouter,search:!!window.VDuckieHeaderSearch,ready:window.__VDUCKIE_EXPERIENCE_V86_READY__,results:window.VDuckieHeaderSearch?.search('你好'),terms:window.HSK_DICTIONARY_TERMS?.length,body:document.body.innerText.slice(0,400)}))}));throw error;
+    }
     await page.waitForFunction(()=>[...document.querySelectorAll('link[rel="stylesheet"]')].every(e=>e.sheet));
     const input=page.locator('#vsearchInput'),url=page.url();
     const before=await page.locator('#appShell').evaluate(e=>e.getBoundingClientRect().width);

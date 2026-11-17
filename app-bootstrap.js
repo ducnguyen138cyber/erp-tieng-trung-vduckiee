@@ -4,7 +4,7 @@
   const cssAssets = [
   "./assets/v89/legacy-dashboard-exp-cleanup-v89.1.css?v=89.1",
   "./assets/v89/hsk-roadmap-v89.4.css?v=89.4",
-  "./assets/v90/exp-system-v90.css?v=90.1",
+  "./assets/v90/exp-system-v90.css?v=beta-perf1",
   "./assets/v90/home-header-sidebar-v90.1.css?v=90.3",
   "./assets/v91/header-account-dropdown-v91.css?v=91.5",
   "./assets/v91/three-column-scroll-v91.10.css?v=91.10",
@@ -13,17 +13,17 @@
   "./assets/developer-ui/developer-center.css?v=108.1"
 ];
   const jsAssets = [
-  "./assets/v90/exp-core-v90.js?v=hsk56-1",
+  "./assets/v90/exp-core-v90.js?v=beta-perf1",
   "./assets/v92/progress-store-v92.js?v=106.1",
-  "./assets/v90/exp-board-v90.js?v=total-exp1",
-  "./assets/v90/exp-leaderboard-v90.js?v=total-exp1",
+  "./assets/v90/exp-board-v90.js?v=beta-perf1",
+  "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
   "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
-  "./assets/v90/exp-weekly-v90.js?v=90.0",
+  "./assets/v90/exp-weekly-v90.js?v=beta-perf1",
   "./assets/v90/header-account-session-bridge-v90.3.js?v=90.3",
-  "./assets/v90/home-exp-sidebar-v90.js?v=total-exp1",
+  "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
   "./assets/v89/legacy-dashboard-exp-cleanup-v89.1.js?v=89.1",
   "./assets/v89/hsk-roadmap-v89.4.js?v=89.4",
-  "./assets/v91/header-account-dropdown-v91.js?v=91.5",
+  "./assets/v91/header-account-dropdown-v91.js?v=beta-perf1",
   "./assets/hsk-content/hsk-content-feature-flags.js?v=hsk56-1",
   "./assets/hsk-content/hsk-content-loader.js?v=2b4.0",
   "./assets/hsk-content/hsk-content-adapter.js?v=2b1.0",
@@ -41,7 +41,7 @@
   "./assets/developer-ui/developer-center-core.js?v=108.1",
   "./assets/developer-ui/developer-center.js?v=108.1",
   "./assets/developer/developer-control-center.js?v=2b4.0",
-  "./assets/navigation/screen-router.js?v=1.0"
+  "./assets/navigation/screen-router.js?v=beta-perf2"
 ];
   const loading = document.querySelector('[data-app-loading]');
   try {

@@ -231,11 +231,30 @@
     var main = document.querySelector(".study-center");
     if (!main || main.__vduckieScreenObserver) return;
     var scheduled = false;
-    main.__vduckieScreenObserver = new MutationObserver(function () {
+    main.__vduckieScreenObserver = new MutationObserver(function (records) {
+      // Leaf text/animation updates cannot change the active top-level screen.
+      if (!records.some(function(record) {
+        if (record.type === "attributes") return record.target === document.body || viewIds.indexOf(record.target.id) !== -1;
+        return Array.prototype.some.call(record.addedNodes, function(node) { return node.nodeType === 1 && viewIds.indexOf(node.id) !== -1; });
+      })) return;
       if (scheduled || !current) return;
       scheduled = true;
       root.requestAnimationFrame(function () {
         scheduled = false;
+        var owned = current === "ranking" ? "leaderboard" : current === "home" ? "homeHub" :
+          current === "roadmap" ? "hskRoadmapScreen" :
+          ["daily","review","dictionary","profile"].indexOf(current) !== -1 ? "dailyLearningPanel" : null;
+        if (owned) {
+          viewIds.forEach(function(id) { if (id !== owned) hide(id); });
+          var active = document.getElementById(owned);
+          if (active && active.classList.contains("hidden")) active.classList.remove("hidden");
+          if (document.body.getAttribute("data-current-area") !== current) document.body.setAttribute("data-current-area", current);
+          // Legacy HSK selection also writes ?area=hsk#hsk. Leaving that URL
+          // behind causes its area observer to continuously re-open the old panel.
+          if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk")
+            root.history.replaceState(root.history.state, "", urlFor(current));
+          return;
+        }
         if (current === "vietnamese") {
           viewIds.forEach(function(id){if(id!=="vietnameseScreen")hide(id);});
           if (document.body.getAttribute("data-current-area") !== "vietnamese") document.body.setAttribute("data-current-area", "vietnamese");

@@ -23,10 +23,9 @@
       return chain.then(function () { return claimable.length ? root.VDuckieEXP.getWeeklyMissions() : rows; });
     }).then(function (rows) {
       dispatch(rows);
-      return root.VDuckieEXP.getCurrentUserEXP().then(function (total) { document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: total } })); return rows; });
-    }).then(function (rows) {
-      if (root.VDuckieEXPUI && root.VDuckieEXPUI.isLeaderboardOpen()) root.VDuckieEXPUI.refreshLeaderboard();
-      document.dispatchEvent(new CustomEvent("vduckie:mini-leaderboard-refresh"));
+      // Successful claims already announce their confirmed total through
+      // exp-updated/my-exp-loaded. A read-only mission refresh must not
+      // refetch EXP and both leaderboards, especially during slow boot.
       return rows;
     }).catch(function (error) { console.error("Weekly missions failed", error); dispatch([], error); return []; }).finally(function () { refreshPromise = null; });
     return refreshPromise;

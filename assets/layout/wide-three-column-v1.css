@@ -23,3 +23,9 @@
 /* Keep the legacy HSK panel truly hidden on non-HSK routes. This is
    layout/visibility ownership, intentionally outside paint-only brand CSS. */
 #hsk.hidden,#hskJourney.hidden,#hskHero.hidden{display:none!important}
+
+/* Route guards target panel IDs, including panels nested in the legacy main wrapper. */
+body:is([data-screen-route="ranking"]) :is(#homeHub,#erpHero,#hskHero,#lessons,#cards,#quiz,#glossary,#personal,#community,#hsk,#dialogue,#homeJourney,#erpJourney,#hskJourney,#dailyLearningPanel,#hskRoadmapScreen,#gamesScreen,#vietnameseScreen){display:none!important}
+body:is([data-screen-route="home"]) :is(#erpHero,#hskHero,#lessons,#cards,#quiz,#glossary,#personal,#community,#hsk,#dialogue,#homeJourney,#erpJourney,#hskJourney,#leaderboard,#dailyLearningPanel,#hskRoadmapScreen,#gamesScreen,#vietnameseScreen){display:none!important}
+body:is([data-screen-route="roadmap"]) :is(#homeHub,#erpHero,#hskHero,#lessons,#cards,#quiz,#glossary,#personal,#community,#hsk,#dialogue,#homeJourney,#erpJourney,#hskJourney,#leaderboard,#dailyLearningPanel,#gamesScreen,#vietnameseScreen){display:none!important}
+body:is([data-screen-route="daily"],[data-screen-route="review"],[data-screen-route="dictionary"],[data-screen-route="profile"]) :is(#homeHub,#erpHero,#hskHero,#lessons,#cards,#quiz,#glossary,#personal,#community,#hsk,#dialogue,#homeJourney,#erpJourney,#hskJourney,#leaderboard,#hskRoadmapScreen,#gamesScreen,#vietnameseScreen){display:none!important}

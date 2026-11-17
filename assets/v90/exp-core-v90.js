@@ -5,6 +5,9 @@
   var config = root.VDUCKIE_SUPABASE_CONFIG || {};
   var client = null;
   var session = null;
+  var sessionReady = false;
+  var sessionNotifiedAt = 0;
+  var expRead = null;
   var listeners = [];
   var toastTimer = null;
 
@@ -84,6 +87,8 @@
   }
   function announceAward(row,anchor){
     if(row&&row.awarded&&Number(row.exp_awarded)>0){
+      // A pre-award read can still be in flight; mutation subscribers need a fresh total.
+      expRead = null;
       floatAward(row.exp_awarded,anchor);
       document.dispatchEvent(new CustomEvent("vduckie:exp-updated",{detail:row}));
       document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded",{detail:{totalEXP:Number(row.total_exp)||0}}));
@@ -122,7 +127,15 @@
     });
   }
   function setSession(nextSession) {
+    var previous = session && JSON.stringify([session.user.id, session.user.user_metadata]);
     session = nextSession || null;
+    var next = session && JSON.stringify([session.user.id, session.user.user_metadata]);
+    // Coalesce getSession + INITIAL_SESSION without swallowing later same-user
+    // sign-in/refocus notifications (another device may have earned EXP).
+    if (sessionReady && previous === next && Date.now() - sessionNotifiedAt < 1000) return;
+    sessionNotifiedAt = Date.now();
+    sessionReady = true;
+    expRead = null;
     var identity = byId("cloudIdentity");
     if (identity && session && session.user) identity.textContent = userMeta(session.user).name;
     notify();
@@ -131,7 +144,7 @@
   function onSession(callback) {
     if (typeof callback !== "function") return function () {};
     listeners.push(callback);
-    callback(session);
+    if (sessionReady) callback(session);
     return function () {
       var index = listeners.indexOf(callback);
       if (index >= 0) listeners.splice(index, 1);
@@ -153,7 +166,13 @@
   }
   function getCurrentUserEXP() {
     if (!client || !session || !session.user) return Promise.resolve(0);
-    return rpc("get_my_exp").then(function (value) { return Number(value || 0); });
+    var userId = session.user.id;
+    if (expRead && expRead.userId === userId) return expRead.promise;
+    var read = { userId: userId };
+    read.promise = rpc("get_my_exp").then(function (value) { return Number(value || 0); })
+      .finally(function () { if (expRead === read) expRead = null; });
+    expRead = read;
+    return read.promise;
   }
   function recordLearningEvent(eventCode, sourceId) {
     if (!session || !session.user || !client) return Promise.resolve({ recorded: false, reason: "not_authenticated" });
@@ -201,8 +220,8 @@
   }
   function init() {
     client = createClient();
-    if (!client) { notify(); return; }
-    client.auth.getSession().then(function (result) { setSession(result.data && result.data.session); });
+    if (!client) { sessionReady = true; notify(); return; }
+    client.auth.getSession().then(function (result) { setSession(result.data && result.data.session); }).catch(function () { setSession(null); });
     client.auth.onAuthStateChange(function (_event, nextSession) {
       setTimeout(function () { setSession(nextSession); }, 0);
     });
