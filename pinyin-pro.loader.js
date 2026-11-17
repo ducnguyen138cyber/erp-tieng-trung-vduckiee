@@ -47,7 +47,7 @@
   ];
   // Keep the source list above as an auditable fallback manifest; executing
   // one generated bundle avoids 15 parser-blocking network round trips.
-  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=1";
+  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=3";
   function loadFallback(index) {
     if (index >= files.length) return;
     var fallback = document.createElement("script");

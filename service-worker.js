@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v64";
+const CACHE_VERSION = "vduckie-pwa-v65";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -23,7 +23,7 @@ const APP_SHELL = [
   "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
   "./app-shell-v88.html?v=seo-guides1",
   "./assets/boot/pinyin-parts-boot-v1.js?v=1",
-  "./assets/boot/erp-dictionary-boot-v1.js?v=2",
+  "./assets/boot/erp-dictionary-boot-v1.js?v=3",
   "./erp-content-v74.js?v=factory1",
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",

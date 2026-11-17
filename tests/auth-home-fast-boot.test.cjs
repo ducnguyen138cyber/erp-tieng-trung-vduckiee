@@ -58,7 +58,7 @@ test("ERP dictionary boot replaces the 15 serial document.write calls", async ()
     globalThis:state,window:state,document:doc,console,Promise
   });
   assert.equal(writes.length, 1);
-  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=1/);
+  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=3/);
   assert.match(writes[0], /<\/script>/);
   await state.PinyinEngineReady;
 });
