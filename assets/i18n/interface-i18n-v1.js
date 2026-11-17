@@ -2630,7 +2630,7 @@
   Object.assign(strings,{"Bài luyện HSK":["HSK 词汇练习","HSK vocabulary practice"],"Bài luyện HSK · 224 mã bài":["HSK 词汇练习 · 224 套","HSK vocabulary practice · 224 variants"],"Cấp HSK đang mở":["已开放的 HSK 级别","Available HSK levels"],"Ghi âm và tự nghe lại":["录音并回听","Record and listen back"],"Luyện nghe & Shadowing":["听力与跟读","Listening & shadowing"],"Học theo nhu cầu":["按需学习","Choose your practice"],"Tra từ":["查词","Look up a word"],"Xem giáo trình":["查看课程","Browse lessons"],"Luyện nghe & Shadowing bài này →":["练习本课听力与跟读 →","Listen & shadow this lesson →"],"Luyện nghe & Shadowing HSK1 →":["HSK1 听力与跟读 →","HSK1 listening & shadowing →"],"Học từng phần, rồi làm bài tập để xem mức độ ghi nhớ.":["逐步学习，再练习检查记忆。","Study each section, then practise to check your recall."],"Luyện từ vựng, chữ Hán và Pinyin qua Nghe, Đọc, Viết theo cấp độ. Audio TTS; không phải đề thi HSK chính thức.":["按级别练习词汇、汉字和拼音，包含听力、阅读及书写。采用合成语音，并非官方 HSK 试卷。","Practise vocabulary, Hanzi and Pinyin through level-based listening, reading and writing. TTS audio; not official HSK exams."],"Chọn bài luyện HSK →":["选择 HSK 练习 →","Choose HSK practice →"],"Đánh giá giữa khóa":["期中评估","Mid-course assessment"],"Đánh giá cuối khóa":["结课评估","Final assessment"],"Ôn tập tổng hợp":["综合复习","Comprehensive review"],"Ôn tập chương":["单元复习","Unit review"],"Tiêu chí tự đối chiếu":["自评标准","Self-check criteria"],"Xem tiêu chí tự đối chiếu":["查看自评标准","Show self-check criteria"],"Bài tập của bài học":["本课练习","Lesson exercises"]});
   var rootsSelector="header.top,#studySidebar,.study-center,#hsk,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector=".tg-overlay,#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
-  var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,menu=null,lang=read(),observer=null;
+  var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,dirtyNodes=[],fullPass=false,menu=null,lang=read(),observer=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
   function t(key,next){var index=(next||lang)==="zh"?0:(next||lang)==="en"?1:-1;return index<0||!strings[key]?key:strings[key][index]||key;}
@@ -2874,12 +2874,53 @@
       if(observer)observer.observe(doc.body,{childList:true,subtree:true,characterData:true});
     }
   }
-  // MutationObserver runs before the next browser paint. Translate in a microtask
-  // instead of waiting 85ms, when the Vietnamese source text was briefly visible.
-  function schedule(){
+  // A DOM update only invalidates the inserted/edited subtree. A full walk is
+  // reserved for startup, explicit refresh and language changes. Keep translation
+  // in the same microtask checkpoint so source labels never flash before paint.
+  function translateChanged(element){
+    if(!element||!element.isConnected)return;
+    if(element.nodeType===3)element=element.parentElement;
+    if(!element||!element.closest)return;
+    if(element.closest(rootsSelector))translateRoot(element);
+    else {
+      if(element.matches("button,[role='tab'],[role='menuitem']")&&!element.closest(excludedSelector))translateRoot(element);
+      element.querySelectorAll(rootsSelector+",button,[role='tab'],[role='menuitem']").forEach(function(node){
+        if(node.closest(rootsSelector)||!node.closest(excludedSelector))translateRoot(node);
+      });
+    }
+    var pins=Array.from(element.querySelectorAll("[data-vd-i18n-key]"));
+    var pinned=element.closest("[data-vd-i18n-key]");if(pinned)pins.push(pinned);
+    pins.forEach(function(node){
+      var key=node.getAttribute("data-vd-i18n-key"),wanted=t(key);
+      if(strings[key]&&node.textContent!==wanted)node.textContent=wanted;
+    });
+  }
+  function flushChanges(){
+    var nodes=Array.from(new Set(dirtyNodes));dirtyNodes=[];
+    if(observer)observer.disconnect();
+    try{
+      ensureMenu();ensureGuest();
+      nodes.forEach(function(node,index){
+        if(!nodes.some(function(parent,other){return other!==index&&parent.contains(node);}))translateChanged(node);
+      });
+    }finally{
+      if(observer)observer.observe(doc.body,{childList:true,subtree:true,characterData:true});
+    }
+  }
+  function schedule(changes){
+    if(Array.isArray(changes)){
+      changes.forEach(function(change){
+        if(change.type==="characterData")dirtyNodes.push(change.target);
+        else Array.prototype.forEach.call(change.addedNodes||[],function(node){dirtyNodes.push(node);});
+      });
+    }else fullPass=true;
     if(scheduled)return;
     scheduled=true;
-    var run=function(){scheduled=false;apply();};
+    var run=function(){
+      scheduled=false;
+      if(fullPass){fullPass=false;dirtyNodes=[];apply();}
+      else flushChanges();
+    };
     if(typeof root.queueMicrotask==="function")root.queueMicrotask(run);
     else Promise.resolve().then(run);
   }
@@ -2910,12 +2951,11 @@
     });
     if(root.MutationObserver){
       observer=new root.MutationObserver(function(changes){
-        for(var i=0;i<changes.length;i++){
-          var target=changes[i].target;
-          if(target&&target.nodeType===3)target=target.parentElement;
-          if(target&&target.closest&&target.closest(".tg-overlay"))continue;
-          if(changes[i].type==="childList"||changes[i].type==="characterData"){schedule();break;}
-        }
+        var relevant=changes.filter(function(change){
+          var target=change.target.nodeType===3?change.target.parentElement:change.target;
+          return !(target&&target.closest&&target.closest(".tg-overlay"));
+        });
+        if(relevant.length)schedule(relevant);
       });
       observer.observe(doc.body,{childList:true,subtree:true,characterData:true});
     }
