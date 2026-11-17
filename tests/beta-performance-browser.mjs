@@ -39,11 +39,15 @@ try{
    });
    const cdp=await context.newCDPSession(page);if(width===390){await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});await cdp.send('Network.enable');await cdp.send('Network.emulateNetworkConditions',{offline:false,latency:80,downloadThroughput:500000,uploadThroughput:100000});}
    await page.goto(base,{waitUntil:'domcontentloaded'});
-   await page.waitForFunction(()=>window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieScreenRouter&&document.querySelector('#expMiniList .v90-mini-row'));
+   try{await page.waitForFunction(()=>window.__VDUCKIE_EXPERIENCE_V86_READY__&&window.VDuckieScreenRouter&&document.querySelector('#expMiniList .v90-mini-row'));}catch(error){
+    if(enforce)throw error;
+    report.baselineIssues.push({width,run,issue:'Baseline boot did not settle within the existing deadline',error:error.message});
+    console.log('BASELINE_ISSUE',width,run,error.message);await context.close();continue;
+   }
    await page.waitForTimeout(1000);
    const metric=await page.evaluate(()=>{const r=performance.getEntriesByType('resource');return {...window.__betaMetrics,resources:r.length,scriptResources:r.filter(x=>/\.js(?:\?|$)/.test(x.name)).length,transferBytes:r.reduce((s,x)=>s+(x.transferSize||0),0),rankingRequests:window.__beta.calls.filter(x=>/get_my_exp|get_leaderboard|get_my_rank/.test(x.name)),dailySummaries:document.querySelectorAll("#homeHub .daily-today").length,overflow:document.documentElement.scrollWidth>innerWidth+1}});
    report.profiles.push({width,run,...metric,errors});
-   if(run===1){
+   if(run===1){try{
     await page.screenshot({path:path.join(out,`${width}-home.png`),fullPage:true});
     await page.locator('header.top').screenshot({path:path.join(out,`${width}-exp.png`)});
     await page.goto(base+'?screen=ranking&betaHold=1');
@@ -94,7 +98,14 @@ try{
     report.interactions.push({width,rankingTabMs:tabMs,searchResultsMs:searchMs,detailCloseMs:Date.now()-closeStart,method:'Playwright action + visible state, wall-clock; lab only'});
     await page.screenshot({path:path.join(out,`${width}-search.png`),fullPage:true});
     if(enforce&&width===390)assert.ok(await input.evaluate(e=>parseFloat(getComputedStyle(e).fontSize)>=16));
-   }
+   }catch(error){
+    // The old app is a diagnostic control with known render-loop/close bugs.
+    // Keep its failure in the report and continue independent cold samples;
+    // candidate interactions remain strict and retain the same deadline.
+    if(enforce)throw error;
+    report.baselineIssues.push({width,run,issue:'Baseline interaction did not settle',error:error.message});
+    console.log('BASELINE_ISSUE',width,run,error.message);
+   }}
    if(enforce){assert.deepEqual(errors,[]);assert.equal(metric.overflow,false);if(width===390)assert.equal(metric.dailySummaries,1,'one mobile Today summary');assert.equal(metric.accountValues.some(v=>/·\s*0\s*EXP/.test(v)),false,'no fake zero EXP');assert.ok(metric.rankingRequests.filter(c=>c.name==='get_my_exp').length<=1,'EXP read once at boot');assert.ok(metric.rankingRequests.filter(c=>c.name==='get_leaderboard').length<=1,'shared ranking snapshot');}
    await context.close();console.log(`BETA ${width} run ${run}: ready=${Math.round(metric.readyMs)}ms CLS=${metric.cls.toFixed(4)} longTasks=${metric.longTasks} accountMutations=${metric.accountMutations}`);
   }
