@@ -97,3 +97,27 @@ test("login first paint does not wait for profile upsert or leaderboard", () => 
   assert.match(worker,/pinyin-parts-boot-v1/);
   assert.match(worker,/erp-dictionary-boot-v1/);
 });
+
+test("duplicate auth opens and the selected tab retain input; real transitions clear passwords", async () => {
+  const {JSDOM} = require('jsdom');
+  const dom = new JSDOM('<header><button id="cloudLogin">Đăng nhập</button></header>', {url:'https://example.invalid',runScripts:'outside-only',pretendToBeVisual:true});
+  const w=dom.window, d=w.document;
+  try {
+    w.eval(read('assets/auth/auth-screen.js'));
+    await new Promise(resolve=>setTimeout(resolve,0));
+    d.getElementById('cloudLogin').click();
+    const password=d.getElementById('vdaPassword');password.value='fixture-password';
+    d.getElementById('cloudLogin').click();
+    assert.equal(password.value,'fixture-password');
+    d.getElementById('vdaTabLogin').click();
+    assert.equal(password.value,'fixture-password');
+    d.getElementById('vdaTabRegister').click();
+    assert.equal(password.value,'');
+    password.value='another-fixture';
+    d.querySelector('[data-vda-close]').click();
+    assert.equal(password.value,'');
+    d.getElementById('cloudLogin').click();
+    assert.equal(password.value,'');
+    assert.equal(password.type,'password');
+  } finally { w.close(); }
+});

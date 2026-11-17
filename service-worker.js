@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v65";
+const CACHE_VERSION = "vduckie-pwa-v66";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -35,7 +35,7 @@ const APP_SHELL = [
   "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
 
   "./assets/auth/auth-screen.css?v=6",
-  "./assets/auth/auth-screen.js?v=6",
+  "./assets/auth/auth-screen.js?v=beta-perf5",
   "./assets/interface/public-interface.css?v=3",
   "./assets/interface/mobile-fluidity-v1.css?v=1",
   "./assets/interface/mobile-navigation.js?v=1",
