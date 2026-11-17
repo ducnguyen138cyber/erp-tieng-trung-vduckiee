@@ -28,6 +28,7 @@ function navigateHskLevel(level){
 }
 function resumePrimaryHsk(review){
   var progress=root.VDuckieHskStudyJourney, saved=progress?progress.current():{level:1,lessonId:""};
+  if(!review&&!todayFocusData().hasStarted)saved={level:1,lessonId:"hsk1-lesson-01"};
   if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("hsk-study");
   else navigate("hsk");
   function openWhenReady(attempt){
@@ -85,7 +86,7 @@ function weeklyData(streak){
 function continueData(){
   var journey=root.VDuckieHskStudyJourney;
   if(journey){
-    var sum=journey.summary(),current=sum.current,level=Number(current.level)||1;
+    var sum=journey.summary(),focus=todayFocusData(),current=focus.hasStarted?sum.current:{level:1,lessonId:""},level=Number(current.level)||1;
     return {level:level,title:current.lessonId?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
       subtitle:current.lessonId?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
       done:sum.totalCompleted,reviewDue:sum.due,lessonId:current.lessonId||""};
@@ -234,7 +235,7 @@ function render(){
     var home=document.getElementById("homeHub");if(!home)return false;
     var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-welcome-actions .home-primary-action');
     if(journal&&hero){
-      var summary=journal.summary(),started=summary.totalCompleted||summary.studied||Object.keys(journal.lesson(summary.current.lessonId)).length;
+      var summary=journal.summary(),started=todayFocusData().hasStarted;
       hero.textContent=started?'Học tiếp HSK '+summary.current.level+' →':'Bắt đầu học HSK →';
       if(started){hero.removeAttribute('data-daily-nav');hero.setAttribute('data-v865-action','continue');}
       else{hero.removeAttribute('data-v865-action');hero.setAttribute('data-daily-nav','msutong');}

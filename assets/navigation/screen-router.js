@@ -53,7 +53,7 @@
     }
     if (screen !== "game-ranking") ["gr_game","gr_level","gr_mode","gr_prompt","gr_topic","gr_period","gr_pool","gr_pairs","gr_hint"].forEach(function(key){url.searchParams.delete(key);});
     if (screen !== "vietnamese") ["viUnit","viTab"].forEach(function(key){url.searchParams.delete(key);});
-    if (screen === "games" || screen === "game-ranking" || screen === "matching" || screen === "vietnamese" || screen === "shadowing") ["hskLevel","hskLesson","hskView","hskTab","hskAssessment"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen !== "hsk" && screen !== "hsk-study") ["hskLevel","hskLesson","hskView","hskTab","hskAssessment"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
     return url.pathname + url.search + url.hash;
   }
@@ -86,6 +86,7 @@
     return true;
   }
   function show(screen, historyMode, options) {
+    if(root.VDuckieHeaderSearch&&root.VDuckieHeaderSearch.dismissForNavigation)root.VDuckieHeaderSearch.dismissForNavigation();
     if(root.VDuckieMobileMenu)root.VDuckieMobileMenu.close();
     if (!valid(screen)) screen = "home";
     if (screen === current && historyMode === "push" && !options) {

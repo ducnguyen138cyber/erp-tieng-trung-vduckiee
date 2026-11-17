@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v67";
+const CACHE_VERSION = "vduckie-pwa-v68";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -12,7 +12,7 @@ const APP_SHELL = [
   "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
-  "./assets/navigation/screen-router.js?v=beta-perf2",
+  "./assets/navigation/screen-router.js?v=ux-audit1",
   "./supabase-sync.js?v=progress-sync1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
@@ -28,10 +28,10 @@ const APP_SHELL = [
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
   "./assets/v86/experience-suite-loader-v86.js?v=beta-perf1",
-  "./assets/v86/home-dashboard-v86.5.js?v=hsk56-1",
+  "./assets/v86/home-dashboard-v86.5.js?v=ux-audit1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=beta-perf1",
-  "./assets/navigation/screen-router.js?v=beta-perf2",
+  "./assets/navigation/screen-router.js?v=ux-audit1",
   "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
 
   "./assets/auth/auth-screen.css?v=6",
@@ -92,9 +92,9 @@ const APP_SHELL = [
   "./data/shadowing/hsk2-v1.json?v=3",
   "./data/shadowing/hsk3-v1.json?v=3",
   "./assets/v95/mascot-manifest-v95.js?v=96.1",
-  "./assets/search/header-chinese-search.css?v=mobile-search3",
+  "./assets/search/header-chinese-search.css?v=ux-audit1",
   "./assets/search/dictionary-expanded.js?v=1",
-  "./assets/search/header-chinese-search.js?v=mobile-search3",
+  "./assets/search/header-chinese-search.js?v=ux-audit1",
   "./assets/search/dictionary-extras.css?v=polish1",
   "./assets/ai/free-learning-assistant.css?v=2",
   "./hsk-lessons.js?v=2b4.2",

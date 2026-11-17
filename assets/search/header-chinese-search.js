@@ -39,6 +39,15 @@ function search(q){
   return ranked.slice(0,40);
 }
 function close(){clearTimeout(timer);clearTimeout(remoteTimer);timer=0;remoteTimer=0;searchSerial++;list.hidden=true;active=-1;field.setAttribute("aria-expanded","false")}
+// Route changes run in window capture before outside-click listeners. Release
+// every search layer here so it cannot remain over the destination screen.
+function dismissForNavigation(){
+  if(!mount||!field)return;
+  var overlay=document.getElementById("vsearchDetail");if(overlay)overlay.remove();
+  if(mobileScreen)closeMobile();else close();
+  field.blur();mobileToken=null;pendingDismissPopstate=false;
+  clearTimeout(dismissPopstateTimer);
+}
 function mobile(){return root.matchMedia&&root.matchMedia("(max-width: 950px)").matches}
 function syncViewport(){
   if(viewportFrame)return;
@@ -290,6 +299,6 @@ function init(){
  if(root.visualViewport){root.visualViewport.addEventListener("resize",syncViewport);root.visualViewport.addEventListener("scroll",syncViewport)}
  root.addEventListener("vduckie:hsk-dictionary-ready",function(){if(field.value&&(!list.hidden||mobileScreen)&&!document.getElementById("vsearchDetail"))render()});
 }
-root.VDuckieHeaderSearch={search:search,normalize:norm,selected:function(){return selected}};
+root.VDuckieHeaderSearch={search:search,normalize:norm,dismissForNavigation:dismissForNavigation,selected:function(){return selected}};
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init,{once:true});else init();
 })(window,document);

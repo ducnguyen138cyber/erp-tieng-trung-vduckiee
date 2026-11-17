@@ -138,3 +138,10 @@ body.vsearch-mobile-open .vsearch-detail-top button{flex-shrink:0}
   .vsearch-mobile-screen :is(button,input):focus-visible,
   #vsearchDetail button:focus-visible{outline:2px solid #2563eb;outline-offset:2px}
 }
+
+/* Keep desktop/tablet dismissal reachable after scrolling a long definition.
+   Mobile keeps its existing full-width sticky header below the breakpoint. */
+@media(min-width:951px){
+  #vsearchDetail .vsearch-detail-top{position:sticky;top:0;z-index:4;background:#fff;padding:6px 0;}
+  #vsearchDetail [data-vsearch-close]{min-width:44px;min-height:44px;flex-shrink:0;}
+}
