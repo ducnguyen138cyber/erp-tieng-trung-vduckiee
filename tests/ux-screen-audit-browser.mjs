@@ -27,6 +27,7 @@ try{
    async function menu(selector){
     if(width<=980&&await page.locator('#mobileMenu').getAttribute('aria-expanded')!=='true')await page.locator('#mobileMenu').click();
     await page.locator('#studySidebar '+selector).click();
+    if(width<=980)await page.waitForFunction(()=>document.querySelector('#studySidebar').getBoundingClientRect().right<=1&&!document.body.classList.contains('vd-menu-open'),null,{timeout:5000});
    }
    async function sample(id,work){
     const start=Date.now();try{const evidence=await work();console.log('AUDIT PASS',name,width,id);report.push({engine:name,width,height,id,pass:true,elapsedMs:Date.now()-start,...evidence});}
