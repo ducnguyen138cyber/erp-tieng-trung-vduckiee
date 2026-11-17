@@ -21,3 +21,12 @@
 @media (prefers-reduced-motion:reduce){
   html body .vsearch-overlay,html body .vsearch-mobile-screen{animation:none!important;transition:none!important}
 }
+/* The full app has a two-row header plus the fixed 69px learning dock.
+   Reserve both in Daily; otherwise its footer fits the viewport but sits
+   underneath the dock and touches open Profile instead of Next. */
+@media(max-width:760px){
+  html body #dailyLearningPanel .learning-session{
+    height:calc(100svh - 210px - env(safe-area-inset-bottom))!important;
+    min-height:0!important;
+  }
+}

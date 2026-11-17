@@ -1,0 +1,27 @@
+name: UX screen audit
+on:
+  pull_request:
+    paths: ['assets/**','index.html','service-worker.js','tests/ux-*','.github/workflows/ux-screen-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  responsive-screens:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+      options: --ipc=host
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false playwright@1.58.2 jsdom@26.1.0
+      - run: node --test tests/ux-navigation-regressions.test.cjs tests/first-visit-today-focus.test.mjs
+      - run: node tests/ux-screen-audit-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ux-screen-audit
+          path: artifacts/ux-screen-audit/

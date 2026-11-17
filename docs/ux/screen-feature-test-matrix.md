@@ -1,6 +1,6 @@
 # VDuckie – Bảng rà soát trải nghiệm từng màn hình
 
-Ngày lập: 17/11/2026. Nguồn: giao diện/source `d67baa3` và hai ảnh người dùng gửi. Đây là **kế hoạch nghiệm thu mới**, chưa phải kết luận các màn đã đạt. Các kiểm thử tự động của PR #132 là bằng chứng nền, không thay cho rà soát từng trường hợp dưới đây.
+Ngày lập: 17/11/2026. Nguồn: giao diện/source `d67baa3` và hai ảnh người dùng gửi. Đây là **kế hoạch nghiệm thu**. Kết quả thực hiện ngày 17/11 nằm tại [bảng kết quả theo từng ID](screen-feature-audit-20261117.md); không tự coi mọi nhánh đã đạt. Các kiểm thử tự động của PR #132 là bằng chứng nền, không thay cho rà soát từng trường hợp dưới đây.
 
 ## Cách đánh giá chung
 
@@ -88,7 +88,7 @@ Ngày lập: 17/11/2026. Nguồn: giao diện/source `d67baa3` và hai ảnh ng�
 
 ## Ghi kết quả cho từng môi trường
 
-Mỗi ID ở trên có ba dòng kết quả: PC, mobile browser, PWA. Mặc định toàn bộ là **Chưa test**. Không tự chuyển thành Đạt theo kết quả môi trường khác. Khi chạy ghi đầy đủ:
+Mỗi ID ở trên có ba dòng kết quả: PC, mobile browser, PWA. Trạng thái ban đầu là **Chưa test**; kết quả thực hiện hiện tại xem [báo cáo ngày 17/11](screen-feature-audit-20261117.md). Không tự chuyển thành Đạt theo kết quả môi trường khác. Khi chạy ghi đầy đủ:
 
 | ID | Môi trường/thiết bị/browser/viewport | Build | Trạng thái dữ liệu/mạng | Kết quả | Phản hồi UI / tới kết quả (ms) | Vấn đề và cách tái hiện | Ảnh/video |
 |---|---|---|---|---|---|---|---|
