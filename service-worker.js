@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v69";
+const CACHE_VERSION = "vduckie-pwa-v70";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -8,16 +8,16 @@ const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
   "./data/games/sentence-catalog.json?v=2",
-  "./assets/games/matching-engine.js?v=pikachu1",
-  "./assets/games/matching-game.js?v=pikachu1",
-  "./assets/games/matching-game.css?v=pikachu1",
-  "./assets/games/game-ranking.js?v=pikachu1",
+  "./assets/games/matching-engine.js?v=hanviet2",
+  "./assets/games/matching-game.js?v=hanviet2",
+  "./assets/games/matching-game.css?v=hanviet2",
+  "./assets/games/game-ranking.js?v=hanviet2",
   "./assets/hsk-content/hsk-advanced-self-study-v1.js?v=hsk56-1",
   "./data/hsk/advanced-cases-v1.json?v=hsk56-1",
   "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
-  "./assets/navigation/screen-router.js?v=pikachu1",
+  "./assets/navigation/screen-router.js?v=hanviet2",
   "./supabase-sync.js?v=progress-sync1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
@@ -36,7 +36,7 @@ const APP_SHELL = [
   "./assets/v86/home-dashboard-v86.5.js?v=ux-audit1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=beta-perf1",
-  "./assets/navigation/screen-router.js?v=pikachu1",
+  "./assets/navigation/screen-router.js?v=hanviet2",
   "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
 
   "./assets/auth/auth-screen.css?v=6",
@@ -52,7 +52,7 @@ const APP_SHELL = [
   "./assets/games/typing-game.css?v=5",
   "./assets/games/games-hub.css?v=1",
   "./assets/games/typing-engine.js?v=2",
-  "./assets/games/typing-game.js?v=pikachu1",
+  "./assets/games/typing-game.js?v=hanviet2",
   "./assets/games/airplane.svg?v=2",
   "./",
   "./index.html",

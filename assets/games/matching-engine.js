@@ -42,40 +42,17 @@
   return {matched:correct,wrong:!correct,picks:[before,{side:side,id:id}],ended:this.matched.size===this.words.length};
  };
  Round.prototype.result=function(){return {score:this.score,completed:this.matched.size,correct:this.matched.size,attempts:this.attempts,accuracy:this.attempts?Math.round(100*this.matched.size/this.attempts):0};};
- // Padded empty border permits the classic outside route, with at most two turns.
+ // A correct Hanzi–Vietnamese pair connects directly, regardless of intervening tiles.
  function Board(words,random){this.words=words.slice();this.cols=4;this.rows=Math.ceil(words.length*2/this.cols);this.random=random||Math.random;this.cells=[];words.forEach(function(w){this.cells.push({id:w.id,side:'left',word:w},{id:w.id,side:'right',word:w});},this);this.matched=new Set();this.selected=null;this.attempts=0;this.score=0;this.reshuffle();}
- Board.prototype.path=function(a,b){
-  if(a===b||!this.cells[a]||!this.cells[b])return null;
-  var cols=this.cols,rows=this.rows,W=cols+2,H=rows+2,start={x:a%cols+1,y:Math.floor(a/cols)+1},end={x:b%cols+1,y:Math.floor(b/cols)+1},dirs=[[1,0],[0,1],[-1,0],[0,-1]],queue=[],best=new Map();
-  for(var dir=0;dir<4;dir++)queue.push({x:start.x,y:start.y,dir:dir,turns:0,path:[start]});
-  for(var head=0;head<queue.length;head++){
-   var p=queue[head];
-   for(var nd=0;nd<4;nd++){
-    var turns=p.turns+(nd!==p.dir?1:0),x=p.x+dirs[nd][0],y=p.y+dirs[nd][1];if(turns>2||x<0||x>=W||y<0||y>=H)continue;
-    var target=x===end.x&&y===end.y,inside=x>0&&x<=cols&&y>0&&y<=rows;
-    if(!target&&inside&&this.cells[(y-1)*cols+x-1])continue;
-    var key=x+','+y+','+nd;if(best.has(key)&&best.get(key)<=turns)continue;best.set(key,turns);
-    var path=p.path.concat({x:x,y:y});if(target){var line=[path[0]];for(var i=1;i<path.length-1;i++){var prev=path[i-1],cur=path[i],next=path[i+1];if(cur.x-prev.x!==next.x-cur.x||cur.y-prev.y!==next.y-cur.y)line.push(cur);}line.push(end);return line;}
-    queue.push({x:x,y:y,dir:nd,turns:turns,path:path});
-   }
-  }return null;
- };
- Board.prototype.move=function(){for(var a=0;a<this.cells.length;a++)if(this.cells[a])for(var b=a+1;b<this.cells.length;b++)if(this.cells[b]&&this.cells[a].id===this.cells[b].id){var path=this.path(a,b);if(path)return {a:a,b:b,path:path};}return null;};
- Board.prototype.reshuffle=function(){
-  this.selected=null;var spots=[],tiles=[];this.cells.forEach(function(c,i){if(c){spots.push(i);tiles.push(c);}});if(!tiles.length)return false;
-  for(var n=0;n<30;n++){var shuffled=shuffle(tiles,this.random);spots.forEach(function(i,j){this.cells[i]=shuffled[j];},this);if(this.move())return true;}
-  // Two consecutive occupied cells in the top occupied row always have a clear route.
-  var a=spots[0],b=spots.find(function(i){return i!==a&&Math.floor(i/this.cols)===Math.floor(a/this.cols);},this);
-  if(b===undefined){for(var i=1;i<spots.length;i++)if(this.path(a,spots[i])){b=spots[i];break;}}
-  if(b===undefined){for(var i=0;i<spots.length;i++){for(var j=i+1;j<spots.length;j++)if(this.path(spots[i],spots[j])){a=spots[i];b=spots[j];break;}if(b!==undefined)break;}}
-  var mate=spots.find(function(i){return i!==a&&this.cells[i].id===this.cells[a].id;},this);var temp=this.cells[b];this.cells[b]=this.cells[mate];this.cells[mate]=temp;return !!this.move();
- };
+ Board.prototype.path=function(a,b){if(a===b||!this.cells[a]||!this.cells[b])return null;return [{x:a%this.cols+1,y:Math.floor(a/this.cols)+1},{x:b%this.cols+1,y:Math.floor(b/this.cols)+1}];};
+ Board.prototype.move=function(){for(var a=0;a<this.cells.length;a++)if(this.cells[a])for(var b=a+1;b<this.cells.length;b++)if(this.cells[b]&&this.cells[a].id===this.cells[b].id&&this.cells[a].side!==this.cells[b].side)return {a:a,b:b,path:this.path(a,b)};return null;};
+ Board.prototype.reshuffle=function(){this.selected=null;var spots=[],tiles=[];this.cells.forEach(function(c,i){if(c){spots.push(i);tiles.push(c);}});var shuffled=shuffle(tiles,this.random);spots.forEach(function(i,j){this.cells[i]=shuffled[j];},this);return !!tiles.length;};
  Board.prototype.choose=function(index){
   index=Number(index);var tile=this.cells[index];if(!tile)return {ignored:true};
   if(this.selected===index){this.selected=null;return {cancelled:true};}
   if(this.selected===null){this.selected=index;return {selected:true};}
-  var before=this.selected,first=this.cells[before];this.selected=null;this.attempts++;var pair=first.id===tile.id,path=pair?this.path(before,index):null;
-  if(!path)return {wrong:!pair,blocked:pair,picks:[before,index]};
+  var before=this.selected,first=this.cells[before];if(first.side===tile.side){this.selected=index;return {selected:true};}this.selected=null;this.attempts++;
+  if(first.id!==tile.id)return {wrong:true,picks:[before,index]};var path=this.path(before,index);
   this.cells[before]=null;this.cells[index]=null;this.matched.add(tile.id);this.score=this.matched.size*100;
   return {matched:true,picks:[before,index],path:path,word:tile.word,ended:this.matched.size===this.words.length};
  };
