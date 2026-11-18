@@ -1,3 +1,13 @@
+# Cập nhật 18/11: ghép Hán–Việt tự do
+
+Theo yêu cầu đã làm rõ: mỗi từ xuất hiện thành một ô chữ Hán + Pinyin và một ô nghĩa Việt. Ghép đúng ở bất kỳ vị trí nào đều nối thẳng và biến mất, kể cả khi còn các ô khác ở giữa. Không có kiểm tra đường bị chắn, số góc hay hai chữ Hán giống nhau. Giữ bàn vuông, 90 giây, đúng +5 giây, tạm dừng, lịch sử từ và tùy chọn ẩn Pinyin. Thiết lập mới mặc định Hán–Việt/có Pinyin; chỉ còn một cách ghép. Dùng nhóm điểm Hán–Việt đã có; nhóm chữ Hán giống nhau trước đó vẫn xem được trong BXH. Service worker v70 thay thế mã game v69.
+
+Kiểm chứng: unit test ghép cặp ở hai ô giữa bàn còn kín hoàn toàn, chọn cùng ngôn ngữ, chọn sai, hủy chọn, không cộng điểm hai lần; 400 bàn ở bốn kích thước; browser Chromium desktop/320/390 và WebKit390 kiểm riêng ô Hán/Việt, đường nối/xóa ô/cộng thời gian. Kho Dịch câu giữ nguyên.
+
+---
+
+## Ghi chép bản trước (đã được sửa quy tắc ở trên)
+
 # Nối cặp Pikachu và kho Dịch câu theo HSK
 
 ## Hành vi
