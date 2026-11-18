@@ -28,3 +28,5 @@ body.vd-sentence-playing #mobileLearningDock,body.vd-sentence-playing .duckie-ch
  .study-layout .sg-punctuation{color:#64748b!important}
  .study-layout .sg-slot.is-error{color:#dc2626!important}
 }
+
+.sg-hsk-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.sg-hsk-levels button{min-width:0;min-height:100px}.sg-hsk-levels small{overflow-wrap:anywhere}@media(max-width:600px){.sg-hsk-levels{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.sg-hsk-levels button{min-height:100px;padding:12px 10px!important}.sg-hsk-levels strong{font-size:20px}.sg-hsk-levels small{font-size:12px}}

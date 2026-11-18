@@ -51,7 +51,7 @@
       var gameFilters = root.VDuckieGameRanking.filters();
       Object.keys(gameFilters).forEach(function(key){url.searchParams.set("gr_"+key,gameFilters[key]);});
     }
-    if (screen !== "game-ranking") ["gr_game","gr_level","gr_mode","gr_prompt","gr_topic","gr_period","gr_pool","gr_pairs","gr_hint"].forEach(function(key){url.searchParams.delete(key);});
+    if (screen !== "game-ranking") ["gr_game","gr_level","gr_mode","gr_prompt","gr_topic","gr_period","gr_pool","gr_pairs","gr_hint","gr_matchMode"].forEach(function(key){url.searchParams.delete(key);});
     if (screen !== "vietnamese") ["viUnit","viTab"].forEach(function(key){url.searchParams.delete(key);});
     if (screen !== "hsk" && screen !== "hsk-study") ["hskLevel","hskLesson","hskView","hskTab","hskAssessment"].forEach(function(key){url.searchParams.delete(key);});
     if (url.hash === "#leaderboard" || url.hash === "#hsk") url.hash = "";
@@ -267,7 +267,7 @@
         if (current === "games" || current === "game-ranking" || current === "matching") {
           viewIds.forEach(function(id){if(id!=="gamesScreen")hide(id);});
           if (document.body.getAttribute("data-current-area") !== current) document.body.setAttribute("data-current-area", current);
-          var gameTitle = current === "matching" ? "Nối cặp Hán–Việt — VDuckie" : current === "game-ranking" ? "BXH trò chơi — VDuckie" : "Trò chơi — VDuckie";
+          var gameTitle = current === "matching" ? "Nối cặp Pikachu — VDuckie" : current === "game-ranking" ? "BXH trò chơi — VDuckie" : "Trò chơi — VDuckie";
           if (document.title !== gameTitle) document.title = gameTitle;
           if (new URLSearchParams(root.location.search).has("area") || root.location.hash === "#hsk") root.history.replaceState(root.history.state, "", urlFor(current));
           return;

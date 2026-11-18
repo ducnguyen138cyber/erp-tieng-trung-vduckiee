@@ -6,7 +6,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import T from '../assets/games/typing-engine.js';
 const root=process.cwd(),out=path.join(root,'artifacts/public-demo');await mkdir(out,{recursive:true});
-const bank=JSON.parse(await readFile('data/games/sentences.json','utf8')).sentences;
+const bank=JSON.parse(await readFile('data/games/sentences.json','utf8')).sentences.concat((await Promise.all([1,2,3,4,5,6].map(n=>readFile('data/games/sentences-hsk'+n+'.json','utf8').then(JSON.parse)))).flatMap(d=>d.sentences));
 const files=JSON.parse(await readFile('data/hsk/hsk1/vocabulary/index.json','utf8')).shards;
 const vocabulary=(await Promise.all(files.map(f=>readFile('data/hsk/hsk1/vocabulary/'+f.file,'utf8').then(JSON.parse)))).flatMap(x=>x.records);
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp'};
@@ -89,9 +89,9 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await page.screenshot({path:path.join(out,name+'-'+prompt+'.png')});await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();assert.equal(await page.locator('.tg-overlay').count(),0);
  }
  await page.locator('[data-game-action=sentences]').click();
- for(const topic of ['basic','daily','factory']){
+ for(const topic of ['hsk1','hsk3','factory']){
   await page.locator('[data-topic='+topic+']').click();await page.locator('[data-sentence-action=start]').click();
-  const limit=topic==='basic'?10:2;
+  const limit=topic==='hsk1'?10:2;
   for(let i=0;i<limit;i++){
    const prompt=await page.locator('.sg-prompt').innerText(),s=bank.find(s=>s.vi===prompt);assert.ok(s);assert.equal(await page.locator('.sg-answer').textContent(),'');assert.equal(await page.locator('.sg-hanzi').count(),0);
    const input=page.locator('#sentencePinyin'),answer=T.normalize(s.answers.at(-1).pinyin),mask=page.locator('.sg-mask');
@@ -119,7 +119,7 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
    if(i===0){if(viewport.width===390)await page.setViewportSize({width:390,height:480});await input.scrollIntoViewIfNeeded();const box=await input.boundingBox();assert.ok(box.y>=0&&box.y+box.height<=(viewport.width===390?480:viewport.height));await page.screenshot({path:path.join(out,name+'-'+topic+'-sentence.png')});if(viewport.width===390)await page.setViewportSize(viewport);}
    await page.locator('[data-sentence-action=next]').click();
   }
-  if(topic==='basic'){await page.locator('.sg-results').waitFor();assert.match(await page.locator('.sg-results').innerText(),/900/);assert.equal(await page.locator('.sg-review').count(),1);await page.locator('[data-sentence-action=start]').click();assert.equal(await page.locator('[data-sg-score]').textContent(),'0');}
+  if(topic==='hsk1'){await page.locator('.sg-results').waitFor();assert.match(await page.locator('.sg-results').innerText(),/900/);assert.equal(await page.locator('.sg-review').count(),1);await page.locator('[data-sentence-action=start]').click();assert.equal(await page.locator('[data-sg-score]').textContent(),'0');}
   await page.locator('[data-sentence-action=choices]').click();
  }
  await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),3);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);

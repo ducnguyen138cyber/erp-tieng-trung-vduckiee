@@ -1,0 +1,4737 @@
+{
+  "version": 2,
+  "level": 2,
+  "sentences": [
+    {
+      "id": "sg-003a20bddf649032",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Nhà tôi gần trường.",
+      "family": "hsk2-grammar-07",
+      "answers": [
+        {
+          "hanzi": "我家离学校很近。",
+          "pinyin": "wǒ jiā lí xué xiào hěn jìn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/6/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-01957127bd9ca15f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đi cùng bạn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我跟朋友一起去。",
+          "pinyin": "wǒ gēn péng yǒu yì qǐ qù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/44/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-01ac1c94020e69b3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy có vóc dáng cao.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他个子很高。",
+          "pinyin": "tā gè zi hěn gāo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/43/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0203dac5fd808f67",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Em gái tôi năm nay học cấp ba.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我妹妹今年上高中。",
+          "pinyin": "wǒ mèi mei jīn nián shàng gāo zhōng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/41/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-032c862e7eefaad5",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi ăn trước rồi mới ra ngoài.",
+      "family": "hsk2-grammar-04",
+      "answers": [
+        {
+          "hanzi": "我先吃饭，再出门。",
+          "pinyin": "wǒ xiān chī fàn zài chū mén"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/3/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0372144a5d710e75",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Nhà tôi gần công ty.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我家离公司很近。",
+          "pinyin": "wǒ jiā lí gōng sī hěn jìn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/88/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-03e8850910dd55af",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Buổi sáng tôi thích uống trà đen.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我早上喜欢喝红茶。",
+          "pinyin": "wǒ zǎo shàng xǐ huan hē hóng chá"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/53/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0477d67fdb72ef7c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mẹ không cho tôi uống cà phê.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "妈妈不让我喝咖啡。",
+          "pinyin": "mā ma bú ràng wǒ hē kā fēi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/121/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-04b535cba47073bd",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tàu của chúng tôi sắp đến rồi.",
+      "family": "hsk2-grammar-05",
+      "answers": [
+        {
+          "hanzi": "我们的火车快要到了。",
+          "pinyin": "wǒ men de huǒ chē kuài yào dào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/4/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-04c4a3c308a210fb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "À, bây giờ tôi hiểu rồi.",
+      "family": "hsk2-grammar-01",
+      "answers": [
+        {
+          "hanzi": "啊，现在我明白了。",
+          "pinyin": "a xiàn zài wǒ míng bái le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/0/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0821c13e73559843",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi thích màu xanh lá.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我喜欢绿色。",
+          "pinyin": "wǒ xǐ huan lǜ sè"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/95/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-082de2cfc2cbbd43",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn từng ăn món này chưa?",
+      "family": "hsk2-grammar-29",
+      "answers": [
+        {
+          "hanzi": "你吃过这个菜吗？",
+          "pinyin": "nǐ chī guò zhè ge cài ma"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/28/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-09bbae0c7668203d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đừng quên mang vé máy bay.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "别忘了带机票。",
+          "pinyin": "bié wàng le dài jī piào"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/10/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0aec841a39f0ae54",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Lúc nhỏ tôi sống ở nông thôn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我小时候住在农村。",
+          "pinyin": "wǒ xiǎo shí hòu zhù zài nóng cūn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/161/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0c9db25efadf1a88",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bên cạnh giường có một cái bàn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "床旁边有一张桌子。",
+          "pinyin": "chuáng páng biān yǒu yì zhāng zhuō zi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/20/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0d6f432f20d36687",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Thầy Vương dạy chúng tôi tiếng Trung.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "王老师教我们汉语。",
+          "pinyin": "wáng lǎo shī jiào wǒ men hàn yǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/66/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0d9bd3e3b5d28b2c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cậu bé kia đang đá bóng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "那个男孩儿在踢足球。",
+          "pinyin": "nà ge nán hái ér zài tī zú qiú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/109/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0dd2e5a0c65c9b31",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trước đây tôi từng đến Bắc Kinh cùng gia đình.",
+      "family": "hsk2-grammar-29",
+      "answers": [
+        {
+          "hanzi": "我以前跟家人去过北京。",
+          "pinyin": "wǒ yǐ qián gēn jiā rén qù guò běi jīng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/28/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0ec30a98bd5c8312",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chúng ta đi thôi, đừng đến muộn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我们走吧，别迟到了。",
+          "pinyin": "wǒ men zǒu ba bié chí dào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/194/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0ec52e6525c15c63",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn nói như vậy thì tôi hiểu rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你这样说，我就懂了。",
+          "pinyin": "nǐ zhè yàng shuō wǒ jiù dǒng le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/188/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-0f638e78c57c707c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đau mắt.",
+      "family": "hsk2-grammar-15",
+      "answers": [
+        {
+          "hanzi": "我眼睛疼。",
+          "pinyin": "wǒ yǎn jīng téng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/14/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-1031aa43b1b18ba1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy đã đi lên rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他已经上去了。",
+          "pinyin": "tā yǐ jīng shàng qù le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/126/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-14210ccbdebed5b8",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trạm tiếp theo là ga tàu.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "下一站是火车站。",
+          "pinyin": "xià yí zhàn shì huǒ chē zhàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/185/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-14bfcac6dbd8b56b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Câu này làm sai rồi.",
+      "family": "hsk2-grammar-02",
+      "answers": [
+        {
+          "hanzi": "这道题做错了。",
+          "pinyin": "zhè dào tí zuò cuò le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/1/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-152b820070a635ad",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi thấy tin này trên mạng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我在网上看到了这个消息。",
+          "pinyin": "wǒ zài wǎng shàng kàn dào le zhè ge xiāo xī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/150/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-156872de5aa95b5d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy chạy không nhanh.",
+      "family": "hsk2-grammar-18",
+      "answers": [
+        {
+          "hanzi": "他跑得不快。",
+          "pinyin": "tā pǎo dé bú kuài"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/17/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-158b774fd70af9a0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chiếc túi màu đỏ là của tôi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "红色的包是我的。",
+          "pinyin": "hóng sè de bāo shì wǒ de"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/54/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-15e1fbaec7e29ba7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Buổi chiều bạn uống trà hay cà phê?",
+      "family": "hsk2-grammar-26",
+      "answers": [
+        {
+          "hanzi": "你下午喝茶还是喝咖啡？",
+          "pinyin": "nǐ xià wǔ hē chá hái shì hē kā fēi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/25/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-17d7174546a56953",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hôm nay anh ấy có thể không đến.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他今天可能不来。",
+          "pinyin": "tā jīn tiān kě néng bù lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/81/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-18b189116af30876",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vì không khỏe nên anh ấy không đi làm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "因为身体不舒服，他没上班。",
+          "pinyin": "yīn wèi shēn tǐ bù shū fú tā méi shàng bān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/175/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-192e270fc8161b51",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cảm ơn bạn đã đến giúp.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "谢谢你来帮忙。",
+          "pinyin": "xiè xiè nǐ lái bāng máng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/5/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-1b64ebb6b2611584",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy đã đi vào rồi.",
+      "family": "hsk2-grammar-08",
+      "answers": [
+        {
+          "hanzi": "他已经进去了。",
+          "pinyin": "tā yǐ jīng jìn qù le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/7/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-1b8d67a1ad841764",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Từ đây đến sân bay mất bao lâu?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "从这里到机场要多久？",
+          "pinyin": "cóng zhè lǐ dào jī chǎng yào duō jiǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/62/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-1baf3160d2f79222",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi làm việc từ chín đến năm giờ.",
+      "family": "hsk2-grammar-09",
+      "answers": [
+        {
+          "hanzi": "我从九点工作到五点。",
+          "pinyin": "wǒ cóng jiǔ diǎn gōng zuò dào wǔ diǎn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/8/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-1d10fd7b7ee8ffb2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cứ đi thẳng về phía trước là đến.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "一直往前走，就到了。",
+          "pinyin": "yì zhí wǎng qián zǒu jiù dào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/149/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-1de1a6de30b230ef",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chuẩn bị xong trước rồi gọi cho tôi.",
+      "family": "hsk2-grammar-04",
+      "answers": [
+        {
+          "hanzi": "先准备好，再给我打电话。",
+          "pinyin": "xiān zhǔn bèi hǎo zài gěi wǒ dǎ diàn huà"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/3/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-201e8d838f62d240",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Muộn quá rồi, gọi taxi nhé.",
+      "family": "hsk2-grammar-10",
+      "answers": [
+        {
+          "hanzi": "太晚了，打车吧。",
+          "pinyin": "tài wǎn le dǎ chē ba"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/9/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-2243e667b43abd80",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Em trai chơi bóng rổ hai lần mỗi tuần.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "弟弟每周打两次篮球。",
+          "pinyin": "dì di měi zhōu dǎ liǎng cì lán qiú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/86/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-2310b757800907f4",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Nhớ mang cặp sách ngày mai.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "记得明天带书包。",
+          "pinyin": "jì de míng tiān dài shū bāo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/64/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-235c5d9dde539ffc",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chiếc quần đen này dài quá.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这条黑色裤子太长了。",
+          "pinyin": "zhè tiáo hēi sè kù zǐ tài cháng le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/82/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-23c27e1a6c5c4ccb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đừng chạy, trên đường nhiều xe.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "别跑，路上车多。",
+          "pinyin": "bié pǎo lù shang chē duō"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/113/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-251b4248ff3d6e39",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Buổi chiều tôi không uống cà phê.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我下午不喝咖啡。",
+          "pinyin": "wǒ xià wǔ bù hē kā fēi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/76/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-267703a0a4a316b4",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cái này rẻ hơn cái kia.",
+      "family": "hsk2-grammar-13",
+      "answers": [
+        {
+          "hanzi": "这件比那件便宜。",
+          "pinyin": "zhè jiàn bǐ nà jiàn pián yi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/12/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-29bdfbfa749fbe47",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đồng hồ đeo tay của tôi hỏng rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我的手表坏了。",
+          "pinyin": "wǒ de shǒu biǎo huài le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/59/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-2f3d9e71bf269471",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ông mỗi ngày đi bộ đến công viên.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "爷爷每天走路去公园。",
+          "pinyin": "yé ye měi tiān zǒu lù qù gōng yuán"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/169/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-2f628aa69b1148d6",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy đang đi về phía này.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他正往这边走。",
+          "pinyin": "tā zhèng wǎng zhè biān zǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/190/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-2fb96ac96265e179",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Xin lỗi, tôi đến muộn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "不好意思，我来晚了。",
+          "pinyin": "bù hǎo yì si wǒ lái wǎn le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/12/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-3029cdd701f15a5a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi gọi điện cho mẹ trước.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我先给妈妈打电话。",
+          "pinyin": "wǒ xiān gěi mā ma dǎ diàn huà"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/26/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-322a24b266051864",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Học sinh đều ở trong phòng học.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "学生都在教室里。",
+          "pinyin": "xué shēng dōu zài jiào shì lǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/67/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-34030c969626728d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Uống thuốc xong thấy dễ chịu hơn nhiều.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "吃了药以后舒服多了。",
+          "pinyin": "chī le yào yǐ hòu shū fú duō le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/135/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-353a8ec3e11a35b7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Sân bay rất xa trung tâm thành phố.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "机场离市中心很远。",
+          "pinyin": "jī chǎng lí shì zhōng xīn hěn yuǎn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/183/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-3710e10eb674857b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chúng tôi đi tàu điện ngầm đến sân bay.",
+      "family": "hsk2-grammar-10",
+      "answers": [
+        {
+          "hanzi": "我们坐地铁去机场。",
+          "pinyin": "wǒ men zuò dì tiě qù jī chǎng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/9/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-388bc27d7c5f19aa",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy mệt nên về nhà trước.",
+      "family": "hsk2-grammar-17",
+      "answers": [
+        {
+          "hanzi": "他累了，所以先回家。",
+          "pinyin": "tā lèi le suǒ yǐ xiān huí jiā"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/16/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-39c2957cfbbda438",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn xuống trước, lát nữa tôi đến.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你先下去，我一会儿来。",
+          "pinyin": "nǐ xiān xià qù wǒ yí huì er lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/159/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-3a21cc9968803383",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Quyển sách này rất thú vị.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这本书很有意思。",
+          "pinyin": "zhè běn shū hěn yǒu yì sī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/178/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-3e554b34a7e7b31d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tuy rất mệt nhưng anh ấy vui.",
+      "family": "hsk2-grammar-22",
+      "answers": [
+        {
+          "hanzi": "虽然很累，但是他很快乐。",
+          "pinyin": "suī rán hěn lèi dàn shì tā hěn kuài lè"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/21/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-42cdadea364ae09b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cá ở quán này ngon nhất.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这家饭馆的鱼最好吃。",
+          "pinyin": "zhè jiā fàn guǎn de yú zuì hǎo chī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/197/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-434c5bf172c0765f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đã đến Thượng Hải hai lần.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我去过两次上海。",
+          "pinyin": "wǒ qù guò liǎng cì shàng hǎi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/22/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-43c52b5aeb63e31b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy mặc quần màu đen.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他穿着黑色的裤子。",
+          "pinyin": "tā chuān zhe hēi sè de kù zǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/52/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-44cdffb7e4446c6f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn thích màu gì?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你喜欢什么颜色？",
+          "pinyin": "nǐ xǐ huan shén me yán sè"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/165/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4526900f4176fe62",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bến xe ở phía sau trung tâm thương mại.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "车站在商场后面。",
+          "pinyin": "chē zhàn zài shāng chǎng hòu miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/55/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4560c0761a21bf9c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy chậm một chút.",
+      "family": "hsk2-grammar-12",
+      "answers": [
+        {
+          "hanzi": "请慢一点儿。",
+          "pinyin": "qǐng màn yì diǎn ér"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/11/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-474373853d05beb2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Con đường này đi thế nào?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这条路怎么走？",
+          "pinyin": "zhè tiáo lù zěn me zǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/91/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4770c316bd16954d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cô ấy gọi một cốc trà xanh.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "她要一杯绿茶。",
+          "pinyin": "tā yào yì bēi lǜ chá"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/94/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-48dbe7a5aa01972f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đôi khi tôi đi tàu điện ngầm đến chỗ làm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我有时坐地铁上班。",
+          "pinyin": "wǒ yǒu shí zuò dì tiě shàng bān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/179/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-49d212c2abaea1d2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đừng nghĩ mãi về chuyện đã qua.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "过去的事情别再想了。",
+          "pinyin": "guò qù de shì qíng bié zài xiǎng le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/49/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4a49beebdeeba15f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy rửa tay trước.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请先洗手。",
+          "pinyin": "qǐng xiān xǐ shǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/132/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4b39e13146acfd4c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vị giáo viên kia họ Vương.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "那位老师姓王。",
+          "pinyin": "nà wèi lǎo shī xìng wáng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/152/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4beb84ca1d7dc82c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi xin giới thiệu vị giáo viên này.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我来介绍一下这位老师。",
+          "pinyin": "wǒ lái jiè shào yí xià zhè wèi lǎo shī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/68/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4cce5e7e185ad46c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chồng cô ấy làm việc ở ngân hàng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "她的丈夫在银行工作。",
+          "pinyin": "tā de zhàng fu zài yín háng gōng zuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/186/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4d2f8d003faa02b2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Khi ra ngoài tôi thường mang một chiếc túi nhỏ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我出门时常带一个小包。",
+          "pinyin": "wǒ chū mén shí cháng dài yí gè xiǎo bāo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/6/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4d867c50db02432c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ngân hàng ngay cạnh siêu thị.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "银行就在超市旁边。",
+          "pinyin": "yín háng jiù zài chāo shì páng biān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/112/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4de0c9f8819fb08a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mắt tôi hơi đau.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我的眼睛有点儿疼。",
+          "pinyin": "wǒ de yǎn jīng yǒu diǎn er téng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/166/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4e7c2ba79f42caae",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Thầy/cô ơi, mời vào đây.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "老师，请进来吧。",
+          "pinyin": "lǎo shī qǐng jìn lái ba"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/71/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-4ee3bcfd24db4788",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đợi bạn ở bến xe.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我在车站等你。",
+          "pinyin": "wǒ zài chē zhàn děng nǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/14/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-506ce1d793a316bc",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tuy trời mưa, anh ấy vẫn đến.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "虽然下雨，他还是来了。",
+          "pinyin": "suī rán xià yǔ tā hái shì lái le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/137/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5076a35e8c811703",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi thích bơi nhất.",
+      "family": "hsk2-grammar-25",
+      "answers": [
+        {
+          "hanzi": "我最喜欢游泳。",
+          "pinyin": "wǒ zuì xǐ huan yóu yǒng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/24/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5101625a21d84652",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn có thể đi lên đây không?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你能走上来吗？",
+          "pinyin": "nǐ néng zǒu shàng lái ma"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/124/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-518199d54dea9129",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy vừa ra khỏi phòng học.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他刚从教室出来。",
+          "pinyin": "tā gāng cóng jiào shì chū lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/15/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-51cb36fb606e34d0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Năm nay chúng tôi ăn Tết ở nhà bà.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我们今年在奶奶家过年。",
+          "pinyin": "wǒ men jīn nián zài nǎi nai jiā guò nián"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/48/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-51f2b8bff55fa810",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đi cả ngày nên tôi hơi mệt.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "走了一天，我有点儿累。",
+          "pinyin": "zǒu le yì tiān wǒ yǒu diǎn er lèi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/87/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-52ff8ff990152fe3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Câu này tôi làm sai.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这道题我做错了。",
+          "pinyin": "zhè dào tí wǒ zuò cuò le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/25/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5397d07242ea92b4",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trà sữa của cửa hàng này khá ngon.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这家店的奶茶不错。",
+          "pinyin": "zhè jiā diàn de nǎi chá bú cuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/107/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-543cfe1ca64c67d2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn lại đây xem.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你过来看看。",
+          "pinyin": "nǐ guò lái kàn kàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/47/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5641dd447fbbd75c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bây giờ vì sao bạn học tiếng Trung?",
+      "family": "hsk2-grammar-27",
+      "answers": [
+        {
+          "hanzi": "你现在为什么学汉语？",
+          "pinyin": "nǐ xiàn zài wèi shén me xué hàn yǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/26/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-566dae3d40a1abb9",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Con đường này rất dài.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这条路很长。",
+          "pinyin": "zhè tiáo lù hěn cháng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/13/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-57f08b62c7d0aaf5",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vì mưa nên chúng tôi không ra ngoài.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "因为下雨，所以我们没出去。",
+          "pinyin": "yīn wèi xià yǔ suǒ yǐ wǒ men méi chū qù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/138/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-58c9b9690fab5338",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi thường xuyên chạy bộ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我经常跑步。",
+          "pinyin": "wǒ jīng cháng pǎo bù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/73/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-58f943dc48b89bc4",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy đóng cửa lại.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请把门关上。",
+          "pinyin": "qǐng bǎ mén guān shàng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/99/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5a29c69e3e1f69ac",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ngân hàng ngay bên phải trung tâm thương mại.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "银行就在商场右边。",
+          "pinyin": "yín háng jiù zài shāng chǎng yòu biān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/181/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5a74ad467917c23c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cuối tuần chúng ta cùng đi bơi nhé.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "周末我们一起去游泳吧。",
+          "pinyin": "zhōu mò wǒ men yì qǐ qù yóu yǒng ba"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/172/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5af19e43a5b8e789",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Nghỉ hè chúng tôi đi du lịch Trung Quốc.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "暑假我们去中国旅游。",
+          "pinyin": "shǔ jià wǒ men qù zhōng guó lǚ yóu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/93/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5c91d3558da0df00",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Quán ăn ở phía trước khách sạn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "饭馆在酒店前面。",
+          "pinyin": "fàn guǎn zài jiǔ diàn qián miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/118/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5cf67c526e6bc37e",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đừng cử động, để tôi xem cho.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "别动，我给你看看。",
+          "pinyin": "bié dòng wǒ gěi nǐ kàn kàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/37/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5dc1295ccdb3b69b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Khi qua đường phải cẩn thận.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "过马路时要小心。",
+          "pinyin": "guò mǎ lù shí yào xiǎo xīn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/46/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-5e764002cedceb60",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy nói chậm rãi.",
+      "family": "hsk2-grammar-19",
+      "answers": [
+        {
+          "hanzi": "请慢慢地说。",
+          "pinyin": "qǐng màn màn dì shuō"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/18/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-605a4eab2e6d4431",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi nghe hiểu rồi.",
+      "family": "hsk2-grammar-02",
+      "answers": [
+        {
+          "hanzi": "我听懂了。",
+          "pinyin": "wǒ tīng dǒng le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/1/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-623581e762dddacb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Người ở bên ngoài cửa.",
+      "family": "hsk2-grammar-06",
+      "answers": [
+        {
+          "hanzi": "人在门外面。",
+          "pinyin": "rén zài mén wài miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/5/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-63b77cb8e7593cd3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tại sao bạn học tiếng Trung?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你为什么学汉语？",
+          "pinyin": "nǐ wèi shén me xué hàn yǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/153/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-644b1d1c0472b2f9",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đã mua vé máy bay trên mạng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我在网上买了机票。",
+          "pinyin": "wǒ zài wǎng shàng mǎi le jī piào"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/63/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-648a9898f5a258f3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi hy vọng năm sau đi Trung Quốc.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我希望明年去中国。",
+          "pinyin": "wǒ xī wàng míng nián qù zhōng guó"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/154/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-65d7e3859b08e7c1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bài tập đã làm xong.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "作业已经做完了。",
+          "pinyin": "zuò yè yǐ jīng zuò wán le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/147/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-65e1c9ed98055b97",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tuần sau tôi bắt đầu đi làm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我下周开始上班。",
+          "pinyin": "wǒ xià zhōu kāi shǐ shàng bān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/191/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-6867ddf056fb782b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn sao vậy?",
+      "family": "hsk2-grammar-15",
+      "answers": [
+        {
+          "hanzi": "你怎么了？",
+          "pinyin": "nǐ zěn me le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/14/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-68c582723485e894",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cô bé vui vẻ cười.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "女孩儿高兴地笑了。",
+          "pinyin": "nǚ hái ér gāo xìng dì xiào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/111/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-695447619e1bba17",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cá nhỏ bơi trong nước.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "小鱼在水里游。",
+          "pinyin": "xiǎo yú zài shuǐ lǐ yóu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/176/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-69adfa3b509ce80c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Khi ăn đừng xem điện thoại.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "吃饭时别看手机。",
+          "pinyin": "chī fàn shí bié kàn shǒu jī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/130/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-6bb30e15f530f6c7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mỗi ngày tôi đi xe buýt đến chỗ làm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我每天坐公交车上班。",
+          "pinyin": "wǒ měi tiān zuò gōng jiāo chē shàng bān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/45/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-6bf49c6568bc6892",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn có thể giúp tôi không?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你能帮我吗？",
+          "pinyin": "nǐ néng bāng wǒ ma"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/4/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-6c035279d4186836",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Buổi tối tôi thường dùng máy tính lên mạng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "晚上我常用电脑上网。",
+          "pinyin": "wǎn shàng wǒ cháng yòng diàn nǎo shàng wǎng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/127/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-6c4a40fe6a69d58e",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi từng đến Bắc Kinh.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我去过北京。",
+          "pinyin": "wǒ qù guò běi jīng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/50/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-6e6d9e9c95ade931",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi muốn tặng cô ấy một quyển sách.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我想送她一本书。",
+          "pinyin": "wǒ xiǎng sòng tā yì běn shū"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/136/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-72912f41d3e1caa2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đừng nói như thế.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "别那样说。",
+          "pinyin": "bié nà yàng shuō"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/106/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-73b0d096cb7bc707",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cặp sách ở bên trong phòng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "书包在房间里面。",
+          "pinyin": "shū bāo zài fáng jiān lǐ miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/89/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7562a3400eeb9bb2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi rất mệt nhưng vẫn muốn đi dạo.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我很累，但还想走一走。",
+          "pinyin": "wǒ hěn lèi dàn hái xiǎng zǒu yi zǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/29/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-756b588d67b8c079",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đã mua vé xong rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我已经买好票了。",
+          "pinyin": "wǒ yǐ jīng mǎi hǎo piào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/171/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7770b141ded00ea3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chìa khóa ở phía trên bàn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "钥匙在桌子上面。",
+          "pinyin": "yào shi zài zhuō zi shàng miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/125/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7946b73ae841dbc2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ngày mai bạn đi tàu điện ngầm hay xe buýt?",
+      "family": "hsk2-grammar-26",
+      "answers": [
+        {
+          "hanzi": "明天你坐地铁还是公共汽车？",
+          "pinyin": "míng tiān nǐ zuò dì tiě hái shì gōng gòng qì chē"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/25/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7a013f461965bbae",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vợ anh ấy là bác sĩ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他的妻子是医生。",
+          "pinyin": "tā de qī zǐ shì yī shēng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/116/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7adc4f9898d9118b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi muốn đặt một phòng yên tĩnh.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我想订一间安静的房间。",
+          "pinyin": "wǒ xiǎng dìng yì jiān ān jìng de fáng jiān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/65/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7af0617818b576d1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trước bữa ăn phải rửa tay.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "饭前要洗手。",
+          "pinyin": "fàn qián yào xǐ shǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/155/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7c17c53ef4e8d5a0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đã hiểu lời giáo viên nói.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "老师说的话我听懂了。",
+          "pinyin": "lǎo shī shuō de huà wǒ tīng dǒng le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/36/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-7d44d4f33012d482",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn đi nhanh quá.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你走得太快了。",
+          "pinyin": "nǐ zǒu dé tài kuài le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/83/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-80230565e02c22ff",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tuần sau là khai giảng rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "下周就开学了。",
+          "pinyin": "xià zhōu jiù kāi xué le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/78/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-818e4cea29fc1c8a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cô ấy vui vẻ cười.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "她高兴地笑了。",
+          "pinyin": "tā gāo xìng dì xiào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/32/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-81e1efe3882dd56c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy cầm đồ của bạn cho chắc.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请拿好你的东西。",
+          "pinyin": "qǐng ná hǎo nǐ de dōng xī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/104/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-83896eddd59b0571",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trời mưa rồi, chúng ta gọi taxi nhé.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "下雨了，我们打车吧。",
+          "pinyin": "xià yǔ le wǒ men dǎ chē ba"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/27/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8456e88b4037317a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hôm nay lạnh hơn hôm qua.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "今天比昨天冷。",
+          "pinyin": "jīn tiān bǐ zuó tiān lěng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/8/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-848c4e036cda5f77",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mười giờ tối anh ấy mới về.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他晚上十点才回来。",
+          "pinyin": "tā wǎn shàng shí diǎn cái huí lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/60/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8494206c4433a178",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Thuốc này uống hai lần một ngày.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这种药一天吃两次。",
+          "pinyin": "zhè zhǒng yào yì tiān chī liǎng cì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/167/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-855d0cadade363e7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đứa trẻ này rất hay cười.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个小孩儿很爱笑。",
+          "pinyin": "zhè ge xiǎo hái ér hěn ài xiào"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/160/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-86ab9bcac2a0a871",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đá bóng cùng bạn.",
+      "family": "hsk2-grammar-21",
+      "answers": [
+        {
+          "hanzi": "我跟朋友一起踢足球。",
+          "pinyin": "wǒ gēn péng yǒu yì qǐ tī zú qiú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/20/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-882188d3d4e66001",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vé học sinh giá bao nhiêu?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "学生门票多少钱？",
+          "pinyin": "xué shēng mén piào duō shǎo qián"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/101/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-88f628633fab68e1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn đi cùng chúng tôi nhé.",
+      "family": "hsk2-grammar-21",
+      "answers": [
+        {
+          "hanzi": "你跟我们一起去吧。",
+          "pinyin": "nǐ gēn wǒ men yì qǐ qù ba"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/20/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8b65c63bd4abae3f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chúng ta gặp nhau ở cửa trung tâm thương mại.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我们在商场门口见。",
+          "pinyin": "wǒ men zài shāng chǎng mén kǒu jiàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/123/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8bc21d072bfa4851",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn đợi tôi ở đây một lát.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你在这里等我一会儿。",
+          "pinyin": "nǐ zài zhè lǐ děng wǒ yí huì er"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/33/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8cae42ebbe6a792b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Sở thích của tôi là bơi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我的爱好是游泳。",
+          "pinyin": "wǒ de ài hào shì yóu yǒng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/1/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8ce1a6eaa6a0aa47",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Câu cuối tôi không biết làm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "最后一题我不会做。",
+          "pinyin": "zuì hòu yì tí wǒ bú huì zuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/141/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8d49108e962bf5a8",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Khách sạn này không xa sân bay.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这家酒店离机场不远。",
+          "pinyin": "zhè jiā jiǔ diàn lí jī chǎng bù yuǎn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/74/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8d5ebe5a8fbe0f2b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi mua hai con cá.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我买了两条鱼。",
+          "pinyin": "wǒ mǎi le liǎng tiáo yú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/142/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8e312ce6422228a3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tòa nhà này rất cao.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这座楼很高。",
+          "pinyin": "zhè zuò lóu hěn gāo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/40/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8ea6804f7dd0addd",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bên cạnh trường có một quán ăn nhỏ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "学校旁边有一家小饭馆。",
+          "pinyin": "xué xiào páng biān yǒu yì jiā xiǎo fàn guǎn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/38/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8f03bfbeea19819b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mỗi ngày tôi vận động nửa giờ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我每天运动半个小时。",
+          "pinyin": "wǒ měi tiān yùn dòng bàn gè xiǎo shí"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/184/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8f1b12c004faebe8",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy mở cửa ra.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请把门打开。",
+          "pinyin": "qǐng bǎ mén dǎ kāi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/28/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-8fce6c789c6bc6b7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy đi từ trên lầu xuống đây.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请从楼上下来。",
+          "pinyin": "qǐng cóng lóu shàng xià lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/157/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-909a58397671cca7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Lớp này có hai mươi học sinh.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个班有二十名学生。",
+          "pinyin": "zhè ge bān yǒu èr shí míng xué shēng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/3/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-91c3fd57dc3039a1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Chúc bạn sinh nhật vui vẻ!",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "祝你生日快乐！",
+          "pinyin": "zhù nǐ shēng rì kuài lè"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/84/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-94d773d6f8852e11",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trong cặp có ba quyển sách.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "书包里有三本书。",
+          "pinyin": "shū bāo lǐ yǒu sān běn shū"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/134/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-956c77e2a204e750",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Từ nhà đến công ty mất ba mươi phút.",
+      "family": "hsk2-grammar-09",
+      "answers": [
+        {
+          "hanzi": "从家到公司要三十分钟。",
+          "pinyin": "cóng jiā dào gōng sī yào sān shí fēn zhōng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/8/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-95bc0a523cdb1580",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bức tường này màu trắng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这面墙是白色的。",
+          "pinyin": "zhè miàn qiáng shì bái sè de"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/102/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-96573f5781d3a80d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Uống thuốc xong dễ chịu hơn nhiều.",
+      "family": "hsk2-grammar-16",
+      "answers": [
+        {
+          "hanzi": "吃药以后舒服多了。",
+          "pinyin": "chī yào yǐ hòu shū fú duō le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/15/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-96f9c4ddbe07e9c0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đi tàu điện ngầm nhanh hơn đi xe buýt.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "坐地铁比坐公交车快。",
+          "pinyin": "zuò dì tiě bǐ zuò gōng jiāo chē kuài"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/34/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-97b879a194f2fca3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hôm nay anh ấy mặc một chiếc quần màu đen.",
+      "family": "hsk2-grammar-24",
+      "answers": [
+        {
+          "hanzi": "今天他穿着一条黑色的裤子。",
+          "pinyin": "jīn tiān tā chuān zhe yì tiáo hēi sè de kù zǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/23/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-980ea7fce45c04c3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đứa trẻ này thích vẽ chim.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个小孩儿喜欢画小鸟。",
+          "pinyin": "zhè ge xiǎo hái ér xǐ huan huà xiǎo niǎo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/58/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-99aeffccaa7184e0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Giáo viên bảo tôi nói lại.",
+      "family": "hsk2-grammar-20",
+      "answers": [
+        {
+          "hanzi": "老师让我再说一次。",
+          "pinyin": "lǎo shī ràng wǒ zài shuō yí cì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/19/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9a0c24c979491bfb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Con chim bay khỏi cây.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "鸟从树上飞走了。",
+          "pinyin": "niǎo cóng shù shàng fēi zǒu le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/39/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9a69a05a3039bbec",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vậy thì, ngày mai gặp nhé.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "那么，我们明天见。",
+          "pinyin": "nà me wǒ men míng tiān jiàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/105/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9a7718eec9a1f05f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Từ đây cứ đi thẳng về phía trước.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "从这里一直往前走。",
+          "pinyin": "cóng zhè lǐ yì zhí wǎng qián zǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/23/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9a8be559a42f1ea1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tuy trời mưa, anh ấy vẫn đến nhà tôi.",
+      "family": "hsk2-grammar-22",
+      "answers": [
+        {
+          "hanzi": "虽然下雨，他还是来我家了。",
+          "pinyin": "suī rán xià yǔ tā hái shì lái wǒ jiā le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/21/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9aba69b04b48f04b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Nhà vệ sinh ở bên phải.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "洗手间在右边。",
+          "pinyin": "xǐ shǒu jiān zài yòu biān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/180/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9e74f3c37c4e22bc",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Quả bóng này của ai?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个球是谁的？",
+          "pinyin": "zhè ge qiú shì shuí de"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/120/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-9fbc6c1e1e6fbb6e",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy cho tôi biết họ tên của bạn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请告诉我你的姓名。",
+          "pinyin": "qǐng gào sù wǒ nǐ de xìng míng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/42/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a1340ac32f507079",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy đợi tôi một lát.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请等我一会儿。",
+          "pinyin": "qǐng děng wǒ yí huì er"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/170/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a34b61d501b87411",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Giáo viên dạy rất rõ.",
+      "family": "hsk2-grammar-18",
+      "answers": [
+        {
+          "hanzi": "老师教得很清楚。",
+          "pinyin": "lǎo shī jiào dé hěn qīng chǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/17/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a4de8809d82f67ec",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi sống ở tầng ba.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我住在三楼。",
+          "pinyin": "wǒ zhù zài sān lóu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/90/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a52dcb93ae47170f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy ra đây một chút.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请出来一下。",
+          "pinyin": "qǐng chū lái yí xià"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/17/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a64b9158c14e7a3a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Sân bay không xa đây.",
+      "family": "hsk2-grammar-07",
+      "answers": [
+        {
+          "hanzi": "机场离这里不远。",
+          "pinyin": "jī chǎng lí zhè lǐ bù yuǎn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/6/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a74e09d707e757af",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hôm nay trời âm u, có thể sẽ mưa.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "今天阴，可能会下雨。",
+          "pinyin": "jīn tiān yīn kě néng huì xià yǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/174/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-a93b69ac2f97680b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đang chuẩn bị cho kỳ thi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我正在准备考试。",
+          "pinyin": "wǒ zhèng zài zhǔn bèi kǎo shì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/192/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-aa03bcd43ae0dad5",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy mang vé lại đây.",
+      "family": "hsk2-grammar-11",
+      "answers": [
+        {
+          "hanzi": "请把票拿过来。",
+          "pinyin": "qǐng bǎ piào ná guò lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/10/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-aaefc907d9288c97",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bộ phim bắt đầu lúc bảy giờ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "电影七点开始。",
+          "pinyin": "diàn yǐng qī diǎn kāi shǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/77/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ac103b4178241967",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mỗi ngày tôi đi bộ đến công ty.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我每天走路去公司。",
+          "pinyin": "wǒ měi tiān zǒu lù qù gōng sī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/195/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ae881ba0ab5a3f65",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "À, tôi hiểu rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "啊，我明白了。",
+          "pinyin": "a wǒ míng bái le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/0/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-af36a77989fcf675",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy nói rất rõ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他说得很清楚。",
+          "pinyin": "tā shuō dé hěn qīng chǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/31/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-b17327fc9a8b5a96",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mời vào, đừng đứng ở cửa.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请进，别站在门口。",
+          "pinyin": "qǐng jìn bié zhàn zài mén kǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/69/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-b3304e9db0e694bf",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi ra khỏi nhà lúc bảy giờ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我七点出门。",
+          "pinyin": "wǒ qī diǎn chū mén"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/18/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-b5181a61c56e99fa",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy viết tên vào vở.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请把名字写在本子上。",
+          "pinyin": "qǐng bǎ míng zì xiě zài běn zi shàng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/7/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-b53c3b8cf0c6e7b8",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Con mèo ở dưới bàn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "猫在桌子下面。",
+          "pinyin": "māo zài zhuō zi xià miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/158/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-b8a5d9ce16c9b04e",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi muốn ăn một chút thịt.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我想吃一点儿肉。",
+          "pinyin": "wǒ xiǎng chī yì diǎn ér ròu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/122/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-b9fb587d2d518b9c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vì tôi muốn sang Trung Quốc làm việc.",
+      "family": "hsk2-grammar-27",
+      "answers": [
+        {
+          "hanzi": "因为我想去中国工作。",
+          "pinyin": "yīn wèi wǒ xiǎng qù zhōng guó gōng zuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/26/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ba122c8295f38209",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Lúc nhỏ tôi sống ở Hà Nội.",
+      "family": "hsk2-grammar-23",
+      "answers": [
+        {
+          "hanzi": "我小时候住在河内。",
+          "pinyin": "wǒ xiǎo shí hòu zhù zài hé nèi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/22/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ba630aca2c378817",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Xin hỏi quý danh của ngài là gì?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请问您姓什么？",
+          "pinyin": "qǐng wèn nín xìng shén me"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/163/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-babb60ad5203ddc5",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vận động nhiều tốt cho sức khỏe.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "多运动对身体好。",
+          "pinyin": "duō yùn dòng duì shēn tǐ hǎo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/128/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-babce4d803816694",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cuối tuần họ cùng đá bóng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他们周末一起踢足球。",
+          "pinyin": "tā men zhōu mò yì qǐ tī zú qiú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/196/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-baef4760515ab3b6",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy viết họ tên ở đây.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请在这里写姓名。",
+          "pinyin": "qǐng zài zhè lǐ xiě xìng míng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/164/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-bb4e571083bb7a77",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đừng quên gọi điện cho bà.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "别忘了给奶奶打电话。",
+          "pinyin": "bié wàng le gěi nǎi nai dǎ diàn huà"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/151/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-be6806bd1afe4ff4",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cửa đang mở, mời vào.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "门开着，请进。",
+          "pinyin": "mén kāi zhe qǐng jìn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/189/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-bed0d3bedb23d620",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Nghe tin vui này, cô ấy vui vẻ cười.",
+      "family": "hsk2-grammar-19",
+      "answers": [
+        {
+          "hanzi": "听到这个好消息，她高兴地笑了。",
+          "pinyin": "tīng dào zhè ge hǎo xiāo xī tā gāo xìng dì xiào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/18/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-c05e8f4b7f9a6349",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trên bàn có một bông hoa.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "桌上有一朵花。",
+          "pinyin": "zhuō shàng yǒu yì duǒ huā"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/57/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-c13460b7889a5d28",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi không hiểu ý của câu này.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我不懂这句话的意思。",
+          "pinyin": "wǒ bù dǒng zhè jù huà de yì sī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/173/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-c73ee1774aae96a4",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Xem bộ phim này một mình thì chán.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "一个人看这个电影没意思。",
+          "pinyin": "yí gè rén kàn zhè ge diàn yǐng méi yì si"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/97/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-c7d49e8c8c781aa0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tàu sắp đến rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "火车快要到了。",
+          "pinyin": "huǒ chē kuài yào dào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/85/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-c861a88b0f0a760d",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ga tàu điện ngầm ở bên trái.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "地铁站在左边。",
+          "pinyin": "dì tiě zhàn zài zuǒ biān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/198/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-c88d6113c38b5a13",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Từ này có nghĩa là gì?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个词是什么意思？",
+          "pinyin": "zhè ge cí shì shén me yì sī"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/21/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-cab475dd4d8c59cc",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Cô ấy rất thích nhảy múa.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "她很喜欢跳舞。",
+          "pinyin": "tā hěn xǐ huan tiào wǔ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/143/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-cc8cf48bb0719c42",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy chạy ra ngoài rồi.",
+      "family": "hsk2-grammar-28",
+      "answers": [
+        {
+          "hanzi": "他跑出去了。",
+          "pinyin": "tā pǎo chū qù le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/27/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-cd7034c1b640ab68",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Kỳ thi lần này không quá khó.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这次考试不太难。",
+          "pinyin": "zhè cì kǎo shì bú tài nán"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/80/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-cf343328e23c8aa3",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Việc của mình phải tự làm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "自己的事情要自己做。",
+          "pinyin": "zì jǐ de shì qíng yào zì jǐ zuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/193/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d05c95a4ba7c8766",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đợi bạn ở cửa.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我在门口等你。",
+          "pinyin": "wǒ zài mén kǒu děng nǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/100/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d134e17f92886d08",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi muốn một chút thịt.",
+      "family": "hsk2-grammar-12",
+      "answers": [
+        {
+          "hanzi": "我要一点儿肉。",
+          "pinyin": "wǒ yào yì diǎn ér ròu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/11/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d2a51b2ec851b433",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mỗi người đều phải viết tên.",
+      "family": "hsk2-grammar-03",
+      "answers": [
+        {
+          "hanzi": "每个人都要写名字。",
+          "pinyin": "měi gè rén dōu yào xiě míng zì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/2/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d30d92994a6f9896",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Thành phố này có một triệu người.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个城市有一百万人。",
+          "pinyin": "zhè ge chéng shì yǒu yì bǎi wàn rén"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/148/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d468ec3a06ec597a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Trong danh sách có mười học sinh.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "名单上有十名学生。",
+          "pinyin": "míng dān shàng yǒu shí míng xué shēng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/103/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d654f7ae178a2f7b",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bạn uống trà hay cà phê?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "你喝茶还是咖啡？",
+          "pinyin": "nǐ hē chá hái shì kā fēi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/51/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d6df14cbe431d717",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Từ nhỏ cô ấy đã thích vẽ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "她从小喜欢画画。",
+          "pinyin": "tā cóng xiǎo xǐ huan huà huà"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/24/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-d918a07be3b0e0e8",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Phía trước có một hiệu thuốc.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "前面有一家药店。",
+          "pinyin": "qián miàn yǒu yì jiā yào diàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/168/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-da3152be1e130f83",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bà đang nấu cơm.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "奶奶正在做饭。",
+          "pinyin": "nǎi nai zhèng zài zuò fàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/108/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-db723ff683fd0d74",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Họ đá bóng ở sân trường.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他们在操场踢足球。",
+          "pinyin": "tā men zài cāo chǎng tī zú qiú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/140/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-dbd1d961c4d08e83",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hiệu thuốc ở bên trái bệnh viện.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "药店在医院左边。",
+          "pinyin": "yào diàn zài yī yuàn zuǒ biān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/199/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-dbe906694e9c1f10",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đầu tôi hơi đau.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我的头有点儿疼。",
+          "pinyin": "wǒ de tóu yǒu diǎn er téng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/144/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-dc0e63edb928c9eb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi mua hai cây bút.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我买了两支笔。",
+          "pinyin": "wǒ mǎi le liǎng zhī bǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/9/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-dc9a2dbf17a4f904",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Năm sau tôi muốn ra nước ngoài học.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "明年我想出国学习。",
+          "pinyin": "míng nián wǒ xiǎng chū guó xué xí"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/16/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-dfa871ae28da03f0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hiệu thuốc rất gần đây.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "药店离这里很近。",
+          "pinyin": "yào diàn lí zhè lǐ hěn jìn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/70/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e2ee3918d91de5ed",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy từ tầng ba xuống đây.",
+      "family": "hsk2-grammar-28",
+      "answers": [
+        {
+          "hanzi": "请你从三楼下来。",
+          "pinyin": "qǐng nǐ cóng sān lóu xià lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/27/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e47343ffc968aa6e",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Anh ấy làm việc ở nước ngoài.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "他在外国工作。",
+          "pinyin": "tā zài wài guó gōng zuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/145/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e5be33052d6d1647",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ngày mai chúng tôi thi nghe.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "明天我们考听力。",
+          "pinyin": "míng tiān wǒ men kǎo tīng lì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/79/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e5e57ede5f51a676",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Năm nay chúng tôi ăn Tết ở nhà ông.",
+      "family": "hsk2-grammar-23",
+      "answers": [
+        {
+          "hanzi": "今年我们在爷爷家过年。",
+          "pinyin": "jīn nián wǒ men zài yé ye jiā guò nián"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/22/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e61421028cea95ac",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi gọi một cốc trà sữa.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我点了一杯奶茶。",
+          "pinyin": "wǒ diǎn le yì bēi nǎi chá"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/35/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e77bb2736b386889",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hãy giữ vé xe cẩn thận.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请收好车票。",
+          "pinyin": "qǐng shōu hǎo chē piào"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/115/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e789e8cecab457c2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi gặp anh ấy trên đường.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我在路上看见了他。",
+          "pinyin": "wǒ zài lù shang kàn jiàn le tā"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/92/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e7cffd1f9d9a05f6",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ngoài trời đang mưa, đừng ra ngoài.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "外面下雨，别出去。",
+          "pinyin": "wài miàn xià yǔ bié chū qù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/19/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e7eb094c5d8cef2f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Thứ Bảy tuần này là sinh nhật tôi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这个星期六是我的生日。",
+          "pinyin": "zhè ge xīng qī liù shì wǒ de shēng rì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/129/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e885860625dd2ced",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Đồng hồ của tôi chậm năm phút.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我的手表慢了五分钟。",
+          "pinyin": "wǒ de shǒu biǎo màn le wǔ fēn zhōng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/133/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e88bdaa229bd06a7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mau dậy, vào học rồi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "快起来，上课了。",
+          "pinyin": "kuài qǐ lái shàng kè le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/117/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e9562ff2e197f97f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bộ quần áo này tốn ba trăm tệ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这件衣服花了三百块。",
+          "pinyin": "zhè jiàn yī fu huā le sān bǎi kuài"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/56/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-e9c223f253ff16f1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Con cá này rất tươi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这条鱼很新鲜。",
+          "pinyin": "zhè tiáo yú hěn xīn xiān"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/182/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-eb0d3491a769a111",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi có một việc muốn nói với bạn.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我有一件事情想告诉你。",
+          "pinyin": "wǒ yǒu yí jiàn shì qíng xiǎng gào sù nǐ"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/131/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ebf3e982f835a444",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tàu điện ngầm nhanh hơn xe buýt.",
+      "family": "hsk2-grammar-13",
+      "answers": [
+        {
+          "hanzi": "地铁比公交车快。",
+          "pinyin": "dì tiě bǐ gōng jiāo chē kuài"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/12/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-edff73654ea6cff7",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi đau đầu, muốn nghỉ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我头疼，想休息。",
+          "pinyin": "wǒ tóu téng xiǎng xiū xi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/139/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ee7efb5aebe83d04",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bên ngoài rất lạnh, mặc thêm một chút.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "外面很冷，多穿一点儿。",
+          "pinyin": "wài miàn hěn lěng duō chuān yì diǎn ér"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/146/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f35c343dccd1fefb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Sách ở trong cặp.",
+      "family": "hsk2-grammar-06",
+      "answers": [
+        {
+          "hanzi": "书在包里面。",
+          "pinyin": "shū zài bāo lǐ miàn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/5/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f3e18a8f5f453530",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Tôi muốn mua cái màu trắng.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我想买白色的。",
+          "pinyin": "wǒ xiǎng mǎi bái sè de"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/2/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f3f9c93722eace70",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Bên trong có người, bạn đừng vào vội.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "里面有人，你先别进去。",
+          "pinyin": "lǐ miàn yǒu rén nǐ xiān bié jìn qù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/72/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f432fbae1aa49b32",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Quán này tốt nhất.",
+      "family": "hsk2-grammar-25",
+      "answers": [
+        {
+          "hanzi": "这家饭馆最好。",
+          "pinyin": "zhè jiā fàn guǎn zuì hǎo"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/24/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f496ea897c3b6cb1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Món ăn của quán này khá ngon.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "这家饭馆的菜不错。",
+          "pinyin": "zhè jiā fàn guǎn de cài bú cuò"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/11/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f4e52f18a10aaa73",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vì mưa nên tôi không chạy bộ.",
+      "family": "hsk2-grammar-17",
+      "answers": [
+        {
+          "hanzi": "因为下雨，所以我没跑步。",
+          "pinyin": "yīn wèi xià yǔ suǒ yǐ wǒ méi pǎo bù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/16/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f4e7b5b33f96f9a2",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Em gái đang học bơi.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "妹妹正在学游泳。",
+          "pinyin": "mèi mei zhèng zài xué yóu yǒng"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/177/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f719b2d612b72fce",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Mỗi ngày tôi dậy lúc bảy giờ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我每天七点起来。",
+          "pinyin": "wǒ měi tiān qī diǎn qǐ lái"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/98/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f7bd5d464a8b697c",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Phòng không lớn nhưng rất dễ chịu.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "房间不大，但是很舒服。",
+          "pinyin": "fáng jiān bú dà dàn shì hěn shū fú"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/30/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-f7eb3e8c2a235246",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Sắp thi rồi.",
+      "family": "hsk2-grammar-05",
+      "answers": [
+        {
+          "hanzi": "就要考试了。",
+          "pinyin": "jiù yào kǎo shì le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/4/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fac9c3b31e5f1bf0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Muộn quá rồi, tôi về trước.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "太晚了，我先回去。",
+          "pinyin": "tài wǎn le wǒ xiān huí qù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/61/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fbdf2e9c0f18bed0",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Sau khi xuống tàu điện ngầm thì đi sang trái.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "下地铁以后就往左走。",
+          "pinyin": "xià dì tiě yǐ hòu jiù wǎng zuǒ zǒu"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/75/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fc2609887884146a",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Vừa nhìn thấy tôi cô ấy đã cười.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "她一看见我就笑了。",
+          "pinyin": "tā yí kàn jiàn wǒ jiù xiào le"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/162/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fcaeb04bc06ecacb",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Xin lỗi, hãy nói lại một lần.",
+      "family": "hsk2-grammar-01",
+      "answers": [
+        {
+          "hanzi": "不好意思，请再说一次。",
+          "pinyin": "bù hǎo yì si qǐng zài shuō yí cì"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/0/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fcd371f36c39604f",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Buổi sáng tôi đi công viên chạy bộ.",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "我早上去公园跑步。",
+          "pinyin": "wǒ zǎo shàng qù gōng yuán pǎo bù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/114/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fdc0e57db8c2dc36",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Qua đường phải cẩn thận.",
+      "family": "hsk2-grammar-11",
+      "answers": [
+        {
+          "hanzi": "过马路要小心。",
+          "pinyin": "guò mǎ lù yào xiǎo xīn"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/10/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-fe7d2dafd69110b1",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Xin hỏi nhà vệ sinh ở đâu?",
+      "family": "vocabulary-enrichment.json",
+      "answers": [
+        {
+          "hanzi": "请问，洗手间在哪儿？",
+          "pinyin": "qǐng wèn xǐ shǒu jiān zài nǎ ér"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/vocabulary-enrichment.json/entries/156/example",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ff53892b5195d4ea",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Ngày nào tôi cũng chạy bộ.",
+      "family": "hsk2-grammar-03",
+      "answers": [
+        {
+          "hanzi": "我每天都跑步。",
+          "pinyin": "wǒ měi tiān dōu pǎo bù"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/2/correctExamples/0",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    },
+    {
+      "id": "sg-ff7caa78bde78d84",
+      "level": 2,
+      "topic": "hsk2",
+      "vi": "Hôm nay mẹ không cho tôi uống cà phê.",
+      "family": "hsk2-grammar-20",
+      "answers": [
+        {
+          "hanzi": "妈妈今天不让我喝咖啡。",
+          "pinyin": "mā ma jīn tiān bú ràng wǒ hē kā fēi"
+        }
+      ],
+      "sources": [
+        {
+          "path": "data/hsk/hsk2/grammar.json/records/19/correctExamples/1",
+          "pinyinSource": "repository-pinyin-pro-build"
+        }
+      ]
+    }
+  ]
+}
