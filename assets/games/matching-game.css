@@ -14,3 +14,8 @@ body[data-current-area="matching"] .study-rail{display:none!important}body[data-
  html body[data-current-area="matching"] .study-center{display:block!important;width:100%!important;min-width:0!important;margin:0!important;grid-column:auto!important}
  html body[data-current-area="matching"] #gamesScreen{width:100%;max-width:100%;box-sizing:border-box}
 }
+@media(max-width:980px){
+ html body[data-current-area="matching"] #appShell{overflow-x:clip!important}
+ html body[data-current-area="matching"] .study-layout,
+ html body[data-current-area="matching"] .study-center{overflow:visible!important}
+}
