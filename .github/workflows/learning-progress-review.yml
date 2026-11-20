@@ -1,0 +1,72 @@
+name: Learning progress and spaced recall
+on:
+  pull_request:
+    paths: ['assets/v82/**','assets/hsk-content/**','assets/daily-learning-v2.js','assets/v86/home-dashboard-v86.5.js','supabase-sync.js','service-worker.js','tests/learning-*','tests/fixtures/learning-*','tests/sidebar-service-worker.test.js','tests/hsk-stroke-lazy-load.test.mjs','.github/workflows/learning-progress-review.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  checks: read
+concurrency:
+  group: learning-progress-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  merge-and-recall:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false jsdom@26.1.0
+      - run: node --test tests/learning-ui-preservation.test.cjs tests/learning-progress-review.test.cjs tests/v82-account-learning-sync.test.js tests/hsk-self-study-mastery.test.mjs tests/hsk-study-journey-v1.test.mjs tests/hsk-phase2-exp-regression.test.mjs tests/supabase-sync.test.js tests/daily-learning.test.js tests/hsk-practice-v1.test.mjs tests/hsk-shadowing-v1.test.mjs tests/hsk-shadowing-complete.test.mjs tests/word-exp-mascot-release.test.mjs tests/sidebar-service-worker.test.js tests/hsk-stroke-lazy-load.test.mjs
+  owner-rls:
+    runs-on: ubuntu-24.04
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_PASSWORD: ci-fixture-only
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Execute owner allow/deny against real Postgres and repository policies
+        env:
+          PGPASSWORD: ci-fixture-only
+        run: psql -h localhost -U postgres -d postgres -v ON_ERROR_STOP=1 -f tests/learning-profile-rls.sql
+  two-device-browser:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+      - run: npx playwright install --with-deps chromium
+      - name: Resolve immutable Preview for the tested PR head
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const ref=context.payload.pull_request.head.sha;
+            for(let attempt=0;attempt<30;attempt++){
+              const {data}=await github.rest.checks.listForRef({...context.repo,ref});
+              const check=data.check_runs.find(c=>c.name==='Cloudflare Pages');
+              const url=check?.output?.summary?.match(/https:\/\/[a-z0-9]+\.vduckie\.pages\.dev/)?.[0];
+              if(check?.conclusion==='success'&&url){core.exportVariable('LEARNING_PREVIEW_URL',url);return;}
+              if(check?.conclusion&&check.conclusion!=='success')throw new Error('Cloudflare deployment failed');
+              await new Promise(resolve=>setTimeout(resolve,2000));
+            }
+            throw new Error('No deployed Preview for exact PR head');
+      - name: Two devices, isolated auth fixtures, offline reload and recall
+        run: node tests/learning-progress-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: learning-progress-desktop-mobile
+          path: artifacts/learning-progress/

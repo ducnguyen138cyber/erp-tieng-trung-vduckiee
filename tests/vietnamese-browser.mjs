@@ -17,7 +17,34 @@ const reports=[];await mkdir('artifacts/vietnamese',{recursive:true});
 try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
  const browser=await engine.launch({headless:true});
  try{for(const width of [1440,390,320]){
-  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));page.on('request',r=>requests.push(r.url()));
+  const context=await browser.newContext({viewport:{width,height:900},serviceWorkers:'block'}),page=await context.newPage();page.setDefaultTimeout(25000);const errors=[],requests=[];
+  page.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));
+  await page.addInitScript(()=>{
+    const descriptor=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value');
+    window.__authFieldTrace=[];
+    Object.defineProperty(HTMLInputElement.prototype,'value',{...descriptor,set(value){
+      if(this.id==='vdaPassword')window.__authFieldTrace.push({length:String(value).length,stack:new Error().stack});
+      return descriptor.set.call(this,value);
+    }});
+  });
+  page.on('console',m=>{if(m.text().startsWith('VI_INSERT_BEFORE_FAILURE'))console.log(name,width,m.text());});
+  page.on('request',r=>requests.push(r.url()));
+  await page.addInitScript(()=>{
+    const insert=Node.prototype.insertBefore;
+    Node.prototype.insertBefore=function(child,reference){
+      try{return insert.call(this,child,reference);}
+      catch(error){
+        console.error('VI_INSERT_BEFORE_FAILURE '+JSON.stringify({
+          parent:this.nodeName,id:this.id,className:String(this.className||''),
+          child:child?.nodeName,childId:child?.id,
+          reference:reference?.nodeName,referenceId:reference?.id,
+          referenceParent:reference?.parentNode?.id,
+          stack:new Error('insertBefore failure').stack
+        }));
+        throw error;
+      }
+    };
+  });
   await page.route('https://cdn.jsdelivr.net/npm/@supabase/**',r=>r.fulfill({contentType:'text/javascript',body:sdk}));await page.route('https://*.supabase.co/**',r=>r.abort());
   // Legacy community service is outside this module; keep its cross-origin fetch deterministic.
   await page.route('**/api/community-terms**',r=>r.fulfill({contentType:'application/json',headers:{'Access-Control-Allow-Origin':'*'},body:JSON.stringify({terms:[]})}));
@@ -39,11 +66,11 @@ try{for(const[name,engine]of [['chromium',chromium],['webkit',webkit]]){
    async function answer(q){if(q.options){if(q.type==='listen')await page.locator('[data-vi-action="listen-text"]').click();await page.locator('input[name="vi-choice"][value="'+q.answer+'"]').check();}else if(q.type==='fill')await page.locator('[data-vi-fill]').fill(q.answers[0]);else if(q.type==='order'){for(let i=0;i<q.tokens.length;i++)await page.locator('[data-vi-action="order-add"][data-token="'+i+'"]').click();}else for(let i=0;i<q.pairs.length;i++){await page.locator('[data-vi-action="match-left"][data-index="'+i+'"]').click();await page.locator('[data-vi-action="match-right"][data-index="'+i+'"]').click();}await page.locator('[data-vi-action="check"]').click();await page.locator('[data-vi-action="next-question"]').click();}
    for(const q of lesson.practice)await answer(q);await page.locator('[data-vi-action="quiz-start"]').click();for(const q of lesson.quiz)await answer(q);
    assert.match(await page.locator('.vi-result').textContent(),/本单元已完成/);await page.reload();await page.locator('#vietnameseScreen .vi-lesson-head').waitFor();assert.match(await page.locator('.vi-lesson-head').textContent(),/已完成/);assert.equal(await page.locator('#hsk').isVisible(),false,'deep-linked Vietnamese must exclude HSK');assert.equal(new URL(page.url()).searchParams.has('area'),false);
-   await page.locator('[data-vi-action="login"]').click();await page.locator('#vdaEmail').fill('alice@example.invalid');await page.locator('#vdaPassword').fill('fixture-password');await page.locator('#vdaSubmit').click();await page.locator('#vduckieAuthScreen').waitFor({state:'hidden'});await page.locator('.vi-sync').filter({hasText:'已登录'}).waitFor();
+   await page.locator('[data-vi-action="login"]').click();await page.locator('#vdaEmail').fill('alice@example.invalid');await page.locator('#vdaPassword').fill('fixture-password');await page.locator('#vdaSubmit').click();try{await page.locator('#vduckieAuthScreen').waitFor({state:'hidden'});}catch(error){console.log('VI_AUTH_DIAGNOSTIC',JSON.stringify({name,width,errors,state:await page.evaluate(()=>({auth:document.getElementById('vduckieAuthScreen')?.innerText,fieldTrace:window.__authFieldTrace,cloud:!!window.VDuckieCloud,session:window.VDuckieCloud?.getSession?.(),calls:window.__viFixture?.calls}))}));throw error;}await page.locator('.vi-sync').filter({hasText:'已登录'}).waitFor();
    assert.match(await page.locator('[data-vi-progress]').textContent(),/0 \/ 14/,'guest progress is not attached silently to a new account');
    await page.locator('#vi-tab-words').click();await page.locator('[data-vi-action="known"]').click();await page.locator('[data-vi-action="sync"]').click();await page.locator('[data-vi-sync-status]').filter({hasText:'已同步'}).waitFor();
    await page.evaluate(()=>window.VDuckieCloud.signOut());await page.locator('.vi-sync').filter({hasText:'游客'}).waitFor();
-   await page.locator('[data-vi-action="login"]').click();await page.locator('#vdaEmail').fill('alice@example.invalid');await page.locator('#vdaPassword').fill('fixture-password');await page.locator('#vdaSubmit').click();await page.locator('#vduckieAuthScreen').waitFor({state:'hidden'});await page.locator('.vi-sync').filter({hasText:'已登录'}).waitFor();
+   await page.locator('[data-vi-action="login"]').click();await page.locator('#vdaEmail').fill('alice@example.invalid');await page.locator('#vdaPassword').fill('fixture-password');await page.locator('#vdaSubmit').click();try{await page.locator('#vduckieAuthScreen').waitFor({state:'hidden'});}catch(error){console.log('VI_AUTH_DIAGNOSTIC',JSON.stringify({name,width,errors,state:await page.evaluate(()=>({auth:document.getElementById('vduckieAuthScreen')?.innerText,fieldTrace:window.__authFieldTrace,cloud:!!window.VDuckieCloud,session:window.VDuckieCloud?.getSession?.(),calls:window.__viFixture?.calls}))}));throw error;}await page.locator('.vi-sync').filter({hasText:'已登录'}).waitFor();
    assert.ok(await page.evaluate(()=>JSON.parse(localStorage.getItem('vduckie-vietnamese-v1:alice'))['l01-w01'].known));
   }
   await page.locator('[data-vi-action="chinese"]').click();await page.locator('#homeHub').waitFor({state:'visible'});assert.equal(await page.locator('#vietnameseScreen').isVisible(),false);

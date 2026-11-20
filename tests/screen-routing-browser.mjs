@@ -59,7 +59,7 @@ try {
     await page.waitForFunction(()=>window.VDuckieScreenRouter && document.getElementById('leaderboard'));
     await verify('ranking','#leaderboard',['#homeHub','#dailyLearningPanel']);
     await page.goto(base+'?screen=erp%3Aquiz');
-    await page.waitForFunction(()=>window.VDuckieScreenRouter && document.getElementById('quiz'));
+    await page.waitForFunction(()=>window.VDuckieScreenRouter?.current()==='erp:quiz' && document.getElementById('quiz'));
     await verify('erp:quiz','#quiz',['#homeHub','#leaderboard','#dailyLearningPanel']);
     await click('#studySidebar [data-view="quiz"]');
     assert.equal(new URL(page.url()).searchParams.get('screen'),'erp:quiz','same screen no duplicate navigation');

@@ -5,8 +5,10 @@
   var scheduled = false;
   var applying = false;
   var currentMissions = [];
-  var currentTotal = 0;
+  var currentTotal = null;
   var accountInitialized = false;
+  var accountRequest = 0;
+  var accountUser = null;
   var miniRequest = 0;
   var miniCard = null;
   var miniState = null;
@@ -58,7 +60,7 @@
     article.id = "expMiniLeaderboard";
     article.className = "v865-side-card v90-mini-board";
     article.setAttribute("aria-live", "polite");
-    article.innerHTML = '<div class="v90-mini-head"><div><h3>👑 Bảng xếp hạng</h3><p>Top học viên tuần này</p></div><button type="button" data-exp-open-all>Xem tất cả ›</button></div><div id="expMiniList" class="v90-mini-list"><div class="v90-side-state">Đang tải bảng xếp hạng…</div></div>';
+    article.innerHTML = '<div class="v90-mini-head"><div><h3>👑 Bảng xếp hạng</h3><p>Top học viên theo tổng EXP</p></div><button type="button" data-exp-open-all>Xem tất cả ›</button></div><div id="expMiniList" class="v90-mini-list"><div class="v90-side-state">Đang tải bảng xếp hạng…</div></div>';
     return article;
   }
   function ensureLayout() {
@@ -112,14 +114,22 @@
     }
     host.hidden = false;
     var meta = core.userMeta(session.user);
+    if (total === null) {
+      host.removeAttribute("data-total-exp");
+      setMarkup(host, '<span class="v90-header-account-loading">Đang tải EXP…</span>');
+      return;
+    }
+    host.removeAttribute("data-exp-error");
+    host.setAttribute("data-total-exp", String(total));
     var level = core.calculateUserLevel(total);
     var signature = JSON.stringify([meta.name, meta.avatar, level.totalEXP]);
     if (host === accountHost && signature === accountSignature) return;
     accountHost = host;
     accountSignature = signature;
+    host.__v90Markup = null;
     host.innerHTML = avatarMarkup(meta.name, meta.avatar, "v90-header-avatar") +
       '<div class="v90-header-account-copy"><strong title="' + core.escapeHtml(meta.name) + '">' + core.escapeHtml(meta.name) + '</strong>' +
-      '<span>Level ' + level.level + ' · ' + core.formatEXP(level.totalEXP) + '</span>' +
+      '<span>Level ' + level.level + ' · ' + core.formatEXP(level.totalEXP) + ' tổng</span>' +
       '<div class="v90-header-progress" role="progressbar" aria-label="Tiến độ tới Level ' + (level.level + 1) + '" aria-valuemin="0" aria-valuemax="' + level.expRequired + '" aria-valuenow="' + level.currentLevelEXP + '"><i style="width:' + (accountInitialized ? level.progressPercent : 0) + '%" data-level-progress="' + level.progressPercent + '"></i></div></div>';
     requestAnimationFrame(function () {
       var bar = host.querySelector("[data-level-progress]");
@@ -152,6 +162,7 @@
     setMarkup(host, '<div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v90-mission-list">' + html + '</div><p class="v90-weekly-note">' + (session && session.user ? "Hoàn thành nhiệm vụ để nhận EXP và tăng Level." : "Đăng nhập để lưu tiến độ và nhận EXP nhiệm vụ.") + '</p>');
   }
   function refreshAccount() {
+    var request = ++accountRequest;
     var session = core.session();
     if (!session || !session.user) {
       currentTotal = 0;
@@ -159,8 +170,17 @@
       return Promise.resolve(0);
     }
     return root.VDuckieEXP.getCurrentUserEXP().then(function (total) {
+      if (request !== accountRequest || !core.session() || core.session().user.id !== session.user.id) return currentTotal;
       currentTotal = Number(total || 0);
       renderAccount(currentTotal);
+      document.dispatchEvent(new CustomEvent("vduckie:my-exp-loaded", { detail: { totalEXP: currentTotal, userId: session.user.id } }));
+      return currentTotal;
+    }).catch(function(error) {
+      if (request === accountRequest && currentTotal === null) {
+        var host = byId("expHeaderAccount");
+        if (host) { host.setAttribute("data-exp-error", "true"); setMarkup(host, '<span class="v90-header-account-loading">Chưa tải được EXP</span>'); }
+      }
+      console.warn("EXP chưa tải lại được; giữ số đã xác nhận", error);
       return currentTotal;
     });
   }
@@ -171,39 +191,26 @@
     if (!host) return;
     if (error) {
       var needsMigration = /migration|function|schema cache|relation|period_exp|total_exp/i.test(String(error.message || error));
-      host.innerHTML = '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Hãy thử lại sau ít phút.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>';
+      setMarkup(host, '<div class="v90-side-state is-error">Không tải được bảng xếp hạng.<small>' + (needsMigration ? 'Hãy thử lại sau ít phút.' : 'Kiểm tra kết nối rồi thử lại.') + '</small><button type="button" data-exp-retry-mini>Thử lại</button></div>');
       return;
     }
     if (!rows.length) {
-      host.innerHTML = '<div class="v90-side-state">Chưa có dữ liệu EXP tuần này.</div>';
+      setMarkup(host, '<div class="v90-side-state">Chưa có dữ liệu EXP.</div>');
       return;
     }
-    host.innerHTML = rows.map(function (row) {
+    setMarkup(host, rows.map(function (row) {
       var rank = Number(row.rank || 0);
       var level = core.calculateUserLevel(row.total_exp);
       var isMe = mine && rank === Number(mine.rank);
-      return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.period_exp) + '<small> EXP</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
-    }).join("");
+      return '<div class="v90-mini-row rank-' + rank + (isMe ? " is-me" : "") + '"><span class="v90-mini-rank">' + rank + '</span>' + avatarMarkup(row.display_name, row.avatar_url, "v90-mini-avatar") + '<span class="v90-mini-person"><strong title="' + core.escapeHtml(row.display_name) + '">' + core.escapeHtml(row.display_name) + '</strong><small>Level ' + level.level + '</small></span><span class="v90-mini-exp">' + core.formatNumber(row.total_exp) + '<small> EXP</small></span>' + (rank === 1 ? '<span class="v90-mini-crown" aria-hidden="true">♛</span>' : "") + '</div>';
+    }).join(""));
   }
-  function refreshMini() {
+  function refreshMini(force) {
     var request = ++miniRequest;
-    var host = byId("expMiniList");
-    if (host) host.innerHTML = '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>';
-    var client = core.client();
-    if (!client) {
-      renderMini([], null, new Error("not configured"));
-      return Promise.resolve([]);
-    }
-    var session = core.session();
-    return Promise.all([
-      client.rpc("get_leaderboard", { p_period: "week", p_limit: 5 }),
-      session && session.user ? client.rpc("get_my_rank", { p_period: "week" }) : Promise.resolve({ data: null, error: null })
-    ]).then(function (results) {
-      if (request !== miniRequest) return [];
-      if (results[0].error) throw results[0].error;
-      if (results[1].error) throw results[1].error;
-      var rows = (results[0].data || []).map(root.VDuckieEXPBoard.normalize);
-      var mine = Array.isArray(results[1].data) ? results[1].data[0] : results[1].data;
+    var key = core.session() && core.session().user && core.session().user.id || "guest";
+    return root.VDuckieEXPBoard.load(force !== false).then(function (value) {
+      if (request !== miniRequest || key !== (core.session() && core.session().user && core.session().user.id || "guest")) return [];
+      var rows = value.rows.slice(0, 5), mine = value.mine;
       renderMini(rows, mine, null);
       return rows;
     }).catch(function (error) {
@@ -250,7 +257,7 @@
       event.stopImmediatePropagation();
       if (action.matches('[data-exp-open-all]')) {
         if (root.VDuckieEXPUI && typeof root.VDuckieEXPUI.openLeaderboard === "function") {
-          root.VDuckieEXPUI.openLeaderboard("week");
+          root.VDuckieEXPUI.openLeaderboard("total");
         } else {
           var rankingNav = document.querySelector('[data-exp-nav="ranking"]');
           if (rankingNav) rankingNav.click();
@@ -268,7 +275,7 @@
       if (mission) { openMission(mission.getAttribute("data-exp-mission")); return; }
       if (event.target.closest && event.target.closest("[data-exp-retry-mini]")) { refreshMini(); return; }
       if (event.target.closest && event.target.closest("[data-exp-open-all]")) {
-        if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard("week");
+        if (root.VDuckieEXPUI) root.VDuckieEXPUI.openLeaderboard("total");
       }
     });
     document.addEventListener("keydown", function(event) {
@@ -294,29 +301,42 @@
     bind();
     scheduleLayout();
     core.onSession(function (session) {
+      accountRequest++;
+      var nextUser = session && session.user && session.user.id || null;
+      if (accountUser !== nextUser) {
+        currentTotal = null; currentMissions = []; miniState = null;
+        accountSignature = "";
+        if (miniCard) { var list = miniCard.querySelector("#expMiniList"); if (list) setMarkup(list, '<div class="v90-side-state">Đang tải bảng xếp hạng…</div>'); }
+      }
+      accountUser = nextUser;
       scheduleLayout();
       if (session && session.user) {
         // Draw the account and right column immediately. Cloud writes must
         // never be a prerequisite for local layout or independent reads.
         renderAccount(currentTotal);
         renderMissions(currentMissions);
-        Promise.all([refreshAccount(), refreshMissions(), refreshMini()]).catch(function(error){
+        Promise.all([refreshAccount(), refreshMissions(), refreshMini(false)]).catch(function(error){
           console.warn("VDuckie home sidebar refresh failed",error);
         });
-        // Profile upsert remains reliable but is not on the critical paint path.
-        core.syncProfile().then(function(){return refreshAccount();}).catch(function(error){
-          console.warn("VDuckie profile refresh failed",error);
-        });
+
       } else {
         currentTotal = 0;
         currentMissions = [];
         renderAccount(0);
         renderMissions([]);
-        refreshMini();
+        refreshMini(false);
       }
     });
     if (root.MutationObserver && document.body) {
-      observer = new MutationObserver(scheduleLayout);
+      observer = new MutationObserver(function (records) {
+        // Ignore text, chat, mascot and unrelated screen updates.
+        if (records.some(function (record) {
+          if (record.target.id === "v865HomeSidebar") return true;
+          return Array.prototype.some.call(record.addedNodes, function (node) {
+            return node.nodeType === 1 && (node.id === "v865HomeSidebar" || node.id === "expHeaderAccount" || node.querySelector("#v865HomeSidebar"));
+          });
+        })) scheduleLayout();
+      });
       observer.observe(document.body, { childList: true, subtree: true });
     }
   }

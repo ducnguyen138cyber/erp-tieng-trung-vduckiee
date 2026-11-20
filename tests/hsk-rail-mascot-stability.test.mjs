@@ -26,11 +26,11 @@ test('new Duckie artwork owns all legacy home fallback images and favicon', () =
   assert.doesNotMatch(manifest, /assets\/home\/vduckie-(welcome|vocabulary|grammar|listening|speaking)\.webp/);
   assert.match(swap, /\.v95-mascot-image/);
   assert.match(index, /mascot-swap-v1\.js\?v=10/);
-  assert.match(index, /duckie-reader-icon-32\.png\?v=4\.0/);
-  assert.match(shell, /duckie-reader-icon-32\.png\?v=4\.0/);
+  assert.match(index, /duckie-reader-icon-192\.png/);
+  assert.match(shell, /duckie-reader-icon-192\.png/);
   assert.doesNotMatch(shell, /<svg class="home-welcome-mascot vduckie-mascot"/);
   assert.match(shell, /<img class="home-welcome-mascot" src="\.\/assets\/mascot\/duckie-reader-2d-v2\.webp\?v=2\.0"/);
-  assert.match(worker, /vduckie-pwa-v49/);
+  assert.match(worker, /vduckie-pwa-v\d+/);
   assert.match(worker, /hsk-rail-stability-v1\.css\?v=1/);
 });
 

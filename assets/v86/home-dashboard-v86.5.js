@@ -28,6 +28,7 @@ function navigateHskLevel(level){
 }
 function resumePrimaryHsk(review){
   var progress=root.VDuckieHskStudyJourney, saved=progress?progress.current():{level:1,lessonId:""};
+  if(!review&&!todayFocusData().hasStarted)saved={level:1,lessonId:"hsk1-lesson-01"};
   if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("hsk-study");
   else navigate("hsk");
   function openWhenReady(attempt){
@@ -85,9 +86,9 @@ function weeklyData(streak){
 function continueData(){
   var journey=root.VDuckieHskStudyJourney;
   if(journey){
-    var sum=journey.summary(),current=sum.current,level=Number(current.level)||1;
-    return {level:level,title:sum.totalCompleted?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
-      subtitle:sum.totalCompleted?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
+    var sum=journey.summary(),focus=todayFocusData(),current=focus.hasStarted?sum.current:{level:1,lessonId:""},level=Number(current.level)||1;
+    return {level:level,title:current.lessonId?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
+      subtitle:current.lessonId?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
       done:sum.totalCompleted,reviewDue:sum.due,lessonId:current.lessonId||""};
   }
   var state=read(HSK_STATE_KEY,{level:0,lesson:0}),level=Number(state.level||0),lessonIndex=Number(state.lesson||0),curriculum=root.HSKCurriculum,item=curriculum&&curriculum.levels&&curriculum.levels[level]&&curriculum.levels[level][lessonIndex],done=completedCount(read(HSK_PROGRESS_KEY,{}));
@@ -105,12 +106,59 @@ function roadmapData(){
     {level:2,label:"HSK 2",icon:"贰",active:true},
     {level:3,label:"HSK 3",icon:"叁",active:true},
     {level:4,label:"HSK 4",icon:"肆",active:true},
-    {level:5,label:"HSK 5–6",icon:"伍",active:false},
+    {level:5,label:"HSK 5",icon:"伍",active:true},
+    {level:6,label:"HSK 6",icon:"陆",active:true},
     {level:7,label:"HSK 7–9",icon:"锁",active:false}
   ];
   return stages.map(function(stage){stage.current=stage.level===current;stage.progress=stage.active?levelProgress(stage.level):{done:0,total:0,percent:0};return stage});
 }
 
+function todayFocusData(){
+  var journey=root.VDuckieHskStudyJourney,summary=null;
+  try{if(journey&&typeof journey.summary==="function")summary=journey.summary()}catch(error){}
+  var now=summary&&summary.current||{},level=Math.max(1,Math.min(6,Number(now.level)||1));
+  var lessonId=text(now.lessonId),due=Math.max(0,Number(summary&&summary.due)||0);
+  // The runtime may preselect a lesson on first load. Selection is not learning.
+  var lessonEvidence={};
+  try{if(journey&&lessonId&&typeof journey.lesson==="function")lessonEvidence=journey.lesson(lessonId)||{}}catch(e){}
+  var hasStarted=!!(summary&&(Number(summary.totalCompleted)||Number(summary.studied)||
+    Object.keys(lessonEvidence.answers||{}).length||
+    Object.keys(lessonEvidence.content||{}).length||
+    Number(lessonEvidence.completedAt)||Number(lessonEvidence.attemptAt)));
+  return{level:level,lessonId:lessonId,due:due,hasStarted:hasStarted,
+    heading:due?"Hôm nay, ôn lại từ sắp quên":hasStarted?"Hôm nay, học tiếp đúng chỗ cũ":"Hôm nay, bắt đầu từ một bài HSK",
+    detail:due?due+" từ đến hạn. Ôn trước để nhớ lâu hơn.":hasStarted?
+      "Tiếp tục HSK "+level+(lessonId?" · "+lessonId.replace(/^hsk\d+-lesson-0*/, "Bài "):"")+". Không cần học lại từ đầu.":
+      "Chỉ cần bắt đầu HSK 1: học từ mới, nghe câu mẫu, rồi làm bài ngắn.",
+    cta:due?"Ôn từ đến hạn →":hasStarted?"Tiếp tục HSK "+level+" →":"Bắt đầu HSK 1 →",
+    action:due?"review-hsk":"continue"};
+}
+function getDiscoverExpanded(){
+  try{return root.localStorage.getItem("vduckie-home-discover-expanded-v1")==="1"}catch(e){return false}
+}
+function focusMarkup(data,expanded){
+  return'<section class="v865-today-focus" id="v865TodayFocus" aria-labelledby="v865TodayHeading">'+
+    '<div class="v865-today-main"><span class="v865-today-kicker">LỘ TRÌNH CỦA BẠN · 1 VIỆC CHÍNH</span>'+
+    '<h2 id="v865TodayHeading">'+esc(data.heading)+'</h2>'+
+    '<p>'+esc(data.detail)+'</p>'+
+    '<div class="v865-today-steps" aria-label="Các bước của buổi học"><span>1. Từ mới</span><span>2. Nghe & nói</span><span>3. Luyện tập</span></div></div>'+
+    '<div class="v865-today-actions"><button type="button" data-v865-action="'+data.action+'" class="v865-today-primary">'+
+      esc(data.cta)+'</button><button type="button" data-v865-action="toggle-discover" class="v865-today-discover" aria-expanded="'+expanded+'" aria-controls="v865HomeRoadmap">'+
+      (expanded?"Thu gọn tính năng":"Khám phá thêm tính năng")+'</button></div></section>';
+}
+function renderFocus(main,shell){
+  if(!main||!shell)return;
+  var data=todayFocusData(),expanded=getDiscoverExpanded();
+  shell.setAttribute("data-discover-expanded",String(expanded));
+  shell.setAttribute("data-first-visit",String(!data.hasStarted));
+  var current=document.getElementById("v865TodayFocus"),markup=focusMarkup(data,expanded);
+  var signature=[data.heading,data.detail,data.cta,data.action,expanded].join("|");
+  if(current&&current.getAttribute("data-focus-signature")===signature)return;
+  var holder=document.createElement("div");holder.innerHTML=markup;
+  var next=holder.firstElementChild;next.style.order="0";
+  next.setAttribute("data-focus-signature",signature);
+  if(current)current.replaceWith(next);else main.insertBefore(next,main.firstChild);
+}
 function streakMarkup(data){
   var days=data.days.map(function(day){return'<div class="v865-streak-day '+(day.done?"done ":"")+(day.today?"today":"")+'"><span>'+day.label+'</span><i>'+(day.done?"🔥":"")+'</i><small>'+day.date+'</small></div>'}).join("");
   var cta=data.current===0?"BẮT ĐẦU CHUỖI CỦA BẠN":data.todayDone?"TIẾP TỤC GIỮ LỬA":"GIỮ CHUỖI HÔM NAY";
@@ -121,7 +169,7 @@ function weeklyMarkup(data){
   return'<article class="v865-side-card v865-weekly-card"><div class="v865-card-heading"><span class="v865-heading-icon">🎁</span><h3>Nhiệm vụ tuần</h3></div><div class="v865-mission-list">'+missions+'</div><p class="v865-weekly-note">Hoàn thành cả ba để nhận huy hiệu <strong>Vịt bền bỉ</strong>.</p></article>';
 }
 function continueMarkup(data){
-  return'<article class="v865-side-card v865-continue-card"><span class="v865-kicker">TIẾP TỤC HỌC</span><h3>'+esc(data.title)+'</h3><p>'+esc(data.subtitle)+'</p><div class="v865-continue-meta"><span>'+data.done+' bài đã hoàn thành</span><span>'+(data.level?"HSK "+data.level:"Nền tảng")+'</span></div><button data-v865-action="continue">Học tiếp →</button>'+(data.reviewDue?'<button class="v865-review-action" data-v865-action="review-hsk">↻ Ôn '+data.reviewDue+' từ HSK đến hạn</button>':'')+'</article>';
+  return'<article class="v865-side-card v865-continue-card"><span class="v865-kicker">TIẾP TỤC HỌC</span><h3>'+esc(data.title)+'</h3><p>'+esc(data.subtitle)+'</p><div class="v865-continue-meta"><span>'+data.done+' bài đã hoàn thành</span><span>'+(data.level?"HSK "+data.level:"Nền tảng")+'</span></div><button data-v865-action="continue">Học tiếp →</button>'+'<button class="v865-review-action" data-v865-action="review-hsk"'+(data.reviewDue?'':' disabled')+'>↻ Ôn từ đến hạn ('+(data.reviewDue||0)+')</button>'+'</article>';
 }
 function roadmapMarkup(stages){
   var cards=stages.map(function(stage){var detail=stage.active?(stage.progress.total?stage.progress.done+"/"+stage.progress.total+" bài":"Sẵn sàng học"):"Sắp mở";return'<button class="v865-road-stage '+(stage.current?"current ":"")+(stage.active?"":"locked")+'" data-v865-level="'+stage.level+'" '+(stage.active?"":"disabled")+'><span class="v865-road-icon">'+stage.icon+'</span><strong>'+stage.label+'</strong><small>'+detail+'</small><div class="v865-road-track"><i style="width:'+stage.progress.percent+'%"></i></div></button>'}).join("");
@@ -185,10 +233,21 @@ function render(){
     applyHomeMode();
     if(!homeVisible())return false;
     var home=document.getElementById("homeHub");if(!home)return false;
+    var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-welcome-actions .home-primary-action');
+    if(journal&&hero){
+      var summary=journal.summary(),started=todayFocusData().hasStarted;
+      hero.textContent=started?'Học tiếp HSK '+summary.current.level+' →':'Bắt đầu học HSK →';
+      if(started){hero.removeAttribute('data-daily-nav');hero.setAttribute('data-v865-action','continue');}
+      else{hero.removeAttribute('data-v865-action');hero.setAttribute('data-daily-nav','msutong');}
+      var review=home.querySelector('[data-hsk-home-due]');
+      if(!review){review=document.createElement('button');review.type='button';review.className='home-secondary-action';review.setAttribute('data-hsk-home-due','');review.setAttribute('data-v865-action','review-hsk');hero.insertAdjacentElement('afterend',review);}
+      review.textContent='↻ Ôn từ đến hạn ('+summary.due+')';review.disabled=!summary.due;
+    }
     var overview=home.querySelector(".home-overview-grid"),recommended=home.querySelector(".home-recommended");
     if(!overview||!recommended)return false;
     removeOldDashboard(home);
     var shell=ensureShell(home),main=document.getElementById("v865HomeMain"),sidebar=document.getElementById("v865HomeSidebar"),streak=streakData();
+    renderFocus(main,shell);
     pinMainNode(main,overview,1);
     pinMainNode(main,recommended,2);
     var oldRoad=document.getElementById("v865HomeRoadmap"),roadWrap=document.createElement("div");
@@ -213,6 +272,15 @@ function bind(){
   document.addEventListener("click",function(event){
     var button=event.target&&event.target.closest&&event.target.closest("button");if(!button)return;
     var action=button.getAttribute("data-v865-action");
+    if(action==="toggle-discover"){
+      var expanded=!getDiscoverExpanded();
+      try{root.localStorage.setItem("vduckie-home-discover-expanded-v1",expanded?"1":"0")}catch(e){}
+      var shell=document.getElementById("v865HomeShell");
+      if(shell)shell.setAttribute("data-discover-expanded",String(expanded));
+      var control=document.querySelector("#v865TodayFocus [data-v865-action='toggle-discover']");
+      if(control){control.setAttribute("aria-expanded",String(expanded));control.textContent=expanded?"Thu gọn tính năng":"Khám phá thêm tính năng";}
+      return;
+    }
     if(action==="continue")resumePrimaryHsk(false);
     if(action==="review-hsk")resumePrimaryHsk(true);
     if(action==="start-streak"||action==="open-hsk"){
@@ -225,7 +293,7 @@ function bind(){
   document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsRender(event))scheduleRender()});
   ["vduckie:hsk-study-journey-change","vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
 }
-function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=86.5";document.head.appendChild(link)}
+function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=home-original1";document.head.appendChild(link)}
 function install(){
   css();bind();
   var tries=0,interval=root.setInterval(function(){tries++;if(render()||tries>55)root.clearInterval(interval)},170);
@@ -235,7 +303,7 @@ function install(){
   }
 }
 
-root.VDuckieHomeDashboardV865={version:VERSION,render:render,placeContinue:placeContinue,lastSevenDays:lastSevenDays,streakCount:streakCount,roadmapData:roadmapData};
+root.VDuckieHomeDashboardV865={version:VERSION,render:render,placeContinue:placeContinue,lastSevenDays:lastSevenDays,streakCount:streakCount,roadmapData:roadmapData,todayFocusData:todayFocusData};
 if(typeof document==="undefined")return;
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",install,{once:true});else install();
 })(typeof window!=="undefined"?window:globalThis);

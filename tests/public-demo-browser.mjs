@@ -6,7 +6,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 import T from '../assets/games/typing-engine.js';
 const root=process.cwd(),out=path.join(root,'artifacts/public-demo');await mkdir(out,{recursive:true});
-const bank=JSON.parse(await readFile('data/games/sentences.json','utf8')).sentences;
+const bank=JSON.parse(await readFile('data/games/sentences.json','utf8')).sentences.concat((await Promise.all([1,2,3,4,5,6].map(n=>readFile('data/games/sentences-hsk'+n+'.json','utf8').then(JSON.parse)))).flatMap(d=>d.sentences));
 const files=JSON.parse(await readFile('data/hsk/hsk1/vocabulary/index.json','utf8')).shards;
 const vocabulary=(await Promise.all(files.map(f=>readFile('data/hsk/hsk1/vocabulary/'+f.file,'utf8').then(JSON.parse)))).flatMap(x=>x.records);
 const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.webp':'image/webp'};
@@ -33,7 +33,13 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  await page.locator('#v85PersonalDashboard .v85-top').screenshot({path:path.join(out,name+'-home-progress-continue.png')});
  await page.locator('#v85PersonalDashboard [data-v865-action=continue]').click();await page.locator('#hskLesson .hsk-pro-lesson-head').waitFor();
  if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
- await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();assert.match(await page.locator('[data-hsk-review-drawer]').innerText(),/你好/);await page.locator('[data-hsk-review-close]').click();
+ await page.locator('#v85PersonalDashboard [data-v865-action=review-hsk]').click();await page.locator('[data-hsk-review-drawer]').waitFor();
+ const recall=page.locator('[data-hsk-review-drawer]');assert.match(await recall.innerText(),/你好|nǐ hǎo/);assert.equal(await page.locator('[data-hsk-recall-input]').count(),0);assert.equal(await page.locator('[data-hsk-review-meaning]').isVisible(),false);
+ const beforeSelfReport=await page.evaluate(()=>window.VDuckieHskStudyJourney.wordStats());
+ await page.locator('[data-hsk-review-reveal]').click();assert.equal(await page.locator('[data-hsk-review-meaning]').isVisible(),true);assert.match(await recall.innerText(),/xin chào/);
+ await page.locator('[data-hsk-review-grade="1"]').click();const afterSelfReport=await page.evaluate(()=>window.VDuckieHskStudyJourney.wordStats());
+ assert.equal(afterSelfReport.correct,beforeSelfReport.correct,'old self-assessment UI must not manufacture a correct recall');assert.equal(afterSelfReport.remembered,0);
+ await page.locator('[data-hsk-review-close]').click();
  if(viewport.width<=980)await page.locator('#mobileMenu').click();await page.locator('#studySidebar [data-home]').click();await checkHomeStats();
 
 
@@ -58,11 +64,11 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
  for(const index of [8,9,10,11]){await page.locator('.erp-module-link').nth(index).click();assert.equal(await page.locator('.erp-lesson-word').count(),10);}
  await page.screenshot({path:path.join(out,name+'-factory.png')});
  if(mobile)await toggle.click();await page.locator('#studySidebar [data-daily-nav=games]').click();await page.locator('[data-game-action=sentences]').waitFor();
- const cards=page.locator('.games-grid .games-card');assert.equal(await cards.count(),2);
+ const cards=page.locator('.games-grid .games-card');assert.equal(await cards.count(),3);
  const boxes=await cards.evaluateAll(ns=>ns.map(n=>({x:n.getBoundingClientRect().x,y:n.getBoundingClientRect().y,width:n.getBoundingClientRect().width})));
  if(viewport.width>650){assert.ok(Math.abs(boxes[0].y-boxes[1].y)<2,'desktop game tiles share a row');assert.ok(boxes[1].x>boxes[0].x+boxes[0].width);}else{assert.ok(boxes[1].y>boxes[0].y);assert.ok(Math.abs(boxes[0].x-boxes[1].x)<2);}
  assert.equal(await page.locator('.games-hub .games-card-copy p').evaluateAll(ns=>ns.every(n=>n.textContent.length<45)),true);
- assert.equal(await page.locator('.gh-scene').count(),2);assert.equal(await page.locator('.gh-scene').evaluateAll(ns=>ns.every(n=>n.getAttribute('aria-hidden')==='true')),true);
+ assert.equal(await page.locator('.gh-scene').count(),3);assert.equal(await page.locator('.gh-scene').evaluateAll(ns=>ns.every(n=>n.getAttribute('aria-hidden')==='true')),true);
  assert.equal(await page.locator('.gh-plane img').getAttribute('src'),'./assets/games/airplane.svg');
  assert.ok(await page.locator('.gh-plane').evaluate(n=>n.getAnimations().length)>0,'catalog has lightweight native motion');
  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('.gh-plane,.gh-shot,.gh-typed-word').evaluateAll(ns=>ns.every(n=>n.getAnimations().length===0)),true);await page.emulateMedia({reducedMotion:'no-preference'});
@@ -83,9 +89,9 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
   await page.screenshot({path:path.join(out,name+'-'+prompt+'.png')});await page.getByRole('button',{name:'Thoát trò chơi',exact:true}).click();assert.equal(await page.locator('.tg-overlay').count(),0);
  }
  await page.locator('[data-game-action=sentences]').click();
- for(const topic of ['basic','daily','factory']){
+ for(const topic of ['hsk1','hsk3','factory']){
   await page.locator('[data-topic='+topic+']').click();await page.locator('[data-sentence-action=start]').click();
-  const limit=topic==='basic'?10:2;
+  const limit=topic==='hsk1'?10:2;
   for(let i=0;i<limit;i++){
    const prompt=await page.locator('.sg-prompt').innerText(),s=bank.find(s=>s.vi===prompt);assert.ok(s);assert.equal(await page.locator('.sg-answer').textContent(),'');assert.equal(await page.locator('.sg-hanzi').count(),0);
    const input=page.locator('#sentencePinyin'),answer=T.normalize(s.answers.at(-1).pinyin),mask=page.locator('.sg-mask');
@@ -94,6 +100,8 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
    assert.equal(await mask.getAttribute('aria-hidden'),'true');assert.equal(await input.evaluate(n=>getComputedStyle(n).color),'rgba(0, 0, 0, 0)');
    await input.pressSequentially(answer[0]);assert.equal(await page.locator('.sg-slot.is-correct').textContent(),answer[0]);assert.equal(await page.locator('.sg-slot.is-correct').evaluate(n=>getComputedStyle(n).color),'rgb(21, 148, 85)');
    // Freeze the finite error animation to verify both feedback color and movement.
+   // Observe and freeze inside the input event, before runner scheduling can consume the 420ms animation.
+   await input.evaluate(el=>el.addEventListener('input',()=>{const a=document.querySelector('.sg-slot.is-current')?.getAnimations()[0];if(a){a.pause();a.currentTime=100;}}));
    await input.pressSequentially('#');assert.equal(await input.inputValue(),answer[0]);
    const error=await page.locator('.sg-slot.is-current').evaluate(n=>{const a=n.getAnimations()[0];if(!a)return null;a.pause();a.currentTime=100;return {duration:a.effect.getTiming().duration,color:getComputedStyle(n).color,frames:a.effect.getKeyframes()};});
    assert.ok(error,'wrong character animates current star');assert.equal(error.duration,420);assert.equal(error.color,'rgb(220, 38, 38)');assert.ok(error.frames.some(f=>f.transform==='translateX(-3px)'));
@@ -111,10 +119,10 @@ for(const viewport of [{width:1440,height:900},{width:320,height:740},{width:390
    if(i===0){if(viewport.width===390)await page.setViewportSize({width:390,height:480});await input.scrollIntoViewIfNeeded();const box=await input.boundingBox();assert.ok(box.y>=0&&box.y+box.height<=(viewport.width===390?480:viewport.height));await page.screenshot({path:path.join(out,name+'-'+topic+'-sentence.png')});if(viewport.width===390)await page.setViewportSize(viewport);}
    await page.locator('[data-sentence-action=next]').click();
   }
-  if(topic==='basic'){await page.locator('.sg-results').waitFor();assert.match(await page.locator('.sg-results').innerText(),/900/);assert.equal(await page.locator('.sg-review').count(),1);await page.locator('[data-sentence-action=start]').click();assert.equal(await page.locator('[data-sg-score]').textContent(),'0');}
+  if(topic==='hsk1'){await page.locator('.sg-results').waitFor();assert.match(await page.locator('.sg-results').innerText(),/900/);assert.equal(await page.locator('.sg-review').count(),1);await page.locator('[data-sentence-action=start]').click();assert.equal(await page.locator('[data-sg-score]').textContent(),'0');}
   await page.locator('[data-sentence-action=choices]').click();
  }
- await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),2);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
+ await page.locator('[data-sentence-action=exit]').click();assert.equal(await page.locator('.sg-card').count(),0);assert.equal(await page.locator('.games-card').count(),3);assert.equal(await page.evaluate(()=>window.__demoAwards),0);assert.deepEqual(errors,[]);
  results.push({viewport,passed:true,checks:['home_progress_continue_same_row_after_refresh','continue_and_due_review_buttons_work_in_new_row','adaptive_two_or_four_statistics_columns','two_column_catalog_responsive','concise_animated_game_scenes','catalog_reduced_motion','mobile_drawer_keyboard_backdrop_autoclose','one_active_route','no_private_panel_or_developer_scripts','12_factory_modules','three_word_prompt_modes','wrong_keys_ignored','hidden_answers_not_in_DOM','three_sentence_topics','masked_syllables_green_prefix_caret','red_star_shake_wrong_key_hidden','compact_mobile_wrap_reduced_motion','alternative_answer','ten_sentence_result_review_restart','reduced_keyboard_viewport','zero_EXP']});console.log(name+' PASS');await context.close();
 }
 await writeFile(path.join(out,'results.json'),JSON.stringify(results,null,2));

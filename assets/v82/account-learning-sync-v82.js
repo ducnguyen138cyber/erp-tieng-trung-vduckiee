@@ -1,7 +1,7 @@
 (function (root) {
   "use strict";
 
-  var VERSION = "82.1";
+  var VERSION = "82.2";
   var PROFILE_WORD_KEY = "__vduckie_learning_profile_v2__";
   var PROFILE_CATEGORY = "__system_learning_profile__";
   var CACHE_PREFIX = "vduckie-learning-profile-cache-v2:";
@@ -15,8 +15,7 @@
   var pollTimer = null;
   var uploadTimer = null;
   var lastLocalProfile = null;
-  var uploadInFlight = null;
-  var uploadPending = false;
+  var activeSync = null, retryTimer = null;
 
   var EXPLICIT_KEYS = {
     "vduckie-erp-v74-progress": true,
@@ -29,7 +28,10 @@
     "vduckie-study-activity-v1": true,
     "vduckie-study-goals-v1": true,
     "vduckie-learning-settings-v1": true,
-    "vduckie-hsk-study-journey-v1": true
+    "vduckie-hsk-study-journey-v1": true,
+    "vduckie-shadowing-v1": true,
+    "vduckie-hsk-practice-exams-v2": true,
+    "vduckie-daily-learning-v1": true
   };
 
   var EXCLUDED_KEYS = {
@@ -177,6 +179,9 @@
       var right = remote.fields[key];
       if (!left) merged.fields[key] = right;
       else if (!right) merged.fields[key] = left;
+      else if (root.VDuckieLearningProgressMerge && left.value !== null && right.value !== null && root.VDuckieLearningProgressMerge.merge(key,parseJson(left.value,{}),parseJson(right.value,{}),left.updatedAt,right.updatedAt)) {
+        merged.fields[key] = {value:root.VDuckieLearningProgressMerge.stable(root.VDuckieLearningProgressMerge.merge(key,parseJson(left.value,{}),parseJson(right.value,{}),left.updatedAt,right.updatedAt)),updatedAt:Math.max(left.updatedAt,right.updatedAt)};
+      }
       else if (right.updatedAt > left.updatedAt) merged.fields[key] = right;
       else if (left.updatedAt > right.updatedAt) merged.fields[key] = left;
       else if (left.value === right.value) merged.fields[key] = left;
@@ -318,11 +323,20 @@
     return output;
   }
 
-  function maybeReload(userId, profile, changed, winning) {
+  function maybeReload(userId, profile, changed, winning, previous) {
     if (!changed.length || !winning.length || !root.location || typeof root.location.reload !== "function") return;
     var important = false;
     for (var i = 0; i < changed.length; i++) {
-      if (/progress|lesson|course|module|section|setting|preference|roast/i.test(changed[i])) important = true;
+      var changedKey=changed[i];
+      // The professional HSK UI consumes the journal sync event in place. Its
+      // legacy visit mirror must not tear down an active answer/card on another device.
+      if(changedKey==="vduckie-hsk-section-progress-v1"&&root.VDuckieHskStudyFlow&&root.VDuckieHskStudyFlow.getCurrent())continue;
+      if(changedKey==="vduckie-learning-settings-v1"){
+        var before=parseJson(previous&&previous.fields[changedKey]&&previous.fields[changedKey].value,{}),after=parseJson(profile.fields[changedKey]&&profile.fields[changedKey].value,{});
+        delete before.updatedAt;delete after.updatedAt;
+        if(stableStringify(before)===stableStringify(after))continue;
+      }
+      if (/progress|lesson|course|module|section|setting|preference|roast/i.test(changedKey)) important = true;
     }
     if (!important) return;
     var signature = hash(stableStringify(profile));
@@ -337,129 +351,49 @@
     }, 250);
   }
 
-  function sessionMatches(userId, generation) {
-    return generation === sessionGeneration && !!(session && session.user && session.user.id === userId);
-  }
-
-  function fetchRemoteProfile(userId, generation) {
-    if (!sessionMatches(userId, generation)) return Promise.reject(new Error("Session changed"));
-    return client.from("user_words")
-      .select("word_key,note,category")
-      .eq("user_id", userId)
-      .eq("word_key", PROFILE_WORD_KEY)
-      .maybeSingle().then(function (result) {
-        if (result.error) throw result.error;
-        if (!sessionMatches(userId, generation)) throw new Error("Session changed");
-        return result.data || null;
-      });
-  }
-
-  // Compare-and-swap on the exact note content. Unlike an unconditional upsert,
-  // this cannot overwrite a profile another device has written since our read.
-  // The existing unique (user_id, word_key) key protects first-time inserts.
-  function compareAndSwapProfile(userId, remoteRow, merged, generation) {
-    if (!sessionMatches(userId, generation)) return Promise.reject(new Error("Session changed"));
-    if (!root.navigator || !root.navigator.onLine) return Promise.reject(new Error("Offline"));
-    var row = profileRow(merged, userId);
-    if (!remoteRow) {
-      return client.from("user_words")
-        .upsert([row], { onConflict: "user_id,word_key", ignoreDuplicates: true })
-        .select("word_key").then(function (result) {
-          if (result.error) throw result.error;
-          return !!(result.data && result.data.length);
-        });
-    }
-    if (remoteRow.note === row.note) return Promise.resolve(true);
-    return client.from("user_words")
-      .update(row)
-      .eq("user_id", userId)
-      .eq("word_key", PROFILE_WORD_KEY)
-      .eq("note", remoteRow.note)
-      .select("word_key").then(function (result) {
-        if (result.error) throw result.error;
-        return !!(result.data && result.data.length);
-      });
-  }
-
-  function storePendingProfile(userId, profile) {
-    // Keep unsent work locally even after offline transitions or failed writes.
-    writeProfileCache(userId, profile);
-    lastLocalProfile = profile;
-  }
-
   function synchronizeProfile() {
     if (!client || !session || !session.user) return Promise.resolve();
-    var userId = session.user.id, generation = sessionGeneration;
-    if (uploadInFlight) {
-      uploadPending = true;
-      return uploadInFlight;
-    }
-    var local = captureProfile(userId, readProfileCache(userId));
-    storePendingProfile(userId, local);
-    if (!root.navigator || !root.navigator.onLine) {
-      setStatus("Ngoại tuyến: đã lưu trên thiết bị, chờ đồng bộ", "waiting");
-      return Promise.resolve();
-    }
+    var userId=session.user.id,generation=sessionGeneration;
+    var cached=captureProfile(userId,lastLocalProfile||readProfileCache(userId));
+    writeProfileCache(userId,cached);
+    if(!root.navigator || !root.navigator.onLine){setStatus("Đã lưu trên máy · Chờ có mạng", "waiting");return Promise.resolve();}
+    if(activeSync&&activeSync.generation===generation){activeSync.again=true;return activeSync.promise;}
+    var merge=root.VDuckieLearningProgressMerge;
+    if(!merge){setStatus("Chưa tải được bộ đồng bộ tiến độ", "bad");return Promise.resolve();}
+    var run={generation:generation,again:false};activeSync=run;
     setStatus("Đang đồng bộ dữ liệu học…", "waiting");
-    var task = (async function () {
-      // The read/compare/write cycle must be serialized within one tab.
-      // Other devices are coordinated by the conditional UPDATE on the server.
-      for (var attempt = 0; attempt < 8; attempt++) {
-        if (!sessionMatches(userId, generation)) return;
-        var remoteRow = await fetchRemoteProfile(userId, generation);
-        var remote = parseProfileRow(remoteRow);
-        var fresh = captureProfile(userId, readProfileCache(userId));
-        var winning = remoteWinningKeys(fresh, remote);
-        var merged = mergeProfiles(fresh, remote);
-        if (!sessionMatches(userId, generation)) return;
-        var saved = await compareAndSwapProfile(userId, remoteRow, merged, generation);
-        if (!saved) continue; // Another device committed first; retry with fresh cloud data.
-        if (!sessionMatches(userId, generation)) return;
-        // Capture changes made while the request was in flight before applying cloud.
-        var latest = captureProfile(userId, readProfileCache(userId));
-        if (stableStringify(latest) !== stableStringify(fresh)) {
-          storePendingProfile(userId, mergeProfiles(latest, merged));
-          uploadPending = true;
-          return;
-        }
-        var changed = applyProfile(merged, userId);
-        setStatus("Đã đồng bộ dữ liệu học", "good");
-        maybeReload(userId, merged, changed, winning);
-        return;
-      }
-      throw new Error("Concurrent edits: retry needed");
-    })().catch(function (error) {
-      if (!sessionMatches(userId, generation)) return;
-      storePendingProfile(userId, captureProfile(userId, readProfileCache(userId)));
-      console.error("VDuckie learning profile sync pending", error);
-      setStatus("Chưa đồng bộ lên cloud; dữ liệu còn trên thiết bị", "waiting");
-    }).finally(function () {
-      if (uploadInFlight === task) uploadInFlight = null;
-      if (uploadPending && sessionMatches(userId, generation)) {
-        uploadPending = false;
-        scheduleUpload();
-      }
+    function current(){return generation===sessionGeneration&&session&&session.user&&session.user.id===userId;}
+    run.promise=merge.persistRow({client:client,userId:userId,key:PROFILE_WORD_KEY,value:cached,
+      current:current,getLocal:function(){return captureProfile(userId,lastLocalProfile||readProfileCache(userId));},
+      merge:mergeProfiles,row:profileRow
+    }).then(function(saved){
+      if(!saved||!current())return;
+      var local=captureProfile(userId,lastLocalProfile||readProfileCache(userId));
+      var merged=mergeProfiles(local,saved),winning=remoteWinningKeys(local,saved);
+      if(stableStringify(merged)!==stableStringify(saved))run.again=true;
+      var changed=applyProfile(merged,userId);
+      setStatus(run.again?"Đang lưu thay đổi mới…":"Đã đồng bộ dữ liệu học",run.again?"waiting":"good");
+      maybeReload(userId,merged,changed,winning,local);
+    }).catch(function(error){
+      if(!current())return;
+      setStatus(root.navigator.onLine?"Chưa đồng bộ được · Dữ liệu vẫn lưu trên máy":"Đã lưu trên máy · Chờ có mạng", "waiting");
+      root.clearTimeout(retryTimer);retryTimer=root.setTimeout(function(){if(current())synchronizeProfile();},10000);
+      console.error("VDuckie learning profile sync failed",error);
+    }).then(function(){
+      if(activeSync===run)activeSync=null;
+      if(run.again&&current())scheduleUpload();
     });
-    uploadInFlight = task;
-    return task;
+    return run.promise;
   }
 
   function scheduleUpload() {
-    if (!session || !session.user || applying) return;
-    var userId = session.user.id;
-    storePendingProfile(userId, captureProfile(userId, lastLocalProfile || readProfileCache(userId)));
-    root.clearTimeout(uploadTimer);
-    if (uploadInFlight) {
-      uploadPending = true;
-      return;
-    }
-    if (!root.navigator || !root.navigator.onLine) {
-      setStatus("Ngoại tuyến: đã lưu trên thiết bị, chờ đồng bộ", "waiting");
-      return;
-    }
-    uploadTimer = root.setTimeout(function () {
-      if (session && session.user && session.user.id === userId) synchronizeProfile();
-    }, 600);
+    if(!session||!session.user||applying)return;
+    var userId=session.user.id;
+    var pending=captureProfile(userId,lastLocalProfile||readProfileCache(userId));
+    writeProfileCache(userId,pending);
+    lastLocalProfile=pending;
+    root.clearTimeout(uploadTimer);var generation=sessionGeneration;
+    uploadTimer=root.setTimeout(function(){if(generation===sessionGeneration)synchronizeProfile();},600);
   }
 
   function updateJsonKey(key, updater) {
@@ -693,11 +627,15 @@
         touchActivity("erp:completed");
       });
       root.document.addEventListener("vduckie:hsk-progress-synced", scheduleUpload);
+      ["vduckie:hsk-study-journey-change","vduckie:daily-learning-change","vduckie:shadowing-change","vduckie:practice-progress-change"].forEach(function(name){root.document.addEventListener(name,scheduleUpload);});
+      root.document.addEventListener("visibilitychange",function(){if(!root.document.hidden)synchronizeProfile();});
     }
     root.addEventListener("storage", function (event) {
       if (event && isSyncableKey(event.key)) scheduleUpload();
     });
     root.addEventListener("online", synchronizeProfile);
+    root.addEventListener("focus", synchronizeProfile);
+    root.setInterval(function(){if(session&&session.user&&root.navigator.onLine&&!root.document.hidden)synchronizeProfile();},30000);
     root.addEventListener("beforeunload", function () {
       if (session && session.user) {
         var profile = captureProfile(session.user.id, lastLocalProfile || readProfileCache(session.user.id));
@@ -746,10 +684,7 @@
     var previousSession = session;
     var previousUserId = previousSession && previousSession.user ? previousSession.user.id : "";
     sessionGeneration++;
-    uploadPending = false;
-    // In-flight writes are guarded by the session generation on every retry.
-    uploadInFlight = null;
-    root.clearTimeout(uploadTimer);
+    root.clearTimeout(uploadTimer);root.clearTimeout(retryTimer);
     uploadTimer = null;
     session = nextSession || null;
     if (!session || !session.user) {
@@ -806,6 +741,9 @@
 
   root.VDuckieAccountSyncUtils = {
     version: VERSION,
+    flush: synchronizeProfile,
+    schedule: scheduleUpload,
+    identity: function(){return session&&session.user?session.user.id:"";},
     profileWordKey: PROFILE_WORD_KEY,
     isSyncableKey: isSyncableKey,
     normalize: normalizeProfile,

@@ -1,0 +1,49 @@
+/* VDuckie Shadowing: compact, learner-first layout */
+.hsk-shadow-screen .shadow-page{width:min(100%,1040px);margin:auto;padding:22px;color:#0f172a}
+.hsk-shadow-screen .shadow-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.hsk-shadow-screen .shadow-head small{font-size:11px;letter-spacing:.1em;color:#2563eb;font-weight:800}
+.hsk-shadow-screen .shadow-head h2{font-size:clamp(23px,4vw,32px);margin:7px 0}
+.hsk-shadow-screen .shadow-head p,.hsk-shadow-screen #shadowStatus{color:#64748b;font-size:13px;line-height:1.6}
+.hsk-shadow-screen button{cursor:pointer;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;border-radius:11px;min-height:43px;padding:9px 13px;font-weight:700}
+.hsk-shadow-screen button:disabled{opacity:.45;cursor:not-allowed}
+.hsk-shadow-screen .shadow-levels,.hsk-shadow-screen .shadow-controls,.hsk-shadow-screen .shadow-toggles,.hsk-shadow-screen .shadow-nav{display:flex;flex-wrap:wrap;gap:9px}
+.hsk-shadow-screen .shadow-levels{margin:20px 0}
+.hsk-shadow-screen button[aria-pressed=true]{background:#2563eb;color:#fff;border-color:#2563eb}
+.hsk-shadow-screen .shadow-counter{font-size:13px;color:#64748b;margin-bottom:12px}
+.hsk-shadow-screen .shadow-card{border:1px solid #dbeafe;background:#fff;border-radius:19px;padding:clamp(17px,3vw,30px)}
+.hsk-shadow-screen .shadow-hanzi{font-size:clamp(27px,5vw,38px);font-weight:750;line-height:1.8;overflow-wrap:anywhere}
+.hsk-shadow-screen .shadow-pinyin{font-size:17px;color:#2563eb;line-height:1.7}
+.hsk-shadow-screen .shadow-meaning{font-size:15px;color:#475569;line-height:1.6}
+.hsk-shadow-screen .shadow-controls{margin:24px 0 12px}
+.hsk-shadow-screen .shadow-controls [data-shadow-record]{background:#2563eb;color:#fff}
+.hsk-shadow-screen #shadowRecording{width:min(100%,450px);display:block;margin:10px 0}
+.hsk-shadow-screen .shadow-toggles{margin:18px 0}
+.hsk-shadow-screen .shadow-nav{justify-content:space-between;border-top:1px solid #e2e8f0;padding-top:18px;margin-top:18px}
+.hsk-shadow-screen button:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}
+@media(max-width:620px){.hsk-shadow-screen .shadow-page{padding:14px}.hsk-shadow-screen .shadow-head{flex-direction:column}.hsk-shadow-screen .shadow-controls button{flex:1 1 40%}.hsk-shadow-screen .shadow-nav button{flex:1}.hsk-shadow-screen .shadow-hanzi{font-size:28px}}
+
+/* V2: lesson selection and optional self-assessment without EXP. */
+.hsk-shadow-screen .shadow-library{display:grid;grid-template-columns:minmax(220px,1fr) minmax(0,1.6fr);align-items:end;gap:14px;margin:0 0 22px;padding:15px;border:1px solid #dbeafe;border-radius:16px;background:#f8fbff}
+.hsk-shadow-screen .shadow-library label{display:block;margin-bottom:7px;font-size:12px;font-weight:750;color:#334155}
+.hsk-shadow-screen .shadow-library select{width:100%;min-height:44px;padding:10px 12px;border-radius:10px;border:1px solid #bfdbfe;background:white;color:#0f172a;font:inherit}
+.hsk-shadow-screen .shadow-filters{display:flex;gap:8px;flex-wrap:wrap}
+.hsk-shadow-screen .shadow-filters button{background:white;min-height:43px;flex:1;white-space:nowrap}
+.hsk-shadow-screen .shadow-filters button[aria-pressed=true]{background:#dbeafe;color:#1d4ed8;border-color:#60a5fa}
+.hsk-shadow-screen .shadow-filters span{font-size:11px;opacity:.8}
+.hsk-shadow-screen .shadow-save-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+.hsk-shadow-screen .shadow-save-actions button{background:#fff}
+.hsk-shadow-screen .shadow-save-actions button[aria-pressed=true]{background:#eff6ff;color:#1d4ed8;border-color:#60a5fa}
+.hsk-shadow-screen .shadow-empty{padding:30px 18px;border:1px dashed #93c5fd;border-radius:15px;background:white;text-align:center}
+.hsk-shadow-screen .shadow-empty h3{margin:0 0 10px}
+.hsk-shadow-screen .shadow-empty p{color:#64748b;font-size:14px}
+@media(max-width:700px){.hsk-shadow-screen .shadow-library{grid-template-columns:1fr;gap:10px}.hsk-shadow-screen .shadow-filters{gap:5px}.hsk-shadow-screen .shadow-filters button{padding:8px 9px;min-height:41px;font-size:12px}.hsk-shadow-screen .shadow-save-actions button{flex:1}}
+
+.hsk-shadow-screen .shadow-coverage,.hsk-shadow-screen .shadow-speaker{color:#64748b;font-size:13px;line-height:1.6}
+.hsk-shadow-screen .shadow-pinyin{overflow-wrap:anywhere}
+.hsk-shadow-screen *{box-sizing:border-box}
+
+.hsk-shadow-screen #shadowRecording[hidden],.hsk-shadow-screen [data-shadow-clear][hidden]{display:none!important}
+@media(min-width:981px){
+ body[data-screen-route="shadowing"] .study-layout>.study-center{grid-column:2 / 4!important}
+ body[data-screen-route="shadowing"] #studyRail{display:none!important}
+}

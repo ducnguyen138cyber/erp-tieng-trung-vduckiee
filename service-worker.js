@@ -1,47 +1,58 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v49";
+const CACHE_VERSION = "vduckie-pwa-v70";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
 const scoped = (path) => new URL(path, SCOPE_URL).href;
 
 const APP_SHELL = [
+  "./data/games/sentence-catalog.json?v=2",
+  "./assets/games/matching-engine.js?v=hanviet2",
+  "./assets/games/matching-game.js?v=hanviet2",
+  "./assets/games/matching-game.css?v=hanviet2",
+  "./assets/games/game-ranking.js?v=hanviet2",
+  "./assets/hsk-content/hsk-advanced-self-study-v1.js?v=hsk56-1",
+  "./data/hsk/advanced-cases-v1.json?v=hsk56-1",
+  "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
+  "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
-  "./assets/navigation/screen-router.js?v=vi1",
-  "./supabase-sync.js?v=vi1",
+  "./assets/navigation/screen-router.js?v=hanviet2",
+  "./supabase-sync.js?v=progress-sync1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
   "./pwa-register.js?v=3",
-  "./community.js?v=factory1",
+  "./community.js?v=ux-audit1",
   "./assets/v75/home-welcome-v75.1.js?v=factory1",
-  "./assets/v90/exp-board-v90.js?v=public1",
-  "./app-shell-v88.html?v=fast-auth-home1",
+  "./assets/v90/exp-board-v90.js?v=beta-perf1",
+  "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
+  "./app-shell-v88.html?v=ux-audit1",
   "./assets/boot/pinyin-parts-boot-v1.js?v=1",
-  "./assets/boot/erp-dictionary-boot-v1.js?v=1",
+  "./assets/boot/erp-dictionary-boot-v1.js?v=3",
   "./erp-content-v74.js?v=factory1",
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
-  "./assets/v86/experience-suite-loader-v86.js?v=progress-row1",
-  "./assets/v86/home-dashboard-v86.5.js?v=progress-row1",
+  "./assets/v86/experience-suite-loader-v86.js?v=beta-perf1",
+  "./assets/v86/home-dashboard-v86.5.js?v=ux-audit1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
-  "./assets/v86/premium-learning-v86.js?v=public1",
-  "./assets/navigation/screen-router.js?v=drawer1",
-  "./assets/v90/home-exp-sidebar-v90.js?v=factory1",
+  "./assets/v86/premium-learning-v86.js?v=beta-perf1",
+  "./assets/navigation/screen-router.js?v=hanviet2",
+  "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
 
   "./assets/auth/auth-screen.css?v=6",
-  "./assets/auth/auth-screen.js?v=6",
+  "./assets/auth/auth-screen.js?v=beta-perf5",
   "./assets/interface/public-interface.css?v=3",
+  "./assets/interface/mobile-fluidity-v1.css?v=ux-audit1",
   "./assets/interface/mobile-navigation.js?v=1",
   "./assets/factory/workshop-content.js?v=1",
-  "./assets/games/sentence-engine.js?v=2",
-  "./assets/games/sentence-game.js?v=2",
-  "./assets/games/sentence-game.css?v=2",
+  "./assets/games/sentence-engine.js?v=hsk-bank2",
+  "./assets/games/sentence-game.js?v=hsk-bank2",
+  "./assets/games/sentence-game.css?v=hsk-bank2",
   "./data/games/sentences.json?v=1",
   "./assets/games/typing-game.css?v=5",
   "./assets/games/games-hub.css?v=1",
   "./assets/games/typing-engine.js?v=2",
-  "./assets/games/typing-game.js?v=6",
+  "./assets/games/typing-game.js?v=hanviet2",
   "./assets/games/airplane.svg?v=2",
   "./",
   "./index.html",
@@ -51,7 +62,7 @@ const APP_SHELL = [
   "./assets/mascot/duckie-reader-icon-180.png?v=2.0",
   "./assets/mascot/duckie-reader-icon-192.png",
   "./assets/mascot/duckie-reader-icon-512.png",
-  "./assets/design-system/brand-runtime-v2.css?v=2.2",
+  "./assets/design-system/brand-runtime-v2.css?v=2.3",
   "./assets/design-system/mascot-swap-v1.js?v=7",
   "./assets/mascot/duckie-reader-2d-v2.webp?v=2.0",
   "./assets/mascot/duckie-flashcards-2d-v3.webp?v=3.0",
@@ -61,31 +72,38 @@ const APP_SHELL = [
   "./assets/mascot/duckie-speaking-2d-v5.webp?v=5.0",
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
-  "./assets/i18n/interface-i18n-v1.js?v=factory1",
-  "./assets/v90/exp-core-v90.js?v=word-float1",
-  "./assets/v89/exp-learning-hooks-v89.js?v=word-float1",
+  "./assets/i18n/interface-i18n-v1.js?v=beta-perf3",
+  "./assets/v90/exp-core-v90.js?v=beta-perf1",
+  "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
   "./assets/design-system/mascot-swap-v1.js?v=10",
   "./assets/mascot/duckie-reader-icon-32.png?v=4.0",
   "./assets/design-system/erp-workspace-v1.css?v=1.0",
   "./assets/design-system/remaining-interface-polish-20261103.css?v=1",
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
-  "./assets/hsk-content/hsk-study-journey-v1.js?v=phase2.3",
-  "./assets/hsk-content/hsk-study-flow-v1.js?v=word-float1",
-  "./assets/hsk-content/hsk-study-journey-v1.css?v=phase2.3",
-  "./assets/hsk-content/hsk-professional-runtime.js?v=public1",
-  "./assets/hsk-content/hsk-content-feature-flags.js?v=public1",
-  "./assets/curriculum/graded-hsk-entry.js?v=public1",
+  "./assets/v82/learning-progress-merge-v1.js?v=1",
+  "./assets/v82/account-learning-sync-v82.js?v=account-cache1",
+  "./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1",
+  "./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1",
+  "./assets/hsk-content/hsk-study-journey-v1.css?v=reliability1",
+  "./assets/hsk-content/hsk-professional-runtime.js?v=hsk56-1",
+  "./assets/hsk-content/hsk-content-feature-flags.js?v=hsk56-1",
+  "./assets/curriculum/graded-hsk-entry.js?v=hsk56-1",
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
-  "./assets/hsk-content/hsk-practice-ui-v1.js?v=2",
-  "./assets/hsk-content/hsk-practice-ui-v1.css?v=2",
+  "./assets/hsk-content/hsk-practice-ui-v1.js?v=ui-preserve1",
+  "./assets/hsk-content/hsk-practice-ui-v1.css?v=polish1",
+  "./assets/hsk-content/hsk-shadowing-v1.js?v=progress-sync1",
+  "./assets/hsk-content/hsk-shadowing-v1.css?v=polish1",
+  "./data/shadowing/hsk2-v1.json?v=3",
+  "./data/shadowing/hsk3-v1.json?v=3",
   "./assets/v95/mascot-manifest-v95.js?v=96.1",
-  "./assets/search/header-chinese-search.css?v=2",
-  "./assets/search/header-chinese-search.js?v=2",
-  "./assets/search/dictionary-extras.css?v=2",
+  "./assets/search/header-chinese-search.css?v=ux-audit1",
+  "./assets/search/dictionary-expanded.js?v=1",
+  "./assets/search/header-chinese-search.js?v=ux-audit1",
+  "./assets/search/dictionary-extras.css?v=polish1",
   "./assets/ai/free-learning-assistant.css?v=2",
   "./hsk-lessons.js?v=2b4.2",
-  "./assets/v79/unified-dictionary-v79.js?v=79.1",
+  "./assets/v79/unified-dictionary-v79.js?v=79.3",
   "./manifest.webmanifest",
   "./assets/mascot/duckie-reader-maskable-512.png",
   "./pwa-register.js",
@@ -96,8 +114,10 @@ const APP_SHELL = [
   "./erp-lessons-v74.js",
   "./hsk-lessons.js",
   "./dialogue.js",
-  "./assets/daily-learning-v2.css?v=2.9",
-  "./assets/daily-learning-v2.js?v=factory1",
+  "./assets/daily-learning-v2.css?v=daily-write2",
+  "./assets/daily-handwriting-v1.css?v=1",
+  "./assets/daily-learning-freehand-v1.js?v=1",
+  "./assets/daily-learning-v2.js?v=ux-audit1",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",
   "./assets/curriculum/progress-v1.js",
@@ -112,7 +132,6 @@ const APP_SHELL = [
   "./assets/v79/unified-dictionary-v79.part4.txt",
   "./assets/v79/unified-dictionary-v79.part5.txt",
   "./vendor/hanzi-writer.min.js",
-  "./vendor/hsk-char-data.js",
   "./pronunciation.js",
   "./supabase-config.js",
   "./supabase-sync.js",
@@ -180,10 +199,22 @@ self.addEventListener("fetch", (event) => {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          if (response.ok) caches.open(SHELL_CACHE).then((cache) => cache.put(request, response.clone()));
+          if (response.ok) {
+            const copy=response.clone();
+            event.waitUntil(caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy)));
+          }
           return response;
         })
-        .catch(async () => (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html")))
+        .catch(async () => {
+          if (["./", "./index.html"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname)) {
+            const ready = await caches.match(scoped("./.learning-offline-ready-progress-sync1"));
+            const app = ready && (await caches.match(request) || await caches.match(scoped("./index.html")) || await caches.match(scoped("./")));
+            // Cloudflare redirects /index.html to /. A redirected cached response
+            // cannot satisfy an offline navigation with redirect=manual.
+            if (app) return app.redirected ? new Response(app.clone().body,{status:app.status,statusText:app.statusText,headers:app.headers}) : app;
+          }
+          return (["./install.html", "./install"].some((path) => url.pathname === new URL(path, SCOPE_URL).pathname) ? await caches.match(scoped("./install.html")) : null) || caches.match(scoped("./offline.html"));
+        })
     );
     return;
   }
@@ -229,4 +260,11 @@ self.addEventListener("fetch", (event) => {
 
 self.addEventListener("message", (event) => {
   if (event.data === "SKIP_WAITING") self.skipWaiting();
+  if (event.data === "LEARNING_SHELL_READY") event.waitUntil((async () => {
+    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=account-cache1","./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1","./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1"];
+    if ((await Promise.all(required.map(file => caches.match(scoped(file))))).every(Boolean)) {
+      const cache=await caches.open(SHELL_CACHE);
+      await cache.put(scoped("./.learning-offline-ready-progress-sync1"),new Response("ready"));
+    }
+  })());
 });

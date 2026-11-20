@@ -20,9 +20,16 @@
         editorialScript.setAttribute('data-hsk4-editorial-runtime', 'c7web1');
         document.head.appendChild(editorialScript);
       }
+      if (!document.querySelector('script[data-hsk-advanced-self-study]')) {
+        var advancedScript = document.createElement('script');
+        advancedScript.src = './assets/hsk-content/hsk-advanced-self-study-v1.js?v=hsk56-1';
+        advancedScript.async = false;
+        advancedScript.setAttribute('data-hsk-advanced-self-study', 'hsk56-1');
+        document.head.appendChild(advancedScript);
+      }
       if (!document.querySelector('script[data-hsk-professional-runtime]')) {
         var script = document.createElement('script');
-        script.src = './assets/hsk-content/hsk-professional-runtime.js?v=public1';
+        script.src = './assets/hsk-content/hsk-professional-runtime.js?v=hsk56-1';
         script.async = false;
         script.setAttribute('data-hsk-professional-runtime', 'c7web1');
         document.head.appendChild(script);

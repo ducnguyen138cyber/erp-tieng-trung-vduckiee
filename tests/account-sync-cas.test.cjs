@@ -21,6 +21,7 @@ function createFakeBackend() {
   let row = null;
   let connected = true;
   let failed = 0;
+  let revision = 0;
   const operations = [];
   function operation(name, field) {
     const clauses = [];
@@ -37,11 +38,11 @@ function createFakeBackend() {
         return { data: null, error: {message:"network unavailable"} };
       }
       if (name === "insert") {
-        if (row) return { data: [], error: null };
-        row = {...field[0]}; operations.push("insert");
+        if (row) return { data: [], error: {code:'23505'} };
+        row = {...field[0],updated_at:String(++revision)}; operations.push("insert");
       } else if (name === "update") {
         if (!row || !matches(row)) return { data: [], error: null };
-        row = {...row, ...field}; operations.push("update");
+        row = {...row, ...field,updated_at:String(++revision)}; operations.push("update");
       }
       return { data: [{word_key:row.word_key}], error:null };
     }
@@ -61,7 +62,7 @@ function createFakeBackend() {
         from() {
           return {
             select() { return operation("select"); },
-            upsert(data) { return operation("insert", data); },
+            insert(data) { return operation("insert", data); },
             update(data) { return operation("update", data); }
           };
         }
@@ -74,6 +75,7 @@ function createBrowser(backend, userId) {
   const storage = createStorage(), handlers = {};
   const client = backend.client();
   const root = {
+    VDuckieLearningProgressMerge:require('../assets/v82/learning-progress-merge-v1.js'),
     localStorage: storage,
     sessionStorage: createStorage(),
     navigator: {onLine:true},
@@ -108,6 +110,7 @@ test("offline edit survives, reconnect uploads and another browser restores", as
   pc.root.navigator.onLine = false;
   pc.storage.setItem(KEY,value("pc-offline"));
   pc.handlers.storage({key:KEY});
+  assert.match(pc.storage.getItem("vduckie-learning-profile-cache-v2:user-1"),/pc-offline/,"cache before debounce or network");
   await settle();
   assert.doesNotMatch(backend.getRow() ? backend.getRow().note : "", /pc-offline/, "offline edit must not be saved remotely");
   assert.match(pc.storage.getItem("vduckie-learning-profile-cache-v2:user-1"),/pc-offline/);

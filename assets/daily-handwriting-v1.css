@@ -1,0 +1,10 @@
+
+/* A real finger/stylus canvas overlays the optional verified stroke animation. */
+.daily-writing-board{position:relative;grid-column:2;width:246px;height:246px;max-width:100%;isolation:isolate}
+.daily-writing-board .daily-stroke-target{width:100%;height:100%;overflow:hidden}
+.daily-writing-board .daily-stroke-target svg{max-width:100%;max-height:100%;width:100%!important;height:100%!important}
+.daily-writing-board .daily-ink-canvas{position:absolute;inset:0;display:block;width:100%;height:100%;z-index:2;background:transparent;touch-action:none!important;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;overscroll-behavior:none;cursor:crosshair}
+.daily-writing-board:not(.ink-active) .daily-ink-canvas{pointer-events:none;opacity:0}
+.writing-actions button[hidden]{display:none!important}
+@media(max-width:760px){.daily-writing-board{grid-column:1;width:222px;height:222px}}
+@media(max-width:390px){.daily-writing-board{width:200px;height:200px}}

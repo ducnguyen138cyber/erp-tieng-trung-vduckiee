@@ -10,14 +10,15 @@ const svg = fs.readFileSync(path.join(root, 'assets', 'favicon-vduckie.svg'), 'u
 const {getRuntimeSnapshot, assertAssetLoaded} = require('./helpers/runtime-snapshot');
 const snapshot = getRuntimeSnapshot();
 test('browser tab uses the public VDuckie title and deployment-relative icons', () => {
-  assert.match(index, /<title>VDuckie – Tự học tiếng Trung HSK và tiếng Trung công xưởng<\/title>/);
-  for (const file of ['duckie-reader-icon-32.png','duckie-reader-icon-180.png']) assertAssetLoaded(assert, file, {snapshot});
+  assert.match(index, /<title>VDuckie – Tự học tiếng Trung HSK miễn phí<\/title>/);
+  assertAssetLoaded(assert, 'duckie-reader-icon-192.png', {snapshot,cacheBusted:false});
+  assertAssetLoaded(assert, 'duckie-reader-icon-180.png', {snapshot});
   assert.doesNotMatch(snapshot.effectiveHtml, /href="\/assets\//);
 });
 test('document-written shell receives the same title and current icon set', () => {
   const title = html => html.match(/<title>([^<]+)<\/title>/)[1];
   assert.equal(title(snapshot.effectiveHtml), title(index));
-  assert.match(snapshot.effectiveHtml, /rel="icon"[^>]*duckie-reader-icon-32/);
+  assert.match(snapshot.effectiveHtml, /rel="icon"[^>]*duckie-reader-icon-192/);
   assert.match(snapshot.effectiveHtml, /rel="apple-touch-icon"[^>]*duckie-reader-icon-180/);
 });
 

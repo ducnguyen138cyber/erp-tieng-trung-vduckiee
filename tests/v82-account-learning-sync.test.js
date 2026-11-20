@@ -151,21 +151,45 @@ function accountRuntime() {
   };
   ctx.globalThis = ctx;
   vm.createContext(ctx);
+  vm.runInContext(fs.readFileSync(path.join(root,"assets/v82/learning-progress-merge-v1.js"),"utf8"),ctx);
   // Instrument private lifecycle functions only in this VM, never in production.
   vm.runInContext(source.replace('  root.VDuckieAccountSyncUtils = {', `
     root.testLifecycle = {
       attach: function(value) { client = value; },
       session: handleSession,
-      schedule: scheduleUpload
+      schedule: scheduleUpload,
+      maybeReload: maybeReload
     };
     root.VDuckieAccountSyncUtils = {`), ctx);
   ctx.testLifecycle.attach({ from() { return {
     select() { return this; }, eq() { return this; },
-    then(resolve) { return new Promise(done => reads.push(row => done(resolve({data: row ? [row] : [], error:null})))); },
-    upsert(rows) { writes.push(...rows); return Promise.resolve({error:null}); }
+    maybeSingle() { return new Promise(done => reads.push(row => done({data:row,error:null}))); },
+    insert(rows) { writes.push(...rows);return {select(){return Promise.resolve({data:rows.map(r=>({word_key:r.word_key})),error:null});}}; },
+    update(row) { writes.push(row);return {eq(){return this;},select(){return Promise.resolve({data:[{word_key:row.word_key}],error:null});}}; }
   }; } });
   return { ctx, values, timers, reads, writes, api: ctx.testLifecycle };
 }
+
+test('anonymous bootstrap retains HSK mastery, SRS and resume position across repeated session initialization', () => {
+  const r = accountRuntime();
+  const key = 'vduckie-hsk-study-journey-v1';
+  const progress = JSON.stringify({current:{level:3,lessonId:'hsk3-lesson-01'},lessons:{'hsk3-lesson-01':{position:{stage:'words',cards:{0:3}},masteryAnswers:{q1:{correct:false,verified:true}}}},reviews:{'3:努力':{weak:true,nextAt:1}}});
+  r.values.set(key, progress);
+  r.api.session(null);
+  assert.equal(r.values.get(key), progress);
+  r.api.session(null);
+  assert.equal(r.values.get(key), progress);
+  assert.equal(r.writes.length, 0);
+});
+
+test('cold-start expired account data is never captured as guest progress', () => {
+  const r = accountRuntime();
+  r.values.set('vduckie-learning-profile-active-user-v2', 'alice');
+  r.values.set('vduckie-hsk-study-journey-v1', '{"privateAccountProgress":true}');
+  r.api.session(null);
+  assert.equal(r.values.has('vduckie-hsk-study-journey-v1'), false);
+  assert.doesNotMatch(r.values.get('vduckie-learning-profile-cache-v2:anonymous') || '', /privateAccountProgress/);
+});
 
 test('logout cancels a queued learning upload even if its callback was already queued', async () => {
   const r = accountRuntime();
@@ -200,4 +224,15 @@ test('late profile fetch and queued upload cannot apply Alice data after switchi
   assert.equal(r.writes.length, 1);
   assert.equal(r.writes[0].user_id, 'bob');
   assert.doesNotMatch(r.writes[0].note, /dailyWords/);
+});
+
+
+test('remote legacy visits and timestamp-only settings cannot reload an active HSK answer',()=>{
+ const r=accountRuntime();let reloaded=0;r.ctx.location={reload(){reloaded++;}};r.ctx.VDuckieHskStudyFlow={getCurrent(){return {level:2,lessonId:'hsk2-lesson-15'};}};
+ const key='vduckie-learning-settings-v1',before={fields:{[key]:{value:JSON.stringify({roastHsk:true,updatedAt:1})}}},after={fields:{[key]:{value:JSON.stringify({roastHsk:true,updatedAt:2})}}};
+ r.api.maybeReload('alice',after,['vduckie-hsk-section-progress-v1',key],[key],before);
+ assert.equal(r.timers.size,0);assert.equal(reloaded,0);
+ // An actual preference change still takes the existing refresh path.
+ after.fields[key].value=JSON.stringify({roastHsk:false,updatedAt:3});
+ r.api.maybeReload('alice',after,[key],[key],before);assert.equal(r.timers.size,1);
 });

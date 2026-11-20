@@ -1,0 +1,283 @@
+/* VDuckie Shadowing MVP: source-backed HSK1–3, local-only voice recordings. */
+(function(root,document){
+  "use strict";
+  if(!root||!document)return;
+  var key="vduckie-shadowing-v1",level=1,lines=[],index=0,recorder=null,chunks=[],recordUrl="",stream=null,startedAt=0,elapsed=null;
+  var playing=false,recording=false,micPending=false,syncOwner=root.localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
+  var showPinyin=true,showVi=true,rate=0.85,token=0,group="all",mode="all",selectedId="",recordEpoch=0,repeats=1,soundEpoch=0,soundTimer=null;
+  function el(id){return document.getElementById(id);}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];});}
+  function store(){try{return JSON.parse(root.localStorage.getItem(key)||"{}")||{};}catch(e){return {};}}
+  function current(){var data=store(),entry=data[level];return entry&&typeof entry==="object"?entry:{};}
+  function persist(){try{
+    var data=store(),entry=current();
+    data[level]=Object.assign({},entry,{index:index,id:selectedId,group:group,mode:mode,rate:rate,showPinyin:showPinyin,showVi:showVi,repeats:repeats,updatedAt:Date.now()});
+    data.lastLevel=level;data.updatedAt=Date.now();root.localStorage.setItem(key,JSON.stringify(data));
+    document.dispatchEvent(new CustomEvent("vduckie:shadowing-change"));
+  }catch(e){}
+    writeUrl();
+  }
+  function mark(kind,id){
+    if(!id)return;
+    try{var data=store(),entry=current(),saved=Object.assign({},entry[kind]||{});
+      saved[id]=!saved[id];
+      entry.flagChanges=entry.flagChanges||{};entry.flagChanges[kind]=entry.flagChanges[kind]||{};
+      entry.flagChanges[kind][id]={value:saved[id],at:Date.now()};
+      data[level]=Object.assign({},entry,{[kind]:saved,updatedAt:Date.now()});
+      root.localStorage.setItem(key,JSON.stringify(data));
+    }catch(e){}
+    var available=visible();
+    if(!available.some(function(item){return item.id===selectedId;})){stopSound();clearRecording();selectedId=available[0]?available[0].id:"";}
+    index=Math.max(0,available.findIndex(function(item){return item.id===selectedId;}));
+    persist();render();
+  }
+  function visible(){
+    var saved=current(),set=saved[mode]||{};
+    return lines.filter(function(item){return (group==="all"||item.group===group)&&
+       (mode==="all"||!!set[item.id]);});
+  }
+  function selection(){return visible()[index]||null;}
+  function groups(){
+    var found=new Map();lines.forEach(function(item){
+      if(!found.has(item.group))found.set(item.group,{id:item.group,label:item.groupLabel||item.group,count:0});
+      found.get(item.group).count++;
+    });return [...found.values()];
+  }
+  function syncControls(){
+    var audio=el("shadowRecording"),n=host();
+    if(audio)audio.hidden=!recordUrl;
+    if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    var clear=n.querySelector("[data-shadow-clear]"),stop=n.querySelector("[data-shadow-stop]"),record=n.querySelector("[data-shadow-record]");
+    if(clear)clear.hidden=!recordUrl;
+    if(stop)stop.disabled=!playing&&!recording;
+    if(record){record.disabled=recording||micPending;record.textContent=recording?"● Đang ghi âm…":micPending?"Đang mở micro…":"● Ghi âm";}
+  }
+  function clearRecording(){
+    recordEpoch++;
+    if(recorder&&recorder.state==="recording"){recorder.onstop=null;recorder.stop();}
+    recorder=null;chunks=[];recording=false;micPending=false;
+    if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+    if(recordUrl){root.URL.revokeObjectURL(recordUrl);recordUrl="";}
+    if(el("shadowRecording"))el("shadowRecording").removeAttribute("src");
+    syncControls();
+  }
+  function stopSound(){playing=false;syncControls();soundEpoch++;if(soundTimer!==null){root.clearTimeout(soundTimer);soundTimer=null;}if(root.speechSynthesis)root.speechSynthesis.cancel();}
+  function host(){return el("dailyLearningPanel");}
+  function status(message){var n=el("shadowStatus");if(n)n.textContent=message;}
+  function restore(items){
+    var saved=current(),aliases=new Map();
+    items.forEach(function(item){aliases.set(item.id,item.id);(item.legacyIds||[]).forEach(function(old){aliases.set(old,item.id);});});
+    var data=store(),entry=Object.assign({},saved);
+    ["starred","weak"].forEach(function(kind){
+      var flags={};Object.keys(saved[kind]||{}).forEach(function(id){if(saved[kind][id])flags[aliases.get(id)||id]=true;});entry[kind]=flags;
+    });
+    entry.id=aliases.get(saved.id)||saved.id;data[level]=entry;
+    try{root.localStorage.setItem(key,JSON.stringify(data));}catch(e){}
+    return entry;
+  }
+  function writeUrl(){
+    if(!root.location||!root.history)return;
+    var url=new URL(root.location.href);
+    if(url.searchParams.get("screen")!=="shadowing")return;
+    url.searchParams.set("shadowLevel",level);
+    url.searchParams.set("shadowGroup",group);
+    url.searchParams.set("shadowMode",mode);
+    if(selectedId)url.searchParams.set("shadowLine",selectedId);else url.searchParams.delete("shadowLine");
+    root.history.replaceState(root.history.state,"",url.pathname+url.search+url.hash);
+  }
+  function load(levelChoice,route){
+    level=levelChoice;var my=++token;clearRecording();stopSound();
+    var n=host();if(!n)return;
+    n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
+    n.innerHTML='<section class="shadow-page"><h2>Luyện nghe & Shadowing · HSK '+level+'</h2><p>Đang tải bài luyện…</p></section>';
+    var request=level===1?
+      root.fetch("./data/hsk/hsk1/sentences/index.json")
+        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(manifest){
+          if(!manifest.shards||!manifest.shards.length)throw Error("Thiếu danh mục câu HSK1");
+          return Promise.all(manifest.shards.map(function(shard){
+            if(!/^[a-z0-9_-]+\.json$/i.test(shard.file))throw Error("Sai tên tệp học liệu");
+            return root.fetch("./data/hsk/hsk1/sentences/"+shard.file)
+              .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+              .then(function(data){return data.records||[];});
+          }));
+        })
+        .then(function(chunks){return chunks.flat().filter(function(r){
+          return r.chinese&&r.pinyin&&r.vietnamese;
+        }).map(function(r,i){var unit=Math.floor(i/25)+1;
+          return {id:r.id,hanzi:r.chinese,pinyin:r.pinyin,vi:r.vietnamese,
+            group:"unit-"+unit,groupLabel:"Nhóm "+unit+" · Câu "+((unit-1)*25+1)+"–"+(Math.min(unit*25,900)),
+            sourceStatus:r.reviewStatus||"unreviewed"};
+        });}):
+      root.fetch("./data/shadowing/hsk"+level+"-v1.json?v=3")
+        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(data){
+          if(data.contentVersion!==3||data.level!==levelChoice)throw Error("Học liệu đã cập nhật, hãy tải lại trang.");
+          var lessonNames=new Map((data.lessons||[]).map(function(lesson){return [lesson.id,lesson.titleVi];}));
+          return (data.records||[]).filter(function(r){return r.hanzi&&r.pinyin&&r.vi;}).map(function(r){
+            return Object.assign({},r,{group:r.sourceSectionId,
+              groupLabel:"Bài "+(Number((r.sourceLessonId||"").match(/lesson-(\d+)/)?.[1])||1)+" · "+(lessonNames.get(r.sourceLessonId)||"Hội thoại"),
+              sourceStatus:r.reviewStatus||"unreviewed"});
+          });
+        });
+    request.then(function(items){if(my!==token)return;
+      lines=items;var saved=restore(items);
+      rate=[0.7,0.85,1].includes(saved.rate)?saved.rate:0.85;
+      showPinyin=saved.showPinyin!==false;showVi=saved.showVi!==false;repeats=saved.repeats===3?3:1;
+      group=saved.group&&items.some(function(item){return item.group===saved.group;})?saved.group:"all";
+      mode=["all","starred","weak"].includes(saved.mode)?saved.mode:"all";
+      if(route){
+        if(route.group&&items.some(function(item){return item.group===route.group;}))group=route.group;
+        if(["all","starred","weak"].includes(route.mode))mode=route.mode;
+        if(route.lessonId){
+          var first=items.find(function(item){return item.sourceLessonId===route.lessonId;});
+          if(first){group=first.group;mode="all";saved.id=first.id;}
+        }
+        if(route.line&&items.some(function(item){return item.id===route.line;}))saved.id=route.line;
+      }
+      var options=visible();
+      index=options.findIndex(function(item){return item.id===saved.id;});
+      if(index<0)index=Math.max(0,Math.min(Number(saved.index)||0,options.length-1));
+      selectedId=options[index]?options[index].id:"";persist();render();
+    })
+      .catch(function(err){if(my!==token)return;n.innerHTML='<section class="shadow-page"><h2>Không tải được bài Shadowing</h2><p>'+esc(err.message)+'</p><button type="button" data-shadow-back>Trở lại</button></section>';});
+  }
+  function render(){
+    var n=host();if(!n)return;
+    var options=visible(),item=options[index]||null,total=lines.length,meta=current();
+    n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
+    var tabs=[1,2,3].map(function(l){return '<button type="button" data-shadow-level="'+l+
+      '" aria-pressed="'+(l===level)+'">HSK '+l+'</button>';}).join("");
+    var allGroups=groups(),selector='<label for="shadowGroup">Chọn bài / nhóm câu</label>'+
+      '<select id="shadowGroup" aria-label="Chọn bài hoặc nhóm câu"><option value="all">Tất cả bài ('+total+' câu)</option>'+
+      allGroups.map(function(g){return '<option value="'+esc(g.id)+'"'+(group===g.id?' selected':'')+'>'+
+        esc(g.label)+' · '+g.count+' câu</option>';}).join("")+'</select>';
+    var counts={starred:Object.keys(meta.starred||{}).filter(function(id){return !!meta.starred[id]&&lines.some(function(q){return q.id===id;});}).length,
+      weak:Object.keys(meta.weak||{}).filter(function(id){return !!meta.weak[id]&&lines.some(function(q){return q.id===id;});}).length};
+    var filters='<div class="shadow-filters" role="group" aria-label="Bộ lọc luyện tập">'+
+      [["all","Tất cả",total],["starred","Đã lưu",counts.starred],["weak","Cần luyện lại",counts.weak]]
+        .map(function(row){return '<button type="button" data-shadow-mode="'+row[0]+'" aria-pressed="'+(mode===row[0])+'">'+
+          row[1]+' <span>'+row[2]+'</span></button>';}).join("")+'</div>';
+    var card=!item?'<div class="shadow-empty"><h3>Không có câu trong bộ lọc này</h3>'+
+       '<p>Chọn “Tất cả” hoặc lưu câu cần luyện lại để thấy chúng tại đây.</p>'+
+       '<button type="button" data-shadow-mode="all">Xem tất cả</button></div>':
+      '<div class="shadow-counter">Câu '+(index+1)+' / '+options.length+' · HSK '+level+
+        ' · '+esc(item.groupLabel||"Luyện câu")+'</div>'+
+      '<article class="shadow-card">'+(item.speaker?'<p class="shadow-speaker">Người nói: '+esc(item.speaker)+'</p>':'')+'<div class="shadow-hanzi">'+esc(item.hanzi)+'</div>'+
+      (showPinyin?'<p class="shadow-pinyin">'+esc(item.pinyin||"Pinyin đang bổ sung cho câu này")+'</p>':"")+
+      (showVi?'<p class="shadow-meaning">'+esc(item.vi||"Nghĩa tiếng Việt đang bổ sung")+'</p>':"")+
+      '<div class="shadow-save-actions">'+
+      '<button type="button" data-shadow-star aria-pressed="'+!!(meta.starred||{})[item.id]+'">'+
+         ((meta.starred||{})[item.id]?'★ Đã lưu':'☆ Lưu câu')+'</button>'+
+      '<button type="button" data-shadow-weak aria-pressed="'+!!(meta.weak||{})[item.id]+'">'+
+         ((meta.weak||{})[item.id]?'✓ Đã đánh dấu cần ôn':'↻ Cần luyện lại')+'</button></div>'+
+      '<div class="shadow-controls"><button type="button" data-shadow-play>🔊 Nghe mẫu</button>'+
+      '<button type="button" data-shadow-rate>◷ '+rate+'×</button>'+
+      '<button type="button" data-shadow-repeat>Lặp: '+repeats+' lần</button>'+
+      '<button type="button" data-shadow-record>● Ghi âm</button>'+
+      '<button type="button" data-shadow-stop disabled>Dừng</button></div>'+
+      '<audio id="shadowRecording" controls preload="none" aria-label="Nghe lại giọng mình"'+
+        (recordUrl?' src="'+esc(recordUrl)+'"':' hidden')+'></audio>'+
+      '<div class="shadow-toggles"><button type="button" data-shadow-pinyin>'+(showPinyin?"Ẩn":"Hiện")+
+      ' Pinyin</button><button type="button" data-shadow-vi>'+(showVi?"Ẩn":"Hiện")+
+      ' nghĩa Việt</button><button type="button" data-shadow-clear hidden>Xóa bản ghi</button></div>'+
+      '<div class="shadow-nav"><button type="button" data-shadow-prev '+(index===0?"disabled":"")+
+      '>← Câu trước</button><button type="button" data-shadow-next '+(index===options.length-1?"disabled":"")+
+      '>Câu tiếp →</button></div></article>';
+    n.innerHTML='<section class="shadow-page"><header class="shadow-head"><div>'+
+      '<small>VDUCKIE · LUYỆN NGHE & NÓI</small><h2>Shadowing HSK1–3</h2>'+
+      '<p>Nghe → nói theo → ghi âm → nghe lại. Không chấm phát âm hoặc cộng EXP.</p></div>'+
+      '<button type="button" data-shadow-back>← Giáo trình HSK</button></header>'+
+      '<div class="shadow-levels">'+tabs+'</div>'+
+      '<div class="shadow-library">'+selector+filters+'</div>'+
+      '<p class="shadow-coverage">'+allGroups.length+' '+(level===1?'nhóm câu':'bài')+' · '+lines.filter(function(q){return q.pinyin&&q.vi;}).length+'/'+total+' '+(level===1?'câu':'lượt thoại')+' có Pinyin và nghĩa Việt</p>'+card+
+      '<p id="shadowStatus" role="status" aria-live="polite">'+
+      'Giọng mẫu dùng TTS thiết bị. Bản ghi chỉ lưu tạm trong phiên; dấu sao và câu cần ôn lưu trên trình duyệt.'+
+      (level>1?' Pinyin và bản dịch bổ sung chưa được giáo viên duyệt.':'')+'</p></section>';
+    syncControls();
+  }
+  function choose(nextGroup,nextMode){
+    if(nextGroup!==null)group=nextGroup;
+    if(nextMode!==null)mode=nextMode;
+    var candidates=visible();index=0;selectedId=candidates[0]?candidates[0].id:"";
+    stopSound();clearRecording();persist();render();
+  }
+  function play(){
+    if(!selection()||!root.speechSynthesis||!root.SpeechSynthesisUtterance){status("Không hỗ trợ phát tiếng Trung trên thiết bị này.");return;}
+    var voices=root.speechSynthesis.getVoices?root.speechSynthesis.getVoices():[],zh=voices.find(function(v){return /^zh([_-]|$)/i.test(v.lang||"");});
+    if(voices.length&&!zh){status("Chưa có giọng tiếng Trung trên thiết bị.");return;}
+    stopSound();var epoch=soundEpoch,hanzi=selection().hanzi,left=repeats;
+    function speak(){
+      if(epoch!==soundEpoch)return;
+      var u=new root.SpeechSynthesisUtterance(hanzi);u.lang="zh-CN";u.rate=rate;if(zh)u.voice=zh;
+      u.onerror=function(){if(epoch===soundEpoch){stopSound();status("Không phát được mẫu, hãy kiểm tra giọng đọc trên thiết bị.");}};
+      u.onend=function(){if(epoch!==soundEpoch)return;if(--left>0)soundTimer=root.setTimeout(speak,650);else {playing=false;syncControls();status("Đã phát xong câu mẫu.");}};
+      playing=true;syncControls();root.speechSynthesis.speak(u);status("Đang phát mẫu "+(repeats-left+1)+"/"+repeats+" với tốc độ "+rate+"×.");
+    }
+    speak();
+  }
+
+  async function record(){
+    if(!root.MediaRecorder||!root.navigator||!root.navigator.mediaDevices||!root.navigator.mediaDevices.getUserMedia){status("Trình duyệt này chưa hỗ trợ ghi âm.");return;}
+    stopSound();clearRecording();var expectedToken=token,expectedId=selectedId,expectedEpoch=recordEpoch;
+    micPending=true;syncControls();
+    try{
+      var acquired=await root.navigator.mediaDevices.getUserMedia({audio:true});
+      if(expectedToken!==token||expectedId!==selectedId||expectedEpoch!==recordEpoch){acquired.getTracks().forEach(function(t){t.stop();});return;}
+      stream=acquired;
+      recorder=new root.MediaRecorder(stream);chunks=[];var active=recorder;startedAt=Date.now();
+      recorder.ondataavailable=function(e){if(e.data&&e.data.size)chunks.push(e.data);};
+      recorder.onstop=function(){
+        recording=false;var data=chunks.slice();if(stream){stream.getTracks().forEach(function(t){t.stop();});stream=null;}
+        if(data.length&&active===recorder){recordUrl=root.URL.createObjectURL(new root.Blob(data,{type:active.mimeType||"audio/webm"}));var a=el("shadowRecording");if(a)a.src=recordUrl;status("Đã ghi âm. Bấm ▶ để nghe lại giọng mình.");}
+        syncControls();
+      };
+      micPending=false;recording=true;recorder.start();syncControls();status("Đang ghi âm… Hãy nói theo câu mẫu.");
+    }catch(e){if(expectedToken===token&&expectedId===selectedId&&expectedEpoch===recordEpoch){clearRecording();status("Không thể sử dụng micro. Hãy kiểm tra quyền ghi âm.");}}
+  }
+  function stopRecord(){if(recorder&&recorder.state==="recording")recorder.stop();else status("Đã dừng phát mẫu.");}
+  function next(delta){var items=visible();if(!items.length)return;index=Math.max(0,Math.min(items.length-1,index+delta));selectedId=items[index].id;persist();stopSound();clearRecording();render();}
+  document.addEventListener("click",function(ev){
+    var b=ev.target&&ev.target.closest&&ev.target.closest("button");if(!b)return;
+    if(b.hasAttribute("data-shadow-open")){ev.preventDefault();if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("shadowing");else open();return;}
+    var n=host();if(!n||!n.contains(b)||!n.classList.contains("hsk-shadow-screen"))return;
+    if(b.hasAttribute("data-shadow-back")){leave();if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("msutong");else if(root.VDuckieGradedHSK)root.VDuckieGradedHSK.open();return;}
+    if(b.hasAttribute("data-shadow-level")){load(Number(b.getAttribute("data-shadow-level")));return;}
+    if(b.hasAttribute("data-shadow-mode")){choose(null,b.getAttribute("data-shadow-mode"));return;}
+    if(b.hasAttribute("data-shadow-star")){mark("starred",selectedId);return;}
+    if(b.hasAttribute("data-shadow-weak")){mark("weak",selectedId);return;}
+    if(b.hasAttribute("data-shadow-play")){play();return;}
+    if(b.hasAttribute("data-shadow-rate")){stopSound();rate=rate===0.85?0.7:rate===0.7?1:0.85;persist();render();return;}
+    if(b.hasAttribute("data-shadow-repeat")){stopSound();repeats=repeats===1?3:1;persist();render();return;}
+    if(b.hasAttribute("data-shadow-record")){record();return;}
+    if(b.hasAttribute("data-shadow-stop")){stopSound();stopRecord();var audio=el("shadowRecording");if(audio)audio.pause();return;}
+    if(b.hasAttribute("data-shadow-clear")){clearRecording();status("Đã xóa bản ghi khỏi phiên học.");return;}
+    if(b.hasAttribute("data-shadow-pinyin")){showPinyin=!showPinyin;persist();render();return;}
+    if(b.hasAttribute("data-shadow-vi")){showVi=!showVi;persist();render();return;}
+    if(b.hasAttribute("data-shadow-prev")){next(-1);return;}
+    if(b.hasAttribute("data-shadow-next")){next(1);}
+  });
+  document.addEventListener("change",function(ev){
+    if(!ev.target||ev.target.id!=="shadowGroup")return;
+    var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    choose(ev.target.value,null);
+  });
+  document.addEventListener("visibilitychange",function(){if(document.hidden){stopSound();clearRecording();}});
+  root.addEventListener("pagehide",function(){++token;stopSound();clearRecording();});
+  function leave(){++token;stopSound();clearRecording();}
+  function open(options){
+    if(typeof options==="number")options={level:options};
+    var params=root.location?new URLSearchParams(root.location.search):new URLSearchParams();
+    var routed=params.get("screen")==="shadowing";
+    var route=options||{level:routed?Number(params.get("shadowLevel")):0,group:routed?params.get("shadowGroup"):null,
+      mode:routed?params.get("shadowMode"):null,line:routed?params.get("shadowLine"):null};
+    var choice=Number(route.level)||Number(store().lastLevel)||1;
+    load([1,2,3].includes(choice)?choice:1,route);
+  }
+  document.addEventListener("vduckie:account-learning-synced",function(event){
+    var owner=event.detail&&event.detail.userId||"",changedOwner=owner!==syncOwner;syncOwner=owner;
+    var n=host();if(!n||!n.classList.contains("hsk-shadow-screen"))return;
+    if(changedOwner){var saved=store();load(Number(saved.lastLevel)||1,{});}else if(!playing&&!recording&&!micPending)render();
+  });
+  root.VDuckieShadowing=Object.freeze({open:open,leave:leave});
+})(window,document);

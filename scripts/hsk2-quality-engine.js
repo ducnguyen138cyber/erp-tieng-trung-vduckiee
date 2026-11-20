@@ -93,7 +93,7 @@ function validate(rootDirectory) {
     if(exercise.format==="listen-dictation")check(/chép/i.test(exercise.prompt)&&typeof exercise.answer==="string","format-contract",`${exercise.id} dictation label does not match its task`);
     if(exercise.format==="listen-fill")check(exercise.stimulus&&/____/.test(exercise.stimulus.clozeZh||"")&&typeof exercise.answer==="string","format-contract",`${exercise.id} listening fill needs a cloze and string answer`);
     if(exercise.format==="sentence-order")check(exercise.stimulus&&Array.isArray(exercise.stimulus.tokens)&&exercise.stimulus.tokens.length>=2,"format-contract",`${exercise.id} sentence order needs two or more shuffled tokens`);
-    if(exercise.format==="controlled-translation")check(/Dịch/i.test(exercise.prompt)&&typeof exercise.answer==="string","format-contract",`${exercise.id} controlled translation label does not match its task`);
+    if(exercise.format==="controlled-translation")check(/Dịch/i.test(exercise.prompt)&&(typeof exercise.answer==="string"||(exercise.answer&&exercise.answer.rubric&&exercise.answer.rubric.meaning&&exercise.answer.rubric.language)),"format-contract",`${exercise.id} controlled translation label does not match its task`);
     if(exercise.format==="pronunciation-shadowing")check(exercise.skill==="speaking"&&exercise.answer&&exercise.answer.rubric&&exercise.answer.rubric.tones,"format-contract",`${exercise.id} pronunciation task needs a speaking/tones rubric`);
     check(!PLACEHOLDER.test(JSON.stringify(exercise)),"placeholder",`${exercise.id} contains a placeholder`);
   }

@@ -3,7 +3,7 @@
   if (root.__VDUCKIE_AUTH_SCREEN_V1__) return;
   root.__VDUCKIE_AUTH_SCREEN_V1__ = true;
 
-  var screen, form, busy = false, mode = "login", lastFocus = null, recovery = false;
+  var screen, form, busy = false, mode = "login", lastFocus = null, recovery = false, modeReady = false;
   var $ = function (id) { return document.getElementById(id); };
   var cloud = function () { return root.VDuckieCloud || {}; };
 
@@ -69,9 +69,12 @@
       mode === "recover" ? "Lưu mật khẩu mới" : "Tiếp tục học";
   }
 
-  function setMode(next) {
+  function setMode(next, freshOpen) {
     if (busy) return;
-    mode = ["login", "register", "forgot", "recover"].indexOf(next) >= 0 ? next : "login";
+    var wanted = ["login", "register", "forgot", "recover"].indexOf(next) >= 0 ? next : "login";
+    // Duplicate open/tab notifications must not erase an in-progress form.
+    if (modeReady && wanted === mode && !freshOpen) return;
+    mode = wanted; modeReady = true;
     recovery = mode === "recover";
     var isRegister = mode === "register";
     var isLogin = mode === "login";
@@ -109,7 +112,9 @@
 
   function open(next) {
     if (!screen) return;
-    if (screen.hidden) lastFocus = document.activeElement;
+    var freshOpen = screen.hidden;
+    if (!freshOpen && mode === (next || "login")) return;
+    if (freshOpen) lastFocus = document.activeElement;
     // The mobile study menu installs a document-level overlay; close it before auth.
     if (root.VDuckieMobileLayoutFixV867 && typeof root.VDuckieMobileLayoutFixV867.close === "function") {
       root.VDuckieMobileLayoutFixV867.close();
@@ -117,7 +122,7 @@
     document.documentElement.classList.remove("v867-menu-open");
     screen.hidden = false;
     document.body.classList.add("vda-auth-open");
-    setMode(next || "login");
+    setMode(next || "login", freshOpen);
     root.requestAnimationFrame(function () {
       var field = mode === "register" ? $("vdaName") : mode === "recover" ? $("vdaPassword") : $("vdaEmail");
       if (field) field.focus();

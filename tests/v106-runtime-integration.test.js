@@ -108,7 +108,7 @@ function createHarness({ audioState = "running" } = {}) {
   const legacy = document.createElement("div"); legacy.id = "v95LevelUpOverlay"; legacy.hidden = true; document.body.appendChild(legacy);
   const journey = document.createElement("div"); journey.id = "v92EvolutionOverlay"; journey.hidden = true; document.body.appendChild(journey);
   const backgroundButton = document.createElement("button"); backgroundButton.setAttribute("data-panel", "open"); document.body.appendChild(backgroundButton);
-  const audioStarts = []; const audioInstances = []; const resumeGate = deferred();
+  const audioStarts = []; const audioInstances = []; const preloadedImages = []; const resumeGate = deferred();
   class AudioContextMock {
     constructor() { this.state = audioState; this.currentTime = 0; this.destination = {}; this.resumeCalls = 0; audioInstances.push(this); }
     resume() { this.resumeCalls += 1; return resumeGate.promise.then(() => { this.state = "running"; }); }
@@ -119,7 +119,7 @@ function createHarness({ audioState = "running" } = {}) {
     }
     createGain() { return { gain: { setValueAtTime(){}, exponentialRampToValueAtTime(){} }, connect() { return this; } }; }
   }
-  class ImageMock { constructor() { this.decoding = ""; this.src = ""; } }
+  class ImageMock { constructor() { this.decoding = ""; this.src = ""; preloadedImages.push(this); } }
   class MutationObserverMock extends FakeMutationObserver { constructor(callback) { super(callback, document); } }
   const manifest = {
     resolve({ level }) { return { asset: `./lv${level}.webp`, fallbackAsset: `./lv${level}-fallback.webp` }; },
@@ -149,7 +149,7 @@ function createHarness({ audioState = "running" } = {}) {
   function mascotEvent(name) { document.dispatchEvent(new FakeCustomEvent("vduckie:mascot-event", { detail: { event: name } })); }
   function click(button) { document.dispatchEvent(new FakeEvent("click", { target: button })); }
   function switchSession(next) { session = next; sessionCallbacks.slice().forEach(callback => callback(session)); }
-  return { window, document, scheduler, legacy, journey, backgroundButton, audioStarts, audioInstances, resumeGate, progress, developer, mascotEvent, click, switchSession };
+  return { window, document, scheduler, legacy, journey, backgroundButton, preloadedImages, audioStarts, audioInstances, resumeGate, progress, developer, mascotEvent, click, switchSession };
 }
 async function flushPromises() { await Promise.resolve(); await Promise.resolve(); await Promise.resolve(); }
 
@@ -228,4 +228,15 @@ test("destroy clears cinematic, body lock, session listener, audio and legacy gu
   assert.equal(activeCinematics(h).length, 0); assert.equal(h.document.body.classList.contains("v106-cinematic-open"), false); assert.equal(h.backgroundButton.inert, false);
   h.legacy.hidden = false; assert.equal(h.legacy.hidden, false);
   h.progress(7, "mutation"); assert.equal(activeCinematics(h).length, 0);
+});
+
+
+test("startup, session hydration and unchanged EXP do not fetch cinematic sprites", () => {
+  const h = createHarness();
+  assert.equal(h.preloadedImages.length, 0);
+  h.progress(5, "hydrate"); h.progress(5, "sync"); h.progress(5, "mutation");
+  assert.equal(h.preloadedImages.length, 0, "confirmed EXP is not a request to show a cinematic");
+  h.progress(6, "mutation");
+  assert.equal(activeCinematics(h).length, 1);
+  assert.deepEqual(h.preloadedImages.map(i=>i.src), ["./lv6.webp", "./lv7.webp"]);
 });

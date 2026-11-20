@@ -95,13 +95,13 @@ async function assertHsk3(page, state) {
         await card.locator(`[data-pro-check="${first.id}"]`).click();
         await card.getByText("Đúng.", { exact: true }).waitFor();
         await page.locator('[data-pro-assessment="hsk3-assessment-unit-01"]').click();
-        await page.locator("#hskLesson").getByText(/Checkpoint Unit 1/).waitFor();
+        await page.locator("#hskLesson").getByText(/Ôn tập chương 1/).waitFor();
         await page.locator('[data-pro-assessment="hsk3-assessment-midpoint"]').click();
-        await page.locator("#hskLesson").getByText(/Midpoint/).waitFor();
+        await page.locator("#hskLesson").getByText(/Đánh giá giữa khóa/).waitFor();
         await page.locator('[data-pro-assessment="hsk3-assessment-final"]').click();
-        await page.locator("#hskLesson").getByText(/Final Assessment/).waitFor();
+        await page.locator("#hskLesson").getByText(/Đánh giá cuối khóa/).waitFor();
         await page.locator('[data-pro-assessment="hsk3-assessment-mastery"]').click();
-        await page.locator("#hskLesson").getByText(/Mastery Review/).waitFor();
+        await page.locator("#hskLesson").getByText(/Ôn tập tổng hợp/).waitFor();
         await page.locator('[data-pro-level="2"]').click();
         const hsk2 = await waitReady(page, 2);
         if (hsk2.counts.lessons !== 28 || hsk2.counts.vocabulary !== 200) throw new Error("HSK2 regressed after HSK3 integration.");

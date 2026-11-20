@@ -38,11 +38,13 @@ test('word mastery +3 EXP uses a restricted RPC, dedupe and a 50-word daily cap'
   assert.match(sql,/revoke all on function public\.award_word_mastery\(integer,text\) from public, anon/);
   assert.doesNotMatch(sql,/service_role/i);
 });
-test('first correct recall or SRS confirmation emits learner evidence, passive viewing does not',()=>{
+test('first correct learning answer emits evidence, old review self-assessment does not',()=>{
   const flow=read('assets/hsk-content/hsk-study-flow-v1.js');
   const hooks=read('assets/v89/exp-learning-hooks-v89.js');
   assert.match(flow,/firstCorrect&&saved/);
-  assert.match(flow,/savedReview&&freshRecall/);
+  const selfReport=flow.slice(flow.indexOf('if(button.hasAttribute("data-hsk-review-grade"))'),flow.indexOf('if(button.hasAttribute("data-hsk-next-lesson"))'));
+  assert.match(selfReport,/reviewWordSnapshot/);
+  assert.doesNotMatch(selfReport,/dispatchEvent|hsk-word-mastered/);
   assert.match(flow,/vduckie:hsk-word-mastered/);
   assert.match(hooks,/awardWordMastery/);
   assert.match(hooks,/bindWordMastery\(\)/);
@@ -59,16 +61,20 @@ test('EXP feedback is a non-modal float and client scripts still parse',()=>{
   for(const file of ['assets/v90/exp-core-v90.js','assets/v89/exp-learning-hooks-v89.js','assets/design-system/mascot-swap-v1.js'])
     assert.doesNotThrow(()=>new vm.Script(read(file)),file);
 });
-test('all new assets have cache-busted public entrypoints and current PWA cache',()=>{
+test('public EXP and mascot assets load exactly once with cache keys and matching offline entries',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const entry=await publicEntrypoint();
   const index=read('index.html'),worker=read('service-worker.js');
   assert.match(index,/exp-floating-feedback-v91\.css\?v=1/);
-  assert.match(index,/exp-core-v90\.js\?v=word-float1/);
+  for(const file of ['assets/v90/exp-core-v90.js','assets/design-system/mascot-swap-v1.js'])assert.ok(worker.includes(JSON.stringify(entry.asset(file))),file+' offline URL must match the actual loader');
   assert.match(index,/mascot-swap-v1\.js\?v=10/);
-  assert.match(worker,/vduckie-pwa-v49/);
+  assert.match(worker,/vduckie-pwa-v\d+/);
   assert.match(worker,/duckie-speaking-two-wings-v4\.svg\?v=4\.0/);
 });
 
-test('EXP reward guide matches the deployed three-point, fifty-word rule in every language',()=>{
+test('EXP reward guide matches the deployed three-point, fifty-word rule in every language',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const entry=await publicEntrypoint();
   const board=read('assets/v90/exp-leaderboard-v90.js');
   const i18n=read('assets/i18n/interface-i18n-v1.js');
   const index=read('index.html');
@@ -76,6 +82,7 @@ test('EXP reward guide matches the deployed three-point, fifty-word rule in ever
   assert.doesNotMatch(board,/Nhớ đúng một từ HSK mới: \+5 EXP/);
   assert.match(i18n,/每天最多 50 个词/);
   assert.match(i18n,/up to 50 words\/day/);
-  assert.match(index,/exp-leaderboard-v90\.js\?v=word3-50/);
-  assert.match(index,/interface-i18n-v1\.js\?v=factory1/);
+  entry.asset('assets/v90/exp-leaderboard-v90.js');
+  entry.asset('assets/i18n/interface-i18n-v1.js');
+  assert.match(index,/interface-i18n-v1\.js\?v=beta-perf3/);
 });

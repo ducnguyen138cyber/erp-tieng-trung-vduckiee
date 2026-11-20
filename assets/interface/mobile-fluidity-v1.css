@@ -1,0 +1,32 @@
+/* VDuckie PWA mobile fluidity: narrow-scope polish; desktop/learning content unchanged. */
+@media (max-width:980px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  html body #appShell{min-width:0;max-width:100%}
+  html body #appShell :is(.top,.study-center,.study-rail,#homeHub,#v865HomeShell,.v865-home-main,.v865-home-sidebar){min-width:0}
+  html body #appShell :is(input[type="text"],input[type="search"],input[type="email"],input[type="password"],input[type="tel"],textarea,select),
+  html body .vsearch-notebook input[type="search"]{font-size:16px!important}
+  html body :is(button,a,[role="button"],[role="option"]){touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  html body #appShell .top{min-width:0}
+  html body #mobileMenu{min-height:44px!important}
+  html body #studySidebar .sidebar-close{min-width:48px!important;min-height:48px!important}
+  html body #studySidebar{overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+  html body #sidebarBackdrop{touch-action:manipulation}
+  html body :is(.vsearch-list,.vsearch-detail,.vsearch-notebook){scrollbar-width:thin}
+}
+@media (max-width:600px) and (hover:none) and (pointer:coarse){
+  /* Avoid unnecessary desktop hover painting on touch screens. Keep learning/game animations. */
+  html body .vsearch-input-wrap,
+  html body .vsearch-list [data-vsearch-result]{transition:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html body .vsearch-overlay,html body .vsearch-mobile-screen{animation:none!important;transition:none!important}
+}
+/* The full app has a two-row header plus the fixed 69px learning dock.
+   Reserve both in Daily; otherwise its footer fits the viewport but sits
+   underneath the dock and touches open Profile instead of Next. */
+@media(max-width:760px){
+  html body #dailyLearningPanel .learning-session{
+    height:calc(100svh - 210px - env(safe-area-inset-bottom))!important;
+    min-height:0!important;
+  }
+}

@@ -1,0 +1,6 @@
+/* Resource links belong in navigation; the protected Home frames stay unchanged. */
+#studySidebar .vd-seo-guides{display:grid;gap:8px;padding:14px 8px;margin:8px 0;border-top:1px solid #dbeafe;font:500 13px/1.5 "Segoe UI",Arial,sans-serif}
+#studySidebar .vd-seo-guides-label{font-size:11px;font-weight:750;letter-spacing:.055em;color:#2563eb}
+#studySidebar .vd-seo-guides a{display:block;padding:6px;color:#0f172a;text-decoration:none;border-radius:8px}
+#studySidebar .vd-seo-guides a:hover{background:#eff6ff;text-decoration:underline}
+#studySidebar .vd-seo-guides a:focus-visible{outline:3px solid #93c5fd;outline-offset:2px}

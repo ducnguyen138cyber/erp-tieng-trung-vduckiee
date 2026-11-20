@@ -3864,30 +3864,6 @@
       "intentionalReview": false,
       "kind": "exercise-prompt",
       "leftFile": "data/hsk/hsk3/exercises.json",
-      "leftId": "hsk3-lesson-11-exercise-2",
-      "reviewReason": null,
-      "rightFile": "data/hsk/hsk3/exercises.json",
-      "rightId": "hsk3-lesson-17-exercise-2",
-      "rule": "near-duplicate",
-      "severity": "review",
-      "similarity": 0.8553
-    },
-    {
-      "intentionalReview": false,
-      "kind": "exercise-prompt",
-      "leftFile": "data/hsk/hsk3/exercises.json",
-      "leftId": "hsk3-lesson-11-exercise-2",
-      "reviewReason": null,
-      "rightFile": "data/hsk/hsk3/exercises.json",
-      "rightId": "hsk3-lesson-23-exercise-2",
-      "rule": "near-duplicate",
-      "severity": "review",
-      "similarity": 0.9143
-    },
-    {
-      "intentionalReview": false,
-      "kind": "exercise-prompt",
-      "leftFile": "data/hsk/hsk3/exercises.json",
       "leftId": "hsk3-lesson-15-exercise-1",
       "reviewReason": null,
       "rightFile": "data/hsk/hsk3/exercises.json",
@@ -3924,18 +3900,6 @@
       "intentionalReview": false,
       "kind": "exercise-prompt",
       "leftFile": "data/hsk/hsk3/exercises.json",
-      "leftId": "hsk3-lesson-17-exercise-2",
-      "reviewReason": null,
-      "rightFile": "data/hsk/hsk3/exercises.json",
-      "rightId": "hsk3-lesson-23-exercise-2",
-      "rule": "near-duplicate",
-      "severity": "review",
-      "similarity": 0.8533
-    },
-    {
-      "intentionalReview": false,
-      "kind": "exercise-prompt",
-      "leftFile": "data/hsk/hsk3/exercises.json",
       "leftId": "hsk3-lesson-21-exercise-1",
       "reviewReason": null,
       "rightFile": "data/hsk/hsk3/exercises.json",
@@ -3955,18 +3919,6 @@
       "rule": "near-duplicate",
       "severity": "review",
       "similarity": 0.84
-    },
-    {
-      "intentionalReview": false,
-      "kind": "exercise-prompt",
-      "leftFile": "data/hsk/hsk3/exercises.json",
-      "leftId": "hsk3-lesson-23-exercise-2",
-      "reviewReason": null,
-      "rightFile": "data/hsk/hsk3/exercises.json",
-      "rightId": "hsk3-lesson-29-exercise-2",
-      "rule": "near-duplicate",
-      "severity": "review",
-      "similarity": 0.8312
     },
     {
       "intentionalReview": false,
@@ -10407,9 +10359,9 @@
     "blockers": 0,
     "candidates": 9342,
     "exact": 1,
-    "findings": 809,
+    "findings": 805,
     "intentionalReviews": 1,
-    "nearReview": 797,
+    "nearReview": 793,
     "normalized": 0
   }
 }

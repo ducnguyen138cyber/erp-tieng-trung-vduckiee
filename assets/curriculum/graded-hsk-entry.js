@@ -1,7 +1,7 @@
-/* Primary learner entry for HSK 1-4. Old MSUTONG state stays intact. */
+/* Primary learner entry for HSK 1-6. Old MSUTONG state stays intact. */
 (function(root,document){
   "use strict";
-  var counts=[24,28,36,48,60,72],MAX_LEARNER_HSK=4;
+  var counts=[24,28,36,48,60,72],MAX_LEARNER_HSK=6;
   function esc(value){return String(value==null?"":value).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
   function openLesson(level,lessonId,review){
     if(!root.VDuckieScreenRouter)return;
@@ -33,9 +33,9 @@
     var intro=summary.totalCompleted
       ? '<p>Bạn đã hoàn thành '+summary.totalCompleted+' bài. Tiếp tục đúng vị trí đang học hoặc chọn cấp độ khác.</p>'
       : '<p>Mới bắt đầu? Chọn HSK 1. Đã biết tiếng Trung? Chọn cấp phù hợp rồi học lần lượt: từ mới → nghe & đọc → luyện tập → lưu tiến độ.</p>';
-    host.innerHTML='<section class="graded-hsk-page"><header class="graded-hsk-head"><span class="graded-hsk-eyebrow">GIÁO TRÌNH CHÍNH · HSK 1–4</span><h1>Học tiếng Trung theo từng bài</h1>'+intro+
-      '<div class="hsk-entry-mastery"><span><b>'+studied+'</b> từ đã luyện</span><span><b>'+weak+'</b> từ cần ôn</span><span><b>'+esc(accuracy)+'</b></span></div>'+
-      '<div class="hsk-entry-quick"><button type="button" data-graded-continue>'+(summary.totalCompleted?'Tiếp tục HSK '+current.level+' →':'Bắt đầu HSK 1 →')+'</button><button type="button" data-graded-review'+(summary.due?'':' disabled')+'>↻ Ôn từ đến hạn ('+summary.due+')</button></div>'+
+    host.innerHTML='<section class="graded-hsk-page"><header class="graded-hsk-head"><span class="graded-hsk-eyebrow">GIÁO TRÌNH CHÍNH · HSK 1–6</span><h1>Học tiếng Trung theo từng bài</h1>'+intro+
+      '<div class="hsk-entry-mastery"><span><b>'+studied+'</b> từ đã gặp</span><span><b>'+(summary.remembered||0)+'</b> từ nhớ qua ôn cách quãng</span><span><b>'+weak+'</b> từ cần ôn</span><span><b>'+esc(accuracy)+'</b></span></div>'+
+      '<div class="hsk-entry-quick"><button type="button" data-graded-continue>'+(current.lessonId?'Học tiếp HSK '+current.level+' →':'Bắt đầu HSK 1 →')+'</button><button type="button" data-graded-review'+(summary.due?'':' disabled')+'>↻ Ôn từ đến hạn ('+summary.due+')</button></div>'+
       '<p class="hsk-entry-note">Chọn cấp độ phù hợp, học từng bài và luyện đề khi bạn đã sẵn sàng.</p></header>'+
       '<div class="graded-hsk-levels">'+counts.map(function(count,i){
         var level=i+1,available=level<=MAX_LEARNER_HSK,done=journey?journey.levelCount(level):0;
@@ -43,7 +43,7 @@
           '<p>'+(available?done+'/'+count+' bài đã hoàn thành · Từ mới, ví dụ, nghe đọc và luyện tập.':'Nội dung đang kiểm duyệt, chưa mở học.')+'</p>'+
           (available?'<button type="button" data-graded-level="'+level+'">'+(done?'Học tiếp HSK ':'Học HSK ')+level+' →</button>':'<span class="graded-hsk-coming">Sắp mở</span>')+
           '</article>';
-      }).join('')+'</div><section class="hsk-practice-entry"><div><b>Kho đề luyện HSK · 224 đề</b><p>HSK1: 40 câu · HSK2: 60 · HSK3: 80 · HSK4: 100. Nghe, Đọc, Viết theo cấp độ; chỉ chấm khi nộp bài, không cộng EXP.</p></div><button type="button" data-practice-open>Mở kho đề HSK →</button></section><details class="graded-hsk-legacy"><summary>Ôn lại giáo trình MSUTONG trước đây</summary><p>Tiến độ MSUTONG cũ được giữ nguyên ('+oldCount+' bài). Nếu cần học lại phần trước, mở riêng giáo trình cũ.</p><button type="button" data-graded-legacy>Ôn giáo trình cũ</button></details></section>';
+      }).join('')+'</div><section class="hsk-practice-entry"><div><b>Bài luyện HSK · 224 mã bài</b><p>Luyện từ vựng, chữ Hán và Pinyin qua Nghe, Đọc, Viết theo cấp độ. Audio TTS; không phải đề thi HSK chính thức.</p></div><button type="button" data-practice-open>Chọn bài luyện HSK →</button></section><section class="hsk-practice-entry"><div><b>Luyện nghe &amp; Shadowing · HSK1–3</b><p>Nghe câu, luyện nói theo, ghi âm và nghe lại giọng mình. Audio mẫu bằng TTS; bản ghi không tải lên server.</p></div><button type="button" data-shadow-open>Mở Shadowing →</button></section><details class="graded-hsk-legacy"><summary>Ôn lại giáo trình MSUTONG trước đây</summary><p>Tiến độ MSUTONG cũ được giữ nguyên ('+oldCount+' bài). Nếu cần học lại phần trước, mở riêng giáo trình cũ.</p><button type="button" data-graded-legacy>Ôn giáo trình cũ</button></details></section>';
     host.querySelectorAll("[data-graded-level]").forEach(function(button){
       button.addEventListener("click",function(){
         var level=Number(button.getAttribute("data-graded-level"));

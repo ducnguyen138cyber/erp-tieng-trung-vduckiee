@@ -24,5 +24,12 @@
 - **Do not merge PR #108** until all above have evidence. Existing cloud profile CAS does not yet guarantee lossless same-field counters; other sync paths require review.
 
 ## Findings and scope
+
+### Update (2026-11-20)
+
+- This branch now retains the latest main's server-revision `updated_at` compare-and-swap and event-aware learning merges, rather than restoring the older note-based implementation.
+- Pending local edits are captured into the account-scoped cache before the network debounce. Guest progress remains separate on first sign-in; no silent guest import.
+- The fixture backend now models revision changes, duplicate inserts and offline failures. The local suite passed 38/38 checks; this is not evidence of real-device acceptance.
+- The owner-controlled disposable inbox and two-device live acceptance remain outstanding. Keep the PR draft; do not merge or deploy before those requirements are met.
 - The current connected Supabase tools can inspect database/logs but do not expose Auth SMTP configuration, OAuth settings, or a test inbox; therefore email delivery and real browser acceptance cannot be completed using those tools alone.
 - No schema/RLS or existing learner records should be changed to compensate for missing test credentials.

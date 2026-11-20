@@ -83,7 +83,7 @@
   function awardPrimaryHSK(info){
     info=info||{};
     var id=String(info.lessonId||"");
-    if(!/^hsk[1-4]-lesson-[0-9]{2,3}$/.test(id))return Promise.resolve();
+    if(!/^hsk[1-6]-lesson-[0-9]{2,3}$/.test(id))return Promise.resolve();
     var source="hsk:"+id;
     return award("lesson_complete",source+":lesson").then(function(result){
       // Quiz EXP requires at least three automatically graded answers and >=70% accuracy.
@@ -106,7 +106,7 @@
       var journal=root.VDuckieHskStudyJourney.load(),pending=[];
       Object.keys(journal.lessons||{}).forEach(function(id){
         var lesson=journal.lessons[id];
-        if(!lesson||!lesson.completedAt||!/^hsk[1-4]-lesson-[0-9]{2,3}$/.test(id))return;
+        if(!lesson||!lesson.completedAt||!/^hsk[1-6]-lesson-[0-9]{2,3}$/.test(id))return;
         // Historic local study journals do not store exercise review-status proof.
         // Recover only the one-time lesson completion bonus, never infer a quiz pass.
         pending.push({lessonId:id,graded:0,correct:0});
@@ -114,7 +114,7 @@
       if(!pending.length)return;
       processing=true;
       var chain=Promise.resolve();
-      pending.slice(0,136).forEach(function(item){chain=chain.then(function(){return awardPrimaryHSK(item);});});
+      pending.slice(0,268).forEach(function(item){chain=chain.then(function(){return awardPrimaryHSK(item);});});
       chain.finally(function(){processing=false;});
     }
     if(root.VDuckieEXPCore&&typeof root.VDuckieEXPCore.onSession==="function"){
@@ -126,7 +126,7 @@
     var inFlight={};
     document.addEventListener("vduckie:hsk-word-mastered",function(event){
       var detail=event.detail||{},level=Number(detail.level),hanzi=String(detail.hanzi||"").trim();
-      if(level<1||level>4||!hanzi||!root.VDuckieEXP||!root.VDuckieEXP.awardWordMastery)return;
+      if(level<1||level>6||!hanzi||!root.VDuckieEXP||!root.VDuckieEXP.awardWordMastery)return;
       var key=level+":"+hanzi;
       if(inFlight[key])return;
       inFlight[key]=true;
@@ -141,7 +141,7 @@
       if(reconciling||!session||!session.user||!journey||!root.VDuckieEXP.awardWordMastery)return;
       var user=session.user.id;
       var saved=journey.load().reviews||{},eligible=Object.keys(saved).map(function(key){return saved[key];})
-        .filter(function(item){return item&&Number(item.correct)>0&&Number(item.level)>=1&&Number(item.level)<=4&&item.hanzi;});
+        .filter(function(item){return item&&Number(item.correct)>0&&Number(item.level)>=1&&Number(item.level)<=6&&item.hanzi;});
       if(!eligible.length)return;
       reconciling=true;
       var chain=Promise.resolve();

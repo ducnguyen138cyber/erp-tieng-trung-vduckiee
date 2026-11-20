@@ -58,7 +58,7 @@ test("ERP dictionary boot replaces the 15 serial document.write calls", async ()
     globalThis:state,window:state,document:doc,console,Promise
   });
   assert.equal(writes.length, 1);
-  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=1/);
+  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=3/);
   assert.match(writes[0], /<\/script>/);
   await state.PinyinEngineReady;
 });
@@ -88,7 +88,7 @@ test("home experience scripts fetch concurrently but execute in the original ord
 test("login first paint does not wait for profile upsert or leaderboard", () => {
   const sidebar=read("assets/v90/home-exp-sidebar-v90.js");
   const leaderboard=read("assets/v90/exp-leaderboard-v90.js");
-  assert.match(sidebar,/Promise\.all\(\[refreshAccount\(\), refreshMissions\(\), refreshMini\(\)\]\)/);
+  assert.match(sidebar,/Promise\.all\(\[refreshAccount\(\), refreshMissions\(\), refreshMini\(false\)\]\)/);
   assert.match(sidebar,/renderAccount\(currentTotal\);\s*renderMissions\(currentMissions\);/);
   assert.doesNotMatch(sidebar,/core\.syncProfile\(\)\.then\(function \(\) \{ return Promise\.all/);
   assert.doesNotMatch(leaderboard,/core\.syncProfile\(\)\.then\(root\.VDuckieEXP\.getCurrentUserEXP\)/);
@@ -96,4 +96,28 @@ test("login first paint does not wait for profile upsert or leaderboard", () => 
   const worker=read("service-worker.js");
   assert.match(worker,/pinyin-parts-boot-v1/);
   assert.match(worker,/erp-dictionary-boot-v1/);
+});
+
+test("duplicate auth opens and the selected tab retain input; real transitions clear passwords", async () => {
+  const {JSDOM} = require('jsdom');
+  const dom = new JSDOM('<header><button id="cloudLogin">Đăng nhập</button></header>', {url:'https://example.invalid',runScripts:'outside-only',pretendToBeVisual:true});
+  const w=dom.window, d=w.document;
+  try {
+    w.eval(read('assets/auth/auth-screen.js'));
+    await new Promise(resolve=>setTimeout(resolve,0));
+    d.getElementById('cloudLogin').click();
+    const password=d.getElementById('vdaPassword');password.value='fixture-password';
+    d.getElementById('cloudLogin').click();
+    assert.equal(password.value,'fixture-password');
+    d.getElementById('vdaTabLogin').click();
+    assert.equal(password.value,'fixture-password');
+    d.getElementById('vdaTabRegister').click();
+    assert.equal(password.value,'');
+    password.value='another-fixture';
+    d.querySelector('[data-vda-close]').click();
+    assert.equal(password.value,'');
+    d.getElementById('cloudLogin').click();
+    assert.equal(password.value,'');
+    assert.equal(password.type,'password');
+  } finally { w.close(); }
 });

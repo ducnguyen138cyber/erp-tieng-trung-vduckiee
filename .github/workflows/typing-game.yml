@@ -10,24 +10,31 @@ permissions:
   contents: read
 jobs:
   gameplay:
-    runs-on: ubuntu-latest
-    timeout-minutes: 12
+    runs-on: ubuntu-24.04
+    timeout-minutes: 18
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-      - run: node --test tests/typing-game.test.cjs
+      - run: node --test tests/typing-game.test.cjs tests/game-ranking.test.cjs tests/matching-game.test.cjs tests/pikachu-engine.test.cjs tests/sentence-catalog.test.cjs
       - run: npm install --no-save --package-lock=false playwright@1.58.2
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium webkit
+      - run: node tests/matching-game-browser.mjs
+      - run: node tests/sentence-hsk-browser.mjs
+      - run: node tests/game-ranking-browser.mjs
       - run: node tests/typing-game-browser.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: typing-game-browser-evidence
-          path: artifacts/typing-game/
+          path: |
+            artifacts/typing-game/
+            artifacts/game-ranking/
+            artifacts/matching-game/
+            artifacts/sentence-hsk/
   performance:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +53,7 @@ jobs:
           path: artifacts/typing-performance/
 
   public-demo:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
