@@ -27,7 +27,7 @@ export function auditLevel(level, base = process.cwd()) {
     }
   }
   for(const exercise of exercises){
-    if(exercise.reviewStatus==='linguistic-reviewed'||exercise.reviewStatus==='verified')stats.reviewedExercises++;
+    if(exercise.reviewEvidence?.independent===true&&exercise.reviewEvidence?.reviewerId&&exercise.reviewEvidence?.reference&&exercise.reviewEvidence?.contentVersion===exercise.contentVersion&&['human-reviewed','approved'].includes(exercise.reviewEvidence.status))stats.reviewedExercises++;
     else stats.unreviewedExercises++;
     if(typeof exercise.answer!=='string'&&!(exercise.answer&&typeof exercise.answer==='object')&&!(exercise.acceptedAnswers||[]).length){
       stats.missingAnswers++;issues.push({kind:'missing-answer',exerciseId:exercise.id});

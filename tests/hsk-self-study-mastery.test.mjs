@@ -7,6 +7,7 @@ function setup(storage=new Map()){
   let clock=1800000000000;
   const context={localStorage:{getItem:k=>storage.get(k)||null,setItem:(k,v)=>storage.set(k,v)},
     Date:{now:()=>clock},document:{dispatchEvent(){}},CustomEvent:function(){}};
+  vm.runInNewContext(fs.readFileSync('assets/v82/learning-progress-merge-v1.js','utf8'),context);
   vm.runInNewContext(source,context);
   return {j:context.VDuckieHskStudyJourney,storage,advance:days=>clock+=days*86400000};
 }
@@ -57,12 +58,14 @@ test('SRS prioritizes due weak words by mistakes and preserves 1–3–7–14–
   assert.equal(j.due()[0].hanzi,'努力');
   j.reviewWord(3,'努力',false);assert.equal(j.due()[0].hanzi,'学习');
   j.reviewWord(3,'努力',true);assert.equal(j.weakWords().length,2);
-  j.reviewWord(3,'努力',true);assert.equal(j.wordStats().remembered,1);
+  j.reviewWord(3,'努力',true);assert.equal(j.wordStats().remembered,0);
+  for(const days of [1,3,7]){advance(days);j.reviewWord(3,'努力',true,{retrieval:true});}
+  assert.equal(j.wordStats().remembered,1);
   j.complete(3,'fresh',0,[{hanzi:'今天'}]);
   for(const days of [1,3,7,14,30]){
     const word=j.due(3,true).find(w=>w.hanzi==='今天');
     assert.equal(word.nextAt-word.lastAt,days*86400000);
-    advance(days);j.reviewWord(3,'今天',true);
+    advance(days);j.reviewWord(3,'今天',true,{retrieval:true});
   }
 });
 test('lesson stage/card/exercise and evidence round-trip through the existing account profile transport',()=>{
@@ -88,7 +91,7 @@ test('learner UI restores stage/card, shows weak questions, and saves the positi
   const dom=new JSDOM('<div id="hskLesson"><button data-focus-stage="words" aria-pressed="true"></button><button data-focus-stage="practice" aria-pressed="false"></button><div data-focus-panel="words"><section class="hsk-pro-section hsk-focus-vocabulary"><div data-focus-word></div><div data-focus-word class="hidden"></div><div data-focus-word class="hidden"></div><button data-focus-prev></button><button data-focus-next>Next</button></section></div><div data-focus-panel="practice" class="hidden"><article data-pro-exercise="q1"></article></div></div>',{url:'https://example.test',runScripts:'outside-only',pretendToBeVisual:true});
   try{
     const w=dom.window;w.HTMLElement.prototype.scrollIntoView=function(){};
-    w.eval(source);w.eval(fs.readFileSync('assets/hsk-content/hsk-study-flow-v1.js','utf8'));
+    w.eval(fs.readFileSync('assets/v82/learning-progress-merge-v1.js','utf8'));w.eval(source);w.eval(fs.readFileSync('assets/hsk-content/hsk-study-flow-v1.js','utf8'));
     const info={level:1,lesson:{id:'lesson',sections:[],practiceRefs:['q1']},data:{lessons:[{id:'lesson'}],exerciseById:{q1:{id:'q1',skill:'grammar',prompt:'Sắp xếp câu',answer:'好',reviewStatus:'verified'}}}};
     w.VDuckieHskStudyJourney.recordAnswer(1,'lesson','q1',false,true,['q1']);
     w.VDuckieHskStudyFlow.decorate(info);
@@ -120,7 +123,7 @@ test('homepage prioritizes resume and due review beside the main learning action
   const {JSDOM}=createRequire(import.meta.url)('jsdom');
   const dom=new JSDOM('<section id="homeHub"><div class="vi-home-invite"><button class="home-primary-action">学越南语</button></div><div class="home-welcome-actions"><button class="home-primary-action" data-daily-nav="msutong">Start</button></div><div class="home-overview-grid"></div><div class="home-recommended"></div></section>',{url:'https://example.test',runScripts:'outside-only'});
   try{
-    const w=dom.window;w.eval(source);
+    const w=dom.window;w.eval(fs.readFileSync('assets/v82/learning-progress-merge-v1.js','utf8'));w.eval(source);
     w.VDuckieHskStudyJourney.visit(3,'hsk3-lesson-02');
     w.VDuckieHskStudyJourney.position(3,'hsk3-lesson-02',{stage:'words',cards:{0:2}});
     w.VDuckieHskStudyJourney.recordWord(3,'hsk3-lesson-02','努力',false,'nǔlì','nỗ lực');

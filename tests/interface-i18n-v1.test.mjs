@@ -65,10 +65,10 @@ test('signed-in selector is inside the account dropdown under profile details, g
 });
 test('app bootstrap and PWA install the two localized assets',()=>{
   const html=read('index.html'),worker=read('service-worker.js'),css=read('assets/i18n/interface-language-menu-v1.css');
-  assert.match(html,/interface-i18n-v1\.js\?v=factory2/);
+  assert.match(html,/interface-i18n-v1\.js\?v=beta-perf3/);
   assert.match(html,/interface-language-menu-v1\.css\?v=3b1/);
-  assert.match(worker,/vduckie-pwa-v50/);
-  assert.match(worker,/interface-i18n-v1\.js\?v=factory2/);
+  assert.match(worker,/vduckie-pwa-v\d+/);
+  assert.match(worker,/interface-i18n-v1\.js\?v=beta-perf3/);
   assert.match(css,/#vdI18nChoices/);
   assert.match(css,/\.vd-i18n-guest/);
 });
@@ -228,8 +228,9 @@ test('localized lesson UI is permitted inside protected HSK, but Vietnamese word
 test('dynamic text is translated in the same paint cycle, without the old 85ms timeout or self-triggered observers',()=>{
   const jobs=[],stats={timers:0,observed:0,disconnected:0};
   let listener;
-  const textNode={nodeValue:'Tiếp tục bài HSK',parentElement:{closest:()=>null}};
-  const surface={closest:()=>null,getAttribute:()=>null,querySelectorAll:()=>[],contains:()=>false};
+  const textNode={nodeType:3,isConnected:true,nodeValue:'Tiếp tục bài HSK',parentElement:{closest:()=>null}};
+  const surface={isConnected:true,closest:(selector)=>selector.startsWith('header.top,')?surface:null,getAttribute:()=>null,querySelectorAll:()=>[],contains:()=>false};
+  textNode.parentElement=surface;
   const doc={readyState:'complete',body:surface,documentElement:{lang:'vi'},
     addEventListener(){},dispatchEvent(){},getElementById(){return null;},
     querySelector(){return null;},querySelectorAll(selector){
@@ -252,8 +253,8 @@ test('dynamic text is translated in the same paint cycle, without the old 85ms t
   assert.equal(textNode.nodeValue,'继续上次的 HSK 课程');
   // The host's runtime paints a Vietnamese source string again.
   textNode.nodeValue='Tiếp tục bài HSK';
-  listener([{type:'characterData'}]);
-  listener([{type:'characterData'}]);
+  listener([{type:'characterData',target:textNode}]);
+  listener([{type:'characterData',target:textNode}]);
   assert.equal(jobs.length,1,'coalesce repeated mutations into one microtask');
   assert.equal(stats.timers,0,'do not wait for visible Vietnamese paint');
   jobs.shift()();

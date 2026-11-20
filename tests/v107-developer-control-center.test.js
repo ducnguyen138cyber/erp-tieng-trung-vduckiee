@@ -40,7 +40,7 @@ test("legacy sidebar renderer is removed and old enhancer scripts are absent fro
 test("production loader uses one canonical V108 entrypoint in dependency order", () => {
   const index = read("index.html") + "\n" + read("app-shell-v88.html");
   const ordered = [
-    "mascot-polish-v106.js?v=106.1",
+    "mascot-polish-v106.js?v=beta-perf2",
     "hsk-content/hsk-content-feature-flags.js?v=",
     "hsk-content/hsk-content-loader.js?v=2b4.0",
     "hsk-content/hsk-content-adapter.js?v=2b1.0",

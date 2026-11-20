@@ -1,0 +1,126 @@
+{
+  "scope": "Confirmed from the original 430 machine warnings; editorial correction, not human-review certification",
+  "changes": [
+    {
+      "id": "hsk1-s-0858",
+      "severity": "High",
+      "status": "fixed",
+      "before": {
+        "recordType": "sentence",
+        "id": "hsk1-s-0858",
+        "syllabusVersion": "CTI-HSK3.0-2026",
+        "level": 1,
+        "hskLevel": 1,
+        "chinese": "这杯水只剩一半。",
+        "pinyin": "zhè bēi shuǐ zhī shèng yí bàn",
+        "pinyinNormalized": "zhebeishuizhishengyiban",
+        "pinyinTone": "zhè bēi shuǐ zhī shèng yí bàn",
+        "pinyinNumber": "zhe4 bei1 shui3 zhi1 sheng4 yi2 ban4",
+        "vietnamese": "Cốc nước này chỉ còn một nửa.",
+        "meaningVi": "Cốc nước này chỉ còn một nửa.",
+        "vocabularyIds": [
+          "hsk1-v-0258"
+        ],
+        "primaryVocabularyId": "hsk1-v-0258",
+        "grammarTags": [
+          "fraction",
+          "hsk1-original"
+        ],
+        "difficulty": 3,
+        "sourceRefs": [
+          {
+            "sourceId": "vduckie-hsk1-phase2a-original",
+            "fields": [
+              "chinese",
+              "vietnamese",
+              "grammarTags"
+            ],
+            "locator": "sentence-pass:3:vocabulary:258"
+          },
+          {
+            "sourceId": "moe-gbt-16159-2012",
+            "fields": [
+              "pinyin"
+            ],
+            "locator": "basic-orthography"
+          }
+        ],
+        "sourceIds": [
+          "vduckie-hsk1-phase2a-original",
+          "moe-gbt-16159-2012"
+        ],
+        "reviewStatus": "unreviewed",
+        "translationReviewStatus": "machine-assisted",
+        "validationStatus": "validated",
+        "contentStatus": "machine-assisted",
+        "authorship": {
+          "origin": "original-vduckie",
+          "method": "controlled-template-with-linguistic-review",
+          "copiedFromSource": false
+        },
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "sentence",
+        "id": "hsk1-s-0858",
+        "syllabusVersion": "CTI-HSK3.0-2026",
+        "level": 1,
+        "hskLevel": 1,
+        "chinese": "这杯水只剩一半。",
+        "pinyin": "zhè bēi shuǐ zhǐ shèng yí bàn",
+        "pinyinNormalized": "zhebeishuizhishengyiban",
+        "pinyinTone": "zhè bēi shuǐ zhǐ shèng yí bàn",
+        "pinyinNumber": "zhe4 bei1 shui3 zhi3 sheng4 yi2 ban4",
+        "vietnamese": "Cốc nước này chỉ còn một nửa.",
+        "meaningVi": "Cốc nước này chỉ còn một nửa.",
+        "vocabularyIds": [
+          "hsk1-v-0258"
+        ],
+        "primaryVocabularyId": "hsk1-v-0258",
+        "grammarTags": [
+          "fraction",
+          "hsk1-original"
+        ],
+        "difficulty": 3,
+        "sourceRefs": [
+          {
+            "sourceId": "vduckie-hsk1-phase2a-original",
+            "fields": [
+              "chinese",
+              "vietnamese",
+              "grammarTags"
+            ],
+            "locator": "sentence-pass:3:vocabulary:258"
+          },
+          {
+            "sourceId": "moe-gbt-16159-2012",
+            "fields": [
+              "pinyin"
+            ],
+            "locator": "basic-orthography"
+          }
+        ],
+        "sourceIds": [
+          "vduckie-hsk1-phase2a-original",
+          "moe-gbt-16159-2012"
+        ],
+        "reviewStatus": "unreviewed",
+        "translationReviewStatus": "machine-assisted",
+        "validationStatus": "validated",
+        "contentStatus": "machine-assisted",
+        "authorship": {
+          "origin": "original-vduckie",
+          "method": "controlled-template-with-linguistic-review",
+          "copiedFromSource": false
+        },
+        "contentVersion": 2
+      },
+      "reasonVi": "只 bổ nghĩa cho 剩 với nghĩa “chỉ còn”, đọc zhǐ; zhī chỉ lượng từ không phù hợp cú pháp và nghĩa Việt của câu này.",
+      "references": [
+        "https://dict.concised.moe.edu.tw/dictView.jsp?ID=29138&la=0&powerMode=0",
+        "https://dict.mini.moe.edu.tw/SearchIndex/word_detail?breadcrumbs=Search_%E5%8F%AA_one&dictSearchField=%E5%8F%AA&wordID=D0002782"
+      ],
+      "independentHumanReview": false
+    }
+  ]
+}

@@ -43,11 +43,11 @@
     "./assets/v77/erp-terms-v77-broad-candidates.js?v=77.1",
     "./assets/v77/erp-terms-v77-finalize.js?v=77.1",
     "./assets/v79/hsk-dictionary-v79.js?v=79.0",
-    "./assets/v79/unified-dictionary-v79.js?v=79.0"
+    "./assets/v79/unified-dictionary-v79.js?v=79.3"
   ];
   // Keep the source list above as an auditable fallback manifest; executing
   // one generated bundle avoids 15 parser-blocking network round trips.
-  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=1";
+  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=3";
   function loadFallback(index) {
     if (index >= files.length) return;
     var fallback = document.createElement("script");

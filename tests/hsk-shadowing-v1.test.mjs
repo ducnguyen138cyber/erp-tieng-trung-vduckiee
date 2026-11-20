@@ -9,12 +9,15 @@ const css=read('assets/hsk-content/hsk-shadowing-v1.css');
 const entry=read('assets/curriculum/graded-hsk-entry.js');
 const html=read('index.html');
 
-test('Shadowing MVP script and app bootstrap remain parseable',()=>{
+test('Shadowing MVP script and app bootstrap remain parseable',async()=>{
+  const {publicEntrypoint}=await import('./helpers/public-entrypoint.cjs');
+  const live=await publicEntrypoint();
   new vm.Script(js);
   const scripts=[...html.matchAll(/<script(?:\s[^>]*)?>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
   assert.ok(scripts.some(s=>s.includes('restoreStaticVDuckie')&&new vm.Script(s)));
-  assert.match(html,/hsk-shadowing-v1\.css\?v=2/);
-  assert.match(html,/hsk-shadowing-v1\.js\?v=2/);
+  assert.match(html,/hsk-shadowing-v1\.css\?v=polish1/);
+  const url=live.asset('assets/hsk-content/hsk-shadowing-v1.js');
+  assert.ok(read('service-worker.js').includes(JSON.stringify(url)));
   assert.match(entry,/data-shadow-open/);
   assert.match(css,/\.shadow-hanzi/);
 });
@@ -39,7 +42,7 @@ test('HSK2/3 annotated audio lines match source lessons, with full Pinyin and Vi
       .map(s=>[s.id,s.content.scriptZh]));
     const dataset=JSON.parse(read(`data/shadowing/hsk${level}-v1.json`));
     assert.equal(dataset.reviewStatus,'machine-assisted-unreviewed');
-    assert.equal(dataset.records.length,8);
+    assert.equal(dataset.records.length,level===2?112:144);
     for(const line of dataset.records){
       assert.ok(sources.get(line.sourceSectionId)?.includes(line.hanzi),line.id+' must match a real dialogue');
       assert.ok(line.hanzi&&line.pinyin&&line.vi,line.id);

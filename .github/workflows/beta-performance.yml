@@ -1,0 +1,55 @@
+name: Beta performance acceptance
+on:
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'index.html'
+      - 'service-worker.js'
+      - 'tests/beta-performance-browser.mjs'
+      - '.github/workflows/beta-performance.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: beta-perf-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  before-after:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+      options: --ipc=host
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          path: candidate
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha || 'main' }}
+          path: baseline
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+        working-directory: candidate
+      - name: Existing level-up, focus, lifecycle and lazy sprite contracts
+        working-directory: candidate
+        run: node --test tests/v106-mascot-polish.test.js tests/v106-runtime-integration.test.js tests/v106-progress-metadata.test.js tests/word-exp-mascot-release.test.mjs
+      - name: Candidate interactions and metrics
+        working-directory: candidate
+        env:
+          BETA_ENFORCE: '1'
+        run: node tests/beta-performance-browser.mjs
+      - name: Baseline (same browser and fixtures)
+        working-directory: candidate
+        env:
+          BETA_ROOT: ../baseline
+          BETA_OUT: artifacts/beta-performance/before
+        run: node tests/beta-performance-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: beta-before-after
+          path: candidate/artifacts/beta-performance/

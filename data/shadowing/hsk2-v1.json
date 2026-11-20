@@ -1,71 +1,1612 @@
 {
   "schemaVersion": 1,
+  "contentVersion": 3,
   "level": 2,
   "reviewStatus": "machine-assisted-unreviewed",
-  "description": "Source-backed HSK dialogue lines with supplemental Pinyin and Vietnamese draft; linguistic review pending.",
+  "description": "Complete source dialogue turns with supplemental Pinyin and Vietnamese; no teacher approval claimed.",
+  "lessons": [
+    {
+      "id": "hsk2-lesson-01",
+      "titleVi": "Khi nghe chưa rõ"
+    },
+    {
+      "id": "hsk2-lesson-02",
+      "titleVi": "Nói rõ vấn đề học tập"
+    },
+    {
+      "id": "hsk2-lesson-03",
+      "titleVi": "Sắp xếp một tuần"
+    },
+    {
+      "id": "hsk2-lesson-04",
+      "titleVi": "Đừng quên trước khi ra ngoài"
+    },
+    {
+      "id": "hsk2-lesson-05",
+      "titleVi": "Kế hoạch có thể thay đổi"
+    },
+    {
+      "id": "hsk2-lesson-06",
+      "titleVi": "Phòng của tôi"
+    },
+    {
+      "id": "hsk2-lesson-07",
+      "titleVi": "Quanh khu nhà có gì"
+    },
+    {
+      "id": "hsk2-lesson-08",
+      "titleVi": "Vào đây hay đi vào đó"
+    },
+    {
+      "id": "hsk2-lesson-09",
+      "titleVi": "Đi phương tiện nào tiện hơn"
+    },
+    {
+      "id": "hsk2-lesson-10",
+      "titleVi": "Làm thủ tục ở sân bay"
+    },
+    {
+      "id": "hsk2-lesson-11",
+      "titleVi": "Chuyến đi ngắn cuối tuần"
+    },
+    {
+      "id": "hsk2-lesson-12",
+      "titleVi": "Gọi món ở quán"
+    },
+    {
+      "id": "hsk2-lesson-13",
+      "titleVi": "Chọn màu và quần áo"
+    },
+    {
+      "id": "hsk2-lesson-14",
+      "titleVi": "Khi món đồ có vấn đề"
+    },
+    {
+      "id": "hsk2-lesson-15",
+      "titleVi": "Bạn khó chịu ở đâu"
+    },
+    {
+      "id": "hsk2-lesson-16",
+      "titleVi": "Vận động sao cho khỏe"
+    },
+    {
+      "id": "hsk2-lesson-17",
+      "titleVi": "Thời tiết và dáng người"
+    },
+    {
+      "id": "hsk2-lesson-18",
+      "titleVi": "Học kỳ mới bắt đầu"
+    },
+    {
+      "id": "hsk2-lesson-19",
+      "titleVi": "Giới thiệu rõ hơn"
+    },
+    {
+      "id": "hsk2-lesson-20",
+      "titleVi": "Nhờ đồng nghiệp giúp"
+    },
+    {
+      "id": "hsk2-lesson-21",
+      "titleVi": "Sở thích của bạn là gì"
+    },
+    {
+      "id": "hsk2-lesson-22",
+      "titleVi": "Giới thiệu một gia đình"
+    },
+    {
+      "id": "hsk2-lesson-23",
+      "titleVi": "Lúc nhỏ và bây giờ"
+    },
+    {
+      "id": "hsk2-lesson-24",
+      "titleVi": "Chia sẻ cuối tuần trên mạng"
+    },
+    {
+      "id": "hsk2-lesson-25",
+      "titleVi": "Lựa chọn nào phù hợp hơn"
+    },
+    {
+      "id": "hsk2-lesson-26",
+      "titleVi": "Nói rõ vị trí qua điện thoại"
+    },
+    {
+      "id": "hsk2-lesson-27",
+      "titleVi": "Lên xuống và ra vào"
+    },
+    {
+      "id": "hsk2-lesson-28",
+      "titleVi": "Tôi từng có trải nghiệm như vậy"
+    }
+  ],
+  "annotationMethod": {
+    "pinyin": "pypinyin 0.55.0 draft with contextual reading/neutral-tone corrections; original 8 annotations preserved",
+    "vietnamese": "assistant-authored against each original dialogue turn",
+    "toneConvention": "Citation third tones; spoken 一/不 sandhi on newly annotated turns; erhua attached to previous syllable.",
+    "linguisticReview": "pending independent teacher review"
+  },
   "records": [
     {
       "id": "shadow-hsk2-001",
       "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "sourceLessonId": "hsk2-lesson-01",
+      "speaker": "A",
       "hanzi": "不好意思，您能再说一次吗？",
       "pinyin": "Bù hǎoyìsi, nín néng zài shuō yí cì ma?",
       "vi": "Xin lỗi, thầy/cô có thể nói lại một lần nữa không?",
+      "legacyIds": [
+        "hsk2-lesson-01-dialogue-0"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-002",
       "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "sourceLessonId": "hsk2-lesson-01",
+      "speaker": "B",
       "hanzi": "我姓王，是这个班的老师。",
       "pinyin": "Wǒ xìng Wáng, shì zhège bān de lǎoshī.",
       "vi": "Tôi họ Vương, là giáo viên của lớp này.",
+      "legacyIds": [
+        "hsk2-lesson-01-dialogue-1"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-003",
       "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "sourceLessonId": "hsk2-lesson-01",
+      "speaker": "A",
       "hanzi": "啊，王老师。您能帮我写一下名字吗？",
       "pinyin": "À, Wáng lǎoshī. Nín néng bāng wǒ xiě yíxià míngzi ma?",
       "vi": "À, thầy/cô Vương. Thầy/cô có thể viết giúp em tên được không?",
+      "legacyIds": [
+        "hsk2-lesson-01-dialogue-2",
+        "hsk2-lesson-01-dialogue-3"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-004",
       "sourceSectionId": "hsk2-lesson-01-dialogue",
+      "sourceLessonId": "hsk2-lesson-01",
+      "speaker": "B",
       "hanzi": "可以，我告诉你怎么写。",
       "pinyin": "Kěyǐ, wǒ gàosu nǐ zěnme xiě.",
       "vi": "Được, tôi sẽ chỉ cho em cách viết.",
+      "legacyIds": [
+        "hsk2-lesson-01-dialogue-4"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-005",
       "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "sourceLessonId": "hsk2-lesson-02",
+      "speaker": "A",
       "hanzi": "请打开本子，看第三题。",
       "pinyin": "Qǐng dǎkāi běnzi, kàn dì sān tí.",
       "vi": "Hãy mở vở ra và xem câu thứ ba.",
+      "legacyIds": [
+        "hsk2-lesson-02-dialogue-0"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-006",
       "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "sourceLessonId": "hsk2-lesson-02",
+      "speaker": "B",
       "hanzi": "这个词我不懂，是什么意思？",
       "pinyin": "Zhège cí wǒ bù dǒng, shì shénme yìsi?",
       "vi": "Tôi không hiểu từ này, nó có nghĩa là gì?",
+      "legacyIds": [
+        "hsk2-lesson-02-dialogue-1"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-007",
       "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "sourceLessonId": "hsk2-lesson-02",
+      "speaker": "A",
       "hanzi": "你写错了一个字。用这支笔再写一次吧。",
       "pinyin": "Nǐ xiě cuò le yí ge zì. Yòng zhè zhī bǐ zài xiě yí cì ba.",
       "vi": "Bạn viết sai một chữ rồi. Dùng chiếc bút này viết lại một lần nhé.",
+      "legacyIds": [
+        "hsk2-lesson-02-dialogue-2",
+        "hsk2-lesson-02-dialogue-3"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     },
     {
       "id": "shadow-hsk2-008",
       "sourceSectionId": "hsk2-lesson-02-dialogue",
+      "sourceLessonId": "hsk2-lesson-02",
+      "speaker": "B",
       "hanzi": "现在我懂了。",
       "pinyin": "Xiànzài wǒ dǒng le.",
       "vi": "Bây giờ tôi hiểu rồi.",
+      "legacyIds": [
+        "hsk2-lesson-02-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-03-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-03-dialogue",
+      "sourceLessonId": "hsk2-lesson-03",
+      "speaker": "A",
+      "hanzi": "你每周学几次汉语？",
+      "pinyin": "Nǐ měi zhōu xué jǐ cì hàn yǔ?",
+      "vi": "Mỗi tuần bạn học tiếng Trung mấy lần?",
+      "legacyIds": [
+        "hsk2-lesson-03-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-03-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-03-dialogue",
+      "sourceLessonId": "hsk2-lesson-03",
+      "speaker": "B",
+      "hanzi": "我经常晚上学，有时周六也学。",
+      "pinyin": "Wǒ jīng cháng wǎn shang xué, yǒu shí zhōu liù yě xué.",
+      "vi": "Tôi thường học vào buổi tối, đôi khi thứ Bảy cũng học.",
+      "legacyIds": [
+        "hsk2-lesson-03-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-03-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-03-dialogue",
+      "sourceLessonId": "hsk2-lesson-03",
+      "speaker": "A",
+      "hanzi": "我们周三开始，学完以后一起吃饭吧。",
+      "pinyin": "Wǒ men zhōu sān kāi shǐ, xué wán yǐ hòu yì qǐ chī fàn ba.",
+      "vi": "Chúng ta bắt đầu vào thứ Tư, học xong cùng đi ăn nhé.",
+      "legacyIds": [
+        "hsk2-lesson-03-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-03-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-03-dialogue",
+      "sourceLessonId": "hsk2-lesson-03",
+      "speaker": "B",
+      "hanzi": "好。",
+      "pinyin": "Hǎo.",
+      "vi": "Được.",
+      "legacyIds": [
+        "hsk2-lesson-03-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-04-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-04-dialogue",
+      "sourceLessonId": "hsk2-lesson-04",
+      "speaker": "A",
+      "hanzi": "快起来，八点了！",
+      "pinyin": "Kuài qǐ lái, bā diǎn le!",
+      "vi": "Dậy mau, tám giờ rồi!",
+      "legacyIds": [
+        "hsk2-lesson-04-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-04-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-04-dialogue",
+      "sourceLessonId": "hsk2-lesson-04",
+      "speaker": "B",
+      "hanzi": "我准备好了，一会儿就出门。",
+      "pinyin": "Wǒ zhǔn bèi hǎo le, yí huìr jiù chū mén.",
+      "vi": "Tôi chuẩn bị xong rồi, lát nữa sẽ ra ngoài.",
+      "legacyIds": [
+        "hsk2-lesson-04-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-04-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-04-dialogue",
+      "sourceLessonId": "hsk2-lesson-04",
+      "speaker": "A",
+      "hanzi": "记得拿手机，别忘了钥匙。",
+      "pinyin": "Jì de ná shǒu jī, bié wàng le yào shi.",
+      "vi": "Nhớ cầm điện thoại, đừng quên chìa khóa.",
+      "legacyIds": [
+        "hsk2-lesson-04-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-04-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-04-dialogue",
+      "sourceLessonId": "hsk2-lesson-04",
+      "speaker": "B",
+      "hanzi": "知道了。我晚上九点回来，你先回去吧。",
+      "pinyin": "Zhī dao le. Wǒ wǎn shang jiǔ diǎn huí lái, nǐ xiān huí qù ba.",
+      "vi": "Biết rồi. Tối chín giờ tôi về, bạn cứ về trước nhé.",
+      "legacyIds": [
+        "hsk2-lesson-04-dialogue-3",
+        "hsk2-lesson-04-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-05-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-05-dialogue",
+      "sourceLessonId": "hsk2-lesson-05",
+      "speaker": "A",
+      "hanzi": "你已经到公园了吗？",
+      "pinyin": "Nǐ yǐ jīng dào gōng yuán le ma?",
+      "vi": "Bạn đã đến công viên chưa?",
+      "legacyIds": [
+        "hsk2-lesson-05-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-05-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-05-dialogue",
+      "sourceLessonId": "hsk2-lesson-05",
+      "speaker": "B",
+      "hanzi": "还没有，我正坐着地铁过去。",
+      "pinyin": "Hái méi yǒu, wǒ zhèng zuò zhe dì tiě guò qù.",
+      "vi": "Vẫn chưa, tôi đang đi tàu điện ngầm đến đó.",
+      "legacyIds": [
+        "hsk2-lesson-05-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-05-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-05-dialogue",
+      "sourceLessonId": "hsk2-lesson-05",
+      "speaker": "A",
+      "hanzi": "天快要下雨了，这件事情可能要改。",
+      "pinyin": "Tiān kuài yào xià yǔ le, zhè jiàn shì qing kě néng yào gǎi.",
+      "vi": "Trời sắp mưa rồi, có lẽ phải đổi kế hoạch này.",
+      "legacyIds": [
+        "hsk2-lesson-05-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-05-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-05-dialogue",
+      "sourceLessonId": "hsk2-lesson-05",
+      "speaker": "B",
+      "hanzi": "到时给我打电话吧。",
+      "pinyin": "Dào shí gěi wǒ dǎ diàn huà ba.",
+      "vi": "Đến lúc đó gọi điện cho tôi nhé.",
+      "legacyIds": [
+        "hsk2-lesson-05-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-06-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-06-dialogue",
+      "sourceLessonId": "hsk2-lesson-06",
+      "speaker": "A",
+      "hanzi": "你的本子在哪儿？",
+      "pinyin": "Nǐ de běn zi zài nǎr?",
+      "vi": "Vở của bạn ở đâu?",
+      "legacyIds": [
+        "hsk2-lesson-06-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-06-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-06-dialogue",
+      "sourceLessonId": "hsk2-lesson-06",
+      "speaker": "B",
+      "hanzi": "在房间里面，床旁边的桌子上面。",
+      "pinyin": "Zài fáng jiān lǐ miàn, chuáng páng biān de zhuō zi shàng miàn.",
+      "vi": "Trong phòng, trên chiếc bàn cạnh giường.",
+      "legacyIds": [
+        "hsk2-lesson-06-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-06-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-06-dialogue",
+      "sourceLessonId": "hsk2-lesson-06",
+      "speaker": "A",
+      "hanzi": "门口那个包呢？",
+      "pinyin": "Mén kǒu nà ge bāo ne?",
+      "vi": "Còn chiếc túi ở cửa thì sao?",
+      "legacyIds": [
+        "hsk2-lesson-06-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-06-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-06-dialogue",
+      "sourceLessonId": "hsk2-lesson-06",
+      "speaker": "B",
+      "hanzi": "不是我的。我的包在门后面，别拿外面的。",
+      "pinyin": "Bú shì wǒ de. Wǒ de bāo zài mén hòu miàn, bié ná wài miàn de.",
+      "vi": "Không phải của tôi. Túi của tôi ở sau cửa, đừng lấy chiếc ở bên ngoài.",
+      "legacyIds": [
+        "hsk2-lesson-06-dialogue-3",
+        "hsk2-lesson-06-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-07-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-07-dialogue",
+      "sourceLessonId": "hsk2-lesson-07",
+      "speaker": "A",
+      "hanzi": "这间房在几楼？",
+      "pinyin": "Zhè jiān fáng zài jǐ lóu?",
+      "vi": "Căn phòng này ở tầng mấy?",
+      "legacyIds": [
+        "hsk2-lesson-07-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-07-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-07-dialogue",
+      "sourceLessonId": "hsk2-lesson-07",
+      "speaker": "B",
+      "hanzi": "在五楼。楼前面有超市，后面有公园。",
+      "pinyin": "Zài wǔ lóu. Lóu qián miàn yǒu chāo shì, hòu miàn yǒu gōng yuán.",
+      "vi": "Ở tầng năm. Phía trước tòa nhà có siêu thị, phía sau có công viên.",
+      "legacyIds": [
+        "hsk2-lesson-07-dialogue-1",
+        "hsk2-lesson-07-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-07-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-07-dialogue",
+      "sourceLessonId": "hsk2-lesson-07",
+      "speaker": "A",
+      "hanzi": "离地铁站近吗？",
+      "pinyin": "Lí dì tiě zhàn jìn ma?",
+      "vi": "Có gần ga tàu điện ngầm không?",
+      "legacyIds": [
+        "hsk2-lesson-07-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-07-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-07-dialogue",
+      "sourceLessonId": "hsk2-lesson-07",
+      "speaker": "B",
+      "hanzi": "很近，旁边还有一家饭馆。",
+      "pinyin": "Hěn jìn, páng biān hái yǒu yì jiā fàn guǎn.",
+      "vi": "Rất gần, bên cạnh còn có một quán ăn.",
+      "legacyIds": [
+        "hsk2-lesson-07-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-08-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-08-dialogue",
+      "sourceLessonId": "hsk2-lesson-08",
+      "speaker": "A",
+      "hanzi": "我在楼下，走哪个门？",
+      "pinyin": "Wǒ zài lóu xià, zǒu nǎ ge mén?",
+      "vi": "Tôi ở dưới tầng, đi cửa nào?",
+      "legacyIds": [
+        "hsk2-lesson-08-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-08-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-08-dialogue",
+      "sourceLessonId": "hsk2-lesson-08",
+      "speaker": "B",
+      "hanzi": "从左边的门进来，别走右边。",
+      "pinyin": "Cóng zuǒ biān de mén jìn lái, bié zǒu yòu biān.",
+      "vi": "Vào từ cửa bên trái, đừng đi phía bên phải.",
+      "legacyIds": [
+        "hsk2-lesson-08-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-08-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-08-dialogue",
+      "sourceLessonId": "hsk2-lesson-08",
+      "speaker": "A",
+      "hanzi": "我看见门了，要进去吗？",
+      "pinyin": "Wǒ kàn jiàn mén le, yào jìn qù ma?",
+      "vi": "Tôi thấy cửa rồi, có cần đi vào không?",
+      "legacyIds": [
+        "hsk2-lesson-08-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-08-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-08-dialogue",
+      "sourceLessonId": "hsk2-lesson-08",
+      "speaker": "B",
+      "hanzi": "对，进去以后往左走，我在教室里等你。",
+      "pinyin": "Duì, jìn qù yǐ hòu wǎng zuǒ zǒu, wǒ zài jiào shì lǐ děng nǐ.",
+      "vi": "Đúng, vào rồi rẽ trái, tôi đợi bạn trong lớp học.",
+      "legacyIds": [
+        "hsk2-lesson-08-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-09-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-09-dialogue",
+      "sourceLessonId": "hsk2-lesson-09",
+      "speaker": "A",
+      "hanzi": "去火车站坐公交车还是地铁？",
+      "pinyin": "Qù huǒ chē zhàn zuò gōng jiāo chē hái shi dì tiě?",
+      "vi": "Đi ga tàu hỏa thì đi xe buýt hay tàu điện ngầm?",
+      "legacyIds": [
+        "hsk2-lesson-09-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-09-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-09-dialogue",
+      "sourceLessonId": "hsk2-lesson-09",
+      "speaker": "B",
+      "hanzi": "坐地铁吧，路上车多，打车也可能慢。",
+      "pinyin": "Zuò dì tiě ba, lù shàng chē duō, dǎ chē yě kě néng màn.",
+      "vi": "Đi tàu điện ngầm nhé, đường đông xe, đi taxi cũng có thể chậm.",
+      "legacyIds": [
+        "hsk2-lesson-09-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-09-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-09-dialogue",
+      "sourceLessonId": "hsk2-lesson-09",
+      "speaker": "A",
+      "hanzi": "在哪一站下？",
+      "pinyin": "Zài nǎ yí zhàn xià?",
+      "vi": "Xuống ở ga nào?",
+      "legacyIds": [
+        "hsk2-lesson-09-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-09-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-09-dialogue",
+      "sourceLessonId": "hsk2-lesson-09",
+      "speaker": "B",
+      "hanzi": "第三站，下车以后走五分钟。",
+      "pinyin": "Dì sān zhàn, xià chē yǐ hòu zǒu wǔ fēn zhōng.",
+      "vi": "Ga thứ ba, xuống tàu rồi đi bộ năm phút.",
+      "legacyIds": [
+        "hsk2-lesson-09-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-10-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-10-dialogue",
+      "sourceLessonId": "hsk2-lesson-10",
+      "speaker": "工作人员",
+      "hanzi": "您好，请给我看机票。",
+      "pinyin": "Nín hǎo, qǐng gěi wǒ kàn jī piào.",
+      "vi": "Xin chào, vui lòng cho tôi xem vé máy bay.",
+      "legacyIds": [
+        "hsk2-lesson-10-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-10-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-10-dialogue",
+      "sourceLessonId": "hsk2-lesson-10",
+      "speaker": "旅客",
+      "hanzi": "电子票可以吗？",
+      "pinyin": "Diàn zi piào kě yǐ ma?",
+      "vi": "Vé điện tử có được không?",
+      "legacyIds": [
+        "hsk2-lesson-10-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-10-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-10-dialogue",
+      "sourceLessonId": "hsk2-lesson-10",
+      "speaker": "工作人员",
+      "hanzi": "可以。您是第一次出国吗？",
+      "pinyin": "Kě yǐ. Nín shì dì yī cì chū guó ma?",
+      "vi": "Được. Đây là lần đầu tiên anh/chị ra nước ngoài phải không?",
+      "legacyIds": [
+        "hsk2-lesson-10-dialogue-2",
+        "hsk2-lesson-10-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-10-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-10-dialogue",
+      "sourceLessonId": "hsk2-lesson-10",
+      "speaker": "旅客",
+      "hanzi": "是的。我的包还在那边，我拿过来。",
+      "pinyin": "Shì de. Wǒ de bāo hái zài nà biān, wǒ ná guò lái.",
+      "vi": "Vâng. Túi của tôi còn ở bên kia, tôi đi lấy lại đây.",
+      "legacyIds": [
+        "hsk2-lesson-10-dialogue-4",
+        "hsk2-lesson-10-dialogue-5"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-11-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-11-dialogue",
+      "sourceLessonId": "hsk2-lesson-11",
+      "speaker": "A",
+      "hanzi": "酒店订好了吗？",
+      "pinyin": "Jiǔ diàn dìng hǎo le ma?",
+      "vi": "Đặt khách sạn xong chưa?",
+      "legacyIds": [
+        "hsk2-lesson-11-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-11-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-11-dialogue",
+      "sourceLessonId": "hsk2-lesson-11",
+      "speaker": "B",
+      "hanzi": "好了，离公园很近。",
+      "pinyin": "Hǎo le, lí gōng yuán hěn jìn.",
+      "vi": "Xong rồi, rất gần công viên.",
+      "legacyIds": [
+        "hsk2-lesson-11-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-11-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-11-dialogue",
+      "sourceLessonId": "hsk2-lesson-11",
+      "speaker": "A",
+      "hanzi": "门票呢？",
+      "pinyin": "Mén piào ne?",
+      "vi": "Còn vé vào cửa thì sao?",
+      "legacyIds": [
+        "hsk2-lesson-11-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-11-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-11-dialogue",
+      "sourceLessonId": "hsk2-lesson-11",
+      "speaker": "B",
+      "hanzi": "网上买了。明天从酒店出去，往右走十分钟就到。",
+      "pinyin": "Wǎng shàng mǎi le. Míng tiān cóng jiǔ diàn chū qù, wǎng yòu zǒu shí fēn zhōng jiù dào.",
+      "vi": "Mua trên mạng rồi. Ngày mai ra khỏi khách sạn, đi về bên phải mười phút là đến.",
+      "legacyIds": [
+        "hsk2-lesson-11-dialogue-3",
+        "hsk2-lesson-11-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-12-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-12-dialogue",
+      "sourceLessonId": "hsk2-lesson-12",
+      "speaker": "服务员",
+      "hanzi": "两位喝什么？",
+      "pinyin": "Liǎng wèi hē shén me?",
+      "vi": "Hai vị uống gì?",
+      "legacyIds": [
+        "hsk2-lesson-12-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-12-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-12-dialogue",
+      "sourceLessonId": "hsk2-lesson-12",
+      "speaker": "A",
+      "hanzi": "我要一杯绿茶，他要奶茶。",
+      "pinyin": "Wǒ yào yì bēi lǜ chá, tā yào nǎi chá.",
+      "vi": "Tôi muốn một cốc trà xanh, anh ấy muốn trà sữa.",
+      "legacyIds": [
+        "hsk2-lesson-12-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-12-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-12-dialogue",
+      "sourceLessonId": "hsk2-lesson-12",
+      "speaker": "B",
+      "hanzi": "我不喝奶茶，来红茶吧。",
+      "pinyin": "Wǒ bù hē nǎi chá, lái hóng chá ba.",
+      "vi": "Tôi không uống trà sữa, cho tôi trà đen nhé.",
+      "legacyIds": [
+        "hsk2-lesson-12-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-12-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-12-dialogue",
+      "sourceLessonId": "hsk2-lesson-12",
+      "speaker": "A",
+      "hanzi": "再点一条鱼和一点儿肉。",
+      "pinyin": "Zài diǎn yì tiáo yú hé yì diǎnr ròu.",
+      "vi": "Gọi thêm một con cá và một ít thịt nữa.",
+      "legacyIds": [
+        "hsk2-lesson-12-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-13-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-13-dialogue",
+      "sourceLessonId": "hsk2-lesson-13",
+      "speaker": "A",
+      "hanzi": "这条裤子有别的颜色吗？",
+      "pinyin": "Zhè tiáo kù zi yǒu bié de yán sè ma?",
+      "vi": "Chiếc quần này có màu khác không?",
+      "legacyIds": [
+        "hsk2-lesson-13-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-13-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-13-dialogue",
+      "sourceLessonId": "hsk2-lesson-13",
+      "speaker": "B",
+      "hanzi": "有白色、黑色和绿色。",
+      "pinyin": "Yǒu bái sè, hēi sè hé lǜ sè.",
+      "vi": "Có màu trắng, màu đen và màu xanh lá.",
+      "legacyIds": [
+        "hsk2-lesson-13-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-13-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-13-dialogue",
+      "sourceLessonId": "hsk2-lesson-13",
+      "speaker": "A",
+      "hanzi": "黑色的比白色的好看。那个红色的包多少钱？",
+      "pinyin": "Hēi sè de bǐ bái sè de hǎo kàn. Nà ge hóng sè de bāo duō shao qián?",
+      "vi": "Chiếc màu đen đẹp hơn chiếc màu trắng. Chiếc túi màu đỏ kia bao nhiêu tiền?",
+      "legacyIds": [
+        "hsk2-lesson-13-dialogue-2",
+        "hsk2-lesson-13-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-13-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-13-dialogue",
+      "sourceLessonId": "hsk2-lesson-13",
+      "speaker": "B",
+      "hanzi": "三百块。",
+      "pinyin": "Sān bǎi kuài.",
+      "vi": "Ba trăm tệ.",
+      "legacyIds": [
+        "hsk2-lesson-13-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-14-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-14-dialogue",
+      "sourceLessonId": "hsk2-lesson-14",
+      "speaker": "A",
+      "hanzi": "不好意思，这条裤子坏了。",
+      "pinyin": "Bù hǎo yì si, zhè tiáo kù zi huài le.",
+      "vi": "Xin lỗi, chiếc quần này bị hỏng rồi.",
+      "legacyIds": [
+        "hsk2-lesson-14-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-14-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-14-dialogue",
+      "sourceLessonId": "hsk2-lesson-14",
+      "speaker": "B",
+      "hanzi": "您花了多少钱？",
+      "pinyin": "Nín huā le duō shao qián?",
+      "vi": "Anh/chị đã trả bao nhiêu tiền?",
+      "legacyIds": [
+        "hsk2-lesson-14-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-14-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-14-dialogue",
+      "sourceLessonId": "hsk2-lesson-14",
+      "speaker": "A",
+      "hanzi": "三百块。我还买了两碗面，但是只拿到一碗。",
+      "pinyin": "Sān bǎi kuài. Wǒ hái mǎi le liǎng wǎn miàn, dàn shì zhǐ ná dào yì wǎn.",
+      "vi": "Ba trăm tệ. Tôi còn mua hai bát mì, nhưng chỉ nhận được một bát.",
+      "legacyIds": [
+        "hsk2-lesson-14-dialogue-2",
+        "hsk2-lesson-14-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-14-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-14-dialogue",
+      "sourceLessonId": "hsk2-lesson-14",
+      "speaker": "B",
+      "hanzi": "那么我给您换，也把另一碗拿来。",
+      "pinyin": "Nà me wǒ gěi nín huàn, yě bǎ lìng yì wǎn ná lái.",
+      "vi": "Vậy tôi đổi cho anh/chị, đồng thời mang bát còn lại tới.",
+      "legacyIds": [
+        "hsk2-lesson-14-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-15-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-15-dialogue",
+      "sourceLessonId": "hsk2-lesson-15",
+      "speaker": "医生",
+      "hanzi": "你怎么了？",
+      "pinyin": "Nǐ zěn me le?",
+      "vi": "Bạn bị làm sao?",
+      "legacyIds": [
+        "hsk2-lesson-15-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-15-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-15-dialogue",
+      "sourceLessonId": "hsk2-lesson-15",
+      "speaker": "A",
+      "hanzi": "我身体不太舒服，头疼，眼睛也疼。",
+      "pinyin": "Wǒ shēn tǐ bú tài shū fu, tóu téng, yǎn jing yě téng.",
+      "vi": "Tôi thấy người không khỏe lắm, đau đầu và mắt cũng đau.",
+      "legacyIds": [
+        "hsk2-lesson-15-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-15-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-15-dialogue",
+      "sourceLessonId": "hsk2-lesson-15",
+      "speaker": "医生",
+      "hanzi": "先休息，少看手机。这个药一天吃两次。",
+      "pinyin": "Xiān xiū xi, shǎo kàn shǒu jī. Zhè ge yào yì tiān chī liǎng cì.",
+      "vi": "Nghỉ ngơi trước, bớt nhìn điện thoại. Thuốc này uống mỗi ngày hai lần.",
+      "legacyIds": [
+        "hsk2-lesson-15-dialogue-2",
+        "hsk2-lesson-15-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-15-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-15-dialogue",
+      "sourceLessonId": "hsk2-lesson-15",
+      "speaker": "A",
+      "hanzi": "附近有药店吗？",
+      "pinyin": "Fù jìn yǒu yào diàn ma?",
+      "vi": "Gần đây có hiệu thuốc không?",
+      "legacyIds": [
+        "hsk2-lesson-15-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-16-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-16-dialogue",
+      "sourceLessonId": "hsk2-lesson-16",
+      "speaker": "A",
+      "hanzi": "你每天运动吗？",
+      "pinyin": "Nǐ měi tiān yùn dòng ma?",
+      "vi": "Ngày nào bạn cũng tập thể dục à?",
+      "legacyIds": [
+        "hsk2-lesson-16-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-16-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-16-dialogue",
+      "sourceLessonId": "hsk2-lesson-16",
+      "speaker": "B",
+      "hanzi": "我常跑步，但是跑得不快。",
+      "pinyin": "Wǒ cháng pǎo bù, dàn shì pǎo de bú kuài.",
+      "vi": "Tôi thường chạy bộ, nhưng chạy không nhanh.",
+      "legacyIds": [
+        "hsk2-lesson-16-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-16-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-16-dialogue",
+      "sourceLessonId": "hsk2-lesson-16",
+      "speaker": "A",
+      "hanzi": "累了就别跑，先走一走。",
+      "pinyin": "Lèi le jiù bié pǎo, xiān zǒu yi zǒu.",
+      "vi": "Mệt thì đừng chạy nữa, đi bộ một lúc trước đã.",
+      "legacyIds": [
+        "hsk2-lesson-16-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-16-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-16-dialogue",
+      "sourceLessonId": "hsk2-lesson-16",
+      "speaker": "B",
+      "hanzi": "好。运动完我去洗手，洗手间在哪儿？",
+      "pinyin": "Hǎo. Yùn dòng wán wǒ qù xǐ shǒu, xǐ shǒu jiān zài nǎr?",
+      "vi": "Được. Tập xong tôi đi rửa tay, nhà vệ sinh ở đâu?",
+      "legacyIds": [
+        "hsk2-lesson-16-dialogue-3",
+        "hsk2-lesson-16-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-17-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-17-dialogue",
+      "sourceLessonId": "hsk2-lesson-17",
+      "speaker": "A",
+      "hanzi": "今天天气怎么样？",
+      "pinyin": "Jīn tiān tiān qì zěn me yàng?",
+      "vi": "Hôm nay thời tiết thế nào?",
+      "legacyIds": [
+        "hsk2-lesson-17-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-17-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-17-dialogue",
+      "sourceLessonId": "hsk2-lesson-17",
+      "speaker": "B",
+      "hanzi": "上午晴，下午可能阴。",
+      "pinyin": "Shàng wǔ qíng, xià wǔ kě néng yīn.",
+      "vi": "Buổi sáng trời nắng, buổi chiều có thể âm u.",
+      "legacyIds": [
+        "hsk2-lesson-17-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-17-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-17-dialogue",
+      "sourceLessonId": "hsk2-lesson-17",
+      "speaker": "A",
+      "hanzi": "来接我的人什么样？",
+      "pinyin": "Lái jiē wǒ de rén shén me yàng?",
+      "vi": "Người đến đón tôi trông như thế nào?",
+      "legacyIds": [
+        "hsk2-lesson-17-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-17-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-17-dialogue",
+      "sourceLessonId": "hsk2-lesson-17",
+      "speaker": "B",
+      "hanzi": "他个子很高，穿着长裤，走得很快。",
+      "pinyin": "Tā gè zi hěn gāo, chuān zhe cháng kù, zǒu de hěn kuài.",
+      "vi": "Anh ấy rất cao, mặc quần dài và đi rất nhanh.",
+      "legacyIds": [
+        "hsk2-lesson-17-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-18-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-18-dialogue",
+      "sourceLessonId": "hsk2-lesson-18",
+      "speaker": "A",
+      "hanzi": "你在哪个班？",
+      "pinyin": "Nǐ zài nǎ ge bān?",
+      "vi": "Bạn ở lớp nào?",
+      "legacyIds": [
+        "hsk2-lesson-18-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-18-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-18-dialogue",
+      "sourceLessonId": "hsk2-lesson-18",
+      "speaker": "B",
+      "hanzi": "二班。下周开学，教室在三楼。",
+      "pinyin": "Èr bān. Xià zhōu kāi xué, jiào shì zài sān lóu.",
+      "vi": "Lớp hai. Tuần sau khai giảng, phòng học ở tầng ba.",
+      "legacyIds": [
+        "hsk2-lesson-18-dialogue-1",
+        "hsk2-lesson-18-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-18-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-18-dialogue",
+      "sourceLessonId": "hsk2-lesson-18",
+      "speaker": "A",
+      "hanzi": "王老师教你们吗？",
+      "pinyin": "Wáng lǎo shī jiāo nǐ men ma?",
+      "vi": "Thầy/cô Vương dạy các bạn à?",
+      "legacyIds": [
+        "hsk2-lesson-18-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-18-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-18-dialogue",
+      "sourceLessonId": "hsk2-lesson-18",
+      "speaker": "B",
+      "hanzi": "对。开学第二周就要考试，书包和本子都要带。",
+      "pinyin": "Duì. Kāi xué dì èr zhōu jiù yào kǎo shì, shū bāo hé běn zi dōu yào dài.",
+      "vi": "Đúng. Tuần thứ hai sau khai giảng sẽ thi, phải mang cả cặp sách và vở.",
+      "legacyIds": [
+        "hsk2-lesson-18-dialogue-4",
+        "hsk2-lesson-18-dialogue-5"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-19-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-19-dialogue",
+      "sourceLessonId": "hsk2-lesson-19",
+      "speaker": "A",
+      "hanzi": "请写姓名。您姓什么？",
+      "pinyin": "Qǐng xiě xìng míng. Nín xìng shén me?",
+      "vi": "Vui lòng viết họ tên. Anh/chị họ gì?",
+      "legacyIds": [
+        "hsk2-lesson-19-dialogue-0",
+        "hsk2-lesson-19-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-19-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-19-dialogue",
+      "sourceLessonId": "hsk2-lesson-19",
+      "speaker": "B",
+      "hanzi": "我姓阮，名叫文德。",
+      "pinyin": "Wǒ xìng ruǎn, míng jiào wén dé.",
+      "vi": "Tôi họ Nguyễn, tên là Văn Đức.",
+      "legacyIds": [
+        "hsk2-lesson-19-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-19-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-19-dialogue",
+      "sourceLessonId": "hsk2-lesson-19",
+      "speaker": "A",
+      "hanzi": "请介绍一下自己，也说说为什么学汉语。",
+      "pinyin": "Qǐng jiè shào yí xià zì jǐ, yě shuō shuō wèi shén me xué hàn yǔ.",
+      "vi": "Hãy giới thiệu một chút về bản thân, đồng thời nói vì sao học tiếng Trung.",
+      "legacyIds": [
+        "hsk2-lesson-19-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-19-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-19-dialogue",
+      "sourceLessonId": "hsk2-lesson-19",
+      "speaker": "B",
+      "hanzi": "我希望工作时说得更清楚。",
+      "pinyin": "Wǒ xī wàng gōng zuò shí shuō de gèng qīng chu.",
+      "vi": "Tôi mong khi làm việc có thể nói rõ ràng hơn.",
+      "legacyIds": [
+        "hsk2-lesson-19-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-20-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-20-dialogue",
+      "sourceLessonId": "hsk2-lesson-20",
+      "speaker": "A",
+      "hanzi": "这件事情我自己做不完，你能帮忙吗？",
+      "pinyin": "Zhè jiàn shì qing wǒ zì jǐ zuò bù wán, nǐ néng bāng máng ma?",
+      "vi": "Việc này tôi không tự làm xong được, bạn giúp được không?",
+      "legacyIds": [
+        "hsk2-lesson-20-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-20-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-20-dialogue",
+      "sourceLessonId": "hsk2-lesson-20",
+      "speaker": "B",
+      "hanzi": "可以。你希望我先做什么？",
+      "pinyin": "Kě yǐ. Nǐ xī wàng wǒ xiān zuò shén me?",
+      "vi": "Được. Bạn muốn tôi làm gì trước?",
+      "legacyIds": [
+        "hsk2-lesson-20-dialogue-1",
+        "hsk2-lesson-20-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-20-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-20-dialogue",
+      "sourceLessonId": "hsk2-lesson-20",
+      "speaker": "A",
+      "hanzi": "请跟我一起看名单。经理让我下午就交。",
+      "pinyin": "Qǐng gēn wǒ yì qǐ kàn míng dān. Jīng lǐ ràng wǒ xià wǔ jiù jiāo.",
+      "vi": "Hãy cùng tôi xem danh sách. Giám đốc yêu cầu tôi nộp ngay chiều nay.",
+      "legacyIds": [
+        "hsk2-lesson-20-dialogue-3",
+        "hsk2-lesson-20-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-20-dialogue-5",
+      "sourceSectionId": "hsk2-lesson-20-dialogue",
+      "sourceLessonId": "hsk2-lesson-20",
+      "speaker": "B",
+      "hanzi": "好，但是我三点有会。",
+      "pinyin": "Hǎo, dàn shì wǒ sān diǎn yǒu huì.",
+      "vi": "Được, nhưng ba giờ tôi có cuộc họp.",
+      "legacyIds": [
+        "hsk2-lesson-20-dialogue-5"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-21-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-21-dialogue",
+      "sourceLessonId": "hsk2-lesson-21",
+      "speaker": "A",
+      "hanzi": "你的爱好是什么？",
+      "pinyin": "Nǐ de ài hào shì shén me?",
+      "vi": "Sở thích của bạn là gì?",
+      "legacyIds": [
+        "hsk2-lesson-21-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-21-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-21-dialogue",
+      "sourceLessonId": "hsk2-lesson-21",
+      "speaker": "B",
+      "hanzi": "我喜欢打篮球，也喜欢踢足球。你呢？",
+      "pinyin": "Wǒ xǐ huan dǎ lán qiú, yě xǐ huan tī zú qiú. Nǐ ne?",
+      "vi": "Tôi thích chơi bóng rổ, cũng thích đá bóng. Còn bạn?",
+      "legacyIds": [
+        "hsk2-lesson-21-dialogue-1",
+        "hsk2-lesson-21-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-21-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-21-dialogue",
+      "sourceLessonId": "hsk2-lesson-21",
+      "speaker": "A",
+      "hanzi": "我不爱球，我喜欢跳舞。",
+      "pinyin": "Wǒ bú ài qiú, wǒ xǐ huan tiào wǔ.",
+      "vi": "Tôi không thích các môn bóng, tôi thích nhảy múa.",
+      "legacyIds": [
+        "hsk2-lesson-21-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-21-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-21-dialogue",
+      "sourceLessonId": "hsk2-lesson-21",
+      "speaker": "B",
+      "hanzi": "那我们看表演吧，一个人在家没意思。",
+      "pinyin": "Nà wǒ men kàn biǎo yǎn ba, yí ge rén zài jiā méi yì si.",
+      "vi": "Vậy chúng ta đi xem biểu diễn nhé, ở nhà một mình chẳng thú vị.",
+      "legacyIds": [
+        "hsk2-lesson-21-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-22-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-22-dialogue",
+      "sourceLessonId": "hsk2-lesson-22",
+      "speaker": "A",
+      "hanzi": "照片里的小孩儿是谁？",
+      "pinyin": "Zhào piān lǐ de xiǎo háir shì shuí?",
+      "vi": "Đứa trẻ trong ảnh là ai?",
+      "legacyIds": [
+        "hsk2-lesson-22-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-22-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-22-dialogue",
+      "sourceLessonId": "hsk2-lesson-22",
+      "speaker": "B",
+      "hanzi": "男孩儿是我弟弟，女孩儿是我妹妹。",
+      "pinyin": "Nán háir shì wǒ dì di, nǚ háir shì wǒ mèi mei.",
+      "vi": "Bé trai là em trai tôi, bé gái là em gái tôi.",
+      "legacyIds": [
+        "hsk2-lesson-22-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-22-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-22-dialogue",
+      "sourceLessonId": "hsk2-lesson-22",
+      "speaker": "A",
+      "hanzi": "旁边两位呢？",
+      "pinyin": "Páng biān liǎng wèi ne?",
+      "vi": "Còn hai người bên cạnh thì sao?",
+      "legacyIds": [
+        "hsk2-lesson-22-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-22-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-22-dialogue",
+      "sourceLessonId": "hsk2-lesson-22",
+      "speaker": "B",
+      "hanzi": "是我爷爷和奶奶。后面是姐姐和她的丈夫。",
+      "pinyin": "Shì wǒ yé ye hé nǎi nai. Hòu miàn shì jiě jie hé tā de zhàng fu.",
+      "vi": "Là ông nội và bà nội tôi. Phía sau là chị gái và chồng chị ấy.",
+      "legacyIds": [
+        "hsk2-lesson-22-dialogue-3",
+        "hsk2-lesson-22-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-23-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-23-dialogue",
+      "sourceLessonId": "hsk2-lesson-23",
+      "speaker": "A",
+      "hanzi": "这是你小时候吗？",
+      "pinyin": "Zhè shì nǐ xiǎo shí hou ma?",
+      "vi": "Đây là bạn hồi nhỏ à?",
+      "legacyIds": [
+        "hsk2-lesson-23-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-23-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-23-dialogue",
+      "sourceLessonId": "hsk2-lesson-23",
+      "speaker": "B",
+      "hanzi": "对。我从小就爱笑。那天是我的生日。",
+      "pinyin": "Duì. Wǒ cóng xiǎo jiù ài xiào. Nà tiān shì wǒ de shēng rì.",
+      "vi": "Đúng. Từ nhỏ tôi đã hay cười. Hôm đó là sinh nhật tôi.",
+      "legacyIds": [
+        "hsk2-lesson-23-dialogue-1",
+        "hsk2-lesson-23-dialogue-2",
+        "hsk2-lesson-23-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-23-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-23-dialogue",
+      "sourceLessonId": "hsk2-lesson-23",
+      "speaker": "A",
+      "hanzi": "爷爷送了你什么？",
+      "pinyin": "Yé ye sòng le nǐ shén me?",
+      "vi": "Ông nội tặng bạn gì?",
+      "legacyIds": [
+        "hsk2-lesson-23-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-23-dialogue-5",
+      "sourceSectionId": "hsk2-lesson-23-dialogue",
+      "sourceLessonId": "hsk2-lesson-23",
+      "speaker": "B",
+      "hanzi": "他送我一个球。我们一起玩得很快乐。",
+      "pinyin": "Tā sòng wǒ yí ge qiú. Wǒ men yì qǐ wán de hěn kuài lè.",
+      "vi": "Ông tặng tôi một quả bóng. Chúng tôi chơi cùng nhau rất vui.",
+      "legacyIds": [
+        "hsk2-lesson-23-dialogue-5",
+        "hsk2-lesson-23-dialogue-6"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-24-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-24-dialogue",
+      "sourceLessonId": "hsk2-lesson-24",
+      "speaker": "A",
+      "hanzi": "你在网上发的照片真好看。",
+      "pinyin": "Nǐ zài wǎng shàng fā de zhào piān zhēn hǎo kàn.",
+      "vi": "Ảnh bạn đăng trên mạng đẹp thật.",
+      "legacyIds": [
+        "hsk2-lesson-24-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-24-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-24-dialogue",
+      "sourceLessonId": "hsk2-lesson-24",
+      "speaker": "B",
+      "hanzi": "谢谢。上午我去游泳，下午画了花和鸟。",
+      "pinyin": "Xiè xie. Shàng wǔ wǒ qù yóu yǒng, xià wǔ huà le huā hé niǎo.",
+      "vi": "Cảm ơn. Buổi sáng tôi đi bơi, buổi chiều vẽ hoa và chim.",
+      "legacyIds": [
+        "hsk2-lesson-24-dialogue-1",
+        "hsk2-lesson-24-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-24-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-24-dialogue",
+      "sourceLessonId": "hsk2-lesson-24",
+      "speaker": "A",
+      "hanzi": "那只鸟很有意思，看了就想笑。",
+      "pinyin": "Nà zhǐ niǎo hěn yǒu yì si, kàn le jiù xiǎng xiào.",
+      "vi": "Con chim đó rất thú vị, nhìn là muốn cười.",
+      "legacyIds": [
+        "hsk2-lesson-24-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-24-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-24-dialogue",
+      "sourceLessonId": "hsk2-lesson-24",
+      "speaker": "B",
+      "hanzi": "下次一起去吧。",
+      "pinyin": "Xià cì yì qǐ qù ba.",
+      "vi": "Lần sau cùng đi nhé.",
+      "legacyIds": [
+        "hsk2-lesson-24-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-25-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-25-dialogue",
+      "sourceLessonId": "hsk2-lesson-25",
+      "speaker": "A",
+      "hanzi": "坐地铁还是打车？",
+      "pinyin": "Zuò dì tiě hái shi dǎ chē?",
+      "vi": "Đi tàu điện ngầm hay taxi?",
+      "legacyIds": [
+        "hsk2-lesson-25-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-25-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-25-dialogue",
+      "sourceLessonId": "hsk2-lesson-25",
+      "speaker": "B",
+      "hanzi": "地铁比打车便宜，但是要走十分钟。",
+      "pinyin": "Dì tiě bǐ dǎ chē pián yi, dàn shì yào zǒu shí fēn zhōng.",
+      "vi": "Tàu điện ngầm rẻ hơn taxi, nhưng phải đi bộ mười phút.",
+      "legacyIds": [
+        "hsk2-lesson-25-dialogue-1"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-25-dialogue-2",
+      "sourceSectionId": "hsk2-lesson-25-dialogue",
+      "sourceLessonId": "hsk2-lesson-25",
+      "speaker": "A",
+      "hanzi": "虽然有点儿远，我还是坐地铁。",
+      "pinyin": "Suī rán yǒu diǎnr yuǎn, wǒ hái shi zuò dì tiě.",
+      "vi": "Tuy hơi xa, tôi vẫn chọn đi tàu điện ngầm.",
+      "legacyIds": [
+        "hsk2-lesson-25-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-25-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-25-dialogue",
+      "sourceLessonId": "hsk2-lesson-25",
+      "speaker": "B",
+      "hanzi": "好，因为周末路上车多，所以地铁可能最快。",
+      "pinyin": "Hǎo, yīn wèi zhōu mò lù shàng chē duō, suǒ yǐ dì tiě kě néng zuì kuài.",
+      "vi": "Được, vì cuối tuần đường đông xe nên tàu điện ngầm có thể nhanh nhất.",
+      "legacyIds": [
+        "hsk2-lesson-25-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-26-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-26-dialogue",
+      "sourceLessonId": "hsk2-lesson-26",
+      "speaker": "A",
+      "hanzi": "你好，我到了，但是没看见你。",
+      "pinyin": "Nǐ hǎo, wǒ dào le, dàn shì méi kàn jiàn nǐ.",
+      "vi": "Chào bạn, tôi đến rồi nhưng không thấy bạn.",
+      "legacyIds": [
+        "hsk2-lesson-26-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-26-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-26-dialogue",
+      "sourceLessonId": "hsk2-lesson-26",
+      "speaker": "B",
+      "hanzi": "你是不是站在那个红色门口？我的楼不在那里。",
+      "pinyin": "Nǐ shì bu shì zhàn zài nà ge hóng sè mén kǒu? Wǒ de lóu bú zài nà lǐ.",
+      "vi": "Có phải bạn đang đứng ở chỗ cửa màu đỏ đó không? Tòa nhà của tôi không ở đó.",
+      "legacyIds": [
+        "hsk2-lesson-26-dialogue-1",
+        "hsk2-lesson-26-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-26-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-26-dialogue",
+      "sourceLessonId": "hsk2-lesson-26",
+      "speaker": "A",
+      "hanzi": "那我怎么走？",
+      "pinyin": "Nà wǒ zěn me zǒu?",
+      "vi": "Vậy tôi đi thế nào?",
+      "legacyIds": [
+        "hsk2-lesson-26-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-26-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-26-dialogue",
+      "sourceLessonId": "hsk2-lesson-26",
+      "speaker": "B",
+      "hanzi": "别再那样往前走了，等我一会儿。我给你打电话告诉你。",
+      "pinyin": "Bié zài nà yàng wǎng qián zǒu le, děng wǒ yí huìr. Wǒ gěi nǐ dǎ diàn huà gào su nǐ.",
+      "vi": "Đừng tiếp tục đi thẳng như vậy nữa, đợi tôi một chút. Tôi sẽ gọi điện chỉ cho bạn.",
+      "legacyIds": [
+        "hsk2-lesson-26-dialogue-4",
+        "hsk2-lesson-26-dialogue-5"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-27-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-27-dialogue",
+      "sourceLessonId": "hsk2-lesson-27",
+      "speaker": "A",
+      "hanzi": "东西在楼上，你能走上去拿吗？",
+      "pinyin": "Dōng xi zài lóu shàng, nǐ néng zǒu shàng qù ná ma?",
+      "vi": "Đồ ở trên tầng, bạn có thể đi lên lấy không?",
+      "legacyIds": [
+        "hsk2-lesson-27-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-27-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-27-dialogue",
+      "sourceLessonId": "hsk2-lesson-27",
+      "speaker": "B",
+      "hanzi": "可以。拿到以后怎么做？",
+      "pinyin": "Kě yǐ. Ná dào yǐ hòu zěn me zuò?",
+      "vi": "Được. Lấy được rồi thì làm gì?",
+      "legacyIds": [
+        "hsk2-lesson-27-dialogue-1",
+        "hsk2-lesson-27-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-27-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-27-dialogue",
+      "sourceLessonId": "hsk2-lesson-27",
+      "speaker": "A",
+      "hanzi": "把小包拿下来，大包拿不动就别动。",
+      "pinyin": "Bǎ xiǎo bāo ná xià lái, dà bāo ná bú dòng jiù bié dòng.",
+      "vi": "Mang túi nhỏ xuống đây, túi lớn nếu không nhấc nổi thì cứ để nguyên.",
+      "legacyIds": [
+        "hsk2-lesson-27-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-27-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-27-dialogue",
+      "sourceLessonId": "hsk2-lesson-27",
+      "speaker": "B",
+      "hanzi": "好，我先上去，再走下来。",
+      "pinyin": "Hǎo, wǒ xiān shàng qù, zài zǒu xià lái.",
+      "vi": "Được, tôi lên trước rồi đi xuống.",
+      "legacyIds": [
+        "hsk2-lesson-27-dialogue-4"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-28-dialogue-0",
+      "sourceSectionId": "hsk2-lesson-28-dialogue",
+      "sourceLessonId": "hsk2-lesson-28",
+      "speaker": "A",
+      "hanzi": "你去过中国吗？",
+      "pinyin": "Nǐ qù guò zhōng guó ma?",
+      "vi": "Bạn từng đến Trung Quốc chưa?",
+      "legacyIds": [
+        "hsk2-lesson-28-dialogue-0"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-28-dialogue-1",
+      "sourceSectionId": "hsk2-lesson-28-dialogue",
+      "sourceLessonId": "hsk2-lesson-28",
+      "speaker": "B",
+      "hanzi": "去过。去年我去上海旅游，还坐船过了河。",
+      "pinyin": "Qù guò. Qù nián wǒ qù shàng hǎi lǚ yóu, hái zuò chuán guò le hé.",
+      "vi": "Rồi. Năm ngoái tôi đến Thượng Hải du lịch, còn đi thuyền qua sông.",
+      "legacyIds": [
+        "hsk2-lesson-28-dialogue-1",
+        "hsk2-lesson-28-dialogue-2"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-28-dialogue-3",
+      "sourceSectionId": "hsk2-lesson-28-dialogue",
+      "sourceLessonId": "hsk2-lesson-28",
+      "speaker": "A",
+      "hanzi": "你吃过当地的鱼吗？",
+      "pinyin": "Nǐ chī guò dāng dì de yú ma?",
+      "vi": "Bạn đã ăn cá ở địa phương đó chưa?",
+      "legacyIds": [
+        "hsk2-lesson-28-dialogue-3"
+      ],
+      "reviewStatus": "machine-assisted-unreviewed"
+    },
+    {
+      "id": "hsk2-lesson-28-dialogue-4",
+      "sourceSectionId": "hsk2-lesson-28-dialogue",
+      "sourceLessonId": "hsk2-lesson-28",
+      "speaker": "B",
+      "hanzi": "吃过，很好吃。下次我想去北京。",
+      "pinyin": "Chī guò, hěn hǎo chī. Xià cì wǒ xiǎng qù běi jīng.",
+      "vi": "Ăn rồi, rất ngon. Lần sau tôi muốn đến Bắc Kinh.",
+      "legacyIds": [
+        "hsk2-lesson-28-dialogue-4",
+        "hsk2-lesson-28-dialogue-5"
+      ],
       "reviewStatus": "machine-assisted-unreviewed"
     }
   ]

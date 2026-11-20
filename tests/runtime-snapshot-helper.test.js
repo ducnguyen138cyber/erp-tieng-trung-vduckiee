@@ -12,7 +12,7 @@ const {
 test('runtime snapshot executes the app shell bootstrap and inventories its injected assets', () => {
   const snapshot = getRuntimeSnapshot();
   assert.match(snapshot.effectiveHtml, /id="studySidebar"/);
-  assert.match(snapshot.indexSource, /source=source\.replace\("<\/body>"/);
+  assert.match(snapshot.effectiveHtml, /<section class="hero hidden" id="erpHero">/);
   assert.match(snapshot.effectiveHtml, /<script src=".\/assets\/games\/sentence-game\.js/);
   assertAssetLoaded(assert, 'app-shell-v88.html', { snapshot });
   assert.equal(snapshot.assets.some(asset=>asset.includes('/developer/')),false);

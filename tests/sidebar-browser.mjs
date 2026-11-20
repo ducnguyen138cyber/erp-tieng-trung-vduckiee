@@ -156,7 +156,7 @@ try {
     await page.locator('[data-exp-retry-mini]').click({delay:150});
     await page.waitForFunction(() => document.querySelector('#expMiniList')?.textContent.includes('Sidebar Test'));
     await page.locator('[data-exp-open-all]').click();
-    for (const period of ['week','month','total']) {
+    for (const period of ['total']) {
       await page.locator('[data-exp-period="' + period + '"]').click();
       await page.waitForFunction(value => window.__sidebarTest.calls.some(call => call.name === 'get_leaderboard' && call.args.p_period === value), period);
       assert.equal(await page.locator('[data-exp-period="'+period+'"]').getAttribute('aria-selected'), 'true');

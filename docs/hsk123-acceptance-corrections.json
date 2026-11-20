@@ -1,0 +1,1414 @@
+{
+  "baseHead": "13b510afb5094eef8fbcb23587b1d5a4b71814d6",
+  "independentHumanReview": false,
+  "changes": [
+    {
+      "id": "hsk3-lesson-01-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-01-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "grammar-transformation",
+        "prompt": "Viết lại câu theo mẫu “Câu 把 với nơi chốn” để phù hợp mục tiêu “Kể một việc quen thuộc bằng đoạn ngắn có mở đầu, trình tự và kết quả.”.",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+            "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+            "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
+        "difficulty": 3,
+        "topic": "Từ một câu đến một đoạn",
+        "grammarFocus": [
+          "hsk3-grammar-01",
+          "hsk3-grammar-02"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0001",
+          "hsk3-v-0040",
+          "hsk3-v-0076"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "grammar-transformation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "我出门以后才发现忘了笔记本。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-01-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "grammar-transformation",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Câu 把 với nơi chốn”: Tôi đã đặt tài liệu lên bàn. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "我把文件放到桌上了。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 主语 + 把 + 宾语 + 动词 + 到/在 + 处所. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 3,
+        "topic": "Từ một câu đến một đoạn",
+        "grammarFocus": [
+          "hsk3-grammar-01",
+          "hsk3-grammar-02"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0001",
+          "hsk3-v-0040",
+          "hsk3-v-0076"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "grammar-transformation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 3,
+        "stimulus": {
+          "meaningVi": "Tôi đã đặt tài liệu lên bàn.",
+          "targetStructureVi": "主语 + 把 + 宾语 + 动词 + 到/在 + 处所"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-01"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-03-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-03-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Điền cấu trúc “被字句：省略施事” để nối ý trong phát ngôn dưới đây.",
+        "options": [],
+        "answer": "我的包被拿走了。",
+        "acceptedAnswers": [
+          "我的包被拿走了。"
+        ],
+        "explanationVi": "Câu mẫu cho thấy đúng trật tự của 被字句：省略施事.",
+        "difficulty": 3,
+        "topic": "Hiểu lầm xảy ra thế nào",
+        "grammarFocus": [
+          "hsk3-grammar-05",
+          "hsk3-grammar-06"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0027",
+          "hsk3-v-0067",
+          "hsk3-v-0099"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "我以为是在体育馆见面。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-03-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Câu 被 không nêu tác nhân”: Túi của tôi bị lấy đi rồi. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "我的包被拿走了。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 主语 + 被 + 动词 + 其他成分. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 3,
+        "topic": "Hiểu lầm xảy ra thế nào",
+        "grammarFocus": [
+          "hsk3-grammar-05",
+          "hsk3-grammar-06"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0027",
+          "hsk3-v-0067",
+          "hsk3-v-0099"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "meaningVi": "Túi của tôi bị lấy đi rồi.",
+          "targetStructureVi": "主语 + 被 + 动词 + 其他成分"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-05"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-05-exercise-1",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-05-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 班级 trong câu: 班级群里已经发了明天的安排。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 3,
+        "topic": "Ôn tập cũng cần phương pháp",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0008",
+          "hsk3-v-0051",
+          "hsk3-v-0069",
+          "hsk3-v-0127"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-05-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 班级 trong câu: 班级群里已经发了明天的安排。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          },
+          "referenceAnswer": "班级 (bānjí, lớp học) là danh từ. Trong 班级群里, nó bổ nghĩa cho 群 (nhóm của lớp); 里 chỉ nơi chốn. Cả cụm nghĩa là “trong nhóm của lớp”, chỉ nơi đã đăng lịch ngày mai."
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 3,
+        "topic": "Ôn tập cũng cần phương pháp",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0008",
+          "hsk3-v-0051",
+          "hsk3-v-0069",
+          "hsk3-v-0127"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "reason": "Acceptance found a converted usage-explanation rubric with no reference. Supply a contextual Vietnamese explanation, without assigning independent review or automatic correctness.",
+      "references": [
+        "data/hsk/hsk3/exercises.json#hsk3-lesson-05-exercise-1"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-09-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-09-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Điền cấu trúc “A不比B……” để nối ý trong phát ngôn dưới đây.",
+        "options": [],
+        "answer": "坐地铁不比开车慢。",
+        "acceptedAnswers": [
+          "坐地铁不比开车慢。"
+        ],
+        "explanationVi": "Câu mẫu cho thấy đúng trật tự của A不比B…….",
+        "difficulty": 3,
+        "topic": "Nhiệm vụ gặp vấn đề",
+        "grammarFocus": [
+          "hsk3-grammar-15"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0028",
+          "hsk3-v-0061",
+          "hsk3-v-0102"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "你检查过邮箱了吗？",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-09-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Phủ định chênh lệch”: Đi tàu điện không chậm hơn lái xe. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "坐地铁不比开车慢。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc A + 不比 + B + 形容词. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 3,
+        "topic": "Nhiệm vụ gặp vấn đề",
+        "grammarFocus": [
+          "hsk3-grammar-15"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0028",
+          "hsk3-v-0061",
+          "hsk3-v-0102"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "meaningVi": "Đi tàu điện không chậm hơn lái xe.",
+          "targetStructureVi": "A + 不比 + B + 形容词"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-15"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-11-exercise-1",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-11-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 北方 trong câu: 北方的冬天一般比南方冷。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 3,
+        "topic": "Hộ chiếu và hành lý thất lạc",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0018",
+          "hsk3-v-0053",
+          "hsk3-v-0088",
+          "hsk3-v-0122"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-11-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 北方 trong câu: 北方的冬天一般比南方冷。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          },
+          "referenceAnswer": "北方 (běifāng, miền Bắc) là danh từ chỉ khu vực. 北方的冬天 là “mùa đông ở miền Bắc”; 的 nối phần bổ nghĩa 北方 với 冬天. Cả câu so sánh mùa đông miền Bắc thường lạnh hơn miền Nam."
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 3,
+        "topic": "Hộ chiếu và hành lý thất lạc",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0018",
+          "hsk3-v-0053",
+          "hsk3-v-0088",
+          "hsk3-v-0122"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "reason": "Acceptance found a converted usage-explanation rubric with no reference. Supply a contextual Vietnamese explanation, without assigning independent review or automatic correctness.",
+      "references": [
+        "data/hsk/hsk3/exercises.json#hsk3-lesson-11-exercise-1"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-15-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-15-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Điền cấu trúc “如果……就……” để nối ý trong phát ngôn dưới đây.",
+        "options": [],
+        "answer": "如果下雨，我们就去图书馆。",
+        "acceptedAnswers": [
+          "如果下雨，我们就去图书馆。"
+        ],
+        "explanationVi": "Câu mẫu cho thấy đúng trật tự của 如果……就…….",
+        "difficulty": 4,
+        "topic": "Dọn nhà mới sạch sẽ",
+        "grammarFocus": [
+          "hsk3-grammar-21"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0009",
+          "hsk3-v-0070",
+          "hsk3-v-0094"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "我把箱子搬进屋子，你去擦冰箱吧。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-15-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Nếu… thì…”: Nếu mưa, chúng tôi sẽ đi thư viện. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "如果下雨，我们就去图书馆。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 如果 + 条件，就 + 结果. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 4,
+        "topic": "Dọn nhà mới sạch sẽ",
+        "grammarFocus": [
+          "hsk3-grammar-21"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0009",
+          "hsk3-v-0070",
+          "hsk3-v-0094"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "meaningVi": "Nếu mưa, chúng tôi sẽ đi thư viện.",
+          "targetStructureVi": "如果 + 条件，就 + 结果"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-21"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-17-exercise-1",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-17-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 被 trong câu: 我的行李被工作人员送到了服务台。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 4,
+        "topic": "Tập luyện quý ở kiên trì",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0019",
+          "hsk3-v-0054",
+          "hsk3-v-0090",
+          "hsk3-v-0112"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-17-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 被 trong câu: 我的行李被工作人员送到了服务台。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          },
+          "referenceAnswer": "被 (bèi) đánh dấu câu bị động: 我的行李 là vật được chuyển, 工作人员 là người thực hiện, 送到了服务台 là hành động và đích đến. Nghĩa: Hành lý của tôi đã được nhân viên đưa tới quầy dịch vụ."
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 4,
+        "topic": "Tập luyện quý ở kiên trì",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0019",
+          "hsk3-v-0054",
+          "hsk3-v-0090",
+          "hsk3-v-0112"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "reason": "Acceptance found a converted usage-explanation rubric with no reference. Supply a contextual Vietnamese explanation, without assigning independent review or automatic correctness.",
+      "references": [
+        "data/hsk/hsk3/exercises.json#hsk3-lesson-17-exercise-1"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-19-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-19-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "grammar-transformation",
+        "prompt": "Viết lại câu theo mẫu “Trình tự trước–sau” để phù hợp mục tiêu “Diễn đạt suy đoán và hỏi lại mà không kết luận vội.”.",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+            "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+            "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
+        "difficulty": 4,
+        "topic": "Một tin nhắn chưa trả lời",
+        "grammarFocus": [
+          "hsk3-grammar-25"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0003",
+          "hsk3-v-0046",
+          "hsk3-v-0081"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "grammar-transformation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "她可能没看到，别先觉得她生气了。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-19-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "grammar-transformation",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Trình tự trước–sau”: Trước hết xác nhận số, sau đó mới thanh toán. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "先确认号码，然后再付款。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 先 + V1，再/然后 + V2. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 4,
+        "topic": "Một tin nhắn chưa trả lời",
+        "grammarFocus": [
+          "hsk3-grammar-25"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0003",
+          "hsk3-v-0046",
+          "hsk3-v-0081"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "grammar-transformation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 3,
+        "stimulus": {
+          "meaningVi": "Trước hết xác nhận số, sau đó mới thanh toán.",
+          "targetStructureVi": "先 + V1，再/然后 + V2"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-25"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-21-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-21-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Điền cấu trúc “又……又……” để nối ý trong phát ngôn dưới đây.",
+        "options": [],
+        "answer": "这间房又安静又干净。",
+        "acceptedAnswers": [
+          "这间房又安静又干净。"
+        ],
+        "explanationVi": "Câu mẫu cho thấy đúng trật tự của 又……又…….",
+        "difficulty": 4,
+        "topic": "Lời mời cũng có thể từ chối",
+        "grammarFocus": [
+          "hsk3-grammar-27"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0032",
+          "hsk3-v-0072",
+          "hsk3-v-0104"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "谢谢你邀请，可是我下午要上课，可能来不了。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-21-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Vừa… vừa… về đặc điểm”: Phòng này vừa yên tĩnh vừa sạch. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "这间房又安静又干净。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 又 + 形容词1 + 又 + 形容词2. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 4,
+        "topic": "Lời mời cũng có thể từ chối",
+        "grammarFocus": [
+          "hsk3-grammar-27"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0032",
+          "hsk3-v-0072",
+          "hsk3-v-0104"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "meaningVi": "Phòng này vừa yên tĩnh vừa sạch.",
+          "targetStructureVi": "又 + 形容词1 + 又 + 形容词2"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-27"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-23-exercise-1",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-23-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 比如 trong câu: 周末可以做户外运动，比如骑自行车。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 4,
+        "topic": "Đơn giao đồ ăn bị sai",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0023",
+          "hsk3-v-0056",
+          "hsk3-v-0093",
+          "hsk3-v-0132"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-23-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 比如 trong câu: 周末可以做户外运动，比如骑自行车。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          },
+          "referenceAnswer": "比如 (bǐrú, ví dụ như) đưa ví dụ cụ thể cho 户外运动 (hoạt động ngoài trời). 骑自行车 là một ví dụ, không phải danh sách đầy đủ. Nghĩa: Cuối tuần có thể vận động ngoài trời, ví dụ như đạp xe."
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 4,
+        "topic": "Đơn giao đồ ăn bị sai",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0023",
+          "hsk3-v-0056",
+          "hsk3-v-0093",
+          "hsk3-v-0132"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "reason": "Acceptance found a converted usage-explanation rubric with no reference. Supply a contextual Vietnamese explanation, without assigning independent review or automatic correctness.",
+      "references": [
+        "data/hsk/hsk3/exercises.json#hsk3-lesson-23-exercise-1"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-27-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-27-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Điền cấu trúc “在……上/下/中” để nối ý trong phát ngôn dưới đây.",
+        "options": [],
+        "answer": "他在发音上进步很大。",
+        "acceptedAnswers": [
+          "他在发音上进步很大。"
+        ],
+        "explanationVi": "Câu mẫu cho thấy đúng trật tự của 在……上/下/中.",
+        "difficulty": 5,
+        "topic": "Cuối cùng cũng hoàn thành",
+        "grammarFocus": [
+          "hsk3-grammar-33"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0029",
+          "hsk3-v-0073",
+          "hsk3-v-0106"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "是啊，刚开始连题目都决定不了。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-27-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Trong phương diện/phạm vi”: Anh ấy tiến bộ nhiều về phát âm. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "他在发音上进步很大。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 在 + 名词 + 上/下/中. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 5,
+        "topic": "Cuối cùng cũng hoàn thành",
+        "grammarFocus": [
+          "hsk3-grammar-33"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0029",
+          "hsk3-v-0073",
+          "hsk3-v-0106"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "meaningVi": "Anh ấy tiến bộ nhiều về phát âm.",
+          "targetStructureVi": "在 + 名词 + 上/下/中"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-33"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-29-exercise-1",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-29-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 比赛 trong câu: 明天下午我们班有一场篮球比赛。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 5,
+        "topic": "Tặng gì vào dịp lễ",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0024",
+          "hsk3-v-0063",
+          "hsk3-v-0096",
+          "hsk3-v-0135"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-29-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 比赛 trong câu: 明天下午我们班有一场篮球比赛。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          },
+          "referenceAnswer": "比赛 (bǐsài) là danh từ “trận/cuộc thi” trong 一场篮球比赛. 场 là lượng từ của trận đấu; 篮球 bổ nghĩa cho 比赛. 我们班有… nói lớp có một trận bóng rổ vào chiều mai."
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 5,
+        "topic": "Tặng gì vào dịp lễ",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0024",
+          "hsk3-v-0063",
+          "hsk3-v-0096",
+          "hsk3-v-0135"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "reason": "Acceptance found a converted usage-explanation rubric with no reference. Supply a contextual Vietnamese explanation, without assigning independent review or automatic correctness.",
+      "references": [
+        "data/hsk/hsk3/exercises.json#hsk3-lesson-29-exercise-1"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-33-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-33-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Điền cấu trúc “存现句：出现” để nối ý trong phát ngôn dưới đây.",
+        "options": [],
+        "answer": "门口来了一位客人。",
+        "acceptedAnswers": [
+          "门口来了一位客人。"
+        ],
+        "explanationVi": "Câu mẫu cho thấy đúng trật tự của 存现句：出现.",
+        "difficulty": 5,
+        "topic": "Chọn cách đi lại xanh",
+        "grammarFocus": [
+          "hsk3-grammar-39"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0038",
+          "hsk3-v-0068",
+          "hsk3-v-0101"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "公司离家不远，我改骑自行车。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-33-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "connector-cloze",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Câu tồn hiện: xuất hiện”: Ở cửa có một vị khách đến. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "门口来了一位客人。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 处所 + 动词 + 了 + 数量 + 人/物. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 5,
+        "topic": "Chọn cách đi lại xanh",
+        "grammarFocus": [
+          "hsk3-grammar-39"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0038",
+          "hsk3-v-0068",
+          "hsk3-v-0101"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "connector-cloze-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "meaningVi": "Ở cửa có một vị khách đến.",
+          "targetStructureVi": "处所 + 动词 + 了 + 数量 + 人/物"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-39"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-35-exercise-1",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-35-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 变 trong câu: 天突然变冷了，你多穿一件衣服吧。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 5,
+        "topic": "Phỏng vấn người quanh mình",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0026",
+          "hsk3-v-0060",
+          "hsk3-v-0098",
+          "hsk3-v-0137"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-35-exercise-1",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "vocabulary",
+        "format": "usage-explanation",
+        "prompt": "Giải thích ngắn vị trí và cách dùng 变 trong câu: 天突然变冷了，你多穿一件衣服吧。",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đủ ý của yêu cầu và bối cảnh; chấp nhận cách diễn đạt tương đương.",
+            "language": "Giải thích chức năng và vị trí trong câu được hỏi; không chấm bằng mẹo lượng từ hoặc nhãn từ loại.",
+            "review": "Tự đối chiếu; chưa có người kiểm duyệt độc lập, không chấm đúng/sai hoặc tính nắm vững."
+          },
+          "referenceAnswer": "变 (biàn, trở nên/thay đổi) là động từ trong 变冷: chuyển sang trạng thái lạnh. 突然 chỉ sự đột ngột, 了 báo thay đổi đã xảy ra. Nghĩa: Trời đột nhiên lạnh đi, bạn mặc thêm một áo nhé."
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Tự đối chiếu ý nghĩa, bằng chứng và cấu trúc theo tiêu chí. Câu tham khảo không phải đáp án duy nhất; bài này không được chấm tự động.",
+        "difficulty": 5,
+        "topic": "Phỏng vấn người quanh mình",
+        "grammarFocus": [],
+        "vocabularyFocus": [
+          "hsk3-v-0026",
+          "hsk3-v-0060",
+          "hsk3-v-0098",
+          "hsk3-v-0137"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "usage-explanation-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2
+      },
+      "reason": "Acceptance found a converted usage-explanation rubric with no reference. Supply a contextual Vietnamese explanation, without assigning independent review or automatic correctness.",
+      "references": [
+        "data/hsk/hsk3/exercises.json#hsk3-lesson-35-exercise-1"
+      ]
+    },
+    {
+      "id": "hsk3-lesson-36-exercise-2",
+      "before": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-36-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "controlled-rewrite",
+        "prompt": "Viết một cách diễn đạt khác cho phát ngôn dưới đây bằng “Lặp động từ khi có tân ngữ và bổ ngữ”, giữ nguyên ý chính.",
+        "options": [],
+        "answer": {
+          "rubric": {
+            "meaning": "Giữ đúng ý và ngữ cảnh của nhiệm vụ.",
+            "language": "Nhờ giáo viên đối chiếu cách dùng từ và cấu trúc; không chỉ so với một câu mẫu.",
+            "review": "Câu này đang chờ kiểm duyệt chuyên môn, không tính điểm đúng/sai hoặc nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đây là nhiệm vụ có nhiều cách diễn đạt. Đáp án mẫu trước đây không đủ để chấm chính xác; hãy ghi phương án hoặc thắc mắc và nhờ giáo viên đối chiếu. Hoàn thành tự đối chiếu vẫn được tính đã học, không phải đã nắm vững.",
+        "difficulty": 5,
+        "topic": "Tác phẩm HSK3 của tôi",
+        "grammarFocus": [
+          "hsk3-grammar-42"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0039",
+          "hsk3-v-0075",
+          "hsk3-v-0110"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "controlled-rewrite-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 2,
+        "stimulus": {
+          "sourceZh": "我想讲搬家以后生活习惯的变化。",
+          "instructionVi": "Giữ nguyên ý chính nhưng dùng cấu trúc trọng tâm."
+        }
+      },
+      "after": {
+        "recordType": "exercise",
+        "id": "hsk3-lesson-36-exercise-2",
+        "syllabusVersion": "GF0025-2021",
+        "hskLevel": 3,
+        "skill": "grammar",
+        "format": "controlled-rewrite",
+        "prompt": "Diễn đạt ý sau bằng cấu trúc “Lặp động từ khi có tân ngữ và bổ ngữ”: Tôi học tiếng Trung được hai năm. Có thể dùng cách diễn đạt khác nếu giữ đúng ý và cấu trúc.",
+        "options": [],
+        "answer": {
+          "referenceAnswer": "我学汉语学了两年。",
+          "rubric": {
+            "meaning": "Giữ đủ ý tiếng Việt của yêu cầu.",
+            "language": "Dùng cấu trúc 主语 + 动词 + 宾语 + 动词 + 补语. Đối chiếu ví dụ trong phần ngữ pháp; không cần chép đúng từng chữ.",
+            "review": "Đang chờ kiểm duyệt độc lập. Tự đối chiếu, chưa được chấm đúng/sai hay xác nhận nắm vững."
+          }
+        },
+        "acceptedAnswers": [
+          "rubric-self-check"
+        ],
+        "explanationVi": "Đáp án tham khảo minh họa cấu trúc trong yêu cầu; có thể có cách diễn đạt khác. Bài mở này không chấm tự động.",
+        "difficulty": 5,
+        "topic": "Tác phẩm HSK3 của tôi",
+        "grammarFocus": [
+          "hsk3-grammar-42"
+        ],
+        "vocabularyFocus": [
+          "hsk3-v-0039",
+          "hsk3-v-0075",
+          "hsk3-v-0110"
+        ],
+        "cognitiveSkill": "application",
+        "templateFamily": "controlled-rewrite-c4-authored",
+        "reviewMetadata": null,
+        "sourceIds": [
+          "cti-hsk3-current-syllabus-2026",
+          "vduckie-hsk3-c4-original"
+        ],
+        "contentStatus": "machine-assisted",
+        "translationReviewStatus": "machine-assisted",
+        "reviewStatus": "unreviewed",
+        "contentVersion": 3,
+        "stimulus": {
+          "meaningVi": "Tôi học tiếng Trung được hai năm.",
+          "targetStructureVi": "主语 + 动词 + 宾语 + 动词 + 补语"
+        }
+      },
+      "reason": "Acceptance found the surviving prompt/source did not express the grammar example meaning. Align the task to its existing grammar example, expose a reference only after submission, and self-review rather than exact-string grade.",
+      "references": [
+        "data/hsk/hsk3/grammar.json#hsk3-grammar-42"
+      ]
+    }
+  ]
+}

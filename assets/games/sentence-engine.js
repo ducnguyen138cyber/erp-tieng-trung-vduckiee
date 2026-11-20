@@ -16,4 +16,12 @@ Round.prototype.result=function(){return {score:this.score,completed:this.comple
 // Choose a curated alternative only from the accepted prefix. Never expose hidden letters.
 Round.prototype.mask=function(){var input=this.input,answer=(this.solved?this.answer:null)||this.current().answers.find(function(a){return T.normalize(a.pinyin).indexOf(input)===0;})||this.current().answers[0];return mask(answer,input);};
 function mask(answer,input){var cursor=0,groups=answer.pinyin.trim().split(/\s+/).map(function(syllable){return Array.from(T.normalize(syllable)).map(function(char){var index=cursor++;return {index:index,text:index<input.length?char:'*',done:index<input.length,active:index===input.length};});});var end=answer.hanzi.match(/[。！？!?]+$/);return {groups:groups,total:cursor,typed:input.length,punctuation:end?end[0].replace(/。/g,'.').replace(/！/g,'!').replace(/？/g,'?'):''};}
-return {Round:Round,mask:mask};});
+function pick(sentences,count,history,random){
+ var seen=new Map();(history||[]).forEach(function(id,i){seen.set(id,i+1);});var list=sentences.slice(),rnd=random||Math.random;
+ for(var i=list.length-1;i>0;i--){var j=Math.floor(rnd()*(i+1)),tmp=list[i];list[i]=list[j];list[j]=tmp;}
+ list.sort(function(a,b){return (seen.get(a.id)||0)-(seen.get(b.id)||0);});var selected=[],families=new Set(),ids=new Set();
+ while(list.length&&selected.length<count){var age=seen.get(list[0].id)||0,index=list.findIndex(function(s){return (seen.get(s.id)||0)===age&&!families.has(s.family||s.id);});if(index<0)index=0;var s=list.splice(index,1)[0];if(ids.has(s.id))continue;selected.push(s);ids.add(s.id);families.add(s.family||s.id);}
+ return selected;
+}
+function remember(history,id){return (history||[]).filter(function(x){return typeof x==='string'&&x!==id;}).concat(id).slice(-20000);}
+return {Round:Round,mask:mask,pick:pick,remember:remember};});

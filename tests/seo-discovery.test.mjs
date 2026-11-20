@@ -22,6 +22,11 @@ test("the public entry and JS shell have matching search metadata", () => {
     assert.match(html, /<meta property="og:site_name" content="VDuckie">/);
     assert.match(html, /<link rel="icon" type="image\/png"[^>]+duckie-reader-icon-192\.png/);
     assert.equal(json.url, home);
+    assert.equal(json["@id"], home + "#website");
+    assert.equal(json.publisher.name, "VDuckie");
+    assert.equal(json.publisher.url, home);
+    assert.equal(json.publisher.logo.url, home + "assets/mascot/duckie-reader-icon-512.png");
+    assert.match(html, /sizes="192x192"[^>]+duckie-reader-icon-192\.png/);
     const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)];
     for (const [, attrs, code] of scripts) {
       if (/\btype=["']application\/ld\+json["']/i.test(attrs)) continue;
@@ -35,4 +40,61 @@ test("crawler rules and sitemap expose the canonical VDuckie URL", () => {
   assert.match(read("robots.txt"), /Sitemap: https:\/\/vduckie\.pages\.dev\/sitemap\.xml/);
   assert.match(read("sitemap.xml"), /<loc>https:\/\/vduckie\.pages\.dev\/<\/loc>/);
   assert.doesNotMatch(read("sitemap.xml"), /[a-z0-9]{8}\.vduckie\.pages\.dev/);
+});
+
+
+test("static study guides are discoverable and have distinct canonical metadata", () => {
+  const sitemap = read("sitemap.xml");
+  const pages = ["hoc-tieng-trung-hsk", "luyen-go-pinyin", "luyen-nghe-shadowing", "gioi-thieu", "tieng-trung-cong-xuong"];
+  const titles = new Set();
+  for (const slug of pages) {
+    const source = read(slug + "/index.html"), canonical = home + slug + "/";
+    for (const entry of ["index.html", "app-shell-v88.html"]) {
+      assert.ok(read(entry).includes('href="./' + slug + '/"'), "Missing discovery link in " + entry);
+    }
+    assert.ok(sitemap.includes("<loc>" + canonical + "</loc>"));
+    assert.ok(source.includes('<link rel="canonical" href="' + canonical + '">'));
+    assert.match(source, /<html lang="vi">/);
+    assert.match(source, /<h1>[^<]{25,}<\/h1>/);
+    assert.doesNotMatch(source, /<script[^>]+src=/, "guide content must not depend on app scripts");
+    const title = source.match(/<title>(.*?)<\/title>/)[1];
+    assert.equal(titles.has(title), false, "duplicate page title"); titles.add(title);
+    const ld = JSON.parse(source.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+    assert.equal(ld.url, canonical); assert.equal(ld.name, title); assert.equal(ld["@type"], slug === "gioi-thieu" ? "AboutPage" : "WebPage");
+    assert.equal(ld.isPartOf.name, "VDuckie");
+    assert.ok(source.includes('href="../gioi-thieu/"'));
+    assert.ok(source.includes('href="../tieng-trung-cong-xuong/"'));
+    for (const [, href] of source.matchAll(/href="([^"#]+)"/g)) {
+      const url = new URL(href.replaceAll("&amp;", "&"), canonical);
+      if (url.origin !== new URL(home).origin) continue;
+      const file = url.pathname.endsWith("/") ? url.pathname + "index.html" : url.pathname;
+      assert.ok(fs.existsSync("." + file), "broken public guide link: " + href);
+    }
+  }
+  assert.equal([...sitemap.matchAll(/<loc>/g)].length, 6);
+  assert.doesNotMatch(sitemap, /\?screen=|\.html<|[a-z0-9]{8}\.vduckie\.pages\.dev/);
+});
+
+test("a failed app shell keeps the static introduction and reports failure after DOM ready", async () => {
+  const source = read("index.html");
+  const bootstrap = [...source.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)].find(([, , code]) => code.includes("restoreStaticVDuckie"))[2];
+  for (const readyState of ["loading", "complete"]) {
+    const status = {textContent: "Đang mở VDuckie…"}, events = [];
+    const document = {readyState, getElementById: id => id === "vduckieBootStatus" ? status : null, addEventListener: (name, callback) => events.push({name, callback})};
+    await vm.runInNewContext(bootstrap, {document, fetch: async () => {throw new Error("offline")}, console: {error() {}}});
+    if (readyState === "loading") {assert.equal(events[0].name, "DOMContentLoaded"); events[0].callback();}
+    assert.match(status.textContent, /vẫn có thể đọc/);
+  }
+});
+
+test("new public pages do not require application bundles and use bounded HTML", () => {
+ for(const slug of ["gioi-thieu","tieng-trung-cong-xuong"]) {
+   const html=read(slug+"/index.html");
+   assert.ok(Buffer.byteLength(html)<20*1024);
+   assert.equal([...html.matchAll(/<h1>/g)].length,1);
+   assert.match(html, /<meta property="og:site_name" content="VDuckie">/);
+   assert.match(html, /<meta name="twitter:card" content="summary">/);
+   assert.match(html, /<meta property="og:image" content="https:\/\/vduckie\.pages\.dev\/assets\/mascot\/duckie-reader-icon-512\.png">/);
+ }
+ assert.match(read("tieng-trung-cong-xuong/index.html"), /screen=erp:lessons/);
 });

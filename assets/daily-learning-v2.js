@@ -10,7 +10,9 @@
   var state = load();
   var active = null;
   var writer = null;
-  var navBound = false;
+  var dailyInkPad = null;
+  function clearDailyInk() { if (dailyInkPad) { dailyInkPad.destroy(); dailyInkPad = null; } }
+  var navBound = false, syncOwner=localStorage.getItem("vduckie-learning-profile-active-user-v2")||"";
 
   function emptyState() {
     return { version: 2, assignments: {}, words: {}, msutong: { currentBook: "beginner-1", currentLesson: "b1-u1", completed: {}, lessons: {}, review: {} }, updatedAt: 0 };
@@ -39,7 +41,8 @@
   function mergeRemote(remote) {
     remote = normalize(remote);
     var merged = root.VDuckieCurriculumProgress ? root.VDuckieCurriculumProgress.merge(Object.assign({ updatedAt: state.updatedAt }, state.msutong), Object.assign({ updatedAt: remote.updatedAt }, remote.msutong)) : null;
-    if (remote.updatedAt > state.updatedAt) state = remote;
+    if(root.VDuckieLearningProgressMerge)state=normalize(root.VDuckieLearningProgressMerge.daily(state,remote));
+    else if (remote.updatedAt > state.updatedAt) state = remote;
     if (merged) state.msutong = merged;
     try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (error) {}
     renderToday(); updateDock();
@@ -107,7 +110,11 @@
     return root.matchMedia("(max-width: 980px)").matches || root.matchMedia("(display-mode: standalone)").matches;
   }
 
+  var renderingToday = false;
   function renderToday() {
+    if (renderingToday) return;
+    renderingToday = true;
+    try {
     var hub = document.getElementById("homeHub"); if (!hub) return;
     var existingToday = hub.querySelector(".daily-today");
     if (!isAppLayout()) {
@@ -122,9 +129,13 @@
       '</div><div class="daily-summary"><span class="daily-pill">' + totalMastered() + ' từ công xưởng đã thuộc</span><span class="daily-pill">' + lessonDone + '/' + lessons().length + ' bài giáo trình</span><span class="daily-pill">Tiến độ dùng chung khi đăng nhập</span></div></section>';
     // Never replace #homeHub: the complete home dashboard must remain accessible on phones/PWA.
     // Repaint only the optional daily summary so home links and events survive sync.
-    if (existingToday) existingToday.outerHTML = todayMarkup;
+    if (existingToday && existingToday.__todayMarkup === todayMarkup) return;
+    if (existingToday && existingToday.parentNode) existingToday.outerHTML = todayMarkup;
     else hub.insertAdjacentHTML("afterbegin", todayMarkup);
+    var mounted = hub.querySelector(".daily-today");
+    if (mounted) mounted.__todayMarkup = todayMarkup;
     bindNav(hub);
+    } finally { renderingToday = false; }
   }
   function task(classes, kicker, title, copy, progress, width, action, kind) {
     return '<article class="daily-task ' + classes + '"><span class="daily-task-kicker">' + esc(kicker) + '</span><h2>' + esc(title) + '</h2><p>' + esc(copy) + '</p><div class="daily-task-progress"><span><b>Tiến độ</b><b>' + esc(progress) + '</b></span><div class="daily-bar"><i style="width:' + Math.min(100, width) + '%"></i></div><button class="daily-action" type="button" data-daily-nav="' + kind + '">' + esc(action) + ' →</button></div></article>';
@@ -161,10 +172,12 @@
     else startDaily(kind === "review" || kind === "review-erp");
   }
   function closePanel() {
+    clearDailyInk();
     active = null; writer = null;
     var node = panel(); node.className = "panel daily-panel hidden";
     if (root.ERPAreaNavigation && root.ERPAreaNavigation.home) root.ERPAreaNavigation.home();
     renderToday(); closeMenu();
+    if (root.VDuckieScreenRouter) root.VDuckieScreenRouter.navigate("home");
   }
   function sessionHeader(label, index, total) {
     var percent = total ? Math.round((index + 1) * 100 / total) : 0;
@@ -230,6 +243,7 @@
   }
   function renderDailyStep() {
     if (!active || active.kind !== "daily") return;
+    clearDailyInk();
     var step = active.plan[active.index];
     if (!step) { active.index = active.plan.length - 1; step = active.plan[active.index]; }
     if (step.type === "result") return renderDailyResult();
@@ -240,7 +254,7 @@
       var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [];
       if ((active.charIndex || 0) >= chars.length) active.charIndex = 0;
       var selectedChar = chars[active.charIndex || 0] || chars[0];
-      body = '<div class="writing-focus"><span class="focus-kicker">THỨ TỰ NÉT</span><div class="writing-word-pills">' + chars.map(function (char, index) { return '<button type="button" class="' + (char === selectedChar ? "active" : "") + '" data-writing-char="' + index + '">' + char + '</button>'; }).join("") + '</div><div id="dailyStrokeTarget" class="daily-stroke-target" aria-label="Luyện viết chữ ' + esc(selectedChar) + '"></div><p id="dailyWritingStatus">Xem nét mẫu hoặc tự viết theo trên màn hình.</p><div class="writing-actions"><button type="button" data-writing-replay>▶ Xem viết mẫu</button><button type="button" data-writing-practice>✍ Tự viết</button><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe từ</button></div><small>Phiên bản này hướng dẫn và cho viết theo; chưa chấm hình dáng chữ tự do.</small></div>';
+      body = '<div class="writing-focus"><span class="focus-kicker">THỨ TỰ NÉT</span><div class="writing-word-pills">' + chars.map(function (char, index) { return '<button type="button" class="' + (char === selectedChar ? "active" : "") + '" data-writing-char="' + index + '">' + char + '</button>'; }).join("") + '</div><div class="daily-writing-board ink-active"><div id="dailyStrokeTarget" class="daily-stroke-target" aria-label="Luyện viết chữ ' + esc(selectedChar) + '"></div><canvas id="dailyInkCanvas" class="daily-ink-canvas" aria-label="Viết chữ tự do bằng ngón tay hoặc bút cảm ứng"></canvas></div><p id="dailyWritingStatus">Viết trực tiếp trong ô vuông bằng ngón tay hoặc bút cảm ứng.</p><div class="writing-actions"><button type="button" data-writing-replay>▶ Xem viết mẫu</button><button type="button" data-writing-practice>✍ Tự viết</button><button type="button" data-writing-clear>↺ Xóa nét</button><button type="button" data-writing-guided hidden>Viết theo nét</button><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe từ</button></div><small>Phiên bản này hướng dẫn và cho viết theo; chưa chấm hình dáng chữ tự do.</small></div>';
     } else if (step.type === "phrase") {
       body = '<div class="context-focus"><span class="focus-kicker">KHÔNG HỌC TỪ CÔ LẬP</span><span class="context-source">' + esc(term[0]) + '</span><span class="context-arrow">＋</span><strong>' + esc(ctx.phrase) + '</strong><b>' + esc(reading(ctx.phrase, term[1])) + '</b><p>' + esc(ctx.phraseVi) + '</p><button type="button" class="audio-action" data-speak="' + esc(ctx.phrase) + '">♪ Nghe cụm từ</button></div>';
     } else if (step.type === "sentence") {
@@ -249,7 +263,7 @@
     } else {
       body = renderDailyQuestion(step, term);
     }
-    panel().innerHTML = '<div class="learning-session app-screen">' + sessionHeader(active.review ? "Ôn tập thích ứng" : "5 từ công xưởng", active.index, active.plan.length) + '<main class="learning-step">' + body + '</main>' + sessionNav(canNext, step.type === "intro" ? "Tao đã xem" : "Tiếp") + '</div>';
+    panel().innerHTML = '<div class="learning-session app-screen">' + sessionHeader(active.review ? "Ôn tập thích ứng" : "5 từ công xưởng", active.index, active.plan.length) + '<main class="learning-step">' + body + '</main>' + sessionNav(canNext, "Tiếp") + '</div>';
     bindSessionNavigation(renderDailyStep); bindSpeak();
     if (step.type === "writing") setupDailyWriting(term);
     if (step.type === "quiz" || step.type === "sentence") bindDailyAnswers(step, term);
@@ -273,10 +287,15 @@
   }
   function finishDailyAnswer(correct, skill, term) {
     active.answered = true;
-    var item = meta(wordId(term)), now = Date.now(); item.skills[skill] = item.skills[skill] || { correct: 0, wrong: 0 };
-    if (correct) { active.correct++; item.correct++; item.skills[skill].correct++; if (item.correct >= [0, 3, 6, 9, 12][Math.min(4, item.stage + 1)]) item.stage = Math.min(4, item.stage + 1); }
-    else { active.wrong++; active.weak[wordId(term)] = true; item.wrong++; item.skills[skill].wrong++; item.stage = Math.max(0, item.stage - 1); }
-    item.lastReviewed = now; item.nextReview = now + (correct ? INTERVALS[Math.max(1, item.stage)] * DAY : 10 * 60000); item.updatedAt = now; save();
+    var item = meta(wordId(term)), now = Date.now(), helper=root.VDuckieLearningProgressMerge;
+    if(correct)active.correct++;else{active.wrong++;active.weak[wordId(term)]=true;}
+    if(helper&&helper.dailyWordEvent)state.words[wordId(term)]=helper.dailyWordEvent(item,{id:helper.eventId(),at:now,skill:skill,correct:correct});
+    else{
+      item.skills[skill] = item.skills[skill] || { correct: 0, wrong: 0 };
+      if(correct){item.correct++;item.skills[skill].correct++;if(item.correct>=[0, 3, 6, 9, 12][Math.min(4,item.stage+1)])item.stage=Math.min(4,item.stage+1);}
+      else{item.wrong++;item.skills[skill].wrong++;item.stage=Math.max(0,item.stage-1);}
+      item.lastReviewed=now;item.nextReview=now+(correct?INTERVALS[Math.max(1,item.stage)]*DAY:10 * 60000);item.updatedAt=now;
+    }save();
     var feedback = document.getElementById("dailyFeedback");
     if (feedback) { feedback.className = "daily-feedback " + (correct ? "good" : "bad"); feedback.textContent = correct ? "Đúng. Từ này vẫn sẽ quay lại để nhớ chắc." : "Chưa đúng: " + term[0] + " · " + term[1] + " · " + term[3]; }
     panel().querySelectorAll("[data-answer]").forEach(function (button) { if (button.dataset.answer === term[0]) button.classList.add("correct"); button.disabled = true; });
@@ -294,15 +313,75 @@
     root.fetch("./hanzi-data/" + encodeURIComponent(character) + ".json").then(function (response) { if (!response.ok) throw new Error("missing"); return response.json(); }).then(complete).catch(fail);
   }
   function setupDailyWriting(term) {
-    var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [], selected = chars[active.charIndex || 0] || chars[0], status = document.getElementById("dailyWritingStatus");
-    panel().querySelectorAll("[data-writing-char]").forEach(function (button) { button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); }; });
-    if (!root.HanziWriter || !selected) { if (status) status.textContent = "Chữ này chưa có dữ liệu nét; vẫn có thể nghe và chép vào vở."; return; }
+    var chars = String(term[0]).match(/[\u3400-\u9fff]/g) || [];
+    var selected = chars[active.charIndex || 0] || chars[0];
+    var stage = document.getElementById("dailyStrokeTarget");
+    var status = document.getElementById("dailyWritingStatus");
+    var board = panel().querySelector(".daily-writing-board");
+    var canvas = document.getElementById("dailyInkCanvas");
+    var replay = panel().querySelector("[data-writing-replay]");
+    var practice = panel().querySelector("[data-writing-practice]");
+    var clear = panel().querySelector("[data-writing-clear]");
+    var guided = panel().querySelector("[data-writing-guided]");
+    panel().querySelectorAll("[data-writing-char]").forEach(function (button) {
+      button.onclick = function () { active.charIndex = Number(button.dataset.writingChar); renderDailyStep(); };
+    });
+    dailyInkPad = root.VDuckieDailyFreehand && root.VDuckieDailyFreehand.mount(board, canvas);
+    if (replay) replay.disabled = true;
+    if (clear) clear.onclick = function () {
+      if (dailyInkPad) { dailyInkPad.enable(); dailyInkPad.clear(); }
+      if (status) status.textContent = "Đã xóa nét. Hãy viết lại bằng ngón tay hoặc bút cảm ứng.";
+    };
+    if (practice) practice.onclick = function () {
+      if (dailyInkPad) { dailyInkPad.enable(); dailyInkPad.clear(); }
+      if (status) status.textContent = "Viết tự do trong ô. Phần này không tự chấm hình dáng chữ.";
+    };
+    if (!root.HanziWriter || !selected) {
+      if (status) status.textContent = "Chưa có dữ liệu thứ tự nét; bạn vẫn có thể viết tự do trong ô vuông.";
+      return;
+    }
+    function stillHere() { return stage && document.getElementById("dailyStrokeTarget") === stage; }
+    function noStrokeData() {
+      if (!stillHere()) return;
+      if (status) status.textContent = "Chữ này chưa có dữ liệu thứ tự nét xác minh; bạn vẫn có thể tự viết.";
+      if (replay) replay.disabled = true;
+      if (guided) { guided.hidden = true; guided.disabled = true; }
+    }
     try {
-      writer = root.HanziWriter.create("dailyStrokeTarget", selected, { renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false, strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb", drawingColor: "#2563eb", drawingWidth: 5, charDataLoader: loadCharacterData });
-      var replay = panel().querySelector("[data-writing-replay]"), practice = panel().querySelector("[data-writing-practice]");
-      if (replay) replay.onclick = function () { writer.animateCharacter(); if (status) status.textContent = "Đang chạy thứ tự nét của chữ " + selected + "."; };
-      if (practice) practice.onclick = function () { writer.quiz({ showHintAfterMisses: 2, onComplete: function () { if (status) status.textContent = "Đã viết hết các nét. Hãy viết lại một lần vào vở."; } }); if (status) status.textContent = "Viết theo từng nét trong ô vuông."; };
-    } catch (error) { if (status) status.textContent = "Chữ này chưa có hoạt ảnh nét. Hãy chép lại theo mẫu."; }
+      writer = root.HanziWriter.create("dailyStrokeTarget", selected, {
+        renderer: "svg", width: 244, height: 244, padding: 28, showOutline: true, showCharacter: false,
+        strokeColor: "#111827", outlineColor: "#e2e8f0", highlightColor: "#2563eb",
+        drawingColor: "#2563eb", drawingWidth: 5,
+        charDataLoader: function (char, success, failure) {
+          loadCharacterData(char, function (verified) {
+            if (stillHere()) {
+              if (replay) replay.disabled = false;
+              if (guided) { guided.hidden = false; guided.disabled = false; }
+            }
+            success(verified);
+          }, failure);
+        },
+        onLoadCharDataError: noStrokeData
+      });
+      if (replay) replay.onclick = function () {
+        if (!writer || replay.disabled) return;
+        if (dailyInkPad) dailyInkPad.pause();
+        try {
+          writer.animateCharacter();
+          if (status) status.textContent = "Đang xem thứ tự nét của chữ " + selected + ".";
+        } catch (error) { noStrokeData(); if (dailyInkPad) dailyInkPad.enable(); }
+      };
+      if (guided) guided.onclick = function () {
+        if (!writer || guided.disabled) return;
+        if (dailyInkPad) dailyInkPad.pause();
+        try {
+          writer.quiz({ showHintAfterMisses: 2, onComplete: function () {
+            if (stillHere() && status) status.textContent = "Đã viết theo thứ tự nét có dữ liệu xác minh.";
+          } });
+          if (status) status.textContent = "Viết theo thứ tự nét được hướng dẫn.";
+        } catch (error) { noStrokeData(); if (dailyInkPad) dailyInkPad.enable(); }
+      };
+    } catch (error) { noStrokeData(); }
   }
 
   function renderRoadmap() {
@@ -421,8 +500,18 @@
     if (status) status.textContent = matches.length + " kết quả" + (matches.length > shown.length ? " · đang hiện 50 kết quả đầu" : "");
     results.innerHTML = shown.length ? shown.map(function (record) {
       var term = record.term, isSaved = !!saved[term[0]];
-      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + (term[6] ? '<div class="dictionary-example"><strong>' + esc(term[6]) + '</strong>' + (term[7] ? '<span>' + esc(term[7]) + '</span>' : "") + '</div>' : "") + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
+      return '<article class="dictionary-card"><div class="dictionary-word"><strong>' + esc(term[0]) + '</strong><div><b>' + esc(term[1] || "Chưa có pinyin") + '</b><p>' + esc(term[3] || "Chưa có nghĩa Việt") + '</p></div></div><div class="dictionary-meta"><span>' + esc(term[4] || record.sources.join(" · ") || "Từ điển") + '</span>' + (term[5] ? '<small>' + esc(term[5]) + '</small>' : "") + '</div>' + '<div class="dictionary-example" data-dictionary-example></div>'  + '<div class="dictionary-actions"><button type="button" data-speak="' + esc(term[0]) + '">♪ Nghe</button><button type="button" class="' + (isSaved ? "saved" : "") + '" data-dictionary-save="' + esc(term[0]) + '"' + (isSaved ? " disabled" : "") + '>' + (isSaved ? "✓ Đã lưu" : "+ Sổ từ") + '</button></div></article>';
     }).join("") : '<div class="dictionary-empty"><strong>Không tìm thấy từ phù hợp.</strong><span>Thử chữ Hán, pinyin không dấu hoặc nghĩa tiếng Việt khác.</span></div>';
+    if(root.VDuckieLearningExamples)Array.from(results.querySelectorAll(".dictionary-card")).forEach(function(card,index){
+      var record=shown[index],term=record.term;
+      root.VDuckieLearningExamples.enhance(card.querySelector('[data-dictionary-example]'),term[0],term[6]&&term[7]?{zh:term[6],vi:term[7]}:null,function(entry){
+        if(!record.sources.some(function(source){return /ERP/.test(source);})){
+          term[4]='HSK '+entry.level+' · GF0025-2021';
+          card.querySelector('.dictionary-meta>span').textContent=term[4];
+        }
+        term[6]=entry.example.zh;term[7]=entry.example.vi;
+      });
+    });
     bindSpeak();
     results.querySelectorAll("[data-dictionary-save]").forEach(function (button) { button.onclick = function () { var record = all.find(function (item) { return item.term[0] === button.dataset.dictionarySave; }); if (record) { saveDictionaryWord(record); renderDictionaryResults(document.getElementById("dailyDictionarySearch").value); } }; });
   }
@@ -455,7 +544,7 @@
   function bindLegacyClose() {
     document.querySelectorAll("[data-area],[data-home],[data-view],[data-open-dictionary],#brandHome").forEach(function (button) {
       button.addEventListener("click", function () {
-        active = null;
+        clearDailyInk(); active = null;
         var node = document.getElementById("dailyLearningPanel"); if (node) node.className = "panel daily-panel hidden";
         closeMenu();
       });
@@ -473,6 +562,12 @@
   function init() {
     renderToday(); installDock(); bindNav(document); bindLegacyClose(); updateDock(); networkState();
     root.addEventListener("online", networkState); root.addEventListener("offline", networkState);
+    document.addEventListener("vduckie:account-learning-synced",function(event){
+      var owner=event.detail&&event.detail.userId||'',changedOwner=owner!==syncOwner;syncOwner=owner;
+      state=load();if(changedOwner)active=null;
+      if(changedOwner&&["daily","review-erp"].indexOf(document.body.getAttribute("data-current-area"))>=0)showPanel("daily");
+      renderToday();updateDock();
+    });
     document.addEventListener("vduckie:daily-learning-synced", function (event) { mergeRemote(event.detail); });
     if (root.VDuckieCloud && root.VDuckieCloud.loadDailyLearning) root.VDuckieCloud.loadDailyLearning().then(mergeRemote);
   }

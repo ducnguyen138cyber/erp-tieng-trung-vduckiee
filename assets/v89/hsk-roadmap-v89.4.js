@@ -5,8 +5,6 @@
   var observer = null;
   var scheduled = false;
   var lockedStages = [
-    { level: 5, label: "HSK 5", icon: "伍" },
-    { level: 6, label: "HSK 6", icon: "陆" },
     { level: 7, label: "HSK 7", icon: "柒" },
     { level: 8, label: "HSK 8", icon: "捌" },
     { level: 9, label: "HSK 9", icon: "玖" }
@@ -47,7 +45,7 @@
     var action = isCurrent || Number(percent) > 0 ? 'Tiếp tục học' : 'Học ngay';
     var back = '<span class="hsk-full-flip-back-title">' + escapeHtml(stage.label) + '</span>' +
       '<span class="hsk-full-flip-back-detail">' + escapeHtml(detail) + '</span>' +
-      '<span class="hsk-full-flip-cta">' + (Number(stage.level) >= 5 ? 'Xem lộ trình' : action) + ' →</span>';
+      '<span class="hsk-full-flip-cta">' + action + ' →</span>';
     return '<span class="hsk-full-flip-inner">' +
       '<span class="hsk-full-flip-face hsk-full-flip-front">' + front + '</span>' +
       '<span class="hsk-full-flip-face hsk-full-flip-back">' + back + '</span></span>';
@@ -132,7 +130,7 @@
       event.preventDefault();
       event.stopImmediatePropagation();
       var level = Number(card.getAttribute("data-v865-level"));
-      if (level >= 1 && level <= 4 && root.VDuckieScreenRouter) {
+      if (level >= 1 && level <= 6 && root.VDuckieScreenRouter) {
         root.VDuckieScreenRouter.navigate("hsk-study");
         var runtime = root.VDuckieHskProfessionalRuntime;
         if (runtime && typeof runtime.selectLevel === "function") runtime.selectLevel(level, false);

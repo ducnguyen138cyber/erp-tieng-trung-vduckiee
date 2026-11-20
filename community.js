@@ -2,7 +2,7 @@
   "use strict";
   function loadRuntime(){
     var script=document.createElement("script");
-    script.src="./assets/v62/runtime-v70.2.js?v=no-roast-1";
+    script.src="./assets/v62/runtime-v70.2.js?v=no-roast-ux1";
     script.onload=function(){};
     script.onerror=function(error){
       console.error("Không nạp được v70.2:",error);

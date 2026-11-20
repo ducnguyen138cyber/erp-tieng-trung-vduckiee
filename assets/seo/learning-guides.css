@@ -1,0 +1,19 @@
+:root{color-scheme:light;font-family:"Segoe UI",Arial,"Noto Sans",sans-serif;background:#f5f9ff;color:#16233c}
+*{box-sizing:border-box}body{margin:0;line-height:1.7}a{color:#1859ba;text-underline-offset:3px}
+a:focus-visible{outline:3px solid #ffac3d;outline-offset:4px;border-radius:4px}
+header{background:#fff;border-bottom:1px solid #deebfa}header .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:14px;padding-bottom:14px}
+.brand{display:inline-flex;align-items:center;gap:0;flex-shrink:0;color:#0f172a;font-size:1.2rem;font-weight:800;text-decoration:none}.brand span{color:#2e7cdb}.brand img{object-fit:contain;margin-right:8px}
+nav{display:flex;flex-wrap:wrap;gap:14px}nav a{text-decoration:none;font-weight:600}
+.wrap{max-width:980px;margin:auto;padding:0 24px}.hero{padding:62px 0 44px;background:linear-gradient(125deg,#edf6ff,#fff)}
+.eyebrow{color:#2063b7;text-transform:uppercase;letter-spacing:.09em;font-size:.85rem;font-weight:800}
+h1,h2,h3{line-height:1.25;color:#17345e}h1{font-size:clamp(2rem,5vw,3.1rem);max-width:840px;margin:10px 0 18px}h2{font-size:1.55rem;margin:34px 0 14px}h3{font-size:1.12rem;margin:0 0 8px}p{margin:0 0 16px}
+.lede{font-size:1.12rem;max-width:780px;color:#40516e}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-block;padding:11px 20px;border:1px solid #1d61b7;border-radius:12px;text-decoration:none;font-weight:700;background:#1d61b7;color:#fff}
+.btn.secondary{color:#1d61b7;background:#fff}.content{padding-top:28px;padding-bottom:72px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:18px 0}.card{background:white;border:1px solid #d9e7f7;border-radius:16px;padding:21px}
+.card p:last-child{margin-bottom:0}.note{border-left:4px solid #2b79d0;background:#eef6ff;padding:16px 20px;margin:24px 0;border-radius:0 12px 12px 0}
+ul,ol{padding-left:25px}li{padding-bottom:8px}.example{background:white;border:1px solid #d9e7f7;padding:12px 16px;border-radius:12px}
+footer{background:#edf4fd;border-top:1px solid #d9e7f7;padding:30px 0;color:#41516a;font-size:.95rem}
+footer p:last-child{margin-bottom:0}small{font-size:.85rem}
+.byline{color:#475569;font-size:.9rem}h1,h2,h3{color:#0f172a}.example p:last-child{margin-bottom:0}a,li,p{overflow-wrap:anywhere}
+@media(max-width:640px){header .wrap{align-items:flex-start;flex-direction:column;gap:8px}.wrap{padding-left:18px;padding-right:18px}.hero{padding:37px 0 26px}.cards{grid-template-columns:1fr}h2{font-size:1.4rem}}

@@ -125,17 +125,19 @@
     }
 
     var levels = curriculum && curriculum.levels ? curriculum.levels : {};
-    for (var level = 1; level <= 9; level++) {
+    for (var level = 0; level <= 9; level++) {
       var lessons = Array.isArray(levels[level]) ? levels[level] : [];
       for (var lessonIndex = 0; lessonIndex < lessons.length; lessonIndex++) {
         var lesson = lessons[lessonIndex] || {};
-        var words = Array.isArray(lesson.words) ? lesson.words : [];
+        // Foundation phrases remain searchable after the full HSK1 course replaces
+        // the short starter lessons. They have no claimed official HSK level.
+        var words = level === 0 ? (lesson.practiceWords || []) : (Array.isArray(lesson.words) ? lesson.words : []);
         for (var wordIndex = 0; wordIndex < words.length; wordIndex++) {
           var hskTerm = words[wordIndex] || [];
           var hskRecord = get(hskTerm[0]);
           if (!hskRecord) continue;
           uniquePush(hskRecord.sources, "hsk");
-          uniqueLevelPush(hskRecord.hskLevels, String(level));
+          if (level > 0) uniqueLevelPush(hskRecord.hskLevels, String(level));
           if (!hskRecord.pinyin && hskTerm[1]) hskRecord.pinyin = text(hskTerm[1]);
           uniquePush(hskRecord.meanings.hsk, hskTerm[2]);
           addExample(hskRecord, "hsk", hskTerm[3], hskTerm[4]);

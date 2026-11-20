@@ -91,13 +91,15 @@ test("daily progress still reuses the existing Supabase user_words system row", 
   assert.match(source, /VDuckieCloud\.loadDailyLearning/);
 });
 
-test("mobile dock stays daily-only and respects the safe area", () => {
+test("mobile dock stays daily-only and respects the safe area", async () => {
+  const {publicEntrypoint}=require("./helpers/public-entrypoint.cjs");
+  const live=await publicEntrypoint();
   for (const label of ["Hôm nay", "MSUTONG", "+5", "Ôn tập", "VDuckie"]) assert.ok(source.includes(label), label);
   assert.match(css, /body \.study-sidebar\{position:fixed!important/);
   assert.match(css, /grid-template-columns:repeat\(5,1fr\)/);
   assert.match(css, /env\(safe-area-inset-bottom\)/);
-  assert.match(shell, /assets\/daily-learning-v2\.js\?v=factory2/);
-  assert.match(shell, /assets\/daily-learning-v2\.css\?v=2\.9/);
+  assert.ok(fs.readFileSync("service-worker.js","utf8").includes(JSON.stringify(live.asset("assets/daily-learning-v2.js"))));
+  assert.ok(fs.readFileSync("service-worker.js","utf8").includes(JSON.stringify(live.asset("assets/daily-learning-v2.css"))));
 });
 
 test("desktop browser restores the wide legacy shell while MSUTONG uses the available width", () => {
@@ -111,4 +113,25 @@ test("desktop browser restores the wide legacy shell while MSUTONG uses the avai
   assert.doesNotMatch(css, /#homeHub>:not\(\.daily-today\)\{display:none/);
   assert.doesNotMatch(source, /hub\.innerHTML = .<section class="daily-today/);
   assert.match(source, /hub\.insertAdjacentHTML\("afterbegin", todayMarkup\)/);
+});
+
+test("Daily handwriting works without verified stroke paths and preserves a visible Next control", () => {
+  const helper = read("assets/daily-learning-freehand-v1.js");
+  const chat = read("assets/ai/duckie-chat.css");
+  const worker = read("service-worker.js");
+  assert.match(source, /VDuckieDailyFreehand\.mount/);
+  assert.match(source, /dailyInkCanvas/);
+  assert.match(source, /data-writing-clear/);
+  assert.match(source, /data-writing-guided hidden/);
+  assert.match(source, /chưa có dữ liệu thứ tự nét/);
+  assert.doesNotMatch(source, /\[data-writing-replay\],\[data-writing-practice\]/);
+  assert.match(helper, /pointerdown/);
+  assert.match(helper, /pointermove/);
+  assert.match(helper, /passive: false/);
+  assert.match(chat, /\.daily-panel:not\(\.hidden\) \.learning-session\) \.duckie-chat-launch/);
+  const inkCss = read("assets/daily-handwriting-v1.css");
+  assert.match(inkCss, /\.daily-ink-canvas/);
+  assert.match(inkCss, /touch-action:none!important/);
+  assert.match(shell, /daily-learning-freehand-v1\.js/);
+  assert.match(worker, /daily-learning-freehand-v1\.js/);
 });

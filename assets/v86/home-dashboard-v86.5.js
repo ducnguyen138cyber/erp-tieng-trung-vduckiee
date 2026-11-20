@@ -28,6 +28,7 @@ function navigateHskLevel(level){
 }
 function resumePrimaryHsk(review){
   var progress=root.VDuckieHskStudyJourney, saved=progress?progress.current():{level:1,lessonId:""};
+  if(!review&&!todayFocusData().hasStarted)saved={level:1,lessonId:"hsk1-lesson-01"};
   if(root.VDuckieScreenRouter)root.VDuckieScreenRouter.navigate("hsk-study");
   else navigate("hsk");
   function openWhenReady(attempt){
@@ -85,7 +86,7 @@ function weeklyData(streak){
 function continueData(){
   var journey=root.VDuckieHskStudyJourney;
   if(journey){
-    var sum=journey.summary(),current=sum.current,level=Number(current.level)||1;
+    var sum=journey.summary(),focus=todayFocusData(),current=focus.hasStarted?sum.current:{level:1,lessonId:""},level=Number(current.level)||1;
     return {level:level,title:current.lessonId?"Tiếp tục HSK "+level:"Bắt đầu học HSK 1",
       subtitle:current.lessonId?"Quay lại bài đang học, tiếp tục luyện tập và lưu tiến độ.":"Học từ mới, luyện nghe, làm bài rồi theo dõi tiến độ.",
       done:sum.totalCompleted,reviewDue:sum.due,lessonId:current.lessonId||""};
@@ -105,7 +106,8 @@ function roadmapData(){
     {level:2,label:"HSK 2",icon:"贰",active:true},
     {level:3,label:"HSK 3",icon:"叁",active:true},
     {level:4,label:"HSK 4",icon:"肆",active:true},
-    {level:5,label:"HSK 5–6",icon:"伍",active:false},
+    {level:5,label:"HSK 5",icon:"伍",active:true},
+    {level:6,label:"HSK 6",icon:"陆",active:true},
     {level:7,label:"HSK 7–9",icon:"锁",active:false}
   ];
   return stages.map(function(stage){stage.current=stage.level===current;stage.progress=stage.active?levelProgress(stage.level):{done:0,total:0,percent:0};return stage});
@@ -114,7 +116,7 @@ function roadmapData(){
 function todayFocusData(){
   var journey=root.VDuckieHskStudyJourney,summary=null;
   try{if(journey&&typeof journey.summary==="function")summary=journey.summary()}catch(error){}
-  var now=summary&&summary.current||{},level=Math.max(1,Math.min(4,Number(now.level)||1));
+  var now=summary&&summary.current||{},level=Math.max(1,Math.min(6,Number(now.level)||1));
   var lessonId=text(now.lessonId),due=Math.max(0,Number(summary&&summary.due)||0);
   // The runtime may preselect a lesson on first load. Selection is not learning.
   var lessonEvidence={};
@@ -233,7 +235,7 @@ function render(){
     var home=document.getElementById("homeHub");if(!home)return false;
     var journal=root.VDuckieHskStudyJourney,hero=home.querySelector('.home-welcome-actions .home-primary-action');
     if(journal&&hero){
-      var summary=journal.summary(),started=summary.totalCompleted||summary.studied||Object.keys(journal.lesson(summary.current.lessonId)).length;
+      var summary=journal.summary(),started=todayFocusData().hasStarted;
       hero.textContent=started?'Học tiếp HSK '+summary.current.level+' →':'Bắt đầu học HSK →';
       if(started){hero.removeAttribute('data-daily-nav');hero.setAttribute('data-v865-action','continue');}
       else{hero.removeAttribute('data-v865-action');hero.setAttribute('data-daily-nav','msutong');}
@@ -291,7 +293,7 @@ function bind(){
   document.addEventListener("vduckie:account-learning-synced",function(event){if(accountSyncNeedsRender(event))scheduleRender()});
   ["vduckie:hsk-study-journey-change","vduckie:hsk-progress-synced","vduckie:learning-change","vduckie:adaptive-change","vduckie:retention-change","vduckie:experience-v86-ready"].forEach(function(name){document.addEventListener(name,scheduleRender)});
 }
-function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=86.5";document.head.appendChild(link)}
+function css(){if(document.getElementById("v865HomeDashboardCss"))return;var link=document.createElement("link");link.id="v865HomeDashboardCss";link.rel="stylesheet";link.href="./assets/v86/home-dashboard-v86.5.css?v=home-original1";document.head.appendChild(link)}
 function install(){
   css();bind();
   var tries=0,interval=root.setInterval(function(){tries++;if(render()||tries>55)root.clearInterval(interval)},170);
