@@ -38,6 +38,11 @@ try{
      await menu(selector);await page.locator(target).waitFor({state:'visible'});
      await page.waitForFunction(s=>window.VDuckieScreenRouter.current()===s,screen);
      assert.equal(new URL(page.url()).searchParams.get('screen'),screen);
+     if(screen==='profile'){
+      for(const selector of ['[data-profile-hsk-completed]','[data-profile-hsk-remembered]','[data-profile-hsk-due]'])await page.locator(selector).waitFor({state:'visible'});
+      const evidence=await page.evaluate(()=>window.VDuckieHskStudyJourney.summary());
+      assert.match(await page.locator('[data-profile-hsk-completed]').innerText(),new RegExp('^'+evidence.totalCompleted+' '));
+     }
      const geometry=await page.evaluate(()=>({overflow:document.documentElement.scrollWidth-innerWidth,headings:[...document.querySelectorAll('main h1,main h2')].filter(e=>e.getClientRects().length).map(e=>e.textContent.trim()).slice(0,5)}));
      assert(geometry.overflow<=2,'document horizontal overflow '+JSON.stringify(geometry));
      const content=(await page.locator(target).innerText()).trim();assert(content.length>0,'destination must contain useful content');
