@@ -10,7 +10,8 @@ const read = name => fs.readFileSync(path.join(root, name), "utf8");
 test("Pinyin boot is one request with all 16 original fragments in order", () => {
   const shell = read("app-shell-v88.html");
   const bundle = read("assets/boot/pinyin-parts-boot-v1.js");
-  assert.match(shell, /src="\.\/assets\/boot\/pinyin-parts-boot-v1\.js\?v=1"/);
+  assert.doesNotMatch(shell, /src="\.\/assets\/boot\/pinyin-parts-boot-v1\.js\?v=1"/);
+  assert.match(shell, /src="\.\/pinyin-pro\.loader\.js\?v=background1"/);
   assert.doesNotMatch(shell, /src="\.\/pinyin-data\d+\.js"/);
   assert.equal((bundle.match(/__PINYIN_GZIP_PARTS__\.push/g) || []).length, 16);
   for (let i = 1, offset = -1; i <= 16; ++i) {
@@ -22,6 +23,27 @@ test("Pinyin boot is one request with all 16 original fragments in order", () =>
     offset = next;
   }
   new vm.Script(bundle);
+});
+
+test("home defers the Pinyin bundle but early learning interaction starts it exactly once",async()=>{
+  const loader=read('pinyin-pro.loader.js').split('\n(function () {')[0];
+  function boot(search){
+    const scripts=[],events={},timers=[];
+    const document={readyState:'loading',createElement(){return{}},head:{appendChild(s){scripts.push(s)}},
+      addEventListener(name,fn){events[name]=fn},removeEventListener(name){delete events[name]}};
+    const state=vm.createContext({document,location:{search,hash:''},URLSearchParams,DecompressionStream,Blob,Response,atob,
+      setTimeout(fn){timers.push(fn);return timers.length},clearTimeout(){}});
+    vm.runInContext(loader,state);
+    return {state,scripts,events,timers};
+  }
+  const home=boot('?screen=home');assert.equal(home.scripts.length,0);
+  home.events.DOMContentLoaded();assert.equal(home.timers.length,1);
+  home.events.pointerdown();assert.equal(home.scripts.length,1);assert.equal(home.scripts[0].async,true);
+  home.timers[0]();assert.equal(home.scripts.length,1);
+  vm.runInContext(read('assets/boot/pinyin-parts-boot-v1.js'),home.state);home.scripts[0].onload();
+  assert.equal(await home.state.PinyinEngineReady,true);assert.equal(home.state.pinyinPro.pinyin('你好'),'nǐ hǎo');
+  const direct=boot('?screen=shadowing');assert.equal(direct.scripts.length,1);direct.scripts[0].onerror();assert.equal(await direct.state.PinyinEngineReady,false);
+  const ready=boot('');ready.events['vduckie:experience-v86-ready']();assert.equal(ready.scripts.length,1);ready.scripts[0].onerror();assert.equal(await ready.state.PinyinEngineReady,false);
 });
 
 test("ERP dictionary boot replaces the 15 serial document.write calls", async () => {
