@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v70";
+const CACHE_VERSION = "vduckie-pwa-v71";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -18,7 +18,7 @@ const APP_SHELL = [
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
   "./assets/navigation/screen-router.js?v=hanviet2",
-  "./supabase-sync.js?v=progress-sync1",
+  "./supabase-sync.js?v=auth-shared1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
   "./pwa-register.js?v=3",
@@ -73,7 +73,7 @@ const APP_SHELL = [
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
   "./assets/i18n/interface-i18n-v1.js?v=beta-perf3",
-  "./assets/v90/exp-core-v90.js?v=beta-perf1",
+  "./assets/v90/exp-core-v90.js?v=auth-shared1",
   "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
   "./assets/design-system/mascot-swap-v1.js?v=10",
