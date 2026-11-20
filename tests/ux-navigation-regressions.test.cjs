@@ -1,6 +1,18 @@
 const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),{JSDOM}=require('jsdom');
 const source=p=>fs.readFileSync(p,'utf8');
 function dom(html,url='https://example.invalid/?screen=home'){const d=new JSDOM(html,{url,runScripts:'outside-only'});d.window.requestAnimationFrame=()=>0;d.window.scrollTo=()=>{};return d;}
+test('Shadowing direct route owns the title despite late HSK initialization',async()=>{
+ const d=dom('<title>VDuckie</title><section id="dailyLearningPanel"></section>','https://example.invalid/?screen=shadowing'),w=d.window;
+ try{
+  w.VDuckieDailyLearning={show(){w.document.title='Lộ trình HSK — VDuckie';}};w.VDuckieShadowing={open(){},leave(){}};
+  w.eval(source('assets/navigation/screen-router.js'));
+  await new Promise(r=>w.setTimeout(r,30));
+  assert.equal(w.VDuckieScreenRouter.current(),'shadowing');assert.equal(w.document.title,'Luyện nghe Shadowing — VDuckie');
+  w.document.title='Lộ trình HSK — VDuckie';await new Promise(r=>w.setTimeout(r,0));
+  assert.equal(w.document.title,'Luyện nghe Shadowing — VDuckie');
+  w.VDuckieScreenRouter.navigate('home');await new Promise(r=>w.setTimeout(r,0));assert.notEqual(w.document.title,'Luyện nghe Shadowing — VDuckie');
+ }finally{w.close();}
+});
 test('HSK5 and HSK6 cards activate their own learner on second click',()=>{
  const d=dom('<section id="v865HomeRoadmap"><div class="v865-road-scroll"></div></section>'),w=d.window,calls=[];
  try{

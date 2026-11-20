@@ -41,7 +41,7 @@
   "./assets/developer-ui/developer-center-core.js?v=108.1",
   "./assets/developer-ui/developer-center.js?v=108.1",
   "./assets/developer/developer-control-center.js?v=2b4.0",
-  "./assets/navigation/screen-router.js?v=beta-perf2"
+  "./assets/navigation/screen-router.js?v=shadow-title1"
 ];
   const loading = document.querySelector('[data-app-loading]');
   try {
