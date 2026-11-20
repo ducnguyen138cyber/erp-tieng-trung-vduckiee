@@ -132,7 +132,7 @@ const APP_SHELL = [
   "./assets/v79/unified-dictionary-v79.part4.txt",
   "./assets/v79/unified-dictionary-v79.part5.txt",
   "./vendor/hanzi-writer.min.js",
-  "./pronunciation.js",
+  "./pronunciation.js?v=erp-example1",
   "./supabase-config.js",
   "./supabase-sync.js",
   "./assets/home/vduckie-welcome.webp",
