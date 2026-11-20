@@ -5,6 +5,8 @@
   var KEY="vduckie-ui-language-v1";
   var supported={vi:true,zh:true,en:true};
   var strings={
+    "Giới thiệu VDuckie":["关于 VDuckie","About VDuckie"],
+    "Cẩm nang công xưởng":["工厂汉语指南","Factory Chinese guide"],
     "HƯỚNG DẪN HỌC":["学习指南","STUDY GUIDES"],
     "Lộ trình tự học HSK":["HSK 自学路线","HSK study guide"],
     "Pinyin và luyện gõ":["拼音与打字练习","Pinyin and typing"],
