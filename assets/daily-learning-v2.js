@@ -524,8 +524,16 @@
     renderDictionaryResults("");
   }
 
+  function profileHskMarkup() {
+    var journey=root.VDuckieHskStudyJourney;
+    if(!journey||typeof journey.summary!=="function")return "";
+    var summary=journey.summary();
+    function count(value){value=Number(value);return Number.isFinite(value)?Math.max(0,Math.floor(value)):0;}
+    return '<span class="daily-pill" data-profile-hsk-completed>'+count(summary.totalCompleted)+' bài HSK hoàn thành</span><span class="daily-pill" data-profile-hsk-remembered>'+count(summary.remembered)+' từ đã nhớ</span><span class="daily-pill" data-profile-hsk-due>'+count(summary.due)+' từ cần ôn</span>';
+  }
+  function refreshVisibleProfile(){if(document.body.getAttribute("data-current-area")==="profile")renderProfile();}
   function renderProfile() {
-    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><div><strong>' + totalMastered() + ' từ công xưởng đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary"><span class="daily-pill">Đồng bộ khi đăng nhập</span><span class="daily-pill">Học tiếp trên mọi thiết bị</span></div></div>';
+    panel().innerHTML = '<div class="profile-screen app-screen"><header class="screen-title"><div><span class="focus-kicker">HỒ SƠ HỌC TẬP</span><h1>VDuckie của bạn</h1></div><button type="button" data-session-exit>×</button></header><div class="profile-signature"><img src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="VDuckie"><div><strong>' + totalMastered() + ' từ công xưởng đã thuộc</strong><span>' + Object.keys(state.msutong.completed).length + '/' + lessons().length + ' bài giáo trình hoàn thành</span></div></div><div class="daily-summary">' + profileHskMarkup() + '<span class="daily-pill">Đồng bộ khi đăng nhập</span><span class="daily-pill">Học tiếp trên mọi thiết bị</span></div></div>';
     panel().querySelector("[data-session-exit]").onclick = closePanel;
   }
   function bindSpeak() { panel().querySelectorAll("[data-speak]").forEach(function (button) { button.onclick = function () { speak(button.dataset.speak); }; }); }
@@ -566,9 +574,10 @@
       var owner=event.detail&&event.detail.userId||'',changedOwner=owner!==syncOwner;syncOwner=owner;
       state=load();if(changedOwner)active=null;
       if(changedOwner&&["daily","review-erp"].indexOf(document.body.getAttribute("data-current-area"))>=0)showPanel("daily");
-      renderToday();updateDock();
+      renderToday();updateDock();refreshVisibleProfile();
     });
     document.addEventListener("vduckie:daily-learning-synced", function (event) { mergeRemote(event.detail); });
+    document.addEventListener("vduckie:hsk-study-journey-change",refreshVisibleProfile);
     if (root.VDuckieCloud && root.VDuckieCloud.loadDailyLearning) root.VDuckieCloud.loadDailyLearning().then(mergeRemote);
   }
   root.VDuckieDailyLearning = Object.freeze({ getState: function () { return JSON.parse(JSON.stringify(normalize(state))); }, updateCurriculum: updateCurriculum, mergeRemote: mergeRemote, todayTerms: todayTerms, dueTerms: dueTerms, show: showPanel, msutongLessons: lessons });
