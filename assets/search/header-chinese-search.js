@@ -8,6 +8,9 @@ function pinyinNumber(s){var tones={a:["ā","á","ǎ","à"],e:["ē","é","ě","�
 var cachedTerms=null,cachedMapped=null;
 function source(){var records=root.VDuckieDictionary&&root.VDuckieDictionary.records;if(records&&records.length)return records;var termsData=root.HSK_DICTIONARY_TERMS||[];if(termsData===cachedTerms&&cachedMapped)return cachedMapped;cachedTerms=termsData;cachedMapped=termsData.map(function(t){return {hanzi:t.hanzi,pinyin:t.pinyin,traditional:t.traditional,pos:t.pos,hskLevels:t.levels,meanings:{hsk:t.meanings||[],erp:[]},examples:{hsk:[],erp:[]}}});return cachedMapped}
 function terms(r){var m=r.meanings||{};return [].concat(m.hsk||[],m.erp||[]).filter(function(t){return typeof t==="string"&&!/^LT:/.test(t)})}
+// For characters inside a compound, prefer a lexical gloss to a surname.
+// Keep the full dictionary record and all its senses unchanged.
+function componentMeaning(r){var meanings=terms(r);return meanings.find(function(v){return !/^họ(?:\s|\[|$)/i.test(v.trim())})||meanings[0]||"Chưa có nghĩa riêng";}
 // Cache normalized dictionary rows across consecutive keystrokes.
 var searchMeta=typeof WeakMap==="function"?new WeakMap():null;
 function getSearchMeta(r){
@@ -208,7 +211,7 @@ var old=document.getElementById("vsearchDetail");if(old)old.remove();var modal=d
    node.textContent=generated&&generated.pinyin?generated.pinyin:"Chưa có Pinyin được xác minh";
   });
  }).catch(function(){modal.querySelectorAll("[data-vsearch-example-pinyin]").forEach(function(node){node.textContent="Chưa có Pinyin được xác minh"})});var chars=Array.from(r.hanzi||"").filter(function(ch){return /[\u3400-\u9fff]/.test(ch)});
- if(chars.length>1){var parts=chars.map(function(ch){var match=search(ch).find(function(candidate){return candidate.hanzi===ch});return match?'<span><b>'+esc(ch)+'</b> · '+esc(match.pinyin||"")+' · '+esc(terms(match)[0]||"Chưa có nghĩa riêng")+'</span>':'<span><b>'+esc(ch)+'</b> · Chưa có dữ liệu phân tích riêng</span>'});
+ if(chars.length>1){var parts=chars.map(function(ch){var match=search(ch).find(function(candidate){return candidate.hanzi===ch});return match?'<span><b>'+esc(ch)+'</b> · '+esc(match.pinyin||"")+' · '+esc(componentMeaning(match))+'</span>':'<span><b>'+esc(ch)+'</b> · Chưa có dữ liệu phân tích riêng</span>'});
  var breakdown=document.createElement("div");breakdown.className="vsearch-breakdown";breakdown.innerHTML='<h3>Các chữ cấu thành</h3>'+parts.join("");modal.querySelector(".vsearch-examples").after(breakdown)}
  var closeButton=modal.querySelector("[data-vsearch-close]");bindTouchDismiss(closeButton,function(){closeDetail(false)});closeButton.focus({preventScroll:true})}
 function allResults(){
