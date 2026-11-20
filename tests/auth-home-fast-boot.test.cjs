@@ -10,7 +10,8 @@ const read = name => fs.readFileSync(path.join(root, name), "utf8");
 test("Pinyin boot is one request with all 16 original fragments in order", () => {
   const shell = read("app-shell-v88.html");
   const bundle = read("assets/boot/pinyin-parts-boot-v1.js");
-  assert.match(shell, /src="\.\/assets\/boot\/pinyin-parts-boot-v1\.js\?v=1"/);
+  assert.doesNotMatch(shell, /src="\.\/assets\/boot\/pinyin-parts-boot-v1\.js\?v=1"/);
+  assert.match(shell, /src="\.\/pinyin-pro\.loader\.js\?v=background2"/);
   assert.doesNotMatch(shell, /src="\.\/pinyin-data\d+\.js"/);
   assert.equal((bundle.match(/__PINYIN_GZIP_PARTS__\.push/g) || []).length, 16);
   for (let i = 1, offset = -1; i <= 16; ++i) {
@@ -22,6 +23,27 @@ test("Pinyin boot is one request with all 16 original fragments in order", () =>
     offset = next;
   }
   new vm.Script(bundle);
+});
+
+test("home defers the Pinyin bundle but early learning interaction starts it exactly once",async()=>{
+  const loader=read('pinyin-pro.loader.js').split('\n(function () {')[0];
+  function boot(search){
+    const scripts=[],events={},timers=[];
+    const document={readyState:'loading',createElement(){return{}},head:{appendChild(s){scripts.push(s)}},
+      addEventListener(name,fn){events[name]=fn},removeEventListener(name){delete events[name]}};
+    const state=vm.createContext({document,location:{search,hash:''},URLSearchParams,DecompressionStream,Blob,Response,atob,
+      setTimeout(fn){timers.push(fn);return timers.length},clearTimeout(){}});
+    vm.runInContext(loader,state);
+    return {state,scripts,events,timers};
+  }
+  const home=boot('?screen=home');assert.equal(home.scripts.length,0);
+  home.events.DOMContentLoaded();assert.equal(home.timers.length,1);
+  home.events.pointerdown();assert.equal(home.scripts.length,1);assert.equal(home.scripts[0].async,true);
+  home.timers[0]();assert.equal(home.scripts.length,1);
+  vm.runInContext(read('assets/boot/pinyin-parts-boot-v1.js'),home.state);home.scripts[0].onload();
+  assert.equal(await home.state.PinyinEngineReady,true);assert.equal(home.state.pinyinPro.pinyin('你好'),'nǐ hǎo');
+  const direct=boot('?screen=shadowing');assert.equal(direct.scripts.length,1);direct.scripts[0].onerror();assert.equal(await direct.state.PinyinEngineReady,false);
+  const ready=boot('');ready.events['vduckie:experience-v86-ready']();assert.equal(ready.scripts.length,1);ready.scripts[0].onerror();assert.equal(await ready.state.PinyinEngineReady,false);
 });
 
 test("ERP dictionary boot replaces the 15 serial document.write calls", async () => {
@@ -58,9 +80,25 @@ test("ERP dictionary boot replaces the 15 serial document.write calls", async ()
     globalThis:state,window:state,document:doc,console,Promise
   });
   assert.equal(writes.length, 1);
-  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=3/);
+  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=home1/);
   assert.match(writes[0], /<\/script>/);
   await state.PinyinEngineReady;
+});
+
+test('full HSK dictionary waits for dashboard or user interaction and duplicate loaders do not start it early',()=>{
+ const source=read('assets/v79/hsk-dictionary-v79.js');
+ function boot(search){
+  const calls=[],events={},timers=[];
+  const document={readyState:'complete',addEventListener(n,f){events[n]=f},removeEventListener(n){delete events[n]}};
+  const state={location:{search,hash:''},document,setTimeout(fn,ms){timers.push({fn,ms});return timers.length},clearTimeout(){}};
+  const ctx=vm.createContext({window:state,document,URLSearchParams,fetch(url){calls.push(url);return new Promise(()=>{})}});
+  vm.runInContext(source,ctx);return {ctx,state,calls,events,timers};
+ }
+ const home=boot('?screen=home');assert.equal(home.calls.length,0);assert.equal(home.timers[0].ms,8000);
+ vm.runInContext(source,home.ctx);assert.equal(home.calls.length,0);
+ home.events['vduckie:experience-v86-ready']();assert.equal(home.timers.at(-1).ms,1000);assert.equal(home.calls.length,0);
+ home.events.pointerdown();assert.equal(home.calls.length,1);home.timers.at(-1).fn();assert.equal(home.calls.length,1);
+ const direct=boot('?screen=dictionary');assert.equal(direct.calls.length,1);
 });
 
 test("home experience scripts fetch concurrently but execute in the original order", () => {
@@ -83,6 +121,14 @@ test("home experience scripts fetch concurrently but execute in the original ord
   scripts.at(-1).onload();
   assert.equal(win.__VDUCKIE_EXPERIENCE_V86_READY__,true);
   assert.deepEqual(events,["vduckie:experience-v86-ready"]);
+});
+
+test('home decorative tile images load lazily without delaying the brand image',()=>{
+ const line=read('index.html').split('\n').find(s=>s.includes('source=source.replace(/<img(?='));
+ const html=vm.runInNewContext('var source=input;'+line+';source',{input:read('app-shell-v88.html')});
+ assert.equal((html.match(/loading="lazy" decoding="async" fetchpriority="low"/g)||[]).length,8);
+ assert.match(html,/<img class="brand-logo" src=/);
+ assert.match(html,/<img class="home-welcome-mascot" src=/);
 });
 
 test("login first paint does not wait for profile upsert or leaderboard", () => {

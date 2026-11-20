@@ -3,6 +3,7 @@
 
   var config = window.VDUCKIE_SUPABASE_CONFIG || {};
   var client = null;
+  var sharedClient = null;
   var session = null;
   var sessionGeneration = 0;
   var syncing = false;
@@ -796,14 +797,7 @@
       return;
     }
 
-    client = window.supabase.createClient(config.url, config.publishableKey, {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true,
-        flowType: "implicit"
-      }
-    });
+    client = getSharedClient();
     client.auth.getSession().then(function (current) {
       if (current.error) {
         console.error("Unable to restore Supabase session", current.error);
@@ -819,6 +813,14 @@
     });
   }
 
+  function getSharedClient() {
+    if (!isConfigured() || !window.supabase || typeof window.supabase.createClient !== "function") return null;
+    if (!sharedClient) sharedClient = window.supabase.createClient(config.url, config.publishableKey, {
+      auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "implicit" }
+    });
+    return sharedClient;
+  }
+
   window.VDuckieProgressSyncUtils = {
     progressWordKey: progressWordKey,
     normalize: normalizeProgressSnapshot,
@@ -829,6 +831,7 @@
   };
 
   window.VDuckieCloud = {
+    getClient: getSharedClient,
     sync: synchronize,
     signIn: signIn,
     signOut: signOut,

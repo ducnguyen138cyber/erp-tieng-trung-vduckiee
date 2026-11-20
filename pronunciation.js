@@ -103,12 +103,20 @@
     var details = root.pinyinPro.pinyin(String(hanzi || ""), {
       type: "all",
       toneType: "symbol",
-      nonZh: "removed"
+      nonZh: "consecutive"
     });
     var pinyin = [];
     var nearVietnamese = [];
     for (var i = 0; i < details.length; i++) {
-      if (!details[i].isZh) continue;
+      if (!details[i].isZh) {
+        // Preserve Latin abbreviations, product names and numbers in mixed ERP text.
+        var literal = String(details[i].origin || "").trim();
+        if (/[A-Za-z0-9]/.test(literal)) {
+          pinyin.push(literal);
+          nearVietnamese.push(literal);
+        }
+        continue;
+      }
       pinyin.push(details[i].pinyin);
       nearVietnamese.push(detailToNearVietnamese(details[i]));
     }

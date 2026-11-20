@@ -372,9 +372,8 @@
   <script src="./lite-terms.js?v=74.0"></script>
   <script src="./erp-content-v74.js?v=factory1"></script>
   <script src="./assets/factory/workshop-content.js?v=1"></script>
-  <script src="./assets/boot/pinyin-parts-boot-v1.js?v=1"></script>
-  <script src="./pinyin-pro.loader.js"></script>
-  <script src="./pronunciation.js"></script>
+  <script src="./pinyin-pro.loader.js?v=background2"></script>
+  <script src="./pronunciation.js?v=erp-example1"></script>
   <script>
   (function(){
     var builtinTerms=[
@@ -453,7 +452,8 @@
       }
     };
     function speakText(value){if(!value||!window.speechSynthesis)return;window.speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(value);u.lang="zh-CN";u.rate=speechRate;var voices=window.speechSynthesis.getVoices(),chosen=null;for(var i=0;i<voices.length;i++){if(/google/i.test(voices[i].name)&&/^zh/i.test(voices[i].lang)){chosen=voices[i];break}if(!chosen&&/^zh/i.test(voices[i].lang))chosen=voices[i]}if(chosen)u.voice=chosen;window.speechSynthesis.speak(u)}
-    function renderCard(){var t=daily[cardIndex];$("cardStep").textContent="THẺ "+(cardIndex+1)+" / "+daily.length;$("cardCategory").textContent=t[4];$("cardHanzi").textContent=reverse?t[3]:t[0];$("cardHanzi").className=reverse?"hanzi reverse":"hanzi";$("cardPinyin").textContent=reverse?"":t[1];$("cardNearVi").parentNode.style.display="none";$("cardNearVi").textContent="";$("speakCard").style.display=reverse?"none":"inline-block";$("answerLabel").textContent=reverse?"ĐÁP ÁN TIẾNG TRUNG":"NGHĨA TIẾNG VIỆT";$("cardVi").innerHTML=reverse?esc(t[0])+"<br><small>"+esc(t[1])+"</small>":esc(t[3]);$("cardNote").textContent=t[5]||"";$("cardExample").textContent=t[6]||"";$("cardExampleVi").textContent=t[7]||"";$("speakExample").parentNode.style.display=t[6]?"block":"none";$("cardFront").className=revealed?"card-center hidden":"card-center";$("cardBack").className=revealed?"card-center answer":"card-center answer hidden";$("cardStatus").textContent=known[t[0]]?"✓ Đã nhớ":(revealed?"Đáp án":"Nhấn để lật");var n=0;for(var i=0;i<daily.length;i++)if(known[daily[i][0]])n++;$("doneCount").textContent=n;$("targetCount").textContent=daily.length;$("progressBar").style.width=(daily.length?Math.round(n*100/daily.length):0)+"%";$("moreCards").className=n===daily.length&&daily.length<terms.length?"accent":"accent hidden"}
+    function renderExamplePinyin(value){var node=$("cardExamplePinyin");if(!node){node=document.createElement("span");node.id="cardExamplePinyin";$("cardExample").insertAdjacentElement("afterend",node);}node.textContent="";if(!value)return;Promise.resolve(window.PinyinEngineReady).then(function(){if($("cardExample").textContent!==value)return;var result=window.ERPPronunciation&&window.ERPPronunciation.generate(value);node.textContent=result&&result.pinyin?result.pinyin:"";}).catch(function(){});}
+    function renderCard(){var t=daily[cardIndex];$("cardStep").textContent="THẺ "+(cardIndex+1)+" / "+daily.length;$("cardCategory").textContent=t[4];$("cardHanzi").textContent=reverse?t[3]:t[0];$("cardHanzi").className=reverse?"hanzi reverse":"hanzi";$("cardPinyin").textContent=reverse?"":t[1];$("cardNearVi").parentNode.style.display="none";$("cardNearVi").textContent="";$("speakCard").style.display=reverse?"none":"inline-block";$("answerLabel").textContent=reverse?"ĐÁP ÁN TIẾNG TRUNG":"NGHĨA TIẾNG VIỆT";$("cardVi").innerHTML=reverse?esc(t[0])+"<br><small>"+esc(t[1])+"</small>":esc(t[3]);$("cardNote").textContent=t[5]||"";$("cardExample").textContent=t[6]||"";$("cardExampleVi").textContent=t[7]||"";renderExamplePinyin(t[6]||"");$("speakExample").parentNode.style.display=t[6]?"block":"none";$("cardFront").className=revealed?"card-center hidden":"card-center";$("cardBack").className=revealed?"card-center answer":"card-center answer hidden";$("cardStatus").textContent=known[t[0]]?"✓ Đã nhớ":(revealed?"Đáp án":"Nhấn để lật");var n=0;for(var i=0;i<daily.length;i++)if(known[daily[i][0]])n++;$("doneCount").textContent=n;$("targetCount").textContent=daily.length;$("progressBar").style.width=(daily.length?Math.round(n*100/daily.length):0)+"%";$("moreCards").className=n===daily.length&&daily.length<terms.length?"accent":"accent hidden"}
     function move(n){cardIndex=(cardIndex+n+daily.length)%daily.length;revealed=false;renderCard()}
     $("flashcard").onclick=function(){revealed=!revealed;renderCard()};$("speakCard").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][0])};$("speakExample").onclick=function(e){e.stopPropagation();speakText(daily[cardIndex][6])};$("prevCard").onclick=function(){move(-1)};$("nextCard").onclick=function(){move(1)};$("againCard").onclick=function(){var t=daily[cardIndex];delete known[t[0]];saveKnown();markLearningChange(t[0],"known",t);move(1)};
     $("knowCard").onclick=function(){var t=daily[cardIndex];known[t[0]]=true;saveKnown();markLearningChange(t[0],"known",t);move(1)};
@@ -533,22 +533,22 @@
   <script src="./supabase-config.js?v=71.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.7/dist/umd/supabase.min.js"></script>
     <script src="./assets/v82/learning-progress-merge-v1.js?v=1"></script>
-    <script src="./assets/v82/account-learning-sync-v82.js?v=progress-sync1"></script>
-<script src="./supabase-sync.js?v=82.1"></script>
+    <script src="./assets/v82/account-learning-sync-v82.js?v=account-cache2"></script>
+<script src="./supabase-sync.js?v=auth-shared1"></script>
   <script src="./vendor/hanzi-writer.min.js?v=1"></script>
   <script src="./hsk-lessons.js?v=2b4.2"></script>
   <script src="./dialogue.js?v=factory1"></script>
   <script src="./erp-lessons-v74.js?v=factory1"></script>
-  <script src="./community.js?v=ux-audit1"></script>
+  <script src="./community.js?v=dictionary-home1"></script>
   <script src="./assets/v86/experience-suite-loader-v86.js?v=beta-perf1"></script>
   <script src="./assets/home/home-layout-stability-v87.3.js?v=87.3"></script>
-  <script src="./assets/v79/hsk-dictionary-v79.js?v=79.0"></script>
+  <script src="./assets/v79/hsk-dictionary-v79.js?v=79.0-home1"></script>
   <script src="./assets/v79/unified-dictionary-v79.js?v=79.3"></script>
   <script src="./assets/msutong-hsk1-v2.js?v=2.1"></script>
   <script src="./assets/curriculum/content-v1.js?v=1.0"></script>
   <script src="./assets/curriculum/progress-v1.js?v=1.0"></script>
   <script src="./assets/daily-learning-freehand-v1.js?v=1"></script>
-  <script src="./assets/daily-learning-v2.js?v=ux-audit1"></script>
+  <script src="./assets/daily-learning-v2.js?v=profile-hsk2"></script>
   <script src="./assets/curriculum/workspace-v1.js?v=1.0"></script>
 </body>
 </html>

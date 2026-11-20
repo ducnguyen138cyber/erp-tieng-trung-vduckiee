@@ -17,7 +17,19 @@ test('Daily stylesheet and homepage layout stay approved while learner support e
 });
 test('application shell body keeps every existing block and control from main',()=>{
  const dom=new JSDOM(read('app-shell-v88.html'));
- try{dom.window.document.querySelectorAll('script').forEach(s=>s.remove());assert.equal(hash(dom.window.document.body.innerHTML.replace(/\s+/g,' ').trim()),baseline.shellBodySha256);}finally{dom.window.close();}
+ try{
+  const doc=dom.window.document;
+  doc.querySelectorAll('script').forEach(s=>s.remove());
+  // The two explicitly approved SEO guide links from #138 are additive.
+  // Verify their exact markup, then normalize only those links against the old baseline.
+  for(const [href,label] of [['./gioi-thieu/','Giới thiệu VDuckie'],['./tieng-trung-cong-xuong/','Cẩm nang công xưởng']]){
+   const links=doc.querySelectorAll('.vd-seo-guides > a[href="'+href+'"]');
+   assert.equal(links.length,1);
+   assert.equal(links[0].outerHTML,'<a href="'+href+'">'+label+'</a>');
+   links[0].remove();
+  }
+  assert.equal(hash(doc.body.innerHTML.replace(/\s+/g,' ').trim()),baseline.shellBodySha256);
+ }finally{dom.window.close();}
 });
 function review(){
  const dom=new JSDOM('<div id="hskLesson"></div>',{url:'https://example.test/',runScripts:'outside-only'}),w=dom.window;

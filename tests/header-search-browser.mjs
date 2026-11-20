@@ -10,6 +10,7 @@ try{
   await page.evaluate(()=>{
     window.HSK_DICTIONARY_TERMS=[
       {hanzi:'努力',pinyin:'nǔ lì',meanings:['cố gắng','nỗ lực'],levels:['3']},
+      {hanzi:'力',pinyin:'lì',meanings:['họ [Li4]','sức mạnh','lực'],levels:['3','6']},
       {hanzi:'学习',pinyin:'xué xí',meanings:['học tập'],levels:['1']},
       {hanzi:'你好',pinyin:'nǐ hǎo',meanings:['xin chào'],levels:['1']}
     ];
@@ -26,6 +27,7 @@ try{
   }
   await page.locator('[data-vsearch-result="0"]').click();
   await page.locator('#vsearchTitle').waitFor();
+  assert.match(await page.locator('.vsearch-breakdown').innerText(),/力 · lì · sức mạnh/);
   assert.equal((await page.locator('#vsearchStrokeCanvas').getAttribute('data-real-character')),'努');
   await page.locator('[data-vsearch-next]').click();
   assert.equal((await page.locator('#vsearchStrokeCanvas').getAttribute('data-real-character')),'力');

@@ -120,6 +120,7 @@ async function boot({ configured, signedIn }) {
     window,
     document: {
       readyState: "complete",
+      dispatchEvent() {},
       getElementById(id) { return ids[id] || null; },
       addEventListener(type, listener) { documentListeners[type] = listener; }
     },
@@ -128,11 +129,18 @@ async function boot({ configured, signedIn }) {
     navigator: { onLine: true },
     history: window.history,
     URL,
+    CustomEvent: function () {},
     console,
     setTimeout,
     clearTimeout
   };
   vm.runInNewContext(source, context, { filename: "supabase-sync.js" });
+  if (configured) {
+    assert.equal(window.VDuckieCloud.getClient(), client);
+    assert.equal(window.VDuckieCloud.getClient(), client);
+  }
+  vm.runInNewContext(fs.readFileSync("assets/v90/exp-core-v90.js", "utf8"), context);
+  assert.equal(window.VDuckieEXPCore.client(), configured ? client : null);
   await new Promise((resolve) => setTimeout(resolve, 20));
   return { ids, clientCreates, merged, upserts, documentListeners };
 }
