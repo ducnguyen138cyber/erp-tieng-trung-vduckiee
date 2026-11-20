@@ -16,6 +16,7 @@ const APP_SHELL = [
   "./data/hsk/advanced-cases-v1.json?v=hsk56-1",
   "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
   "./assets/search/learning-examples.js?v=1",
+  "./assets/ai/free-learning-assistant.js?v=source-example1",
   "./assets/vietnamese/entry.js?v=1",
   "./assets/navigation/screen-router.js?v=hanviet2",
   "./supabase-sync.js?v=progress-sync1",
