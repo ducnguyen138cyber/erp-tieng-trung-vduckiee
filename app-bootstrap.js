@@ -13,7 +13,7 @@
   "./assets/developer-ui/developer-center.css?v=108.1"
 ];
   const jsAssets = [
-  "./assets/v90/exp-core-v90.js?v=beta-perf1",
+  "./assets/v90/exp-core-v90.js?v=auth-shared1",
   "./assets/v92/progress-store-v92.js?v=106.1",
   "./assets/v90/exp-board-v90.js?v=beta-perf1",
   "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
@@ -54,7 +54,7 @@
     html = html.replace(/<title>[\s\S]*?<\/title>/i,'<title>VDuckie – Học tiếng Trung</title>');
     html = html.replace(/<link rel="icon" type="image\/png" href="\.\/assets\/vduckie-logo\.png\?v=1">/i,'');
     html = html.replace(/\.\/supabase-config\.js\?v=[^"']+/g,'./supabase-config.js?v=96.0');
-    html = html.replace(/\.\/supabase-sync\.js\?v=[^"']+/g,'./supabase-sync.js?v=96.0');
+    html = html.replace(/\.\/supabase-sync\.js\?v=[^"']+/g,'./supabase-sync.js?v=auth-shared1');
     const headAssets = cssAssets.map(href=>'<link rel="stylesheet" href="'+href+'">').join('');
     const bodyAssets = jsAssets.map(src=>'<script src="'+src+'"></'+'script>').join('');
     html = html.replace('</head>',headAssets+'</head>').replace('</body>',bodyAssets+'</body>');
