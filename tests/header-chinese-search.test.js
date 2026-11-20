@@ -28,3 +28,11 @@ test('legacy HSK enhancement runtime stays syntactically valid',()=>{
  const source=fs.readFileSync('assets/v62/runtime-v70.2.js','utf8');
  new vm.Script(source);
 });
+test('component analysis prioritizes the lexical meaning of 力 without deleting surname data',()=>{
+ const row=JSON.parse(fs.readFileSync('assets/v79/hsk-dictionary/terms-03.json','utf8')).find(r=>r.h==='力');
+ const helpers=code.slice(code.indexOf('function terms(r)'),code.indexOf('// Cache normalized dictionary rows'));
+ const choose=vm.runInNewContext(helpers+';componentMeaning');
+ const meanings={hsk:row.m,erp:[]};
+ assert.equal(choose({meanings}),'sức mạnh');assert.equal(meanings.hsk[0],'họ [Li4]');
+ assert.equal(choose({meanings:{hsk:['họ [Li4]']}}),'họ [Li4]');
+});
