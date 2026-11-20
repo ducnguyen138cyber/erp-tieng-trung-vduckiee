@@ -17,7 +17,7 @@ const APP_SHELL = [
   "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
   "./assets/search/learning-examples.js?v=1",
   "./assets/vietnamese/entry.js?v=1",
-  "./assets/navigation/screen-router.js?v=hanviet2",
+  "./assets/navigation/screen-router.js?v=shadow-title1",
   "./supabase-sync.js?v=progress-sync1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
@@ -36,7 +36,7 @@ const APP_SHELL = [
   "./assets/v86/home-dashboard-v86.5.js?v=ux-audit1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=beta-perf1",
-  "./assets/navigation/screen-router.js?v=hanviet2",
+  "./assets/navigation/screen-router.js?v=shadow-title1",
   "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
 
   "./assets/auth/auth-screen.css?v=6",
