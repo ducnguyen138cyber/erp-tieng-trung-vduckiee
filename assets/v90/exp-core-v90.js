@@ -115,11 +115,8 @@
       /^(sb_publishable_|eyJ)/.test(config.publishableKey || "");
   }
   function createClient() {
-    if (!configured() || !root.supabase || typeof root.supabase.createClient !== "function") return null;
-    return root.supabase.createClient(config.url, config.publishableKey, {
-      auth: { persistSession: true, autoRefreshToken: false, detectSessionInUrl: false, flowType: "implicit" },
-      global: { headers: { "X-Client-Info": "vduckie-exp-v90" } }
-    });
+    if (!configured() || !root.VDuckieCloud || typeof root.VDuckieCloud.getClient !== "function") return null;
+    return root.VDuckieCloud.getClient();
   }
   function notify() {
     listeners.slice().forEach(function (callback) {

@@ -91,6 +91,16 @@ test("daily progress still reuses the existing Supabase user_words system row", 
   assert.match(source, /VDuckieCloud\.loadDailyLearning/);
 });
 
+test('profile shows canonical HSK completion and recall evidence, not an invented progress score',()=>{
+ const vm=require('node:vm');
+ const fn=source.slice(source.indexOf('  function profileHskMarkup()'),source.indexOf('  function refreshVisibleProfile()'));
+ const execute=summary=>vm.runInNewContext(fn+';profileHskMarkup()', {root:summary?{VDuckieHskStudyJourney:{summary:()=>summary}}:{}});
+ assert.equal(execute(null),'');
+ const markup=execute({totalCompleted:2,studied:99,remembered:3,due:4});
+ assert.match(markup,/2 bài HSK hoàn thành/);assert.match(markup,/3 từ đã nhớ/);assert.match(markup,/4 từ cần ôn/);assert.doesNotMatch(markup,/99/);
+ assert.match(execute({totalCompleted:0,remembered:0,due:0}),/0 bài HSK hoàn thành/);
+});
+
 test("mobile dock stays daily-only and respects the safe area", async () => {
   const {publicEntrypoint}=require("./helpers/public-entrypoint.cjs");
   const live=await publicEntrypoint();

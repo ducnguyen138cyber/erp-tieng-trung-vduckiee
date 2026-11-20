@@ -100,6 +100,7 @@ test('EXP startup waits for identity and adjacent same-user auth events coalesce
     supabase:{createClient:()=>({auth:{getSession:()=>new Promise(r=>sessionResolve=r),onAuthStateChange(fn){authChanged=fn}},rpc(){reads++;return new Promise(r=>readResolve=r)}})},
     document:{readyState:'loading',getElementById:()=>null,addEventListener:(type,fn)=>{if(type==='DOMContentLoaded')init=fn},dispatchEvent(){}},
     console,Intl,Date:{now:()=>now},CustomEvent:class{},setTimeout:fn=>fn(),clearTimeout(){}};
+  const sharedClient=sandbox.supabase.createClient();sandbox.VDuckieCloud={getClient:()=>sharedClient};
   sandbox.window=sandbox;vm.runInNewContext(fs.readFileSync(path.join(root,'assets/v90/exp-core-v90.js'),'utf8'),sandbox);
   sandbox.VDuckieEXPCore.onSession(()=>notifications++);assert.equal(notifications,0,'no temporary guest render');
   init();sessionResolve({data:{session:s}});await Promise.resolve();
@@ -135,6 +136,7 @@ test('an EXP award invalidates a pre-award read before refresh subscribers run',
       if(name==='get_my_exp'){reads++;return reads===1?new Promise(r=>oldResolve=r):Promise.resolve({data:153,error:null});}
     }})},document:{readyState:'loading',getElementById:()=>null,addEventListener:(type,fn)=>{if(type==='DOMContentLoaded')init=fn},dispatchEvent(event){if(event.type==='vduckie:exp-updated')fresh=sandbox.VDuckieEXP.getCurrentUserEXP();}},
     console,Intl,CustomEvent:class{constructor(type,options){this.type=type;this.detail=options.detail;}},setTimeout,clearTimeout};
+  const sharedClient=sandbox.supabase.createClient();sandbox.VDuckieCloud={getClient:()=>sharedClient};
   sandbox.window=sandbox;vm.runInNewContext(fs.readFileSync(path.join(root,'assets/v90/exp-core-v90.js'),'utf8'),sandbox);
   init();await Promise.resolve();
   const old=sandbox.VDuckieEXP.getCurrentUserEXP();

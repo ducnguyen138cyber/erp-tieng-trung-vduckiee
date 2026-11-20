@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v70";
+const CACHE_VERSION = "vduckie-pwa-v71";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -16,19 +16,21 @@ const APP_SHELL = [
   "./data/hsk/advanced-cases-v1.json?v=hsk56-1",
   "./assets/curriculum/hsk-roadmap-screen.js?v=hsk56-1",
   "./assets/search/learning-examples.js?v=1",
+  "./assets/ai/free-learning-assistant.js?v=source-example1",
   "./assets/vietnamese/entry.js?v=1",
-  "./assets/navigation/screen-router.js?v=hanviet2",
-  "./supabase-sync.js?v=progress-sync1",
+  "./assets/navigation/screen-router.js?v=shadow-title1",
+  "./supabase-sync.js?v=auth-shared1",
   "./install.html",
   "./assets/pwa/mobile-pwa.css?v=1",
   "./pwa-register.js?v=3",
-  "./community.js?v=ux-audit1",
+  "./community.js?v=dictionary-home1",
   "./assets/v75/home-welcome-v75.1.js?v=factory1",
   "./assets/v90/exp-board-v90.js?v=beta-perf1",
   "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
   "./app-shell-v88.html?v=ux-audit1",
   "./assets/boot/pinyin-parts-boot-v1.js?v=1",
-  "./assets/boot/erp-dictionary-boot-v1.js?v=3",
+  "./pinyin-pro.loader.js?v=background2",
+  "./assets/boot/erp-dictionary-boot-v1.js?v=home1",
   "./erp-content-v74.js?v=factory1",
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
@@ -36,7 +38,7 @@ const APP_SHELL = [
   "./assets/v86/home-dashboard-v86.5.js?v=ux-audit1",
   "./assets/v85/personal-dashboard-v85.js?v=progress-row1",
   "./assets/v86/premium-learning-v86.js?v=beta-perf1",
-  "./assets/navigation/screen-router.js?v=hanviet2",
+  "./assets/navigation/screen-router.js?v=shadow-title1",
   "./assets/v90/home-exp-sidebar-v90.js?v=beta-perf1",
 
   "./assets/auth/auth-screen.css?v=6",
@@ -73,7 +75,7 @@ const APP_SHELL = [
   "./assets/v90/exp-floating-feedback-v91.css?v=1",
   "./assets/i18n/interface-language-menu-v1.css?v=3b1",
   "./assets/i18n/interface-i18n-v1.js?v=beta-perf3",
-  "./assets/v90/exp-core-v90.js?v=beta-perf1",
+  "./assets/v90/exp-core-v90.js?v=auth-shared1",
   "./assets/v89/exp-learning-hooks-v89.js?v=hsk56-1",
   "./assets/v95/mascot-manifest-v95.js?v=two-wings4",
   "./assets/design-system/mascot-swap-v1.js?v=10",
@@ -82,7 +84,7 @@ const APP_SHELL = [
   "./assets/design-system/remaining-interface-polish-20261103.css?v=1",
   "./assets/design-system/hsk-rail-stability-v1.css?v=1",
   "./assets/v82/learning-progress-merge-v1.js?v=1",
-  "./assets/v82/account-learning-sync-v82.js?v=progress-sync1",
+  "./assets/v82/account-learning-sync-v82.js?v=account-cache2",
   "./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1",
   "./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1",
   "./assets/hsk-content/hsk-study-journey-v1.css?v=reliability1",
@@ -99,7 +101,7 @@ const APP_SHELL = [
   "./assets/v95/mascot-manifest-v95.js?v=96.1",
   "./assets/search/header-chinese-search.css?v=ux-audit1",
   "./assets/search/dictionary-expanded.js?v=1",
-  "./assets/search/header-chinese-search.js?v=ux-audit1",
+  "./assets/search/header-chinese-search.js?v=component-meaning1",
   "./assets/search/dictionary-extras.css?v=polish1",
   "./assets/ai/free-learning-assistant.css?v=2",
   "./hsk-lessons.js?v=2b4.2",
@@ -117,13 +119,13 @@ const APP_SHELL = [
   "./assets/daily-learning-v2.css?v=daily-write2",
   "./assets/daily-handwriting-v1.css?v=1",
   "./assets/daily-learning-freehand-v1.js?v=1",
-  "./assets/daily-learning-v2.js?v=ux-audit1",
+  "./assets/daily-learning-v2.js?v=profile-hsk2",
   "./assets/msutong-hsk1-v2.js",
   "./assets/curriculum/content-v1.js",
   "./assets/curriculum/progress-v1.js",
   "./assets/curriculum/workspace-v1.js",
   "./assets/curriculum/workspace-v1.css",
-  "./assets/v79/hsk-dictionary-v79.js",
+  "./assets/v79/hsk-dictionary-v79.js?v=79.0-home1",
   "./assets/v79/unified-dictionary-v79.js",
   "./assets/v79/unified-dictionary-v79.css",
   "./assets/v79/unified-dictionary-v79.part1.txt",
@@ -132,7 +134,7 @@ const APP_SHELL = [
   "./assets/v79/unified-dictionary-v79.part4.txt",
   "./assets/v79/unified-dictionary-v79.part5.txt",
   "./vendor/hanzi-writer.min.js",
-  "./pronunciation.js",
+  "./pronunciation.js?v=erp-example1",
   "./supabase-config.js",
   "./supabase-sync.js",
   "./assets/home/vduckie-welcome.webp",
@@ -261,7 +263,7 @@ self.addEventListener("fetch", (event) => {
 self.addEventListener("message", (event) => {
   if (event.data === "SKIP_WAITING") self.skipWaiting();
   if (event.data === "LEARNING_SHELL_READY") event.waitUntil((async () => {
-    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=progress-sync1","./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1","./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1"];
+    const required=["./index.html","./app-shell-v88.html","./assets/v82/learning-progress-merge-v1.js?v=1","./assets/v82/account-learning-sync-v82.js?v=account-cache2","./assets/hsk-content/hsk-study-journey-v1.js?v=hsk56-1","./assets/hsk-content/hsk-study-flow-v1.js?v=hsk56-1"];
     if ((await Promise.all(required.map(file => caches.match(scoped(file))))).every(Boolean)) {
       const cache=await caches.open(SHELL_CACHE);
       await cache.put(scoped("./.learning-offline-ready-progress-sync1"),new Response("ready"));
