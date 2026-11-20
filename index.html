@@ -44,6 +44,8 @@
         var animatedMascot=/<svg class="home-welcome-mascot vduckie-mascot"[\s\S]*?<\/svg>/;
         // The source shell now contains the new mascot directly; an old SVG is optional.
         source=source.replace(animatedMascot,staticMascot);
+        // Decorative home tiles need not compete with the first interactive screen.
+        source=source.replace(/<img(?=\s+src="\.\/assets\/mascot\/duckie-(?:flashcards|writing|listening|speaking)-2d-v\d+\.webp)/g,'<img loading="lazy" decoding="async" fetchpriority="low"');
         source=source.replace(/<title>[\s\S]*?<\/title>/i,'<title>VDuckie – Tự học tiếng Trung HSK miễn phí</title>');
         source=source.replace(/<link\b(?=[^>]*\brel=["'][^"']*icon[^"']*["'])[^>]*>\s*/gi,"");
         source=source.replace(/vduckie-mascot-v87\.css\?v=[^"']+/g,"vduckie-mascot-v87.css?v=96.0");

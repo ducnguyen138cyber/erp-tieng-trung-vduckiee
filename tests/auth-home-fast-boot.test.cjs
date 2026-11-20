@@ -123,6 +123,14 @@ test("home experience scripts fetch concurrently but execute in the original ord
   assert.deepEqual(events,["vduckie:experience-v86-ready"]);
 });
 
+test('home decorative tile images load lazily without delaying the brand image',()=>{
+ const line=read('index.html').split('\n').find(s=>s.includes('source=source.replace(/<img(?='));
+ const html=vm.runInNewContext('var source=input;'+line+';source',{input:read('app-shell-v88.html')});
+ assert.equal((html.match(/loading="lazy" decoding="async" fetchpriority="low"/g)||[]).length,8);
+ assert.match(html,/<img class="brand-logo" src=/);
+ assert.match(html,/<img class="home-welcome-mascot" src=/);
+});
+
 test("login first paint does not wait for profile upsert or leaderboard", () => {
   const sidebar=read("assets/v90/home-exp-sidebar-v90.js");
   const leaderboard=read("assets/v90/exp-leaderboard-v90.js");
