@@ -5,15 +5,15 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const root=process.cwd(),out='artifacts/seo-guides';
-const guides=['hoc-tieng-trung-hsk','luyen-go-pinyin','luyen-nghe-shadowing'];
+const guides=['hoc-tieng-trung-hsk','luyen-go-pinyin','luyen-nghe-shadowing','gioi-thieu','tieng-trung-cong-xuong'];
 const mime={'.html':'text/html','.css':'text/css','.js':'text/javascript','.json':'application/json','.xml':'application/xml','.png':'image/png','.webp':'image/webp','.svg':'image/svg+xml'};
 const server=createServer(async(req,res)=>{
  const u=new URL(req.url,'http://localhost'),file=path.resolve(root,'.'+decodeURIComponent(u.pathname)+(u.pathname.endsWith('/')?'index.html':''));
  if(!file.startsWith(root+path.sep))return res.writeHead(403).end();
- try{res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'text/plain'}).end(await readFile(file));}catch{res.writeHead(404).end();}
+ try{const data=await readFile(file);res.writeHead(200,{'Content-Type':mime[path.extname(file)]||'text/plain'}).end(data);}catch{res.writeHead(404).end();}
 });
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
-const base=`http://127.0.0.1:${server.address().port}/`,browser=await chromium.launch();
+const base=`http://127.0.0.1:${server.address().port}/`,browser=await chromium.launch(process.env.SEO_CHROMIUM_EXECUTABLE ? {executablePath:process.env.SEO_CHROMIUM_EXECUTABLE} : {});
 await mkdir(out,{recursive:true});
 try{
  for(const width of [1920,390,320]){
@@ -23,15 +23,19 @@ try{
    await page.locator('h1').waitFor();
    assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),'https://vduckie.pages.dev/'+slug+'/');
    assert.equal(await page.locator('article h2').count()>=5,true,'substantive guide content without JS');
-   assert.equal(await page.locator('time[datetime="2026-11-12"]').isVisible(),true);
+   assert.equal(await page.locator('time[datetime]').isVisible(),true);
    assert.equal(await page.locator('script[src]').count(),0);
    assert(await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)<2,'mobile page overflow');
+   const metrics=await page.evaluate(()=>({resources:performance.getEntriesByType('resource').map(r=>({name:r.name,size:r.transferSize})),domContentLoaded:performance.getEntriesByType('navigation')[0].domContentLoadedEventEnd}));
+   assert(metrics.resources.every(r=>/learning-guides\.css|duckie-reader-icon-192\.png/.test(r.name)), 'public guides must not load app bundles');
+   assert(metrics.resources.reduce((sum,r)=>sum+r.size,0)<120*1024,'guide asset transfer budget');
+   console.log(width,slug,JSON.stringify(metrics));
    const destination=await page.locator('.actions a').first().getAttribute('href');
    assert(new URL(destination,page.url()).searchParams.has('screen'));
    await page.screenshot({path:`${out}/${width}-${slug}.png`});
   }
   await page.goto(base);
-  assert.equal(await page.locator('main nav a').count(),3,'initial HTML must expose guide links without JS');
+  assert.equal(await page.locator('main nav a').count(),5,'initial HTML must expose guide links without JS');
   await context.close();
  }
  const context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage();
@@ -39,7 +43,7 @@ try{
  await page.goto(base);
  await page.getByText(/Không mở được khu học tương tác/).waitFor();
  assert.equal(await page.locator('h1').count(),1,'app fetch failure must preserve the static introduction');
- assert.equal(await page.locator('main nav a').count(),3);
+ assert.equal(await page.locator('main nav a').count(),5);
  await page.getByRole('link',{name:'Hướng dẫn luyện nghe và Shadowing',exact:true}).click();
  await page.locator('h1').waitFor();
  assert.equal(new URL(page.url()).pathname,'/luyen-nghe-shadowing/');
