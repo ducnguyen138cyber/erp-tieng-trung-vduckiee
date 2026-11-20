@@ -24,12 +24,12 @@ test('Latin identifiers and numbers survive transliteration intact', () => {
 
 test('flashcard example waits for the engine and ignores stale card results', async () => {
   const shell = fs.readFileSync('app-shell-v88.html', 'utf8');
-  assert.match(shell, /id="cardExamplePinyin"/);
+  assert.match(shell, /node.id="cardExamplePinyin"/);
   assert.match(shell, /renderExamplePinyin\(t\[6\]\|\|""\)/);
   const fn = shell.match(/^    function renderExamplePinyin\(value\).*$/m)[0];
-  const nodes = { cardExample: { textContent: '' }, cardExamplePinyin: { textContent: '' } };
+  const nodes = { cardExample: { textContent: '', insertAdjacentElement(position,node) { assert.equal(position,'afterend');nodes[node.id]=node; } } };
   let ready;
-  const sandbox = vm.createContext({ $: id => nodes[id], window: { PinyinEngineReady: new Promise(r => ready = r), ERPPronunciation: context.ERPPronunciation } });
+  const sandbox = vm.createContext({ $: id => nodes[id], document:{createElement(tag) { assert.equal(tag,'span'); return {textContent:''}; }}, window: { PinyinEngineReady: new Promise(r => ready = r), ERPPronunciation: context.ERPPronunciation } });
   vm.runInContext(fn, sandbox);
   nodes.cardExample.textContent = '物料清单现在用Excel管理。';
   sandbox.renderExamplePinyin(nodes.cardExample.textContent);
