@@ -1529,7 +1529,8 @@ root.__ERP_V77_CANDIDATE_META__={count:pool.length,version:"77.1"};
   "use strict";
 
   if(root.VDuckieHSKDictionaryLoader&&root.VDuckieHSKDictionaryLoader.version==="79.0"){
-    root.VDuckieHSKDictionaryLoader.load();
+    if(root.VDuckieHSKDictionaryLoader.schedule)root.VDuckieHSKDictionaryLoader.schedule();
+    else root.VDuckieHSKDictionaryLoader.load();
     return;
   }
 
@@ -1620,10 +1621,34 @@ root.__ERP_V77_CANDIDATE_META__={count:pool.length,version:"77.1"};
     });
   }
 
-  root.VDuckieHSKDictionaryLoader={version:VERSION,load:load,retry:function(){retryCount=0;load();}};
+  var scheduled=false;
+  function schedule(){
+    if(scheduled)return;
+    scheduled=true;
+    var params=new URLSearchParams(root.location.search);
+    var home=(!params.has("screen")||params.get("screen")==="home")&&!params.has("area")&&!root.location.hash;
+    if(!home){load();return;}
+    var started=false,timer;
+    function start(){
+      if(started)return;
+      started=true;
+      if(timer)root.clearTimeout(timer);
+      document.removeEventListener("pointerdown",start,true);
+      document.removeEventListener("keydown",start,true);
+      document.removeEventListener("vduckie:experience-v86-ready",afterHome);
+      load();
+    }
+    function afterHome(){if(!started){if(timer)root.clearTimeout(timer);timer=root.setTimeout(start,1000);}}
+    document.addEventListener("pointerdown",start,true);
+    document.addEventListener("keydown",start,true);
+    document.addEventListener("vduckie:experience-v86-ready",afterHome,{once:true});
+    if(root.__VDUCKIE_EXPERIENCE_V86_READY__)afterHome();
+    else timer=root.setTimeout(start,8000);
+  }
+  root.VDuckieHSKDictionaryLoader={version:VERSION,load:load,schedule:schedule,retry:function(){retryCount=0;load();}};
   if(typeof document==="undefined")return;
-  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",load,{once:true});
-  else load();
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",schedule,{once:true});
+  else schedule();
 })(typeof window!=="undefined"?window:globalThis);
 ;
 /* assets/v79/unified-dictionary-v79.js */

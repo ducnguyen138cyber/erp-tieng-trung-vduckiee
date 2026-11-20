@@ -1,27 +1,58 @@
 (function (root) {
   "use strict";
-  var parts = root.__PINYIN_GZIP_PARTS__ || [];
   root.PinyinEngineReady = new Promise(function (resolve) {
-    if (parts.length !== 16 || typeof DecompressionStream === "undefined") {
+    if (typeof DecompressionStream === "undefined") {
       resolve(false);
       return;
     }
-    try {
-      var encoded = parts.join("");
-      var binary = atob(encoded);
-      var bytes = new Uint8Array(binary.length);
-      for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-      var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-      new Response(stream).text().then(function (source) {
-        (0, eval)(source);
-        delete root.__PINYIN_GZIP_PARTS__;
-        resolve(Boolean(root.pinyinPro));
-      }).catch(function () {
+    function decode() {
+      var parts = root.__PINYIN_GZIP_PARTS__ || [];
+      if (parts.length !== 16) { resolve(false); return; }
+      try {
+        var encoded = parts.join("");
+        var binary = atob(encoded);
+        var bytes = new Uint8Array(binary.length);
+        for (var i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+        new Response(stream).text().then(function (source) {
+          (0, eval)(source);
+          delete root.__PINYIN_GZIP_PARTS__;
+          resolve(Boolean(root.pinyinPro));
+        }).catch(function () {
+          resolve(false);
+        });
+      } catch {
         resolve(false);
-      });
-    } catch {
-      resolve(false);
+      }
     }
+    if (root.__PINYIN_GZIP_PARTS__) { decode(); return; }
+    if (typeof document === "undefined" || !document.createElement) { resolve(false); return; }
+    var started = false, fallback;
+    function start() {
+      if (started) return;
+      started = true;
+      if(fallback)root.clearTimeout(fallback);
+      document.removeEventListener("vduckie:experience-v86-ready",start);
+      document.removeEventListener("pointerdown",start,true);
+      document.removeEventListener("keydown",start,true);
+      var script=document.createElement("script");
+      script.src="./assets/boot/pinyin-parts-boot-v1.js?v=1";
+      script.async=true;
+      script.onload=decode;
+      script.onerror=function(){resolve(false);};
+      document.head.appendChild(script);
+    }
+    var params=new URLSearchParams(root.location.search);
+    var home=(!params.has("screen")||params.get("screen")==="home")&&!params.has("area")&&!root.location.hash;
+    if(!home||root.__VDUCKIE_EXPERIENCE_V86_READY__){start();return;}
+    // Prioritize the initial dashboard; learning routes and early interactions
+    // request the engine immediately. A bounded fallback covers a failed home mount.
+    document.addEventListener("vduckie:experience-v86-ready",start,{once:true});
+    document.addEventListener("pointerdown",start,true);
+    document.addEventListener("keydown",start,true);
+    function scheduleFallback(){if(!started)fallback=root.setTimeout(start,3000);}
+    if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",scheduleFallback,{once:true});
+    else scheduleFallback();
   });
 })(typeof globalThis !== "undefined" ? globalThis : this);
 
@@ -42,12 +73,12 @@
     "./assets/v77/erp-terms-v77-sales-crm.js?v=77.1",
     "./assets/v77/erp-terms-v77-broad-candidates.js?v=77.1",
     "./assets/v77/erp-terms-v77-finalize.js?v=77.1",
-    "./assets/v79/hsk-dictionary-v79.js?v=79.0",
+    "./assets/v79/hsk-dictionary-v79.js?v=79.0-home1",
     "./assets/v79/unified-dictionary-v79.js?v=79.3"
   ];
   // Keep the source list above as an auditable fallback manifest; executing
   // one generated bundle avoids 15 parser-blocking network round trips.
-  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=3";
+  var bootBundle = "./assets/boot/erp-dictionary-boot-v1.js?v=home1";
   function loadFallback(index) {
     if (index >= files.length) return;
     var fallback = document.createElement("script");
