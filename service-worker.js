@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v71";
+const CACHE_VERSION = "vduckie-pwa-v72";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -27,10 +27,10 @@ const APP_SHELL = [
   "./assets/v75/home-welcome-v75.1.js?v=factory1",
   "./assets/v90/exp-board-v90.js?v=beta-perf1",
   "./assets/v90/exp-leaderboard-v90.js?v=beta-perf1",
-  "./app-shell-v88.html?v=ux-audit1",
+  "./app-shell-v88.html?v=seo-brand2",
   "./assets/boot/pinyin-parts-boot-v1.js?v=1",
-  "./pinyin-pro.loader.js?v=background2",
-  "./assets/boot/erp-dictionary-boot-v1.js?v=home1",
+  "./pinyin-pro.loader.js?v=background3",
+  "./assets/boot/erp-dictionary-boot-v1.js?v=home2",
   "./erp-content-v74.js?v=factory1",
   "./erp-lessons-v74.js?v=factory1",
   "./dialogue.js?v=factory1",
@@ -105,7 +105,7 @@ const APP_SHELL = [
   "./assets/search/dictionary-extras.css?v=polish1",
   "./assets/ai/free-learning-assistant.css?v=2",
   "./hsk-lessons.js?v=2b4.2",
-  "./assets/v79/unified-dictionary-v79.js?v=79.3",
+  "./assets/v79/unified-dictionary-v79.js?v=79.4",
   "./manifest.webmanifest",
   "./assets/mascot/duckie-reader-maskable-512.png",
   "./pwa-register.js",

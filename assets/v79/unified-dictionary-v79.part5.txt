@@ -61,7 +61,7 @@
       filter: function (nextState) { return filterRecords(records, nextState || state); }
     };
 
-    if (root.VDuckieHSKDictionaryLoader && typeof root.VDuckieHSKDictionaryLoader.load === "function") root.VDuckieHSKDictionaryLoader.load();
+    if (root.VDuckieHSKDictionaryLoader && typeof root.VDuckieHSKDictionaryLoader.schedule === "function") root.VDuckieHSKDictionaryLoader.schedule();
     var params = new URLSearchParams(root.location.search);
     if (params.get("area") === "dictionary" || root.location.hash === "#dictionary") openDictionary(params.get("source") || "all", false);
   }

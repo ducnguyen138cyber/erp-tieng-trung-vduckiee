@@ -18,11 +18,24 @@ test('startup preloads use the exact eventual local asset URLs',()=>{
   assert.doesNotMatch(index,/<link rel="preload"[^>]*pinyin-parts/);
 });
 
+test('unified dictionary initialization respects delayed HSK loading; opening requests full data immediately',()=>{
+  const installer=read('assets/v79/unified-dictionary-v79.part5.txt');
+  const opening=read('assets/v79/unified-dictionary-v79.part4.txt');
+  const source=installer.slice(installer.indexOf('function install()'),installer.indexOf('if (document.readyState'));
+  const scheduled=[];
+  const state={root:{VDuckieHSKDictionaryLoader:{schedule(){scheduled.push('schedule')},load(){scheduled.push('load')}},location:{search:'',hash:''}},URLSearchParams,byId(){return null},state:{},records:[],loadStyles(){},createMenu(){},createPage(){},addLookupButton(){},refreshData(){},bindEvents(){},wrapNavigation(){},watchLateData(){},openDictionary(){},renderControls(){},filterRecords(){}};
+  vm.runInNewContext(source+'\ninstall();',state);
+  assert.deepEqual(scheduled,['schedule']);
+  const first=opening.slice(opening.indexOf('function openDictionary('),opening.indexOf('    source = source ==='));
+  vm.runInNewContext(first+'\n}\nopenDictionary("hsk");',state);
+  assert.deepEqual(scheduled,['schedule','load']);
+});
+
 test("Pinyin boot is one request with all 16 original fragments in order", () => {
   const shell = read("app-shell-v88.html");
   const bundle = read("assets/boot/pinyin-parts-boot-v1.js");
   assert.doesNotMatch(shell, /src="\.\/assets\/boot\/pinyin-parts-boot-v1\.js\?v=1"/);
-  assert.match(shell, /src="\.\/pinyin-pro\.loader\.js\?v=background2"/);
+  assert.match(shell, /src="\.\/pinyin-pro\.loader\.js\?v=background3"/);
   assert.doesNotMatch(shell, /src="\.\/pinyin-data\d+\.js"/);
   assert.equal((bundle.match(/__PINYIN_GZIP_PARTS__\.push/g) || []).length, 16);
   for (let i = 1, offset = -1; i <= 16; ++i) {
@@ -91,7 +104,7 @@ test("ERP dictionary boot replaces the 15 serial document.write calls", async ()
     globalThis:state,window:state,document:doc,console,Promise
   });
   assert.equal(writes.length, 1);
-  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=home1/);
+  assert.match(writes[0], /erp-dictionary-boot-v1\.js\?v=home2/);
   assert.match(writes[0], /<\/script>/);
   await state.PinyinEngineReady;
 });

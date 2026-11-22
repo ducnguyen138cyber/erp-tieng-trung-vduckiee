@@ -38,6 +38,7 @@
   }
 
   function openDictionary(source, updateHistory) {
+    if (root.VDuckieHSKDictionaryLoader && typeof root.VDuckieHSKDictionaryLoader.load === "function") root.VDuckieHSKDictionaryLoader.load();
     source = source === "hsk" || source === "erp" ? source : "all";
     state.source = source;
     state.limit = 160;
