@@ -73,7 +73,8 @@ test('HSK 1-6 and 7-9 filters work while ERP filters remain intact', () => {
 test('v79 loaders preserve 1600 ERP terms and add the local HSK dataset', () => {
   assert.match(pinyinPipeline, /erp-terms-v77-finalize\.js\?v=77\.1/);
   assert.match(pinyinPipeline, /hsk-dictionary-v79\.js\?v=79\.0/);
-  assert.match(pinyinPipeline, /unified-dictionary-v79\.js\?v=79\.3/);
+  assert.match(pinyinPipeline, /unified-dictionary-v79\.js\?v=79\.4/);
+  assert.match(loader, /part"\+index\+"\.txt\?v=79\.4/);
   assert.doesNotMatch(pinyinPipeline, /unified-dictionary-v78/);
   assert.match(community, /home-copy-v79\.js\?v=[\w.-]+/);
   assert.match(hskLoader, /MIN_TERMS=10000/);

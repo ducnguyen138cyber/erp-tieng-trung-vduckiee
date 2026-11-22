@@ -7,6 +7,16 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const read = name => fs.readFileSync(path.join(root, name), "utf8");
 
+test('public course JSON revalidates instead of discarding the HTTP cache',async()=>{
+ const src=read('assets/hsk-content/hsk-professional-runtime.js');
+ const fn=src.slice(src.indexOf('  function fetchJson('),src.indexOf('  function loadIndexedCollection('));
+ const calls=[];const root={fetch:async(path,options)=>{calls.push([path,options.cache]);return {ok:true,json:async()=>({records:[]})}}};
+ const fetchJson=vm.runInNewContext(fn+'\nfetchJson;', {root});
+ await fetchJson('./data/hsk/hsk1/lessons.json');await fetchJson('./data/hsk/hsk1/lessons.json');
+ assert.deepEqual(calls,[['./data/hsk/hsk1/lessons.json','no-cache'],['./data/hsk/hsk1/lessons.json','no-cache']]);
+ root.fetch=async()=>({ok:false,status:503});await assert.rejects(fetchJson('./data/hsk/hsk1/lessons.json'),/HTTP 503/);
+});
+
 test('professional course boot waits on home but starts on learner navigation or direct link',()=>{
  const source=read('assets/hsk-content/hsk-professional-runtime.js');
  const boot=source.slice(source.indexOf('  function boot() {'),source.indexOf('  if (root.document) boot();'));

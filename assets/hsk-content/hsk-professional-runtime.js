@@ -82,7 +82,9 @@
 
   function fetchJson(path) {
     if (typeof root.fetch !== 'function') return Promise.reject(new Error('Trình duyệt không hỗ trợ fetch.'));
-    return root.fetch(path, { cache: 'no-store' }).then(function (response) {
+    // Public static course content may reuse a validated HTTP response body.
+    // Revalidate on each request so a revised course is not silently stale.
+    return root.fetch(path, { cache: 'no-cache' }).then(function (response) {
       if (!response || !response.ok) throw new Error('Không tải được ' + path + ' (HTTP ' + (response && response.status || '?') + ').');
       return response.json();
     });
