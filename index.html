@@ -38,9 +38,23 @@
       var shellUrl="./app-shell-v88.html?v=seo-brand1";
       var staticMascot='<img class="home-welcome-mascot" src="./assets/mascot/duckie-reader-2d-v2.webp?v=2.0" alt="Duckie đọc sách tiếng Trung">';
       try{
-        var response=await fetch(shellUrl,{cache:"default"});
-        if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
-        var source=await response.text();
+        var source;
+        if (typeof DecompressionStream === "function") {
+          try {
+            var packed = await fetch("./assets/boot/shell-c3fb8dc05558.gz");
+            if (packed.ok) {
+              var decoded = packed.body.pipeThrough(new DecompressionStream("gzip"));
+              source = await new Response(decoded).text();
+            }
+          } catch {
+            // Older offline caches may contain only the original HTML.
+          }
+        }
+        if (!source) {
+          var response=await fetch(shellUrl,{cache:"default"});
+          if(!response.ok)throw new Error("Không tải được giao diện: HTTP "+response.status);
+          source=await response.text();
+        }
         var animatedMascot=/<svg class="home-welcome-mascot vduckie-mascot"[\s\S]*?<\/svg>/;
         // The source shell now contains the new mascot directly; an old SVG is optional.
         source=source.replace(animatedMascot,staticMascot);

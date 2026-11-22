@@ -7,6 +7,7 @@ const target=process.env.PERF_BASE_URL||'https://vduckie.pages.dev/';
 const root=path.resolve(process.env.PERF_ARTIFACT_DIR||'artifacts/performance');
 await mkdir(root,{recursive:true});
 const browser=await chromium.launch({headless:true});
+const sampleCount=3;
 const profiles=[
  {name:'desktop-baseline',viewport:{width:1365,height:900},mobile:false,cpu:1,latency:0,down:0,up:0},
  {name:'mobile-4g-low-end',viewport:{width:390,height:844},mobile:true,cpu:4,latency:160,down:200000,up:50000}
@@ -15,10 +16,10 @@ const output={capturedAt:new Date().toISOString(),target,mode:target.includes('1
  'Chromium CPU and network throttling emulate a slower device; no physical mobile device was measured.',
  'CI localhost comparisons do not reproduce Cloudflare hosting or a Vietnamese mobile network; production audit runs originate in GitHub Actions.',
  'No real login/session/Google OAuth or private Supabase account data is accessed.',
- 'One cold run per profile is diagnostic only; not an SLO nor a representative percentile.'
+ 'Three cold runs per profile; median is diagnostic, not a production SLO.'
 ],profiles:[]};
 try{
-  for(const profile of profiles){
+  for(let sample=1;sample<=sampleCount;sample++)for(const profile of profiles){
     const context=await browser.newContext({viewport:profile.viewport,isMobile:profile.mobile,hasTouch:profile.mobile,
       deviceScaleFactor:profile.mobile?2:1,serviceWorkers:'block'});
     const page=await context.newPage();page.setDefaultTimeout(90000);
@@ -85,8 +86,8 @@ try{
         strokeDataEager:Boolean(window.HSK_HANZI_DATA),
         layoutShifts:(window.__perfShifts||[]).slice(0,12)};
     }).catch(()=>({}));
-    await page.screenshot({path:path.join(root,profile.name+'.png'),fullPage:true}).catch(()=>{});
-    output.profiles.push({profile:profile.name,emulatedCpuSlowdown:profile.cpu,
+    await page.screenshot({path:path.join(root,profile.name+'-'+sample+'.png'),fullPage:true}).catch(()=>{});
+    output.profiles.push({profile:profile.name,sample,emulatedCpuSlowdown:profile.cpu,
       emulatedLatencyMs:profile.latency,emulatedDownloadBytesPerSec:profile.down,
       observedHomeMs:observed,reachable,navigationError,metrics:data,uncaughtErrors:errors.slice(0,8)});
     console.log('VDUCKIE_PERFORMANCE '+JSON.stringify(output.profiles.at(-1)));
