@@ -2633,17 +2633,19 @@
   var rootsSelector="header.top,#studySidebar,.study-center,#hsk,.study-rail,#leaderboard,#v865HomeSidebar,.v865-home-sidebar,.v865-home-shell,.v865-home-main,#expWeeklyMissions,#expMiniLeaderboard,#expHomeAccount,#v91AccountDropdown,#v91AccountModal,.exp-main-nav,.home-recommended,.home-library-card,#v86PremiumLearning,#v86AdaptiveModal,.v86-listening-tools,.duckie-chat-panel,.free-learning-assistant,#vduckieAssistant,#duckieChat,#v85PersonalDashboard,#v84RetentionCenter,[data-vd-ui-surface]";
   var excludedSelector=".tg-overlay,#hskLesson,#hskAssessment,.hsk-pro-section,#dailyDictionaryResults,.dictionary-results,.erp-lesson-content,.hsk-focus-examples,.hsk-pro-exercises,.hsk-pro-vocabulary,.duckie-chat-thread,.duckie-chat-messages,#duckieChatMessages,.glossary-results,.flashcard-content";
   var history=new WeakMap(),attrs=new WeakMap(), scheduled=false,dirtyNodes=[],fullPass=false,menu=null,lang=read(),observer=null;
+  var variantPatterns=null;
   function read(){try{var v=root.localStorage.getItem(KEY);return supported[v]?v:"vi";}catch(error){return "vi";}}
   function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]});}
   function t(key,next){var index=(next||lang)==="zh"?0:(next||lang)==="en"?1:-1;return index<0||!strings[key]?key:strings[key][index]||key;}
   function translateValue(original){
+    if(lang==="vi")return original;
     var canonical=String(original||"").replace(/\u00a0/g," ").replace(/\s+/g," ").normalize("NFC").trim();
     var direct=t(canonical);
     if(direct!==canonical)return direct;
     var arrow=canonical.match(/^(.+?)(\s*[→↗›])$/);
     if(arrow){var base=arrow[1].trim(),translated=t(base);if(translated!==base)return translated+arrow[2];}
     if(lang!=="vi"){
-      var variants=[
+      var variants=variantPatterns||(variantPatterns=[
         [/^CHƯƠNG\s*(\d+)$/i,["单元 $1","UNIT $1"]],
         [/^Ôn tập chương\s*(\d+)$/i,["单元 $1 阶段测验","Unit $1 checkpoint"]],
         [/^CHƯƠNG\s*(\d+)\s*[·•]\s*BÀI\s*(\d+)\s*\/\s*(\d+)$/i,["单元 $1 · 第 $2/$3 课","UNIT $1 · LESSON $2/$3"]],
@@ -2715,7 +2717,7 @@
         [/^(\d+)\s*\/\s*(\d+)\s*XP đến cấp tiếp theo$/i,["距离下一等级 $1/$2 XP","$1/$2 XP to the next level"]],
         [/^↻\s*Ôn\s*(\d+)\s*từ HSK đến hạn$/i,["↻ 复习 $1 个到期 HSK 词汇","↻ Review $1 due HSK words"]],
         [/^(\d+)\s*từ$/i,["$1 个词汇","$1 words"]]
-      ];
+      ]);
       for(var n=0;n<variants.length;n++)if(variants[n][0].test(canonical)){
         return canonical.replace(variants[n][0],variants[n][1][lang==="zh"?0:1]);
       }
@@ -2899,11 +2901,15 @@
   }
   function flushChanges(){
     var nodes=Array.from(new Set(dirtyNodes));dirtyNodes=[];
+    var changed=new Set(nodes);
     if(observer)observer.disconnect();
     try{
       ensureMenu();ensureGuest();
-      nodes.forEach(function(node,index){
-        if(!nodes.some(function(parent,other){return other!==index&&parent.contains(node);}))translateChanged(node);
+      nodes.forEach(function(node){
+        // Walk ancestors instead of comparing every pair of changed nodes.
+        // Large dictionary/lesson renders otherwise do quadratic DOM checks.
+        for(var parent=node.parentNode;parent;parent=parent.parentNode)if(changed.has(parent))return;
+        translateChanged(node);
       });
     }finally{
       if(observer)observer.observe(doc.body,{childList:true,subtree:true,characterData:true});

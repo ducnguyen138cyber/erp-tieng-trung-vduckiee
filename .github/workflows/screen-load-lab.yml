@@ -1,0 +1,53 @@
+name: Per-screen load lab
+on:
+  pull_request:
+    paths: ['assets/**','index.html','app-shell-v88.html','service-worker.js','tests/screen-load-*.mjs','.github/workflows/screen-load-lab.yml']
+permissions:
+  contents: read
+jobs:
+  route-load:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.58.2-noble
+      options: --ipc=host
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: npm install --no-save --package-lock=false playwright@1.58.2
+      - name: Serve exact PR base and candidate locally
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git worktree add --detach /tmp/vduckie-screen-base "$BASE_SHA"
+          python3 -m http.server 4181 --bind 127.0.0.1 --directory /tmp/vduckie-screen-base >/tmp/vduckie-screen-base.log 2>&1 &
+          python3 -m http.server 4182 --bind 127.0.0.1 --directory "$GITHUB_WORKSPACE" >/tmp/vduckie-screen-candidate.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:4181/ >/dev/null && curl --fail --silent http://127.0.0.1:4182/ >/dev/null; then break; fi
+            sleep 1
+          done
+          curl --fail --silent http://127.0.0.1:4181/ >/dev/null
+          curl --fail --silent http://127.0.0.1:4182/ >/dev/null
+      - name: Measure base screens
+        env:
+          PERF_BASE_URL: http://127.0.0.1:4181/
+          PERF_ARTIFACT_DIR: artifacts/screen-load/before
+        run: node tests/screen-load-lab.mjs
+        continue-on-error: true
+      - name: Measure candidate screens
+        env:
+          PERF_BASE_URL: http://127.0.0.1:4182/
+          PERF_ARTIFACT_DIR: artifacts/screen-load/after
+        run: node tests/screen-load-lab.mjs
+        continue-on-error: true
+      - name: Compare and validate route readiness
+        run: node tests/screen-load-compare.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: per-screen-load-lab
+          path: artifacts/screen-load/
