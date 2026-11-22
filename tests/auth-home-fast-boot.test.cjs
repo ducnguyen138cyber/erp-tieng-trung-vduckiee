@@ -7,6 +7,17 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const read = name => fs.readFileSync(path.join(root, name), "utf8");
 
+test('startup preloads use the exact eventual local asset URLs',()=>{
+  const index=read('index.html'), shell=read('app-shell-v88.html'), loader=read('pinyin-pro.loader.js');
+  const hints=[...index.matchAll(/<link rel="preload" as="(style|script)" href="([^"]+)">/g)];
+  assert.equal(hints.length,4);
+  for(const [,type,url] of hints){
+    assert.ok(fs.existsSync(path.join(root,url.split('?')[0])));
+    assert.ok((type==='style'?shell:shell+loader).includes(url),url+' is requested with the same cache key');
+  }
+  assert.doesNotMatch(index,/<link rel="preload"[^>]*pinyin-parts/);
+});
+
 test("Pinyin boot is one request with all 16 original fragments in order", () => {
   const shell = read("app-shell-v88.html");
   const bundle = read("assets/boot/pinyin-parts-boot-v1.js");

@@ -31,6 +31,11 @@
   
   <link rel="apple-touch-icon" href="./assets/mascot/duckie-reader-icon-180.png?v=2.0">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <!-- Start critical shell dependencies during the HTML fetch, without changing execution order. -->
+  <link rel="preload" as="style" href="./v72-layout.css?v=73.1">
+  <link rel="preload" as="style" href="./assets/v86/home-dashboard-v86.5.css?v=home-original1">
+  <link rel="preload" as="script" href="./lite-terms.js?v=74.0">
+  <link rel="preload" as="script" href="./assets/boot/erp-dictionary-boot-v1.js?v=home1">
   <script defer src="./pwa-register.js?v=3"></script>
   <style>html,body{margin:0;min-height:100%;background:#F8FAFC;color:#0F172A;font-family:Arial,"Segoe UI","Noto Sans SC",sans-serif}.vduckie-static-loading{min-height:100vh;display:grid;place-items:center;padding:24px;text-align:center}.vduckie-static-loading img{display:block;width:min(240px,70vw);height:auto;margin:0 auto 18px}.vduckie-static-loading p{margin:0;color:#66736e}</style>
   <script>
