@@ -7,6 +7,24 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const read = name => fs.readFileSync(path.join(root, name), "utf8");
 
+test('professional course boot waits on home but starts on learner navigation or direct link',()=>{
+ const source=read('assets/hsk-content/hsk-professional-runtime.js');
+ const boot=source.slice(source.indexOf('  function boot() {'),source.indexOf('  if (root.document) boot();'));
+ function scenario(search){
+  const events={},timers=[],calls=[];let route='home',observe;
+  const doc={readyState:'complete',body:{getAttribute(){return route}},addEventListener(n,f){events[n]=f},removeEventListener(n){delete events[n]}};
+  const state={status:'idle',data:null};
+  const root={document:doc,location:{search,hash:''},setTimeout(fn,ms){timers.push({fn,ms});return timers.length},clearTimeout(){},MutationObserver:class{constructor(fn){observe=fn}observe(){}disconnect(){}}};
+  vm.runInNewContext(boot+'\nboot();',{root,state,URLSearchParams,mount(){calls.push('mount');return Promise.resolve()},observeIntro(){calls.push('observe')}});
+  timers[0].fn();return {events,timers,calls,state,navigate(){route='hsk-study';observe()}};
+ }
+ const home=scenario('');assert.deepEqual(home.calls,[]);assert.equal(home.timers.at(-1).ms,20000);
+ home.events['vduckie:experience-v86-ready']();assert.equal(home.timers.at(-1).ms,1500);home.timers.at(-1).fn();assert.deepEqual(home.calls,['mount']);
+ const nav=scenario('?screen=home');nav.navigate();assert.deepEqual(nav.calls,['mount']);
+ const explicit=scenario('?screen=home');explicit.state.status='loading';explicit.navigate();assert.deepEqual(explicit.calls,['observe']);
+ assert.deepEqual(scenario('?screen=hsk-study&hskLevel=3').calls,['mount']);
+});
+
 test('startup preloads use the exact eventual local asset URLs',()=>{
   const index=read('index.html'), shell=read('app-shell-v88.html'), loader=read('pinyin-pro.loader.js');
   const hints=[...index.matchAll(/<link rel="preload" as="(style|script)" href="([^"]+)">/g)];

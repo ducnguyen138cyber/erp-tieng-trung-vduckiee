@@ -899,7 +899,35 @@
   function boot() {
     if (!root.document) return;
     var start = function () {
-      mount(false).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK learner runtime:', error); });
+      // Home does not need the full course payload to paint. Direct lesson
+      // links retain immediate boot; navigation can start the course sooner.
+      var doc = root.document, params = new URLSearchParams(root.location && root.location.search || '');
+      var home = (!params.has('screen') || params.get('screen') === 'home') && !params.has('area') && !params.has('hskLesson') && !params.has('hskAssessment') && !(root.location && root.location.hash);
+      var timer, observer, started = false;
+      function warm() {
+        if (started) return;
+        started = true;
+        if (timer) root.clearTimeout(timer);
+        if (observer) observer.disconnect();
+        doc.removeEventListener('vduckie:experience-v86-ready', afterHome);
+        // A learner action may already have started an explicit level request.
+        if (state.status === 'loading' || state.data) { observeIntro(); return; }
+        mount(false).catch(function (error) { if (root.console && root.console.error) root.console.error('HSK learner runtime:', error); });
+      }
+      function afterHome() { if (!started) { if (timer) root.clearTimeout(timer); timer = root.setTimeout(warm, 1500); } }
+      if (!home) warm();
+      else {
+        if (root.MutationObserver && doc.body) {
+          observer = new root.MutationObserver(function () {
+            var route = doc.body.getAttribute('data-screen-route');
+            if (route === 'hsk' || route === 'hsk-study') warm();
+          });
+          observer.observe(doc.body, { attributes: true, attributeFilter: ['data-screen-route'] });
+        }
+        doc.addEventListener('vduckie:experience-v86-ready', afterHome, { once: true });
+        if (root.__VDUCKIE_EXPERIENCE_V86_READY__) afterHome();
+        else timer = root.setTimeout(warm, 20000);
+      }
       if (root.PinyinEngineReady && typeof root.PinyinEngineReady.then === 'function') {
         root.PinyinEngineReady.then(function () { if (state.data) renderCurrent(); }).catch(function () {});
       }
