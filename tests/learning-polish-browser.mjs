@@ -84,10 +84,11 @@ try{
   await page.locator('[data-v865-action="toggle-discover"]').click();await protectedHome();
   await page.reload();await page.locator('#v865TodayFocus').waitFor();await protectedHome();
   await menu('dictionary');await page.locator('#dailyDictionarySearch').fill('努力');
-  await page.locator('.dictionary-example strong').filter({hasText:'只要继续努力'}).waitFor();
-  assert.match(await page.locator('.dictionary-example').innerText(),/Chỉ cần tiếp tục cố gắng/);
-  assert.match(await page.locator('.dictionary-example-pinyin').innerText(),/nǔ lì/);
-  assert.match(await page.locator('.dictionary-meta').innerText(),/HSK 3/);
+  const effort=page.locator('#dailyDictionaryResults .dictionary-card').filter({has:page.locator('.dictionary-word > strong', {hasText:/^努力$/})});
+  await effort.locator('.dictionary-example strong').filter({hasText:'只要继续努力'}).waitFor();
+  assert.match(await effort.locator('.dictionary-example').innerText(),/Chỉ cần tiếp tục cố gắng/);
+  assert.match(await effort.locator('.dictionary-example-pinyin').innerText(),/nǔ lì/);
+  assert.match(await effort.locator('.dictionary-meta').innerText(),/HSK 3/);
   await page.screenshot({path:`${out}/${width}-dictionary.png`});
   await page.locator('#brandHome').click();await menu('msutong');
   await page.locator('[data-practice-open]').click();await page.locator('.hsk-practice-paper').first().waitFor();

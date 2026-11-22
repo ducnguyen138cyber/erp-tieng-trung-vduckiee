@@ -11,6 +11,7 @@ on:
       - 'tests/p1-route-ownership.test.mjs'
       - 'assets/daily-learning-v2.js'
       - 'assets/hsk-content/hsk-professional-runtime.js'
+      - 'assets/mascot/*.webp'
       - 'tests/performance-low-end-lab.mjs'
       - 'tests/performance-compare.mjs'
       - '.github/workflows/p1-load-lab.yml'
