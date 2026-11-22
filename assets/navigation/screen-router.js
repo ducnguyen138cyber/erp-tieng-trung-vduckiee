@@ -3,6 +3,7 @@
   "use strict";
   var busy = false;
   var current = null;
+  var shadowTitle = "Luyện nghe Shadowing — VDuckie";
   var viewIds = ["homeHub","erpHero","hskHero","lessons","cards","quiz","glossary",
     "personal","community","hsk","dialogue","homeJourney","erpJourney","hskJourney",
     "leaderboard","dailyLearningPanel","hskRoadmapScreen","gamesScreen","vietnameseScreen"];
@@ -89,6 +90,7 @@
     if((screen!==current||historyMode==="push")&&root.VDuckieHeaderSearch&&root.VDuckieHeaderSearch.dismissForNavigation)root.VDuckieHeaderSearch.dismissForNavigation();
     if(root.VDuckieMobileMenu)root.VDuckieMobileMenu.close();
     if (!valid(screen)) screen = "home";
+    if (screen !== "shadowing" && document.title === shadowTitle) document.title = "VDuckie – Tự học tiếng Trung HSK miễn phí";
     if (screen === current && historyMode === "push" && !options) {
       // Recover an initially empty or reset curriculum panel on a repeat click.
       var panel = document.getElementById("dailyLearningPanel");
@@ -178,6 +180,7 @@
     document.body.setAttribute("data-current-area", screen.indexOf("erp:") === 0 ? "erp" : screen);
     activate(screen);
     current = screen;
+    if (current === "shadowing") document.title = shadowTitle;
     // Undo legacy replaceState calls before adding the new history entry.
     // Otherwise Back returns to a mutated version of the previous screen.
     root.history.replaceState(priorState, "", priorURL);
@@ -298,7 +301,14 @@
     // Route after the legacy modules have mounted their dynamically inserted screens.
     // Other DOMContentLoaded initializers can reset the legacy panels.
     // Run the route after those synchronous initialization listeners complete.
-    root.setTimeout(function () { show(fromLocation(), "replace"); ensureExclusiveSidebar(); ensureExclusiveScreens(); }, 0);
+    root.setTimeout(function () {
+      show(fromLocation(), "replace"); ensureExclusiveSidebar(); ensureExclusiveScreens();
+      // A late HSK mount can change only the title without touching the active panel.
+      var titleNode=document.querySelector("head title");
+      if(titleNode)new MutationObserver(function(){
+        if(current==="shadowing"&&document.title!==shadowTitle)document.title=shadowTitle;
+      }).observe(titleNode,{childList:true,characterData:true,subtree:true});
+    }, 0);
   }
   root.VDuckieScreenRouter = Object.freeze({ navigate: function (screen, options) { show(screen, "push", options); }, current: function () { return current; } });
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init, {once:true}); else init();

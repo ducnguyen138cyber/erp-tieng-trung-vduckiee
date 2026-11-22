@@ -388,6 +388,10 @@
 
   function scheduleUpload() {
     if(!session||!session.user||applying)return;
+    var userId=session.user.id;
+    var pending=captureProfile(userId,lastLocalProfile||readProfileCache(userId));
+    writeProfileCache(userId,pending);
+    lastLocalProfile=pending;
     root.clearTimeout(uploadTimer);var generation=sessionGeneration;
     uploadTimer=root.setTimeout(function(){if(generation===sessionGeneration)synchronizeProfile();},600);
   }
@@ -668,6 +672,8 @@
     else writeProfileCache("anonymous", current);
 
     var cached = readProfileCache(nextUserId);
+    // Preserve the existing first-sign-in guest migration contract. An account
+    // with cached progress, or a switch from another account, never imports it.
     if (!profileHasFields(cached) && !previousUserId) cached = readProfileCache("anonymous");
     removeSyncableValues();
     applyProfile(cached, nextUserId);

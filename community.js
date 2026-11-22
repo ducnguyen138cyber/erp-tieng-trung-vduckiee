@@ -34,7 +34,7 @@
   }
   function loadHskDictionaryV79(){
     var script=document.createElement("script");
-    script.src="./assets/v79/hsk-dictionary-v79.js?v=79.0";
+    script.src="./assets/v79/hsk-dictionary-v79.js?v=79.0-home1";
     script.onerror=function(){console.error("Không nạp được dữ liệu HSK 10.000+ v79.");};
     document.head.appendChild(script);
   }
