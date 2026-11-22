@@ -3,6 +3,28 @@
   "use strict";
   var busy = false;
   var current = null;
+  var gameLoad = null, gameReady = false, navigationToken = 0;
+  var gameFiles = ["game-ranking.js?v=hanviet2", "matching-engine.js?v=hanviet2", "matching-game.js?v=hanviet2", "typing-engine.js?v=2", "typing-game.js?v=hanviet2", "sentence-engine.js?v=hsk-bank2", "sentence-game.js?v=hsk-bank2"];
+  function ensureGames() {
+    if (gameLoad) return gameLoad;
+    gameLoad = Promise.all(gameFiles.map(function(file) {
+      return new Promise(function(resolve,reject) {
+        var script=document.createElement("script");
+        script.async=false;
+        script.src="./assets/games/"+file;
+        script.onload=function(){resolve();};
+        script.onerror=function(){script.remove();reject(new Error("Không tải được "+file));};
+        document.head.appendChild(script);
+      });
+    })).then(function(){gameReady=true;});
+    return gameLoad;
+  }
+  function gameStatus(message) {
+    var node=document.getElementById("vduckieGameLoading");
+    if (!message) {if(node)node.remove();return;}
+    if(!node){node=document.createElement("p");node.id="vduckieGameLoading";node.setAttribute("role","status");node.style.cssText="position:fixed;bottom:16px;left:16px;right:16px;z-index:10000;background:#fff;padding:12px;border:1px solid #CBD5E1;border-radius:12px;text-align:center";document.body.appendChild(node);}
+    node.textContent=message;
+  }
   var shadowTitle = "Luyện nghe Shadowing — VDuckie";
   var viewIds = ["homeHub","erpHero","hskHero","lessons","cards","quiz","glossary",
     "personal","community","hsk","dialogue","homeJourney","erpJourney","hskJourney",
@@ -87,6 +109,13 @@
     return true;
   }
   function show(screen, historyMode, options) {
+    var token=++navigationToken;
+    gameStatus("");
+    if (["games","game-ranking","matching"].indexOf(screen)!==-1 && (!root.VDuckieGames || (gameLoad&&!gameReady))) {
+      gameStatus("Đang tải trò chơi…");
+      ensureGames().then(function(){if(token===navigationToken){if(root.VDuckieGames)show(screen,historyMode,options);else gameStatus("Không mở được trò chơi. Hãy tải lại trang.");}}).catch(function(){if(token===navigationToken)gameStatus("Chưa tải được trò chơi. Hãy tải lại trang để thử.");});
+      return;
+    }
     if((screen!==current||historyMode==="push")&&root.VDuckieHeaderSearch&&root.VDuckieHeaderSearch.dismissForNavigation)root.VDuckieHeaderSearch.dismissForNavigation();
     if(root.VDuckieMobileMenu)root.VDuckieMobileMenu.close();
     if (!valid(screen)) screen = "home";

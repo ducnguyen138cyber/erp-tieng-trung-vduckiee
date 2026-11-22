@@ -64,7 +64,7 @@ jobs:
           PERF_BASE_URL: http://127.0.0.1:4182/
           PERF_ARTIFACT_DIR: artifacts/performance/after
         run: node tests/performance-low-end-lab.mjs
-      - name: Report before/after with no invented PASS threshold
+      - name: Compare three cold runs and enforce performance acceptance
         if: github.event_name == 'pull_request'
         run: node tests/performance-compare.mjs
       - name: Measure public production as guest (manual dispatch)

@@ -7,6 +7,23 @@ const vm = require("node:vm");
 const root = path.resolve(__dirname, "..");
 const read = name => fs.readFileSync(path.join(root, name), "utf8");
 
+test('Home defers game downloads; ordered on-demand loader starts only once and keeps offline URLs',async()=>{
+ const index=read('index.html'),router=read('assets/navigation/screen-router.js'),worker=read('service-worker.js');
+ const section=index.slice(index.indexOf('var initialRoute='),index.indexOf('// Move the existing home cards'));
+ const assets=[...index.matchAll(/<script src="(\.\/assets\/games\/[^"?]+\.js\?v=[^"]+)"><\\\/script>/g)].map(m=>m[1]);
+ assert.equal(assets.length,7);
+ const original=assets.map(url=>'<script src="'+url+'"></script>').join('');
+ function rendered(search){return vm.runInNewContext('var source=input;'+section+';source',{input:original,URLSearchParams,location:{search,hash:''}})}
+ assert.equal(rendered(''),'');assert.equal(rendered('?screen=games'),original);assert.equal(rendered('?area=hsk'),original);
+ const source=router.slice(router.indexOf('  var gameLoad'),router.indexOf('  function gameStatus'));
+ const scripts=[],doc={createElement(){return{}},head:{appendChild(s){scripts.push(s)}}};
+ const api=vm.runInNewContext(source+';({ensureGames,getReady:()=>gameReady})',{document:doc,Promise});
+ const p=api.ensureGames();assert.equal(api.ensureGames(),p);assert.equal(scripts.length,7);
+ assert.deepEqual(scripts.map(s=>s.src),assets);assert.ok(scripts.every(s=>s.async===false));
+ for(const script of scripts){assert.ok(worker.includes(script.src));script.onload();}
+ await p;assert.equal(api.getReady(),true);
+});
+
 test("Pinyin boot is one request with all 16 original fragments in order", () => {
   const shell = read("app-shell-v88.html");
   const bundle = read("assets/boot/pinyin-parts-boot-v1.js");
