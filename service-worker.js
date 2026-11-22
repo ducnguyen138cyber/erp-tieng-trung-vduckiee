@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_VERSION = "vduckie-pwa-v71";
+const CACHE_VERSION = "vduckie-pwa-v72";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const SCOPE_URL = new URL(self.registration.scope);
@@ -94,7 +94,7 @@ const APP_SHELL = [
   "./assets/hsk-content/hsk-practice-bank-v1.js?v=2",
   "./assets/hsk-content/hsk-practice-ui-v1.js?v=ui-preserve1",
   "./assets/hsk-content/hsk-practice-ui-v1.css?v=polish1",
-  "./assets/hsk-content/hsk-shadowing-v1.js?v=progress-sync1",
+  "./assets/hsk-content/hsk-shadowing-v1.js?v=progress-sync1-compact1",
   "./assets/hsk-content/hsk-shadowing-v1.css?v=polish1",
   "./data/shadowing/hsk2-v1.json?v=3",
   "./data/shadowing/hsk3-v1.json?v=3",
