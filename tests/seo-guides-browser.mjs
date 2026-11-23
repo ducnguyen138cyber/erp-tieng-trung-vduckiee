@@ -39,6 +39,9 @@ try{
   await context.close();
  }
  const context=await browser.newContext({serviceWorkers:'block'}),page=await context.newPage();
+ await page.route('**/assets/boot/shell-*.gz',route=>route.fulfill({status:503,body:'temporarily unavailable'}));
+ await page.goto(base);
+ await page.waitForFunction(()=>window.__VDUCKIE_EXPERIENCE_V86_READY__===true);
  await page.route('**/app-shell-v88.html?*',route=>route.fulfill({status:503,body:'temporarily unavailable'}));
  await page.goto(base);
  await page.getByText(/Không mở được khu học tương tác/).waitFor();

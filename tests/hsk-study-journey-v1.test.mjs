@@ -100,7 +100,9 @@ test('bootstrap and PWA load the new study components before the HSK content fla
   assert.ok(index.indexOf(live.asset("assets/hsk-content/hsk-study-flow-v1.js")) < index.indexOf(live.asset("assets/hsk-content/hsk-content-feature-flags.js")));
   assert.match(index,/hsk-study-journey-v1\.css\?v=reliability1/);
   assert.match(worker,/vduckie-pwa-v\d+/);
-  assert.match(loader,/hsk-professional-runtime\.js\?v=hsk56-1/);
+  const runtimeUrl = loader.match(/script\.src = '([^']*hsk-professional-runtime\.js\?v=[^']+)'/);
+  assert.ok(runtimeUrl, 'loader references a versioned professional runtime');
+  assert.ok(worker.includes(JSON.stringify(runtimeUrl[1])), 'PWA caches the exact runtime requested by the loader');
   for(const file of ['assets/hsk-content/hsk-study-journey-v1.js',
     'assets/hsk-content/hsk-study-flow-v1.js','assets/curriculum/graded-hsk-entry.js',
     'assets/hsk-content/hsk-professional-runtime.js','assets/v86/home-dashboard-v86.5.js']){

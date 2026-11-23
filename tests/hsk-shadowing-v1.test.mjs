@@ -30,6 +30,10 @@ test('HSK1 source contains real full-sentence Pinyin and Vietnamese translation'
   const all=manifest.shards.flatMap(shard=>JSON.parse(read('data/hsk/hsk1/sentences/'+shard.file)).records);
   assert.equal(all.length,900);
   assert.equal(all.filter(r=>r.chinese&&r.pinyin&&r.vietnamese).length,900);
+  const compact=JSON.parse(read('data/shadowing/hsk1-compact-v1.json'));
+  assert.equal(compact.version,1);
+  assert.deepEqual(compact.records,all.map(r=>[r.id,r.chinese,r.pinyin,r.vietnamese,r.reviewStatus||'unreviewed']));
+  assert.ok(fs.statSync('data/shadowing/hsk1-compact-v1.json').size<200000);
   assert.match(js,/Promise\.all\(manifest\.shards\.map/);
   assert.match(js,/r\.pinyin,vi:r\.vietnamese/);
 });
