@@ -13,6 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - run: python scripts/build-hsk1-course-pack.py --check
+      - run: gzip -dc assets/boot/shell-c3fb8dc05558.gz | cmp - app-shell-v88.html
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
