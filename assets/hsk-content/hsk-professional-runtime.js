@@ -138,18 +138,30 @@
     state.status = 'loading';
     state.error = null;
     var base = config.base;
-    return Promise.all([
-      fetchJson(base + 'course-manifest.json'),
-      fetchJson(base + 'units.json'),
-      fetchJson(base + 'lessons.json'),
-      fetchJson(base + 'grammar.json'),
-      fetchJson(base + 'characters.json'),
-      fetchJson(base + 'exercises.json'),
-      fetchJson(base + 'assessments.json'),
-      fetchJson(base + 'vocabulary-enrichment.json'),
-      loadIndexedCollection(base + 'vocabulary/index.json', 'vocabulary'),
-      level >= 5 ? fetchJson('./data/hsk/advanced-cases-v1.json?v=hsk56-1') : Promise.resolve(null)
-    ]).then(function (parts) {
+    function loadCanonical() {
+      return Promise.all([
+        fetchJson(base + 'course-manifest.json'),
+        fetchJson(base + 'units.json'),
+        fetchJson(base + 'lessons.json'),
+        fetchJson(base + 'grammar.json'),
+        fetchJson(base + 'characters.json'),
+        fetchJson(base + 'exercises.json'),
+        fetchJson(base + 'assessments.json'),
+        fetchJson(base + 'vocabulary-enrichment.json'),
+        loadIndexedCollection(base + 'vocabulary/index.json', 'vocabulary'),
+        level >= 5 ? fetchJson('./data/hsk/advanced-cases-v1.json?v=hsk56-1') : Promise.resolve(null)
+      ]);
+    }
+    var request;
+    if (level === 1 && typeof root.DecompressionStream === 'function') {
+      request = root.fetch(base + 'learner-course-v1.gz').then(function (response) {
+        if (!response.ok) throw new Error('Course pack unavailable');
+        return new Response(response.body.pipeThrough(new DecompressionStream('gzip'))).json();
+      }).catch(loadCanonical);
+    } else {
+      request = loadCanonical();
+    }
+    return request.then(function (parts) {
       var manifest = parts[0];
       var units = array(parts[1].records);
       var lessons = array(parts[2].records);

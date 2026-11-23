@@ -90,8 +90,7 @@
     var n=host();if(!n)return;
     n.className="panel daily-panel graded-hsk-screen hsk-shadow-screen";
     n.innerHTML='<section class="shadow-page"><h2>Luyện nghe & Shadowing · HSK '+level+'</h2><p>Đang tải bài luyện…</p></section>';
-    var request=level===1?
-      root.fetch("./data/hsk/hsk1/sentences/index.json")
+    function canonicalHsk1(){return root.fetch("./data/hsk/hsk1/sentences/index.json")
         .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
         .then(function(manifest){
           if(!manifest.shards||!manifest.shards.length)throw Error("Thiếu danh mục câu HSK1");
@@ -101,8 +100,15 @@
               .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
               .then(function(data){return data.records||[];});
           }));
-        })
-        .then(function(chunks){return chunks.flat().filter(function(r){
+        }).then(function(chunks){return chunks.flat();});}
+    var request=level===1?
+      root.fetch("./data/shadowing/hsk1-compact-v1.json?v=1")
+        .then(function(r){if(!r.ok)throw Error("HTTP "+r.status);return r.json();})
+        .then(function(data){
+          if(data.version!==1||!Array.isArray(data.records)||data.records.length!==900||new Set(data.records.map(function(r){return r[0];})).size!==900||!data.records.every(function(r){return Array.isArray(r)&&r.length===5&&r.every(function(x){return typeof x==="string"&&x.length>0;});}))throw Error("Học liệu rút gọn không hợp lệ");
+          return data.records.map(function(r){return {id:r[0],chinese:r[1],pinyin:r[2],vietnamese:r[3],reviewStatus:r[4]};});
+        }).catch(canonicalHsk1)
+        .then(function(records){return records.filter(function(r){
           return r.chinese&&r.pinyin&&r.vietnamese;
         }).map(function(r,i){var unit=Math.floor(i/25)+1;
           return {id:r.id,hanzi:r.chinese,pinyin:r.pinyin,vi:r.vietnamese,

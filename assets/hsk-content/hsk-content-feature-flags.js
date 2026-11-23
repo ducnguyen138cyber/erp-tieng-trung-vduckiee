@@ -29,7 +29,7 @@
       }
       if (!document.querySelector('script[data-hsk-professional-runtime]')) {
         var script = document.createElement('script');
-        script.src = './assets/hsk-content/hsk-professional-runtime.js?v=hsk56-1';
+        script.src = './assets/hsk-content/hsk-professional-runtime.js?v=coursepack1';
         script.async = false;
         script.setAttribute('data-hsk-professional-runtime', 'c7web1');
         document.head.appendChild(script);
